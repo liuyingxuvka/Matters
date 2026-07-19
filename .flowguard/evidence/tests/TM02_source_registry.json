@@ -1,6 +1,6 @@
 {
   "artifact_type": "matters.test-suite-receipt.v1",
-  "generated_at": "2026-07-19T05:49:43.808573+00:00",
+  "generated_at": "2026-07-19T06:10:57.019225+00:00",
   "pytest_observation": {
     "errors": 0,
     "failed": 0,
@@ -10,19 +10,19 @@
     "xfailed": 0,
     "xpassed": 0
   },
-  "source_fingerprint": "sha256:42e68ce2c2746b9c168d32e083dd10a813ee4a21685a0732024fcb1629b15996",
+  "source_fingerprint": "sha256:410613208e9e41d3aae235de75436b1d03c8e454b33840570a2751752c152c09",
   "source_fingerprints": {
-    "src/matters/provenance/__init__.py": "sha256:26ab202ea2643b9a3ef0ae688d64a762da594bf543955da64f2727e23d289006",
-    "src/matters/provenance/evidence.py": "sha256:26b2218955d5c4388fc8c521642f66fd987a34e07f77c28e05694ba98d649e87",
-    "src/matters/provenance/extraction.py": "sha256:7927fb4c10c1dcdeec4dbb665f5cf200b8d46b97f7107d02f2bef9f9141128e0",
-    "src/matters/provenance/source_registry.py": "sha256:6438fffe09f141d874e36eab05cccaeae932e401cb0a3fc73394d37110c3453f",
-    "tests/test_tm02_source_registry.py": "sha256:82f89f6120f0eb40b97ba0710566be042599d5599763c36f5167f4ec1226a675"
+    "src/matters/provenance/__init__.py": "sha256:794eea42fab70891735ce536319e0ac669cb8b0b9352aed630ddb4df6ead38fb",
+    "src/matters/provenance/evidence.py": "sha256:9c63bd95b5ad2d2a0a90d40530f9af97370b2394743ce43fd10320222cd2e985",
+    "src/matters/provenance/extraction.py": "sha256:6147ae3627bc764e0bde3cc0f7f47008790a475456aa7fe3f2892afd0fb11a57",
+    "src/matters/provenance/source_registry.py": "sha256:8addf9dc8e67f93365791858e95c353828031b569a744f5e873254da85fe2403",
+    "tests/test_tm02_source_registry.py": "sha256:3eeb1f1b1738fae490da75c99889c55b5575325114899f7d81ac1b593d6bd173"
   },
   "source_paths": [
     "tests/test_tm02_source_registry.py"
   ],
   "stderr_tail": "",
-  "stdout_tail": ".                                                                        [100%]\n1 passed in 0.05s\n",
+  "stdout_tail": ".                                                                        [100%]\n1 passed in 0.06s\n",
   "suite_id": "TM02_source_registry",
   "test_suite_evidence": {
     "artifact_version": "matters.test-suite-receipt.v1",
@@ -164,13 +164,13 @@
     "progress_only": false,
     "proof_artifact": {
       "artifact_fingerprints": {
-        "src/matters/provenance/__init__.py": "sha256:26ab202ea2643b9a3ef0ae688d64a762da594bf543955da64f2727e23d289006",
-        "src/matters/provenance/evidence.py": "sha256:26b2218955d5c4388fc8c521642f66fd987a34e07f77c28e05694ba98d649e87",
-        "src/matters/provenance/extraction.py": "sha256:7927fb4c10c1dcdeec4dbb665f5cf200b8d46b97f7107d02f2bef9f9141128e0",
-        "src/matters/provenance/source_registry.py": "sha256:6438fffe09f141d874e36eab05cccaeae932e401cb0a3fc73394d37110c3453f",
-        "tests/test_tm02_source_registry.py": "sha256:82f89f6120f0eb40b97ba0710566be042599d5599763c36f5167f4ec1226a675"
+        "src/matters/provenance/__init__.py": "sha256:794eea42fab70891735ce536319e0ac669cb8b0b9352aed630ddb4df6ead38fb",
+        "src/matters/provenance/evidence.py": "sha256:9c63bd95b5ad2d2a0a90d40530f9af97370b2394743ce43fd10320222cd2e985",
+        "src/matters/provenance/extraction.py": "sha256:6147ae3627bc764e0bde3cc0f7f47008790a475456aa7fe3f2892afd0fb11a57",
+        "src/matters/provenance/source_registry.py": "sha256:8addf9dc8e67f93365791858e95c353828031b569a744f5e873254da85fe2403",
+        "tests/test_tm02_source_registry.py": "sha256:3eeb1f1b1738fae490da75c99889c55b5575325114899f7d81ac1b593d6bd173"
       },
-      "artifact_id": "artifact:run:TM02_source_registry:f89a53f92e940b3b",
+      "artifact_id": "artifact:run:TM02_source_registry:fdaed2e94eeb89f5",
       "assertion_scope": "external_contract",
       "command": "python -m pytest -q -o addopts= tests/test_tm02_source_registry.py",
       "covered_obligation_ids": [
@@ -244,7 +244,7 @@
       ],
       "current": true,
       "exit_code": 0,
-      "finished_at": "2026-07-19T05:49:43.808573+00:00",
+      "finished_at": "2026-07-19T06:10:57.019225+00:00",
       "metadata": {},
       "producer_route": "test_mesh",
       "progress_only": false,
@@ -253,15 +253,15 @@
       "route_evidence_current": true,
       "route_gap_codes": [],
       "stale_reasons": [],
-      "started_at": "2026-07-19T05:49:42.790972+00:00"
+      "started_at": "2026-07-19T06:10:55.346997+00:00"
     },
     "release_required": false,
-    "result_fingerprint": "sha256:42e68ce2c2746b9c168d32e083dd10a813ee4a21685a0732024fcb1629b15996",
+    "result_fingerprint": "sha256:410613208e9e41d3aae235de75436b1d03c8e454b33840570a2751752c152c09",
     "result_path": ".flowguard/evidence/tests/TM02_source_registry.json",
     "result_reused": false,
     "result_status": "passed",
     "reuse_ticket": null,
-    "run_id": "run:TM02_source_registry:f89a53f92e940b3b",
+    "run_id": "run:TM02_source_registry:fdaed2e94eeb89f5",
     "selected_count": 1,
     "skipped_count": 0,
     "skipped_visible": true,

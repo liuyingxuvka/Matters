@@ -3,12 +3,12 @@
   "blockers": [],
   "claim_boundary": "Native FlowGuard reviews cover admitted content, UI event/state behavior, journeys, capabilities, click-to-output chains, installed desktop runtime, English/zh-CN behavior, Standard/Compact cards, object detail, representative visuals, optional correction, recovery, disclosure, and desktop geometry. Figma design evidence does not substitute for runtime proof.",
   "failures": [],
-  "generated_at": "2026-07-19T05:54:09.087582+00:00",
+  "generated_at": "2026-07-19T06:17:07.094724+00:00",
   "ok": true,
   "residual_risk": [],
   "runtime_evidence": {
     "blockers": [],
-    "evidence_id": "evidence:ui:6bd109896ddf53bc",
+    "evidence_id": "evidence:ui:a096194d75463462",
     "missing_checks": [],
     "ok": true,
     "status": "passed",
@@ -87,6 +87,6 @@
     }
   },
   "typed_next_actions": [],
-  "ui_revision": "sha256:6bd109896ddf53bc11502265a305c8078ea80b39c04763553859c34bdf65a4d4",
+  "ui_revision": "sha256:a096194d754634629c28c4b08d7b7f19bc2e3bd3d19e4fab240e9c4e34d4442f",
   "work_mode": "mixed"
 }

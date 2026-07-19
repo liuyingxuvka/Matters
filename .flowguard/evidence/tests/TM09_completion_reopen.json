@@ -1,6 +1,6 @@
 {
   "artifact_type": "matters.test-suite-receipt.v1",
-  "generated_at": "2026-07-19T05:49:50.299261+00:00",
+  "generated_at": "2026-07-19T06:11:03.617978+00:00",
   "pytest_observation": {
     "errors": 0,
     "failed": 0,
@@ -10,20 +10,20 @@
     "xfailed": 0,
     "xpassed": 0
   },
-  "source_fingerprint": "sha256:d14bf11b4f673bc10c7a59efd52d8cfa62c57b02f9afa1d78c9333c907194956",
+  "source_fingerprint": "sha256:e187215229b5b6f28c09985f2a955ea4ba1cdabb8069ff1003854bce86286672",
   "source_fingerprints": {
-    "src/matters/state/__init__.py": "sha256:b6400e0a564a2428631cd71c4d952e77095d50481b9db28508a287f0a8573579",
-    "src/matters/state/blocking.py": "sha256:b0b0ec6c1f316cc2be184d9913f54851f5287ebf09f8f236ed2eb0ac0996ef87",
-    "src/matters/state/lifecycle.py": "sha256:56e073064165de05889640dbfa962a23d8322f9e9e6a88f519792476298dc1da",
-    "src/matters/state/open_loops.py": "sha256:08b7e99d5b58baf43a0b32dd97ce1e423b2764fb121478100774e038a1f89785",
-    "src/matters/state/outcomes.py": "sha256:dd0c810a3252679f3102413e3462a8803876ea84204134dfdff3503f7d9786a4",
-    "tests/test_tm09_completion_reopen.py": "sha256:ce37d8745edaa31a8b9a951993764770b2cbed020e14b8f05134f0cf24a6048a"
+    "src/matters/state/__init__.py": "sha256:458e3605f12e5c1f339e5ceadb03741ad9ea06dc596d19999a5f95c2b13f5947",
+    "src/matters/state/blocking.py": "sha256:3f771fa90b59ef4220d08874adadb8b99036b480d1dadb0976515f017f2e36d9",
+    "src/matters/state/lifecycle.py": "sha256:0c43562afd805263da1e2c818e19019ce76f0a413269554d274e7a723ab9a2b9",
+    "src/matters/state/open_loops.py": "sha256:ee2d367dddad09e42ae036d1753b2dd798ab4a468e19cfcc2e20e4b64ceee389",
+    "src/matters/state/outcomes.py": "sha256:5f6ee8e442329ac997c3522a0fd4335c1bb75cc00689160ece1bd7504a3ea3b0",
+    "tests/test_tm09_completion_reopen.py": "sha256:1258bb1088e4497dde200335a85deb63625069996f8844fcf961d8e3cf0cf076"
   },
   "source_paths": [
     "tests/test_tm09_completion_reopen.py"
   ],
   "stderr_tail": "",
-  "stdout_tail": ".                                                                        [100%]\n1 passed in 0.05s\n",
+  "stdout_tail": ".                                                                        [100%]\n1 passed in 0.06s\n",
   "suite_id": "TM09_completion_reopen",
   "test_suite_evidence": {
     "artifact_version": "matters.test-suite-receipt.v1",
@@ -114,14 +114,14 @@
     "progress_only": false,
     "proof_artifact": {
       "artifact_fingerprints": {
-        "src/matters/state/__init__.py": "sha256:b6400e0a564a2428631cd71c4d952e77095d50481b9db28508a287f0a8573579",
-        "src/matters/state/blocking.py": "sha256:b0b0ec6c1f316cc2be184d9913f54851f5287ebf09f8f236ed2eb0ac0996ef87",
-        "src/matters/state/lifecycle.py": "sha256:56e073064165de05889640dbfa962a23d8322f9e9e6a88f519792476298dc1da",
-        "src/matters/state/open_loops.py": "sha256:08b7e99d5b58baf43a0b32dd97ce1e423b2764fb121478100774e038a1f89785",
-        "src/matters/state/outcomes.py": "sha256:dd0c810a3252679f3102413e3462a8803876ea84204134dfdff3503f7d9786a4",
-        "tests/test_tm09_completion_reopen.py": "sha256:ce37d8745edaa31a8b9a951993764770b2cbed020e14b8f05134f0cf24a6048a"
+        "src/matters/state/__init__.py": "sha256:458e3605f12e5c1f339e5ceadb03741ad9ea06dc596d19999a5f95c2b13f5947",
+        "src/matters/state/blocking.py": "sha256:3f771fa90b59ef4220d08874adadb8b99036b480d1dadb0976515f017f2e36d9",
+        "src/matters/state/lifecycle.py": "sha256:0c43562afd805263da1e2c818e19019ce76f0a413269554d274e7a723ab9a2b9",
+        "src/matters/state/open_loops.py": "sha256:ee2d367dddad09e42ae036d1753b2dd798ab4a468e19cfcc2e20e4b64ceee389",
+        "src/matters/state/outcomes.py": "sha256:5f6ee8e442329ac997c3522a0fd4335c1bb75cc00689160ece1bd7504a3ea3b0",
+        "tests/test_tm09_completion_reopen.py": "sha256:1258bb1088e4497dde200335a85deb63625069996f8844fcf961d8e3cf0cf076"
       },
-      "artifact_id": "artifact:run:TM09_completion_reopen:b79588c58c0c5888",
+      "artifact_id": "artifact:run:TM09_completion_reopen:0f4e242d801d86b8",
       "assertion_scope": "external_contract",
       "command": "python -m pytest -q -o addopts= tests/test_tm09_completion_reopen.py",
       "covered_obligation_ids": [
@@ -165,7 +165,7 @@
       ],
       "current": true,
       "exit_code": 0,
-      "finished_at": "2026-07-19T05:49:50.299261+00:00",
+      "finished_at": "2026-07-19T06:11:03.617978+00:00",
       "metadata": {},
       "producer_route": "test_mesh",
       "progress_only": false,
@@ -174,15 +174,15 @@
       "route_evidence_current": true,
       "route_gap_codes": [],
       "stale_reasons": [],
-      "started_at": "2026-07-19T05:49:49.387334+00:00"
+      "started_at": "2026-07-19T06:11:02.731424+00:00"
     },
     "release_required": false,
-    "result_fingerprint": "sha256:d14bf11b4f673bc10c7a59efd52d8cfa62c57b02f9afa1d78c9333c907194956",
+    "result_fingerprint": "sha256:e187215229b5b6f28c09985f2a955ea4ba1cdabb8069ff1003854bce86286672",
     "result_path": ".flowguard/evidence/tests/TM09_completion_reopen.json",
     "result_reused": false,
     "result_status": "passed",
     "reuse_ticket": null,
-    "run_id": "run:TM09_completion_reopen:b79588c58c0c5888",
+    "run_id": "run:TM09_completion_reopen:0f4e242d801d86b8",
     "selected_count": 1,
     "skipped_count": 0,
     "skipped_visible": true,

@@ -1,6 +1,6 @@
 {
   "artifact_type": "matters.test-suite-receipt.v1",
-  "generated_at": "2026-07-19T05:50:46.171035+00:00",
+  "generated_at": "2026-07-19T06:12:06.117903+00:00",
   "pytest_observation": {
     "errors": 0,
     "failed": 0,
@@ -10,17 +10,17 @@
     "xfailed": 0,
     "xpassed": 0
   },
-  "source_fingerprint": "sha256:30ff91ab3d2c13d253d7b10f4aba531ff5e30e0cd423ab2b4dcc7f06fda39038",
+  "source_fingerprint": "sha256:cadcdd2271c67120fed12fe0b85e8b2d6d9e60060d80c5ef36040954985775e5",
   "source_fingerprints": {
-    "tests/test_runtime_persistence_inventory.py": "sha256:2a72e1a92050e807bbddc7a4762971a070b2b47392746e8564104cc471a25edc",
-    "tests/test_source_workflows.py": "sha256:2084fd7233e9c3da8e47950e052236c411d0ec3965ec0486f4dc508c4372caa3"
+    "tests/test_runtime_persistence_inventory.py": "sha256:5d437a1f0d52f5db5adef06e80041cb7bc2b0f1e9420cc93aba120de0d636659",
+    "tests/test_source_workflows.py": "sha256:c1143313c1bee430fd46ab5ec63c7b246235493c73bebd374d66c963617e4c73"
   },
   "source_paths": [
     "tests/test_runtime_persistence_inventory.py",
     "tests/test_source_workflows.py"
   ],
   "stderr_tail": "",
-  "stdout_tail": "................                                                         [100%]\n16 passed in 7.77s\n",
+  "stdout_tail": "................                                                         [100%]\n16 passed in 7.20s\n",
   "suite_id": "TM21_object_coverage_worker",
   "test_suite_evidence": {
     "artifact_version": "matters.test-suite-receipt.v1",
@@ -56,10 +56,10 @@
     "progress_only": false,
     "proof_artifact": {
       "artifact_fingerprints": {
-        "tests/test_runtime_persistence_inventory.py": "sha256:2a72e1a92050e807bbddc7a4762971a070b2b47392746e8564104cc471a25edc",
-        "tests/test_source_workflows.py": "sha256:2084fd7233e9c3da8e47950e052236c411d0ec3965ec0486f4dc508c4372caa3"
+        "tests/test_runtime_persistence_inventory.py": "sha256:5d437a1f0d52f5db5adef06e80041cb7bc2b0f1e9420cc93aba120de0d636659",
+        "tests/test_source_workflows.py": "sha256:c1143313c1bee430fd46ab5ec63c7b246235493c73bebd374d66c963617e4c73"
       },
-      "artifact_id": "artifact:run:TM21_object_coverage_worker:8759facc6bd1cac0",
+      "artifact_id": "artifact:run:TM21_object_coverage_worker:69073f861b77442b",
       "assertion_scope": "external_contract",
       "command": "python -m pytest -q -o addopts= tests/test_runtime_persistence_inventory.py tests/test_source_workflows.py",
       "covered_obligation_ids": [
@@ -67,7 +67,7 @@
       ],
       "current": true,
       "exit_code": 0,
-      "finished_at": "2026-07-19T05:50:46.171035+00:00",
+      "finished_at": "2026-07-19T06:12:06.117903+00:00",
       "metadata": {},
       "producer_route": "test_mesh",
       "progress_only": false,
@@ -76,15 +76,15 @@
       "route_evidence_current": true,
       "route_gap_codes": [],
       "stale_reasons": [],
-      "started_at": "2026-07-19T05:50:37.457579+00:00"
+      "started_at": "2026-07-19T06:11:57.798079+00:00"
     },
     "release_required": false,
-    "result_fingerprint": "sha256:30ff91ab3d2c13d253d7b10f4aba531ff5e30e0cd423ab2b4dcc7f06fda39038",
+    "result_fingerprint": "sha256:cadcdd2271c67120fed12fe0b85e8b2d6d9e60060d80c5ef36040954985775e5",
     "result_path": ".flowguard/evidence/tests/TM21_object_coverage_worker.json",
     "result_reused": false,
     "result_status": "passed",
     "reuse_ticket": null,
-    "run_id": "run:TM21_object_coverage_worker:8759facc6bd1cac0",
+    "run_id": "run:TM21_object_coverage_worker:69073f861b77442b",
     "selected_count": 16,
     "skipped_count": 0,
     "skipped_visible": true,

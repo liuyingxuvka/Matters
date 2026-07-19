@@ -1,6 +1,6 @@
 {
   "artifact_type": "matters.test-suite-receipt.v1",
-  "generated_at": "2026-07-19T05:50:21.177889+00:00",
+  "generated_at": "2026-07-19T06:11:35.508010+00:00",
   "pytest_observation": {
     "errors": 0,
     "failed": 0,
@@ -10,24 +10,24 @@
     "xfailed": 0,
     "xpassed": 0
   },
-  "source_fingerprint": "sha256:ab7d151daf434b9219c3b74d064d1881c264397f3693112dd6baf6521c966be1",
+  "source_fingerprint": "sha256:8cca3cabdfaa282bcac5e81a168ff0ee90e9de6b15ef8faf12e4ab267270ba59",
   "source_fingerprints": {
-    "src/matters/presentation/__init__.py": "sha256:73d671b58100e2e04b57cf0f2022b38d0bff19aa3167d765c8bcf7e055d29b12",
-    "src/matters/presentation/browser.py": "sha256:d378b95e175a4acc51aa4b203e816f001d690b3ffa9c60d0bc840900abe61728",
-    "src/matters/presentation/localization.py": "sha256:9546c42cd535f26efcf9851380522fc84127e690d5fcbdbcd536e31167e1c154",
-    "src/matters/presentation/narratives.py": "sha256:5d6439c7f8b2a4d0f089762b530c46b5355d1d28c67d5ab914aaa415fea74f6a",
-    "src/matters/presentation/projections.py": "sha256:88974562131526ee536942fb032cfa6e92b97e78382cfc29810c5b35fb9efe63",
-    "src/matters/presentation/visuals.py": "sha256:60fc09ebaaafaf1fb63d2bad49e58791cdc3abe7983bf0d484fdedbfb42c9cff",
-    "tests/test_tm16_bilingual_semantic_equivalence.py": "sha256:75e4b61aad9d2842247596a9b6c348ac518db3dc3e133c3ccd58c986f1f9270e",
-    "ui/app.js": "sha256:2b1254d81c138cd1c1f87b13ce264b33ade26b99cd1520080f50070ff8e17c5c",
-    "ui/index.html": "sha256:c9041c56d27ea54f22fe02a07e86bf3ee4fdebb44e062125f9706d040c43e804",
-    "ui/styles.css": "sha256:4944bdfab959fb7550cb00b4c48605285a80f71f64c1a428c48ab22b5e0b9466"
+    "src/matters/presentation/__init__.py": "sha256:ed25ff02977aebb09d8148fa16e25a5a88cdf7e9cf2599dca0658e2b891c677b",
+    "src/matters/presentation/browser.py": "sha256:bf2162644806659fca1252af91bde725244d6e1c43eb9bbf755793203191912b",
+    "src/matters/presentation/localization.py": "sha256:8c54b7154b3714ec7b9b16b1f5a1fc8f9f6a292622d7c7c44ef5a727a77c6a43",
+    "src/matters/presentation/narratives.py": "sha256:e53ce086cd988c3af327265d02c30bcbf07a01e520b153ec75a60f96135311f3",
+    "src/matters/presentation/projections.py": "sha256:d58ece94cde9ef5e32aa2fb194c8e03553df56e1766d5a72997ce624aed5fcba",
+    "src/matters/presentation/visuals.py": "sha256:90985c84bd6c86795f44d5633b8f0f19625469b01dddf3a30c0662057e722d62",
+    "tests/test_tm16_bilingual_semantic_equivalence.py": "sha256:2074b5a7661d68edac49d4fd94a950bd16d669ba28a781973bd2db128553f069",
+    "ui/app.js": "sha256:130cabb0067a99d59c8f1ddbd8ddaa8996e857658aab3d0df77c60826f5a60c7",
+    "ui/index.html": "sha256:aaecb17f965311a6cf38a1617a059e720812b58cd8f13ce87d33448c0ca43cc0",
+    "ui/styles.css": "sha256:f79567649d6558f8d9cb8fb9f0cdd3ee6e1c1e341590515d600570791b10fa4a"
   },
   "source_paths": [
     "tests/test_tm16_bilingual_semantic_equivalence.py"
   ],
   "stderr_tail": "",
-  "stdout_tail": ".                                                                        [100%]\n1 passed in 0.05s\n",
+  "stdout_tail": ".                                                                        [100%]\n1 passed in 0.07s\n",
   "suite_id": "TM16_bilingual_semantic_equivalence",
   "test_suite_evidence": {
     "artifact_version": "matters.test-suite-receipt.v1",
@@ -63,18 +63,18 @@
     "progress_only": false,
     "proof_artifact": {
       "artifact_fingerprints": {
-        "src/matters/presentation/__init__.py": "sha256:73d671b58100e2e04b57cf0f2022b38d0bff19aa3167d765c8bcf7e055d29b12",
-        "src/matters/presentation/browser.py": "sha256:d378b95e175a4acc51aa4b203e816f001d690b3ffa9c60d0bc840900abe61728",
-        "src/matters/presentation/localization.py": "sha256:9546c42cd535f26efcf9851380522fc84127e690d5fcbdbcd536e31167e1c154",
-        "src/matters/presentation/narratives.py": "sha256:5d6439c7f8b2a4d0f089762b530c46b5355d1d28c67d5ab914aaa415fea74f6a",
-        "src/matters/presentation/projections.py": "sha256:88974562131526ee536942fb032cfa6e92b97e78382cfc29810c5b35fb9efe63",
-        "src/matters/presentation/visuals.py": "sha256:60fc09ebaaafaf1fb63d2bad49e58791cdc3abe7983bf0d484fdedbfb42c9cff",
-        "tests/test_tm16_bilingual_semantic_equivalence.py": "sha256:75e4b61aad9d2842247596a9b6c348ac518db3dc3e133c3ccd58c986f1f9270e",
-        "ui/app.js": "sha256:2b1254d81c138cd1c1f87b13ce264b33ade26b99cd1520080f50070ff8e17c5c",
-        "ui/index.html": "sha256:c9041c56d27ea54f22fe02a07e86bf3ee4fdebb44e062125f9706d040c43e804",
-        "ui/styles.css": "sha256:4944bdfab959fb7550cb00b4c48605285a80f71f64c1a428c48ab22b5e0b9466"
+        "src/matters/presentation/__init__.py": "sha256:ed25ff02977aebb09d8148fa16e25a5a88cdf7e9cf2599dca0658e2b891c677b",
+        "src/matters/presentation/browser.py": "sha256:bf2162644806659fca1252af91bde725244d6e1c43eb9bbf755793203191912b",
+        "src/matters/presentation/localization.py": "sha256:8c54b7154b3714ec7b9b16b1f5a1fc8f9f6a292622d7c7c44ef5a727a77c6a43",
+        "src/matters/presentation/narratives.py": "sha256:e53ce086cd988c3af327265d02c30bcbf07a01e520b153ec75a60f96135311f3",
+        "src/matters/presentation/projections.py": "sha256:d58ece94cde9ef5e32aa2fb194c8e03553df56e1766d5a72997ce624aed5fcba",
+        "src/matters/presentation/visuals.py": "sha256:90985c84bd6c86795f44d5633b8f0f19625469b01dddf3a30c0662057e722d62",
+        "tests/test_tm16_bilingual_semantic_equivalence.py": "sha256:2074b5a7661d68edac49d4fd94a950bd16d669ba28a781973bd2db128553f069",
+        "ui/app.js": "sha256:130cabb0067a99d59c8f1ddbd8ddaa8996e857658aab3d0df77c60826f5a60c7",
+        "ui/index.html": "sha256:aaecb17f965311a6cf38a1617a059e720812b58cd8f13ce87d33448c0ca43cc0",
+        "ui/styles.css": "sha256:f79567649d6558f8d9cb8fb9f0cdd3ee6e1c1e341590515d600570791b10fa4a"
       },
-      "artifact_id": "artifact:run:TM16_bilingual_semantic_equivalence:2ae2dbb46d3c3aab",
+      "artifact_id": "artifact:run:TM16_bilingual_semantic_equivalence:33edfbe326269121",
       "assertion_scope": "external_contract",
       "command": "python -m pytest -q -o addopts= tests/test_tm16_bilingual_semantic_equivalence.py",
       "covered_obligation_ids": [
@@ -82,7 +82,7 @@
       ],
       "current": true,
       "exit_code": 0,
-      "finished_at": "2026-07-19T05:50:21.177889+00:00",
+      "finished_at": "2026-07-19T06:11:35.508010+00:00",
       "metadata": {},
       "producer_route": "test_mesh",
       "progress_only": false,
@@ -91,15 +91,15 @@
       "route_evidence_current": true,
       "route_gap_codes": [],
       "stale_reasons": [],
-      "started_at": "2026-07-19T05:50:20.178322+00:00"
+      "started_at": "2026-07-19T06:11:34.475158+00:00"
     },
     "release_required": false,
-    "result_fingerprint": "sha256:ab7d151daf434b9219c3b74d064d1881c264397f3693112dd6baf6521c966be1",
+    "result_fingerprint": "sha256:8cca3cabdfaa282bcac5e81a168ff0ee90e9de6b15ef8faf12e4ab267270ba59",
     "result_path": ".flowguard/evidence/tests/TM16_bilingual_semantic_equivalence.json",
     "result_reused": false,
     "result_status": "passed",
     "reuse_ticket": null,
-    "run_id": "run:TM16_bilingual_semantic_equivalence:2ae2dbb46d3c3aab",
+    "run_id": "run:TM16_bilingual_semantic_equivalence:33edfbe326269121",
     "selected_count": 1,
     "skipped_count": 0,
     "skipped_visible": true,

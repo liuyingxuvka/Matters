@@ -11,8 +11,8 @@
         "inventories": {
           "clean_clone": {
             "missing_required": [],
-            "reason": "repository_has_no_commit",
-            "status": "not_available"
+            "reason": "clean_clone_not_supplied",
+            "status": "not_run"
           },
           "ignored": {
             "required_ignored": [],
@@ -25,13 +25,13 @@
           },
           "tracked": {
             "missing_required": [],
-            "reason": "repository_has_no_commit",
-            "status": "not_available",
-            "tracked_count": 0,
+            "reason": "",
+            "status": "pass",
+            "tracked_count": 476,
             "unexpected_public": []
           },
           "workspace": {
-            "candidate_count": 475,
+            "candidate_count": 476,
             "missing_required": [],
             "status": "pass"
           }
@@ -58,10 +58,10 @@
         ],
         "required_public_inventory": {
           "authority": "repo://docs/security/required-public-inventory.json",
-          "fingerprint_excluded_count": 61,
-          "inventory_excluded_count": 336,
-          "required_count": 475,
-          "required_fingerprint": "sha256:daf3c7d94c9bf990a2ed3b1c45a1bb71d481e5989f08848141a84ca99f68a0e5"
+          "fingerprint_excluded_count": 62,
+          "inventory_excluded_count": 196,
+          "required_count": 476,
+          "required_fingerprint": "sha256:4eeb0a77ff950d008eff8d3feb7e957619577a8421731305471eccdcce7a7082"
         },
         "root": "repo://"
       },
@@ -115,39 +115,28 @@
         "check_count": 23,
         "claim_boundary": "Public synthetic installed-runtime evidence proves UI behavior and geometry only; it does not substitute for the separate real-private first run.",
         "evidence_current": true,
-        "evidence_id": "evidence:ui:6bd109896ddf53bc",
+        "evidence_id": "evidence:ui:a096194d75463462",
         "ok": true,
         "status": "passed",
-        "ui_revision": "sha256:6bd109896ddf53bc11502265a305c8078ea80b39c04763553859c34bdf65a4d4"
+        "ui_revision": "sha256:a096194d754634629c28c4b08d7b7f19bc2e3bd3d19e4fab240e9c4e34d4442f"
       },
       "status": "passed"
     },
     "G11": {
       "evidence": {
-        "artifact_hashes": {
-          "matters-0.2.0-py3-none-any.whl": "sha256:c93a71990a2fd3339250aca9192aa1d3f091909cf22f4ea9fcdca667a4ef58cc",
-          "matters-0.2.0.tar.gz": "sha256:cace1db69023f5cd3e1a74a815ad3c05a8b6d62fdbd63457d98eb92f83aba0da"
-        },
-        "boundary_fingerprint": "sha256:8e9898051b0809259e0abcc7ed7de1ababb20c2be75f9f6326638d269e0d2655",
-        "claim_boundary": "This check enforces authoritative required-public inventory reconciliation, ignored/tracked/package/clean-clone accounting, external private-root placement, link and junction rejection, portable evidence paths, decoded JSON/YAML and encoded-path scanning, size limits, and high-confidence secret patterns. No-commit, clean-clone-not-supplied, package-not-supplied, and unreviewed ACL/encryption/cloud-sync dispositions remain visible and are not claimed as passed release evidence.",
-        "clean_clone_status": "pass",
-        "finding_codes": [],
+        "artifact_count": 0,
         "ok": false,
-        "package_statuses": [
-          "pass",
-          "pass"
-        ],
-        "status": "blocked",
-        "tracked_status": "not_available"
+        "reason": "frozen_package_pair_not_supplied",
+        "status": "not_run"
       },
-      "status": "blocked"
+      "status": "not_run"
     },
     "G12": {
       "evidence": {
         "checks": {
           "exact_release_tag": false,
-          "git_commit": false,
-          "install_receipt": true,
+          "git_commit": true,
+          "install_receipt": false,
           "installed_ui": true,
           "installed_version": true,
           "private_first_run": true,
@@ -157,18 +146,18 @@
           "skill_mesh": true,
           "skill_models": true,
           "source_version": true,
-          "test_mesh": false,
-          "tm19": false
+          "test_mesh": true,
+          "tm19": true
         },
         "claim_boundary": "This frozen local-release gate binds exact Git/tag/version, wheel/install, M0/C1-C12 and S0-S5 model evidence, complete TestMesh including TM19, current installed UI, public package boundary, bounded private-first-run aggregate, and the frozen ResearchGuard currentness identity. It does not claim GitHub publication, Linux CI, Figma evidence, or complete private semantic coverage.",
-        "commit": "",
+        "commit": "1e774c8ea16beed7382ebb6fd4c2d879a5a2a8f4",
         "installed_version": "0.2.0",
         "ok": false,
         "researchguard_status": "current",
         "status": "not_run",
         "tag": "",
         "version": "0.2.0",
-        "wheel_sha256": "c93a71990a2fd3339250aca9192aa1d3f091909cf22f4ea9fcdca667a4ef58cc"
+        "wheel_sha256": ""
       },
       "status": "not_run"
     },
@@ -272,11 +261,11 @@
     "G4": {
       "evidence": {
         "claim_boundary": "G4 proves design inventory, unique ownership, finite universes, and exact planned evidence ownership. It does not prove code, tests, provider conformance, synthetic E2E, live private sources, UI, or release.",
-        "current_design_fingerprint": "sha256:b9732c0cec981a3576ed30bc8cbd028f5c48ce31dc189a5f795d686a032b51a0",
-        "evidence_id": "evidence:G4-model-derived-design:b9732c0cec981a35",
+        "current_design_fingerprint": "sha256:f9d84e599b99c3b436951e559b92d52a8cf6282d0134abd54a00c32cd06d7292",
+        "evidence_id": "evidence:G4-model-derived-design:f9d84e599b99c3b4",
         "execution_status": "not_run",
         "ok": true,
-        "persisted_design_fingerprint": "sha256:b9732c0cec981a3576ed30bc8cbd028f5c48ce31dc189a5f795d686a032b51a0",
+        "persisted_design_fingerprint": "sha256:f9d84e599b99c3b436951e559b92d52a8cf6282d0134abd54a00c32cd06d7292",
         "structural_status": "g4_design_green"
       },
       "status": "passed"
@@ -285,9 +274,9 @@
       "evidence": {
         "g8_receipt": {
           "current_sources": true,
-          "evidence_id": "evidence:G8-fully-synthetic:65fd6df4b2dba226",
+          "evidence_id": "evidence:G8-fully-synthetic:ffe0563f16dabefc",
           "ok": true,
-          "source_fingerprint": "sha256:65fd6df4b2dba226c9dbd613e5edd74ccb8e1908c7831bf1aa4044339768586f"
+          "source_fingerprint": "sha256:ffe0563f16dabefc5a58c6dc617e67f73cb4d3905a8054d500c70e7ccc0d22f6"
         },
         "gate": {
           "evidence": {
@@ -305,9 +294,9 @@
       "evidence": {
         "g8_receipt": {
           "current_sources": true,
-          "evidence_id": "evidence:G8-fully-synthetic:65fd6df4b2dba226",
+          "evidence_id": "evidence:G8-fully-synthetic:ffe0563f16dabefc",
           "ok": true,
-          "source_fingerprint": "sha256:65fd6df4b2dba226c9dbd613e5edd74ccb8e1908c7831bf1aa4044339768586f"
+          "source_fingerprint": "sha256:ffe0563f16dabefc5a58c6dc617e67f73cb4d3905a8054d500c70e7ccc0d22f6"
         },
         "gate": {
           "evidence": {
@@ -400,133 +389,133 @@
                 {
                   "current": true,
                   "receipt": ".flowguard/evidence/tests/TM01_authorization_coverage.json",
-                  "receipt_fingerprint": "sha256:33c984e5fd07f8174af8a47a4d9cfa5801f1f6876c90e82aff6b4fe9319ecc15",
+                  "receipt_fingerprint": "sha256:6381123d25fb55fc4e83afc5febfaa2ca77da29d7b6722ce52239f0ec2075935",
                   "suite_id": "TM01_authorization_coverage"
                 },
                 {
                   "current": true,
                   "receipt": ".flowguard/evidence/tests/TM02_source_registry.json",
-                  "receipt_fingerprint": "sha256:9253f441b5768b294ac7b92d6346758046c3fd9e8f9ac57b6be2c320284261ed",
+                  "receipt_fingerprint": "sha256:6fb1823575aaf71490a1a2e28962bc592fa8d583f9ee9431b3afb5a3160e1784",
                   "suite_id": "TM02_source_registry"
                 },
                 {
                   "current": true,
                   "receipt": ".flowguard/evidence/tests/TM03_evidence_qualification.json",
-                  "receipt_fingerprint": "sha256:e60bb798fdd187f7cf87d475fff2937a0b90bd7e853db398a991252e56d0062d",
+                  "receipt_fingerprint": "sha256:7ec9e26e06dea9a27ebcccb57be52ad563f0e4d10b9d0cbda1263e5698a5f07d",
                   "suite_id": "TM03_evidence_qualification"
                 },
                 {
                   "current": true,
                   "receipt": ".flowguard/evidence/tests/TM04_identity_resolution.json",
-                  "receipt_fingerprint": "sha256:5bf4d2a5fecf04ea9fe9f6579d67f9cdd1eca93f144049116e4196ea3a753a41",
+                  "receipt_fingerprint": "sha256:92a9e59cc40cd8c8d9080527eaa029d8eb20f4f7614db82a5985157b92c72dd3",
                   "suite_id": "TM04_identity_resolution"
                 },
                 {
                   "current": true,
                   "receipt": ".flowguard/evidence/tests/TM05_event_trace.json",
-                  "receipt_fingerprint": "sha256:3ac163081876646613a66e252be4005ac0fef4010f4d5a9f97e95b98d57f40ab",
+                  "receipt_fingerprint": "sha256:a0784a40e6644f2246dfc22fed3a6a9497f83e557730b62710d9314a196c03a2",
                   "suite_id": "TM05_event_trace"
                 },
                 {
                   "current": true,
                   "receipt": ".flowguard/evidence/tests/TM06_matter_admission.json",
-                  "receipt_fingerprint": "sha256:74b886acad96e5bbda38a15cc02e668974e02c21f3992c0d95c9b64d1a8629e6",
+                  "receipt_fingerprint": "sha256:bf6ef1d6c524a9504dcac3daa1f5839802681ce4d8ebf530347e61c213f810c0",
                   "suite_id": "TM06_matter_admission"
                 },
                 {
                   "current": true,
                   "receipt": ".flowguard/evidence/tests/TM07_lifecycle_board_state.json",
-                  "receipt_fingerprint": "sha256:3dc5ba387520dcd5ec1c792ca352c2954e3b8f0b469e533fe79ef8adc8d2b523",
+                  "receipt_fingerprint": "sha256:a2060d8e07278a1365dbe300460eceda85d7ff7ce0c9b99e40d6a511ca76eba0",
                   "suite_id": "TM07_lifecycle_board_state"
                 },
                 {
                   "current": true,
                   "receipt": ".flowguard/evidence/tests/TM08_open_loop_blocking.json",
-                  "receipt_fingerprint": "sha256:adccb3d257590a927b463d297fc4bf6c4b4adfb7d5d505b4755cffb3d2942acc",
+                  "receipt_fingerprint": "sha256:1d7d41e925bb425d0973943c1526c1c5d91812ef90ff9458d2899f3626bf3f8f",
                   "suite_id": "TM08_open_loop_blocking"
                 },
                 {
                   "current": true,
                   "receipt": ".flowguard/evidence/tests/TM09_completion_reopen.json",
-                  "receipt_fingerprint": "sha256:d90ca1467a4a2cd0985d553bdf4aea672d36df643b3890368b50d5e723da3d89",
+                  "receipt_fingerprint": "sha256:cfe32fba25042e41259a939903311be9fa354d24cbd90d73acf99f6aa0144dbb",
                   "suite_id": "TM09_completion_reopen"
                 },
                 {
                   "current": true,
                   "receipt": ".flowguard/evidence/tests/TM10_correction_invalidation.json",
-                  "receipt_fingerprint": "sha256:6485f0e82819a46ce4c1cfa06fe3df4cfb5222d6b29c61848ed57b189bce0ffe",
+                  "receipt_fingerprint": "sha256:4707780e34a4f843651c43c5cd66d35f0ed8b0af4e4bf63ac58c31bed9b99045",
                   "suite_id": "TM10_correction_invalidation"
                 },
                 {
                   "current": true,
                   "receipt": ".flowguard/evidence/tests/TM11_guard_prediction_boundary.json",
-                  "receipt_fingerprint": "sha256:85cd066e75ac353c84bb49aa9663d44d6512618aee67e5de5f5d66463242f5c4",
+                  "receipt_fingerprint": "sha256:eea652d1a1f342ae5fce9520520a8536a3c95275fe68f52618fee2d470b99187",
                   "suite_id": "TM11_guard_prediction_boundary"
                 },
                 {
                   "current": true,
                   "receipt": ".flowguard/evidence/tests/TM12_projection_bilingual_ui.json",
-                  "receipt_fingerprint": "sha256:491bd516b2b7318532e0ddc40dacc40642f7f7c1832190e6fbfd13e65e988afe",
+                  "receipt_fingerprint": "sha256:cb5c61a7902f187f7536ba803938c9691f46489125ae0632bd2067c71d329196",
                   "suite_id": "TM12_projection_bilingual_ui"
                 },
                 {
                   "current": true,
                   "receipt": ".flowguard/evidence/tests/TM13_model_mesh_closure.json",
-                  "receipt_fingerprint": "sha256:922e51b91c695e30d1dbe2f3be9297cf10f6d55348618e1162b4700d930eab61",
+                  "receipt_fingerprint": "sha256:b72af79c372e2788d1173645ed6019d1159f77f38d7d004e98c451e33de552d5",
                   "suite_id": "TM13_model_mesh_closure"
                 },
                 {
                   "current": true,
                   "receipt": ".flowguard/evidence/tests/TM14_end_to_end_conformance.json",
-                  "receipt_fingerprint": "sha256:fd4cc375b03ae2ca94a60c2a606d09b995ef4633799867370b3f21093b271700",
+                  "receipt_fingerprint": "sha256:ce4376f95d269a0562d10c77e6db337a5660a4415471c93b44061d7104280a40",
                   "suite_id": "TM14_end_to_end_conformance"
                 },
                 {
                   "current": true,
                   "receipt": ".flowguard/evidence/tests/TM15_connector_pagination_retry.json",
-                  "receipt_fingerprint": "sha256:6b05b0614a44abf828c6567e6e5a216bccde9e80b86d18be750d7a8e20ad98ba",
+                  "receipt_fingerprint": "sha256:ce3755c7f9580ec905d2901ed20230e89b9bec049b2b1f855991095bcb3ee095",
                   "suite_id": "TM15_connector_pagination_retry"
                 },
                 {
                   "current": true,
                   "receipt": ".flowguard/evidence/tests/TM16_bilingual_semantic_equivalence.json",
-                  "receipt_fingerprint": "sha256:41671c84a2a82a513f1190c7b5d39bb3b9885a4edfa7179ab95467168b70e3d6",
+                  "receipt_fingerprint": "sha256:c4a98a5e28a84c90e6b32abb98d1342a98f4a04f922775ad5e8f4d2d3dfc30ab",
                   "suite_id": "TM16_bilingual_semantic_equivalence"
                 },
                 {
                   "current": true,
                   "receipt": ".flowguard/evidence/tests/TM17_revocation_full_propagation.json",
-                  "receipt_fingerprint": "sha256:ef82b9f3c8cf83148fc0e41446e9467644c8831ca9f5c68fdbd9501d5e17121e",
+                  "receipt_fingerprint": "sha256:fa0dc9a3a38ffe69ae31cb7586fb9d3e9a03c4d9efe8e8cb3f525b5e0c040e99",
                   "suite_id": "TM17_revocation_full_propagation"
                 },
                 {
                   "current": true,
                   "receipt": ".flowguard/evidence/tests/TM18_privacy_public_boundary.json",
-                  "receipt_fingerprint": "sha256:537b3c7530ab07341c1eda1e6be19bf70f516091e5dc333c569ab4626e2c2b1c",
+                  "receipt_fingerprint": "sha256:b01466c26ce7669cc14d6f80577997a6d2b6e42106c8a02b2abc96c73437b9fd",
                   "suite_id": "TM18_privacy_public_boundary"
                 },
                 {
                   "current": true,
                   "receipt": ".flowguard/evidence/tests/TM20_autonomous_owner_dispatch.json",
-                  "receipt_fingerprint": "sha256:17e4cb7afdeed8b96c61ec391f8619eb9f49d377eadafa5362ce0a329777e7c8",
+                  "receipt_fingerprint": "sha256:f6ea9a19473d20da8c82955cddef8a0494de80a6fc9425fee327d881a5127e3b",
                   "suite_id": "TM20_autonomous_owner_dispatch"
                 },
                 {
                   "current": true,
                   "receipt": ".flowguard/evidence/tests/TM21_object_coverage_worker.json",
-                  "receipt_fingerprint": "sha256:b1e6979bd010c8fd7c473bfecd71e569899e1e1f6fb9b4c3021f87f95eff5721",
+                  "receipt_fingerprint": "sha256:e3d04583f7578bec5369c48df5591b899637bdbfe35c1caa28780fcb9591cc78",
                   "suite_id": "TM21_object_coverage_worker"
                 },
                 {
                   "current": true,
                   "receipt": ".flowguard/evidence/tests/TM22_representative_visual.json",
-                  "receipt_fingerprint": "sha256:e394fcea393296937c19897b62fa93f6aef715cfad1a5393ffd6fbe45479f57d",
+                  "receipt_fingerprint": "sha256:014602a21e490b30e40e5b14dfc3f45e99869c8688df4d83ee3d6a9eac4a5908",
                   "suite_id": "TM22_representative_visual"
                 },
                 {
                   "current": true,
                   "receipt": ".flowguard/evidence/tests/TM23_desktop_object_browser.json",
-                  "receipt_fingerprint": "sha256:06dcc070942fc18e22e53998dd61eb601388b36a973a771f14202dd7e9f985b4",
+                  "receipt_fingerprint": "sha256:f118ce1899ef7063aa5afbe55582f6bb357a1c1894eeedcea018ba91038de58a",
                   "suite_id": "TM23_desktop_object_browser"
                 }
               ]
@@ -541,15 +530,15 @@
       "evidence": {
         "g8_receipt": {
           "current_sources": true,
-          "evidence_id": "evidence:G8-fully-synthetic:65fd6df4b2dba226",
+          "evidence_id": "evidence:G8-fully-synthetic:ffe0563f16dabefc",
           "ok": true,
-          "source_fingerprint": "sha256:65fd6df4b2dba226c9dbd613e5edd74ccb8e1908c7831bf1aa4044339768586f"
+          "source_fingerprint": "sha256:ffe0563f16dabefc5a58c6dc617e67f73cb4d3905a8054d500c70e7ccc0d22f6"
         },
         "gate": {
           "evidence": {
             "alignment": {
-              "alignment_fingerprint": "sha256:594c495473ac242c7d73642590da18a5b7f276d318100639e917080a2705163c",
-              "evidence_id": "evidence:model-code-test-alignment:594c495473ac242c",
+              "alignment_fingerprint": "sha256:656e66dd6db30bd7899d2ac8c91c06534659a87681a3608bfb3f120a7334983f",
+              "evidence_id": "evidence:model-code-test-alignment:656e66dd6db30bd7",
               "model_count": 13,
               "ok": true
             },
@@ -572,9 +561,9 @@
       "evidence": {
         "g8_receipt": {
           "current_sources": true,
-          "evidence_id": "evidence:G8-fully-synthetic:65fd6df4b2dba226",
+          "evidence_id": "evidence:G8-fully-synthetic:ffe0563f16dabefc",
           "ok": true,
-          "source_fingerprint": "sha256:65fd6df4b2dba226c9dbd613e5edd74ccb8e1908c7831bf1aa4044339768586f"
+          "source_fingerprint": "sha256:ffe0563f16dabefc5a58c6dc617e67f73cb4d3905a8054d500c70e7ccc0d22f6"
         },
         "gate": {
           "evidence": {
@@ -612,8 +601,8 @@
               "inventories": {
                 "clean_clone": {
                   "missing_required": [],
-                  "reason": "repository_has_no_commit",
-                  "status": "not_available"
+                  "reason": "clean_clone_not_supplied",
+                  "status": "not_run"
                 },
                 "ignored": {
                   "required_ignored": [],
@@ -626,13 +615,13 @@
                 },
                 "tracked": {
                   "missing_required": [],
-                  "reason": "repository_has_no_commit",
-                  "status": "not_available",
-                  "tracked_count": 0,
+                  "reason": "",
+                  "status": "pass",
+                  "tracked_count": 476,
                   "unexpected_public": []
                 },
                 "workspace": {
-                  "candidate_count": 475,
+                  "candidate_count": 476,
                   "missing_required": [],
                   "status": "pass"
                 }
@@ -659,10 +648,10 @@
               ],
               "required_public_inventory": {
                 "authority": "repo://docs/security/required-public-inventory.json",
-                "fingerprint_excluded_count": 61,
-                "inventory_excluded_count": 336,
-                "required_count": 475,
-                "required_fingerprint": "sha256:541322694fbdb12ad0394878e6bb7d68366d8dcdfb17ec0c558949a0aa482184"
+                "fingerprint_excluded_count": 62,
+                "inventory_excluded_count": 194,
+                "required_count": 476,
+                "required_fingerprint": "sha256:8b7812d7fc1414f98ae739131f1bcdba7c5499e94ec629a9a3d236d11decb2a2"
               },
               "root": "repo://"
             },
@@ -693,7 +682,7 @@
       "status": "passed"
     }
   },
-  "generated_at": "2026-07-19T05:54:21.630567+00:00",
+  "generated_at": "2026-07-19T06:17:14.920622+00:00",
   "next_gate": "G11",
   "ok": false
 }

@@ -1,6 +1,6 @@
 {
   "artifact_type": "matters.test-suite-receipt.v1",
-  "generated_at": "2026-07-19T05:49:54.934330+00:00",
+  "generated_at": "2026-07-19T06:11:08.305335+00:00",
   "pytest_observation": {
     "errors": 0,
     "failed": 0,
@@ -10,19 +10,19 @@
     "xfailed": 0,
     "xpassed": 0
   },
-  "source_fingerprint": "sha256:349a5d2ef28d621a98526549a415d11a18eab1f4249863e69a7a32cffc9bb0af",
+  "source_fingerprint": "sha256:c3dd23b0a346ec225065481d2ef0219257aa7f8994faf2266e85e0003f51a643",
   "source_fingerprints": {
-    "src/matters/analysis/__init__.py": "sha256:4610c328506049750179cae6c44e1bce505b65f9d568cc18a6f70ad27a3282d4",
-    "src/matters/analysis/depth.py": "sha256:949c9e179886fba77b402e1ce7e7adb02b8fef21e0ddb2f3874978b0d5bb0875",
-    "src/matters/analysis/forecasts.py": "sha256:5c2f75c10017187028c169216d577b8c80ff0b5d99e0b098743e4185645e6475",
-    "src/matters/analysis/guard_bridge.py": "sha256:9b39e24b8b1f5e9bfef220659fabeb6f795d159a312fb93d953547ccd138df67",
-    "src/matters/analysis/guard_receipts.py": "sha256:3ef1f25fae5db55366f0b2bc9660a70fd0e0d2cc550d604d36c06bb8b8e280f1",
-    "src/matters/analysis/operations.py": "sha256:772be2bd3b9ac4e15e5e59370a46dd65c38548d502dd064a63ede420b96e2374",
-    "src/matters/analysis/research.py": "sha256:6769b91f0ca5b405d5c731e3b5d6719c93190a36170753ae54da8d98890552c8",
-    "tests/test_analysis_operations_depth.py": "sha256:aa16c08b2c4bd7af15d70474f703ce4e87e41934d37bc084d104f9220cbb249f",
-    "tests/test_researchguard_installation_probe.py": "sha256:475b1efdf3de4e62c284a3cbd11d86862600bd28eb73fdff2ea869588635da56",
-    "tests/test_tm11_guard_prediction_boundary.py": "sha256:7690e965aebb81d7af27279121917ca11d6072a107c4d36a4507f5838107f27e",
-    "tests/test_understanding_workflow.py": "sha256:cbf2716e7c44dd9873d00a25f1d5be3c2dacdd6d3d668ed40bddd5b18b03487f"
+    "src/matters/analysis/__init__.py": "sha256:a6e4ad6060fce1f0523971723bf142a20df17521e50d92236b352cc2681c371f",
+    "src/matters/analysis/depth.py": "sha256:a8a9e04fb6f339bc6df6ebe7ef2063d66673d1a971a28def3d69422e665da8df",
+    "src/matters/analysis/forecasts.py": "sha256:966d2aea52a9fd11883293c7f9960ca35fd71b7a2f67910c0f4c173584bc12c5",
+    "src/matters/analysis/guard_bridge.py": "sha256:920cb0c2c798fd45db8ece9431e2d4aa529868ca021d07925ef73618b60c0b76",
+    "src/matters/analysis/guard_receipts.py": "sha256:510506b0891c90f82bec20c68bebfee9c65d40d4470a4472a650fbeed5d18616",
+    "src/matters/analysis/operations.py": "sha256:dcb66f8b4c9188471526e23896dfa471ba55abe81642963c5bfffc87ffc002aa",
+    "src/matters/analysis/research.py": "sha256:6c876be370e7ab23183dfcfb51e4eba6126012b1108377f0050ac9280351acaf",
+    "tests/test_analysis_operations_depth.py": "sha256:4efe8376ce47776341540f572c67d80a88ed74727d8453d927032e94fd22ec39",
+    "tests/test_researchguard_installation_probe.py": "sha256:53e394ae6a86bd53c880184a56bd30257c776b9779ba7e19e7f5c22dc8721a1d",
+    "tests/test_tm11_guard_prediction_boundary.py": "sha256:31184b348c07338f389ceae6be3e7ad370b7c67b4f7fb2f4e26e64dadad292ab",
+    "tests/test_understanding_workflow.py": "sha256:d42424c2b8e6b9cd4bbaccc9ea886b7ac47a40609a5b7687fe7d4704b70b6d35"
   },
   "source_paths": [
     "tests/test_tm11_guard_prediction_boundary.py",
@@ -31,7 +31,7 @@
     "tests/test_understanding_workflow.py"
   ],
   "stderr_tail": "",
-  "stdout_tail": "...........                                                              [100%]\n11 passed in 2.75s\n",
+  "stdout_tail": "...........                                                              [100%]\n11 passed in 2.81s\n",
   "suite_id": "TM11_guard_prediction_boundary",
   "test_suite_evidence": {
     "artifact_version": "matters.test-suite-receipt.v1",
@@ -229,19 +229,19 @@
     "progress_only": false,
     "proof_artifact": {
       "artifact_fingerprints": {
-        "src/matters/analysis/__init__.py": "sha256:4610c328506049750179cae6c44e1bce505b65f9d568cc18a6f70ad27a3282d4",
-        "src/matters/analysis/depth.py": "sha256:949c9e179886fba77b402e1ce7e7adb02b8fef21e0ddb2f3874978b0d5bb0875",
-        "src/matters/analysis/forecasts.py": "sha256:5c2f75c10017187028c169216d577b8c80ff0b5d99e0b098743e4185645e6475",
-        "src/matters/analysis/guard_bridge.py": "sha256:9b39e24b8b1f5e9bfef220659fabeb6f795d159a312fb93d953547ccd138df67",
-        "src/matters/analysis/guard_receipts.py": "sha256:3ef1f25fae5db55366f0b2bc9660a70fd0e0d2cc550d604d36c06bb8b8e280f1",
-        "src/matters/analysis/operations.py": "sha256:772be2bd3b9ac4e15e5e59370a46dd65c38548d502dd064a63ede420b96e2374",
-        "src/matters/analysis/research.py": "sha256:6769b91f0ca5b405d5c731e3b5d6719c93190a36170753ae54da8d98890552c8",
-        "tests/test_analysis_operations_depth.py": "sha256:aa16c08b2c4bd7af15d70474f703ce4e87e41934d37bc084d104f9220cbb249f",
-        "tests/test_researchguard_installation_probe.py": "sha256:475b1efdf3de4e62c284a3cbd11d86862600bd28eb73fdff2ea869588635da56",
-        "tests/test_tm11_guard_prediction_boundary.py": "sha256:7690e965aebb81d7af27279121917ca11d6072a107c4d36a4507f5838107f27e",
-        "tests/test_understanding_workflow.py": "sha256:cbf2716e7c44dd9873d00a25f1d5be3c2dacdd6d3d668ed40bddd5b18b03487f"
+        "src/matters/analysis/__init__.py": "sha256:a6e4ad6060fce1f0523971723bf142a20df17521e50d92236b352cc2681c371f",
+        "src/matters/analysis/depth.py": "sha256:a8a9e04fb6f339bc6df6ebe7ef2063d66673d1a971a28def3d69422e665da8df",
+        "src/matters/analysis/forecasts.py": "sha256:966d2aea52a9fd11883293c7f9960ca35fd71b7a2f67910c0f4c173584bc12c5",
+        "src/matters/analysis/guard_bridge.py": "sha256:920cb0c2c798fd45db8ece9431e2d4aa529868ca021d07925ef73618b60c0b76",
+        "src/matters/analysis/guard_receipts.py": "sha256:510506b0891c90f82bec20c68bebfee9c65d40d4470a4472a650fbeed5d18616",
+        "src/matters/analysis/operations.py": "sha256:dcb66f8b4c9188471526e23896dfa471ba55abe81642963c5bfffc87ffc002aa",
+        "src/matters/analysis/research.py": "sha256:6c876be370e7ab23183dfcfb51e4eba6126012b1108377f0050ac9280351acaf",
+        "tests/test_analysis_operations_depth.py": "sha256:4efe8376ce47776341540f572c67d80a88ed74727d8453d927032e94fd22ec39",
+        "tests/test_researchguard_installation_probe.py": "sha256:53e394ae6a86bd53c880184a56bd30257c776b9779ba7e19e7f5c22dc8721a1d",
+        "tests/test_tm11_guard_prediction_boundary.py": "sha256:31184b348c07338f389ceae6be3e7ad370b7c67b4f7fb2f4e26e64dadad292ab",
+        "tests/test_understanding_workflow.py": "sha256:d42424c2b8e6b9cd4bbaccc9ea886b7ac47a40609a5b7687fe7d4704b70b6d35"
       },
-      "artifact_id": "artifact:run:TM11_guard_prediction_boundary:241ec6c977440f7b",
+      "artifact_id": "artifact:run:TM11_guard_prediction_boundary:4d4870c06a0fb2d2",
       "assertion_scope": "external_contract",
       "command": "python -m pytest -q -o addopts= tests/test_tm11_guard_prediction_boundary.py tests/test_analysis_operations_depth.py tests/test_researchguard_installation_probe.py tests/test_understanding_workflow.py",
       "covered_obligation_ids": [
@@ -357,7 +357,7 @@
       ],
       "current": true,
       "exit_code": 0,
-      "finished_at": "2026-07-19T05:49:54.934330+00:00",
+      "finished_at": "2026-07-19T06:11:08.305335+00:00",
       "metadata": {},
       "producer_route": "test_mesh",
       "progress_only": false,
@@ -366,15 +366,15 @@
       "route_evidence_current": true,
       "route_gap_codes": [],
       "stale_reasons": [],
-      "started_at": "2026-07-19T05:49:51.239889+00:00"
+      "started_at": "2026-07-19T06:11:04.595365+00:00"
     },
     "release_required": false,
-    "result_fingerprint": "sha256:349a5d2ef28d621a98526549a415d11a18eab1f4249863e69a7a32cffc9bb0af",
+    "result_fingerprint": "sha256:c3dd23b0a346ec225065481d2ef0219257aa7f8994faf2266e85e0003f51a643",
     "result_path": ".flowguard/evidence/tests/TM11_guard_prediction_boundary.json",
     "result_reused": false,
     "result_status": "passed",
     "reuse_ticket": null,
-    "run_id": "run:TM11_guard_prediction_boundary:241ec6c977440f7b",
+    "run_id": "run:TM11_guard_prediction_boundary:4d4870c06a0fb2d2",
     "selected_count": 11,
     "skipped_count": 0,
     "skipped_visible": true,

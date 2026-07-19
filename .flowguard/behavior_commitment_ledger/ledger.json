@@ -61,7 +61,7 @@
             "TC-M0_matters_end_to_end_authority-parent_attempts_child_write-retry"
           ],
           "coverage_receipt_ids": [
-            "run:TM14_end_to_end_conformance:6460cda79520ca57"
+            "run:TM14_end_to_end_conformance:029cfaf6e667804e"
           ],
           "coverage_shard_ids": [
             "TM14_end_to_end_conformance"
@@ -69,12 +69,12 @@
           "current": true,
           "evidence_state": "current_pass",
           "metadata": {
-            "alignment_evidence_id": "evidence:model-code-test-alignment:594c495473ac242c",
-            "g8_evidence_id": "evidence:G8-fully-synthetic:65fd6df4b2dba226",
+            "alignment_evidence_id": "evidence:model-code-test-alignment:656e66dd6db30bd7",
+            "g8_evidence_id": "evidence:G8-fully-synthetic:ffe0563f16dabefc",
             "live_provider_evidence": false,
             "scope_revision": "autonomous-object-browser-v2",
             "stale_reason": "requirements, model fields, automatic owner dispatch, object coverage, representative visual, bilingual object browser, and desktop worker changed",
-            "test_receipt_fingerprint": "sha256:fd4cc375b03ae2ca94a60c2a606d09b995ef4633799867370b3f21093b271700",
+            "test_receipt_fingerprint": "sha256:ce4376f95d269a0562d10c77e6db337a5660a4415471c93b44061d7104280a40",
             "test_receipt_path": ".flowguard/evidence/tests/TM14_end_to_end_conformance.json",
             "through_gate": "G8"
           },
@@ -83,9 +83,9 @@
           ],
           "proof_artifact_ids": [
             "evidence:M0_matters_end_to_end_authority:96f9b1c9603a2ddc",
-            "artifact:run:TM14_end_to_end_conformance:6460cda79520ca57",
-            "evidence:model-code-test-alignment:594c495473ac242c",
-            "evidence:G8-fully-synthetic:65fd6df4b2dba226"
+            "artifact:run:TM14_end_to_end_conformance:029cfaf6e667804e",
+            "evidence:model-code-test-alignment:656e66dd6db30bd7",
+            "evidence:G8-fully-synthetic:ffe0563f16dabefc"
           ],
           "risk_gate_ids": [
             "G3-model-mesh-closure",
@@ -93,7 +93,7 @@
             "G8-fully-synthetic"
           ],
           "test_evidence_ids": [
-            "run:TM14_end_to_end_conformance:6460cda79520ca57"
+            "run:TM14_end_to_end_conformance:029cfaf6e667804e"
           ],
           "test_mesh_state": "shard_current"
         },
@@ -148,7 +148,7 @@
           "path_sensitive": true,
           "ppa_confidence": "full",
           "ppa_coverage_receipt_ids": [
-            "run:TM14_end_to_end_conformance:6460cda79520ca57"
+            "run:TM14_end_to_end_conformance:029cfaf6e667804e"
           ],
           "ppa_coverage_shard_ids": [
             "TM14_end_to_end_conformance"
@@ -164,9 +164,9 @@
           "primary_path_id": "path:matters-end-to-end-authority",
           "proof_artifact_ids": [
             "evidence:M0_matters_end_to_end_authority:96f9b1c9603a2ddc",
-            "artifact:run:TM14_end_to_end_conformance:6460cda79520ca57",
-            "evidence:model-code-test-alignment:594c495473ac242c",
-            "evidence:G8-fully-synthetic:65fd6df4b2dba226"
+            "artifact:run:TM14_end_to_end_conformance:029cfaf6e667804e",
+            "evidence:model-code-test-alignment:656e66dd6db30bd7",
+            "evidence:G8-fully-synthetic:ffe0563f16dabefc"
           ],
           "runtime_observation_ids": [
             "BO-TC-M0_matters_end_to_end_authority-all_registered_objects_terminal_and_ui_ready",
@@ -399,7 +399,7 @@
             "TC-C1_authorization_coverage-private_root_inside_git-retry"
           ],
           "coverage_receipt_ids": [
-            "run:TM01_authorization_coverage:1d6bb3c170a22cc7"
+            "run:TM01_authorization_coverage:7a24caff94d489af"
           ],
           "coverage_shard_ids": [
             "TM01_authorization_coverage"
@@ -407,12 +407,12 @@
           "current": true,
           "evidence_state": "current_pass",
           "metadata": {
-            "alignment_evidence_id": "evidence:model-code-test-alignment:594c495473ac242c",
-            "g8_evidence_id": "evidence:G8-fully-synthetic:65fd6df4b2dba226",
+            "alignment_evidence_id": "evidence:model-code-test-alignment:656e66dd6db30bd7",
+            "g8_evidence_id": "evidence:G8-fully-synthetic:ffe0563f16dabefc",
             "live_provider_evidence": false,
             "scope_revision": "autonomous-object-browser-v2",
             "stale_reason": "requirements, model fields, automatic owner dispatch, object coverage, representative visual, bilingual object browser, and desktop worker changed",
-            "test_receipt_fingerprint": "sha256:33c984e5fd07f8174af8a47a4d9cfa5801f1f6876c90e82aff6b4fe9319ecc15",
+            "test_receipt_fingerprint": "sha256:6381123d25fb55fc4e83afc5febfaa2ca77da29d7b6722ce52239f0ec2075935",
             "test_receipt_path": ".flowguard/evidence/tests/TM01_authorization_coverage.json",
             "through_gate": "G8"
           },
@@ -423,9 +423,9 @@
           ],
           "proof_artifact_ids": [
             "evidence:C1_authorization_coverage:68f1f53f4b9e29af",
-            "artifact:run:TM01_authorization_coverage:1d6bb3c170a22cc7",
-            "evidence:model-code-test-alignment:594c495473ac242c",
-            "evidence:G8-fully-synthetic:65fd6df4b2dba226"
+            "artifact:run:TM01_authorization_coverage:7a24caff94d489af",
+            "evidence:model-code-test-alignment:656e66dd6db30bd7",
+            "evidence:G8-fully-synthetic:ffe0563f16dabefc"
           ],
           "risk_gate_ids": [
             "G2-C1",
@@ -433,7 +433,7 @@
             "G8-fully-synthetic"
           ],
           "test_evidence_ids": [
-            "run:TM01_authorization_coverage:1d6bb3c170a22cc7"
+            "run:TM01_authorization_coverage:7a24caff94d489af"
           ],
           "test_mesh_state": "shard_current"
         },
@@ -486,7 +486,7 @@
           "path_sensitive": true,
           "ppa_confidence": "full",
           "ppa_coverage_receipt_ids": [
-            "run:TM01_authorization_coverage:1d6bb3c170a22cc7"
+            "run:TM01_authorization_coverage:7a24caff94d489af"
           ],
           "ppa_coverage_shard_ids": [
             "TM01_authorization_coverage"
@@ -502,9 +502,9 @@
           "primary_path_id": "path:c1-freeze-and-classify-candidate-universe",
           "proof_artifact_ids": [
             "evidence:C1_authorization_coverage:68f1f53f4b9e29af",
-            "artifact:run:TM01_authorization_coverage:1d6bb3c170a22cc7",
-            "evidence:model-code-test-alignment:594c495473ac242c",
-            "evidence:G8-fully-synthetic:65fd6df4b2dba226"
+            "artifact:run:TM01_authorization_coverage:7a24caff94d489af",
+            "evidence:model-code-test-alignment:656e66dd6db30bd7",
+            "evidence:G8-fully-synthetic:ffe0563f16dabefc"
           ],
           "runtime_observation_ids": [
             "BO-TC-C1_authorization_coverage-candidate_scope_frozen",
@@ -631,7 +631,7 @@
             "TC-C2_source_registry-ai_rewrite_attempt-retry"
           ],
           "coverage_receipt_ids": [
-            "run:TM02_source_registry:f89a53f92e940b3b"
+            "run:TM02_source_registry:fdaed2e94eeb89f5"
           ],
           "coverage_shard_ids": [
             "TM02_source_registry"
@@ -639,12 +639,12 @@
           "current": true,
           "evidence_state": "current_pass",
           "metadata": {
-            "alignment_evidence_id": "evidence:model-code-test-alignment:594c495473ac242c",
-            "g8_evidence_id": "evidence:G8-fully-synthetic:65fd6df4b2dba226",
+            "alignment_evidence_id": "evidence:model-code-test-alignment:656e66dd6db30bd7",
+            "g8_evidence_id": "evidence:G8-fully-synthetic:ffe0563f16dabefc",
             "live_provider_evidence": false,
             "scope_revision": "autonomous-object-browser-v2",
             "stale_reason": "requirements, model fields, automatic owner dispatch, object coverage, representative visual, bilingual object browser, and desktop worker changed",
-            "test_receipt_fingerprint": "sha256:9253f441b5768b294ac7b92d6346758046c3fd9e8f9ac57b6be2c320284261ed",
+            "test_receipt_fingerprint": "sha256:6fb1823575aaf71490a1a2e28962bc592fa8d583f9ee9431b3afb5a3160e1784",
             "test_receipt_path": ".flowguard/evidence/tests/TM02_source_registry.json",
             "through_gate": "G8"
           },
@@ -656,9 +656,9 @@
           ],
           "proof_artifact_ids": [
             "evidence:C2_source_registry:9197d59c0887a460",
-            "artifact:run:TM02_source_registry:f89a53f92e940b3b",
-            "evidence:model-code-test-alignment:594c495473ac242c",
-            "evidence:G8-fully-synthetic:65fd6df4b2dba226"
+            "artifact:run:TM02_source_registry:fdaed2e94eeb89f5",
+            "evidence:model-code-test-alignment:656e66dd6db30bd7",
+            "evidence:G8-fully-synthetic:ffe0563f16dabefc"
           ],
           "risk_gate_ids": [
             "G2-C2",
@@ -666,7 +666,7 @@
             "G8-fully-synthetic"
           ],
           "test_evidence_ids": [
-            "run:TM02_source_registry:f89a53f92e940b3b"
+            "run:TM02_source_registry:fdaed2e94eeb89f5"
           ],
           "test_mesh_state": "shard_current"
         },
@@ -718,7 +718,7 @@
           "path_sensitive": true,
           "ppa_confidence": "full",
           "ppa_coverage_receipt_ids": [
-            "run:TM02_source_registry:f89a53f92e940b3b"
+            "run:TM02_source_registry:fdaed2e94eeb89f5"
           ],
           "ppa_coverage_shard_ids": [
             "TM02_source_registry"
@@ -734,9 +734,9 @@
           "primary_path_id": "path:c2-register-source-version",
           "proof_artifact_ids": [
             "evidence:C2_source_registry:9197d59c0887a460",
-            "artifact:run:TM02_source_registry:f89a53f92e940b3b",
-            "evidence:model-code-test-alignment:594c495473ac242c",
-            "evidence:G8-fully-synthetic:65fd6df4b2dba226"
+            "artifact:run:TM02_source_registry:fdaed2e94eeb89f5",
+            "evidence:model-code-test-alignment:656e66dd6db30bd7",
+            "evidence:G8-fully-synthetic:ffe0563f16dabefc"
           ],
           "runtime_observation_ids": [
             "BO-TC-C2_source_registry-inventory_first_snapshot",
@@ -833,7 +833,7 @@
             "TC-C3_evidence_qualification-superseded_anchor-retry"
           ],
           "coverage_receipt_ids": [
-            "run:TM03_evidence_qualification:94f14317de92a455"
+            "run:TM03_evidence_qualification:b2018041e7447fe6"
           ],
           "coverage_shard_ids": [
             "TM03_evidence_qualification"
@@ -841,12 +841,12 @@
           "current": true,
           "evidence_state": "current_pass",
           "metadata": {
-            "alignment_evidence_id": "evidence:model-code-test-alignment:594c495473ac242c",
-            "g8_evidence_id": "evidence:G8-fully-synthetic:65fd6df4b2dba226",
+            "alignment_evidence_id": "evidence:model-code-test-alignment:656e66dd6db30bd7",
+            "g8_evidence_id": "evidence:G8-fully-synthetic:ffe0563f16dabefc",
             "live_provider_evidence": false,
             "scope_revision": "autonomous-object-browser-v2",
             "stale_reason": "requirements, model fields, automatic owner dispatch, object coverage, representative visual, bilingual object browser, and desktop worker changed",
-            "test_receipt_fingerprint": "sha256:e60bb798fdd187f7cf87d475fff2937a0b90bd7e853db398a991252e56d0062d",
+            "test_receipt_fingerprint": "sha256:7ec9e26e06dea9a27ebcccb57be52ad563f0e4d10b9d0cbda1263e5698a5f07d",
             "test_receipt_path": ".flowguard/evidence/tests/TM03_evidence_qualification.json",
             "through_gate": "G8"
           },
@@ -857,16 +857,16 @@
           ],
           "proof_artifact_ids": [
             "evidence:C3_evidence_qualification:c4772b78e1a3dfeb",
-            "artifact:run:TM03_evidence_qualification:94f14317de92a455",
-            "evidence:model-code-test-alignment:594c495473ac242c",
-            "evidence:G8-fully-synthetic:65fd6df4b2dba226"
+            "artifact:run:TM03_evidence_qualification:b2018041e7447fe6",
+            "evidence:model-code-test-alignment:656e66dd6db30bd7",
+            "evidence:G8-fully-synthetic:ffe0563f16dabefc"
           ],
           "risk_gate_ids": [
             "G2-C3",
             "G8-fully-synthetic"
           ],
           "test_evidence_ids": [
-            "run:TM03_evidence_qualification:94f14317de92a455"
+            "run:TM03_evidence_qualification:b2018041e7447fe6"
           ],
           "test_mesh_state": "shard_current"
         },
@@ -917,7 +917,7 @@
           "path_sensitive": true,
           "ppa_confidence": "full",
           "ppa_coverage_receipt_ids": [
-            "run:TM03_evidence_qualification:94f14317de92a455"
+            "run:TM03_evidence_qualification:b2018041e7447fe6"
           ],
           "ppa_coverage_shard_ids": [
             "TM03_evidence_qualification"
@@ -933,9 +933,9 @@
           "primary_path_id": "path:c3-qualify-evidence",
           "proof_artifact_ids": [
             "evidence:C3_evidence_qualification:c4772b78e1a3dfeb",
-            "artifact:run:TM03_evidence_qualification:94f14317de92a455",
-            "evidence:model-code-test-alignment:594c495473ac242c",
-            "evidence:G8-fully-synthetic:65fd6df4b2dba226"
+            "artifact:run:TM03_evidence_qualification:b2018041e7447fe6",
+            "evidence:model-code-test-alignment:656e66dd6db30bd7",
+            "evidence:G8-fully-synthetic:ffe0563f16dabefc"
           ],
           "runtime_observation_ids": [
             "BO-TC-C3_evidence_qualification-exact_field_anchor",
@@ -1016,7 +1016,7 @@
             "TC-C4_person_entity_resolution-researchguard_identity_proposal-retry"
           ],
           "coverage_receipt_ids": [
-            "run:TM04_identity_resolution:8522e1f4b40b9cfb"
+            "run:TM04_identity_resolution:a161fdf7eb3ea2bc"
           ],
           "coverage_shard_ids": [
             "TM04_identity_resolution"
@@ -1024,12 +1024,12 @@
           "current": true,
           "evidence_state": "current_pass",
           "metadata": {
-            "alignment_evidence_id": "evidence:model-code-test-alignment:594c495473ac242c",
-            "g8_evidence_id": "evidence:G8-fully-synthetic:65fd6df4b2dba226",
+            "alignment_evidence_id": "evidence:model-code-test-alignment:656e66dd6db30bd7",
+            "g8_evidence_id": "evidence:G8-fully-synthetic:ffe0563f16dabefc",
             "live_provider_evidence": false,
             "scope_revision": "autonomous-object-browser-v2",
             "stale_reason": "requirements, model fields, automatic owner dispatch, object coverage, representative visual, bilingual object browser, and desktop worker changed",
-            "test_receipt_fingerprint": "sha256:5bf4d2a5fecf04ea9fe9f6579d67f9cdd1eca93f144049116e4196ea3a753a41",
+            "test_receipt_fingerprint": "sha256:92a9e59cc40cd8c8d9080527eaa029d8eb20f4f7614db82a5985157b92c72dd3",
             "test_receipt_path": ".flowguard/evidence/tests/TM04_identity_resolution.json",
             "through_gate": "G8"
           },
@@ -1040,16 +1040,16 @@
           ],
           "proof_artifact_ids": [
             "evidence:C4_person_entity_resolution:603526a339d987e3",
-            "artifact:run:TM04_identity_resolution:8522e1f4b40b9cfb",
-            "evidence:model-code-test-alignment:594c495473ac242c",
-            "evidence:G8-fully-synthetic:65fd6df4b2dba226"
+            "artifact:run:TM04_identity_resolution:a161fdf7eb3ea2bc",
+            "evidence:model-code-test-alignment:656e66dd6db30bd7",
+            "evidence:G8-fully-synthetic:ffe0563f16dabefc"
           ],
           "risk_gate_ids": [
             "G2-C4",
             "G8-fully-synthetic"
           ],
           "test_evidence_ids": [
-            "run:TM04_identity_resolution:8522e1f4b40b9cfb"
+            "run:TM04_identity_resolution:a161fdf7eb3ea2bc"
           ],
           "test_mesh_state": "shard_current"
         },
@@ -1102,7 +1102,7 @@
           "path_sensitive": true,
           "ppa_confidence": "full",
           "ppa_coverage_receipt_ids": [
-            "run:TM04_identity_resolution:8522e1f4b40b9cfb"
+            "run:TM04_identity_resolution:a161fdf7eb3ea2bc"
           ],
           "ppa_coverage_shard_ids": [
             "TM04_identity_resolution"
@@ -1118,9 +1118,9 @@
           "primary_path_id": "path:c4-resolve-identity",
           "proof_artifact_ids": [
             "evidence:C4_person_entity_resolution:603526a339d987e3",
-            "artifact:run:TM04_identity_resolution:8522e1f4b40b9cfb",
-            "evidence:model-code-test-alignment:594c495473ac242c",
-            "evidence:G8-fully-synthetic:65fd6df4b2dba226"
+            "artifact:run:TM04_identity_resolution:a161fdf7eb3ea2bc",
+            "evidence:model-code-test-alignment:656e66dd6db30bd7",
+            "evidence:G8-fully-synthetic:ffe0563f16dabefc"
           ],
           "runtime_observation_ids": [
             "BO-TC-C4_person_entity_resolution-same_name_no_link",
@@ -1187,7 +1187,7 @@
             "TC-C5_event_temporal_trace-done_then_reopen_blocked-retry"
           ],
           "coverage_receipt_ids": [
-            "run:TM05_event_trace:c7721518f98f7ec0"
+            "run:TM05_event_trace:9151d6e5c5ca23c5"
           ],
           "coverage_shard_ids": [
             "TM05_event_trace"
@@ -1195,12 +1195,12 @@
           "current": true,
           "evidence_state": "current_pass",
           "metadata": {
-            "alignment_evidence_id": "evidence:model-code-test-alignment:594c495473ac242c",
-            "g8_evidence_id": "evidence:G8-fully-synthetic:65fd6df4b2dba226",
+            "alignment_evidence_id": "evidence:model-code-test-alignment:656e66dd6db30bd7",
+            "g8_evidence_id": "evidence:G8-fully-synthetic:ffe0563f16dabefc",
             "live_provider_evidence": false,
             "scope_revision": "autonomous-object-browser-v2",
             "stale_reason": "requirements, model fields, automatic owner dispatch, object coverage, representative visual, bilingual object browser, and desktop worker changed",
-            "test_receipt_fingerprint": "sha256:3ac163081876646613a66e252be4005ac0fef4010f4d5a9f97e95b98d57f40ab",
+            "test_receipt_fingerprint": "sha256:a0784a40e6644f2246dfc22fed3a6a9497f83e557730b62710d9314a196c03a2",
             "test_receipt_path": ".flowguard/evidence/tests/TM05_event_trace.json",
             "through_gate": "G8"
           },
@@ -1211,16 +1211,16 @@
           ],
           "proof_artifact_ids": [
             "evidence:C5_event_temporal_trace:72d80a24bcaecef0",
-            "artifact:run:TM05_event_trace:c7721518f98f7ec0",
-            "evidence:model-code-test-alignment:594c495473ac242c",
-            "evidence:G8-fully-synthetic:65fd6df4b2dba226"
+            "artifact:run:TM05_event_trace:9151d6e5c5ca23c5",
+            "evidence:model-code-test-alignment:656e66dd6db30bd7",
+            "evidence:G8-fully-synthetic:ffe0563f16dabefc"
           ],
           "risk_gate_ids": [
             "G2-C5",
             "G8-fully-synthetic"
           ],
           "test_evidence_ids": [
-            "run:TM05_event_trace:c7721518f98f7ec0"
+            "run:TM05_event_trace:9151d6e5c5ca23c5"
           ],
           "test_mesh_state": "shard_current"
         },
@@ -1272,7 +1272,7 @@
           "path_sensitive": true,
           "ppa_confidence": "full",
           "ppa_coverage_receipt_ids": [
-            "run:TM05_event_trace:c7721518f98f7ec0"
+            "run:TM05_event_trace:9151d6e5c5ca23c5"
           ],
           "ppa_coverage_shard_ids": [
             "TM05_event_trace"
@@ -1288,9 +1288,9 @@
           "primary_path_id": "path:c5-build-temporal-trace",
           "proof_artifact_ids": [
             "evidence:C5_event_temporal_trace:72d80a24bcaecef0",
-            "artifact:run:TM05_event_trace:c7721518f98f7ec0",
-            "evidence:model-code-test-alignment:594c495473ac242c",
-            "evidence:G8-fully-synthetic:65fd6df4b2dba226"
+            "artifact:run:TM05_event_trace:9151d6e5c5ca23c5",
+            "evidence:model-code-test-alignment:656e66dd6db30bd7",
+            "evidence:G8-fully-synthetic:ffe0563f16dabefc"
           ],
           "runtime_observation_ids": [
             "BO-TC-C5_event_temporal_trace-explicit_actual_start",
@@ -1364,7 +1364,7 @@
             "TC-C6_matter_formation_admission-access_blocked-retry"
           ],
           "coverage_receipt_ids": [
-            "run:TM06_matter_admission:cfe9f968ec56bd96"
+            "run:TM06_matter_admission:0d678bfc40bc483b"
           ],
           "coverage_shard_ids": [
             "TM06_matter_admission"
@@ -1372,12 +1372,12 @@
           "current": true,
           "evidence_state": "current_pass",
           "metadata": {
-            "alignment_evidence_id": "evidence:model-code-test-alignment:594c495473ac242c",
-            "g8_evidence_id": "evidence:G8-fully-synthetic:65fd6df4b2dba226",
+            "alignment_evidence_id": "evidence:model-code-test-alignment:656e66dd6db30bd7",
+            "g8_evidence_id": "evidence:G8-fully-synthetic:ffe0563f16dabefc",
             "live_provider_evidence": false,
             "scope_revision": "autonomous-object-browser-v2",
             "stale_reason": "requirements, model fields, automatic owner dispatch, object coverage, representative visual, bilingual object browser, and desktop worker changed",
-            "test_receipt_fingerprint": "sha256:74b886acad96e5bbda38a15cc02e668974e02c21f3992c0d95c9b64d1a8629e6",
+            "test_receipt_fingerprint": "sha256:bf6ef1d6c524a9504dcac3daa1f5839802681ce4d8ebf530347e61c213f810c0",
             "test_receipt_path": ".flowguard/evidence/tests/TM06_matter_admission.json",
             "through_gate": "G8"
           },
@@ -1388,9 +1388,9 @@
           ],
           "proof_artifact_ids": [
             "evidence:C6_matter_formation_admission:5952495975d42700",
-            "artifact:run:TM06_matter_admission:cfe9f968ec56bd96",
-            "evidence:model-code-test-alignment:594c495473ac242c",
-            "evidence:G8-fully-synthetic:65fd6df4b2dba226"
+            "artifact:run:TM06_matter_admission:0d678bfc40bc483b",
+            "evidence:model-code-test-alignment:656e66dd6db30bd7",
+            "evidence:G8-fully-synthetic:ffe0563f16dabefc"
           ],
           "risk_gate_ids": [
             "G2-C6",
@@ -1398,7 +1398,7 @@
             "G8-fully-synthetic"
           ],
           "test_evidence_ids": [
-            "run:TM06_matter_admission:cfe9f968ec56bd96"
+            "run:TM06_matter_admission:0d678bfc40bc483b"
           ],
           "test_mesh_state": "shard_current"
         },
@@ -1450,7 +1450,7 @@
           "path_sensitive": true,
           "ppa_confidence": "full",
           "ppa_coverage_receipt_ids": [
-            "run:TM06_matter_admission:cfe9f968ec56bd96"
+            "run:TM06_matter_admission:0d678bfc40bc483b"
           ],
           "ppa_coverage_shard_ids": [
             "TM06_matter_admission"
@@ -1466,9 +1466,9 @@
           "primary_path_id": "path:c6-admit-matter",
           "proof_artifact_ids": [
             "evidence:C6_matter_formation_admission:5952495975d42700",
-            "artifact:run:TM06_matter_admission:cfe9f968ec56bd96",
-            "evidence:model-code-test-alignment:594c495473ac242c",
-            "evidence:G8-fully-synthetic:65fd6df4b2dba226"
+            "artifact:run:TM06_matter_admission:0d678bfc40bc483b",
+            "evidence:model-code-test-alignment:656e66dd6db30bd7",
+            "evidence:G8-fully-synthetic:ffe0563f16dabefc"
           ],
           "runtime_observation_ids": [
             "BO-TC-C6_matter_formation_admission-provider_item_basic",
@@ -1543,7 +1543,7 @@
             "TC-C7_lifecycle_board_state-ui_direct_state_write-retry"
           ],
           "coverage_receipt_ids": [
-            "run:TM07_lifecycle_board_state:3262876670c163c3"
+            "run:TM07_lifecycle_board_state:b0368573b50ca695"
           ],
           "coverage_shard_ids": [
             "TM07_lifecycle_board_state"
@@ -1551,12 +1551,12 @@
           "current": true,
           "evidence_state": "current_pass",
           "metadata": {
-            "alignment_evidence_id": "evidence:model-code-test-alignment:594c495473ac242c",
-            "g8_evidence_id": "evidence:G8-fully-synthetic:65fd6df4b2dba226",
+            "alignment_evidence_id": "evidence:model-code-test-alignment:656e66dd6db30bd7",
+            "g8_evidence_id": "evidence:G8-fully-synthetic:ffe0563f16dabefc",
             "live_provider_evidence": false,
             "scope_revision": "autonomous-object-browser-v2",
             "stale_reason": "requirements, model fields, automatic owner dispatch, object coverage, representative visual, bilingual object browser, and desktop worker changed",
-            "test_receipt_fingerprint": "sha256:3dc5ba387520dcd5ec1c792ca352c2954e3b8f0b469e533fe79ef8adc8d2b523",
+            "test_receipt_fingerprint": "sha256:a2060d8e07278a1365dbe300460eceda85d7ff7ce0c9b99e40d6a511ca76eba0",
             "test_receipt_path": ".flowguard/evidence/tests/TM07_lifecycle_board_state.json",
             "through_gate": "G8"
           },
@@ -1567,9 +1567,9 @@
           ],
           "proof_artifact_ids": [
             "evidence:C7_lifecycle_board_state:951befd66451fa09",
-            "artifact:run:TM07_lifecycle_board_state:3262876670c163c3",
-            "evidence:model-code-test-alignment:594c495473ac242c",
-            "evidence:G8-fully-synthetic:65fd6df4b2dba226"
+            "artifact:run:TM07_lifecycle_board_state:b0368573b50ca695",
+            "evidence:model-code-test-alignment:656e66dd6db30bd7",
+            "evidence:G8-fully-synthetic:ffe0563f16dabefc"
           ],
           "risk_gate_ids": [
             "G2-C7",
@@ -1577,7 +1577,7 @@
             "G8-fully-synthetic"
           ],
           "test_evidence_ids": [
-            "run:TM07_lifecycle_board_state:3262876670c163c3"
+            "run:TM07_lifecycle_board_state:b0368573b50ca695"
           ],
           "test_mesh_state": "shard_current"
         },
@@ -1628,7 +1628,7 @@
           "path_sensitive": true,
           "ppa_confidence": "full",
           "ppa_coverage_receipt_ids": [
-            "run:TM07_lifecycle_board_state:3262876670c163c3"
+            "run:TM07_lifecycle_board_state:b0368573b50ca695"
           ],
           "ppa_coverage_shard_ids": [
             "TM07_lifecycle_board_state"
@@ -1644,9 +1644,9 @@
           "primary_path_id": "path:c7-decide-lifecycle",
           "proof_artifact_ids": [
             "evidence:C7_lifecycle_board_state:951befd66451fa09",
-            "artifact:run:TM07_lifecycle_board_state:3262876670c163c3",
-            "evidence:model-code-test-alignment:594c495473ac242c",
-            "evidence:G8-fully-synthetic:65fd6df4b2dba226"
+            "artifact:run:TM07_lifecycle_board_state:b0368573b50ca695",
+            "evidence:model-code-test-alignment:656e66dd6db30bd7",
+            "evidence:G8-fully-synthetic:ffe0563f16dabefc"
           ],
           "runtime_observation_ids": [
             "BO-TC-C7_lifecycle_board_state-explicit_start_evidence",
@@ -1717,7 +1717,7 @@
             "TC-C8_open_loop_waiting_blocking-declared_closure_evidence-retry"
           ],
           "coverage_receipt_ids": [
-            "run:TM08_open_loop_blocking:b93c77873729b456"
+            "run:TM08_open_loop_blocking:f618b5f89f0578d1"
           ],
           "coverage_shard_ids": [
             "TM08_open_loop_blocking"
@@ -1725,12 +1725,12 @@
           "current": true,
           "evidence_state": "current_pass",
           "metadata": {
-            "alignment_evidence_id": "evidence:model-code-test-alignment:594c495473ac242c",
-            "g8_evidence_id": "evidence:G8-fully-synthetic:65fd6df4b2dba226",
+            "alignment_evidence_id": "evidence:model-code-test-alignment:656e66dd6db30bd7",
+            "g8_evidence_id": "evidence:G8-fully-synthetic:ffe0563f16dabefc",
             "live_provider_evidence": false,
             "scope_revision": "autonomous-object-browser-v2",
             "stale_reason": "requirements, model fields, automatic owner dispatch, object coverage, representative visual, bilingual object browser, and desktop worker changed",
-            "test_receipt_fingerprint": "sha256:adccb3d257590a927b463d297fc4bf6c4b4adfb7d5d505b4755cffb3d2942acc",
+            "test_receipt_fingerprint": "sha256:1d7d41e925bb425d0973943c1526c1c5d91812ef90ff9458d2899f3626bf3f8f",
             "test_receipt_path": ".flowguard/evidence/tests/TM08_open_loop_blocking.json",
             "through_gate": "G8"
           },
@@ -1741,16 +1741,16 @@
           ],
           "proof_artifact_ids": [
             "evidence:C8_open_loop_waiting_blocking:0ab663d7fe25bfed",
-            "artifact:run:TM08_open_loop_blocking:b93c77873729b456",
-            "evidence:model-code-test-alignment:594c495473ac242c",
-            "evidence:G8-fully-synthetic:65fd6df4b2dba226"
+            "artifact:run:TM08_open_loop_blocking:f618b5f89f0578d1",
+            "evidence:model-code-test-alignment:656e66dd6db30bd7",
+            "evidence:G8-fully-synthetic:ffe0563f16dabefc"
           ],
           "risk_gate_ids": [
             "G2-C8",
             "G8-fully-synthetic"
           ],
           "test_evidence_ids": [
-            "run:TM08_open_loop_blocking:b93c77873729b456"
+            "run:TM08_open_loop_blocking:f618b5f89f0578d1"
           ],
           "test_mesh_state": "shard_current"
         },
@@ -1801,7 +1801,7 @@
           "path_sensitive": true,
           "ppa_confidence": "full",
           "ppa_coverage_receipt_ids": [
-            "run:TM08_open_loop_blocking:b93c77873729b456"
+            "run:TM08_open_loop_blocking:f618b5f89f0578d1"
           ],
           "ppa_coverage_shard_ids": [
             "TM08_open_loop_blocking"
@@ -1817,9 +1817,9 @@
           "primary_path_id": "path:c8-evaluate-open-loop",
           "proof_artifact_ids": [
             "evidence:C8_open_loop_waiting_blocking:0ab663d7fe25bfed",
-            "artifact:run:TM08_open_loop_blocking:b93c77873729b456",
-            "evidence:model-code-test-alignment:594c495473ac242c",
-            "evidence:G8-fully-synthetic:65fd6df4b2dba226"
+            "artifact:run:TM08_open_loop_blocking:f618b5f89f0578d1",
+            "evidence:model-code-test-alignment:656e66dd6db30bd7",
+            "evidence:G8-fully-synthetic:ffe0563f16dabefc"
           ],
           "runtime_observation_ids": [
             "BO-TC-C8_open_loop_waiting_blocking-request_with_target_and_condition",
@@ -1893,7 +1893,7 @@
             "TC-C9_completion_cancellation_reopen-conflicting_termination_evidence-retry"
           ],
           "coverage_receipt_ids": [
-            "run:TM09_completion_reopen:b79588c58c0c5888"
+            "run:TM09_completion_reopen:0f4e242d801d86b8"
           ],
           "coverage_shard_ids": [
             "TM09_completion_reopen"
@@ -1901,12 +1901,12 @@
           "current": true,
           "evidence_state": "current_pass",
           "metadata": {
-            "alignment_evidence_id": "evidence:model-code-test-alignment:594c495473ac242c",
-            "g8_evidence_id": "evidence:G8-fully-synthetic:65fd6df4b2dba226",
+            "alignment_evidence_id": "evidence:model-code-test-alignment:656e66dd6db30bd7",
+            "g8_evidence_id": "evidence:G8-fully-synthetic:ffe0563f16dabefc",
             "live_provider_evidence": false,
             "scope_revision": "autonomous-object-browser-v2",
             "stale_reason": "requirements, model fields, automatic owner dispatch, object coverage, representative visual, bilingual object browser, and desktop worker changed",
-            "test_receipt_fingerprint": "sha256:d90ca1467a4a2cd0985d553bdf4aea672d36df643b3890368b50d5e723da3d89",
+            "test_receipt_fingerprint": "sha256:cfe32fba25042e41259a939903311be9fa354d24cbd90d73acf99f6aa0144dbb",
             "test_receipt_path": ".flowguard/evidence/tests/TM09_completion_reopen.json",
             "through_gate": "G8"
           },
@@ -1917,16 +1917,16 @@
           ],
           "proof_artifact_ids": [
             "evidence:C9_completion_cancellation_reopen:fd9fe90d10d99d57",
-            "artifact:run:TM09_completion_reopen:b79588c58c0c5888",
-            "evidence:model-code-test-alignment:594c495473ac242c",
-            "evidence:G8-fully-synthetic:65fd6df4b2dba226"
+            "artifact:run:TM09_completion_reopen:0f4e242d801d86b8",
+            "evidence:model-code-test-alignment:656e66dd6db30bd7",
+            "evidence:G8-fully-synthetic:ffe0563f16dabefc"
           ],
           "risk_gate_ids": [
             "G2-C9",
             "G8-fully-synthetic"
           ],
           "test_evidence_ids": [
-            "run:TM09_completion_reopen:b79588c58c0c5888"
+            "run:TM09_completion_reopen:0f4e242d801d86b8"
           ],
           "test_mesh_state": "shard_current"
         },
@@ -1978,7 +1978,7 @@
           "path_sensitive": true,
           "ppa_confidence": "full",
           "ppa_coverage_receipt_ids": [
-            "run:TM09_completion_reopen:b79588c58c0c5888"
+            "run:TM09_completion_reopen:0f4e242d801d86b8"
           ],
           "ppa_coverage_shard_ids": [
             "TM09_completion_reopen"
@@ -1994,9 +1994,9 @@
           "primary_path_id": "path:c9-decide-outcome",
           "proof_artifact_ids": [
             "evidence:C9_completion_cancellation_reopen:fd9fe90d10d99d57",
-            "artifact:run:TM09_completion_reopen:b79588c58c0c5888",
-            "evidence:model-code-test-alignment:594c495473ac242c",
-            "evidence:G8-fully-synthetic:65fd6df4b2dba226"
+            "artifact:run:TM09_completion_reopen:0f4e242d801d86b8",
+            "evidence:model-code-test-alignment:656e66dd6db30bd7",
+            "evidence:G8-fully-synthetic:ffe0563f16dabefc"
           ],
           "runtime_observation_ids": [
             "BO-TC-C9_completion_cancellation_reopen-all_completion_criteria_evidenced",
@@ -2073,7 +2073,7 @@
             "TC-C10_correction_revocation-direct_foreign_state_write-retry"
           ],
           "coverage_receipt_ids": [
-            "run:TM10_correction_invalidation:8977995d1a7509b4"
+            "run:TM10_correction_invalidation:98eb85d4f7738b33"
           ],
           "coverage_shard_ids": [
             "TM10_correction_invalidation"
@@ -2081,12 +2081,12 @@
           "current": true,
           "evidence_state": "current_pass",
           "metadata": {
-            "alignment_evidence_id": "evidence:model-code-test-alignment:594c495473ac242c",
-            "g8_evidence_id": "evidence:G8-fully-synthetic:65fd6df4b2dba226",
+            "alignment_evidence_id": "evidence:model-code-test-alignment:656e66dd6db30bd7",
+            "g8_evidence_id": "evidence:G8-fully-synthetic:ffe0563f16dabefc",
             "live_provider_evidence": false,
             "scope_revision": "autonomous-object-browser-v2",
             "stale_reason": "requirements, model fields, automatic owner dispatch, object coverage, representative visual, bilingual object browser, and desktop worker changed",
-            "test_receipt_fingerprint": "sha256:6485f0e82819a46ce4c1cfa06fe3df4cfb5222d6b29c61848ed57b189bce0ffe",
+            "test_receipt_fingerprint": "sha256:4707780e34a4f843651c43c5cd66d35f0ed8b0af4e4bf63ac58c31bed9b99045",
             "test_receipt_path": ".flowguard/evidence/tests/TM10_correction_invalidation.json",
             "through_gate": "G8"
           },
@@ -2097,9 +2097,9 @@
           ],
           "proof_artifact_ids": [
             "evidence:C10_correction_revocation:af05d44733387852",
-            "artifact:run:TM10_correction_invalidation:8977995d1a7509b4",
-            "evidence:model-code-test-alignment:594c495473ac242c",
-            "evidence:G8-fully-synthetic:65fd6df4b2dba226"
+            "artifact:run:TM10_correction_invalidation:98eb85d4f7738b33",
+            "evidence:model-code-test-alignment:656e66dd6db30bd7",
+            "evidence:G8-fully-synthetic:ffe0563f16dabefc"
           ],
           "risk_gate_ids": [
             "G2-C10",
@@ -2107,7 +2107,7 @@
             "G8-fully-synthetic"
           ],
           "test_evidence_ids": [
-            "run:TM10_correction_invalidation:8977995d1a7509b4"
+            "run:TM10_correction_invalidation:98eb85d4f7738b33"
           ],
           "test_mesh_state": "shard_current"
         },
@@ -2161,7 +2161,7 @@
           "path_sensitive": true,
           "ppa_confidence": "full",
           "ppa_coverage_receipt_ids": [
-            "run:TM10_correction_invalidation:8977995d1a7509b4"
+            "run:TM10_correction_invalidation:98eb85d4f7738b33"
           ],
           "ppa_coverage_shard_ids": [
             "TM10_correction_invalidation"
@@ -2177,9 +2177,9 @@
           "primary_path_id": "path:c10-invalidate-and-request-recompute",
           "proof_artifact_ids": [
             "evidence:C10_correction_revocation:af05d44733387852",
-            "artifact:run:TM10_correction_invalidation:8977995d1a7509b4",
-            "evidence:model-code-test-alignment:594c495473ac242c",
-            "evidence:G8-fully-synthetic:65fd6df4b2dba226"
+            "artifact:run:TM10_correction_invalidation:98eb85d4f7738b33",
+            "evidence:model-code-test-alignment:656e66dd6db30bd7",
+            "evidence:G8-fully-synthetic:ffe0563f16dabefc"
           ],
           "runtime_observation_ids": [
             "BO-TC-C10_correction_revocation-user_correction",
@@ -2285,7 +2285,7 @@
             "TC-C11_guard_artifact_prediction-skipped_or_progress_receipt-retry"
           ],
           "coverage_receipt_ids": [
-            "run:TM11_guard_prediction_boundary:241ec6c977440f7b"
+            "run:TM11_guard_prediction_boundary:4d4870c06a0fb2d2"
           ],
           "coverage_shard_ids": [
             "TM11_guard_prediction_boundary"
@@ -2293,12 +2293,12 @@
           "current": true,
           "evidence_state": "current_pass",
           "metadata": {
-            "alignment_evidence_id": "evidence:model-code-test-alignment:594c495473ac242c",
-            "g8_evidence_id": "evidence:G8-fully-synthetic:65fd6df4b2dba226",
+            "alignment_evidence_id": "evidence:model-code-test-alignment:656e66dd6db30bd7",
+            "g8_evidence_id": "evidence:G8-fully-synthetic:ffe0563f16dabefc",
             "live_provider_evidence": false,
             "scope_revision": "autonomous-object-browser-v2",
             "stale_reason": "requirements, model fields, automatic owner dispatch, object coverage, representative visual, bilingual object browser, and desktop worker changed",
-            "test_receipt_fingerprint": "sha256:85cd066e75ac353c84bb49aa9663d44d6512618aee67e5de5f5d66463242f5c4",
+            "test_receipt_fingerprint": "sha256:eea652d1a1f342ae5fce9520520a8536a3c95275fe68f52618fee2d470b99187",
             "test_receipt_path": ".flowguard/evidence/tests/TM11_guard_prediction_boundary.json",
             "through_gate": "G8"
           },
@@ -2309,16 +2309,16 @@
           ],
           "proof_artifact_ids": [
             "evidence:C11_guard_artifact_prediction:bdb7bc7a407ec5ec",
-            "artifact:run:TM11_guard_prediction_boundary:241ec6c977440f7b",
-            "evidence:model-code-test-alignment:594c495473ac242c",
-            "evidence:G8-fully-synthetic:65fd6df4b2dba226"
+            "artifact:run:TM11_guard_prediction_boundary:4d4870c06a0fb2d2",
+            "evidence:model-code-test-alignment:656e66dd6db30bd7",
+            "evidence:G8-fully-synthetic:ffe0563f16dabefc"
           ],
           "risk_gate_ids": [
             "G2-C11",
             "G8-fully-synthetic"
           ],
           "test_evidence_ids": [
-            "run:TM11_guard_prediction_boundary:241ec6c977440f7b"
+            "run:TM11_guard_prediction_boundary:4d4870c06a0fb2d2"
           ],
           "test_mesh_state": "shard_current"
         },
@@ -2378,7 +2378,7 @@
           "path_sensitive": true,
           "ppa_confidence": "full",
           "ppa_coverage_receipt_ids": [
-            "run:TM11_guard_prediction_boundary:241ec6c977440f7b"
+            "run:TM11_guard_prediction_boundary:4d4870c06a0fb2d2"
           ],
           "ppa_coverage_shard_ids": [
             "TM11_guard_prediction_boundary"
@@ -2394,9 +2394,9 @@
           "primary_path_id": "path:c11-register-advisory-analysis-artifact",
           "proof_artifact_ids": [
             "evidence:C11_guard_artifact_prediction:bdb7bc7a407ec5ec",
-            "artifact:run:TM11_guard_prediction_boundary:241ec6c977440f7b",
-            "evidence:model-code-test-alignment:594c495473ac242c",
-            "evidence:G8-fully-synthetic:65fd6df4b2dba226"
+            "artifact:run:TM11_guard_prediction_boundary:4d4870c06a0fb2d2",
+            "evidence:model-code-test-alignment:656e66dd6db30bd7",
+            "evidence:G8-fully-synthetic:ffe0563f16dabefc"
           ],
           "runtime_observation_ids": [
             "BO-TC-C11_guard_artifact_prediction-extracted_anchors_queued",
@@ -2526,7 +2526,7 @@
             "TC-C12_projection_bilingual_ui-internal_identifier_requested_by_default-retry"
           ],
           "coverage_receipt_ids": [
-            "run:TM12_projection_bilingual_ui:42dd31e886158cc6"
+            "run:TM12_projection_bilingual_ui:95f7ca779dc61dd6"
           ],
           "coverage_shard_ids": [
             "TM12_projection_bilingual_ui"
@@ -2534,12 +2534,12 @@
           "current": true,
           "evidence_state": "current_pass",
           "metadata": {
-            "alignment_evidence_id": "evidence:model-code-test-alignment:594c495473ac242c",
-            "g8_evidence_id": "evidence:G8-fully-synthetic:65fd6df4b2dba226",
+            "alignment_evidence_id": "evidence:model-code-test-alignment:656e66dd6db30bd7",
+            "g8_evidence_id": "evidence:G8-fully-synthetic:ffe0563f16dabefc",
             "live_provider_evidence": false,
             "scope_revision": "autonomous-object-browser-v2",
             "stale_reason": "requirements, model fields, automatic owner dispatch, object coverage, representative visual, bilingual object browser, and desktop worker changed",
-            "test_receipt_fingerprint": "sha256:491bd516b2b7318532e0ddc40dacc40642f7f7c1832190e6fbfd13e65e988afe",
+            "test_receipt_fingerprint": "sha256:cb5c61a7902f187f7536ba803938c9691f46489125ae0632bd2067c71d329196",
             "test_receipt_path": ".flowguard/evidence/tests/TM12_projection_bilingual_ui.json",
             "through_gate": "G8"
           },
@@ -2551,9 +2551,9 @@
           ],
           "proof_artifact_ids": [
             "evidence:C12_projection_bilingual_ui:0f7891134bc61010",
-            "artifact:run:TM12_projection_bilingual_ui:42dd31e886158cc6",
-            "evidence:model-code-test-alignment:594c495473ac242c",
-            "evidence:G8-fully-synthetic:65fd6df4b2dba226"
+            "artifact:run:TM12_projection_bilingual_ui:95f7ca779dc61dd6",
+            "evidence:model-code-test-alignment:656e66dd6db30bd7",
+            "evidence:G8-fully-synthetic:ffe0563f16dabefc"
           ],
           "risk_gate_ids": [
             "G2-C12",
@@ -2561,7 +2561,7 @@
             "G8-fully-synthetic"
           ],
           "test_evidence_ids": [
-            "run:TM12_projection_bilingual_ui:42dd31e886158cc6"
+            "run:TM12_projection_bilingual_ui:95f7ca779dc61dd6"
           ],
           "test_mesh_state": "shard_current"
         },
@@ -2619,7 +2619,7 @@
           "path_sensitive": true,
           "ppa_confidence": "full",
           "ppa_coverage_receipt_ids": [
-            "run:TM12_projection_bilingual_ui:42dd31e886158cc6"
+            "run:TM12_projection_bilingual_ui:95f7ca779dc61dd6"
           ],
           "ppa_coverage_shard_ids": [
             "TM12_projection_bilingual_ui"
@@ -2635,9 +2635,9 @@
           "primary_path_id": "path:c12-project-inventory-freshness-depth-review",
           "proof_artifact_ids": [
             "evidence:C12_projection_bilingual_ui:0f7891134bc61010",
-            "artifact:run:TM12_projection_bilingual_ui:42dd31e886158cc6",
-            "evidence:model-code-test-alignment:594c495473ac242c",
-            "evidence:G8-fully-synthetic:65fd6df4b2dba226"
+            "artifact:run:TM12_projection_bilingual_ui:95f7ca779dc61dd6",
+            "evidence:model-code-test-alignment:656e66dd6db30bd7",
+            "evidence:G8-fully-synthetic:ffe0563f16dabefc"
           ],
           "runtime_observation_ids": [
             "BO-TC-C12_projection_bilingual_ui-same_revision_equivalent",
@@ -2749,7 +2749,7 @@
           ],
           "coverage_case_ids": [],
           "coverage_receipt_ids": [
-            "run:TM18_privacy_public_boundary:5fbe456ddf4f085d"
+            "run:TM18_privacy_public_boundary:964bc23c9ffc316f"
           ],
           "coverage_shard_ids": [
             "TM18_privacy_public_boundary"
@@ -2757,12 +2757,12 @@
           "current": true,
           "evidence_state": "current_pass",
           "metadata": {
-            "alignment_evidence_id": "evidence:model-code-test-alignment:594c495473ac242c",
-            "g8_evidence_id": "evidence:G8-fully-synthetic:65fd6df4b2dba226",
+            "alignment_evidence_id": "evidence:model-code-test-alignment:656e66dd6db30bd7",
+            "g8_evidence_id": "evidence:G8-fully-synthetic:ffe0563f16dabefc",
             "live_provider_evidence": false,
             "scope_revision": "autonomous-object-browser-v2",
             "stale_reason": "requirements, model fields, automatic owner dispatch, object coverage, representative visual, bilingual object browser, and desktop worker changed",
-            "test_receipt_fingerprint": "sha256:537b3c7530ab07341c1eda1e6be19bf70f516091e5dc333c569ab4626e2c2b1c",
+            "test_receipt_fingerprint": "sha256:b01466c26ce7669cc14d6f80577997a6d2b6e42106c8a02b2abc96c73437b9fd",
             "test_receipt_path": ".flowguard/evidence/tests/TM18_privacy_public_boundary.json",
             "through_gate": "G8"
           },
@@ -2771,9 +2771,9 @@
           ],
           "proof_artifact_ids": [
             "evidence:C1_authorization_coverage:68f1f53f4b9e29af",
-            "artifact:run:TM18_privacy_public_boundary:5fbe456ddf4f085d",
-            "evidence:model-code-test-alignment:594c495473ac242c",
-            "evidence:G8-fully-synthetic:65fd6df4b2dba226"
+            "artifact:run:TM18_privacy_public_boundary:964bc23c9ffc316f",
+            "evidence:model-code-test-alignment:656e66dd6db30bd7",
+            "evidence:G8-fully-synthetic:ffe0563f16dabefc"
           ],
           "risk_gate_ids": [
             "G0-private-root",
@@ -2781,7 +2781,7 @@
             "G8-fully-synthetic"
           ],
           "test_evidence_ids": [
-            "run:TM18_privacy_public_boundary:5fbe456ddf4f085d"
+            "run:TM18_privacy_public_boundary:964bc23c9ffc316f"
           ],
           "test_mesh_state": "shard_current"
         },
@@ -2831,7 +2831,7 @@
           "path_sensitive": true,
           "ppa_confidence": "full",
           "ppa_coverage_receipt_ids": [
-            "run:TM18_privacy_public_boundary:5fbe456ddf4f085d"
+            "run:TM18_privacy_public_boundary:964bc23c9ffc316f"
           ],
           "ppa_coverage_shard_ids": [
             "TM18_privacy_public_boundary"
@@ -2847,9 +2847,9 @@
           "primary_path_id": "path:c1-activate-external-private-root",
           "proof_artifact_ids": [
             "evidence:C1_authorization_coverage:68f1f53f4b9e29af",
-            "artifact:run:TM18_privacy_public_boundary:5fbe456ddf4f085d",
-            "evidence:model-code-test-alignment:594c495473ac242c",
-            "evidence:G8-fully-synthetic:65fd6df4b2dba226"
+            "artifact:run:TM18_privacy_public_boundary:964bc23c9ffc316f",
+            "evidence:model-code-test-alignment:656e66dd6db30bd7",
+            "evidence:G8-fully-synthetic:ffe0563f16dabefc"
           ],
           "runtime_observation_ids": [
             "BO-TC-C1_authorization_coverage-candidate_scope_frozen",

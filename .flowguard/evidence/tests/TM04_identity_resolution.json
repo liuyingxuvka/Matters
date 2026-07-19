@@ -1,6 +1,6 @@
 {
   "artifact_type": "matters.test-suite-receipt.v1",
-  "generated_at": "2026-07-19T05:49:45.723288+00:00",
+  "generated_at": "2026-07-19T06:10:59.131339+00:00",
   "pytest_observation": {
     "errors": 0,
     "failed": 0,
@@ -10,18 +10,18 @@
     "xfailed": 0,
     "xpassed": 0
   },
-  "source_fingerprint": "sha256:5c16ddefb67506ecea6b1d11babff233771c1d728d31cc6b5432d5a450254db1",
+  "source_fingerprint": "sha256:10bab5de9ee4209586292be7ab679fb093f31f2c76d2793b395905250fb14d67",
   "source_fingerprints": {
-    "src/matters/identity/__init__.py": "sha256:9726ef17bed08c70b1c0335dbfea0b61362cdb388b7f0980bfa5ed5c17d6dc0a",
-    "src/matters/identity/people.py": "sha256:dddc75b8567800f16cc6a99ec79192dc3fc9035c13855effd895e8b6759afb74",
-    "src/matters/identity/roles.py": "sha256:42acf09526c6e8c941eb887b0e9bb9fcda7e97ef6ea0edb132750f86086142eb",
-    "tests/test_tm04_identity_resolution.py": "sha256:dc781a33790a76e38494c909bda4dd8568b4a9bf60960244a9db7c99b0ab493c"
+    "src/matters/identity/__init__.py": "sha256:5ce208b94c1d2b04e5f9166294bf5323d32f7f2cd8621f07ada570786cc71f17",
+    "src/matters/identity/people.py": "sha256:6b4aaa53925a4fa7add09d2d6319136c07276f6551198b0a84a142b7595cbc1c",
+    "src/matters/identity/roles.py": "sha256:d7a4e55d049a1006d824b4c6f0d2ea902dd5b68dabb877fe9cb1681a70c5fe7d",
+    "tests/test_tm04_identity_resolution.py": "sha256:e9d12b9323f9650d4ab8192ace08720a663fa0cde05f42f13b98d08996d454a2"
   },
   "source_paths": [
     "tests/test_tm04_identity_resolution.py"
   ],
   "stderr_tail": "",
-  "stdout_tail": ".                                                                        [100%]\n1 passed in 0.05s\n",
+  "stdout_tail": ".                                                                        [100%]\n1 passed in 0.07s\n",
   "suite_id": "TM04_identity_resolution",
   "test_suite_evidence": {
     "artifact_version": "matters.test-suite-receipt.v1",
@@ -104,12 +104,12 @@
     "progress_only": false,
     "proof_artifact": {
       "artifact_fingerprints": {
-        "src/matters/identity/__init__.py": "sha256:9726ef17bed08c70b1c0335dbfea0b61362cdb388b7f0980bfa5ed5c17d6dc0a",
-        "src/matters/identity/people.py": "sha256:dddc75b8567800f16cc6a99ec79192dc3fc9035c13855effd895e8b6759afb74",
-        "src/matters/identity/roles.py": "sha256:42acf09526c6e8c941eb887b0e9bb9fcda7e97ef6ea0edb132750f86086142eb",
-        "tests/test_tm04_identity_resolution.py": "sha256:dc781a33790a76e38494c909bda4dd8568b4a9bf60960244a9db7c99b0ab493c"
+        "src/matters/identity/__init__.py": "sha256:5ce208b94c1d2b04e5f9166294bf5323d32f7f2cd8621f07ada570786cc71f17",
+        "src/matters/identity/people.py": "sha256:6b4aaa53925a4fa7add09d2d6319136c07276f6551198b0a84a142b7595cbc1c",
+        "src/matters/identity/roles.py": "sha256:d7a4e55d049a1006d824b4c6f0d2ea902dd5b68dabb877fe9cb1681a70c5fe7d",
+        "tests/test_tm04_identity_resolution.py": "sha256:e9d12b9323f9650d4ab8192ace08720a663fa0cde05f42f13b98d08996d454a2"
       },
-      "artifact_id": "artifact:run:TM04_identity_resolution:8522e1f4b40b9cfb",
+      "artifact_id": "artifact:run:TM04_identity_resolution:a161fdf7eb3ea2bc",
       "assertion_scope": "external_contract",
       "command": "python -m pytest -q -o addopts= tests/test_tm04_identity_resolution.py",
       "covered_obligation_ids": [
@@ -147,7 +147,7 @@
       ],
       "current": true,
       "exit_code": 0,
-      "finished_at": "2026-07-19T05:49:45.723288+00:00",
+      "finished_at": "2026-07-19T06:10:59.131339+00:00",
       "metadata": {},
       "producer_route": "test_mesh",
       "progress_only": false,
@@ -156,15 +156,15 @@
       "route_evidence_current": true,
       "route_gap_codes": [],
       "stale_reasons": [],
-      "started_at": "2026-07-19T05:49:44.834578+00:00"
+      "started_at": "2026-07-19T06:10:58.133234+00:00"
     },
     "release_required": false,
-    "result_fingerprint": "sha256:5c16ddefb67506ecea6b1d11babff233771c1d728d31cc6b5432d5a450254db1",
+    "result_fingerprint": "sha256:10bab5de9ee4209586292be7ab679fb093f31f2c76d2793b395905250fb14d67",
     "result_path": ".flowguard/evidence/tests/TM04_identity_resolution.json",
     "result_reused": false,
     "result_status": "passed",
     "reuse_ticket": null,
-    "run_id": "run:TM04_identity_resolution:8522e1f4b40b9cfb",
+    "run_id": "run:TM04_identity_resolution:a161fdf7eb3ea2bc",
     "selected_count": 1,
     "skipped_count": 0,
     "skipped_visible": true,
