@@ -1,0 +1,4 @@
+interface:
+  display_name: "Matters Research Orchestration"
+  short_description: "Run the single ResearchOperation boundary"
+  default_prompt: "Use $matters-research-orchestration through MatterService to run one allowlisted ResearchGuard operation and return typed advisory findings for automatic original-owner validation."

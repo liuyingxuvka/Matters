@@ -1,0 +1,92 @@
+{
+  "artifact_type": "matters.flowguard-ui-flow-structure.v1",
+  "blockers": [],
+  "claim_boundary": "Native FlowGuard reviews cover admitted content, UI event/state behavior, journeys, capabilities, click-to-output chains, installed desktop runtime, English/zh-CN behavior, Standard/Compact cards, object detail, representative visuals, optional correction, recovery, disclosure, and desktop geometry. Figma design evidence does not substitute for runtime proof.",
+  "failures": [],
+  "generated_at": "2026-07-19T05:54:09.087582+00:00",
+  "ok": true,
+  "residual_risk": [],
+  "runtime_evidence": {
+    "blockers": [],
+    "evidence_id": "evidence:ui:6bd109896ddf53bc",
+    "missing_checks": [],
+    "ok": true,
+    "status": "passed",
+    "ui_revision_current": true
+  },
+  "runtime_reports": {
+    "capability_coverage": {
+      "decision": "green",
+      "finding_codes": [],
+      "finding_count": 0,
+      "ok": true
+    },
+    "functional_chains": {
+      "decision": "green",
+      "finding_codes": [],
+      "finding_count": 0,
+      "ok": true
+    },
+    "geometry": {
+      "decision": "green",
+      "finding_codes": [],
+      "finding_count": 0,
+      "ok": true
+    },
+    "implementation": {
+      "decision": "green",
+      "finding_codes": [],
+      "finding_count": 0,
+      "ok": true
+    },
+    "observed_surface": {
+      "decision": "green",
+      "finding_codes": [],
+      "finding_count": 0,
+      "ok": true
+    },
+    "render": {
+      "decision": "green",
+      "finding_codes": [],
+      "finding_count": 0,
+      "ok": true
+    }
+  },
+  "skipped_checks": [],
+  "status": "ui_flow_green",
+  "structural_reports": {
+    "content_visibility": {
+      "decision": "green",
+      "finding_codes": [],
+      "finding_count": 0,
+      "ok": true
+    },
+    "interaction_model": {
+      "decision": "green",
+      "finding_codes": [],
+      "finding_count": 0,
+      "ok": true
+    },
+    "journey_coverage": {
+      "decision": "green",
+      "finding_codes": [],
+      "finding_count": 0,
+      "ok": true
+    },
+    "responsiveness": {
+      "decision": "green",
+      "finding_codes": [],
+      "finding_count": 0,
+      "ok": true
+    },
+    "visible_surface": {
+      "decision": "green",
+      "finding_codes": [],
+      "finding_count": 0,
+      "ok": true
+    }
+  },
+  "typed_next_actions": [],
+  "ui_revision": "sha256:6bd109896ddf53bc11502265a305c8078ea80b39c04763553859c34bdf65a4d4",
+  "work_mode": "mixed"
+}

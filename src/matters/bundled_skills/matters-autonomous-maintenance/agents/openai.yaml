@@ -1,0 +1,4 @@
+interface:
+  display_name: "Matters Autonomous Maintenance"
+  short_description: "Advance the coverage ledger through existing owners"
+  default_prompt: "Use $matters-autonomous-maintenance through MatterService to select the next eligible coverage-ledger stage, dispatch its original owner, and continue until UI-ready or a declared hard block."

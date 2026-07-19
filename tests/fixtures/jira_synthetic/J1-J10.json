@@ -1,0 +1,191 @@
+{
+  "artifact_type": "matters.synthetic-jira-fixtures.v1",
+  "provider": "jira",
+  "synthetic_only": true,
+  "source_domain": "jira.synthetic.invalid",
+  "scenarios": [
+    {
+      "scenario_id": "J1",
+      "synthetic": true,
+      "provider_envelope": {
+        "external_id": "SYN-J1",
+        "object_type": "issue",
+        "summary": "Prepare a bounded research brief",
+        "status": "Open",
+        "comments": [],
+        "attachments": []
+      },
+      "expected": {
+        "source_count": 1,
+        "admission": "candidate",
+        "reviewable": true,
+        "attachment_evidence": "not_present"
+      }
+    },
+    {
+      "scenario_id": "J2",
+      "synthetic": true,
+      "provider_envelope": {
+        "external_id": "SYN-J2",
+        "object_type": "issue",
+        "summary": "Prepare quarterly outline",
+        "status": "Open",
+        "assignee": "person-synthetic-a",
+        "due_date": "2031-03-01",
+        "sprint": "Synthetic Sprint",
+        "worklog": [],
+        "comments": []
+      },
+      "expected": {
+        "lifecycle": "planned",
+        "forbidden_lifecycle": "in_progress",
+        "reason": "assignment, due date, and sprint do not prove actual start"
+      }
+    },
+    {
+      "scenario_id": "J3",
+      "synthetic": true,
+      "provider_envelope": {
+        "external_id": "SYN-J3",
+        "object_type": "issue",
+        "summary": "Implement synthetic adapter",
+        "status": "In Progress",
+        "change_items": [
+          {"field": "status", "from": "Open", "to": "In Progress", "at": "2031-03-02T09:00:00Z"}
+        ],
+        "worklog": [{"minutes": 30, "at": "2031-03-02T09:30:00Z"}],
+        "comments": [{"body": "I started the implementation.", "at": "2031-03-02T09:05:00Z"}]
+      },
+      "expected": {
+        "lifecycle": "in_progress_candidate",
+        "start_evidence": ["status_change", "worklog", "explicit_comment"]
+      }
+    },
+    {
+      "scenario_id": "J4",
+      "synthetic": true,
+      "provider_envelope": {
+        "external_id": "SYN-J4",
+        "object_type": "issue",
+        "summary": "Deliver synthetic report",
+        "status": "Done",
+        "resolution": "Fixed",
+        "comments": [{"body": "All declared completion criteria are satisfied.", "at": "2031-03-03T16:00:00Z"}],
+        "attachments": [{"name": "synthetic-result.txt", "content_hash": "sha256:synthetic-j4-result"}]
+      },
+      "expected": {
+        "outcome": "completed_candidate",
+        "required_evidence": ["resolution", "result_attachment", "explicit_completion_confirmation"],
+        "forbidden_rule": "provider Done alone proves completion"
+      }
+    },
+    {
+      "scenario_id": "J5",
+      "synthetic": true,
+      "provider_envelope": {
+        "external_id": "SYN-J5",
+        "object_type": "issue",
+        "summary": "Maybe research this later",
+        "status": "Open",
+        "comments": []
+      },
+      "expected": {
+        "admission": "source_only",
+        "reason": "possibility language does not establish an active goal or obligation"
+      }
+    },
+    {
+      "scenario_id": "J6",
+      "synthetic": true,
+      "provider_envelope": {
+        "external_id": "SYN-J6",
+        "object_type": "issue",
+        "summary": "Resolve synthetic dependency",
+        "status": "Reopened",
+        "change_items": [
+          {"field": "status", "from": "In Progress", "to": "Done", "at": "2031-03-04T10:00:00Z"},
+          {"field": "status", "from": "Done", "to": "Reopened", "at": "2031-03-04T12:00:00Z"}
+        ],
+        "comments": [{"body": "Still blocked by the external approval.", "at": "2031-03-04T12:05:00Z"}]
+      },
+      "expected": {
+        "decision": "review_required",
+        "preserve": ["done_event", "reopen_event", "blocked_comment", "contradiction"]
+      }
+    },
+    {
+      "scenario_id": "J7",
+      "synthetic": true,
+      "provider_envelope": {
+        "external_id": "SYN-J7",
+        "object_type": "epic",
+        "summary": "Synthetic parent outcome",
+        "children": [
+          {"external_id": "SYN-J7-A", "summary": "First action"},
+          {"external_id": "SYN-J7-B", "summary": "Second action"}
+        ]
+      },
+      "expected": {
+        "decision": "semantic_review_required",
+        "allowed_options": ["one_matter_many_actions", "split_matters"],
+        "forbidden_rule": "provider hierarchy mechanically determines Matter count"
+      }
+    },
+    {
+      "scenario_id": "J8",
+      "synthetic": true,
+      "provider_envelope": {
+        "external_id": "SYN-J8",
+        "object_type": "issue_chain",
+        "links": [
+          {"from": "SYN-J8-A", "type": "duplicates", "to": "SYN-J8-B"},
+          {"from": "SYN-J8-B", "type": "blocks", "to": "SYN-J8-C"},
+          {"from": "SYN-J8-C", "type": "relates", "to": "SYN-J8-D"}
+        ]
+      },
+      "expected": {
+        "output": "multiple_matter_and_relationship_candidates",
+        "forbidden_rules": ["automatic_merge", "automatic_causal_claim"]
+      }
+    },
+    {
+      "scenario_id": "J9",
+      "synthetic": true,
+      "provider_envelope": {
+        "external_id": "SYN-J9",
+        "object_type": "issue",
+        "summary": "Review bilingual evidence",
+        "comments": [
+          {"body": "The English statement is anchored.", "language": "en"},
+          {"body": "中文陈述绑定到同一修订。", "language": "zh-CN"}
+        ],
+        "attachments": [
+          {"name": "synthetic.pdf", "page": 2, "region": [10, 20, 300, 180]},
+          {"name": "synthetic.png", "ocr_region": [40, 50, 240, 160], "ocr_text": "Synthetic OCR text"}
+        ]
+      },
+      "expected": {
+        "evidence_anchor": "exact_attachment_region",
+        "projection_languages": ["en", "zh-CN"],
+        "same_semantic_revision": true
+      }
+    },
+    {
+      "scenario_id": "J10",
+      "synthetic": true,
+      "provider_envelope": {
+        "external_id": "SYN-J10",
+        "object_type": "issue",
+        "summary": "Restricted synthetic issue",
+        "visibility": "restricted",
+        "private_comments_access": "denied",
+        "attachment_access": "denied"
+      },
+      "expected": {
+        "coverage": "partial",
+        "capability_status": "access_blocked",
+        "forbidden_claim": "complete source coverage"
+      }
+    }
+  ]
+}

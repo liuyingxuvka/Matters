@@ -1,0 +1,3325 @@
+{
+  "artifact_type": "matters.behavior-commitment-ledger-review.v1",
+  "claim_boundary": "A structural_inventory_current_evidence_deferred result proves only the current bidirectional three-plane inventory has no unexpected native ownership, relation, surface, identity, or lifecycle finding. Every path-sensitive product, agent-operation, Skill Pack, ResearchGuard, first-run, install, and release claim remains blocked until its original evidence owners publish current PPA, TestMesh, runtime, and risk-gate receipts.",
+  "expected_deferred_finding_codes": [
+    "commitment_primary_path_blocked",
+    "commitment_primary_path_material_evidence_missing",
+    "commitment_primary_path_risk_gate_missing"
+  ],
+  "finding_codes": [
+    "commitment_primary_path_blocked",
+    "commitment_primary_path_material_evidence_missing",
+    "commitment_primary_path_risk_gate_missing"
+  ],
+  "generated_at": "2026-07-18T21:42:20.441132+00:00",
+  "ledger_fingerprint": "sha256:f376db2644b5ca159165ba6d3180d25a90e7887a65ddea784007be5ad2dd9251",
+  "ledger_revision": "autonomous-object-browser-v2",
+  "native_report": {
+    "confidence": "blocked",
+    "coverage_case_ids": [
+      "TC-M0_matters_end_to_end_authority-all_children_current_consumed_no_pending",
+      "TC-M0_matters_end_to_end_authority-all_children_current_consumed_no_pending-retry",
+      "TC-M0_matters_end_to_end_authority-child_review_token_present",
+      "TC-M0_matters_end_to_end_authority-child_review_token_present-retry",
+      "TC-M0_matters_end_to_end_authority-child_blocked_or_pending",
+      "TC-M0_matters_end_to_end_authority-child_blocked_or_pending-retry",
+      "TC-M0_matters_end_to_end_authority-progressive_inventory_partial",
+      "TC-M0_matters_end_to_end_authority-progressive_inventory_partial-retry",
+      "TC-M0_matters_end_to_end_authority-semantic_depth_partial",
+      "TC-M0_matters_end_to_end_authority-semantic_depth_partial-retry",
+      "TC-M0_matters_end_to_end_authority-researchguard_pending",
+      "TC-M0_matters_end_to_end_authority-researchguard_pending-retry",
+      "TC-M0_matters_end_to_end_authority-stale_child_receipt",
+      "TC-M0_matters_end_to_end_authority-stale_child_receipt-retry",
+      "TC-M0_matters_end_to_end_authority-unconsumed_child_output",
+      "TC-M0_matters_end_to_end_authority-unconsumed_child_output-retry",
+      "TC-M0_matters_end_to_end_authority-correction_invalidates_downstream",
+      "TC-M0_matters_end_to_end_authority-correction_invalidates_downstream-retry",
+      "TC-M0_matters_end_to_end_authority-recompute_owner_join_pending",
+      "TC-M0_matters_end_to_end_authority-recompute_owner_join_pending-retry",
+      "TC-M0_matters_end_to_end_authority-parent_attempts_child_write",
+      "TC-M0_matters_end_to_end_authority-parent_attempts_child_write-retry",
+      "TC-C1_authorization_coverage-candidate_scope_frozen",
+      "TC-C1_authorization_coverage-candidate_scope_frozen-retry",
+      "TC-C1_authorization_coverage-tracked_current",
+      "TC-C1_authorization_coverage-tracked_current-retry",
+      "TC-C1_authorization_coverage-ai_not_tracked_current",
+      "TC-C1_authorization_coverage-ai_not_tracked_current-retry",
+      "TC-C1_authorization_coverage-ai_uncertain_or_protected",
+      "TC-C1_authorization_coverage-ai_uncertain_or_protected-retry",
+      "TC-C1_authorization_coverage-deferred_item_present",
+      "TC-C1_authorization_coverage-deferred_item_present-retry",
+      "TC-C1_authorization_coverage-all_items_and_pages_terminal",
+      "TC-C1_authorization_coverage-all_items_and_pages_terminal-retry",
+      "TC-C1_authorization_coverage-nonterminal_or_missing_page",
+      "TC-C1_authorization_coverage-nonterminal_or_missing_page-retry",
+      "TC-C1_authorization_coverage-tracking_policy_changed",
+      "TC-C1_authorization_coverage-tracking_policy_changed-retry",
+      "TC-C1_authorization_coverage-outside_scope",
+      "TC-C1_authorization_coverage-outside_scope-retry",
+      "TC-C1_authorization_coverage-authorization_revoked",
+      "TC-C1_authorization_coverage-authorization_revoked-retry",
+      "TC-C1_authorization_coverage-private_root_outside_git",
+      "TC-C1_authorization_coverage-private_root_outside_git-retry",
+      "TC-C1_authorization_coverage-private_root_inside_git",
+      "TC-C1_authorization_coverage-private_root_inside_git-retry",
+      "TC-C2_source_registry-inventory_first_snapshot",
+      "TC-C2_source_registry-inventory_first_snapshot-retry",
+      "TC-C2_source_registry-new_content",
+      "TC-C2_source_registry-new_content-retry",
+      "TC-C2_source_registry-metadata_only_change",
+      "TC-C2_source_registry-metadata_only_change-retry",
+      "TC-C2_source_registry-occurrence_moved_same_content",
+      "TC-C2_source_registry-occurrence_moved_same_content-retry",
+      "TC-C2_source_registry-occurrence_newly_reachable",
+      "TC-C2_source_registry-occurrence_newly_reachable-retry",
+      "TC-C2_source_registry-identical_rescan",
+      "TC-C2_source_registry-identical_rescan-retry",
+      "TC-C2_source_registry-source_modified",
+      "TC-C2_source_registry-source_modified-retry",
+      "TC-C2_source_registry-source_deleted",
+      "TC-C2_source_registry-source_deleted-retry",
+      "TC-C2_source_registry-ai_rewrite_attempt",
+      "TC-C2_source_registry-ai_rewrite_attempt-retry",
+      "TC-C3_evidence_qualification-exact_field_anchor",
+      "TC-C3_evidence_qualification-exact_field_anchor-retry",
+      "TC-C3_evidence_qualification-exact_image_region",
+      "TC-C3_evidence_qualification-exact_image_region-retry",
+      "TC-C3_evidence_qualification-exact_document_page_passage",
+      "TC-C3_evidence_qualification-exact_document_page_passage-retry",
+      "TC-C3_evidence_qualification-exact_sheet_cell_range",
+      "TC-C3_evidence_qualification-exact_sheet_cell_range-retry",
+      "TC-C3_evidence_qualification-exact_mail_attachment_anchor",
+      "TC-C3_evidence_qualification-exact_mail_attachment_anchor-retry",
+      "TC-C3_evidence_qualification-unsupported_or_unreadable_payload",
+      "TC-C3_evidence_qualification-unsupported_or_unreadable_payload-retry",
+      "TC-C3_evidence_qualification-title_or_filename_only",
+      "TC-C3_evidence_qualification-title_or_filename_only-retry",
+      "TC-C3_evidence_qualification-planned_statement",
+      "TC-C3_evidence_qualification-planned_statement-retry",
+      "TC-C3_evidence_qualification-superseded_anchor",
+      "TC-C3_evidence_qualification-superseded_anchor-retry",
+      "TC-C4_person_entity_resolution-same_name_no_link",
+      "TC-C4_person_entity_resolution-same_name_no_link-retry",
+      "TC-C4_person_entity_resolution-assignee_role",
+      "TC-C4_person_entity_resolution-assignee_role-retry",
+      "TC-C4_person_entity_resolution-strong_identity_link",
+      "TC-C4_person_entity_resolution-strong_identity_link-retry",
+      "TC-C4_person_entity_resolution-user_split_correction",
+      "TC-C4_person_entity_resolution-user_split_correction-retry",
+      "TC-C4_person_entity_resolution-researchguard_identity_proposal",
+      "TC-C4_person_entity_resolution-researchguard_identity_proposal-retry",
+      "TC-C5_event_temporal_trace-explicit_actual_start",
+      "TC-C5_event_temporal_trace-explicit_actual_start-retry",
+      "TC-C5_event_temporal_trace-future_meeting",
+      "TC-C5_event_temporal_trace-future_meeting-retry",
+      "TC-C5_event_temporal_trace-assignment_without_start",
+      "TC-C5_event_temporal_trace-assignment_without_start-retry",
+      "TC-C5_event_temporal_trace-file_or_exif_time_without_event_claim",
+      "TC-C5_event_temporal_trace-file_or_exif_time_without_event_claim-retry",
+      "TC-C5_event_temporal_trace-done_then_reopen_blocked",
+      "TC-C5_event_temporal_trace-done_then_reopen_blocked-retry",
+      "TC-C6_matter_formation_admission-provider_item_basic",
+      "TC-C6_matter_formation_admission-provider_item_basic-retry",
+      "TC-C6_matter_formation_admission-future_maybe_research",
+      "TC-C6_matter_formation_admission-future_maybe_research-retry",
+      "TC-C6_matter_formation_admission-fully_evidenced_obligation",
+      "TC-C6_matter_formation_admission-fully_evidenced_obligation-retry",
+      "TC-C6_matter_formation_admission-conflicting_or_insufficient",
+      "TC-C6_matter_formation_admission-conflicting_or_insufficient-retry",
+      "TC-C6_matter_formation_admission-access_blocked",
+      "TC-C6_matter_formation_admission-access_blocked-retry",
+      "TC-C7_lifecycle_board_state-explicit_start_evidence",
+      "TC-C7_lifecycle_board_state-explicit_start_evidence-retry",
+      "TC-C7_lifecycle_board_state-scheduled_only",
+      "TC-C7_lifecycle_board_state-scheduled_only-retry",
+      "TC-C7_lifecycle_board_state-partial_coverage_no_start",
+      "TC-C7_lifecycle_board_state-partial_coverage_no_start-retry",
+      "TC-C7_lifecycle_board_state-provider_done_without_completion",
+      "TC-C7_lifecycle_board_state-provider_done_without_completion-retry",
+      "TC-C7_lifecycle_board_state-ui_direct_state_write",
+      "TC-C7_lifecycle_board_state-ui_direct_state_write-retry",
+      "TC-C8_open_loop_waiting_blocking-request_with_target_and_condition",
+      "TC-C8_open_loop_waiting_blocking-request_with_target_and_condition-retry",
+      "TC-C8_open_loop_waiting_blocking-vague_waiting_text",
+      "TC-C8_open_loop_waiting_blocking-vague_waiting_text-retry",
+      "TC-C8_open_loop_waiting_blocking-researchguard_blocker_without_closure",
+      "TC-C8_open_loop_waiting_blocking-researchguard_blocker_without_closure-retry",
+      "TC-C8_open_loop_waiting_blocking-noncritical_subtask_failure",
+      "TC-C8_open_loop_waiting_blocking-noncritical_subtask_failure-retry",
+      "TC-C8_open_loop_waiting_blocking-critical_dependency_failure",
+      "TC-C8_open_loop_waiting_blocking-critical_dependency_failure-retry",
+      "TC-C8_open_loop_waiting_blocking-matter_complete_loop_unmet",
+      "TC-C8_open_loop_waiting_blocking-matter_complete_loop_unmet-retry",
+      "TC-C8_open_loop_waiting_blocking-declared_closure_evidence",
+      "TC-C8_open_loop_waiting_blocking-declared_closure_evidence-retry",
+      "TC-C9_completion_cancellation_reopen-all_completion_criteria_evidenced",
+      "TC-C9_completion_cancellation_reopen-all_completion_criteria_evidenced-retry",
+      "TC-C9_completion_cancellation_reopen-terminal_label_or_final_file_only",
+      "TC-C9_completion_cancellation_reopen-terminal_label_or_final_file_only-retry",
+      "TC-C9_completion_cancellation_reopen-user_cancels_with_open_loop",
+      "TC-C9_completion_cancellation_reopen-user_cancels_with_open_loop-retry",
+      "TC-C9_completion_cancellation_reopen-new_obligation_after_completion",
+      "TC-C9_completion_cancellation_reopen-new_obligation_after_completion-retry",
+      "TC-C9_completion_cancellation_reopen-source_revision_or_ai_reopen_proposal",
+      "TC-C9_completion_cancellation_reopen-source_revision_or_ai_reopen_proposal-retry",
+      "TC-C9_completion_cancellation_reopen-conflicting_termination_evidence",
+      "TC-C9_completion_cancellation_reopen-conflicting_termination_evidence-retry",
+      "TC-C10_correction_revocation-user_correction",
+      "TC-C10_correction_revocation-user_correction-retry",
+      "TC-C10_correction_revocation-source_or_tracking_stale",
+      "TC-C10_correction_revocation-source_or_tracking_stale-retry",
+      "TC-C10_correction_revocation-all_required_owners_terminal",
+      "TC-C10_correction_revocation-all_required_owners_terminal-retry",
+      "TC-C10_correction_revocation-required_owner_failed_or_missing",
+      "TC-C10_correction_revocation-required_owner_failed_or_missing-retry",
+      "TC-C10_correction_revocation-restart_with_current_checkpoint",
+      "TC-C10_correction_revocation-restart_with_current_checkpoint-retry",
+      "TC-C10_correction_revocation-authorization_revoked",
+      "TC-C10_correction_revocation-authorization_revoked-retry",
+      "TC-C10_correction_revocation-ui_only_patch_request",
+      "TC-C10_correction_revocation-ui_only_patch_request-retry",
+      "TC-C10_correction_revocation-direct_foreign_state_write",
+      "TC-C10_correction_revocation-direct_foreign_state_write-retry",
+      "TC-C11_guard_artifact_prediction-current_ai_finding",
+      "TC-C11_guard_artifact_prediction-current_ai_finding-retry",
+      "TC-C11_guard_artifact_prediction-current_researchguard_result",
+      "TC-C11_guard_artifact_prediction-current_researchguard_result-retry",
+      "TC-C11_guard_artifact_prediction-researchguard_not_current",
+      "TC-C11_guard_artifact_prediction-researchguard_not_current-retry",
+      "TC-C11_guard_artifact_prediction-legacy_parallel_guard_binding",
+      "TC-C11_guard_artifact_prediction-legacy_parallel_guard_binding-retry",
+      "TC-C11_guard_artifact_prediction-current_scope_triage",
+      "TC-C11_guard_artifact_prediction-current_scope_triage-retry",
+      "TC-C11_guard_artifact_prediction-depth_sufficient_current",
+      "TC-C11_guard_artifact_prediction-depth_sufficient_current-retry",
+      "TC-C11_guard_artifact_prediction-depth_partial_or_stale",
+      "TC-C11_guard_artifact_prediction-depth_partial_or_stale-retry",
+      "TC-C11_guard_artifact_prediction-stale_operation_result",
+      "TC-C11_guard_artifact_prediction-stale_operation_result-retry",
+      "TC-C11_guard_artifact_prediction-scope_escape_attempt",
+      "TC-C11_guard_artifact_prediction-scope_escape_attempt-retry",
+      "TC-C11_guard_artifact_prediction-forecast_delay",
+      "TC-C11_guard_artifact_prediction-forecast_delay-retry",
+      "TC-C11_guard_artifact_prediction-research_direct_canonical_write",
+      "TC-C11_guard_artifact_prediction-research_direct_canonical_write-retry",
+      "TC-C11_guard_artifact_prediction-skipped_or_progress_receipt",
+      "TC-C11_guard_artifact_prediction-skipped_or_progress_receipt-retry",
+      "TC-C12_projection_bilingual_ui-same_revision_equivalent",
+      "TC-C12_projection_bilingual_ui-same_revision_equivalent-retry",
+      "TC-C12_projection_bilingual_ui-first_launch_without_preference",
+      "TC-C12_projection_bilingual_ui-first_launch_without_preference-retry",
+      "TC-C12_projection_bilingual_ui-select_chinese_same_context",
+      "TC-C12_projection_bilingual_ui-select_chinese_same_context-retry",
+      "TC-C12_projection_bilingual_ui-future_locale_complete",
+      "TC-C12_projection_bilingual_ui-future_locale_complete-retry",
+      "TC-C12_projection_bilingual_ui-missing_required_locale",
+      "TC-C12_projection_bilingual_ui-missing_required_locale-retry",
+      "TC-C12_projection_bilingual_ui-unsupported_locale_requested",
+      "TC-C12_projection_bilingual_ui-unsupported_locale_requested-retry",
+      "TC-C12_projection_bilingual_ui-static_copy_complete",
+      "TC-C12_projection_bilingual_ui-static_copy_complete-retry",
+      "TC-C12_projection_bilingual_ui-source_catalog_current",
+      "TC-C12_projection_bilingual_ui-source_catalog_current-retry",
+      "TC-C12_projection_bilingual_ui-large_catalog_incremental",
+      "TC-C12_projection_bilingual_ui-large_catalog_incremental-retry",
+      "TC-C12_projection_bilingual_ui-source_tracking_control",
+      "TC-C12_projection_bilingual_ui-source_tracking_control-retry",
+      "TC-C12_projection_bilingual_ui-advisory_candidate_review_control",
+      "TC-C12_projection_bilingual_ui-advisory_candidate_review_control-retry",
+      "TC-C12_projection_bilingual_ui-recompute_not_terminal",
+      "TC-C12_projection_bilingual_ui-recompute_not_terminal-retry",
+      "TC-C12_projection_bilingual_ui-blocked_waiting_conflict",
+      "TC-C12_projection_bilingual_ui-blocked_waiting_conflict-retry",
+      "TC-C12_projection_bilingual_ui-stale_one_language",
+      "TC-C12_projection_bilingual_ui-stale_one_language-retry",
+      "TC-C12_projection_bilingual_ui-ui_infers_state",
+      "TC-C12_projection_bilingual_ui-ui_infers_state-retry",
+      "TC-C12_projection_bilingual_ui-correction_control",
+      "TC-C12_projection_bilingual_ui-correction_control-retry",
+      "TC-C12_projection_bilingual_ui-internal_identifier_requested_by_default",
+      "TC-C12_projection_bilingual_ui-internal_identifier_requested_by_default-retry"
+    ],
+    "coverage_receipt_ids": [
+      "run:TM14_end_to_end_conformance:f64bb3ad47fa9c63",
+      "run:TM01_authorization_coverage:f45606e8a42e9833",
+      "run:TM02_source_registry:9a087eecb8c0b519",
+      "run:TM03_evidence_qualification:08af59d007a9d3ad",
+      "run:TM04_identity_resolution:ea4a1f906e57c830",
+      "run:TM05_event_trace:fa2ea24b43f9de78",
+      "run:TM06_matter_admission:66103c6185a80f90",
+      "run:TM07_lifecycle_board_state:630e066da6c2d9f9",
+      "run:TM08_open_loop_blocking:3e5f7191782208d3",
+      "run:TM09_completion_reopen:b0c35c13f8cc535a",
+      "run:TM10_correction_invalidation:5c70656a8546d941",
+      "run:TM11_guard_prediction_boundary:afa6dc8d7a916e83",
+      "run:TM12_projection_bilingual_ui:90a2078dfb914f85",
+      "run:TM18_privacy_public_boundary:a720d3e2ac6400c8"
+    ],
+    "coverage_shard_ids": [
+      "TM14_end_to_end_conformance",
+      "TM01_authorization_coverage",
+      "TM02_source_registry",
+      "TM03_evidence_qualification",
+      "TM04_identity_resolution",
+      "TM05_event_trace",
+      "TM06_matter_admission",
+      "TM07_lifecycle_board_state",
+      "TM08_open_loop_blocking",
+      "TM09_completion_reopen",
+      "TM10_correction_invalidation",
+      "TM11_guard_prediction_boundary",
+      "TM12_projection_bilingual_ui",
+      "TM18_privacy_public_boundary"
+    ],
+    "covered_business_intent_ids": [],
+    "covered_commitment_ids": [],
+    "decision": "behavior_commitment_coverage_blocked",
+    "extra_commitment_ids": [],
+    "findings": [
+      {
+        "code": "commitment_primary_path_blocked",
+        "commitment_id": "BC-PR-000",
+        "message": "Primary Path Authority blocks this path-sensitive commitment",
+        "metadata": {
+          "path_authority": {
+            "behavior_commitment_id": "BC-PR-000",
+            "business_intent": "autonomously maintain an authorized situation",
+            "business_intent_id": "BI-PR-000-review-authorized-situation",
+            "evidence_current": false,
+            "evidence_refs": [
+              ".flowguard/evidence/tests/TM14_end_to_end_conformance.json",
+              ".flowguard/evidence/alignment/model_code_test.json",
+              ".flowguard/evidence/synthetic/G8_fully_synthetic_end_to_end.json"
+            ],
+            "fallback_candidate_ids": [],
+            "legacy_plural_migrated": false,
+            "metadata": {},
+            "path_sensitive": true,
+            "ppa_confidence": "blocked",
+            "ppa_coverage_receipt_ids": [
+              "run:TM14_end_to_end_conformance:f64bb3ad47fa9c63"
+            ],
+            "ppa_coverage_shard_ids": [
+              "TM14_end_to_end_conformance"
+            ],
+            "ppa_decision": "primary_path_authority_blocked",
+            "ppa_ok": false,
+            "ppa_report_id": "PPA-BC-PR-000-G8",
+            "ppa_risk_gate_ids": [
+              "authority",
+              "cartesian_coverage",
+              "G8-fully-synthetic"
+            ],
+            "primary_path_id": "path:matters-end-to-end-authority",
+            "primary_path_migration_ambiguous": false,
+            "proof_artifact_ids": [
+              "evidence:M0_matters_end_to_end_authority:c41cc6b8ddbfe0d5",
+              "artifact:run:TM14_end_to_end_conformance:f64bb3ad47fa9c63",
+              "evidence:model-code-test-alignment:9c4af1411686aaae",
+              "evidence:G8-fully-synthetic:bc64583f4f44a72f"
+            ],
+            "runtime_observation_ids": [
+              "BO-TC-M0_matters_end_to_end_authority-all_children_current_consumed_no_pending",
+              "BO-TC-M0_matters_end_to_end_authority-all_children_current_consumed_no_pending-retry",
+              "BO-TC-M0_matters_end_to_end_authority-child_review_token_present",
+              "BO-TC-M0_matters_end_to_end_authority-child_review_token_present-retry",
+              "BO-TC-M0_matters_end_to_end_authority-child_blocked_or_pending",
+              "BO-TC-M0_matters_end_to_end_authority-child_blocked_or_pending-retry",
+              "BO-TC-M0_matters_end_to_end_authority-progressive_inventory_partial",
+              "BO-TC-M0_matters_end_to_end_authority-progressive_inventory_partial-retry",
+              "BO-TC-M0_matters_end_to_end_authority-semantic_depth_partial",
+              "BO-TC-M0_matters_end_to_end_authority-semantic_depth_partial-retry",
+              "BO-TC-M0_matters_end_to_end_authority-researchguard_pending",
+              "BO-TC-M0_matters_end_to_end_authority-researchguard_pending-retry",
+              "BO-TC-M0_matters_end_to_end_authority-stale_child_receipt",
+              "BO-TC-M0_matters_end_to_end_authority-stale_child_receipt-retry",
+              "BO-TC-M0_matters_end_to_end_authority-unconsumed_child_output",
+              "BO-TC-M0_matters_end_to_end_authority-unconsumed_child_output-retry",
+              "BO-TC-M0_matters_end_to_end_authority-correction_invalidates_downstream",
+              "BO-TC-M0_matters_end_to_end_authority-correction_invalidates_downstream-retry",
+              "BO-TC-M0_matters_end_to_end_authority-recompute_owner_join_pending",
+              "BO-TC-M0_matters_end_to_end_authority-recompute_owner_join_pending-retry",
+              "BO-TC-M0_matters_end_to_end_authority-parent_attempts_child_write",
+              "BO-TC-M0_matters_end_to_end_authority-parent_attempts_child_write-retry",
+              "BO-M0_matters_end_to_end_authority-foreign_owner_write",
+              "BO-M0_matters_end_to_end_authority-undeclared_provider_field"
+            ],
+            "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
+          }
+        },
+        "severity": "blocker",
+        "surface_id": ""
+      },
+      {
+        "code": "commitment_primary_path_material_evidence_missing",
+        "commitment_id": "BC-PR-000",
+        "message": "PPA binding must carry current runtime observations and proof artifact ids",
+        "metadata": {
+          "path_authority": {
+            "behavior_commitment_id": "BC-PR-000",
+            "business_intent": "autonomously maintain an authorized situation",
+            "business_intent_id": "BI-PR-000-review-authorized-situation",
+            "evidence_current": false,
+            "evidence_refs": [
+              ".flowguard/evidence/tests/TM14_end_to_end_conformance.json",
+              ".flowguard/evidence/alignment/model_code_test.json",
+              ".flowguard/evidence/synthetic/G8_fully_synthetic_end_to_end.json"
+            ],
+            "fallback_candidate_ids": [],
+            "legacy_plural_migrated": false,
+            "metadata": {},
+            "path_sensitive": true,
+            "ppa_confidence": "blocked",
+            "ppa_coverage_receipt_ids": [
+              "run:TM14_end_to_end_conformance:f64bb3ad47fa9c63"
+            ],
+            "ppa_coverage_shard_ids": [
+              "TM14_end_to_end_conformance"
+            ],
+            "ppa_decision": "primary_path_authority_blocked",
+            "ppa_ok": false,
+            "ppa_report_id": "PPA-BC-PR-000-G8",
+            "ppa_risk_gate_ids": [
+              "authority",
+              "cartesian_coverage",
+              "G8-fully-synthetic"
+            ],
+            "primary_path_id": "path:matters-end-to-end-authority",
+            "primary_path_migration_ambiguous": false,
+            "proof_artifact_ids": [
+              "evidence:M0_matters_end_to_end_authority:c41cc6b8ddbfe0d5",
+              "artifact:run:TM14_end_to_end_conformance:f64bb3ad47fa9c63",
+              "evidence:model-code-test-alignment:9c4af1411686aaae",
+              "evidence:G8-fully-synthetic:bc64583f4f44a72f"
+            ],
+            "runtime_observation_ids": [
+              "BO-TC-M0_matters_end_to_end_authority-all_children_current_consumed_no_pending",
+              "BO-TC-M0_matters_end_to_end_authority-all_children_current_consumed_no_pending-retry",
+              "BO-TC-M0_matters_end_to_end_authority-child_review_token_present",
+              "BO-TC-M0_matters_end_to_end_authority-child_review_token_present-retry",
+              "BO-TC-M0_matters_end_to_end_authority-child_blocked_or_pending",
+              "BO-TC-M0_matters_end_to_end_authority-child_blocked_or_pending-retry",
+              "BO-TC-M0_matters_end_to_end_authority-progressive_inventory_partial",
+              "BO-TC-M0_matters_end_to_end_authority-progressive_inventory_partial-retry",
+              "BO-TC-M0_matters_end_to_end_authority-semantic_depth_partial",
+              "BO-TC-M0_matters_end_to_end_authority-semantic_depth_partial-retry",
+              "BO-TC-M0_matters_end_to_end_authority-researchguard_pending",
+              "BO-TC-M0_matters_end_to_end_authority-researchguard_pending-retry",
+              "BO-TC-M0_matters_end_to_end_authority-stale_child_receipt",
+              "BO-TC-M0_matters_end_to_end_authority-stale_child_receipt-retry",
+              "BO-TC-M0_matters_end_to_end_authority-unconsumed_child_output",
+              "BO-TC-M0_matters_end_to_end_authority-unconsumed_child_output-retry",
+              "BO-TC-M0_matters_end_to_end_authority-correction_invalidates_downstream",
+              "BO-TC-M0_matters_end_to_end_authority-correction_invalidates_downstream-retry",
+              "BO-TC-M0_matters_end_to_end_authority-recompute_owner_join_pending",
+              "BO-TC-M0_matters_end_to_end_authority-recompute_owner_join_pending-retry",
+              "BO-TC-M0_matters_end_to_end_authority-parent_attempts_child_write",
+              "BO-TC-M0_matters_end_to_end_authority-parent_attempts_child_write-retry",
+              "BO-M0_matters_end_to_end_authority-foreign_owner_write",
+              "BO-M0_matters_end_to_end_authority-undeclared_provider_field"
+            ],
+            "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
+          }
+        },
+        "severity": "blocker",
+        "surface_id": ""
+      },
+      {
+        "code": "commitment_primary_path_blocked",
+        "commitment_id": "BC-PR-001",
+        "message": "Primary Path Authority blocks this path-sensitive commitment",
+        "metadata": {
+          "path_authority": {
+            "behavior_commitment_id": "BC-PR-001",
+            "business_intent": "",
+            "business_intent_id": "BI-PR-001-read-authorized-sources",
+            "evidence_current": false,
+            "evidence_refs": [
+              ".flowguard/evidence/tests/TM01_authorization_coverage.json",
+              ".flowguard/evidence/alignment/model_code_test.json",
+              ".flowguard/evidence/synthetic/G8_fully_synthetic_end_to_end.json"
+            ],
+            "fallback_candidate_ids": [],
+            "legacy_plural_migrated": false,
+            "metadata": {},
+            "path_sensitive": true,
+            "ppa_confidence": "blocked",
+            "ppa_coverage_receipt_ids": [
+              "run:TM01_authorization_coverage:f45606e8a42e9833"
+            ],
+            "ppa_coverage_shard_ids": [
+              "TM01_authorization_coverage"
+            ],
+            "ppa_decision": "primary_path_authority_blocked",
+            "ppa_ok": false,
+            "ppa_report_id": "PPA-BC-PR-001-G8",
+            "ppa_risk_gate_ids": [
+              "authority",
+              "cartesian_coverage",
+              "G8-fully-synthetic"
+            ],
+            "primary_path_id": "path:c1-freeze-and-classify-candidate-universe",
+            "primary_path_migration_ambiguous": false,
+            "proof_artifact_ids": [
+              "evidence:C1_authorization_coverage:c79e7de035569689",
+              "artifact:run:TM01_authorization_coverage:f45606e8a42e9833",
+              "evidence:model-code-test-alignment:9c4af1411686aaae",
+              "evidence:G8-fully-synthetic:bc64583f4f44a72f"
+            ],
+            "runtime_observation_ids": [
+              "BO-TC-C1_authorization_coverage-candidate_scope_frozen",
+              "BO-TC-C1_authorization_coverage-candidate_scope_frozen-retry",
+              "BO-TC-C1_authorization_coverage-tracked_current",
+              "BO-TC-C1_authorization_coverage-tracked_current-retry",
+              "BO-TC-C1_authorization_coverage-ai_not_tracked_current",
+              "BO-TC-C1_authorization_coverage-ai_not_tracked_current-retry",
+              "BO-TC-C1_authorization_coverage-ai_uncertain_or_protected",
+              "BO-TC-C1_authorization_coverage-ai_uncertain_or_protected-retry",
+              "BO-TC-C1_authorization_coverage-deferred_item_present",
+              "BO-TC-C1_authorization_coverage-deferred_item_present-retry",
+              "BO-TC-C1_authorization_coverage-all_items_and_pages_terminal",
+              "BO-TC-C1_authorization_coverage-all_items_and_pages_terminal-retry",
+              "BO-TC-C1_authorization_coverage-nonterminal_or_missing_page",
+              "BO-TC-C1_authorization_coverage-nonterminal_or_missing_page-retry",
+              "BO-TC-C1_authorization_coverage-tracking_policy_changed",
+              "BO-TC-C1_authorization_coverage-tracking_policy_changed-retry",
+              "BO-TC-C1_authorization_coverage-outside_scope",
+              "BO-TC-C1_authorization_coverage-outside_scope-retry",
+              "BO-TC-C1_authorization_coverage-authorization_revoked",
+              "BO-TC-C1_authorization_coverage-authorization_revoked-retry",
+              "BO-TC-C1_authorization_coverage-private_root_outside_git",
+              "BO-TC-C1_authorization_coverage-private_root_outside_git-retry",
+              "BO-TC-C1_authorization_coverage-private_root_inside_git",
+              "BO-TC-C1_authorization_coverage-private_root_inside_git-retry",
+              "BO-C1_authorization_coverage-foreign_owner_write",
+              "BO-C1_authorization_coverage-undeclared_provider_field"
+            ],
+            "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
+          }
+        },
+        "severity": "blocker",
+        "surface_id": ""
+      },
+      {
+        "code": "commitment_primary_path_material_evidence_missing",
+        "commitment_id": "BC-PR-001",
+        "message": "PPA binding must carry current runtime observations and proof artifact ids",
+        "metadata": {
+          "path_authority": {
+            "behavior_commitment_id": "BC-PR-001",
+            "business_intent": "",
+            "business_intent_id": "BI-PR-001-read-authorized-sources",
+            "evidence_current": false,
+            "evidence_refs": [
+              ".flowguard/evidence/tests/TM01_authorization_coverage.json",
+              ".flowguard/evidence/alignment/model_code_test.json",
+              ".flowguard/evidence/synthetic/G8_fully_synthetic_end_to_end.json"
+            ],
+            "fallback_candidate_ids": [],
+            "legacy_plural_migrated": false,
+            "metadata": {},
+            "path_sensitive": true,
+            "ppa_confidence": "blocked",
+            "ppa_coverage_receipt_ids": [
+              "run:TM01_authorization_coverage:f45606e8a42e9833"
+            ],
+            "ppa_coverage_shard_ids": [
+              "TM01_authorization_coverage"
+            ],
+            "ppa_decision": "primary_path_authority_blocked",
+            "ppa_ok": false,
+            "ppa_report_id": "PPA-BC-PR-001-G8",
+            "ppa_risk_gate_ids": [
+              "authority",
+              "cartesian_coverage",
+              "G8-fully-synthetic"
+            ],
+            "primary_path_id": "path:c1-freeze-and-classify-candidate-universe",
+            "primary_path_migration_ambiguous": false,
+            "proof_artifact_ids": [
+              "evidence:C1_authorization_coverage:c79e7de035569689",
+              "artifact:run:TM01_authorization_coverage:f45606e8a42e9833",
+              "evidence:model-code-test-alignment:9c4af1411686aaae",
+              "evidence:G8-fully-synthetic:bc64583f4f44a72f"
+            ],
+            "runtime_observation_ids": [
+              "BO-TC-C1_authorization_coverage-candidate_scope_frozen",
+              "BO-TC-C1_authorization_coverage-candidate_scope_frozen-retry",
+              "BO-TC-C1_authorization_coverage-tracked_current",
+              "BO-TC-C1_authorization_coverage-tracked_current-retry",
+              "BO-TC-C1_authorization_coverage-ai_not_tracked_current",
+              "BO-TC-C1_authorization_coverage-ai_not_tracked_current-retry",
+              "BO-TC-C1_authorization_coverage-ai_uncertain_or_protected",
+              "BO-TC-C1_authorization_coverage-ai_uncertain_or_protected-retry",
+              "BO-TC-C1_authorization_coverage-deferred_item_present",
+              "BO-TC-C1_authorization_coverage-deferred_item_present-retry",
+              "BO-TC-C1_authorization_coverage-all_items_and_pages_terminal",
+              "BO-TC-C1_authorization_coverage-all_items_and_pages_terminal-retry",
+              "BO-TC-C1_authorization_coverage-nonterminal_or_missing_page",
+              "BO-TC-C1_authorization_coverage-nonterminal_or_missing_page-retry",
+              "BO-TC-C1_authorization_coverage-tracking_policy_changed",
+              "BO-TC-C1_authorization_coverage-tracking_policy_changed-retry",
+              "BO-TC-C1_authorization_coverage-outside_scope",
+              "BO-TC-C1_authorization_coverage-outside_scope-retry",
+              "BO-TC-C1_authorization_coverage-authorization_revoked",
+              "BO-TC-C1_authorization_coverage-authorization_revoked-retry",
+              "BO-TC-C1_authorization_coverage-private_root_outside_git",
+              "BO-TC-C1_authorization_coverage-private_root_outside_git-retry",
+              "BO-TC-C1_authorization_coverage-private_root_inside_git",
+              "BO-TC-C1_authorization_coverage-private_root_inside_git-retry",
+              "BO-C1_authorization_coverage-foreign_owner_write",
+              "BO-C1_authorization_coverage-undeclared_provider_field"
+            ],
+            "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
+          }
+        },
+        "severity": "blocker",
+        "surface_id": ""
+      },
+      {
+        "code": "commitment_primary_path_blocked",
+        "commitment_id": "BC-PR-002",
+        "message": "Primary Path Authority blocks this path-sensitive commitment",
+        "metadata": {
+          "path_authority": {
+            "behavior_commitment_id": "BC-PR-002",
+            "business_intent": "",
+            "business_intent_id": "BI-PR-002-preserve-source-provenance",
+            "evidence_current": false,
+            "evidence_refs": [
+              ".flowguard/evidence/tests/TM02_source_registry.json",
+              ".flowguard/evidence/alignment/model_code_test.json",
+              ".flowguard/evidence/synthetic/G8_fully_synthetic_end_to_end.json"
+            ],
+            "fallback_candidate_ids": [],
+            "legacy_plural_migrated": false,
+            "metadata": {},
+            "path_sensitive": true,
+            "ppa_confidence": "blocked",
+            "ppa_coverage_receipt_ids": [
+              "run:TM02_source_registry:9a087eecb8c0b519"
+            ],
+            "ppa_coverage_shard_ids": [
+              "TM02_source_registry"
+            ],
+            "ppa_decision": "primary_path_authority_blocked",
+            "ppa_ok": false,
+            "ppa_report_id": "PPA-BC-PR-002-G8",
+            "ppa_risk_gate_ids": [
+              "authority",
+              "cartesian_coverage",
+              "G8-fully-synthetic"
+            ],
+            "primary_path_id": "path:c2-register-source-version",
+            "primary_path_migration_ambiguous": false,
+            "proof_artifact_ids": [
+              "evidence:C2_source_registry:ff39a3a09d9640d1",
+              "artifact:run:TM02_source_registry:9a087eecb8c0b519",
+              "evidence:model-code-test-alignment:9c4af1411686aaae",
+              "evidence:G8-fully-synthetic:bc64583f4f44a72f"
+            ],
+            "runtime_observation_ids": [
+              "BO-TC-C2_source_registry-inventory_first_snapshot",
+              "BO-TC-C2_source_registry-inventory_first_snapshot-retry",
+              "BO-TC-C2_source_registry-new_content",
+              "BO-TC-C2_source_registry-new_content-retry",
+              "BO-TC-C2_source_registry-metadata_only_change",
+              "BO-TC-C2_source_registry-metadata_only_change-retry",
+              "BO-TC-C2_source_registry-occurrence_moved_same_content",
+              "BO-TC-C2_source_registry-occurrence_moved_same_content-retry",
+              "BO-TC-C2_source_registry-occurrence_newly_reachable",
+              "BO-TC-C2_source_registry-occurrence_newly_reachable-retry",
+              "BO-TC-C2_source_registry-identical_rescan",
+              "BO-TC-C2_source_registry-identical_rescan-retry",
+              "BO-TC-C2_source_registry-source_modified",
+              "BO-TC-C2_source_registry-source_modified-retry",
+              "BO-TC-C2_source_registry-source_deleted",
+              "BO-TC-C2_source_registry-source_deleted-retry",
+              "BO-TC-C2_source_registry-ai_rewrite_attempt",
+              "BO-TC-C2_source_registry-ai_rewrite_attempt-retry",
+              "BO-C2_source_registry-foreign_owner_write",
+              "BO-C2_source_registry-undeclared_provider_field"
+            ],
+            "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
+          }
+        },
+        "severity": "blocker",
+        "surface_id": ""
+      },
+      {
+        "code": "commitment_primary_path_material_evidence_missing",
+        "commitment_id": "BC-PR-002",
+        "message": "PPA binding must carry current runtime observations and proof artifact ids",
+        "metadata": {
+          "path_authority": {
+            "behavior_commitment_id": "BC-PR-002",
+            "business_intent": "",
+            "business_intent_id": "BI-PR-002-preserve-source-provenance",
+            "evidence_current": false,
+            "evidence_refs": [
+              ".flowguard/evidence/tests/TM02_source_registry.json",
+              ".flowguard/evidence/alignment/model_code_test.json",
+              ".flowguard/evidence/synthetic/G8_fully_synthetic_end_to_end.json"
+            ],
+            "fallback_candidate_ids": [],
+            "legacy_plural_migrated": false,
+            "metadata": {},
+            "path_sensitive": true,
+            "ppa_confidence": "blocked",
+            "ppa_coverage_receipt_ids": [
+              "run:TM02_source_registry:9a087eecb8c0b519"
+            ],
+            "ppa_coverage_shard_ids": [
+              "TM02_source_registry"
+            ],
+            "ppa_decision": "primary_path_authority_blocked",
+            "ppa_ok": false,
+            "ppa_report_id": "PPA-BC-PR-002-G8",
+            "ppa_risk_gate_ids": [
+              "authority",
+              "cartesian_coverage",
+              "G8-fully-synthetic"
+            ],
+            "primary_path_id": "path:c2-register-source-version",
+            "primary_path_migration_ambiguous": false,
+            "proof_artifact_ids": [
+              "evidence:C2_source_registry:ff39a3a09d9640d1",
+              "artifact:run:TM02_source_registry:9a087eecb8c0b519",
+              "evidence:model-code-test-alignment:9c4af1411686aaae",
+              "evidence:G8-fully-synthetic:bc64583f4f44a72f"
+            ],
+            "runtime_observation_ids": [
+              "BO-TC-C2_source_registry-inventory_first_snapshot",
+              "BO-TC-C2_source_registry-inventory_first_snapshot-retry",
+              "BO-TC-C2_source_registry-new_content",
+              "BO-TC-C2_source_registry-new_content-retry",
+              "BO-TC-C2_source_registry-metadata_only_change",
+              "BO-TC-C2_source_registry-metadata_only_change-retry",
+              "BO-TC-C2_source_registry-occurrence_moved_same_content",
+              "BO-TC-C2_source_registry-occurrence_moved_same_content-retry",
+              "BO-TC-C2_source_registry-occurrence_newly_reachable",
+              "BO-TC-C2_source_registry-occurrence_newly_reachable-retry",
+              "BO-TC-C2_source_registry-identical_rescan",
+              "BO-TC-C2_source_registry-identical_rescan-retry",
+              "BO-TC-C2_source_registry-source_modified",
+              "BO-TC-C2_source_registry-source_modified-retry",
+              "BO-TC-C2_source_registry-source_deleted",
+              "BO-TC-C2_source_registry-source_deleted-retry",
+              "BO-TC-C2_source_registry-ai_rewrite_attempt",
+              "BO-TC-C2_source_registry-ai_rewrite_attempt-retry",
+              "BO-C2_source_registry-foreign_owner_write",
+              "BO-C2_source_registry-undeclared_provider_field"
+            ],
+            "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
+          }
+        },
+        "severity": "blocker",
+        "surface_id": ""
+      },
+      {
+        "code": "commitment_primary_path_blocked",
+        "commitment_id": "BC-PR-003",
+        "message": "Primary Path Authority blocks this path-sensitive commitment",
+        "metadata": {
+          "path_authority": {
+            "behavior_commitment_id": "BC-PR-003",
+            "business_intent": "",
+            "business_intent_id": "BI-PR-003-use-anchored-evidence",
+            "evidence_current": false,
+            "evidence_refs": [
+              ".flowguard/evidence/tests/TM03_evidence_qualification.json",
+              ".flowguard/evidence/alignment/model_code_test.json",
+              ".flowguard/evidence/synthetic/G8_fully_synthetic_end_to_end.json"
+            ],
+            "fallback_candidate_ids": [],
+            "legacy_plural_migrated": false,
+            "metadata": {},
+            "path_sensitive": true,
+            "ppa_confidence": "blocked",
+            "ppa_coverage_receipt_ids": [
+              "run:TM03_evidence_qualification:08af59d007a9d3ad"
+            ],
+            "ppa_coverage_shard_ids": [
+              "TM03_evidence_qualification"
+            ],
+            "ppa_decision": "primary_path_authority_blocked",
+            "ppa_ok": false,
+            "ppa_report_id": "PPA-BC-PR-003-G8",
+            "ppa_risk_gate_ids": [
+              "authority",
+              "cartesian_coverage",
+              "G8-fully-synthetic"
+            ],
+            "primary_path_id": "path:c3-qualify-evidence",
+            "primary_path_migration_ambiguous": false,
+            "proof_artifact_ids": [
+              "evidence:C3_evidence_qualification:da41d0d4a62eee95",
+              "artifact:run:TM03_evidence_qualification:08af59d007a9d3ad",
+              "evidence:model-code-test-alignment:9c4af1411686aaae",
+              "evidence:G8-fully-synthetic:bc64583f4f44a72f"
+            ],
+            "runtime_observation_ids": [
+              "BO-TC-C3_evidence_qualification-exact_field_anchor",
+              "BO-TC-C3_evidence_qualification-exact_field_anchor-retry",
+              "BO-TC-C3_evidence_qualification-exact_image_region",
+              "BO-TC-C3_evidence_qualification-exact_image_region-retry",
+              "BO-TC-C3_evidence_qualification-exact_document_page_passage",
+              "BO-TC-C3_evidence_qualification-exact_document_page_passage-retry",
+              "BO-TC-C3_evidence_qualification-exact_sheet_cell_range",
+              "BO-TC-C3_evidence_qualification-exact_sheet_cell_range-retry",
+              "BO-TC-C3_evidence_qualification-exact_mail_attachment_anchor",
+              "BO-TC-C3_evidence_qualification-exact_mail_attachment_anchor-retry",
+              "BO-TC-C3_evidence_qualification-unsupported_or_unreadable_payload",
+              "BO-TC-C3_evidence_qualification-unsupported_or_unreadable_payload-retry",
+              "BO-TC-C3_evidence_qualification-title_or_filename_only",
+              "BO-TC-C3_evidence_qualification-title_or_filename_only-retry",
+              "BO-TC-C3_evidence_qualification-planned_statement",
+              "BO-TC-C3_evidence_qualification-planned_statement-retry",
+              "BO-TC-C3_evidence_qualification-superseded_anchor",
+              "BO-TC-C3_evidence_qualification-superseded_anchor-retry",
+              "BO-C3_evidence_qualification-foreign_owner_write",
+              "BO-C3_evidence_qualification-undeclared_provider_field"
+            ],
+            "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
+          }
+        },
+        "severity": "blocker",
+        "surface_id": ""
+      },
+      {
+        "code": "commitment_primary_path_material_evidence_missing",
+        "commitment_id": "BC-PR-003",
+        "message": "PPA binding must carry current runtime observations and proof artifact ids",
+        "metadata": {
+          "path_authority": {
+            "behavior_commitment_id": "BC-PR-003",
+            "business_intent": "",
+            "business_intent_id": "BI-PR-003-use-anchored-evidence",
+            "evidence_current": false,
+            "evidence_refs": [
+              ".flowguard/evidence/tests/TM03_evidence_qualification.json",
+              ".flowguard/evidence/alignment/model_code_test.json",
+              ".flowguard/evidence/synthetic/G8_fully_synthetic_end_to_end.json"
+            ],
+            "fallback_candidate_ids": [],
+            "legacy_plural_migrated": false,
+            "metadata": {},
+            "path_sensitive": true,
+            "ppa_confidence": "blocked",
+            "ppa_coverage_receipt_ids": [
+              "run:TM03_evidence_qualification:08af59d007a9d3ad"
+            ],
+            "ppa_coverage_shard_ids": [
+              "TM03_evidence_qualification"
+            ],
+            "ppa_decision": "primary_path_authority_blocked",
+            "ppa_ok": false,
+            "ppa_report_id": "PPA-BC-PR-003-G8",
+            "ppa_risk_gate_ids": [
+              "authority",
+              "cartesian_coverage",
+              "G8-fully-synthetic"
+            ],
+            "primary_path_id": "path:c3-qualify-evidence",
+            "primary_path_migration_ambiguous": false,
+            "proof_artifact_ids": [
+              "evidence:C3_evidence_qualification:da41d0d4a62eee95",
+              "artifact:run:TM03_evidence_qualification:08af59d007a9d3ad",
+              "evidence:model-code-test-alignment:9c4af1411686aaae",
+              "evidence:G8-fully-synthetic:bc64583f4f44a72f"
+            ],
+            "runtime_observation_ids": [
+              "BO-TC-C3_evidence_qualification-exact_field_anchor",
+              "BO-TC-C3_evidence_qualification-exact_field_anchor-retry",
+              "BO-TC-C3_evidence_qualification-exact_image_region",
+              "BO-TC-C3_evidence_qualification-exact_image_region-retry",
+              "BO-TC-C3_evidence_qualification-exact_document_page_passage",
+              "BO-TC-C3_evidence_qualification-exact_document_page_passage-retry",
+              "BO-TC-C3_evidence_qualification-exact_sheet_cell_range",
+              "BO-TC-C3_evidence_qualification-exact_sheet_cell_range-retry",
+              "BO-TC-C3_evidence_qualification-exact_mail_attachment_anchor",
+              "BO-TC-C3_evidence_qualification-exact_mail_attachment_anchor-retry",
+              "BO-TC-C3_evidence_qualification-unsupported_or_unreadable_payload",
+              "BO-TC-C3_evidence_qualification-unsupported_or_unreadable_payload-retry",
+              "BO-TC-C3_evidence_qualification-title_or_filename_only",
+              "BO-TC-C3_evidence_qualification-title_or_filename_only-retry",
+              "BO-TC-C3_evidence_qualification-planned_statement",
+              "BO-TC-C3_evidence_qualification-planned_statement-retry",
+              "BO-TC-C3_evidence_qualification-superseded_anchor",
+              "BO-TC-C3_evidence_qualification-superseded_anchor-retry",
+              "BO-C3_evidence_qualification-foreign_owner_write",
+              "BO-C3_evidence_qualification-undeclared_provider_field"
+            ],
+            "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
+          }
+        },
+        "severity": "blocker",
+        "surface_id": ""
+      },
+      {
+        "code": "commitment_primary_path_blocked",
+        "commitment_id": "BC-PR-004",
+        "message": "Primary Path Authority blocks this path-sensitive commitment",
+        "metadata": {
+          "path_authority": {
+            "behavior_commitment_id": "BC-PR-004",
+            "business_intent": "",
+            "business_intent_id": "BI-PR-004-resolve-identities-safely",
+            "evidence_current": false,
+            "evidence_refs": [
+              ".flowguard/evidence/tests/TM04_identity_resolution.json",
+              ".flowguard/evidence/alignment/model_code_test.json",
+              ".flowguard/evidence/synthetic/G8_fully_synthetic_end_to_end.json"
+            ],
+            "fallback_candidate_ids": [],
+            "legacy_plural_migrated": false,
+            "metadata": {},
+            "path_sensitive": true,
+            "ppa_confidence": "blocked",
+            "ppa_coverage_receipt_ids": [
+              "run:TM04_identity_resolution:ea4a1f906e57c830"
+            ],
+            "ppa_coverage_shard_ids": [
+              "TM04_identity_resolution"
+            ],
+            "ppa_decision": "primary_path_authority_blocked",
+            "ppa_ok": false,
+            "ppa_report_id": "PPA-BC-PR-004-G8",
+            "ppa_risk_gate_ids": [
+              "authority",
+              "cartesian_coverage",
+              "G8-fully-synthetic"
+            ],
+            "primary_path_id": "path:c4-resolve-identity",
+            "primary_path_migration_ambiguous": false,
+            "proof_artifact_ids": [
+              "evidence:C4_person_entity_resolution:e1779455e01513d0",
+              "artifact:run:TM04_identity_resolution:ea4a1f906e57c830",
+              "evidence:model-code-test-alignment:9c4af1411686aaae",
+              "evidence:G8-fully-synthetic:bc64583f4f44a72f"
+            ],
+            "runtime_observation_ids": [
+              "BO-TC-C4_person_entity_resolution-same_name_no_link",
+              "BO-TC-C4_person_entity_resolution-same_name_no_link-retry",
+              "BO-TC-C4_person_entity_resolution-assignee_role",
+              "BO-TC-C4_person_entity_resolution-assignee_role-retry",
+              "BO-TC-C4_person_entity_resolution-strong_identity_link",
+              "BO-TC-C4_person_entity_resolution-strong_identity_link-retry",
+              "BO-TC-C4_person_entity_resolution-user_split_correction",
+              "BO-TC-C4_person_entity_resolution-user_split_correction-retry",
+              "BO-TC-C4_person_entity_resolution-researchguard_identity_proposal",
+              "BO-TC-C4_person_entity_resolution-researchguard_identity_proposal-retry",
+              "BO-C4_person_entity_resolution-foreign_owner_write",
+              "BO-C4_person_entity_resolution-undeclared_provider_field"
+            ],
+            "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
+          }
+        },
+        "severity": "blocker",
+        "surface_id": ""
+      },
+      {
+        "code": "commitment_primary_path_material_evidence_missing",
+        "commitment_id": "BC-PR-004",
+        "message": "PPA binding must carry current runtime observations and proof artifact ids",
+        "metadata": {
+          "path_authority": {
+            "behavior_commitment_id": "BC-PR-004",
+            "business_intent": "",
+            "business_intent_id": "BI-PR-004-resolve-identities-safely",
+            "evidence_current": false,
+            "evidence_refs": [
+              ".flowguard/evidence/tests/TM04_identity_resolution.json",
+              ".flowguard/evidence/alignment/model_code_test.json",
+              ".flowguard/evidence/synthetic/G8_fully_synthetic_end_to_end.json"
+            ],
+            "fallback_candidate_ids": [],
+            "legacy_plural_migrated": false,
+            "metadata": {},
+            "path_sensitive": true,
+            "ppa_confidence": "blocked",
+            "ppa_coverage_receipt_ids": [
+              "run:TM04_identity_resolution:ea4a1f906e57c830"
+            ],
+            "ppa_coverage_shard_ids": [
+              "TM04_identity_resolution"
+            ],
+            "ppa_decision": "primary_path_authority_blocked",
+            "ppa_ok": false,
+            "ppa_report_id": "PPA-BC-PR-004-G8",
+            "ppa_risk_gate_ids": [
+              "authority",
+              "cartesian_coverage",
+              "G8-fully-synthetic"
+            ],
+            "primary_path_id": "path:c4-resolve-identity",
+            "primary_path_migration_ambiguous": false,
+            "proof_artifact_ids": [
+              "evidence:C4_person_entity_resolution:e1779455e01513d0",
+              "artifact:run:TM04_identity_resolution:ea4a1f906e57c830",
+              "evidence:model-code-test-alignment:9c4af1411686aaae",
+              "evidence:G8-fully-synthetic:bc64583f4f44a72f"
+            ],
+            "runtime_observation_ids": [
+              "BO-TC-C4_person_entity_resolution-same_name_no_link",
+              "BO-TC-C4_person_entity_resolution-same_name_no_link-retry",
+              "BO-TC-C4_person_entity_resolution-assignee_role",
+              "BO-TC-C4_person_entity_resolution-assignee_role-retry",
+              "BO-TC-C4_person_entity_resolution-strong_identity_link",
+              "BO-TC-C4_person_entity_resolution-strong_identity_link-retry",
+              "BO-TC-C4_person_entity_resolution-user_split_correction",
+              "BO-TC-C4_person_entity_resolution-user_split_correction-retry",
+              "BO-TC-C4_person_entity_resolution-researchguard_identity_proposal",
+              "BO-TC-C4_person_entity_resolution-researchguard_identity_proposal-retry",
+              "BO-C4_person_entity_resolution-foreign_owner_write",
+              "BO-C4_person_entity_resolution-undeclared_provider_field"
+            ],
+            "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
+          }
+        },
+        "severity": "blocker",
+        "surface_id": ""
+      },
+      {
+        "code": "commitment_primary_path_blocked",
+        "commitment_id": "BC-PR-005",
+        "message": "Primary Path Authority blocks this path-sensitive commitment",
+        "metadata": {
+          "path_authority": {
+            "behavior_commitment_id": "BC-PR-005",
+            "business_intent": "",
+            "business_intent_id": "BI-PR-005-reconstruct-temporal-trace",
+            "evidence_current": false,
+            "evidence_refs": [
+              ".flowguard/evidence/tests/TM05_event_trace.json",
+              ".flowguard/evidence/alignment/model_code_test.json",
+              ".flowguard/evidence/synthetic/G8_fully_synthetic_end_to_end.json"
+            ],
+            "fallback_candidate_ids": [],
+            "legacy_plural_migrated": false,
+            "metadata": {},
+            "path_sensitive": true,
+            "ppa_confidence": "blocked",
+            "ppa_coverage_receipt_ids": [
+              "run:TM05_event_trace:fa2ea24b43f9de78"
+            ],
+            "ppa_coverage_shard_ids": [
+              "TM05_event_trace"
+            ],
+            "ppa_decision": "primary_path_authority_blocked",
+            "ppa_ok": false,
+            "ppa_report_id": "PPA-BC-PR-005-G8",
+            "ppa_risk_gate_ids": [
+              "authority",
+              "cartesian_coverage",
+              "G8-fully-synthetic"
+            ],
+            "primary_path_id": "path:c5-build-temporal-trace",
+            "primary_path_migration_ambiguous": false,
+            "proof_artifact_ids": [
+              "evidence:C5_event_temporal_trace:8fabe06e2d43d49c",
+              "artifact:run:TM05_event_trace:fa2ea24b43f9de78",
+              "evidence:model-code-test-alignment:9c4af1411686aaae",
+              "evidence:G8-fully-synthetic:bc64583f4f44a72f"
+            ],
+            "runtime_observation_ids": [
+              "BO-TC-C5_event_temporal_trace-explicit_actual_start",
+              "BO-TC-C5_event_temporal_trace-explicit_actual_start-retry",
+              "BO-TC-C5_event_temporal_trace-future_meeting",
+              "BO-TC-C5_event_temporal_trace-future_meeting-retry",
+              "BO-TC-C5_event_temporal_trace-assignment_without_start",
+              "BO-TC-C5_event_temporal_trace-assignment_without_start-retry",
+              "BO-TC-C5_event_temporal_trace-file_or_exif_time_without_event_claim",
+              "BO-TC-C5_event_temporal_trace-file_or_exif_time_without_event_claim-retry",
+              "BO-TC-C5_event_temporal_trace-done_then_reopen_blocked",
+              "BO-TC-C5_event_temporal_trace-done_then_reopen_blocked-retry",
+              "BO-C5_event_temporal_trace-foreign_owner_write",
+              "BO-C5_event_temporal_trace-undeclared_provider_field"
+            ],
+            "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
+          }
+        },
+        "severity": "blocker",
+        "surface_id": ""
+      },
+      {
+        "code": "commitment_primary_path_material_evidence_missing",
+        "commitment_id": "BC-PR-005",
+        "message": "PPA binding must carry current runtime observations and proof artifact ids",
+        "metadata": {
+          "path_authority": {
+            "behavior_commitment_id": "BC-PR-005",
+            "business_intent": "",
+            "business_intent_id": "BI-PR-005-reconstruct-temporal-trace",
+            "evidence_current": false,
+            "evidence_refs": [
+              ".flowguard/evidence/tests/TM05_event_trace.json",
+              ".flowguard/evidence/alignment/model_code_test.json",
+              ".flowguard/evidence/synthetic/G8_fully_synthetic_end_to_end.json"
+            ],
+            "fallback_candidate_ids": [],
+            "legacy_plural_migrated": false,
+            "metadata": {},
+            "path_sensitive": true,
+            "ppa_confidence": "blocked",
+            "ppa_coverage_receipt_ids": [
+              "run:TM05_event_trace:fa2ea24b43f9de78"
+            ],
+            "ppa_coverage_shard_ids": [
+              "TM05_event_trace"
+            ],
+            "ppa_decision": "primary_path_authority_blocked",
+            "ppa_ok": false,
+            "ppa_report_id": "PPA-BC-PR-005-G8",
+            "ppa_risk_gate_ids": [
+              "authority",
+              "cartesian_coverage",
+              "G8-fully-synthetic"
+            ],
+            "primary_path_id": "path:c5-build-temporal-trace",
+            "primary_path_migration_ambiguous": false,
+            "proof_artifact_ids": [
+              "evidence:C5_event_temporal_trace:8fabe06e2d43d49c",
+              "artifact:run:TM05_event_trace:fa2ea24b43f9de78",
+              "evidence:model-code-test-alignment:9c4af1411686aaae",
+              "evidence:G8-fully-synthetic:bc64583f4f44a72f"
+            ],
+            "runtime_observation_ids": [
+              "BO-TC-C5_event_temporal_trace-explicit_actual_start",
+              "BO-TC-C5_event_temporal_trace-explicit_actual_start-retry",
+              "BO-TC-C5_event_temporal_trace-future_meeting",
+              "BO-TC-C5_event_temporal_trace-future_meeting-retry",
+              "BO-TC-C5_event_temporal_trace-assignment_without_start",
+              "BO-TC-C5_event_temporal_trace-assignment_without_start-retry",
+              "BO-TC-C5_event_temporal_trace-file_or_exif_time_without_event_claim",
+              "BO-TC-C5_event_temporal_trace-file_or_exif_time_without_event_claim-retry",
+              "BO-TC-C5_event_temporal_trace-done_then_reopen_blocked",
+              "BO-TC-C5_event_temporal_trace-done_then_reopen_blocked-retry",
+              "BO-C5_event_temporal_trace-foreign_owner_write",
+              "BO-C5_event_temporal_trace-undeclared_provider_field"
+            ],
+            "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
+          }
+        },
+        "severity": "blocker",
+        "surface_id": ""
+      },
+      {
+        "code": "commitment_primary_path_blocked",
+        "commitment_id": "BC-PR-006",
+        "message": "Primary Path Authority blocks this path-sensitive commitment",
+        "metadata": {
+          "path_authority": {
+            "behavior_commitment_id": "BC-PR-006",
+            "business_intent": "",
+            "business_intent_id": "BI-PR-006-admit-matter-conservatively",
+            "evidence_current": false,
+            "evidence_refs": [
+              ".flowguard/evidence/tests/TM06_matter_admission.json",
+              ".flowguard/evidence/alignment/model_code_test.json",
+              ".flowguard/evidence/synthetic/G8_fully_synthetic_end_to_end.json"
+            ],
+            "fallback_candidate_ids": [],
+            "legacy_plural_migrated": false,
+            "metadata": {},
+            "path_sensitive": true,
+            "ppa_confidence": "blocked",
+            "ppa_coverage_receipt_ids": [
+              "run:TM06_matter_admission:66103c6185a80f90"
+            ],
+            "ppa_coverage_shard_ids": [
+              "TM06_matter_admission"
+            ],
+            "ppa_decision": "primary_path_authority_blocked",
+            "ppa_ok": false,
+            "ppa_report_id": "PPA-BC-PR-006-G8",
+            "ppa_risk_gate_ids": [
+              "authority",
+              "cartesian_coverage",
+              "G8-fully-synthetic"
+            ],
+            "primary_path_id": "path:c6-admit-matter",
+            "primary_path_migration_ambiguous": false,
+            "proof_artifact_ids": [
+              "evidence:C6_matter_formation_admission:5217fcc14cccf92d",
+              "artifact:run:TM06_matter_admission:66103c6185a80f90",
+              "evidence:model-code-test-alignment:9c4af1411686aaae",
+              "evidence:G8-fully-synthetic:bc64583f4f44a72f"
+            ],
+            "runtime_observation_ids": [
+              "BO-TC-C6_matter_formation_admission-provider_item_basic",
+              "BO-TC-C6_matter_formation_admission-provider_item_basic-retry",
+              "BO-TC-C6_matter_formation_admission-future_maybe_research",
+              "BO-TC-C6_matter_formation_admission-future_maybe_research-retry",
+              "BO-TC-C6_matter_formation_admission-fully_evidenced_obligation",
+              "BO-TC-C6_matter_formation_admission-fully_evidenced_obligation-retry",
+              "BO-TC-C6_matter_formation_admission-conflicting_or_insufficient",
+              "BO-TC-C6_matter_formation_admission-conflicting_or_insufficient-retry",
+              "BO-TC-C6_matter_formation_admission-access_blocked",
+              "BO-TC-C6_matter_formation_admission-access_blocked-retry",
+              "BO-C6_matter_formation_admission-foreign_owner_write",
+              "BO-C6_matter_formation_admission-undeclared_provider_field"
+            ],
+            "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
+          }
+        },
+        "severity": "blocker",
+        "surface_id": ""
+      },
+      {
+        "code": "commitment_primary_path_material_evidence_missing",
+        "commitment_id": "BC-PR-006",
+        "message": "PPA binding must carry current runtime observations and proof artifact ids",
+        "metadata": {
+          "path_authority": {
+            "behavior_commitment_id": "BC-PR-006",
+            "business_intent": "",
+            "business_intent_id": "BI-PR-006-admit-matter-conservatively",
+            "evidence_current": false,
+            "evidence_refs": [
+              ".flowguard/evidence/tests/TM06_matter_admission.json",
+              ".flowguard/evidence/alignment/model_code_test.json",
+              ".flowguard/evidence/synthetic/G8_fully_synthetic_end_to_end.json"
+            ],
+            "fallback_candidate_ids": [],
+            "legacy_plural_migrated": false,
+            "metadata": {},
+            "path_sensitive": true,
+            "ppa_confidence": "blocked",
+            "ppa_coverage_receipt_ids": [
+              "run:TM06_matter_admission:66103c6185a80f90"
+            ],
+            "ppa_coverage_shard_ids": [
+              "TM06_matter_admission"
+            ],
+            "ppa_decision": "primary_path_authority_blocked",
+            "ppa_ok": false,
+            "ppa_report_id": "PPA-BC-PR-006-G8",
+            "ppa_risk_gate_ids": [
+              "authority",
+              "cartesian_coverage",
+              "G8-fully-synthetic"
+            ],
+            "primary_path_id": "path:c6-admit-matter",
+            "primary_path_migration_ambiguous": false,
+            "proof_artifact_ids": [
+              "evidence:C6_matter_formation_admission:5217fcc14cccf92d",
+              "artifact:run:TM06_matter_admission:66103c6185a80f90",
+              "evidence:model-code-test-alignment:9c4af1411686aaae",
+              "evidence:G8-fully-synthetic:bc64583f4f44a72f"
+            ],
+            "runtime_observation_ids": [
+              "BO-TC-C6_matter_formation_admission-provider_item_basic",
+              "BO-TC-C6_matter_formation_admission-provider_item_basic-retry",
+              "BO-TC-C6_matter_formation_admission-future_maybe_research",
+              "BO-TC-C6_matter_formation_admission-future_maybe_research-retry",
+              "BO-TC-C6_matter_formation_admission-fully_evidenced_obligation",
+              "BO-TC-C6_matter_formation_admission-fully_evidenced_obligation-retry",
+              "BO-TC-C6_matter_formation_admission-conflicting_or_insufficient",
+              "BO-TC-C6_matter_formation_admission-conflicting_or_insufficient-retry",
+              "BO-TC-C6_matter_formation_admission-access_blocked",
+              "BO-TC-C6_matter_formation_admission-access_blocked-retry",
+              "BO-C6_matter_formation_admission-foreign_owner_write",
+              "BO-C6_matter_formation_admission-undeclared_provider_field"
+            ],
+            "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
+          }
+        },
+        "severity": "blocker",
+        "surface_id": ""
+      },
+      {
+        "code": "commitment_primary_path_blocked",
+        "commitment_id": "BC-PR-007",
+        "message": "Primary Path Authority blocks this path-sensitive commitment",
+        "metadata": {
+          "path_authority": {
+            "behavior_commitment_id": "BC-PR-007",
+            "business_intent": "",
+            "business_intent_id": "BI-PR-007-decide-lifecycle-and-board",
+            "evidence_current": false,
+            "evidence_refs": [
+              ".flowguard/evidence/tests/TM07_lifecycle_board_state.json",
+              ".flowguard/evidence/alignment/model_code_test.json",
+              ".flowguard/evidence/synthetic/G8_fully_synthetic_end_to_end.json"
+            ],
+            "fallback_candidate_ids": [],
+            "legacy_plural_migrated": false,
+            "metadata": {},
+            "path_sensitive": true,
+            "ppa_confidence": "blocked",
+            "ppa_coverage_receipt_ids": [
+              "run:TM07_lifecycle_board_state:630e066da6c2d9f9"
+            ],
+            "ppa_coverage_shard_ids": [
+              "TM07_lifecycle_board_state"
+            ],
+            "ppa_decision": "primary_path_authority_blocked",
+            "ppa_ok": false,
+            "ppa_report_id": "PPA-BC-PR-007-G8",
+            "ppa_risk_gate_ids": [
+              "authority",
+              "cartesian_coverage",
+              "G8-fully-synthetic"
+            ],
+            "primary_path_id": "path:c7-decide-lifecycle",
+            "primary_path_migration_ambiguous": false,
+            "proof_artifact_ids": [
+              "evidence:C7_lifecycle_board_state:014e23d32d762fcf",
+              "artifact:run:TM07_lifecycle_board_state:630e066da6c2d9f9",
+              "evidence:model-code-test-alignment:9c4af1411686aaae",
+              "evidence:G8-fully-synthetic:bc64583f4f44a72f"
+            ],
+            "runtime_observation_ids": [
+              "BO-TC-C7_lifecycle_board_state-explicit_start_evidence",
+              "BO-TC-C7_lifecycle_board_state-explicit_start_evidence-retry",
+              "BO-TC-C7_lifecycle_board_state-scheduled_only",
+              "BO-TC-C7_lifecycle_board_state-scheduled_only-retry",
+              "BO-TC-C7_lifecycle_board_state-partial_coverage_no_start",
+              "BO-TC-C7_lifecycle_board_state-partial_coverage_no_start-retry",
+              "BO-TC-C7_lifecycle_board_state-provider_done_without_completion",
+              "BO-TC-C7_lifecycle_board_state-provider_done_without_completion-retry",
+              "BO-TC-C7_lifecycle_board_state-ui_direct_state_write",
+              "BO-TC-C7_lifecycle_board_state-ui_direct_state_write-retry",
+              "BO-C7_lifecycle_board_state-foreign_owner_write",
+              "BO-C7_lifecycle_board_state-undeclared_provider_field"
+            ],
+            "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
+          }
+        },
+        "severity": "blocker",
+        "surface_id": ""
+      },
+      {
+        "code": "commitment_primary_path_material_evidence_missing",
+        "commitment_id": "BC-PR-007",
+        "message": "PPA binding must carry current runtime observations and proof artifact ids",
+        "metadata": {
+          "path_authority": {
+            "behavior_commitment_id": "BC-PR-007",
+            "business_intent": "",
+            "business_intent_id": "BI-PR-007-decide-lifecycle-and-board",
+            "evidence_current": false,
+            "evidence_refs": [
+              ".flowguard/evidence/tests/TM07_lifecycle_board_state.json",
+              ".flowguard/evidence/alignment/model_code_test.json",
+              ".flowguard/evidence/synthetic/G8_fully_synthetic_end_to_end.json"
+            ],
+            "fallback_candidate_ids": [],
+            "legacy_plural_migrated": false,
+            "metadata": {},
+            "path_sensitive": true,
+            "ppa_confidence": "blocked",
+            "ppa_coverage_receipt_ids": [
+              "run:TM07_lifecycle_board_state:630e066da6c2d9f9"
+            ],
+            "ppa_coverage_shard_ids": [
+              "TM07_lifecycle_board_state"
+            ],
+            "ppa_decision": "primary_path_authority_blocked",
+            "ppa_ok": false,
+            "ppa_report_id": "PPA-BC-PR-007-G8",
+            "ppa_risk_gate_ids": [
+              "authority",
+              "cartesian_coverage",
+              "G8-fully-synthetic"
+            ],
+            "primary_path_id": "path:c7-decide-lifecycle",
+            "primary_path_migration_ambiguous": false,
+            "proof_artifact_ids": [
+              "evidence:C7_lifecycle_board_state:014e23d32d762fcf",
+              "artifact:run:TM07_lifecycle_board_state:630e066da6c2d9f9",
+              "evidence:model-code-test-alignment:9c4af1411686aaae",
+              "evidence:G8-fully-synthetic:bc64583f4f44a72f"
+            ],
+            "runtime_observation_ids": [
+              "BO-TC-C7_lifecycle_board_state-explicit_start_evidence",
+              "BO-TC-C7_lifecycle_board_state-explicit_start_evidence-retry",
+              "BO-TC-C7_lifecycle_board_state-scheduled_only",
+              "BO-TC-C7_lifecycle_board_state-scheduled_only-retry",
+              "BO-TC-C7_lifecycle_board_state-partial_coverage_no_start",
+              "BO-TC-C7_lifecycle_board_state-partial_coverage_no_start-retry",
+              "BO-TC-C7_lifecycle_board_state-provider_done_without_completion",
+              "BO-TC-C7_lifecycle_board_state-provider_done_without_completion-retry",
+              "BO-TC-C7_lifecycle_board_state-ui_direct_state_write",
+              "BO-TC-C7_lifecycle_board_state-ui_direct_state_write-retry",
+              "BO-C7_lifecycle_board_state-foreign_owner_write",
+              "BO-C7_lifecycle_board_state-undeclared_provider_field"
+            ],
+            "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
+          }
+        },
+        "severity": "blocker",
+        "surface_id": ""
+      },
+      {
+        "code": "commitment_primary_path_blocked",
+        "commitment_id": "BC-PR-008",
+        "message": "Primary Path Authority blocks this path-sensitive commitment",
+        "metadata": {
+          "path_authority": {
+            "behavior_commitment_id": "BC-PR-008",
+            "business_intent": "",
+            "business_intent_id": "BI-PR-008-track-open-loops-and-blocking",
+            "evidence_current": false,
+            "evidence_refs": [
+              ".flowguard/evidence/tests/TM08_open_loop_blocking.json",
+              ".flowguard/evidence/alignment/model_code_test.json",
+              ".flowguard/evidence/synthetic/G8_fully_synthetic_end_to_end.json"
+            ],
+            "fallback_candidate_ids": [],
+            "legacy_plural_migrated": false,
+            "metadata": {},
+            "path_sensitive": true,
+            "ppa_confidence": "blocked",
+            "ppa_coverage_receipt_ids": [
+              "run:TM08_open_loop_blocking:3e5f7191782208d3"
+            ],
+            "ppa_coverage_shard_ids": [
+              "TM08_open_loop_blocking"
+            ],
+            "ppa_decision": "primary_path_authority_blocked",
+            "ppa_ok": false,
+            "ppa_report_id": "PPA-BC-PR-008-G8",
+            "ppa_risk_gate_ids": [
+              "authority",
+              "cartesian_coverage",
+              "G8-fully-synthetic"
+            ],
+            "primary_path_id": "path:c8-evaluate-open-loop",
+            "primary_path_migration_ambiguous": false,
+            "proof_artifact_ids": [
+              "evidence:C8_open_loop_waiting_blocking:b8e5b2421778fbba",
+              "artifact:run:TM08_open_loop_blocking:3e5f7191782208d3",
+              "evidence:model-code-test-alignment:9c4af1411686aaae",
+              "evidence:G8-fully-synthetic:bc64583f4f44a72f"
+            ],
+            "runtime_observation_ids": [
+              "BO-TC-C8_open_loop_waiting_blocking-request_with_target_and_condition",
+              "BO-TC-C8_open_loop_waiting_blocking-request_with_target_and_condition-retry",
+              "BO-TC-C8_open_loop_waiting_blocking-vague_waiting_text",
+              "BO-TC-C8_open_loop_waiting_blocking-vague_waiting_text-retry",
+              "BO-TC-C8_open_loop_waiting_blocking-researchguard_blocker_without_closure",
+              "BO-TC-C8_open_loop_waiting_blocking-researchguard_blocker_without_closure-retry",
+              "BO-TC-C8_open_loop_waiting_blocking-noncritical_subtask_failure",
+              "BO-TC-C8_open_loop_waiting_blocking-noncritical_subtask_failure-retry",
+              "BO-TC-C8_open_loop_waiting_blocking-critical_dependency_failure",
+              "BO-TC-C8_open_loop_waiting_blocking-critical_dependency_failure-retry",
+              "BO-TC-C8_open_loop_waiting_blocking-matter_complete_loop_unmet",
+              "BO-TC-C8_open_loop_waiting_blocking-matter_complete_loop_unmet-retry",
+              "BO-TC-C8_open_loop_waiting_blocking-declared_closure_evidence",
+              "BO-TC-C8_open_loop_waiting_blocking-declared_closure_evidence-retry",
+              "BO-C8_open_loop_waiting_blocking-foreign_owner_write",
+              "BO-C8_open_loop_waiting_blocking-undeclared_provider_field"
+            ],
+            "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
+          }
+        },
+        "severity": "blocker",
+        "surface_id": ""
+      },
+      {
+        "code": "commitment_primary_path_material_evidence_missing",
+        "commitment_id": "BC-PR-008",
+        "message": "PPA binding must carry current runtime observations and proof artifact ids",
+        "metadata": {
+          "path_authority": {
+            "behavior_commitment_id": "BC-PR-008",
+            "business_intent": "",
+            "business_intent_id": "BI-PR-008-track-open-loops-and-blocking",
+            "evidence_current": false,
+            "evidence_refs": [
+              ".flowguard/evidence/tests/TM08_open_loop_blocking.json",
+              ".flowguard/evidence/alignment/model_code_test.json",
+              ".flowguard/evidence/synthetic/G8_fully_synthetic_end_to_end.json"
+            ],
+            "fallback_candidate_ids": [],
+            "legacy_plural_migrated": false,
+            "metadata": {},
+            "path_sensitive": true,
+            "ppa_confidence": "blocked",
+            "ppa_coverage_receipt_ids": [
+              "run:TM08_open_loop_blocking:3e5f7191782208d3"
+            ],
+            "ppa_coverage_shard_ids": [
+              "TM08_open_loop_blocking"
+            ],
+            "ppa_decision": "primary_path_authority_blocked",
+            "ppa_ok": false,
+            "ppa_report_id": "PPA-BC-PR-008-G8",
+            "ppa_risk_gate_ids": [
+              "authority",
+              "cartesian_coverage",
+              "G8-fully-synthetic"
+            ],
+            "primary_path_id": "path:c8-evaluate-open-loop",
+            "primary_path_migration_ambiguous": false,
+            "proof_artifact_ids": [
+              "evidence:C8_open_loop_waiting_blocking:b8e5b2421778fbba",
+              "artifact:run:TM08_open_loop_blocking:3e5f7191782208d3",
+              "evidence:model-code-test-alignment:9c4af1411686aaae",
+              "evidence:G8-fully-synthetic:bc64583f4f44a72f"
+            ],
+            "runtime_observation_ids": [
+              "BO-TC-C8_open_loop_waiting_blocking-request_with_target_and_condition",
+              "BO-TC-C8_open_loop_waiting_blocking-request_with_target_and_condition-retry",
+              "BO-TC-C8_open_loop_waiting_blocking-vague_waiting_text",
+              "BO-TC-C8_open_loop_waiting_blocking-vague_waiting_text-retry",
+              "BO-TC-C8_open_loop_waiting_blocking-researchguard_blocker_without_closure",
+              "BO-TC-C8_open_loop_waiting_blocking-researchguard_blocker_without_closure-retry",
+              "BO-TC-C8_open_loop_waiting_blocking-noncritical_subtask_failure",
+              "BO-TC-C8_open_loop_waiting_blocking-noncritical_subtask_failure-retry",
+              "BO-TC-C8_open_loop_waiting_blocking-critical_dependency_failure",
+              "BO-TC-C8_open_loop_waiting_blocking-critical_dependency_failure-retry",
+              "BO-TC-C8_open_loop_waiting_blocking-matter_complete_loop_unmet",
+              "BO-TC-C8_open_loop_waiting_blocking-matter_complete_loop_unmet-retry",
+              "BO-TC-C8_open_loop_waiting_blocking-declared_closure_evidence",
+              "BO-TC-C8_open_loop_waiting_blocking-declared_closure_evidence-retry",
+              "BO-C8_open_loop_waiting_blocking-foreign_owner_write",
+              "BO-C8_open_loop_waiting_blocking-undeclared_provider_field"
+            ],
+            "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
+          }
+        },
+        "severity": "blocker",
+        "surface_id": ""
+      },
+      {
+        "code": "commitment_primary_path_blocked",
+        "commitment_id": "BC-PR-009",
+        "message": "Primary Path Authority blocks this path-sensitive commitment",
+        "metadata": {
+          "path_authority": {
+            "behavior_commitment_id": "BC-PR-009",
+            "business_intent": "",
+            "business_intent_id": "BI-PR-009-decide-outcome-and-reopen",
+            "evidence_current": false,
+            "evidence_refs": [
+              ".flowguard/evidence/tests/TM09_completion_reopen.json",
+              ".flowguard/evidence/alignment/model_code_test.json",
+              ".flowguard/evidence/synthetic/G8_fully_synthetic_end_to_end.json"
+            ],
+            "fallback_candidate_ids": [],
+            "legacy_plural_migrated": false,
+            "metadata": {},
+            "path_sensitive": true,
+            "ppa_confidence": "blocked",
+            "ppa_coverage_receipt_ids": [
+              "run:TM09_completion_reopen:b0c35c13f8cc535a"
+            ],
+            "ppa_coverage_shard_ids": [
+              "TM09_completion_reopen"
+            ],
+            "ppa_decision": "primary_path_authority_blocked",
+            "ppa_ok": false,
+            "ppa_report_id": "PPA-BC-PR-009-G8",
+            "ppa_risk_gate_ids": [
+              "authority",
+              "cartesian_coverage",
+              "G8-fully-synthetic"
+            ],
+            "primary_path_id": "path:c9-decide-outcome",
+            "primary_path_migration_ambiguous": false,
+            "proof_artifact_ids": [
+              "evidence:C9_completion_cancellation_reopen:b376e613907ddfe0",
+              "artifact:run:TM09_completion_reopen:b0c35c13f8cc535a",
+              "evidence:model-code-test-alignment:9c4af1411686aaae",
+              "evidence:G8-fully-synthetic:bc64583f4f44a72f"
+            ],
+            "runtime_observation_ids": [
+              "BO-TC-C9_completion_cancellation_reopen-all_completion_criteria_evidenced",
+              "BO-TC-C9_completion_cancellation_reopen-all_completion_criteria_evidenced-retry",
+              "BO-TC-C9_completion_cancellation_reopen-terminal_label_or_final_file_only",
+              "BO-TC-C9_completion_cancellation_reopen-terminal_label_or_final_file_only-retry",
+              "BO-TC-C9_completion_cancellation_reopen-user_cancels_with_open_loop",
+              "BO-TC-C9_completion_cancellation_reopen-user_cancels_with_open_loop-retry",
+              "BO-TC-C9_completion_cancellation_reopen-new_obligation_after_completion",
+              "BO-TC-C9_completion_cancellation_reopen-new_obligation_after_completion-retry",
+              "BO-TC-C9_completion_cancellation_reopen-source_revision_or_ai_reopen_proposal",
+              "BO-TC-C9_completion_cancellation_reopen-source_revision_or_ai_reopen_proposal-retry",
+              "BO-TC-C9_completion_cancellation_reopen-conflicting_termination_evidence",
+              "BO-TC-C9_completion_cancellation_reopen-conflicting_termination_evidence-retry",
+              "BO-C9_completion_cancellation_reopen-foreign_owner_write",
+              "BO-C9_completion_cancellation_reopen-undeclared_provider_field"
+            ],
+            "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
+          }
+        },
+        "severity": "blocker",
+        "surface_id": ""
+      },
+      {
+        "code": "commitment_primary_path_material_evidence_missing",
+        "commitment_id": "BC-PR-009",
+        "message": "PPA binding must carry current runtime observations and proof artifact ids",
+        "metadata": {
+          "path_authority": {
+            "behavior_commitment_id": "BC-PR-009",
+            "business_intent": "",
+            "business_intent_id": "BI-PR-009-decide-outcome-and-reopen",
+            "evidence_current": false,
+            "evidence_refs": [
+              ".flowguard/evidence/tests/TM09_completion_reopen.json",
+              ".flowguard/evidence/alignment/model_code_test.json",
+              ".flowguard/evidence/synthetic/G8_fully_synthetic_end_to_end.json"
+            ],
+            "fallback_candidate_ids": [],
+            "legacy_plural_migrated": false,
+            "metadata": {},
+            "path_sensitive": true,
+            "ppa_confidence": "blocked",
+            "ppa_coverage_receipt_ids": [
+              "run:TM09_completion_reopen:b0c35c13f8cc535a"
+            ],
+            "ppa_coverage_shard_ids": [
+              "TM09_completion_reopen"
+            ],
+            "ppa_decision": "primary_path_authority_blocked",
+            "ppa_ok": false,
+            "ppa_report_id": "PPA-BC-PR-009-G8",
+            "ppa_risk_gate_ids": [
+              "authority",
+              "cartesian_coverage",
+              "G8-fully-synthetic"
+            ],
+            "primary_path_id": "path:c9-decide-outcome",
+            "primary_path_migration_ambiguous": false,
+            "proof_artifact_ids": [
+              "evidence:C9_completion_cancellation_reopen:b376e613907ddfe0",
+              "artifact:run:TM09_completion_reopen:b0c35c13f8cc535a",
+              "evidence:model-code-test-alignment:9c4af1411686aaae",
+              "evidence:G8-fully-synthetic:bc64583f4f44a72f"
+            ],
+            "runtime_observation_ids": [
+              "BO-TC-C9_completion_cancellation_reopen-all_completion_criteria_evidenced",
+              "BO-TC-C9_completion_cancellation_reopen-all_completion_criteria_evidenced-retry",
+              "BO-TC-C9_completion_cancellation_reopen-terminal_label_or_final_file_only",
+              "BO-TC-C9_completion_cancellation_reopen-terminal_label_or_final_file_only-retry",
+              "BO-TC-C9_completion_cancellation_reopen-user_cancels_with_open_loop",
+              "BO-TC-C9_completion_cancellation_reopen-user_cancels_with_open_loop-retry",
+              "BO-TC-C9_completion_cancellation_reopen-new_obligation_after_completion",
+              "BO-TC-C9_completion_cancellation_reopen-new_obligation_after_completion-retry",
+              "BO-TC-C9_completion_cancellation_reopen-source_revision_or_ai_reopen_proposal",
+              "BO-TC-C9_completion_cancellation_reopen-source_revision_or_ai_reopen_proposal-retry",
+              "BO-TC-C9_completion_cancellation_reopen-conflicting_termination_evidence",
+              "BO-TC-C9_completion_cancellation_reopen-conflicting_termination_evidence-retry",
+              "BO-C9_completion_cancellation_reopen-foreign_owner_write",
+              "BO-C9_completion_cancellation_reopen-undeclared_provider_field"
+            ],
+            "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
+          }
+        },
+        "severity": "blocker",
+        "surface_id": ""
+      },
+      {
+        "code": "commitment_primary_path_blocked",
+        "commitment_id": "BC-PR-010",
+        "message": "Primary Path Authority blocks this path-sensitive commitment",
+        "metadata": {
+          "path_authority": {
+            "behavior_commitment_id": "BC-PR-010",
+            "business_intent": "",
+            "business_intent_id": "BI-PR-010-correct-and-recompute",
+            "evidence_current": false,
+            "evidence_refs": [
+              ".flowguard/evidence/tests/TM10_correction_invalidation.json",
+              ".flowguard/evidence/alignment/model_code_test.json",
+              ".flowguard/evidence/synthetic/G8_fully_synthetic_end_to_end.json"
+            ],
+            "fallback_candidate_ids": [],
+            "legacy_plural_migrated": false,
+            "metadata": {},
+            "path_sensitive": true,
+            "ppa_confidence": "blocked",
+            "ppa_coverage_receipt_ids": [
+              "run:TM10_correction_invalidation:5c70656a8546d941"
+            ],
+            "ppa_coverage_shard_ids": [
+              "TM10_correction_invalidation"
+            ],
+            "ppa_decision": "primary_path_authority_blocked",
+            "ppa_ok": false,
+            "ppa_report_id": "PPA-BC-PR-010-G8",
+            "ppa_risk_gate_ids": [
+              "authority",
+              "cartesian_coverage",
+              "G8-fully-synthetic"
+            ],
+            "primary_path_id": "path:c10-invalidate-and-request-recompute",
+            "primary_path_migration_ambiguous": false,
+            "proof_artifact_ids": [
+              "evidence:C10_correction_revocation:f1d829db3075e610",
+              "artifact:run:TM10_correction_invalidation:5c70656a8546d941",
+              "evidence:model-code-test-alignment:9c4af1411686aaae",
+              "evidence:G8-fully-synthetic:bc64583f4f44a72f"
+            ],
+            "runtime_observation_ids": [
+              "BO-TC-C10_correction_revocation-user_correction",
+              "BO-TC-C10_correction_revocation-user_correction-retry",
+              "BO-TC-C10_correction_revocation-source_or_tracking_stale",
+              "BO-TC-C10_correction_revocation-source_or_tracking_stale-retry",
+              "BO-TC-C10_correction_revocation-all_required_owners_terminal",
+              "BO-TC-C10_correction_revocation-all_required_owners_terminal-retry",
+              "BO-TC-C10_correction_revocation-required_owner_failed_or_missing",
+              "BO-TC-C10_correction_revocation-required_owner_failed_or_missing-retry",
+              "BO-TC-C10_correction_revocation-restart_with_current_checkpoint",
+              "BO-TC-C10_correction_revocation-restart_with_current_checkpoint-retry",
+              "BO-TC-C10_correction_revocation-authorization_revoked",
+              "BO-TC-C10_correction_revocation-authorization_revoked-retry",
+              "BO-TC-C10_correction_revocation-ui_only_patch_request",
+              "BO-TC-C10_correction_revocation-ui_only_patch_request-retry",
+              "BO-TC-C10_correction_revocation-direct_foreign_state_write",
+              "BO-TC-C10_correction_revocation-direct_foreign_state_write-retry",
+              "BO-C10_correction_revocation-foreign_owner_write",
+              "BO-C10_correction_revocation-undeclared_provider_field"
+            ],
+            "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
+          }
+        },
+        "severity": "blocker",
+        "surface_id": ""
+      },
+      {
+        "code": "commitment_primary_path_material_evidence_missing",
+        "commitment_id": "BC-PR-010",
+        "message": "PPA binding must carry current runtime observations and proof artifact ids",
+        "metadata": {
+          "path_authority": {
+            "behavior_commitment_id": "BC-PR-010",
+            "business_intent": "",
+            "business_intent_id": "BI-PR-010-correct-and-recompute",
+            "evidence_current": false,
+            "evidence_refs": [
+              ".flowguard/evidence/tests/TM10_correction_invalidation.json",
+              ".flowguard/evidence/alignment/model_code_test.json",
+              ".flowguard/evidence/synthetic/G8_fully_synthetic_end_to_end.json"
+            ],
+            "fallback_candidate_ids": [],
+            "legacy_plural_migrated": false,
+            "metadata": {},
+            "path_sensitive": true,
+            "ppa_confidence": "blocked",
+            "ppa_coverage_receipt_ids": [
+              "run:TM10_correction_invalidation:5c70656a8546d941"
+            ],
+            "ppa_coverage_shard_ids": [
+              "TM10_correction_invalidation"
+            ],
+            "ppa_decision": "primary_path_authority_blocked",
+            "ppa_ok": false,
+            "ppa_report_id": "PPA-BC-PR-010-G8",
+            "ppa_risk_gate_ids": [
+              "authority",
+              "cartesian_coverage",
+              "G8-fully-synthetic"
+            ],
+            "primary_path_id": "path:c10-invalidate-and-request-recompute",
+            "primary_path_migration_ambiguous": false,
+            "proof_artifact_ids": [
+              "evidence:C10_correction_revocation:f1d829db3075e610",
+              "artifact:run:TM10_correction_invalidation:5c70656a8546d941",
+              "evidence:model-code-test-alignment:9c4af1411686aaae",
+              "evidence:G8-fully-synthetic:bc64583f4f44a72f"
+            ],
+            "runtime_observation_ids": [
+              "BO-TC-C10_correction_revocation-user_correction",
+              "BO-TC-C10_correction_revocation-user_correction-retry",
+              "BO-TC-C10_correction_revocation-source_or_tracking_stale",
+              "BO-TC-C10_correction_revocation-source_or_tracking_stale-retry",
+              "BO-TC-C10_correction_revocation-all_required_owners_terminal",
+              "BO-TC-C10_correction_revocation-all_required_owners_terminal-retry",
+              "BO-TC-C10_correction_revocation-required_owner_failed_or_missing",
+              "BO-TC-C10_correction_revocation-required_owner_failed_or_missing-retry",
+              "BO-TC-C10_correction_revocation-restart_with_current_checkpoint",
+              "BO-TC-C10_correction_revocation-restart_with_current_checkpoint-retry",
+              "BO-TC-C10_correction_revocation-authorization_revoked",
+              "BO-TC-C10_correction_revocation-authorization_revoked-retry",
+              "BO-TC-C10_correction_revocation-ui_only_patch_request",
+              "BO-TC-C10_correction_revocation-ui_only_patch_request-retry",
+              "BO-TC-C10_correction_revocation-direct_foreign_state_write",
+              "BO-TC-C10_correction_revocation-direct_foreign_state_write-retry",
+              "BO-C10_correction_revocation-foreign_owner_write",
+              "BO-C10_correction_revocation-undeclared_provider_field"
+            ],
+            "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
+          }
+        },
+        "severity": "blocker",
+        "surface_id": ""
+      },
+      {
+        "code": "commitment_primary_path_blocked",
+        "commitment_id": "BC-PR-011",
+        "message": "Primary Path Authority blocks this path-sensitive commitment",
+        "metadata": {
+          "path_authority": {
+            "behavior_commitment_id": "BC-PR-011",
+            "business_intent": "",
+            "business_intent_id": "BI-PR-011-register-advisory-analysis",
+            "evidence_current": false,
+            "evidence_refs": [
+              ".flowguard/evidence/tests/TM11_guard_prediction_boundary.json",
+              ".flowguard/evidence/alignment/model_code_test.json",
+              ".flowguard/evidence/synthetic/G8_fully_synthetic_end_to_end.json"
+            ],
+            "fallback_candidate_ids": [],
+            "legacy_plural_migrated": false,
+            "metadata": {},
+            "path_sensitive": true,
+            "ppa_confidence": "blocked",
+            "ppa_coverage_receipt_ids": [
+              "run:TM11_guard_prediction_boundary:afa6dc8d7a916e83"
+            ],
+            "ppa_coverage_shard_ids": [
+              "TM11_guard_prediction_boundary"
+            ],
+            "ppa_decision": "primary_path_authority_blocked",
+            "ppa_ok": false,
+            "ppa_report_id": "PPA-BC-PR-011-G8",
+            "ppa_risk_gate_ids": [
+              "authority",
+              "cartesian_coverage",
+              "G8-fully-synthetic"
+            ],
+            "primary_path_id": "path:c11-register-advisory-analysis-artifact",
+            "primary_path_migration_ambiguous": false,
+            "proof_artifact_ids": [
+              "evidence:C11_guard_artifact_prediction:c5379d1ae3c201f6",
+              "artifact:run:TM11_guard_prediction_boundary:afa6dc8d7a916e83",
+              "evidence:model-code-test-alignment:9c4af1411686aaae",
+              "evidence:G8-fully-synthetic:bc64583f4f44a72f"
+            ],
+            "runtime_observation_ids": [
+              "BO-TC-C11_guard_artifact_prediction-current_ai_finding",
+              "BO-TC-C11_guard_artifact_prediction-current_ai_finding-retry",
+              "BO-TC-C11_guard_artifact_prediction-current_researchguard_result",
+              "BO-TC-C11_guard_artifact_prediction-current_researchguard_result-retry",
+              "BO-TC-C11_guard_artifact_prediction-researchguard_not_current",
+              "BO-TC-C11_guard_artifact_prediction-researchguard_not_current-retry",
+              "BO-TC-C11_guard_artifact_prediction-legacy_parallel_guard_binding",
+              "BO-TC-C11_guard_artifact_prediction-legacy_parallel_guard_binding-retry",
+              "BO-TC-C11_guard_artifact_prediction-current_scope_triage",
+              "BO-TC-C11_guard_artifact_prediction-current_scope_triage-retry",
+              "BO-TC-C11_guard_artifact_prediction-depth_sufficient_current",
+              "BO-TC-C11_guard_artifact_prediction-depth_sufficient_current-retry",
+              "BO-TC-C11_guard_artifact_prediction-depth_partial_or_stale",
+              "BO-TC-C11_guard_artifact_prediction-depth_partial_or_stale-retry",
+              "BO-TC-C11_guard_artifact_prediction-stale_operation_result",
+              "BO-TC-C11_guard_artifact_prediction-stale_operation_result-retry",
+              "BO-TC-C11_guard_artifact_prediction-scope_escape_attempt",
+              "BO-TC-C11_guard_artifact_prediction-scope_escape_attempt-retry",
+              "BO-TC-C11_guard_artifact_prediction-forecast_delay",
+              "BO-TC-C11_guard_artifact_prediction-forecast_delay-retry",
+              "BO-TC-C11_guard_artifact_prediction-research_direct_canonical_write",
+              "BO-TC-C11_guard_artifact_prediction-research_direct_canonical_write-retry",
+              "BO-TC-C11_guard_artifact_prediction-skipped_or_progress_receipt",
+              "BO-TC-C11_guard_artifact_prediction-skipped_or_progress_receipt-retry",
+              "BO-C11_guard_artifact_prediction-foreign_owner_write",
+              "BO-C11_guard_artifact_prediction-undeclared_provider_field"
+            ],
+            "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
+          }
+        },
+        "severity": "blocker",
+        "surface_id": ""
+      },
+      {
+        "code": "commitment_primary_path_material_evidence_missing",
+        "commitment_id": "BC-PR-011",
+        "message": "PPA binding must carry current runtime observations and proof artifact ids",
+        "metadata": {
+          "path_authority": {
+            "behavior_commitment_id": "BC-PR-011",
+            "business_intent": "",
+            "business_intent_id": "BI-PR-011-register-advisory-analysis",
+            "evidence_current": false,
+            "evidence_refs": [
+              ".flowguard/evidence/tests/TM11_guard_prediction_boundary.json",
+              ".flowguard/evidence/alignment/model_code_test.json",
+              ".flowguard/evidence/synthetic/G8_fully_synthetic_end_to_end.json"
+            ],
+            "fallback_candidate_ids": [],
+            "legacy_plural_migrated": false,
+            "metadata": {},
+            "path_sensitive": true,
+            "ppa_confidence": "blocked",
+            "ppa_coverage_receipt_ids": [
+              "run:TM11_guard_prediction_boundary:afa6dc8d7a916e83"
+            ],
+            "ppa_coverage_shard_ids": [
+              "TM11_guard_prediction_boundary"
+            ],
+            "ppa_decision": "primary_path_authority_blocked",
+            "ppa_ok": false,
+            "ppa_report_id": "PPA-BC-PR-011-G8",
+            "ppa_risk_gate_ids": [
+              "authority",
+              "cartesian_coverage",
+              "G8-fully-synthetic"
+            ],
+            "primary_path_id": "path:c11-register-advisory-analysis-artifact",
+            "primary_path_migration_ambiguous": false,
+            "proof_artifact_ids": [
+              "evidence:C11_guard_artifact_prediction:c5379d1ae3c201f6",
+              "artifact:run:TM11_guard_prediction_boundary:afa6dc8d7a916e83",
+              "evidence:model-code-test-alignment:9c4af1411686aaae",
+              "evidence:G8-fully-synthetic:bc64583f4f44a72f"
+            ],
+            "runtime_observation_ids": [
+              "BO-TC-C11_guard_artifact_prediction-current_ai_finding",
+              "BO-TC-C11_guard_artifact_prediction-current_ai_finding-retry",
+              "BO-TC-C11_guard_artifact_prediction-current_researchguard_result",
+              "BO-TC-C11_guard_artifact_prediction-current_researchguard_result-retry",
+              "BO-TC-C11_guard_artifact_prediction-researchguard_not_current",
+              "BO-TC-C11_guard_artifact_prediction-researchguard_not_current-retry",
+              "BO-TC-C11_guard_artifact_prediction-legacy_parallel_guard_binding",
+              "BO-TC-C11_guard_artifact_prediction-legacy_parallel_guard_binding-retry",
+              "BO-TC-C11_guard_artifact_prediction-current_scope_triage",
+              "BO-TC-C11_guard_artifact_prediction-current_scope_triage-retry",
+              "BO-TC-C11_guard_artifact_prediction-depth_sufficient_current",
+              "BO-TC-C11_guard_artifact_prediction-depth_sufficient_current-retry",
+              "BO-TC-C11_guard_artifact_prediction-depth_partial_or_stale",
+              "BO-TC-C11_guard_artifact_prediction-depth_partial_or_stale-retry",
+              "BO-TC-C11_guard_artifact_prediction-stale_operation_result",
+              "BO-TC-C11_guard_artifact_prediction-stale_operation_result-retry",
+              "BO-TC-C11_guard_artifact_prediction-scope_escape_attempt",
+              "BO-TC-C11_guard_artifact_prediction-scope_escape_attempt-retry",
+              "BO-TC-C11_guard_artifact_prediction-forecast_delay",
+              "BO-TC-C11_guard_artifact_prediction-forecast_delay-retry",
+              "BO-TC-C11_guard_artifact_prediction-research_direct_canonical_write",
+              "BO-TC-C11_guard_artifact_prediction-research_direct_canonical_write-retry",
+              "BO-TC-C11_guard_artifact_prediction-skipped_or_progress_receipt",
+              "BO-TC-C11_guard_artifact_prediction-skipped_or_progress_receipt-retry",
+              "BO-C11_guard_artifact_prediction-foreign_owner_write",
+              "BO-C11_guard_artifact_prediction-undeclared_provider_field"
+            ],
+            "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
+          }
+        },
+        "severity": "blocker",
+        "surface_id": ""
+      },
+      {
+        "code": "commitment_primary_path_blocked",
+        "commitment_id": "BC-PR-012",
+        "message": "Primary Path Authority blocks this path-sensitive commitment",
+        "metadata": {
+          "path_authority": {
+            "behavior_commitment_id": "BC-PR-012",
+            "business_intent": "",
+            "business_intent_id": "BI-PR-012-view-bilingual-projection",
+            "evidence_current": false,
+            "evidence_refs": [
+              ".flowguard/evidence/tests/TM12_projection_bilingual_ui.json",
+              ".flowguard/evidence/alignment/model_code_test.json",
+              ".flowguard/evidence/synthetic/G8_fully_synthetic_end_to_end.json"
+            ],
+            "fallback_candidate_ids": [],
+            "legacy_plural_migrated": false,
+            "metadata": {},
+            "path_sensitive": true,
+            "ppa_confidence": "blocked",
+            "ppa_coverage_receipt_ids": [
+              "run:TM12_projection_bilingual_ui:90a2078dfb914f85"
+            ],
+            "ppa_coverage_shard_ids": [
+              "TM12_projection_bilingual_ui"
+            ],
+            "ppa_decision": "primary_path_authority_blocked",
+            "ppa_ok": false,
+            "ppa_report_id": "PPA-BC-PR-012-G8",
+            "ppa_risk_gate_ids": [
+              "authority",
+              "cartesian_coverage",
+              "G8-fully-synthetic"
+            ],
+            "primary_path_id": "path:c12-project-inventory-freshness-depth-review",
+            "primary_path_migration_ambiguous": false,
+            "proof_artifact_ids": [
+              "evidence:C12_projection_bilingual_ui:20c4784395f203c6",
+              "artifact:run:TM12_projection_bilingual_ui:90a2078dfb914f85",
+              "evidence:model-code-test-alignment:9c4af1411686aaae",
+              "evidence:G8-fully-synthetic:bc64583f4f44a72f"
+            ],
+            "runtime_observation_ids": [
+              "BO-TC-C12_projection_bilingual_ui-same_revision_equivalent",
+              "BO-TC-C12_projection_bilingual_ui-same_revision_equivalent-retry",
+              "BO-TC-C12_projection_bilingual_ui-first_launch_without_preference",
+              "BO-TC-C12_projection_bilingual_ui-first_launch_without_preference-retry",
+              "BO-TC-C12_projection_bilingual_ui-select_chinese_same_context",
+              "BO-TC-C12_projection_bilingual_ui-select_chinese_same_context-retry",
+              "BO-TC-C12_projection_bilingual_ui-future_locale_complete",
+              "BO-TC-C12_projection_bilingual_ui-future_locale_complete-retry",
+              "BO-TC-C12_projection_bilingual_ui-missing_required_locale",
+              "BO-TC-C12_projection_bilingual_ui-missing_required_locale-retry",
+              "BO-TC-C12_projection_bilingual_ui-unsupported_locale_requested",
+              "BO-TC-C12_projection_bilingual_ui-unsupported_locale_requested-retry",
+              "BO-TC-C12_projection_bilingual_ui-static_copy_complete",
+              "BO-TC-C12_projection_bilingual_ui-static_copy_complete-retry",
+              "BO-TC-C12_projection_bilingual_ui-source_catalog_current",
+              "BO-TC-C12_projection_bilingual_ui-source_catalog_current-retry",
+              "BO-TC-C12_projection_bilingual_ui-large_catalog_incremental",
+              "BO-TC-C12_projection_bilingual_ui-large_catalog_incremental-retry",
+              "BO-TC-C12_projection_bilingual_ui-source_tracking_control",
+              "BO-TC-C12_projection_bilingual_ui-source_tracking_control-retry",
+              "BO-TC-C12_projection_bilingual_ui-advisory_candidate_review_control",
+              "BO-TC-C12_projection_bilingual_ui-advisory_candidate_review_control-retry",
+              "BO-TC-C12_projection_bilingual_ui-recompute_not_terminal",
+              "BO-TC-C12_projection_bilingual_ui-recompute_not_terminal-retry",
+              "BO-TC-C12_projection_bilingual_ui-blocked_waiting_conflict",
+              "BO-TC-C12_projection_bilingual_ui-blocked_waiting_conflict-retry",
+              "BO-TC-C12_projection_bilingual_ui-stale_one_language",
+              "BO-TC-C12_projection_bilingual_ui-stale_one_language-retry",
+              "BO-TC-C12_projection_bilingual_ui-ui_infers_state",
+              "BO-TC-C12_projection_bilingual_ui-ui_infers_state-retry",
+              "BO-TC-C12_projection_bilingual_ui-correction_control",
+              "BO-TC-C12_projection_bilingual_ui-correction_control-retry",
+              "BO-TC-C12_projection_bilingual_ui-internal_identifier_requested_by_default",
+              "BO-TC-C12_projection_bilingual_ui-internal_identifier_requested_by_default-retry",
+              "BO-C12_projection_bilingual_ui-foreign_owner_write",
+              "BO-C12_projection_bilingual_ui-undeclared_provider_field"
+            ],
+            "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
+          }
+        },
+        "severity": "blocker",
+        "surface_id": ""
+      },
+      {
+        "code": "commitment_primary_path_material_evidence_missing",
+        "commitment_id": "BC-PR-012",
+        "message": "PPA binding must carry current runtime observations and proof artifact ids",
+        "metadata": {
+          "path_authority": {
+            "behavior_commitment_id": "BC-PR-012",
+            "business_intent": "",
+            "business_intent_id": "BI-PR-012-view-bilingual-projection",
+            "evidence_current": false,
+            "evidence_refs": [
+              ".flowguard/evidence/tests/TM12_projection_bilingual_ui.json",
+              ".flowguard/evidence/alignment/model_code_test.json",
+              ".flowguard/evidence/synthetic/G8_fully_synthetic_end_to_end.json"
+            ],
+            "fallback_candidate_ids": [],
+            "legacy_plural_migrated": false,
+            "metadata": {},
+            "path_sensitive": true,
+            "ppa_confidence": "blocked",
+            "ppa_coverage_receipt_ids": [
+              "run:TM12_projection_bilingual_ui:90a2078dfb914f85"
+            ],
+            "ppa_coverage_shard_ids": [
+              "TM12_projection_bilingual_ui"
+            ],
+            "ppa_decision": "primary_path_authority_blocked",
+            "ppa_ok": false,
+            "ppa_report_id": "PPA-BC-PR-012-G8",
+            "ppa_risk_gate_ids": [
+              "authority",
+              "cartesian_coverage",
+              "G8-fully-synthetic"
+            ],
+            "primary_path_id": "path:c12-project-inventory-freshness-depth-review",
+            "primary_path_migration_ambiguous": false,
+            "proof_artifact_ids": [
+              "evidence:C12_projection_bilingual_ui:20c4784395f203c6",
+              "artifact:run:TM12_projection_bilingual_ui:90a2078dfb914f85",
+              "evidence:model-code-test-alignment:9c4af1411686aaae",
+              "evidence:G8-fully-synthetic:bc64583f4f44a72f"
+            ],
+            "runtime_observation_ids": [
+              "BO-TC-C12_projection_bilingual_ui-same_revision_equivalent",
+              "BO-TC-C12_projection_bilingual_ui-same_revision_equivalent-retry",
+              "BO-TC-C12_projection_bilingual_ui-first_launch_without_preference",
+              "BO-TC-C12_projection_bilingual_ui-first_launch_without_preference-retry",
+              "BO-TC-C12_projection_bilingual_ui-select_chinese_same_context",
+              "BO-TC-C12_projection_bilingual_ui-select_chinese_same_context-retry",
+              "BO-TC-C12_projection_bilingual_ui-future_locale_complete",
+              "BO-TC-C12_projection_bilingual_ui-future_locale_complete-retry",
+              "BO-TC-C12_projection_bilingual_ui-missing_required_locale",
+              "BO-TC-C12_projection_bilingual_ui-missing_required_locale-retry",
+              "BO-TC-C12_projection_bilingual_ui-unsupported_locale_requested",
+              "BO-TC-C12_projection_bilingual_ui-unsupported_locale_requested-retry",
+              "BO-TC-C12_projection_bilingual_ui-static_copy_complete",
+              "BO-TC-C12_projection_bilingual_ui-static_copy_complete-retry",
+              "BO-TC-C12_projection_bilingual_ui-source_catalog_current",
+              "BO-TC-C12_projection_bilingual_ui-source_catalog_current-retry",
+              "BO-TC-C12_projection_bilingual_ui-large_catalog_incremental",
+              "BO-TC-C12_projection_bilingual_ui-large_catalog_incremental-retry",
+              "BO-TC-C12_projection_bilingual_ui-source_tracking_control",
+              "BO-TC-C12_projection_bilingual_ui-source_tracking_control-retry",
+              "BO-TC-C12_projection_bilingual_ui-advisory_candidate_review_control",
+              "BO-TC-C12_projection_bilingual_ui-advisory_candidate_review_control-retry",
+              "BO-TC-C12_projection_bilingual_ui-recompute_not_terminal",
+              "BO-TC-C12_projection_bilingual_ui-recompute_not_terminal-retry",
+              "BO-TC-C12_projection_bilingual_ui-blocked_waiting_conflict",
+              "BO-TC-C12_projection_bilingual_ui-blocked_waiting_conflict-retry",
+              "BO-TC-C12_projection_bilingual_ui-stale_one_language",
+              "BO-TC-C12_projection_bilingual_ui-stale_one_language-retry",
+              "BO-TC-C12_projection_bilingual_ui-ui_infers_state",
+              "BO-TC-C12_projection_bilingual_ui-ui_infers_state-retry",
+              "BO-TC-C12_projection_bilingual_ui-correction_control",
+              "BO-TC-C12_projection_bilingual_ui-correction_control-retry",
+              "BO-TC-C12_projection_bilingual_ui-internal_identifier_requested_by_default",
+              "BO-TC-C12_projection_bilingual_ui-internal_identifier_requested_by_default-retry",
+              "BO-C12_projection_bilingual_ui-foreign_owner_write",
+              "BO-C12_projection_bilingual_ui-undeclared_provider_field"
+            ],
+            "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
+          }
+        },
+        "severity": "blocker",
+        "surface_id": ""
+      },
+      {
+        "code": "commitment_primary_path_blocked",
+        "commitment_id": "BC-PR-013",
+        "message": "Primary Path Authority blocks this path-sensitive commitment",
+        "metadata": {
+          "path_authority": {
+            "behavior_commitment_id": "BC-PR-013",
+            "business_intent": "",
+            "business_intent_id": "BI-PR-013-keep-private-data-outside-git",
+            "evidence_current": false,
+            "evidence_refs": [
+              ".flowguard/evidence/tests/TM18_privacy_public_boundary.json",
+              ".flowguard/evidence/alignment/model_code_test.json",
+              ".flowguard/evidence/synthetic/G8_fully_synthetic_end_to_end.json"
+            ],
+            "fallback_candidate_ids": [],
+            "legacy_plural_migrated": false,
+            "metadata": {},
+            "path_sensitive": true,
+            "ppa_confidence": "blocked",
+            "ppa_coverage_receipt_ids": [
+              "run:TM18_privacy_public_boundary:a720d3e2ac6400c8"
+            ],
+            "ppa_coverage_shard_ids": [
+              "TM18_privacy_public_boundary"
+            ],
+            "ppa_decision": "primary_path_authority_blocked",
+            "ppa_ok": false,
+            "ppa_report_id": "PPA-BC-PR-013-G8",
+            "ppa_risk_gate_ids": [
+              "authority",
+              "cartesian_coverage",
+              "G8-fully-synthetic"
+            ],
+            "primary_path_id": "path:c1-activate-external-private-root",
+            "primary_path_migration_ambiguous": false,
+            "proof_artifact_ids": [
+              "evidence:C1_authorization_coverage:c79e7de035569689",
+              "artifact:run:TM18_privacy_public_boundary:a720d3e2ac6400c8",
+              "evidence:model-code-test-alignment:9c4af1411686aaae",
+              "evidence:G8-fully-synthetic:bc64583f4f44a72f"
+            ],
+            "runtime_observation_ids": [
+              "BO-TC-C1_authorization_coverage-candidate_scope_frozen",
+              "BO-TC-C1_authorization_coverage-candidate_scope_frozen-retry",
+              "BO-TC-C1_authorization_coverage-tracked_current",
+              "BO-TC-C1_authorization_coverage-tracked_current-retry",
+              "BO-TC-C1_authorization_coverage-ai_not_tracked_current",
+              "BO-TC-C1_authorization_coverage-ai_not_tracked_current-retry",
+              "BO-TC-C1_authorization_coverage-ai_uncertain_or_protected",
+              "BO-TC-C1_authorization_coverage-ai_uncertain_or_protected-retry",
+              "BO-TC-C1_authorization_coverage-deferred_item_present",
+              "BO-TC-C1_authorization_coverage-deferred_item_present-retry",
+              "BO-TC-C1_authorization_coverage-all_items_and_pages_terminal",
+              "BO-TC-C1_authorization_coverage-all_items_and_pages_terminal-retry",
+              "BO-TC-C1_authorization_coverage-nonterminal_or_missing_page",
+              "BO-TC-C1_authorization_coverage-nonterminal_or_missing_page-retry",
+              "BO-TC-C1_authorization_coverage-tracking_policy_changed",
+              "BO-TC-C1_authorization_coverage-tracking_policy_changed-retry",
+              "BO-TC-C1_authorization_coverage-outside_scope",
+              "BO-TC-C1_authorization_coverage-outside_scope-retry",
+              "BO-TC-C1_authorization_coverage-authorization_revoked",
+              "BO-TC-C1_authorization_coverage-authorization_revoked-retry",
+              "BO-TC-C1_authorization_coverage-private_root_outside_git",
+              "BO-TC-C1_authorization_coverage-private_root_outside_git-retry",
+              "BO-TC-C1_authorization_coverage-private_root_inside_git",
+              "BO-TC-C1_authorization_coverage-private_root_inside_git-retry",
+              "BO-C1_authorization_coverage-foreign_owner_write",
+              "BO-C1_authorization_coverage-undeclared_provider_field"
+            ],
+            "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
+          }
+        },
+        "severity": "blocker",
+        "surface_id": ""
+      },
+      {
+        "code": "commitment_primary_path_material_evidence_missing",
+        "commitment_id": "BC-PR-013",
+        "message": "PPA binding must carry current runtime observations and proof artifact ids",
+        "metadata": {
+          "path_authority": {
+            "behavior_commitment_id": "BC-PR-013",
+            "business_intent": "",
+            "business_intent_id": "BI-PR-013-keep-private-data-outside-git",
+            "evidence_current": false,
+            "evidence_refs": [
+              ".flowguard/evidence/tests/TM18_privacy_public_boundary.json",
+              ".flowguard/evidence/alignment/model_code_test.json",
+              ".flowguard/evidence/synthetic/G8_fully_synthetic_end_to_end.json"
+            ],
+            "fallback_candidate_ids": [],
+            "legacy_plural_migrated": false,
+            "metadata": {},
+            "path_sensitive": true,
+            "ppa_confidence": "blocked",
+            "ppa_coverage_receipt_ids": [
+              "run:TM18_privacy_public_boundary:a720d3e2ac6400c8"
+            ],
+            "ppa_coverage_shard_ids": [
+              "TM18_privacy_public_boundary"
+            ],
+            "ppa_decision": "primary_path_authority_blocked",
+            "ppa_ok": false,
+            "ppa_report_id": "PPA-BC-PR-013-G8",
+            "ppa_risk_gate_ids": [
+              "authority",
+              "cartesian_coverage",
+              "G8-fully-synthetic"
+            ],
+            "primary_path_id": "path:c1-activate-external-private-root",
+            "primary_path_migration_ambiguous": false,
+            "proof_artifact_ids": [
+              "evidence:C1_authorization_coverage:c79e7de035569689",
+              "artifact:run:TM18_privacy_public_boundary:a720d3e2ac6400c8",
+              "evidence:model-code-test-alignment:9c4af1411686aaae",
+              "evidence:G8-fully-synthetic:bc64583f4f44a72f"
+            ],
+            "runtime_observation_ids": [
+              "BO-TC-C1_authorization_coverage-candidate_scope_frozen",
+              "BO-TC-C1_authorization_coverage-candidate_scope_frozen-retry",
+              "BO-TC-C1_authorization_coverage-tracked_current",
+              "BO-TC-C1_authorization_coverage-tracked_current-retry",
+              "BO-TC-C1_authorization_coverage-ai_not_tracked_current",
+              "BO-TC-C1_authorization_coverage-ai_not_tracked_current-retry",
+              "BO-TC-C1_authorization_coverage-ai_uncertain_or_protected",
+              "BO-TC-C1_authorization_coverage-ai_uncertain_or_protected-retry",
+              "BO-TC-C1_authorization_coverage-deferred_item_present",
+              "BO-TC-C1_authorization_coverage-deferred_item_present-retry",
+              "BO-TC-C1_authorization_coverage-all_items_and_pages_terminal",
+              "BO-TC-C1_authorization_coverage-all_items_and_pages_terminal-retry",
+              "BO-TC-C1_authorization_coverage-nonterminal_or_missing_page",
+              "BO-TC-C1_authorization_coverage-nonterminal_or_missing_page-retry",
+              "BO-TC-C1_authorization_coverage-tracking_policy_changed",
+              "BO-TC-C1_authorization_coverage-tracking_policy_changed-retry",
+              "BO-TC-C1_authorization_coverage-outside_scope",
+              "BO-TC-C1_authorization_coverage-outside_scope-retry",
+              "BO-TC-C1_authorization_coverage-authorization_revoked",
+              "BO-TC-C1_authorization_coverage-authorization_revoked-retry",
+              "BO-TC-C1_authorization_coverage-private_root_outside_git",
+              "BO-TC-C1_authorization_coverage-private_root_outside_git-retry",
+              "BO-TC-C1_authorization_coverage-private_root_inside_git",
+              "BO-TC-C1_authorization_coverage-private_root_inside_git-retry",
+              "BO-C1_authorization_coverage-foreign_owner_write",
+              "BO-C1_authorization_coverage-undeclared_provider_field"
+            ],
+            "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
+          }
+        },
+        "severity": "blocker",
+        "surface_id": ""
+      },
+      {
+        "code": "commitment_primary_path_blocked",
+        "commitment_id": "BC-AO-001",
+        "message": "Primary Path Authority blocks this path-sensitive commitment",
+        "metadata": {
+          "path_authority": {
+            "behavior_commitment_id": "BC-AO-001",
+            "business_intent": "",
+            "business_intent_id": "BI-AO-001-analyze-tracked-source",
+            "evidence_current": false,
+            "evidence_refs": [],
+            "fallback_candidate_ids": [],
+            "legacy_plural_migrated": false,
+            "metadata": {},
+            "path_sensitive": true,
+            "ppa_confidence": "blocked",
+            "ppa_coverage_receipt_ids": [],
+            "ppa_coverage_shard_ids": [],
+            "ppa_decision": "primary_path_authority_blocked",
+            "ppa_ok": false,
+            "ppa_report_id": "",
+            "ppa_risk_gate_ids": [],
+            "primary_path_id": "path:ao-source-analysis-work-package",
+            "primary_path_migration_ambiguous": false,
+            "proof_artifact_ids": [],
+            "runtime_observation_ids": [],
+            "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
+          }
+        },
+        "severity": "blocker",
+        "surface_id": ""
+      },
+      {
+        "code": "commitment_primary_path_material_evidence_missing",
+        "commitment_id": "BC-AO-001",
+        "message": "PPA binding must carry current runtime observations and proof artifact ids",
+        "metadata": {
+          "path_authority": {
+            "behavior_commitment_id": "BC-AO-001",
+            "business_intent": "",
+            "business_intent_id": "BI-AO-001-analyze-tracked-source",
+            "evidence_current": false,
+            "evidence_refs": [],
+            "fallback_candidate_ids": [],
+            "legacy_plural_migrated": false,
+            "metadata": {},
+            "path_sensitive": true,
+            "ppa_confidence": "blocked",
+            "ppa_coverage_receipt_ids": [],
+            "ppa_coverage_shard_ids": [],
+            "ppa_decision": "primary_path_authority_blocked",
+            "ppa_ok": false,
+            "ppa_report_id": "",
+            "ppa_risk_gate_ids": [],
+            "primary_path_id": "path:ao-source-analysis-work-package",
+            "primary_path_migration_ambiguous": false,
+            "proof_artifact_ids": [],
+            "runtime_observation_ids": [],
+            "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
+          }
+        },
+        "severity": "blocker",
+        "surface_id": ""
+      },
+      {
+        "code": "commitment_primary_path_risk_gate_missing",
+        "commitment_id": "BC-AO-001",
+        "message": "PPA binding must preserve downstream risk gate ids",
+        "metadata": {
+          "path_authority": {
+            "behavior_commitment_id": "BC-AO-001",
+            "business_intent": "",
+            "business_intent_id": "BI-AO-001-analyze-tracked-source",
+            "evidence_current": false,
+            "evidence_refs": [],
+            "fallback_candidate_ids": [],
+            "legacy_plural_migrated": false,
+            "metadata": {},
+            "path_sensitive": true,
+            "ppa_confidence": "blocked",
+            "ppa_coverage_receipt_ids": [],
+            "ppa_coverage_shard_ids": [],
+            "ppa_decision": "primary_path_authority_blocked",
+            "ppa_ok": false,
+            "ppa_report_id": "",
+            "ppa_risk_gate_ids": [],
+            "primary_path_id": "path:ao-source-analysis-work-package",
+            "primary_path_migration_ambiguous": false,
+            "proof_artifact_ids": [],
+            "runtime_observation_ids": [],
+            "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
+          }
+        },
+        "severity": "blocker",
+        "surface_id": ""
+      },
+      {
+        "code": "commitment_primary_path_blocked",
+        "commitment_id": "BC-AO-002",
+        "message": "Primary Path Authority blocks this path-sensitive commitment",
+        "metadata": {
+          "path_authority": {
+            "behavior_commitment_id": "BC-AO-002",
+            "business_intent": "",
+            "business_intent_id": "BI-AO-002-execute-research-operation",
+            "evidence_current": false,
+            "evidence_refs": [],
+            "fallback_candidate_ids": [],
+            "legacy_plural_migrated": false,
+            "metadata": {},
+            "path_sensitive": true,
+            "ppa_confidence": "blocked",
+            "ppa_coverage_receipt_ids": [],
+            "ppa_coverage_shard_ids": [],
+            "ppa_decision": "primary_path_authority_blocked",
+            "ppa_ok": false,
+            "ppa_report_id": "",
+            "ppa_risk_gate_ids": [],
+            "primary_path_id": "path:ao-research-operation-researchguard",
+            "primary_path_migration_ambiguous": false,
+            "proof_artifact_ids": [],
+            "runtime_observation_ids": [],
+            "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
+          }
+        },
+        "severity": "blocker",
+        "surface_id": ""
+      },
+      {
+        "code": "commitment_primary_path_material_evidence_missing",
+        "commitment_id": "BC-AO-002",
+        "message": "PPA binding must carry current runtime observations and proof artifact ids",
+        "metadata": {
+          "path_authority": {
+            "behavior_commitment_id": "BC-AO-002",
+            "business_intent": "",
+            "business_intent_id": "BI-AO-002-execute-research-operation",
+            "evidence_current": false,
+            "evidence_refs": [],
+            "fallback_candidate_ids": [],
+            "legacy_plural_migrated": false,
+            "metadata": {},
+            "path_sensitive": true,
+            "ppa_confidence": "blocked",
+            "ppa_coverage_receipt_ids": [],
+            "ppa_coverage_shard_ids": [],
+            "ppa_decision": "primary_path_authority_blocked",
+            "ppa_ok": false,
+            "ppa_report_id": "",
+            "ppa_risk_gate_ids": [],
+            "primary_path_id": "path:ao-research-operation-researchguard",
+            "primary_path_migration_ambiguous": false,
+            "proof_artifact_ids": [],
+            "runtime_observation_ids": [],
+            "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
+          }
+        },
+        "severity": "blocker",
+        "surface_id": ""
+      },
+      {
+        "code": "commitment_primary_path_risk_gate_missing",
+        "commitment_id": "BC-AO-002",
+        "message": "PPA binding must preserve downstream risk gate ids",
+        "metadata": {
+          "path_authority": {
+            "behavior_commitment_id": "BC-AO-002",
+            "business_intent": "",
+            "business_intent_id": "BI-AO-002-execute-research-operation",
+            "evidence_current": false,
+            "evidence_refs": [],
+            "fallback_candidate_ids": [],
+            "legacy_plural_migrated": false,
+            "metadata": {},
+            "path_sensitive": true,
+            "ppa_confidence": "blocked",
+            "ppa_coverage_receipt_ids": [],
+            "ppa_coverage_shard_ids": [],
+            "ppa_decision": "primary_path_authority_blocked",
+            "ppa_ok": false,
+            "ppa_report_id": "",
+            "ppa_risk_gate_ids": [],
+            "primary_path_id": "path:ao-research-operation-researchguard",
+            "primary_path_migration_ambiguous": false,
+            "proof_artifact_ids": [],
+            "runtime_observation_ids": [],
+            "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
+          }
+        },
+        "severity": "blocker",
+        "surface_id": ""
+      },
+      {
+        "code": "commitment_primary_path_blocked",
+        "commitment_id": "BC-DP-001",
+        "message": "Primary Path Authority blocks this path-sensitive commitment",
+        "metadata": {
+          "path_authority": {
+            "behavior_commitment_id": "BC-DP-001",
+            "business_intent": "",
+            "business_intent_id": "BI-DP-001-follow-gated-delivery",
+            "evidence_current": false,
+            "evidence_refs": [],
+            "fallback_candidate_ids": [],
+            "legacy_plural_migrated": false,
+            "metadata": {},
+            "path_sensitive": true,
+            "ppa_confidence": "blocked",
+            "ppa_coverage_receipt_ids": [],
+            "ppa_coverage_shard_ids": [],
+            "ppa_decision": "primary_path_authority_blocked",
+            "ppa_ok": false,
+            "ppa_report_id": "",
+            "ppa_risk_gate_ids": [],
+            "primary_path_id": "path:dpf-matters-g0-g12",
+            "primary_path_migration_ambiguous": false,
+            "proof_artifact_ids": [],
+            "runtime_observation_ids": [],
+            "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
+          }
+        },
+        "severity": "blocker",
+        "surface_id": ""
+      },
+      {
+        "code": "commitment_primary_path_material_evidence_missing",
+        "commitment_id": "BC-DP-001",
+        "message": "PPA binding must carry current runtime observations and proof artifact ids",
+        "metadata": {
+          "path_authority": {
+            "behavior_commitment_id": "BC-DP-001",
+            "business_intent": "",
+            "business_intent_id": "BI-DP-001-follow-gated-delivery",
+            "evidence_current": false,
+            "evidence_refs": [],
+            "fallback_candidate_ids": [],
+            "legacy_plural_migrated": false,
+            "metadata": {},
+            "path_sensitive": true,
+            "ppa_confidence": "blocked",
+            "ppa_coverage_receipt_ids": [],
+            "ppa_coverage_shard_ids": [],
+            "ppa_decision": "primary_path_authority_blocked",
+            "ppa_ok": false,
+            "ppa_report_id": "",
+            "ppa_risk_gate_ids": [],
+            "primary_path_id": "path:dpf-matters-g0-g12",
+            "primary_path_migration_ambiguous": false,
+            "proof_artifact_ids": [],
+            "runtime_observation_ids": [],
+            "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
+          }
+        },
+        "severity": "blocker",
+        "surface_id": ""
+      },
+      {
+        "code": "commitment_primary_path_risk_gate_missing",
+        "commitment_id": "BC-DP-001",
+        "message": "PPA binding must preserve downstream risk gate ids",
+        "metadata": {
+          "path_authority": {
+            "behavior_commitment_id": "BC-DP-001",
+            "business_intent": "",
+            "business_intent_id": "BI-DP-001-follow-gated-delivery",
+            "evidence_current": false,
+            "evidence_refs": [],
+            "fallback_candidate_ids": [],
+            "legacy_plural_migrated": false,
+            "metadata": {},
+            "path_sensitive": true,
+            "ppa_confidence": "blocked",
+            "ppa_coverage_receipt_ids": [],
+            "ppa_coverage_shard_ids": [],
+            "ppa_decision": "primary_path_authority_blocked",
+            "ppa_ok": false,
+            "ppa_report_id": "",
+            "ppa_risk_gate_ids": [],
+            "primary_path_id": "path:dpf-matters-g0-g12",
+            "primary_path_migration_ambiguous": false,
+            "proof_artifact_ids": [],
+            "runtime_observation_ids": [],
+            "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
+          }
+        },
+        "severity": "blocker",
+        "surface_id": ""
+      },
+      {
+        "code": "commitment_primary_path_blocked",
+        "commitment_id": "BC-DP-003",
+        "message": "Primary Path Authority blocks this path-sensitive commitment",
+        "metadata": {
+          "path_authority": {
+            "behavior_commitment_id": "BC-DP-003",
+            "business_intent": "",
+            "business_intent_id": "BI-DP-003-publish-clean-source-release",
+            "evidence_current": false,
+            "evidence_refs": [],
+            "fallback_candidate_ids": [],
+            "legacy_plural_migrated": false,
+            "metadata": {},
+            "path_sensitive": true,
+            "ppa_confidence": "blocked",
+            "ppa_coverage_receipt_ids": [],
+            "ppa_coverage_shard_ids": [],
+            "ppa_decision": "primary_path_authority_blocked",
+            "ppa_ok": false,
+            "ppa_report_id": "",
+            "ppa_risk_gate_ids": [],
+            "primary_path_id": "path:dpf-clean-source-release",
+            "primary_path_migration_ambiguous": false,
+            "proof_artifact_ids": [],
+            "runtime_observation_ids": [],
+            "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
+          }
+        },
+        "severity": "blocker",
+        "surface_id": ""
+      },
+      {
+        "code": "commitment_primary_path_material_evidence_missing",
+        "commitment_id": "BC-DP-003",
+        "message": "PPA binding must carry current runtime observations and proof artifact ids",
+        "metadata": {
+          "path_authority": {
+            "behavior_commitment_id": "BC-DP-003",
+            "business_intent": "",
+            "business_intent_id": "BI-DP-003-publish-clean-source-release",
+            "evidence_current": false,
+            "evidence_refs": [],
+            "fallback_candidate_ids": [],
+            "legacy_plural_migrated": false,
+            "metadata": {},
+            "path_sensitive": true,
+            "ppa_confidence": "blocked",
+            "ppa_coverage_receipt_ids": [],
+            "ppa_coverage_shard_ids": [],
+            "ppa_decision": "primary_path_authority_blocked",
+            "ppa_ok": false,
+            "ppa_report_id": "",
+            "ppa_risk_gate_ids": [],
+            "primary_path_id": "path:dpf-clean-source-release",
+            "primary_path_migration_ambiguous": false,
+            "proof_artifact_ids": [],
+            "runtime_observation_ids": [],
+            "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
+          }
+        },
+        "severity": "blocker",
+        "surface_id": ""
+      },
+      {
+        "code": "commitment_primary_path_risk_gate_missing",
+        "commitment_id": "BC-DP-003",
+        "message": "PPA binding must preserve downstream risk gate ids",
+        "metadata": {
+          "path_authority": {
+            "behavior_commitment_id": "BC-DP-003",
+            "business_intent": "",
+            "business_intent_id": "BI-DP-003-publish-clean-source-release",
+            "evidence_current": false,
+            "evidence_refs": [],
+            "fallback_candidate_ids": [],
+            "legacy_plural_migrated": false,
+            "metadata": {},
+            "path_sensitive": true,
+            "ppa_confidence": "blocked",
+            "ppa_coverage_receipt_ids": [],
+            "ppa_coverage_shard_ids": [],
+            "ppa_decision": "primary_path_authority_blocked",
+            "ppa_ok": false,
+            "ppa_report_id": "",
+            "ppa_risk_gate_ids": [],
+            "primary_path_id": "path:dpf-clean-source-release",
+            "primary_path_migration_ambiguous": false,
+            "proof_artifact_ids": [],
+            "runtime_observation_ids": [],
+            "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
+          }
+        },
+        "severity": "blocker",
+        "surface_id": ""
+      },
+      {
+        "code": "commitment_primary_path_blocked",
+        "commitment_id": "BC-DP-004",
+        "message": "Primary Path Authority blocks this path-sensitive commitment",
+        "metadata": {
+          "path_authority": {
+            "behavior_commitment_id": "BC-DP-004",
+            "business_intent": "",
+            "business_intent_id": "BI-DP-004-progressive-private-first-run",
+            "evidence_current": false,
+            "evidence_refs": [],
+            "fallback_candidate_ids": [],
+            "legacy_plural_migrated": false,
+            "metadata": {},
+            "path_sensitive": true,
+            "ppa_confidence": "blocked",
+            "ppa_coverage_receipt_ids": [],
+            "ppa_coverage_shard_ids": [],
+            "ppa_decision": "primary_path_authority_blocked",
+            "ppa_ok": false,
+            "ppa_report_id": "",
+            "ppa_risk_gate_ids": [],
+            "primary_path_id": "path:dpf-progressive-private-first-run",
+            "primary_path_migration_ambiguous": false,
+            "proof_artifact_ids": [],
+            "runtime_observation_ids": [],
+            "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
+          }
+        },
+        "severity": "blocker",
+        "surface_id": ""
+      },
+      {
+        "code": "commitment_primary_path_material_evidence_missing",
+        "commitment_id": "BC-DP-004",
+        "message": "PPA binding must carry current runtime observations and proof artifact ids",
+        "metadata": {
+          "path_authority": {
+            "behavior_commitment_id": "BC-DP-004",
+            "business_intent": "",
+            "business_intent_id": "BI-DP-004-progressive-private-first-run",
+            "evidence_current": false,
+            "evidence_refs": [],
+            "fallback_candidate_ids": [],
+            "legacy_plural_migrated": false,
+            "metadata": {},
+            "path_sensitive": true,
+            "ppa_confidence": "blocked",
+            "ppa_coverage_receipt_ids": [],
+            "ppa_coverage_shard_ids": [],
+            "ppa_decision": "primary_path_authority_blocked",
+            "ppa_ok": false,
+            "ppa_report_id": "",
+            "ppa_risk_gate_ids": [],
+            "primary_path_id": "path:dpf-progressive-private-first-run",
+            "primary_path_migration_ambiguous": false,
+            "proof_artifact_ids": [],
+            "runtime_observation_ids": [],
+            "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
+          }
+        },
+        "severity": "blocker",
+        "surface_id": ""
+      },
+      {
+        "code": "commitment_primary_path_risk_gate_missing",
+        "commitment_id": "BC-DP-004",
+        "message": "PPA binding must preserve downstream risk gate ids",
+        "metadata": {
+          "path_authority": {
+            "behavior_commitment_id": "BC-DP-004",
+            "business_intent": "",
+            "business_intent_id": "BI-DP-004-progressive-private-first-run",
+            "evidence_current": false,
+            "evidence_refs": [],
+            "fallback_candidate_ids": [],
+            "legacy_plural_migrated": false,
+            "metadata": {},
+            "path_sensitive": true,
+            "ppa_confidence": "blocked",
+            "ppa_coverage_receipt_ids": [],
+            "ppa_coverage_shard_ids": [],
+            "ppa_decision": "primary_path_authority_blocked",
+            "ppa_ok": false,
+            "ppa_report_id": "",
+            "ppa_risk_gate_ids": [],
+            "primary_path_id": "path:dpf-progressive-private-first-run",
+            "primary_path_migration_ambiguous": false,
+            "proof_artifact_ids": [],
+            "runtime_observation_ids": [],
+            "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
+          }
+        },
+        "severity": "blocker",
+        "surface_id": ""
+      },
+      {
+        "code": "commitment_primary_path_blocked",
+        "commitment_id": "BC-DP-005",
+        "message": "Primary Path Authority blocks this path-sensitive commitment",
+        "metadata": {
+          "path_authority": {
+            "behavior_commitment_id": "BC-DP-005",
+            "business_intent": "",
+            "business_intent_id": "BI-DP-005-bundle-app-local-skill-pack",
+            "evidence_current": false,
+            "evidence_refs": [],
+            "fallback_candidate_ids": [],
+            "legacy_plural_migrated": false,
+            "metadata": {},
+            "path_sensitive": true,
+            "ppa_confidence": "blocked",
+            "ppa_coverage_receipt_ids": [],
+            "ppa_coverage_shard_ids": [],
+            "ppa_decision": "primary_path_authority_blocked",
+            "ppa_ok": false,
+            "ppa_report_id": "",
+            "ppa_risk_gate_ids": [],
+            "primary_path_id": "path:s0-freeze-bundled-skill-pack",
+            "primary_path_migration_ambiguous": false,
+            "proof_artifact_ids": [],
+            "runtime_observation_ids": [],
+            "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
+          }
+        },
+        "severity": "blocker",
+        "surface_id": ""
+      },
+      {
+        "code": "commitment_primary_path_material_evidence_missing",
+        "commitment_id": "BC-DP-005",
+        "message": "PPA binding must carry current runtime observations and proof artifact ids",
+        "metadata": {
+          "path_authority": {
+            "behavior_commitment_id": "BC-DP-005",
+            "business_intent": "",
+            "business_intent_id": "BI-DP-005-bundle-app-local-skill-pack",
+            "evidence_current": false,
+            "evidence_refs": [],
+            "fallback_candidate_ids": [],
+            "legacy_plural_migrated": false,
+            "metadata": {},
+            "path_sensitive": true,
+            "ppa_confidence": "blocked",
+            "ppa_coverage_receipt_ids": [],
+            "ppa_coverage_shard_ids": [],
+            "ppa_decision": "primary_path_authority_blocked",
+            "ppa_ok": false,
+            "ppa_report_id": "",
+            "ppa_risk_gate_ids": [],
+            "primary_path_id": "path:s0-freeze-bundled-skill-pack",
+            "primary_path_migration_ambiguous": false,
+            "proof_artifact_ids": [],
+            "runtime_observation_ids": [],
+            "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
+          }
+        },
+        "severity": "blocker",
+        "surface_id": ""
+      },
+      {
+        "code": "commitment_primary_path_risk_gate_missing",
+        "commitment_id": "BC-DP-005",
+        "message": "PPA binding must preserve downstream risk gate ids",
+        "metadata": {
+          "path_authority": {
+            "behavior_commitment_id": "BC-DP-005",
+            "business_intent": "",
+            "business_intent_id": "BI-DP-005-bundle-app-local-skill-pack",
+            "evidence_current": false,
+            "evidence_refs": [],
+            "fallback_candidate_ids": [],
+            "legacy_plural_migrated": false,
+            "metadata": {},
+            "path_sensitive": true,
+            "ppa_confidence": "blocked",
+            "ppa_coverage_receipt_ids": [],
+            "ppa_coverage_shard_ids": [],
+            "ppa_decision": "primary_path_authority_blocked",
+            "ppa_ok": false,
+            "ppa_report_id": "",
+            "ppa_risk_gate_ids": [],
+            "primary_path_id": "path:s0-freeze-bundled-skill-pack",
+            "primary_path_migration_ambiguous": false,
+            "proof_artifact_ids": [],
+            "runtime_observation_ids": [],
+            "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
+          }
+        },
+        "severity": "blocker",
+        "surface_id": ""
+      },
+      {
+        "code": "commitment_primary_path_blocked",
+        "commitment_id": "BC-DP-006",
+        "message": "Primary Path Authority blocks this path-sensitive commitment",
+        "metadata": {
+          "path_authority": {
+            "behavior_commitment_id": "BC-DP-006",
+            "business_intent": "",
+            "business_intent_id": "BI-DP-006-resolve-compatible-active-view",
+            "evidence_current": false,
+            "evidence_refs": [],
+            "fallback_candidate_ids": [],
+            "legacy_plural_migrated": false,
+            "metadata": {},
+            "path_sensitive": true,
+            "ppa_confidence": "blocked",
+            "ppa_coverage_receipt_ids": [],
+            "ppa_coverage_shard_ids": [],
+            "ppa_decision": "primary_path_authority_blocked",
+            "ppa_ok": false,
+            "ppa_report_id": "",
+            "ppa_risk_gate_ids": [],
+            "primary_path_id": "path:s0-resolve-compatible-active-view",
+            "primary_path_migration_ambiguous": false,
+            "proof_artifact_ids": [],
+            "runtime_observation_ids": [],
+            "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
+          }
+        },
+        "severity": "blocker",
+        "surface_id": ""
+      },
+      {
+        "code": "commitment_primary_path_material_evidence_missing",
+        "commitment_id": "BC-DP-006",
+        "message": "PPA binding must carry current runtime observations and proof artifact ids",
+        "metadata": {
+          "path_authority": {
+            "behavior_commitment_id": "BC-DP-006",
+            "business_intent": "",
+            "business_intent_id": "BI-DP-006-resolve-compatible-active-view",
+            "evidence_current": false,
+            "evidence_refs": [],
+            "fallback_candidate_ids": [],
+            "legacy_plural_migrated": false,
+            "metadata": {},
+            "path_sensitive": true,
+            "ppa_confidence": "blocked",
+            "ppa_coverage_receipt_ids": [],
+            "ppa_coverage_shard_ids": [],
+            "ppa_decision": "primary_path_authority_blocked",
+            "ppa_ok": false,
+            "ppa_report_id": "",
+            "ppa_risk_gate_ids": [],
+            "primary_path_id": "path:s0-resolve-compatible-active-view",
+            "primary_path_migration_ambiguous": false,
+            "proof_artifact_ids": [],
+            "runtime_observation_ids": [],
+            "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
+          }
+        },
+        "severity": "blocker",
+        "surface_id": ""
+      },
+      {
+        "code": "commitment_primary_path_risk_gate_missing",
+        "commitment_id": "BC-DP-006",
+        "message": "PPA binding must preserve downstream risk gate ids",
+        "metadata": {
+          "path_authority": {
+            "behavior_commitment_id": "BC-DP-006",
+            "business_intent": "",
+            "business_intent_id": "BI-DP-006-resolve-compatible-active-view",
+            "evidence_current": false,
+            "evidence_refs": [],
+            "fallback_candidate_ids": [],
+            "legacy_plural_migrated": false,
+            "metadata": {},
+            "path_sensitive": true,
+            "ppa_confidence": "blocked",
+            "ppa_coverage_receipt_ids": [],
+            "ppa_coverage_shard_ids": [],
+            "ppa_decision": "primary_path_authority_blocked",
+            "ppa_ok": false,
+            "ppa_report_id": "",
+            "ppa_risk_gate_ids": [],
+            "primary_path_id": "path:s0-resolve-compatible-active-view",
+            "primary_path_migration_ambiguous": false,
+            "proof_artifact_ids": [],
+            "runtime_observation_ids": [],
+            "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
+          }
+        },
+        "severity": "blocker",
+        "surface_id": ""
+      },
+      {
+        "code": "commitment_primary_path_blocked",
+        "commitment_id": "BC-DP-007",
+        "message": "Primary Path Authority blocks this path-sensitive commitment",
+        "metadata": {
+          "path_authority": {
+            "behavior_commitment_id": "BC-DP-007",
+            "business_intent": "",
+            "business_intent_id": "BI-DP-007-sync-managed-skill-projection",
+            "evidence_current": false,
+            "evidence_refs": [],
+            "fallback_candidate_ids": [],
+            "legacy_plural_migrated": false,
+            "metadata": {},
+            "path_sensitive": true,
+            "ppa_confidence": "blocked",
+            "ppa_coverage_receipt_ids": [],
+            "ppa_coverage_shard_ids": [],
+            "ppa_decision": "primary_path_authority_blocked",
+            "ppa_ok": false,
+            "ppa_report_id": "",
+            "ppa_risk_gate_ids": [],
+            "primary_path_id": "path:s0-managed-sync-with-rollback",
+            "primary_path_migration_ambiguous": false,
+            "proof_artifact_ids": [],
+            "runtime_observation_ids": [],
+            "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
+          }
+        },
+        "severity": "blocker",
+        "surface_id": ""
+      },
+      {
+        "code": "commitment_primary_path_material_evidence_missing",
+        "commitment_id": "BC-DP-007",
+        "message": "PPA binding must carry current runtime observations and proof artifact ids",
+        "metadata": {
+          "path_authority": {
+            "behavior_commitment_id": "BC-DP-007",
+            "business_intent": "",
+            "business_intent_id": "BI-DP-007-sync-managed-skill-projection",
+            "evidence_current": false,
+            "evidence_refs": [],
+            "fallback_candidate_ids": [],
+            "legacy_plural_migrated": false,
+            "metadata": {},
+            "path_sensitive": true,
+            "ppa_confidence": "blocked",
+            "ppa_coverage_receipt_ids": [],
+            "ppa_coverage_shard_ids": [],
+            "ppa_decision": "primary_path_authority_blocked",
+            "ppa_ok": false,
+            "ppa_report_id": "",
+            "ppa_risk_gate_ids": [],
+            "primary_path_id": "path:s0-managed-sync-with-rollback",
+            "primary_path_migration_ambiguous": false,
+            "proof_artifact_ids": [],
+            "runtime_observation_ids": [],
+            "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
+          }
+        },
+        "severity": "blocker",
+        "surface_id": ""
+      },
+      {
+        "code": "commitment_primary_path_risk_gate_missing",
+        "commitment_id": "BC-DP-007",
+        "message": "PPA binding must preserve downstream risk gate ids",
+        "metadata": {
+          "path_authority": {
+            "behavior_commitment_id": "BC-DP-007",
+            "business_intent": "",
+            "business_intent_id": "BI-DP-007-sync-managed-skill-projection",
+            "evidence_current": false,
+            "evidence_refs": [],
+            "fallback_candidate_ids": [],
+            "legacy_plural_migrated": false,
+            "metadata": {},
+            "path_sensitive": true,
+            "ppa_confidence": "blocked",
+            "ppa_coverage_receipt_ids": [],
+            "ppa_coverage_shard_ids": [],
+            "ppa_decision": "primary_path_authority_blocked",
+            "ppa_ok": false,
+            "ppa_report_id": "",
+            "ppa_risk_gate_ids": [],
+            "primary_path_id": "path:s0-managed-sync-with-rollback",
+            "primary_path_migration_ambiguous": false,
+            "proof_artifact_ids": [],
+            "runtime_observation_ids": [],
+            "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
+          }
+        },
+        "severity": "blocker",
+        "surface_id": ""
+      },
+      {
+        "code": "commitment_primary_path_blocked",
+        "commitment_id": "BC-DP-008",
+        "message": "Primary Path Authority blocks this path-sensitive commitment",
+        "metadata": {
+          "path_authority": {
+            "behavior_commitment_id": "BC-DP-008",
+            "business_intent": "",
+            "business_intent_id": "BI-DP-008-freeze-researchguard-integration",
+            "evidence_current": false,
+            "evidence_refs": [],
+            "fallback_candidate_ids": [],
+            "legacy_plural_migrated": false,
+            "metadata": {},
+            "path_sensitive": true,
+            "ppa_confidence": "blocked",
+            "ppa_coverage_receipt_ids": [],
+            "ppa_coverage_shard_ids": [],
+            "ppa_decision": "primary_path_authority_blocked",
+            "ppa_ok": false,
+            "ppa_report_id": "",
+            "ppa_risk_gate_ids": [],
+            "primary_path_id": "path:s0-freeze-researchguard-integration",
+            "primary_path_migration_ambiguous": false,
+            "proof_artifact_ids": [],
+            "runtime_observation_ids": [],
+            "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
+          }
+        },
+        "severity": "blocker",
+        "surface_id": ""
+      },
+      {
+        "code": "commitment_primary_path_material_evidence_missing",
+        "commitment_id": "BC-DP-008",
+        "message": "PPA binding must carry current runtime observations and proof artifact ids",
+        "metadata": {
+          "path_authority": {
+            "behavior_commitment_id": "BC-DP-008",
+            "business_intent": "",
+            "business_intent_id": "BI-DP-008-freeze-researchguard-integration",
+            "evidence_current": false,
+            "evidence_refs": [],
+            "fallback_candidate_ids": [],
+            "legacy_plural_migrated": false,
+            "metadata": {},
+            "path_sensitive": true,
+            "ppa_confidence": "blocked",
+            "ppa_coverage_receipt_ids": [],
+            "ppa_coverage_shard_ids": [],
+            "ppa_decision": "primary_path_authority_blocked",
+            "ppa_ok": false,
+            "ppa_report_id": "",
+            "ppa_risk_gate_ids": [],
+            "primary_path_id": "path:s0-freeze-researchguard-integration",
+            "primary_path_migration_ambiguous": false,
+            "proof_artifact_ids": [],
+            "runtime_observation_ids": [],
+            "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
+          }
+        },
+        "severity": "blocker",
+        "surface_id": ""
+      },
+      {
+        "code": "commitment_primary_path_risk_gate_missing",
+        "commitment_id": "BC-DP-008",
+        "message": "PPA binding must preserve downstream risk gate ids",
+        "metadata": {
+          "path_authority": {
+            "behavior_commitment_id": "BC-DP-008",
+            "business_intent": "",
+            "business_intent_id": "BI-DP-008-freeze-researchguard-integration",
+            "evidence_current": false,
+            "evidence_refs": [],
+            "fallback_candidate_ids": [],
+            "legacy_plural_migrated": false,
+            "metadata": {},
+            "path_sensitive": true,
+            "ppa_confidence": "blocked",
+            "ppa_coverage_receipt_ids": [],
+            "ppa_coverage_shard_ids": [],
+            "ppa_decision": "primary_path_authority_blocked",
+            "ppa_ok": false,
+            "ppa_report_id": "",
+            "ppa_risk_gate_ids": [],
+            "primary_path_id": "path:s0-freeze-researchguard-integration",
+            "primary_path_migration_ambiguous": false,
+            "proof_artifact_ids": [],
+            "runtime_observation_ids": [],
+            "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
+          }
+        },
+        "severity": "blocker",
+        "surface_id": ""
+      },
+      {
+        "code": "commitment_primary_path_blocked",
+        "commitment_id": "BC-DP-009",
+        "message": "Primary Path Authority blocks this path-sensitive commitment",
+        "metadata": {
+          "path_authority": {
+            "behavior_commitment_id": "BC-DP-009",
+            "business_intent": "",
+            "business_intent_id": "BI-DP-009-handoff-self-maintenance-model-miss",
+            "evidence_current": false,
+            "evidence_refs": [],
+            "fallback_candidate_ids": [],
+            "legacy_plural_migrated": false,
+            "metadata": {},
+            "path_sensitive": true,
+            "ppa_confidence": "blocked",
+            "ppa_coverage_receipt_ids": [],
+            "ppa_coverage_shard_ids": [],
+            "ppa_decision": "primary_path_authority_blocked",
+            "ppa_ok": false,
+            "ppa_report_id": "",
+            "ppa_risk_gate_ids": [],
+            "primary_path_id": "path:dpf-self-maintenance-model-miss-handoff",
+            "primary_path_migration_ambiguous": false,
+            "proof_artifact_ids": [],
+            "runtime_observation_ids": [],
+            "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
+          }
+        },
+        "severity": "blocker",
+        "surface_id": ""
+      },
+      {
+        "code": "commitment_primary_path_material_evidence_missing",
+        "commitment_id": "BC-DP-009",
+        "message": "PPA binding must carry current runtime observations and proof artifact ids",
+        "metadata": {
+          "path_authority": {
+            "behavior_commitment_id": "BC-DP-009",
+            "business_intent": "",
+            "business_intent_id": "BI-DP-009-handoff-self-maintenance-model-miss",
+            "evidence_current": false,
+            "evidence_refs": [],
+            "fallback_candidate_ids": [],
+            "legacy_plural_migrated": false,
+            "metadata": {},
+            "path_sensitive": true,
+            "ppa_confidence": "blocked",
+            "ppa_coverage_receipt_ids": [],
+            "ppa_coverage_shard_ids": [],
+            "ppa_decision": "primary_path_authority_blocked",
+            "ppa_ok": false,
+            "ppa_report_id": "",
+            "ppa_risk_gate_ids": [],
+            "primary_path_id": "path:dpf-self-maintenance-model-miss-handoff",
+            "primary_path_migration_ambiguous": false,
+            "proof_artifact_ids": [],
+            "runtime_observation_ids": [],
+            "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
+          }
+        },
+        "severity": "blocker",
+        "surface_id": ""
+      },
+      {
+        "code": "commitment_primary_path_risk_gate_missing",
+        "commitment_id": "BC-DP-009",
+        "message": "PPA binding must preserve downstream risk gate ids",
+        "metadata": {
+          "path_authority": {
+            "behavior_commitment_id": "BC-DP-009",
+            "business_intent": "",
+            "business_intent_id": "BI-DP-009-handoff-self-maintenance-model-miss",
+            "evidence_current": false,
+            "evidence_refs": [],
+            "fallback_candidate_ids": [],
+            "legacy_plural_migrated": false,
+            "metadata": {},
+            "path_sensitive": true,
+            "ppa_confidence": "blocked",
+            "ppa_coverage_receipt_ids": [],
+            "ppa_coverage_shard_ids": [],
+            "ppa_decision": "primary_path_authority_blocked",
+            "ppa_ok": false,
+            "ppa_report_id": "",
+            "ppa_risk_gate_ids": [],
+            "primary_path_id": "path:dpf-self-maintenance-model-miss-handoff",
+            "primary_path_migration_ambiguous": false,
+            "proof_artifact_ids": [],
+            "runtime_observation_ids": [],
+            "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
+          }
+        },
+        "severity": "blocker",
+        "surface_id": ""
+      }
+    ],
+    "ledger_id": "matters-behavior-commitment-ledger",
+    "missing_business_intent_ids": [
+      "BI-PR-000-review-authorized-situation",
+      "BI-PR-001-read-authorized-sources",
+      "BI-PR-002-preserve-source-provenance",
+      "BI-PR-003-use-anchored-evidence",
+      "BI-PR-004-resolve-identities-safely",
+      "BI-PR-005-reconstruct-temporal-trace",
+      "BI-PR-006-admit-matter-conservatively",
+      "BI-PR-007-decide-lifecycle-and-board",
+      "BI-PR-008-track-open-loops-and-blocking",
+      "BI-PR-009-decide-outcome-and-reopen",
+      "BI-PR-010-correct-and-recompute",
+      "BI-PR-011-register-advisory-analysis",
+      "BI-PR-012-view-bilingual-projection",
+      "BI-PR-013-keep-private-data-outside-git",
+      "BI-AO-001-analyze-tracked-source",
+      "BI-AO-002-execute-research-operation",
+      "BI-DP-001-follow-gated-delivery",
+      "BI-DP-003-publish-clean-source-release",
+      "BI-DP-004-progressive-private-first-run",
+      "BI-DP-005-bundle-app-local-skill-pack",
+      "BI-DP-006-resolve-compatible-active-view",
+      "BI-DP-007-sync-managed-skill-projection",
+      "BI-DP-008-freeze-researchguard-integration",
+      "BI-DP-009-handoff-self-maintenance-model-miss"
+    ],
+    "ok": false,
+    "path_sensitive_commitment_ids": [
+      "BC-PR-000",
+      "BC-PR-001",
+      "BC-PR-002",
+      "BC-PR-003",
+      "BC-PR-004",
+      "BC-PR-005",
+      "BC-PR-006",
+      "BC-PR-007",
+      "BC-PR-008",
+      "BC-PR-009",
+      "BC-PR-010",
+      "BC-PR-011",
+      "BC-PR-012",
+      "BC-PR-013",
+      "BC-AO-001",
+      "BC-AO-002",
+      "BC-DP-001",
+      "BC-DP-003",
+      "BC-DP-004",
+      "BC-DP-005",
+      "BC-DP-006",
+      "BC-DP-007",
+      "BC-DP-008",
+      "BC-DP-009"
+    ],
+    "ppa_blocked_commitment_ids": [
+      "BC-PR-000",
+      "BC-PR-001",
+      "BC-PR-002",
+      "BC-PR-003",
+      "BC-PR-004",
+      "BC-PR-005",
+      "BC-PR-006",
+      "BC-PR-007",
+      "BC-PR-008",
+      "BC-PR-009",
+      "BC-PR-010",
+      "BC-PR-011",
+      "BC-PR-012",
+      "BC-PR-013",
+      "BC-AO-001",
+      "BC-AO-002",
+      "BC-DP-001",
+      "BC-DP-003",
+      "BC-DP-004",
+      "BC-DP-005",
+      "BC-DP-006",
+      "BC-DP-007",
+      "BC-DP-008",
+      "BC-DP-009"
+    ],
+    "required_risk_gate_ids": [
+      "G3-model-mesh-closure",
+      "G8-synthetic-e2e",
+      "G8-fully-synthetic",
+      "authority",
+      "cartesian_coverage",
+      "G2-C1",
+      "G9-Jira-scope",
+      "G2-C2",
+      "G8-idempotency",
+      "G2-C3",
+      "G2-C4",
+      "G2-C5",
+      "G2-C6",
+      "G8-admission",
+      "G2-C7",
+      "G8-board",
+      "G2-C8",
+      "G2-C9",
+      "G2-C10",
+      "G8-correction-propagation",
+      "G2-C11",
+      "G2-C12",
+      "G8-bilingual-projection",
+      "G0-private-root",
+      "G11-public-boundary",
+      "G6-agent-operation-contract",
+      "G9-synthetic-operation-matrix",
+      "G6-research-operation-contract",
+      "G9-research-operation-matrix",
+      "G12-researchguard-freeze",
+      "G0-G12",
+      "G12-frozen-release",
+      "G8-private-canary",
+      "G10-progressive-first-run",
+      "G11-depth-review-reconcile",
+      "G5-skill-pack-inventory",
+      "G12-package-identity",
+      "G5-active-view-resolution",
+      "G5-managed-sync",
+      "G5-rollback",
+      "G12-installed-currentness",
+      "G6-researchguard-conformance",
+      "G6-model-miss-handoff",
+      "G10-affected-revalidation"
+    ],
+    "summary": "BLOCKED: ledger=matters-behavior-commitment-ledger decision=behavior_commitment_coverage_blocked findings=58",
+    "unmapped_surface_ids": []
+  },
+  "status": "structural_inventory_current_evidence_deferred",
+  "three_plane_counts": {
+    "agent_operation": 2,
+    "development_process": 8,
+    "product_runtime": 14
+  },
+  "unexpected_finding_codes": []
+}

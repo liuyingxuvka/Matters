@@ -1,0 +1,52 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "matters"
+version = "0.2.0"
+description = "Model-first personal situation intelligence with explicit evidence and correction boundaries"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "LicenseRef-Proprietary-Pending-Public-Release"
+license-files = ["LICENSE"]
+authors = [{name = "Matters contributors"}]
+dependencies = [
+  "packaging>=24",
+  "Pillow>=10",
+  "PyMuPDF>=1.24",
+  "openpyxl>=3.1",
+  "python-docx>=1.1",
+  "python-pptx>=1.0",
+]
+
+[project.scripts]
+matters = "matters.cli.main:main"
+matters-desktop = "matters.desktop:main"
+
+[project.optional-dependencies]
+test = ["pytest>=8.0", "coverage>=7.0"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+matters = [
+  "bundled_skills/*/SKILL.md",
+  "bundled_skills/*/agents/*.yaml",
+  "bundled_skills/*/references/*.md",
+  "bundled_skills/*/scripts/*.py",
+  "integrations/*.json",
+]
+
+[tool.setuptools.data-files]
+"share/matters" = ["CHANGELOG.md", "SECURITY.md", "sbom.json"]
+"share/matters/ui" = ["ui/index.html", "ui/styles.css", "ui/app.js"]
+
+[tool.pytest.ini_options]
+addopts = "-ra -m 'not release'"
+testpaths = ["tests"]
+pythonpath = ["src", "."]
+markers = [
+  "release: checks reserved for the frozen release candidate"
+]

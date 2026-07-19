@@ -1,0 +1,4 @@
+interface:
+  display_name: "Matters Freshness Maintenance"
+  short_description: "Assess freshness and stale dependencies"
+  default_prompt: "Use $matters-freshness-maintenance through MatterService to compare exact dependency identities, stale only affected stages, and request their original owners."

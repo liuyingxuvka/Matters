@@ -1,0 +1,101 @@
+{
+  "artifact_type": "matters.test-suite-receipt.v1",
+  "generated_at": "2026-07-19T05:50:48.660204+00:00",
+  "pytest_observation": {
+    "errors": 0,
+    "failed": 0,
+    "observed_total": 11,
+    "passed": 11,
+    "skipped": 0,
+    "xfailed": 0,
+    "xpassed": 0
+  },
+  "source_fingerprint": "sha256:14214869335d5c33eef1072aa25a7e130c9e67f3c853f94df9b2660d78b4cfa0",
+  "source_fingerprints": {
+    "tests/test_localization_registry.py": "sha256:d32358cfd7381a6933a198fdd7f6e58f875246d6448c10a447d7738beb07dd27",
+    "tests/test_object_browser_autonomy.py": "sha256:7e631d2d8bbb0839858839e53bebf82bfed1771d3d003a813337e6503f86f2c0",
+    "tests/test_source_image_adapters.py": "sha256:4938f653c617f5cce35969248c7d6d73acbbdcbea4cdeeeb8e03695c6fd4e8ef"
+  },
+  "source_paths": [
+    "tests/test_object_browser_autonomy.py",
+    "tests/test_source_image_adapters.py",
+    "tests/test_localization_registry.py"
+  ],
+  "stderr_tail": "",
+  "stdout_tail": "...........                                                              [100%]\n11 passed in 1.30s\n",
+  "suite_id": "TM22_representative_visual",
+  "test_suite_evidence": {
+    "artifact_version": "matters.test-suite-receipt.v1",
+    "background": false,
+    "command": "python -m pytest -q -o addopts= tests/test_object_browser_autonomy.py tests/test_source_image_adapters.py tests/test_localization_registry.py",
+    "covered_obligation_ids": [
+      "TI-TM22_representative_visual"
+    ],
+    "diagnostic_boundary": "declared_complete",
+    "diagnostic_campaign_id": "G5-G8-TM22_representative_visual",
+    "duration_seconds": null,
+    "evidence_current": true,
+    "evidence_tier": "conformance_green",
+    "executed_count": 1,
+    "exit_code": 0,
+    "failed_count": 0,
+    "finding_ids": [],
+    "has_exit_artifact": true,
+    "has_result_artifact": true,
+    "inventory_revision": "g4-testmesh-v3-autonomous-object-browser",
+    "layer": "child",
+    "log_root": "",
+    "not_run_count": 0,
+    "not_run_reason": "",
+    "owned_coverage_shard_ids": [],
+    "owned_inventory_item_ids": [
+      "TI-TM22_representative_visual"
+    ],
+    "owned_leaf_cell_ids": [],
+    "owns_side_effects": [],
+    "owns_state": [],
+    "planned_count": 1,
+    "progress_only": false,
+    "proof_artifact": {
+      "artifact_fingerprints": {
+        "tests/test_localization_registry.py": "sha256:d32358cfd7381a6933a198fdd7f6e58f875246d6448c10a447d7738beb07dd27",
+        "tests/test_object_browser_autonomy.py": "sha256:7e631d2d8bbb0839858839e53bebf82bfed1771d3d003a813337e6503f86f2c0",
+        "tests/test_source_image_adapters.py": "sha256:4938f653c617f5cce35969248c7d6d73acbbdcbea4cdeeeb8e03695c6fd4e8ef"
+      },
+      "artifact_id": "artifact:run:TM22_representative_visual:388eb5e6eb5b79c2",
+      "assertion_scope": "external_contract",
+      "command": "python -m pytest -q -o addopts= tests/test_object_browser_autonomy.py tests/test_source_image_adapters.py tests/test_localization_registry.py",
+      "covered_obligation_ids": [
+        "TI-TM22_representative_visual"
+      ],
+      "current": true,
+      "exit_code": 0,
+      "finished_at": "2026-07-19T05:50:48.660204+00:00",
+      "metadata": {},
+      "producer_route": "test_mesh",
+      "progress_only": false,
+      "result_path": ".flowguard/evidence/tests/TM22_representative_visual.json",
+      "result_status": "passed",
+      "route_evidence_current": true,
+      "route_gap_codes": [],
+      "stale_reasons": [],
+      "started_at": "2026-07-19T05:50:46.188555+00:00"
+    },
+    "release_required": false,
+    "result_fingerprint": "sha256:14214869335d5c33eef1072aa25a7e130c9e67f3c853f94df9b2660d78b4cfa0",
+    "result_path": ".flowguard/evidence/tests/TM22_representative_visual.json",
+    "result_reused": false,
+    "result_status": "passed",
+    "reuse_ticket": null,
+    "run_id": "run:TM22_representative_visual:388eb5e6eb5b79c2",
+    "selected_count": 11,
+    "skipped_count": 0,
+    "skipped_visible": true,
+    "stale_reasons": [],
+    "suite_id": "TM22_representative_visual",
+    "terminal_status": "passed",
+    "test_count": 11,
+    "timeout_seconds": null,
+    "verifier_version": "9.0.3"
+  }
+}

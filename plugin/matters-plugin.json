@@ -1,0 +1,13 @@
+{
+  "schema": "matters.plugin.v1",
+  "name": "Matters",
+  "version": "0.2.0",
+  "entrypoint": "matters.api.mcp.server:MattersMCP",
+  "capabilities": [
+    "review_authorized_provider_envelope",
+    "render_current_bilingual_projection",
+    "submit_correction_to_c10"
+  ],
+  "provider_writes": false,
+  "canonical_ui_writes": false
+}

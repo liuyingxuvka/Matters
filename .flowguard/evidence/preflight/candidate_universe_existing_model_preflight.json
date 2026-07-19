@@ -1,0 +1,4343 @@
+{
+  "artifact_type": "matters.existing-model-preflight.v2",
+  "blockers": [],
+  "claim_boundary": "This current receipt proves plane-first lookup, source/model discovery, ownership, reuse/extension, same-intent surface inventory, OpenSpec read-only context, and explicit legacy disposition only. It does not prove model execution, mesh closure, field lifecycle, agent operations, ResearchGuard availability, Skill Pack validation, TestMesh, runtime, private first run, install, or release. Model source edits after this fingerprint stale this receipt.",
+  "evidence_id": "evidence:existing-model-preflight:3e5fefede159db2c",
+  "generated_at": "2026-07-19T04:52:17.484372+00:00",
+  "native_report": {
+    "behavior_commitment_id": "BC-DP-004",
+    "business_intent_id": "BI-DP-004-progressive-private-first-run",
+    "covered_surface_ids": [
+      "surface:openspec:tasks-private-first-run",
+      "surface:proposal:private-first-run",
+      "surface:dpf:progressive-private-first-run"
+    ],
+    "decision": "full_existing_model_preflight_can_continue",
+    "findings": [
+      {
+        "code": "stale_model_evidence",
+        "item_id": "",
+        "message": "model context hit has stale evidence and needs downstream freshness handling",
+        "metadata": {
+          "child_disjointness_status": "",
+          "child_model_ids": [],
+          "child_reattachment_status": "",
+          "evidence_current": false,
+          "evidence_id": "source:sha256:2700633c7fd604a5f9b4a2f28cc60510575299e1de5a0e6b0776ad97e23d73c9",
+          "evidence_tier": "candidate_only",
+          "fields_owned": [
+            "development_gate.status",
+            "validation_evidence.freshness",
+            "private_first_run.status",
+            "maintenance.model_miss_work_item"
+          ],
+          "function_blocks": [
+            "capture_delivery_snapshot",
+            "build_plan",
+            "build_receipt"
+          ],
+          "layered_proof_evidence_id": "",
+          "leaf_boundary_matrix_status": "",
+          "model_id": "DPF_matters_delivery_gate",
+          "model_path": "flowguard_models/delivery_flow.py",
+          "parent_coverage_status": "",
+          "parent_model_id": "",
+          "public_entrypoints": [],
+          "rationale": "extend_progressive_autonomous_first_run_skill_pack_desktop_and_release_gates",
+          "responsibilities": [
+            "development gate order and evidence freshness",
+            "progressive private first-run sequencing",
+            "Model Miss handoff into ordinary development"
+          ],
+          "side_effects_owned": [
+            "authorize only current descendants",
+            "emit typed blocked next actions"
+          ],
+          "state_owned": [
+            "development_gate.status",
+            "validation_evidence.freshness",
+            "private_first_run.status",
+            "maintenance.model_miss_work_item"
+          ],
+          "validation_evidence": [
+            "prior G8/Jira delivery-flow receipt is stale",
+            "source is retained only as the existing process-owner context"
+          ]
+        },
+        "model_id": "DPF_matters_delivery_gate",
+        "severity": "warning"
+      },
+      {
+        "code": "stale_model_evidence",
+        "item_id": "",
+        "message": "model context hit has stale evidence and needs downstream freshness handling",
+        "metadata": {
+          "child_disjointness_status": "stale_requires_candidate_universe_revalidation",
+          "child_model_ids": [
+            "C1_authorization_coverage",
+            "C2_source_registry",
+            "C3_evidence_qualification",
+            "C4_person_entity_resolution",
+            "C5_event_temporal_trace",
+            "C6_matter_formation_admission",
+            "C7_lifecycle_board_state",
+            "C8_open_loop_waiting_blocking",
+            "C9_completion_cancellation_reopen",
+            "C10_correction_revocation",
+            "C11_guard_artifact_prediction",
+            "C12_projection_bilingual_ui"
+          ],
+          "child_reattachment_status": "stale_requires_candidate_universe_revalidation",
+          "evidence_current": false,
+          "evidence_id": "source:sha256:ead934673f29dd63fc9ec01ab57801c0655be2784c089705177afade979d6edc",
+          "evidence_tier": "candidate_only",
+          "fields_owned": [
+            "orchestration.child_receipt_set",
+            "orchestration.integration_status",
+            "orchestration.object_coverage_ledger_revision",
+            "orchestration.object_stage_terminal_index",
+            "orchestration.registered_object_count",
+            "orchestration.ui_ready_object_count",
+            "orchestration.blocked_object_count",
+            "orchestration.worker_checkpoint",
+            "orchestration.worker_health",
+            "orchestration.work_item_registry",
+            "orchestration.coverage_status",
+            "orchestration.depth_status",
+            "orchestration.research_status",
+            "orchestration.analysis_status"
+          ],
+          "function_blocks": [
+            "all_registered_objects_terminal_and_ui_ready",
+            "missing_or_stale_stage_work",
+            "typed_finding_owner_join_pending",
+            "one_object_blocked_others_progress",
+            "progressive_inventory_partial",
+            "semantic_depth_partial",
+            "visual_localization_or_ui_gap",
+            "researchguard_pending",
+            "stale_child_receipt",
+            "unconsumed_child_output",
+            "correction_invalidates_downstream",
+            "restart_from_checkpoint",
+            "unchanged_rescan",
+            "parent_attempts_child_write"
+          ],
+          "layered_proof_evidence_id": "stale:.flowguard/evidence/model_mesh/MM0_matters_parent_child_mesh.json",
+          "leaf_boundary_matrix_status": "stale_requires_candidate_universe_revalidation",
+          "model_id": "M0_matters_end_to_end_authority",
+          "model_path": "flowguard_models/models/m00_end_to_end_authority.py",
+          "parent_coverage_status": "stale_requires_candidate_universe_revalidation",
+          "parent_model_id": "",
+          "public_entrypoints": [],
+          "rationale": "extend_with_object_coverage_ledger_worker_and_ui_readiness",
+          "responsibilities": [
+            "one orchestration snapshot over current C1-C12 source-universe, ObjectCoverageLedger, freshness, semantic depth, automatic original-owner dispatch, visual/localization/UI readiness, retry/restart recovery, ResearchGuard release gating, and unconsumed-output obligations"
+          ],
+          "side_effects_owned": [
+            "orchestration_receipt_write",
+            "coverage_ledger_write",
+            "work_dispatch_write",
+            "worker_checkpoint_write"
+          ],
+          "state_owned": [
+            "orchestration.child_receipt_set",
+            "orchestration.integration_status",
+            "orchestration.object_coverage_ledger_revision",
+            "orchestration.object_stage_terminal_index",
+            "orchestration.registered_object_count",
+            "orchestration.ui_ready_object_count",
+            "orchestration.blocked_object_count",
+            "orchestration.worker_checkpoint",
+            "orchestration.worker_health",
+            "orchestration.work_item_registry",
+            "orchestration.coverage_status",
+            "orchestration.depth_status",
+            "orchestration.research_status",
+            "orchestration.analysis_status"
+          ],
+          "validation_evidence": [
+            "prior Jira-shaped model and mesh receipts are stale",
+            "this hit proves source discovery and ownership context only"
+          ]
+        },
+        "model_id": "M0_matters_end_to_end_authority",
+        "severity": "warning"
+      },
+      {
+        "code": "stale_model_evidence",
+        "item_id": "",
+        "message": "model context hit has stale evidence and needs downstream freshness handling",
+        "metadata": {
+          "child_disjointness_status": "",
+          "child_model_ids": [],
+          "child_reattachment_status": "",
+          "evidence_current": false,
+          "evidence_id": "source:sha256:c159e7f70fcfb03612c48b1e9fc3c0760d2e7c7ad449a0f6fa2f921650725390",
+          "evidence_tier": "candidate_only",
+          "fields_owned": [
+            "authorization.status",
+            "candidate_scope.revision",
+            "tracking_policy.revision",
+            "tracking.policy_path_context",
+            "tracking.disposition",
+            "tracking.user_intent",
+            "tracking.source_catalog",
+            "tracking.action_token_index",
+            "coverage.status",
+            "coverage.terminal_counts",
+            "coverage.partition_manifest_revision",
+            "coverage.partition_state",
+            "connector.cursor",
+            "capability_status.private_root"
+          ],
+          "function_blocks": [
+            "candidate_scope_frozen",
+            "tracked_current",
+            "ai_not_tracked_current",
+            "ai_uncertain_or_protected",
+            "temporarily_unavailable_item",
+            "all_items_and_pages_terminal",
+            "nonterminal_or_missing_page",
+            "large_root_budget_exceeded",
+            "parent_partition_boundary",
+            "partition_child_retains_policy_context",
+            "generated_state_pruned_before_partition",
+            "partition_child_pending_failed_or_stale",
+            "partition_checkpoint_batch_progress",
+            "bounded_child_scanned_before_further_partition",
+            "canary_smallest_sufficient_partition_first",
+            "canary_stage_updates_batch_summary_once",
+            "gmail_budget_prioritizes_supplied_authorized_content",
+            "all_partitions_and_items_terminal",
+            "tracking_policy_changed",
+            "policy_changed_after_user_override",
+            "source_catalog_action_current",
+            "outside_scope",
+            "authorization_revoked",
+            "private_root_outside_git",
+            "installed_private_root_single_physical_authority",
+            "private_root_inside_git"
+          ],
+          "layered_proof_evidence_id": "",
+          "leaf_boundary_matrix_status": "",
+          "model_id": "C1_authorization_coverage",
+          "model_path": "flowguard_models/models/c01_authorization_coverage.py",
+          "parent_coverage_status": "",
+          "parent_model_id": "M0_matters_end_to_end_authority",
+          "public_entrypoints": [],
+          "rationale": "replace_review_with_automatic_reversible_terminal_dispositions",
+          "responsibilities": [
+            "bounded source authorization, candidate-scope freeze, reversible tracking disposition, durable large-root partitioning, terminal coverage, revocation, and private-root activation"
+          ],
+          "side_effects_owned": [
+            "provider_metadata_read",
+            "partition_manifest_write",
+            "tracking_disposition_write",
+            "tracking_catalog_write",
+            "private_root_activation"
+          ],
+          "state_owned": [
+            "authorization.status",
+            "candidate_scope.revision",
+            "tracking_policy.revision",
+            "tracking.policy_path_context",
+            "tracking.disposition",
+            "tracking.user_intent",
+            "tracking.source_catalog",
+            "tracking.action_token_index",
+            "coverage.status",
+            "coverage.terminal_counts",
+            "coverage.partition_manifest_revision",
+            "coverage.partition_state",
+            "connector.cursor",
+            "capability_status.private_root"
+          ],
+          "validation_evidence": [
+            "prior Jira-shaped model and mesh receipts are stale",
+            "this hit proves source discovery and ownership context only"
+          ]
+        },
+        "model_id": "C1_authorization_coverage",
+        "severity": "warning"
+      },
+      {
+        "code": "stale_model_evidence",
+        "item_id": "",
+        "message": "model context hit has stale evidence and needs downstream freshness handling",
+        "metadata": {
+          "child_disjointness_status": "",
+          "child_model_ids": [],
+          "child_reattachment_status": "",
+          "evidence_current": false,
+          "evidence_id": "source:sha256:275cf01c3563c06c70a1a535edb48a66e37f991e5c7e3edfbbd54d1433f771f0",
+          "evidence_tier": "candidate_only",
+          "fields_owned": [
+            "source.identity",
+            "source.version",
+            "source.content_hash",
+            "source.metadata_hash",
+            "source.tombstone",
+            "visual_asset.identity",
+            "visual_asset.derivative_revision",
+            "visual_asset.renderer_identity",
+            "visual_asset.safety_disposition",
+            "inventory.snapshot_revision",
+            "inventory.change_set",
+            "dependency.freshness"
+          ],
+          "function_blocks": [
+            "inventory_first_snapshot",
+            "new_content",
+            "metadata_only_change",
+            "occurrence_moved_same_content",
+            "occurrence_newly_reachable",
+            "identical_rescan",
+            "source_modified",
+            "source_deleted",
+            "eligible_visual_derivative",
+            "unsafe_or_stale_visual",
+            "ai_rewrite_attempt"
+          ],
+          "layered_proof_evidence_id": "",
+          "leaf_boundary_matrix_status": "",
+          "model_id": "C2_source_registry",
+          "model_path": "flowguard_models/models/c02_source_registry.py",
+          "parent_coverage_status": "",
+          "parent_model_id": "M0_matters_end_to_end_authority",
+          "public_entrypoints": [],
+          "rationale": "extend_with_safe_visual_derivatives_and_freshness",
+          "responsibilities": [
+            "immutable occurrence/source identity, inventory snapshots, change sets, versioning, safe visual derivatives, freshness invalidation, no-delta, and tombstones"
+          ],
+          "side_effects_owned": [
+            "source_registry_write",
+            "inventory_snapshot_write",
+            "freshness_invalidation_write"
+          ],
+          "state_owned": [
+            "source.identity",
+            "source.version",
+            "source.content_hash",
+            "source.metadata_hash",
+            "source.tombstone",
+            "visual_asset.identity",
+            "visual_asset.derivative_revision",
+            "visual_asset.renderer_identity",
+            "visual_asset.safety_disposition",
+            "inventory.snapshot_revision",
+            "inventory.change_set",
+            "dependency.freshness"
+          ],
+          "validation_evidence": [
+            "prior Jira-shaped model and mesh receipts are stale",
+            "this hit proves source discovery and ownership context only"
+          ]
+        },
+        "model_id": "C2_source_registry",
+        "severity": "warning"
+      },
+      {
+        "code": "stale_model_evidence",
+        "item_id": "",
+        "message": "model context hit has stale evidence and needs downstream freshness handling",
+        "metadata": {
+          "child_disjointness_status": "",
+          "child_model_ids": [],
+          "child_reattachment_status": "",
+          "evidence_current": false,
+          "evidence_id": "source:sha256:4d36132fd3c6962d5b03dd8b8e78342cf312ee3d9e3ce81956eace1a15e88a45",
+          "evidence_tier": "candidate_only",
+          "fields_owned": [
+            "evidence.anchor",
+            "evidence.modality",
+            "evidence.freshness",
+            "evidence.gap",
+            "evidence.display_permission",
+            "evidence.visual_eligibility"
+          ],
+          "function_blocks": [
+            "exact_field_anchor",
+            "exact_image_region",
+            "exact_document_page_passage",
+            "exact_sheet_cell_range",
+            "exact_mail_attachment_anchor",
+            "exact_safe_visual_anchor",
+            "visual_anchor_denied_or_unrelated",
+            "unsupported_or_unreadable_payload",
+            "title_or_filename_only",
+            "planned_statement",
+            "superseded_anchor"
+          ],
+          "layered_proof_evidence_id": "",
+          "leaf_boundary_matrix_status": "",
+          "model_id": "C3_evidence_qualification",
+          "model_path": "flowguard_models/models/c03_evidence_qualification.py",
+          "parent_coverage_status": "",
+          "parent_model_id": "M0_matters_end_to_end_authority",
+          "public_entrypoints": [],
+          "rationale": "extend_with_visual_anchors_display_permission_and_eligibility",
+          "responsibilities": [
+            "precise line/character, page/passage, sheet/cell, message/thread/attachment, image/OCR-region and metadata anchors, modality, gaps, display safety, representative-visual eligibility, and source-version freshness"
+          ],
+          "side_effects_owned": [
+            "evidence_registry_write"
+          ],
+          "state_owned": [
+            "evidence.anchor",
+            "evidence.modality",
+            "evidence.freshness",
+            "evidence.gap",
+            "evidence.display_permission",
+            "evidence.visual_eligibility"
+          ],
+          "validation_evidence": [
+            "prior Jira-shaped model and mesh receipts are stale",
+            "this hit proves source discovery and ownership context only"
+          ]
+        },
+        "model_id": "C3_evidence_qualification",
+        "severity": "warning"
+      },
+      {
+        "code": "stale_model_evidence",
+        "item_id": "",
+        "message": "model context hit has stale evidence and needs downstream freshness handling",
+        "metadata": {
+          "child_disjointness_status": "",
+          "child_model_ids": [],
+          "child_reattachment_status": "",
+          "evidence_current": false,
+          "evidence_id": "source:sha256:4df81e7f25f31f469aac3739e3b210b04417dd531b3c536b9021bd79e70e25ea",
+          "evidence_tier": "candidate_only",
+          "fields_owned": [
+            "person.identity_assertion",
+            "person.merge_split_history",
+            "matter.role"
+          ],
+          "function_blocks": [
+            "same_name_no_link",
+            "assignee_role",
+            "strong_identity_link",
+            "user_split_correction",
+            "researchguard_identity_proposal"
+          ],
+          "layered_proof_evidence_id": "",
+          "leaf_boundary_matrix_status": "",
+          "model_id": "C4_person_entity_resolution",
+          "model_path": "flowguard_models/models/c04_identity_resolution.py",
+          "parent_coverage_status": "",
+          "parent_model_id": "M0_matters_end_to_end_authority",
+          "public_entrypoints": [],
+          "rationale": "preserve_separate_uncertain_identities_without_confirmation",
+          "responsibilities": [
+            "evidence-scoped identity candidates, merge/split decisions, and Matter roles"
+          ],
+          "side_effects_owned": [
+            "identity_registry_write"
+          ],
+          "state_owned": [
+            "person.identity_assertion",
+            "person.merge_split_history",
+            "matter.role"
+          ],
+          "validation_evidence": [
+            "prior Jira-shaped model and mesh receipts are stale",
+            "this hit proves source discovery and ownership context only"
+          ]
+        },
+        "model_id": "C4_person_entity_resolution",
+        "severity": "warning"
+      },
+      {
+        "code": "stale_model_evidence",
+        "item_id": "",
+        "message": "model context hit has stale evidence and needs downstream freshness handling",
+        "metadata": {
+          "child_disjointness_status": "",
+          "child_model_ids": [],
+          "child_reattachment_status": "",
+          "evidence_current": false,
+          "evidence_id": "source:sha256:662251fb85736c25ec6947238c1b110d7e238f4ccf494a47104194c069f2dbe9",
+          "evidence_tier": "candidate_only",
+          "fields_owned": [
+            "event.identity",
+            "event.temporal_fields",
+            "trace.supersession",
+            "trace.conflict"
+          ],
+          "function_blocks": [
+            "explicit_actual_start",
+            "future_meeting",
+            "assignment_without_start",
+            "file_or_exif_time_without_event_claim",
+            "done_then_reopen_blocked"
+          ],
+          "layered_proof_evidence_id": "",
+          "leaf_boundary_matrix_status": "",
+          "model_id": "C5_event_temporal_trace",
+          "model_path": "flowguard_models/models/c05_event_temporal_trace.py",
+          "parent_coverage_status": "",
+          "parent_model_id": "M0_matters_end_to_end_authority",
+          "public_entrypoints": [],
+          "rationale": "preserve_conflict_and_publish_best_supported_human_readable_time",
+          "responsibilities": [
+            "typed events, record/claimed time, modality, supersession, contradiction, and gaps"
+          ],
+          "side_effects_owned": [
+            "event_registry_write"
+          ],
+          "state_owned": [
+            "event.identity",
+            "event.temporal_fields",
+            "trace.supersession",
+            "trace.conflict"
+          ],
+          "validation_evidence": [
+            "prior Jira-shaped model and mesh receipts are stale",
+            "this hit proves source discovery and ownership context only"
+          ]
+        },
+        "model_id": "C5_event_temporal_trace",
+        "severity": "warning"
+      },
+      {
+        "code": "stale_model_evidence",
+        "item_id": "",
+        "message": "model context hit has stale evidence and needs downstream freshness handling",
+        "metadata": {
+          "child_disjointness_status": "",
+          "child_model_ids": [],
+          "child_reattachment_status": "",
+          "evidence_current": false,
+          "evidence_id": "source:sha256:9053b1aea9d0273ca14514562c372421786705c3d38d95631b60857c2310d9f6",
+          "evidence_tier": "candidate_only",
+          "fields_owned": [
+            "matter.identity",
+            "matter.admission_status",
+            "matter.rationale",
+            "matter.membership",
+            "matter.source_relation"
+          ],
+          "function_blocks": [
+            "provider_item_basic",
+            "future_maybe_research",
+            "fully_evidenced_obligation",
+            "conflicting_or_insufficient",
+            "irrelevant_or_non_actionable",
+            "visual_related_to_matter",
+            "visual_unrelated_to_matter",
+            "access_blocked"
+          ],
+          "layered_proof_evidence_id": "",
+          "leaf_boundary_matrix_status": "",
+          "model_id": "C6_matter_formation_admission",
+          "model_path": "flowguard_models/models/c06_matter_admission.py",
+          "parent_coverage_status": "",
+          "parent_model_id": "M0_matters_end_to_end_authority",
+          "public_entrypoints": [],
+          "rationale": "replace_review_with_autonomous_terminal_admission_and_visual_relations",
+          "responsibilities": [
+            "source-first Matter formation, autonomous admitted/source-only/not-applicable/uncertain/blocked outcomes, Matter-source visual relations, and admitted statistics"
+          ],
+          "side_effects_owned": [
+            "matter_registry_write"
+          ],
+          "state_owned": [
+            "matter.identity",
+            "matter.admission_status",
+            "matter.rationale",
+            "matter.membership",
+            "matter.source_relation"
+          ],
+          "validation_evidence": [
+            "prior Jira-shaped model and mesh receipts are stale",
+            "this hit proves source discovery and ownership context only"
+          ]
+        },
+        "model_id": "C6_matter_formation_admission",
+        "severity": "warning"
+      },
+      {
+        "code": "stale_model_evidence",
+        "item_id": "",
+        "message": "model context hit has stale evidence and needs downstream freshness handling",
+        "metadata": {
+          "child_disjointness_status": "",
+          "child_model_ids": [],
+          "child_reattachment_status": "",
+          "evidence_current": false,
+          "evidence_id": "source:sha256:16be572c2a70ca89e7a3bffa8f55de6dfc9095718f882bea49017778dfbcf087",
+          "evidence_tier": "candidate_only",
+          "fields_owned": [
+            "matter.lifecycle_axes",
+            "matter.board_placement",
+            "matter.state_rationale"
+          ],
+          "function_blocks": [
+            "explicit_start_evidence",
+            "scheduled_only",
+            "partial_coverage_no_start",
+            "provider_done_without_completion",
+            "ui_direct_state_write"
+          ],
+          "layered_proof_evidence_id": "",
+          "leaf_boundary_matrix_status": "",
+          "model_id": "C7_lifecycle_board_state",
+          "model_path": "flowguard_models/models/c07_lifecycle_board_state.py",
+          "parent_coverage_status": "",
+          "parent_model_id": "M0_matters_end_to_end_authority",
+          "public_entrypoints": [],
+          "rationale": "replace_review_with_uncertainty_preserved_lifecycle_projection",
+          "responsibilities": [
+            "evidence-licensed lifecycle axes and canonical board placement"
+          ],
+          "side_effects_owned": [
+            "lifecycle_registry_write"
+          ],
+          "state_owned": [
+            "matter.lifecycle_axes",
+            "matter.board_placement",
+            "matter.state_rationale"
+          ],
+          "validation_evidence": [
+            "prior Jira-shaped model and mesh receipts are stale",
+            "this hit proves source discovery and ownership context only"
+          ]
+        },
+        "model_id": "C7_lifecycle_board_state",
+        "severity": "warning"
+      },
+      {
+        "code": "stale_model_evidence",
+        "item_id": "",
+        "message": "model context hit has stale evidence and needs downstream freshness handling",
+        "metadata": {
+          "child_disjointness_status": "",
+          "child_model_ids": [],
+          "child_reattachment_status": "",
+          "evidence_current": false,
+          "evidence_id": "source:sha256:d014ffa531b9d703651a8fcf6d3f049ce011e687e4f2a2bd5a3ca29eea4add71",
+          "evidence_tier": "candidate_only",
+          "fields_owned": [
+            "open_loop.identity",
+            "open_loop.wait_target",
+            "open_loop.closure_condition",
+            "matter.blocking_axis"
+          ],
+          "function_blocks": [
+            "request_with_target_and_condition",
+            "vague_waiting_text",
+            "researchguard_blocker_without_closure",
+            "noncritical_subtask_failure",
+            "critical_dependency_failure",
+            "matter_complete_loop_unmet",
+            "declared_closure_evidence"
+          ],
+          "layered_proof_evidence_id": "",
+          "leaf_boundary_matrix_status": "",
+          "model_id": "C8_open_loop_waiting_blocking",
+          "model_path": "flowguard_models/models/c08_open_loop_blocking.py",
+          "parent_coverage_status": "",
+          "parent_model_id": "M0_matters_end_to_end_authority",
+          "public_entrypoints": [],
+          "rationale": "replace_review_with_gap_and_not_applicable_terminals",
+          "responsibilities": [
+            "requests, wait targets, closure conditions, and partial/full blocking"
+          ],
+          "side_effects_owned": [
+            "open_loop_registry_write"
+          ],
+          "state_owned": [
+            "open_loop.identity",
+            "open_loop.wait_target",
+            "open_loop.closure_condition",
+            "matter.blocking_axis"
+          ],
+          "validation_evidence": [
+            "prior Jira-shaped model and mesh receipts are stale",
+            "this hit proves source discovery and ownership context only"
+          ]
+        },
+        "model_id": "C8_open_loop_waiting_blocking",
+        "severity": "warning"
+      },
+      {
+        "code": "stale_model_evidence",
+        "item_id": "",
+        "message": "model context hit has stale evidence and needs downstream freshness handling",
+        "metadata": {
+          "child_disjointness_status": "",
+          "child_model_ids": [],
+          "child_reattachment_status": "",
+          "evidence_current": false,
+          "evidence_id": "source:sha256:3e1d5c91b5ac3c70aa74926cd05c8e4e4fe158e373f319afda0ed65f91f709f7",
+          "evidence_tier": "candidate_only",
+          "fields_owned": [
+            "matter.outcome",
+            "matter.outcome_criteria",
+            "matter.reopen_revision"
+          ],
+          "function_blocks": [
+            "all_completion_criteria_evidenced",
+            "terminal_label_or_final_file_only",
+            "user_cancels_with_open_loop",
+            "new_obligation_after_completion",
+            "source_revision_or_ai_reopen_proposal",
+            "conflicting_termination_evidence"
+          ],
+          "layered_proof_evidence_id": "",
+          "leaf_boundary_matrix_status": "",
+          "model_id": "C9_completion_cancellation_reopen",
+          "model_path": "flowguard_models/models/c09_outcomes_reopen.py",
+          "parent_coverage_status": "",
+          "parent_model_id": "M0_matters_end_to_end_authority",
+          "public_entrypoints": [],
+          "rationale": "replace_review_with_completion_gap_and_outcome_conflict_terminals",
+          "responsibilities": [
+            "explicit completion and termination criteria, independent-loop disposition, and reopening"
+          ],
+          "side_effects_owned": [
+            "outcome_registry_write"
+          ],
+          "state_owned": [
+            "matter.outcome",
+            "matter.outcome_criteria",
+            "matter.reopen_revision"
+          ],
+          "validation_evidence": [
+            "prior Jira-shaped model and mesh receipts are stale",
+            "this hit proves source discovery and ownership context only"
+          ]
+        },
+        "model_id": "C9_completion_cancellation_reopen",
+        "severity": "warning"
+      },
+      {
+        "code": "stale_model_evidence",
+        "item_id": "",
+        "message": "model context hit has stale evidence and needs downstream freshness handling",
+        "metadata": {
+          "child_disjointness_status": "",
+          "child_model_ids": [],
+          "child_reattachment_status": "",
+          "evidence_current": false,
+          "evidence_id": "source:sha256:fd4caeb5fdc05d94398285aa487ba961377040026288aed61d860789bdd135e0",
+          "evidence_tier": "candidate_only",
+          "fields_owned": [
+            "revision_graph",
+            "invalidation_plan",
+            "recompute_request",
+            "recompute.owner_dispositions",
+            "recompute.join_status",
+            "recompute.checkpoint",
+            "correction.card_visual_intent"
+          ],
+          "function_blocks": [
+            "user_correction",
+            "card_visual_pin_unpin_or_change",
+            "source_or_tracking_stale",
+            "all_required_owners_terminal",
+            "required_owner_failed_or_missing",
+            "restart_with_current_checkpoint",
+            "authorization_revoked",
+            "ui_only_patch_request",
+            "direct_foreign_state_write"
+          ],
+          "layered_proof_evidence_id": "",
+          "leaf_boundary_matrix_status": "",
+          "model_id": "C10_correction_revocation",
+          "model_path": "flowguard_models/models/c10_correction_revocation.py",
+          "parent_coverage_status": "",
+          "parent_model_id": "M0_matters_end_to_end_authority",
+          "public_entrypoints": [],
+          "rationale": "extend_with_optional_visual_correction_and_original_owner_recompute",
+          "responsibilities": [
+            "append-only correction/revocation/deletion, dependency-graph invalidation, original-owner dispatch, terminal join, retry, restart, and optional representative-visual pin/unpin/change-cover correction"
+          ],
+          "side_effects_owned": [
+            "append_revision",
+            "dispatch_recompute_request",
+            "append_owner_disposition",
+            "append_recompute_checkpoint"
+          ],
+          "state_owned": [
+            "revision_graph",
+            "invalidation_plan",
+            "recompute_request",
+            "recompute.owner_dispositions",
+            "recompute.join_status",
+            "recompute.checkpoint",
+            "correction.card_visual_intent"
+          ],
+          "validation_evidence": [
+            "prior Jira-shaped model and mesh receipts are stale",
+            "this hit proves source discovery and ownership context only"
+          ]
+        },
+        "model_id": "C10_correction_revocation",
+        "severity": "warning"
+      },
+      {
+        "code": "stale_model_evidence",
+        "item_id": "",
+        "message": "model context hit has stale evidence and needs downstream freshness handling",
+        "metadata": {
+          "child_disjointness_status": "",
+          "child_model_ids": [],
+          "child_reattachment_status": "",
+          "evidence_current": false,
+          "evidence_id": "source:sha256:a6cc95757fb9f4585ceea8fa1ff4aebfb631c57e8aaa7161f8af820c7c642a6b",
+          "evidence_tier": "candidate_only",
+          "fields_owned": [
+            "agent.work_package_v2_registry",
+            "agent.result_registry",
+            "analysis.finding_history",
+            "analysis.input_disposition_registry",
+            "analysis.dispatch_outbox",
+            "analysis.visual_recommendation_registry",
+            "research.provider_status",
+            "analysis.depth_registry",
+            "forecast_registry"
+          ],
+          "function_blocks": [
+            "extracted_anchors_queued",
+            "valid_bilingual_understanding_result",
+            "typed_finding_auto_dispatched",
+            "no_finding_or_policy_rejected",
+            "analysis_operation_failed_or_blocked",
+            "current_ai_finding",
+            "current_researchguard_result",
+            "researchguard_not_current",
+            "legacy_parallel_guard_binding",
+            "current_scope_triage",
+            "depth_sufficient_current",
+            "depth_partial_or_stale",
+            "visual_candidates_ranked",
+            "stale_operation_result",
+            "scope_escape_attempt",
+            "forecast_delay",
+            "research_direct_canonical_write",
+            "skipped_or_progress_receipt"
+          ],
+          "layered_proof_evidence_id": "",
+          "leaf_boundary_matrix_status": "",
+          "model_id": "C11_guard_artifact_prediction",
+          "model_path": "flowguard_models/models/c11_guard_prediction.py",
+          "parent_coverage_status": "",
+          "parent_model_id": "M0_matters_end_to_end_authority",
+          "public_entrypoints": [],
+          "rationale": "replace_confirmation_with_workpackage_v2_input_accounting_and_auto_dispatch",
+          "responsibilities": [
+            "versioned scope-bound AI/ResearchOperation work packages, terminal results, ResearchGuard currentness, semantic depth, typed bilingual findings, input accounting, durable automatic original-owner dispatch, representative-visual recommendation, receipt freshness, and forecast/current-state separation"
+          ],
+          "side_effects_owned": [
+            "agent_work_package_write",
+            "finding_history_write",
+            "input_disposition_write",
+            "dispatch_outbox_write",
+            "visual_recommendation_write",
+            "depth_assessment_write"
+          ],
+          "state_owned": [
+            "agent.work_package_v2_registry",
+            "agent.result_registry",
+            "analysis.finding_history",
+            "analysis.input_disposition_registry",
+            "analysis.dispatch_outbox",
+            "analysis.visual_recommendation_registry",
+            "research.provider_status",
+            "analysis.depth_registry",
+            "forecast_registry"
+          ],
+          "validation_evidence": [
+            "prior Jira-shaped model and mesh receipts are stale",
+            "this hit proves source discovery and ownership context only"
+          ]
+        },
+        "model_id": "C11_guard_artifact_prediction",
+        "severity": "warning"
+      },
+      {
+        "code": "stale_model_evidence",
+        "item_id": "",
+        "message": "model context hit has stale evidence and needs downstream freshness handling",
+        "metadata": {
+          "child_disjointness_status": "",
+          "child_model_ids": [],
+          "child_reattachment_status": "",
+          "evidence_current": false,
+          "evidence_id": "source:sha256:ad2243d803f552a44cca56ec038d5b29ae5e8cf7846c5bb7bff4bfc9a17d0701",
+          "evidence_tier": "candidate_only",
+          "fields_owned": [
+            "projection.localized_values",
+            "projection.locale_registry",
+            "projection.equivalence_status",
+            "matter.card_visual_decision",
+            "matter.card_visual_revision",
+            "matter.card_visual_selection_mode",
+            "matter.card_visual_status",
+            "ui.selected_locale",
+            "ui.locale_preference",
+            "ui.card_density",
+            "ui.viewport_mode",
+            "ui.query",
+            "ui.filter_state",
+            "ui.sort_state",
+            "ui.catalog_window",
+            "ui.catalog_cursor",
+            "ui.catalog_revision",
+            "ui.selected_matter_id",
+            "ui.detail_section",
+            "ui.browser_scroll_anchor",
+            "ui.focus_context",
+            "ui.coverage_summary",
+            "ui.background_status",
+            "ui.correction_state",
+            "ui.request_state"
+          ],
+          "function_blocks": [
+            "same_revision_equivalent",
+            "first_launch_without_preference",
+            "select_chinese_same_context",
+            "future_locale_complete",
+            "missing_required_locale",
+            "matter_catalog_current",
+            "matter_coverage_relation_index_current",
+            "catalog_search_or_filter_changed",
+            "density_switched",
+            "viewport_changed",
+            "single_card_catalog",
+            "matter_detail_opened",
+            "human_readable_timeline",
+            "eligible_visual_selected",
+            "no_eligible_visual",
+            "optional_correction_requested",
+            "background_work_pending_or_blocked",
+            "stale_or_cancelled_response",
+            "recompute_not_terminal",
+            "ui_infers_state",
+            "internal_identifier_requested_by_default"
+          ],
+          "layered_proof_evidence_id": "",
+          "leaf_boundary_matrix_status": "",
+          "model_id": "C12_projection_bilingual_ui",
+          "model_path": "flowguard_models/models/c12_projection_bilingual_ui.py",
+          "parent_coverage_status": "",
+          "parent_model_id": "M0_matters_end_to_end_authority",
+          "public_entrypoints": [],
+          "rationale": "replace_review_workspace_with_bilingual_desktop_object_browser",
+          "responsibilities": [
+            "one-revision Matter catalog and detail projection, English-default and Chinese locale selection, human-readable timelines, representative visual decisions, Standard/Compact density, preserved search/filter/selection/scroll state, coverage and worker status, optional correction, internal-data hiding, and projection-only desktop UI"
+          ],
+          "side_effects_owned": [
+            "projection_publish",
+            "ui_preference_write",
+            "ui_window_write",
+            "card_visual_decision_write"
+          ],
+          "state_owned": [
+            "projection.localized_values",
+            "projection.locale_registry",
+            "projection.equivalence_status",
+            "matter.card_visual_decision",
+            "matter.card_visual_revision",
+            "matter.card_visual_selection_mode",
+            "matter.card_visual_status",
+            "ui.selected_locale",
+            "ui.locale_preference",
+            "ui.card_density",
+            "ui.viewport_mode",
+            "ui.query",
+            "ui.filter_state",
+            "ui.sort_state",
+            "ui.catalog_window",
+            "ui.catalog_cursor",
+            "ui.catalog_revision",
+            "ui.selected_matter_id",
+            "ui.detail_section",
+            "ui.browser_scroll_anchor",
+            "ui.focus_context",
+            "ui.coverage_summary",
+            "ui.background_status",
+            "ui.correction_state",
+            "ui.request_state"
+          ],
+          "validation_evidence": [
+            "prior Jira-shaped model and mesh receipts are stale",
+            "this hit proves source discovery and ownership context only"
+          ]
+        },
+        "model_id": "C12_projection_bilingual_ui",
+        "severity": "warning"
+      },
+      {
+        "code": "stale_model_evidence",
+        "item_id": "",
+        "message": "model context hit has stale evidence and needs downstream freshness handling",
+        "metadata": {
+          "child_disjointness_status": "",
+          "child_model_ids": [],
+          "child_reattachment_status": "",
+          "evidence_current": false,
+          "evidence_id": "source:sha256:dadb2e6ac0341a6ccd03467abe7a960f886c8955bb342eab43857653705a0f55",
+          "evidence_tier": "candidate_only",
+          "fields_owned": [
+            "skill_runtime.bundle_identity",
+            "skill_runtime.active_view_identity",
+            "skill_runtime.managed_projection_identity",
+            "skill_runtime.researchguard_integration_identity"
+          ],
+          "function_blocks": [],
+          "layered_proof_evidence_id": "",
+          "leaf_boundary_matrix_status": "",
+          "model_id": "S0_matters_skill_runtime",
+          "model_path": "flowguard_models/run_skill_runtime_model.py",
+          "parent_coverage_status": "",
+          "parent_model_id": "",
+          "public_entrypoints": [],
+          "rationale": "add_auxiliary_non_product_skill_runtime_boundary",
+          "responsibilities": [
+            "app-local Skill Pack inventory",
+            "compatible active-view resolution",
+            "Matters-managed synchronization and rollback",
+            "external ResearchGuard integration currentness"
+          ],
+          "side_effects_owned": [],
+          "state_owned": [
+            "skill_runtime.bundle_identity",
+            "skill_runtime.active_view_identity",
+            "skill_runtime.managed_projection_identity",
+            "skill_runtime.researchguard_integration_identity"
+          ],
+          "validation_evidence": [
+            "source boundary discovered; native execution evidence is not claimed"
+          ]
+        },
+        "model_id": "S0_matters_skill_runtime",
+        "severity": "warning"
+      },
+      {
+        "code": "stale_model_evidence",
+        "item_id": "",
+        "message": "model context hit has stale evidence and needs downstream freshness handling",
+        "metadata": {
+          "child_disjointness_status": "",
+          "child_model_ids": [],
+          "child_reattachment_status": "",
+          "evidence_current": false,
+          "evidence_id": "source:sha256:3b650fd97e1ab4ec6d996949c17dbb3bdf34802146060013d8c5f324af1e33d0",
+          "evidence_tier": "candidate_only",
+          "fields_owned": [
+            "agent_operation.analysis_status",
+            "agent_operation.source_analysis_terminal_receipt"
+          ],
+          "function_blocks": [],
+          "layered_proof_evidence_id": "",
+          "leaf_boundary_matrix_status": "",
+          "model_id": "A0_matters_source_analysis_operation",
+          "model_path": "flowguard_models/agent_operation_models.py",
+          "parent_coverage_status": "",
+          "parent_model_id": "",
+          "public_entrypoints": [],
+          "rationale": "add_agent_operation_boundary",
+          "responsibilities": [
+            "bounded text, multimodal, and OCR agent operations"
+          ],
+          "side_effects_owned": [],
+          "state_owned": [
+            "agent_operation.analysis_status",
+            "agent_operation.source_analysis_terminal_receipt"
+          ],
+          "validation_evidence": [
+            "source boundary discovered; native execution evidence is not claimed"
+          ]
+        },
+        "model_id": "A0_matters_source_analysis_operation",
+        "severity": "warning"
+      },
+      {
+        "code": "stale_model_evidence",
+        "item_id": "",
+        "message": "model context hit has stale evidence and needs downstream freshness handling",
+        "metadata": {
+          "child_disjointness_status": "",
+          "child_model_ids": [],
+          "child_reattachment_status": "",
+          "evidence_current": false,
+          "evidence_id": "source:sha256:3b650fd97e1ab4ec6d996949c17dbb3bdf34802146060013d8c5f324af1e33d0",
+          "evidence_tier": "candidate_only",
+          "fields_owned": [
+            "agent_operation.research_status",
+            "agent_operation.researchguard_identity",
+            "agent_operation.research_terminal_receipt"
+          ],
+          "function_blocks": [],
+          "layered_proof_evidence_id": "",
+          "leaf_boundary_matrix_status": "",
+          "model_id": "A1_matters_research_operation",
+          "model_path": "flowguard_models/agent_operation_models.py",
+          "parent_coverage_status": "",
+          "parent_model_id": "",
+          "public_entrypoints": [],
+          "rationale": "add_abstract_researchoperation_boundary",
+          "responsibilities": [
+            "abstract ResearchOperation and single ResearchGuard provider"
+          ],
+          "side_effects_owned": [],
+          "state_owned": [
+            "agent_operation.research_status",
+            "agent_operation.researchguard_identity",
+            "agent_operation.research_terminal_receipt"
+          ],
+          "validation_evidence": [
+            "source boundary discovered; native execution evidence is not claimed"
+          ]
+        },
+        "model_id": "A1_matters_research_operation",
+        "severity": "warning"
+      }
+    ],
+    "missing_surface_ids": [],
+    "ok": true,
+    "preflight_id": "matters-autonomous-object-browser-existing-model-preflight",
+    "primary_path_id": "path:dpf-progressive-private-first-run",
+    "scoped_surface_ids": [
+      "surface:legacy:jira-slice"
+    ],
+    "summary": "OK: preflight=matters-autonomous-object-browser-existing-model-preflight decision=full_existing_model_preflight_can_continue findings=17"
+  },
+  "preflight": {
+    "affected_business_intent_id": "BI-DP-004-progressive-private-first-run",
+    "behavior_field_ids": [
+      "orchestration.child_receipt_set",
+      "orchestration.integration_status",
+      "orchestration.object_coverage_ledger_revision",
+      "orchestration.object_stage_terminal_index",
+      "orchestration.registered_object_count",
+      "orchestration.ui_ready_object_count",
+      "orchestration.blocked_object_count",
+      "orchestration.worker_checkpoint",
+      "orchestration.worker_health",
+      "orchestration.work_item_registry",
+      "orchestration.coverage_status",
+      "orchestration.depth_status",
+      "orchestration.research_status",
+      "orchestration.analysis_status",
+      "authorization.status",
+      "candidate_scope.revision",
+      "tracking_policy.revision",
+      "tracking.policy_path_context",
+      "tracking.disposition",
+      "tracking.user_intent",
+      "tracking.source_catalog",
+      "tracking.action_token_index",
+      "coverage.status",
+      "coverage.terminal_counts",
+      "coverage.partition_manifest_revision",
+      "coverage.partition_state",
+      "connector.cursor",
+      "capability_status.private_root",
+      "source.identity",
+      "source.version",
+      "source.content_hash",
+      "source.metadata_hash",
+      "source.tombstone",
+      "visual_asset.identity",
+      "visual_asset.derivative_revision",
+      "visual_asset.renderer_identity",
+      "visual_asset.safety_disposition",
+      "inventory.snapshot_revision",
+      "inventory.change_set",
+      "dependency.freshness",
+      "evidence.anchor",
+      "evidence.modality",
+      "evidence.freshness",
+      "evidence.gap",
+      "evidence.display_permission",
+      "evidence.visual_eligibility",
+      "person.identity_assertion",
+      "person.merge_split_history",
+      "matter.role",
+      "event.identity",
+      "event.temporal_fields",
+      "trace.supersession",
+      "trace.conflict",
+      "matter.identity",
+      "matter.admission_status",
+      "matter.rationale",
+      "matter.membership",
+      "matter.source_relation",
+      "matter.lifecycle_axes",
+      "matter.board_placement",
+      "matter.state_rationale",
+      "open_loop.identity",
+      "open_loop.wait_target",
+      "open_loop.closure_condition",
+      "matter.blocking_axis",
+      "matter.outcome",
+      "matter.outcome_criteria",
+      "matter.reopen_revision",
+      "revision_graph",
+      "invalidation_plan",
+      "recompute_request",
+      "recompute.owner_dispositions",
+      "recompute.join_status",
+      "recompute.checkpoint",
+      "correction.card_visual_intent",
+      "agent.work_package_v2_registry",
+      "agent.result_registry",
+      "analysis.finding_history",
+      "analysis.input_disposition_registry",
+      "analysis.dispatch_outbox",
+      "analysis.visual_recommendation_registry",
+      "research.provider_status",
+      "analysis.depth_registry",
+      "forecast_registry",
+      "projection.localized_values",
+      "projection.locale_registry",
+      "projection.equivalence_status",
+      "matter.card_visual_decision",
+      "matter.card_visual_revision",
+      "matter.card_visual_selection_mode",
+      "matter.card_visual_status",
+      "ui.selected_locale",
+      "ui.locale_preference",
+      "ui.card_density",
+      "ui.viewport_mode",
+      "ui.query",
+      "ui.filter_state",
+      "ui.sort_state",
+      "ui.catalog_window",
+      "ui.catalog_cursor",
+      "ui.catalog_revision",
+      "ui.selected_matter_id",
+      "ui.detail_section",
+      "ui.browser_scroll_anchor",
+      "ui.focus_context",
+      "ui.coverage_summary",
+      "ui.background_status",
+      "ui.correction_state",
+      "ui.request_state",
+      "skill_runtime.bundle_identity",
+      "skill_runtime.active_view_identity",
+      "skill_runtime.managed_projection_identity",
+      "skill_runtime.researchguard_integration_identity",
+      "agent_operation.analysis_status",
+      "agent_operation.research_status",
+      "agent_operation.source_analysis_terminal_receipt",
+      "agent_operation.research_terminal_receipt"
+    ],
+    "behavior_lookup_reason": "The change is primarily a development lifecycle and integration rebase. DPF remains the single process owner; C1-C12 and agent operations are typed evidence targets and never merge into the development-process plane.",
+    "behavior_lookup_required": true,
+    "behavior_lookup_status": "performed",
+    "candidate_commitment_hits": [],
+    "downstream_routes": [
+      "behavior_commitment_ledger",
+      "model_first_function_flow",
+      "model_mesh_maintenance",
+      "field_lifecycle_mesh",
+      "model_test_alignment",
+      "test_mesh_maintenance",
+      "development_process_flow",
+      "agent_workflow_rehearsal",
+      "ui_flow_structure",
+      "model_miss_review"
+    ],
+    "duplicate_risks": [],
+    "existing_modeled_system": true,
+    "expected_surface_ids": [
+      "surface:openspec:tasks-private-first-run",
+      "surface:proposal:private-first-run",
+      "surface:dpf:progressive-private-first-run",
+      "surface:legacy:jira-slice"
+    ],
+    "field_lifecycle_gap_ids": [],
+    "field_lifecycle_model_ids": [
+      "M0_matters_end_to_end_authority",
+      "C1_authorization_coverage",
+      "C2_source_registry",
+      "C3_evidence_qualification",
+      "C4_person_entity_resolution",
+      "C5_event_temporal_trace",
+      "C6_matter_formation_admission",
+      "C7_lifecycle_board_state",
+      "C8_open_loop_waiting_blocking",
+      "C9_completion_cancellation_reopen",
+      "C10_correction_revocation",
+      "C11_guard_artifact_prediction",
+      "C12_projection_bilingual_ui",
+      "S0_matters_skill_runtime",
+      "A0_matters_source_analysis_operation",
+      "A1_matters_research_operation"
+    ],
+    "field_lifecycle_required": true,
+    "intent_surfaces": [
+      {
+        "behavior_commitment_id": "BC-DP-004",
+        "business_intent_id": "BI-DP-004-progressive-private-first-run",
+        "business_path_id": "path:dpf-progressive-private-first-run",
+        "disposition": "materialized",
+        "evidence_current": true,
+        "evidence_ids": [
+          "sha256:12df447a8dd1d2c38b7050566693572a2270b379e09d82bc947fc048f5b42959",
+          "sha256:f376db2644b5ca159165ba6d3180d25a90e7887a65ddea784007be5ad2dd9251"
+        ],
+        "expected_terminal": "complete, researchguard_pending_integration, or blocked with typed next actions",
+        "in_scope": true,
+        "metadata": {},
+        "owner_id": "DPF_matters_delivery_gate",
+        "primary_path_id": "path:dpf-progressive-private-first-run",
+        "rationale": "The task provider delegates execution order to DPF.",
+        "scoped_out_reason": "",
+        "side_effects": [],
+        "similarity_relation_ids": [],
+        "source_ref": "openspec/changes/build-matters-model-driven-core/tasks.md",
+        "state_writes": [
+          "private_first_run.status",
+          "private_first_run.coverage_revision"
+        ],
+        "surface_id": "surface:openspec:tasks-private-first-run",
+        "surface_kind": "adapter",
+        "validation_boundary": "strict OpenSpec validation and BCL mapping"
+      },
+      {
+        "behavior_commitment_id": "BC-DP-004",
+        "business_intent_id": "BI-DP-004-progressive-private-first-run",
+        "business_path_id": "path:dpf-progressive-private-first-run",
+        "disposition": "materialized",
+        "evidence_current": true,
+        "evidence_ids": [
+          "sha256:da52f4a2492e45683622f55a096b8bf6f62d7c2ac5bd2fcb1afe66ccf85ef8f9",
+          "sha256:f376db2644b5ca159165ba6d3180d25a90e7887a65ddea784007be5ad2dd9251"
+        ],
+        "expected_terminal": "complete, researchguard_pending_integration, or blocked with typed next actions",
+        "in_scope": true,
+        "metadata": {},
+        "owner_id": "DPF_matters_delivery_gate",
+        "primary_path_id": "path:dpf-progressive-private-first-run",
+        "rationale": "The proposal promises the process but does not own product state.",
+        "scoped_out_reason": "",
+        "side_effects": [],
+        "similarity_relation_ids": [],
+        "source_ref": "openspec/changes/build-matters-model-driven-core/proposal.md",
+        "state_writes": [],
+        "surface_id": "surface:proposal:private-first-run",
+        "surface_kind": "adapter",
+        "validation_boundary": "proposal/design/spec/task consistency"
+      },
+      {
+        "behavior_commitment_id": "BC-DP-004",
+        "business_intent_id": "BI-DP-004-progressive-private-first-run",
+        "business_path_id": "path:dpf-progressive-private-first-run",
+        "disposition": "materialized",
+        "evidence_current": true,
+        "evidence_ids": [
+          "sha256:2700633c7fd604a5f9b4a2f28cc60510575299e1de5a0e6b0776ad97e23d73c9",
+          "sha256:f376db2644b5ca159165ba6d3180d25a90e7887a65ddea784007be5ad2dd9251"
+        ],
+        "expected_terminal": "complete, researchguard_pending_integration, or blocked with typed next actions",
+        "in_scope": true,
+        "metadata": {},
+        "owner_id": "DPF_matters_delivery_gate",
+        "primary_path_id": "path:dpf-progressive-private-first-run",
+        "rationale": "The existing DPF is extended rather than duplicated.",
+        "scoped_out_reason": "",
+        "side_effects": [],
+        "similarity_relation_ids": [],
+        "source_ref": "flowguard_models/delivery_flow.py",
+        "state_writes": [
+          "private_first_run.status",
+          "private_first_run.receipt_ids"
+        ],
+        "surface_id": "surface:dpf:progressive-private-first-run",
+        "surface_kind": "helper",
+        "validation_boundary": "DPF source ownership discovery; execution evidence remains stale"
+      },
+      {
+        "behavior_commitment_id": "",
+        "business_intent_id": "BI-DP-004-progressive-private-first-run",
+        "business_path_id": "",
+        "disposition": "replaced",
+        "evidence_current": true,
+        "evidence_ids": [
+          "sha256:10090da4fc19284ece20aa7c9fd58826ebb8a442e1b680008cda62b5d84d4ffb",
+          "sha256:f376db2644b5ca159165ba6d3180d25a90e7887a65ddea784007be5ad2dd9251"
+        ],
+        "expected_terminal": "",
+        "in_scope": false,
+        "metadata": {},
+        "owner_id": "DPF_matters_delivery_gate",
+        "primary_path_id": "",
+        "rationale": "BC-DP-004 replaces the historical Jira-specific path.",
+        "scoped_out_reason": "Jira/Rovo are deferred and cannot close a v0.1 first-run gate.",
+        "side_effects": [],
+        "similarity_relation_ids": [],
+        "source_ref": "docs/providers/jira-discovery-plan.md",
+        "state_writes": [],
+        "surface_id": "surface:legacy:jira-slice",
+        "surface_kind": "compatibility",
+        "validation_boundary": "source-only dormant adapter with zero required runtime, install, acceptance, or release authority"
+      }
+    ],
+    "ledger_fingerprint": "sha256:f376db2644b5ca159165ba6d3180d25a90e7887a65ddea784007be5ad2dd9251",
+    "mode": "full",
+    "model_angle_deliberations": [],
+    "model_angle_gap_ids": [],
+    "model_angle_review_required": false,
+    "model_search_performed": true,
+    "no_model_found_reason": "",
+    "ownership_snapshot": {
+      "field_owners": [
+        [
+          "orchestration.child_receipt_set",
+          "M0_matters_end_to_end_authority"
+        ],
+        [
+          "orchestration.integration_status",
+          "M0_matters_end_to_end_authority"
+        ],
+        [
+          "orchestration.object_coverage_ledger_revision",
+          "M0_matters_end_to_end_authority"
+        ],
+        [
+          "orchestration.object_stage_terminal_index",
+          "M0_matters_end_to_end_authority"
+        ],
+        [
+          "orchestration.registered_object_count",
+          "M0_matters_end_to_end_authority"
+        ],
+        [
+          "orchestration.ui_ready_object_count",
+          "M0_matters_end_to_end_authority"
+        ],
+        [
+          "orchestration.blocked_object_count",
+          "M0_matters_end_to_end_authority"
+        ],
+        [
+          "orchestration.worker_checkpoint",
+          "M0_matters_end_to_end_authority"
+        ],
+        [
+          "orchestration.worker_health",
+          "M0_matters_end_to_end_authority"
+        ],
+        [
+          "orchestration.work_item_registry",
+          "M0_matters_end_to_end_authority"
+        ],
+        [
+          "orchestration.coverage_status",
+          "M0_matters_end_to_end_authority"
+        ],
+        [
+          "orchestration.depth_status",
+          "M0_matters_end_to_end_authority"
+        ],
+        [
+          "orchestration.research_status",
+          "M0_matters_end_to_end_authority"
+        ],
+        [
+          "orchestration.analysis_status",
+          "M0_matters_end_to_end_authority"
+        ],
+        [
+          "authorization.status",
+          "C1_authorization_coverage"
+        ],
+        [
+          "candidate_scope.revision",
+          "C1_authorization_coverage"
+        ],
+        [
+          "tracking_policy.revision",
+          "C1_authorization_coverage"
+        ],
+        [
+          "tracking.policy_path_context",
+          "C1_authorization_coverage"
+        ],
+        [
+          "tracking.disposition",
+          "C1_authorization_coverage"
+        ],
+        [
+          "tracking.user_intent",
+          "C1_authorization_coverage"
+        ],
+        [
+          "tracking.source_catalog",
+          "C1_authorization_coverage"
+        ],
+        [
+          "tracking.action_token_index",
+          "C1_authorization_coverage"
+        ],
+        [
+          "coverage.status",
+          "C1_authorization_coverage"
+        ],
+        [
+          "coverage.terminal_counts",
+          "C1_authorization_coverage"
+        ],
+        [
+          "coverage.partition_manifest_revision",
+          "C1_authorization_coverage"
+        ],
+        [
+          "coverage.partition_state",
+          "C1_authorization_coverage"
+        ],
+        [
+          "connector.cursor",
+          "C1_authorization_coverage"
+        ],
+        [
+          "capability_status.private_root",
+          "C1_authorization_coverage"
+        ],
+        [
+          "source.identity",
+          "C2_source_registry"
+        ],
+        [
+          "source.version",
+          "C2_source_registry"
+        ],
+        [
+          "source.content_hash",
+          "C2_source_registry"
+        ],
+        [
+          "source.metadata_hash",
+          "C2_source_registry"
+        ],
+        [
+          "source.tombstone",
+          "C2_source_registry"
+        ],
+        [
+          "visual_asset.identity",
+          "C2_source_registry"
+        ],
+        [
+          "visual_asset.derivative_revision",
+          "C2_source_registry"
+        ],
+        [
+          "visual_asset.renderer_identity",
+          "C2_source_registry"
+        ],
+        [
+          "visual_asset.safety_disposition",
+          "C2_source_registry"
+        ],
+        [
+          "inventory.snapshot_revision",
+          "C2_source_registry"
+        ],
+        [
+          "inventory.change_set",
+          "C2_source_registry"
+        ],
+        [
+          "dependency.freshness",
+          "C2_source_registry"
+        ],
+        [
+          "evidence.anchor",
+          "C3_evidence_qualification"
+        ],
+        [
+          "evidence.modality",
+          "C3_evidence_qualification"
+        ],
+        [
+          "evidence.freshness",
+          "C3_evidence_qualification"
+        ],
+        [
+          "evidence.gap",
+          "C3_evidence_qualification"
+        ],
+        [
+          "evidence.display_permission",
+          "C3_evidence_qualification"
+        ],
+        [
+          "evidence.visual_eligibility",
+          "C3_evidence_qualification"
+        ],
+        [
+          "person.identity_assertion",
+          "C4_person_entity_resolution"
+        ],
+        [
+          "person.merge_split_history",
+          "C4_person_entity_resolution"
+        ],
+        [
+          "matter.role",
+          "C4_person_entity_resolution"
+        ],
+        [
+          "event.identity",
+          "C5_event_temporal_trace"
+        ],
+        [
+          "event.temporal_fields",
+          "C5_event_temporal_trace"
+        ],
+        [
+          "trace.supersession",
+          "C5_event_temporal_trace"
+        ],
+        [
+          "trace.conflict",
+          "C5_event_temporal_trace"
+        ],
+        [
+          "matter.identity",
+          "C6_matter_formation_admission"
+        ],
+        [
+          "matter.admission_status",
+          "C6_matter_formation_admission"
+        ],
+        [
+          "matter.rationale",
+          "C6_matter_formation_admission"
+        ],
+        [
+          "matter.membership",
+          "C6_matter_formation_admission"
+        ],
+        [
+          "matter.source_relation",
+          "C6_matter_formation_admission"
+        ],
+        [
+          "matter.lifecycle_axes",
+          "C7_lifecycle_board_state"
+        ],
+        [
+          "matter.board_placement",
+          "C7_lifecycle_board_state"
+        ],
+        [
+          "matter.state_rationale",
+          "C7_lifecycle_board_state"
+        ],
+        [
+          "open_loop.identity",
+          "C8_open_loop_waiting_blocking"
+        ],
+        [
+          "open_loop.wait_target",
+          "C8_open_loop_waiting_blocking"
+        ],
+        [
+          "open_loop.closure_condition",
+          "C8_open_loop_waiting_blocking"
+        ],
+        [
+          "matter.blocking_axis",
+          "C8_open_loop_waiting_blocking"
+        ],
+        [
+          "matter.outcome",
+          "C9_completion_cancellation_reopen"
+        ],
+        [
+          "matter.outcome_criteria",
+          "C9_completion_cancellation_reopen"
+        ],
+        [
+          "matter.reopen_revision",
+          "C9_completion_cancellation_reopen"
+        ],
+        [
+          "revision_graph",
+          "C10_correction_revocation"
+        ],
+        [
+          "invalidation_plan",
+          "C10_correction_revocation"
+        ],
+        [
+          "recompute_request",
+          "C10_correction_revocation"
+        ],
+        [
+          "recompute.owner_dispositions",
+          "C10_correction_revocation"
+        ],
+        [
+          "recompute.join_status",
+          "C10_correction_revocation"
+        ],
+        [
+          "recompute.checkpoint",
+          "C10_correction_revocation"
+        ],
+        [
+          "correction.card_visual_intent",
+          "C10_correction_revocation"
+        ],
+        [
+          "agent.work_package_v2_registry",
+          "C11_guard_artifact_prediction"
+        ],
+        [
+          "agent.result_registry",
+          "C11_guard_artifact_prediction"
+        ],
+        [
+          "analysis.finding_history",
+          "C11_guard_artifact_prediction"
+        ],
+        [
+          "analysis.input_disposition_registry",
+          "C11_guard_artifact_prediction"
+        ],
+        [
+          "analysis.dispatch_outbox",
+          "C11_guard_artifact_prediction"
+        ],
+        [
+          "analysis.visual_recommendation_registry",
+          "C11_guard_artifact_prediction"
+        ],
+        [
+          "research.provider_status",
+          "C11_guard_artifact_prediction"
+        ],
+        [
+          "analysis.depth_registry",
+          "C11_guard_artifact_prediction"
+        ],
+        [
+          "forecast_registry",
+          "C11_guard_artifact_prediction"
+        ],
+        [
+          "projection.localized_values",
+          "C12_projection_bilingual_ui"
+        ],
+        [
+          "projection.locale_registry",
+          "C12_projection_bilingual_ui"
+        ],
+        [
+          "projection.equivalence_status",
+          "C12_projection_bilingual_ui"
+        ],
+        [
+          "matter.card_visual_decision",
+          "C12_projection_bilingual_ui"
+        ],
+        [
+          "matter.card_visual_revision",
+          "C12_projection_bilingual_ui"
+        ],
+        [
+          "matter.card_visual_selection_mode",
+          "C12_projection_bilingual_ui"
+        ],
+        [
+          "matter.card_visual_status",
+          "C12_projection_bilingual_ui"
+        ],
+        [
+          "ui.selected_locale",
+          "C12_projection_bilingual_ui"
+        ],
+        [
+          "ui.locale_preference",
+          "C12_projection_bilingual_ui"
+        ],
+        [
+          "ui.card_density",
+          "C12_projection_bilingual_ui"
+        ],
+        [
+          "ui.viewport_mode",
+          "C12_projection_bilingual_ui"
+        ],
+        [
+          "ui.query",
+          "C12_projection_bilingual_ui"
+        ],
+        [
+          "ui.filter_state",
+          "C12_projection_bilingual_ui"
+        ],
+        [
+          "ui.sort_state",
+          "C12_projection_bilingual_ui"
+        ],
+        [
+          "ui.catalog_window",
+          "C12_projection_bilingual_ui"
+        ],
+        [
+          "ui.catalog_cursor",
+          "C12_projection_bilingual_ui"
+        ],
+        [
+          "ui.catalog_revision",
+          "C12_projection_bilingual_ui"
+        ],
+        [
+          "ui.selected_matter_id",
+          "C12_projection_bilingual_ui"
+        ],
+        [
+          "ui.detail_section",
+          "C12_projection_bilingual_ui"
+        ],
+        [
+          "ui.browser_scroll_anchor",
+          "C12_projection_bilingual_ui"
+        ],
+        [
+          "ui.focus_context",
+          "C12_projection_bilingual_ui"
+        ],
+        [
+          "ui.coverage_summary",
+          "C12_projection_bilingual_ui"
+        ],
+        [
+          "ui.background_status",
+          "C12_projection_bilingual_ui"
+        ],
+        [
+          "ui.correction_state",
+          "C12_projection_bilingual_ui"
+        ],
+        [
+          "ui.request_state",
+          "C12_projection_bilingual_ui"
+        ],
+        [
+          "skill_runtime.bundle_identity",
+          "S0_matters_skill_runtime"
+        ],
+        [
+          "skill_runtime.active_view_identity",
+          "S0_matters_skill_runtime"
+        ],
+        [
+          "skill_runtime.managed_projection_identity",
+          "S0_matters_skill_runtime"
+        ],
+        [
+          "skill_runtime.researchguard_integration_identity",
+          "S0_matters_skill_runtime"
+        ],
+        [
+          "agent_operation.analysis_status",
+          "A0_matters_source_analysis_operation"
+        ],
+        [
+          "agent_operation.source_analysis_terminal_receipt",
+          "A0_matters_source_analysis_operation"
+        ],
+        [
+          "agent_operation.research_status",
+          "A1_matters_research_operation"
+        ],
+        [
+          "agent_operation.researchguard_identity",
+          "A1_matters_research_operation"
+        ],
+        [
+          "agent_operation.research_terminal_receipt",
+          "A1_matters_research_operation"
+        ]
+      ],
+      "function_block_owners": [
+        [
+          "all_registered_objects_terminal_and_ui_ready",
+          "M0_matters_end_to_end_authority"
+        ],
+        [
+          "missing_or_stale_stage_work",
+          "M0_matters_end_to_end_authority"
+        ],
+        [
+          "typed_finding_owner_join_pending",
+          "M0_matters_end_to_end_authority"
+        ],
+        [
+          "one_object_blocked_others_progress",
+          "M0_matters_end_to_end_authority"
+        ],
+        [
+          "progressive_inventory_partial",
+          "M0_matters_end_to_end_authority"
+        ],
+        [
+          "semantic_depth_partial",
+          "M0_matters_end_to_end_authority"
+        ],
+        [
+          "visual_localization_or_ui_gap",
+          "M0_matters_end_to_end_authority"
+        ],
+        [
+          "researchguard_pending",
+          "M0_matters_end_to_end_authority"
+        ],
+        [
+          "stale_child_receipt",
+          "M0_matters_end_to_end_authority"
+        ],
+        [
+          "unconsumed_child_output",
+          "M0_matters_end_to_end_authority"
+        ],
+        [
+          "correction_invalidates_downstream",
+          "M0_matters_end_to_end_authority"
+        ],
+        [
+          "restart_from_checkpoint",
+          "M0_matters_end_to_end_authority"
+        ],
+        [
+          "unchanged_rescan",
+          "M0_matters_end_to_end_authority"
+        ],
+        [
+          "parent_attempts_child_write",
+          "M0_matters_end_to_end_authority"
+        ],
+        [
+          "candidate_scope_frozen",
+          "C1_authorization_coverage"
+        ],
+        [
+          "tracked_current",
+          "C1_authorization_coverage"
+        ],
+        [
+          "ai_not_tracked_current",
+          "C1_authorization_coverage"
+        ],
+        [
+          "ai_uncertain_or_protected",
+          "C1_authorization_coverage"
+        ],
+        [
+          "temporarily_unavailable_item",
+          "C1_authorization_coverage"
+        ],
+        [
+          "all_items_and_pages_terminal",
+          "C1_authorization_coverage"
+        ],
+        [
+          "nonterminal_or_missing_page",
+          "C1_authorization_coverage"
+        ],
+        [
+          "large_root_budget_exceeded",
+          "C1_authorization_coverage"
+        ],
+        [
+          "parent_partition_boundary",
+          "C1_authorization_coverage"
+        ],
+        [
+          "partition_child_retains_policy_context",
+          "C1_authorization_coverage"
+        ],
+        [
+          "generated_state_pruned_before_partition",
+          "C1_authorization_coverage"
+        ],
+        [
+          "partition_child_pending_failed_or_stale",
+          "C1_authorization_coverage"
+        ],
+        [
+          "partition_checkpoint_batch_progress",
+          "C1_authorization_coverage"
+        ],
+        [
+          "bounded_child_scanned_before_further_partition",
+          "C1_authorization_coverage"
+        ],
+        [
+          "canary_smallest_sufficient_partition_first",
+          "C1_authorization_coverage"
+        ],
+        [
+          "canary_stage_updates_batch_summary_once",
+          "C1_authorization_coverage"
+        ],
+        [
+          "gmail_budget_prioritizes_supplied_authorized_content",
+          "C1_authorization_coverage"
+        ],
+        [
+          "all_partitions_and_items_terminal",
+          "C1_authorization_coverage"
+        ],
+        [
+          "tracking_policy_changed",
+          "C1_authorization_coverage"
+        ],
+        [
+          "policy_changed_after_user_override",
+          "C1_authorization_coverage"
+        ],
+        [
+          "source_catalog_action_current",
+          "C1_authorization_coverage"
+        ],
+        [
+          "outside_scope",
+          "C1_authorization_coverage"
+        ],
+        [
+          "authorization_revoked",
+          "C1_authorization_coverage"
+        ],
+        [
+          "private_root_outside_git",
+          "C1_authorization_coverage"
+        ],
+        [
+          "installed_private_root_single_physical_authority",
+          "C1_authorization_coverage"
+        ],
+        [
+          "private_root_inside_git",
+          "C1_authorization_coverage"
+        ],
+        [
+          "inventory_first_snapshot",
+          "C2_source_registry"
+        ],
+        [
+          "new_content",
+          "C2_source_registry"
+        ],
+        [
+          "metadata_only_change",
+          "C2_source_registry"
+        ],
+        [
+          "occurrence_moved_same_content",
+          "C2_source_registry"
+        ],
+        [
+          "occurrence_newly_reachable",
+          "C2_source_registry"
+        ],
+        [
+          "identical_rescan",
+          "C2_source_registry"
+        ],
+        [
+          "source_modified",
+          "C2_source_registry"
+        ],
+        [
+          "source_deleted",
+          "C2_source_registry"
+        ],
+        [
+          "eligible_visual_derivative",
+          "C2_source_registry"
+        ],
+        [
+          "unsafe_or_stale_visual",
+          "C2_source_registry"
+        ],
+        [
+          "ai_rewrite_attempt",
+          "C2_source_registry"
+        ],
+        [
+          "exact_field_anchor",
+          "C3_evidence_qualification"
+        ],
+        [
+          "exact_image_region",
+          "C3_evidence_qualification"
+        ],
+        [
+          "exact_document_page_passage",
+          "C3_evidence_qualification"
+        ],
+        [
+          "exact_sheet_cell_range",
+          "C3_evidence_qualification"
+        ],
+        [
+          "exact_mail_attachment_anchor",
+          "C3_evidence_qualification"
+        ],
+        [
+          "exact_safe_visual_anchor",
+          "C3_evidence_qualification"
+        ],
+        [
+          "visual_anchor_denied_or_unrelated",
+          "C3_evidence_qualification"
+        ],
+        [
+          "unsupported_or_unreadable_payload",
+          "C3_evidence_qualification"
+        ],
+        [
+          "title_or_filename_only",
+          "C3_evidence_qualification"
+        ],
+        [
+          "planned_statement",
+          "C3_evidence_qualification"
+        ],
+        [
+          "superseded_anchor",
+          "C3_evidence_qualification"
+        ],
+        [
+          "same_name_no_link",
+          "C4_person_entity_resolution"
+        ],
+        [
+          "assignee_role",
+          "C4_person_entity_resolution"
+        ],
+        [
+          "strong_identity_link",
+          "C4_person_entity_resolution"
+        ],
+        [
+          "user_split_correction",
+          "C4_person_entity_resolution"
+        ],
+        [
+          "researchguard_identity_proposal",
+          "C4_person_entity_resolution"
+        ],
+        [
+          "explicit_actual_start",
+          "C5_event_temporal_trace"
+        ],
+        [
+          "future_meeting",
+          "C5_event_temporal_trace"
+        ],
+        [
+          "assignment_without_start",
+          "C5_event_temporal_trace"
+        ],
+        [
+          "file_or_exif_time_without_event_claim",
+          "C5_event_temporal_trace"
+        ],
+        [
+          "done_then_reopen_blocked",
+          "C5_event_temporal_trace"
+        ],
+        [
+          "provider_item_basic",
+          "C6_matter_formation_admission"
+        ],
+        [
+          "future_maybe_research",
+          "C6_matter_formation_admission"
+        ],
+        [
+          "fully_evidenced_obligation",
+          "C6_matter_formation_admission"
+        ],
+        [
+          "conflicting_or_insufficient",
+          "C6_matter_formation_admission"
+        ],
+        [
+          "irrelevant_or_non_actionable",
+          "C6_matter_formation_admission"
+        ],
+        [
+          "visual_related_to_matter",
+          "C6_matter_formation_admission"
+        ],
+        [
+          "visual_unrelated_to_matter",
+          "C6_matter_formation_admission"
+        ],
+        [
+          "access_blocked",
+          "C6_matter_formation_admission"
+        ],
+        [
+          "explicit_start_evidence",
+          "C7_lifecycle_board_state"
+        ],
+        [
+          "scheduled_only",
+          "C7_lifecycle_board_state"
+        ],
+        [
+          "partial_coverage_no_start",
+          "C7_lifecycle_board_state"
+        ],
+        [
+          "provider_done_without_completion",
+          "C7_lifecycle_board_state"
+        ],
+        [
+          "ui_direct_state_write",
+          "C7_lifecycle_board_state"
+        ],
+        [
+          "request_with_target_and_condition",
+          "C8_open_loop_waiting_blocking"
+        ],
+        [
+          "vague_waiting_text",
+          "C8_open_loop_waiting_blocking"
+        ],
+        [
+          "researchguard_blocker_without_closure",
+          "C8_open_loop_waiting_blocking"
+        ],
+        [
+          "noncritical_subtask_failure",
+          "C8_open_loop_waiting_blocking"
+        ],
+        [
+          "critical_dependency_failure",
+          "C8_open_loop_waiting_blocking"
+        ],
+        [
+          "matter_complete_loop_unmet",
+          "C8_open_loop_waiting_blocking"
+        ],
+        [
+          "declared_closure_evidence",
+          "C8_open_loop_waiting_blocking"
+        ],
+        [
+          "all_completion_criteria_evidenced",
+          "C9_completion_cancellation_reopen"
+        ],
+        [
+          "terminal_label_or_final_file_only",
+          "C9_completion_cancellation_reopen"
+        ],
+        [
+          "user_cancels_with_open_loop",
+          "C9_completion_cancellation_reopen"
+        ],
+        [
+          "new_obligation_after_completion",
+          "C9_completion_cancellation_reopen"
+        ],
+        [
+          "source_revision_or_ai_reopen_proposal",
+          "C9_completion_cancellation_reopen"
+        ],
+        [
+          "conflicting_termination_evidence",
+          "C9_completion_cancellation_reopen"
+        ],
+        [
+          "user_correction",
+          "C10_correction_revocation"
+        ],
+        [
+          "card_visual_pin_unpin_or_change",
+          "C10_correction_revocation"
+        ],
+        [
+          "source_or_tracking_stale",
+          "C10_correction_revocation"
+        ],
+        [
+          "all_required_owners_terminal",
+          "C10_correction_revocation"
+        ],
+        [
+          "required_owner_failed_or_missing",
+          "C10_correction_revocation"
+        ],
+        [
+          "restart_with_current_checkpoint",
+          "C10_correction_revocation"
+        ],
+        [
+          "authorization_revoked",
+          "C10_correction_revocation"
+        ],
+        [
+          "ui_only_patch_request",
+          "C10_correction_revocation"
+        ],
+        [
+          "direct_foreign_state_write",
+          "C10_correction_revocation"
+        ],
+        [
+          "extracted_anchors_queued",
+          "C11_guard_artifact_prediction"
+        ],
+        [
+          "valid_bilingual_understanding_result",
+          "C11_guard_artifact_prediction"
+        ],
+        [
+          "typed_finding_auto_dispatched",
+          "C11_guard_artifact_prediction"
+        ],
+        [
+          "no_finding_or_policy_rejected",
+          "C11_guard_artifact_prediction"
+        ],
+        [
+          "analysis_operation_failed_or_blocked",
+          "C11_guard_artifact_prediction"
+        ],
+        [
+          "current_ai_finding",
+          "C11_guard_artifact_prediction"
+        ],
+        [
+          "current_researchguard_result",
+          "C11_guard_artifact_prediction"
+        ],
+        [
+          "researchguard_not_current",
+          "C11_guard_artifact_prediction"
+        ],
+        [
+          "legacy_parallel_guard_binding",
+          "C11_guard_artifact_prediction"
+        ],
+        [
+          "current_scope_triage",
+          "C11_guard_artifact_prediction"
+        ],
+        [
+          "depth_sufficient_current",
+          "C11_guard_artifact_prediction"
+        ],
+        [
+          "depth_partial_or_stale",
+          "C11_guard_artifact_prediction"
+        ],
+        [
+          "visual_candidates_ranked",
+          "C11_guard_artifact_prediction"
+        ],
+        [
+          "stale_operation_result",
+          "C11_guard_artifact_prediction"
+        ],
+        [
+          "scope_escape_attempt",
+          "C11_guard_artifact_prediction"
+        ],
+        [
+          "forecast_delay",
+          "C11_guard_artifact_prediction"
+        ],
+        [
+          "research_direct_canonical_write",
+          "C11_guard_artifact_prediction"
+        ],
+        [
+          "skipped_or_progress_receipt",
+          "C11_guard_artifact_prediction"
+        ],
+        [
+          "same_revision_equivalent",
+          "C12_projection_bilingual_ui"
+        ],
+        [
+          "first_launch_without_preference",
+          "C12_projection_bilingual_ui"
+        ],
+        [
+          "select_chinese_same_context",
+          "C12_projection_bilingual_ui"
+        ],
+        [
+          "future_locale_complete",
+          "C12_projection_bilingual_ui"
+        ],
+        [
+          "missing_required_locale",
+          "C12_projection_bilingual_ui"
+        ],
+        [
+          "matter_catalog_current",
+          "C12_projection_bilingual_ui"
+        ],
+        [
+          "matter_coverage_relation_index_current",
+          "C12_projection_bilingual_ui"
+        ],
+        [
+          "catalog_search_or_filter_changed",
+          "C12_projection_bilingual_ui"
+        ],
+        [
+          "density_switched",
+          "C12_projection_bilingual_ui"
+        ],
+        [
+          "viewport_changed",
+          "C12_projection_bilingual_ui"
+        ],
+        [
+          "single_card_catalog",
+          "C12_projection_bilingual_ui"
+        ],
+        [
+          "matter_detail_opened",
+          "C12_projection_bilingual_ui"
+        ],
+        [
+          "human_readable_timeline",
+          "C12_projection_bilingual_ui"
+        ],
+        [
+          "eligible_visual_selected",
+          "C12_projection_bilingual_ui"
+        ],
+        [
+          "no_eligible_visual",
+          "C12_projection_bilingual_ui"
+        ],
+        [
+          "optional_correction_requested",
+          "C12_projection_bilingual_ui"
+        ],
+        [
+          "background_work_pending_or_blocked",
+          "C12_projection_bilingual_ui"
+        ],
+        [
+          "stale_or_cancelled_response",
+          "C12_projection_bilingual_ui"
+        ],
+        [
+          "recompute_not_terminal",
+          "C12_projection_bilingual_ui"
+        ],
+        [
+          "ui_infers_state",
+          "C12_projection_bilingual_ui"
+        ],
+        [
+          "internal_identifier_requested_by_default",
+          "C12_projection_bilingual_ui"
+        ],
+        [
+          "capture_delivery_snapshot",
+          "DPF_matters_delivery_gate"
+        ],
+        [
+          "build_plan",
+          "DPF_matters_delivery_gate"
+        ],
+        [
+          "build_receipt",
+          "DPF_matters_delivery_gate"
+        ]
+      ],
+      "public_entrypoint_owners": [],
+      "responsibility_owners": [
+        [
+          "one orchestration snapshot over current C1-C12 source-universe, ObjectCoverageLedger, freshness, semantic depth, automatic original-owner dispatch, visual/localization/UI readiness, retry/restart recovery, ResearchGuard release gating, and unconsumed-output obligations",
+          "M0_matters_end_to_end_authority"
+        ],
+        [
+          "bounded source authorization, candidate-scope freeze, reversible tracking disposition, durable large-root partitioning, terminal coverage, revocation, and private-root activation",
+          "C1_authorization_coverage"
+        ],
+        [
+          "immutable occurrence/source identity, inventory snapshots, change sets, versioning, safe visual derivatives, freshness invalidation, no-delta, and tombstones",
+          "C2_source_registry"
+        ],
+        [
+          "precise line/character, page/passage, sheet/cell, message/thread/attachment, image/OCR-region and metadata anchors, modality, gaps, display safety, representative-visual eligibility, and source-version freshness",
+          "C3_evidence_qualification"
+        ],
+        [
+          "evidence-scoped identity candidates, merge/split decisions, and Matter roles",
+          "C4_person_entity_resolution"
+        ],
+        [
+          "typed events, record/claimed time, modality, supersession, contradiction, and gaps",
+          "C5_event_temporal_trace"
+        ],
+        [
+          "source-first Matter formation, autonomous admitted/source-only/not-applicable/uncertain/blocked outcomes, Matter-source visual relations, and admitted statistics",
+          "C6_matter_formation_admission"
+        ],
+        [
+          "evidence-licensed lifecycle axes and canonical board placement",
+          "C7_lifecycle_board_state"
+        ],
+        [
+          "requests, wait targets, closure conditions, and partial/full blocking",
+          "C8_open_loop_waiting_blocking"
+        ],
+        [
+          "explicit completion and termination criteria, independent-loop disposition, and reopening",
+          "C9_completion_cancellation_reopen"
+        ],
+        [
+          "append-only correction/revocation/deletion, dependency-graph invalidation, original-owner dispatch, terminal join, retry, restart, and optional representative-visual pin/unpin/change-cover correction",
+          "C10_correction_revocation"
+        ],
+        [
+          "versioned scope-bound AI/ResearchOperation work packages, terminal results, ResearchGuard currentness, semantic depth, typed bilingual findings, input accounting, durable automatic original-owner dispatch, representative-visual recommendation, receipt freshness, and forecast/current-state separation",
+          "C11_guard_artifact_prediction"
+        ],
+        [
+          "one-revision Matter catalog and detail projection, English-default and Chinese locale selection, human-readable timelines, representative visual decisions, Standard/Compact density, preserved search/filter/selection/scroll state, coverage and worker status, optional correction, internal-data hiding, and projection-only desktop UI",
+          "C12_projection_bilingual_ui"
+        ],
+        [
+          "development gate order and evidence freshness",
+          "DPF_matters_delivery_gate"
+        ],
+        [
+          "progressive private first-run sequencing",
+          "DPF_matters_delivery_gate"
+        ],
+        [
+          "Model Miss handoff into ordinary development",
+          "DPF_matters_delivery_gate"
+        ],
+        [
+          "app-local Skill Pack inventory",
+          "S0_matters_skill_runtime"
+        ],
+        [
+          "compatible active-view resolution",
+          "S0_matters_skill_runtime"
+        ],
+        [
+          "Matters-managed synchronization and rollback",
+          "S0_matters_skill_runtime"
+        ],
+        [
+          "external ResearchGuard integration currentness",
+          "S0_matters_skill_runtime"
+        ],
+        [
+          "bounded text, multimodal, and OCR agent operations",
+          "A0_matters_source_analysis_operation"
+        ],
+        [
+          "abstract ResearchOperation and single ResearchGuard provider",
+          "A1_matters_research_operation"
+        ]
+      ],
+      "side_effect_owners": [
+        [
+          "orchestration_receipt_write",
+          "M0_matters_end_to_end_authority"
+        ],
+        [
+          "coverage_ledger_write",
+          "M0_matters_end_to_end_authority"
+        ],
+        [
+          "work_dispatch_write",
+          "M0_matters_end_to_end_authority"
+        ],
+        [
+          "worker_checkpoint_write",
+          "M0_matters_end_to_end_authority"
+        ],
+        [
+          "provider_metadata_read",
+          "C1_authorization_coverage"
+        ],
+        [
+          "partition_manifest_write",
+          "C1_authorization_coverage"
+        ],
+        [
+          "tracking_disposition_write",
+          "C1_authorization_coverage"
+        ],
+        [
+          "tracking_catalog_write",
+          "C1_authorization_coverage"
+        ],
+        [
+          "private_root_activation",
+          "C1_authorization_coverage"
+        ],
+        [
+          "source_registry_write",
+          "C2_source_registry"
+        ],
+        [
+          "inventory_snapshot_write",
+          "C2_source_registry"
+        ],
+        [
+          "freshness_invalidation_write",
+          "C2_source_registry"
+        ],
+        [
+          "evidence_registry_write",
+          "C3_evidence_qualification"
+        ],
+        [
+          "identity_registry_write",
+          "C4_person_entity_resolution"
+        ],
+        [
+          "event_registry_write",
+          "C5_event_temporal_trace"
+        ],
+        [
+          "matter_registry_write",
+          "C6_matter_formation_admission"
+        ],
+        [
+          "lifecycle_registry_write",
+          "C7_lifecycle_board_state"
+        ],
+        [
+          "open_loop_registry_write",
+          "C8_open_loop_waiting_blocking"
+        ],
+        [
+          "outcome_registry_write",
+          "C9_completion_cancellation_reopen"
+        ],
+        [
+          "append_revision",
+          "C10_correction_revocation"
+        ],
+        [
+          "dispatch_recompute_request",
+          "C10_correction_revocation"
+        ],
+        [
+          "append_owner_disposition",
+          "C10_correction_revocation"
+        ],
+        [
+          "append_recompute_checkpoint",
+          "C10_correction_revocation"
+        ],
+        [
+          "agent_work_package_write",
+          "C11_guard_artifact_prediction"
+        ],
+        [
+          "finding_history_write",
+          "C11_guard_artifact_prediction"
+        ],
+        [
+          "input_disposition_write",
+          "C11_guard_artifact_prediction"
+        ],
+        [
+          "dispatch_outbox_write",
+          "C11_guard_artifact_prediction"
+        ],
+        [
+          "visual_recommendation_write",
+          "C11_guard_artifact_prediction"
+        ],
+        [
+          "depth_assessment_write",
+          "C11_guard_artifact_prediction"
+        ],
+        [
+          "projection_publish",
+          "C12_projection_bilingual_ui"
+        ],
+        [
+          "ui_preference_write",
+          "C12_projection_bilingual_ui"
+        ],
+        [
+          "ui_window_write",
+          "C12_projection_bilingual_ui"
+        ],
+        [
+          "card_visual_decision_write",
+          "C12_projection_bilingual_ui"
+        ],
+        [
+          "authorize only current descendants",
+          "DPF_matters_delivery_gate"
+        ],
+        [
+          "emit typed blocked next actions",
+          "DPF_matters_delivery_gate"
+        ]
+      ],
+      "state_owners": [
+        [
+          "orchestration.child_receipt_set",
+          "M0_matters_end_to_end_authority"
+        ],
+        [
+          "orchestration.integration_status",
+          "M0_matters_end_to_end_authority"
+        ],
+        [
+          "orchestration.object_coverage_ledger_revision",
+          "M0_matters_end_to_end_authority"
+        ],
+        [
+          "orchestration.object_stage_terminal_index",
+          "M0_matters_end_to_end_authority"
+        ],
+        [
+          "orchestration.registered_object_count",
+          "M0_matters_end_to_end_authority"
+        ],
+        [
+          "orchestration.ui_ready_object_count",
+          "M0_matters_end_to_end_authority"
+        ],
+        [
+          "orchestration.blocked_object_count",
+          "M0_matters_end_to_end_authority"
+        ],
+        [
+          "orchestration.worker_checkpoint",
+          "M0_matters_end_to_end_authority"
+        ],
+        [
+          "orchestration.worker_health",
+          "M0_matters_end_to_end_authority"
+        ],
+        [
+          "orchestration.work_item_registry",
+          "M0_matters_end_to_end_authority"
+        ],
+        [
+          "orchestration.coverage_status",
+          "M0_matters_end_to_end_authority"
+        ],
+        [
+          "orchestration.depth_status",
+          "M0_matters_end_to_end_authority"
+        ],
+        [
+          "orchestration.research_status",
+          "M0_matters_end_to_end_authority"
+        ],
+        [
+          "orchestration.analysis_status",
+          "M0_matters_end_to_end_authority"
+        ],
+        [
+          "authorization.status",
+          "C1_authorization_coverage"
+        ],
+        [
+          "candidate_scope.revision",
+          "C1_authorization_coverage"
+        ],
+        [
+          "tracking_policy.revision",
+          "C1_authorization_coverage"
+        ],
+        [
+          "tracking.policy_path_context",
+          "C1_authorization_coverage"
+        ],
+        [
+          "tracking.disposition",
+          "C1_authorization_coverage"
+        ],
+        [
+          "tracking.user_intent",
+          "C1_authorization_coverage"
+        ],
+        [
+          "tracking.source_catalog",
+          "C1_authorization_coverage"
+        ],
+        [
+          "tracking.action_token_index",
+          "C1_authorization_coverage"
+        ],
+        [
+          "coverage.status",
+          "C1_authorization_coverage"
+        ],
+        [
+          "coverage.terminal_counts",
+          "C1_authorization_coverage"
+        ],
+        [
+          "coverage.partition_manifest_revision",
+          "C1_authorization_coverage"
+        ],
+        [
+          "coverage.partition_state",
+          "C1_authorization_coverage"
+        ],
+        [
+          "connector.cursor",
+          "C1_authorization_coverage"
+        ],
+        [
+          "capability_status.private_root",
+          "C1_authorization_coverage"
+        ],
+        [
+          "source.identity",
+          "C2_source_registry"
+        ],
+        [
+          "source.version",
+          "C2_source_registry"
+        ],
+        [
+          "source.content_hash",
+          "C2_source_registry"
+        ],
+        [
+          "source.metadata_hash",
+          "C2_source_registry"
+        ],
+        [
+          "source.tombstone",
+          "C2_source_registry"
+        ],
+        [
+          "visual_asset.identity",
+          "C2_source_registry"
+        ],
+        [
+          "visual_asset.derivative_revision",
+          "C2_source_registry"
+        ],
+        [
+          "visual_asset.renderer_identity",
+          "C2_source_registry"
+        ],
+        [
+          "visual_asset.safety_disposition",
+          "C2_source_registry"
+        ],
+        [
+          "inventory.snapshot_revision",
+          "C2_source_registry"
+        ],
+        [
+          "inventory.change_set",
+          "C2_source_registry"
+        ],
+        [
+          "dependency.freshness",
+          "C2_source_registry"
+        ],
+        [
+          "evidence.anchor",
+          "C3_evidence_qualification"
+        ],
+        [
+          "evidence.modality",
+          "C3_evidence_qualification"
+        ],
+        [
+          "evidence.freshness",
+          "C3_evidence_qualification"
+        ],
+        [
+          "evidence.gap",
+          "C3_evidence_qualification"
+        ],
+        [
+          "evidence.display_permission",
+          "C3_evidence_qualification"
+        ],
+        [
+          "evidence.visual_eligibility",
+          "C3_evidence_qualification"
+        ],
+        [
+          "person.identity_assertion",
+          "C4_person_entity_resolution"
+        ],
+        [
+          "person.merge_split_history",
+          "C4_person_entity_resolution"
+        ],
+        [
+          "matter.role",
+          "C4_person_entity_resolution"
+        ],
+        [
+          "event.identity",
+          "C5_event_temporal_trace"
+        ],
+        [
+          "event.temporal_fields",
+          "C5_event_temporal_trace"
+        ],
+        [
+          "trace.supersession",
+          "C5_event_temporal_trace"
+        ],
+        [
+          "trace.conflict",
+          "C5_event_temporal_trace"
+        ],
+        [
+          "matter.identity",
+          "C6_matter_formation_admission"
+        ],
+        [
+          "matter.admission_status",
+          "C6_matter_formation_admission"
+        ],
+        [
+          "matter.rationale",
+          "C6_matter_formation_admission"
+        ],
+        [
+          "matter.membership",
+          "C6_matter_formation_admission"
+        ],
+        [
+          "matter.source_relation",
+          "C6_matter_formation_admission"
+        ],
+        [
+          "matter.lifecycle_axes",
+          "C7_lifecycle_board_state"
+        ],
+        [
+          "matter.board_placement",
+          "C7_lifecycle_board_state"
+        ],
+        [
+          "matter.state_rationale",
+          "C7_lifecycle_board_state"
+        ],
+        [
+          "open_loop.identity",
+          "C8_open_loop_waiting_blocking"
+        ],
+        [
+          "open_loop.wait_target",
+          "C8_open_loop_waiting_blocking"
+        ],
+        [
+          "open_loop.closure_condition",
+          "C8_open_loop_waiting_blocking"
+        ],
+        [
+          "matter.blocking_axis",
+          "C8_open_loop_waiting_blocking"
+        ],
+        [
+          "matter.outcome",
+          "C9_completion_cancellation_reopen"
+        ],
+        [
+          "matter.outcome_criteria",
+          "C9_completion_cancellation_reopen"
+        ],
+        [
+          "matter.reopen_revision",
+          "C9_completion_cancellation_reopen"
+        ],
+        [
+          "revision_graph",
+          "C10_correction_revocation"
+        ],
+        [
+          "invalidation_plan",
+          "C10_correction_revocation"
+        ],
+        [
+          "recompute_request",
+          "C10_correction_revocation"
+        ],
+        [
+          "recompute.owner_dispositions",
+          "C10_correction_revocation"
+        ],
+        [
+          "recompute.join_status",
+          "C10_correction_revocation"
+        ],
+        [
+          "recompute.checkpoint",
+          "C10_correction_revocation"
+        ],
+        [
+          "correction.card_visual_intent",
+          "C10_correction_revocation"
+        ],
+        [
+          "agent.work_package_v2_registry",
+          "C11_guard_artifact_prediction"
+        ],
+        [
+          "agent.result_registry",
+          "C11_guard_artifact_prediction"
+        ],
+        [
+          "analysis.finding_history",
+          "C11_guard_artifact_prediction"
+        ],
+        [
+          "analysis.input_disposition_registry",
+          "C11_guard_artifact_prediction"
+        ],
+        [
+          "analysis.dispatch_outbox",
+          "C11_guard_artifact_prediction"
+        ],
+        [
+          "analysis.visual_recommendation_registry",
+          "C11_guard_artifact_prediction"
+        ],
+        [
+          "research.provider_status",
+          "C11_guard_artifact_prediction"
+        ],
+        [
+          "analysis.depth_registry",
+          "C11_guard_artifact_prediction"
+        ],
+        [
+          "forecast_registry",
+          "C11_guard_artifact_prediction"
+        ],
+        [
+          "projection.localized_values",
+          "C12_projection_bilingual_ui"
+        ],
+        [
+          "projection.locale_registry",
+          "C12_projection_bilingual_ui"
+        ],
+        [
+          "projection.equivalence_status",
+          "C12_projection_bilingual_ui"
+        ],
+        [
+          "matter.card_visual_decision",
+          "C12_projection_bilingual_ui"
+        ],
+        [
+          "matter.card_visual_revision",
+          "C12_projection_bilingual_ui"
+        ],
+        [
+          "matter.card_visual_selection_mode",
+          "C12_projection_bilingual_ui"
+        ],
+        [
+          "matter.card_visual_status",
+          "C12_projection_bilingual_ui"
+        ],
+        [
+          "ui.selected_locale",
+          "C12_projection_bilingual_ui"
+        ],
+        [
+          "ui.locale_preference",
+          "C12_projection_bilingual_ui"
+        ],
+        [
+          "ui.card_density",
+          "C12_projection_bilingual_ui"
+        ],
+        [
+          "ui.viewport_mode",
+          "C12_projection_bilingual_ui"
+        ],
+        [
+          "ui.query",
+          "C12_projection_bilingual_ui"
+        ],
+        [
+          "ui.filter_state",
+          "C12_projection_bilingual_ui"
+        ],
+        [
+          "ui.sort_state",
+          "C12_projection_bilingual_ui"
+        ],
+        [
+          "ui.catalog_window",
+          "C12_projection_bilingual_ui"
+        ],
+        [
+          "ui.catalog_cursor",
+          "C12_projection_bilingual_ui"
+        ],
+        [
+          "ui.catalog_revision",
+          "C12_projection_bilingual_ui"
+        ],
+        [
+          "ui.selected_matter_id",
+          "C12_projection_bilingual_ui"
+        ],
+        [
+          "ui.detail_section",
+          "C12_projection_bilingual_ui"
+        ],
+        [
+          "ui.browser_scroll_anchor",
+          "C12_projection_bilingual_ui"
+        ],
+        [
+          "ui.focus_context",
+          "C12_projection_bilingual_ui"
+        ],
+        [
+          "ui.coverage_summary",
+          "C12_projection_bilingual_ui"
+        ],
+        [
+          "ui.background_status",
+          "C12_projection_bilingual_ui"
+        ],
+        [
+          "ui.correction_state",
+          "C12_projection_bilingual_ui"
+        ],
+        [
+          "ui.request_state",
+          "C12_projection_bilingual_ui"
+        ],
+        [
+          "skill_runtime.bundle_identity",
+          "S0_matters_skill_runtime"
+        ],
+        [
+          "skill_runtime.active_view_identity",
+          "S0_matters_skill_runtime"
+        ],
+        [
+          "skill_runtime.managed_projection_identity",
+          "S0_matters_skill_runtime"
+        ],
+        [
+          "skill_runtime.researchguard_integration_identity",
+          "S0_matters_skill_runtime"
+        ],
+        [
+          "agent_operation.analysis_status",
+          "A0_matters_source_analysis_operation"
+        ],
+        [
+          "agent_operation.source_analysis_terminal_receipt",
+          "A0_matters_source_analysis_operation"
+        ],
+        [
+          "agent_operation.research_status",
+          "A1_matters_research_operation"
+        ],
+        [
+          "agent_operation.researchguard_identity",
+          "A1_matters_research_operation"
+        ],
+        [
+          "agent_operation.research_terminal_receipt",
+          "A1_matters_research_operation"
+        ]
+      ]
+    },
+    "plane_ambiguity": false,
+    "preflight_id": "matters-autonomous-object-browser-existing-model-preflight",
+    "primary_behavior_plane": "development_process",
+    "primary_commitment_hits": [
+      {
+        "behavior_plane": "development_process",
+        "commitment_id": "BC-DP-004",
+        "hit_role": "primary",
+        "match_reasons": [
+          "same progressive private-first-run process intent",
+          "existing DPF owns order and evidence freshness",
+          "Jira-specific predecessor is explicitly replaced"
+        ],
+        "primary_owner_model_id": "DPF_matters_delivery_gate",
+        "relation_path": [],
+        "relation_type": "",
+        "score": 100
+      }
+    ],
+    "proposed_new_boundaries": [],
+    "rationale": "M0/C1-C12 retain product ownership and DPF retains process order. S0 is an auxiliary non-product skill-runtime boundary, while A0/A1 are agent-operation owners. No C13, Jira/Rovo gate, or three-Guard parallel runtime authority is introduced.",
+    "related_commitment_hits": [
+      {
+        "behavior_plane": "product_runtime",
+        "commitment_id": "BC-PR-001",
+        "hit_role": "validation_target",
+        "match_reasons": [
+          "candidate scope and disposition evidence target"
+        ],
+        "primary_owner_model_id": "C1_authorization_coverage",
+        "relation_path": [
+          "BC-DP-004",
+          "BC-PR-001"
+        ],
+        "relation_type": "requires_evidence_from",
+        "score": 95
+      },
+      {
+        "behavior_plane": "product_runtime",
+        "commitment_id": "BC-PR-002",
+        "hit_role": "validation_target",
+        "match_reasons": [
+          "inventory snapshot and change-set evidence target"
+        ],
+        "primary_owner_model_id": "C2_source_registry",
+        "relation_path": [
+          "BC-DP-004",
+          "BC-PR-002"
+        ],
+        "relation_type": "requires_evidence_from",
+        "score": 94
+      },
+      {
+        "behavior_plane": "product_runtime",
+        "commitment_id": "BC-PR-012",
+        "hit_role": "validation_target",
+        "match_reasons": [
+          "freshness, depth, and human-review evidence target"
+        ],
+        "primary_owner_model_id": "C12_projection_bilingual_ui",
+        "relation_path": [
+          "BC-DP-004",
+          "BC-PR-012"
+        ],
+        "relation_type": "requires_evidence_from",
+        "score": 92
+      },
+      {
+        "behavior_plane": "agent_operation",
+        "commitment_id": "BC-AO-001",
+        "hit_role": "validation_target",
+        "match_reasons": [
+          "governed source-analysis operation"
+        ],
+        "primary_owner_model_id": "A0_matters_source_analysis_operation",
+        "relation_path": [
+          "BC-DP-004",
+          "BC-AO-001"
+        ],
+        "relation_type": "governs",
+        "score": 90
+      },
+      {
+        "behavior_plane": "agent_operation",
+        "commitment_id": "BC-AO-002",
+        "hit_role": "validation_target",
+        "match_reasons": [
+          "governed ResearchOperation with visible pending integration"
+        ],
+        "primary_owner_model_id": "A1_matters_research_operation",
+        "relation_path": [
+          "BC-DP-004",
+          "BC-AO-002"
+        ],
+        "relation_type": "governs",
+        "score": 90
+      }
+    ],
+    "relevant_models": [
+      {
+        "child_disjointness_status": "",
+        "child_model_ids": [],
+        "child_reattachment_status": "",
+        "evidence_current": false,
+        "evidence_id": "source:sha256:2700633c7fd604a5f9b4a2f28cc60510575299e1de5a0e6b0776ad97e23d73c9",
+        "evidence_tier": "candidate_only",
+        "fields_owned": [
+          "development_gate.status",
+          "validation_evidence.freshness",
+          "private_first_run.status",
+          "maintenance.model_miss_work_item"
+        ],
+        "function_blocks": [
+          "capture_delivery_snapshot",
+          "build_plan",
+          "build_receipt"
+        ],
+        "layered_proof_evidence_id": "",
+        "leaf_boundary_matrix_status": "",
+        "model_id": "DPF_matters_delivery_gate",
+        "model_path": "flowguard_models/delivery_flow.py",
+        "parent_coverage_status": "",
+        "parent_model_id": "",
+        "public_entrypoints": [],
+        "rationale": "extend_progressive_autonomous_first_run_skill_pack_desktop_and_release_gates",
+        "responsibilities": [
+          "development gate order and evidence freshness",
+          "progressive private first-run sequencing",
+          "Model Miss handoff into ordinary development"
+        ],
+        "side_effects_owned": [
+          "authorize only current descendants",
+          "emit typed blocked next actions"
+        ],
+        "state_owned": [
+          "development_gate.status",
+          "validation_evidence.freshness",
+          "private_first_run.status",
+          "maintenance.model_miss_work_item"
+        ],
+        "validation_evidence": [
+          "prior G8/Jira delivery-flow receipt is stale",
+          "source is retained only as the existing process-owner context"
+        ]
+      },
+      {
+        "child_disjointness_status": "stale_requires_candidate_universe_revalidation",
+        "child_model_ids": [
+          "C1_authorization_coverage",
+          "C2_source_registry",
+          "C3_evidence_qualification",
+          "C4_person_entity_resolution",
+          "C5_event_temporal_trace",
+          "C6_matter_formation_admission",
+          "C7_lifecycle_board_state",
+          "C8_open_loop_waiting_blocking",
+          "C9_completion_cancellation_reopen",
+          "C10_correction_revocation",
+          "C11_guard_artifact_prediction",
+          "C12_projection_bilingual_ui"
+        ],
+        "child_reattachment_status": "stale_requires_candidate_universe_revalidation",
+        "evidence_current": false,
+        "evidence_id": "source:sha256:ead934673f29dd63fc9ec01ab57801c0655be2784c089705177afade979d6edc",
+        "evidence_tier": "candidate_only",
+        "fields_owned": [
+          "orchestration.child_receipt_set",
+          "orchestration.integration_status",
+          "orchestration.object_coverage_ledger_revision",
+          "orchestration.object_stage_terminal_index",
+          "orchestration.registered_object_count",
+          "orchestration.ui_ready_object_count",
+          "orchestration.blocked_object_count",
+          "orchestration.worker_checkpoint",
+          "orchestration.worker_health",
+          "orchestration.work_item_registry",
+          "orchestration.coverage_status",
+          "orchestration.depth_status",
+          "orchestration.research_status",
+          "orchestration.analysis_status"
+        ],
+        "function_blocks": [
+          "all_registered_objects_terminal_and_ui_ready",
+          "missing_or_stale_stage_work",
+          "typed_finding_owner_join_pending",
+          "one_object_blocked_others_progress",
+          "progressive_inventory_partial",
+          "semantic_depth_partial",
+          "visual_localization_or_ui_gap",
+          "researchguard_pending",
+          "stale_child_receipt",
+          "unconsumed_child_output",
+          "correction_invalidates_downstream",
+          "restart_from_checkpoint",
+          "unchanged_rescan",
+          "parent_attempts_child_write"
+        ],
+        "layered_proof_evidence_id": "stale:.flowguard/evidence/model_mesh/MM0_matters_parent_child_mesh.json",
+        "leaf_boundary_matrix_status": "stale_requires_candidate_universe_revalidation",
+        "model_id": "M0_matters_end_to_end_authority",
+        "model_path": "flowguard_models/models/m00_end_to_end_authority.py",
+        "parent_coverage_status": "stale_requires_candidate_universe_revalidation",
+        "parent_model_id": "",
+        "public_entrypoints": [],
+        "rationale": "extend_with_object_coverage_ledger_worker_and_ui_readiness",
+        "responsibilities": [
+          "one orchestration snapshot over current C1-C12 source-universe, ObjectCoverageLedger, freshness, semantic depth, automatic original-owner dispatch, visual/localization/UI readiness, retry/restart recovery, ResearchGuard release gating, and unconsumed-output obligations"
+        ],
+        "side_effects_owned": [
+          "orchestration_receipt_write",
+          "coverage_ledger_write",
+          "work_dispatch_write",
+          "worker_checkpoint_write"
+        ],
+        "state_owned": [
+          "orchestration.child_receipt_set",
+          "orchestration.integration_status",
+          "orchestration.object_coverage_ledger_revision",
+          "orchestration.object_stage_terminal_index",
+          "orchestration.registered_object_count",
+          "orchestration.ui_ready_object_count",
+          "orchestration.blocked_object_count",
+          "orchestration.worker_checkpoint",
+          "orchestration.worker_health",
+          "orchestration.work_item_registry",
+          "orchestration.coverage_status",
+          "orchestration.depth_status",
+          "orchestration.research_status",
+          "orchestration.analysis_status"
+        ],
+        "validation_evidence": [
+          "prior Jira-shaped model and mesh receipts are stale",
+          "this hit proves source discovery and ownership context only"
+        ]
+      },
+      {
+        "child_disjointness_status": "",
+        "child_model_ids": [],
+        "child_reattachment_status": "",
+        "evidence_current": false,
+        "evidence_id": "source:sha256:c159e7f70fcfb03612c48b1e9fc3c0760d2e7c7ad449a0f6fa2f921650725390",
+        "evidence_tier": "candidate_only",
+        "fields_owned": [
+          "authorization.status",
+          "candidate_scope.revision",
+          "tracking_policy.revision",
+          "tracking.policy_path_context",
+          "tracking.disposition",
+          "tracking.user_intent",
+          "tracking.source_catalog",
+          "tracking.action_token_index",
+          "coverage.status",
+          "coverage.terminal_counts",
+          "coverage.partition_manifest_revision",
+          "coverage.partition_state",
+          "connector.cursor",
+          "capability_status.private_root"
+        ],
+        "function_blocks": [
+          "candidate_scope_frozen",
+          "tracked_current",
+          "ai_not_tracked_current",
+          "ai_uncertain_or_protected",
+          "temporarily_unavailable_item",
+          "all_items_and_pages_terminal",
+          "nonterminal_or_missing_page",
+          "large_root_budget_exceeded",
+          "parent_partition_boundary",
+          "partition_child_retains_policy_context",
+          "generated_state_pruned_before_partition",
+          "partition_child_pending_failed_or_stale",
+          "partition_checkpoint_batch_progress",
+          "bounded_child_scanned_before_further_partition",
+          "canary_smallest_sufficient_partition_first",
+          "canary_stage_updates_batch_summary_once",
+          "gmail_budget_prioritizes_supplied_authorized_content",
+          "all_partitions_and_items_terminal",
+          "tracking_policy_changed",
+          "policy_changed_after_user_override",
+          "source_catalog_action_current",
+          "outside_scope",
+          "authorization_revoked",
+          "private_root_outside_git",
+          "installed_private_root_single_physical_authority",
+          "private_root_inside_git"
+        ],
+        "layered_proof_evidence_id": "",
+        "leaf_boundary_matrix_status": "",
+        "model_id": "C1_authorization_coverage",
+        "model_path": "flowguard_models/models/c01_authorization_coverage.py",
+        "parent_coverage_status": "",
+        "parent_model_id": "M0_matters_end_to_end_authority",
+        "public_entrypoints": [],
+        "rationale": "replace_review_with_automatic_reversible_terminal_dispositions",
+        "responsibilities": [
+          "bounded source authorization, candidate-scope freeze, reversible tracking disposition, durable large-root partitioning, terminal coverage, revocation, and private-root activation"
+        ],
+        "side_effects_owned": [
+          "provider_metadata_read",
+          "partition_manifest_write",
+          "tracking_disposition_write",
+          "tracking_catalog_write",
+          "private_root_activation"
+        ],
+        "state_owned": [
+          "authorization.status",
+          "candidate_scope.revision",
+          "tracking_policy.revision",
+          "tracking.policy_path_context",
+          "tracking.disposition",
+          "tracking.user_intent",
+          "tracking.source_catalog",
+          "tracking.action_token_index",
+          "coverage.status",
+          "coverage.terminal_counts",
+          "coverage.partition_manifest_revision",
+          "coverage.partition_state",
+          "connector.cursor",
+          "capability_status.private_root"
+        ],
+        "validation_evidence": [
+          "prior Jira-shaped model and mesh receipts are stale",
+          "this hit proves source discovery and ownership context only"
+        ]
+      },
+      {
+        "child_disjointness_status": "",
+        "child_model_ids": [],
+        "child_reattachment_status": "",
+        "evidence_current": false,
+        "evidence_id": "source:sha256:275cf01c3563c06c70a1a535edb48a66e37f991e5c7e3edfbbd54d1433f771f0",
+        "evidence_tier": "candidate_only",
+        "fields_owned": [
+          "source.identity",
+          "source.version",
+          "source.content_hash",
+          "source.metadata_hash",
+          "source.tombstone",
+          "visual_asset.identity",
+          "visual_asset.derivative_revision",
+          "visual_asset.renderer_identity",
+          "visual_asset.safety_disposition",
+          "inventory.snapshot_revision",
+          "inventory.change_set",
+          "dependency.freshness"
+        ],
+        "function_blocks": [
+          "inventory_first_snapshot",
+          "new_content",
+          "metadata_only_change",
+          "occurrence_moved_same_content",
+          "occurrence_newly_reachable",
+          "identical_rescan",
+          "source_modified",
+          "source_deleted",
+          "eligible_visual_derivative",
+          "unsafe_or_stale_visual",
+          "ai_rewrite_attempt"
+        ],
+        "layered_proof_evidence_id": "",
+        "leaf_boundary_matrix_status": "",
+        "model_id": "C2_source_registry",
+        "model_path": "flowguard_models/models/c02_source_registry.py",
+        "parent_coverage_status": "",
+        "parent_model_id": "M0_matters_end_to_end_authority",
+        "public_entrypoints": [],
+        "rationale": "extend_with_safe_visual_derivatives_and_freshness",
+        "responsibilities": [
+          "immutable occurrence/source identity, inventory snapshots, change sets, versioning, safe visual derivatives, freshness invalidation, no-delta, and tombstones"
+        ],
+        "side_effects_owned": [
+          "source_registry_write",
+          "inventory_snapshot_write",
+          "freshness_invalidation_write"
+        ],
+        "state_owned": [
+          "source.identity",
+          "source.version",
+          "source.content_hash",
+          "source.metadata_hash",
+          "source.tombstone",
+          "visual_asset.identity",
+          "visual_asset.derivative_revision",
+          "visual_asset.renderer_identity",
+          "visual_asset.safety_disposition",
+          "inventory.snapshot_revision",
+          "inventory.change_set",
+          "dependency.freshness"
+        ],
+        "validation_evidence": [
+          "prior Jira-shaped model and mesh receipts are stale",
+          "this hit proves source discovery and ownership context only"
+        ]
+      },
+      {
+        "child_disjointness_status": "",
+        "child_model_ids": [],
+        "child_reattachment_status": "",
+        "evidence_current": false,
+        "evidence_id": "source:sha256:4d36132fd3c6962d5b03dd8b8e78342cf312ee3d9e3ce81956eace1a15e88a45",
+        "evidence_tier": "candidate_only",
+        "fields_owned": [
+          "evidence.anchor",
+          "evidence.modality",
+          "evidence.freshness",
+          "evidence.gap",
+          "evidence.display_permission",
+          "evidence.visual_eligibility"
+        ],
+        "function_blocks": [
+          "exact_field_anchor",
+          "exact_image_region",
+          "exact_document_page_passage",
+          "exact_sheet_cell_range",
+          "exact_mail_attachment_anchor",
+          "exact_safe_visual_anchor",
+          "visual_anchor_denied_or_unrelated",
+          "unsupported_or_unreadable_payload",
+          "title_or_filename_only",
+          "planned_statement",
+          "superseded_anchor"
+        ],
+        "layered_proof_evidence_id": "",
+        "leaf_boundary_matrix_status": "",
+        "model_id": "C3_evidence_qualification",
+        "model_path": "flowguard_models/models/c03_evidence_qualification.py",
+        "parent_coverage_status": "",
+        "parent_model_id": "M0_matters_end_to_end_authority",
+        "public_entrypoints": [],
+        "rationale": "extend_with_visual_anchors_display_permission_and_eligibility",
+        "responsibilities": [
+          "precise line/character, page/passage, sheet/cell, message/thread/attachment, image/OCR-region and metadata anchors, modality, gaps, display safety, representative-visual eligibility, and source-version freshness"
+        ],
+        "side_effects_owned": [
+          "evidence_registry_write"
+        ],
+        "state_owned": [
+          "evidence.anchor",
+          "evidence.modality",
+          "evidence.freshness",
+          "evidence.gap",
+          "evidence.display_permission",
+          "evidence.visual_eligibility"
+        ],
+        "validation_evidence": [
+          "prior Jira-shaped model and mesh receipts are stale",
+          "this hit proves source discovery and ownership context only"
+        ]
+      },
+      {
+        "child_disjointness_status": "",
+        "child_model_ids": [],
+        "child_reattachment_status": "",
+        "evidence_current": false,
+        "evidence_id": "source:sha256:4df81e7f25f31f469aac3739e3b210b04417dd531b3c536b9021bd79e70e25ea",
+        "evidence_tier": "candidate_only",
+        "fields_owned": [
+          "person.identity_assertion",
+          "person.merge_split_history",
+          "matter.role"
+        ],
+        "function_blocks": [
+          "same_name_no_link",
+          "assignee_role",
+          "strong_identity_link",
+          "user_split_correction",
+          "researchguard_identity_proposal"
+        ],
+        "layered_proof_evidence_id": "",
+        "leaf_boundary_matrix_status": "",
+        "model_id": "C4_person_entity_resolution",
+        "model_path": "flowguard_models/models/c04_identity_resolution.py",
+        "parent_coverage_status": "",
+        "parent_model_id": "M0_matters_end_to_end_authority",
+        "public_entrypoints": [],
+        "rationale": "preserve_separate_uncertain_identities_without_confirmation",
+        "responsibilities": [
+          "evidence-scoped identity candidates, merge/split decisions, and Matter roles"
+        ],
+        "side_effects_owned": [
+          "identity_registry_write"
+        ],
+        "state_owned": [
+          "person.identity_assertion",
+          "person.merge_split_history",
+          "matter.role"
+        ],
+        "validation_evidence": [
+          "prior Jira-shaped model and mesh receipts are stale",
+          "this hit proves source discovery and ownership context only"
+        ]
+      },
+      {
+        "child_disjointness_status": "",
+        "child_model_ids": [],
+        "child_reattachment_status": "",
+        "evidence_current": false,
+        "evidence_id": "source:sha256:662251fb85736c25ec6947238c1b110d7e238f4ccf494a47104194c069f2dbe9",
+        "evidence_tier": "candidate_only",
+        "fields_owned": [
+          "event.identity",
+          "event.temporal_fields",
+          "trace.supersession",
+          "trace.conflict"
+        ],
+        "function_blocks": [
+          "explicit_actual_start",
+          "future_meeting",
+          "assignment_without_start",
+          "file_or_exif_time_without_event_claim",
+          "done_then_reopen_blocked"
+        ],
+        "layered_proof_evidence_id": "",
+        "leaf_boundary_matrix_status": "",
+        "model_id": "C5_event_temporal_trace",
+        "model_path": "flowguard_models/models/c05_event_temporal_trace.py",
+        "parent_coverage_status": "",
+        "parent_model_id": "M0_matters_end_to_end_authority",
+        "public_entrypoints": [],
+        "rationale": "preserve_conflict_and_publish_best_supported_human_readable_time",
+        "responsibilities": [
+          "typed events, record/claimed time, modality, supersession, contradiction, and gaps"
+        ],
+        "side_effects_owned": [
+          "event_registry_write"
+        ],
+        "state_owned": [
+          "event.identity",
+          "event.temporal_fields",
+          "trace.supersession",
+          "trace.conflict"
+        ],
+        "validation_evidence": [
+          "prior Jira-shaped model and mesh receipts are stale",
+          "this hit proves source discovery and ownership context only"
+        ]
+      },
+      {
+        "child_disjointness_status": "",
+        "child_model_ids": [],
+        "child_reattachment_status": "",
+        "evidence_current": false,
+        "evidence_id": "source:sha256:9053b1aea9d0273ca14514562c372421786705c3d38d95631b60857c2310d9f6",
+        "evidence_tier": "candidate_only",
+        "fields_owned": [
+          "matter.identity",
+          "matter.admission_status",
+          "matter.rationale",
+          "matter.membership",
+          "matter.source_relation"
+        ],
+        "function_blocks": [
+          "provider_item_basic",
+          "future_maybe_research",
+          "fully_evidenced_obligation",
+          "conflicting_or_insufficient",
+          "irrelevant_or_non_actionable",
+          "visual_related_to_matter",
+          "visual_unrelated_to_matter",
+          "access_blocked"
+        ],
+        "layered_proof_evidence_id": "",
+        "leaf_boundary_matrix_status": "",
+        "model_id": "C6_matter_formation_admission",
+        "model_path": "flowguard_models/models/c06_matter_admission.py",
+        "parent_coverage_status": "",
+        "parent_model_id": "M0_matters_end_to_end_authority",
+        "public_entrypoints": [],
+        "rationale": "replace_review_with_autonomous_terminal_admission_and_visual_relations",
+        "responsibilities": [
+          "source-first Matter formation, autonomous admitted/source-only/not-applicable/uncertain/blocked outcomes, Matter-source visual relations, and admitted statistics"
+        ],
+        "side_effects_owned": [
+          "matter_registry_write"
+        ],
+        "state_owned": [
+          "matter.identity",
+          "matter.admission_status",
+          "matter.rationale",
+          "matter.membership",
+          "matter.source_relation"
+        ],
+        "validation_evidence": [
+          "prior Jira-shaped model and mesh receipts are stale",
+          "this hit proves source discovery and ownership context only"
+        ]
+      },
+      {
+        "child_disjointness_status": "",
+        "child_model_ids": [],
+        "child_reattachment_status": "",
+        "evidence_current": false,
+        "evidence_id": "source:sha256:16be572c2a70ca89e7a3bffa8f55de6dfc9095718f882bea49017778dfbcf087",
+        "evidence_tier": "candidate_only",
+        "fields_owned": [
+          "matter.lifecycle_axes",
+          "matter.board_placement",
+          "matter.state_rationale"
+        ],
+        "function_blocks": [
+          "explicit_start_evidence",
+          "scheduled_only",
+          "partial_coverage_no_start",
+          "provider_done_without_completion",
+          "ui_direct_state_write"
+        ],
+        "layered_proof_evidence_id": "",
+        "leaf_boundary_matrix_status": "",
+        "model_id": "C7_lifecycle_board_state",
+        "model_path": "flowguard_models/models/c07_lifecycle_board_state.py",
+        "parent_coverage_status": "",
+        "parent_model_id": "M0_matters_end_to_end_authority",
+        "public_entrypoints": [],
+        "rationale": "replace_review_with_uncertainty_preserved_lifecycle_projection",
+        "responsibilities": [
+          "evidence-licensed lifecycle axes and canonical board placement"
+        ],
+        "side_effects_owned": [
+          "lifecycle_registry_write"
+        ],
+        "state_owned": [
+          "matter.lifecycle_axes",
+          "matter.board_placement",
+          "matter.state_rationale"
+        ],
+        "validation_evidence": [
+          "prior Jira-shaped model and mesh receipts are stale",
+          "this hit proves source discovery and ownership context only"
+        ]
+      },
+      {
+        "child_disjointness_status": "",
+        "child_model_ids": [],
+        "child_reattachment_status": "",
+        "evidence_current": false,
+        "evidence_id": "source:sha256:d014ffa531b9d703651a8fcf6d3f049ce011e687e4f2a2bd5a3ca29eea4add71",
+        "evidence_tier": "candidate_only",
+        "fields_owned": [
+          "open_loop.identity",
+          "open_loop.wait_target",
+          "open_loop.closure_condition",
+          "matter.blocking_axis"
+        ],
+        "function_blocks": [
+          "request_with_target_and_condition",
+          "vague_waiting_text",
+          "researchguard_blocker_without_closure",
+          "noncritical_subtask_failure",
+          "critical_dependency_failure",
+          "matter_complete_loop_unmet",
+          "declared_closure_evidence"
+        ],
+        "layered_proof_evidence_id": "",
+        "leaf_boundary_matrix_status": "",
+        "model_id": "C8_open_loop_waiting_blocking",
+        "model_path": "flowguard_models/models/c08_open_loop_blocking.py",
+        "parent_coverage_status": "",
+        "parent_model_id": "M0_matters_end_to_end_authority",
+        "public_entrypoints": [],
+        "rationale": "replace_review_with_gap_and_not_applicable_terminals",
+        "responsibilities": [
+          "requests, wait targets, closure conditions, and partial/full blocking"
+        ],
+        "side_effects_owned": [
+          "open_loop_registry_write"
+        ],
+        "state_owned": [
+          "open_loop.identity",
+          "open_loop.wait_target",
+          "open_loop.closure_condition",
+          "matter.blocking_axis"
+        ],
+        "validation_evidence": [
+          "prior Jira-shaped model and mesh receipts are stale",
+          "this hit proves source discovery and ownership context only"
+        ]
+      },
+      {
+        "child_disjointness_status": "",
+        "child_model_ids": [],
+        "child_reattachment_status": "",
+        "evidence_current": false,
+        "evidence_id": "source:sha256:3e1d5c91b5ac3c70aa74926cd05c8e4e4fe158e373f319afda0ed65f91f709f7",
+        "evidence_tier": "candidate_only",
+        "fields_owned": [
+          "matter.outcome",
+          "matter.outcome_criteria",
+          "matter.reopen_revision"
+        ],
+        "function_blocks": [
+          "all_completion_criteria_evidenced",
+          "terminal_label_or_final_file_only",
+          "user_cancels_with_open_loop",
+          "new_obligation_after_completion",
+          "source_revision_or_ai_reopen_proposal",
+          "conflicting_termination_evidence"
+        ],
+        "layered_proof_evidence_id": "",
+        "leaf_boundary_matrix_status": "",
+        "model_id": "C9_completion_cancellation_reopen",
+        "model_path": "flowguard_models/models/c09_outcomes_reopen.py",
+        "parent_coverage_status": "",
+        "parent_model_id": "M0_matters_end_to_end_authority",
+        "public_entrypoints": [],
+        "rationale": "replace_review_with_completion_gap_and_outcome_conflict_terminals",
+        "responsibilities": [
+          "explicit completion and termination criteria, independent-loop disposition, and reopening"
+        ],
+        "side_effects_owned": [
+          "outcome_registry_write"
+        ],
+        "state_owned": [
+          "matter.outcome",
+          "matter.outcome_criteria",
+          "matter.reopen_revision"
+        ],
+        "validation_evidence": [
+          "prior Jira-shaped model and mesh receipts are stale",
+          "this hit proves source discovery and ownership context only"
+        ]
+      },
+      {
+        "child_disjointness_status": "",
+        "child_model_ids": [],
+        "child_reattachment_status": "",
+        "evidence_current": false,
+        "evidence_id": "source:sha256:fd4caeb5fdc05d94398285aa487ba961377040026288aed61d860789bdd135e0",
+        "evidence_tier": "candidate_only",
+        "fields_owned": [
+          "revision_graph",
+          "invalidation_plan",
+          "recompute_request",
+          "recompute.owner_dispositions",
+          "recompute.join_status",
+          "recompute.checkpoint",
+          "correction.card_visual_intent"
+        ],
+        "function_blocks": [
+          "user_correction",
+          "card_visual_pin_unpin_or_change",
+          "source_or_tracking_stale",
+          "all_required_owners_terminal",
+          "required_owner_failed_or_missing",
+          "restart_with_current_checkpoint",
+          "authorization_revoked",
+          "ui_only_patch_request",
+          "direct_foreign_state_write"
+        ],
+        "layered_proof_evidence_id": "",
+        "leaf_boundary_matrix_status": "",
+        "model_id": "C10_correction_revocation",
+        "model_path": "flowguard_models/models/c10_correction_revocation.py",
+        "parent_coverage_status": "",
+        "parent_model_id": "M0_matters_end_to_end_authority",
+        "public_entrypoints": [],
+        "rationale": "extend_with_optional_visual_correction_and_original_owner_recompute",
+        "responsibilities": [
+          "append-only correction/revocation/deletion, dependency-graph invalidation, original-owner dispatch, terminal join, retry, restart, and optional representative-visual pin/unpin/change-cover correction"
+        ],
+        "side_effects_owned": [
+          "append_revision",
+          "dispatch_recompute_request",
+          "append_owner_disposition",
+          "append_recompute_checkpoint"
+        ],
+        "state_owned": [
+          "revision_graph",
+          "invalidation_plan",
+          "recompute_request",
+          "recompute.owner_dispositions",
+          "recompute.join_status",
+          "recompute.checkpoint",
+          "correction.card_visual_intent"
+        ],
+        "validation_evidence": [
+          "prior Jira-shaped model and mesh receipts are stale",
+          "this hit proves source discovery and ownership context only"
+        ]
+      },
+      {
+        "child_disjointness_status": "",
+        "child_model_ids": [],
+        "child_reattachment_status": "",
+        "evidence_current": false,
+        "evidence_id": "source:sha256:a6cc95757fb9f4585ceea8fa1ff4aebfb631c57e8aaa7161f8af820c7c642a6b",
+        "evidence_tier": "candidate_only",
+        "fields_owned": [
+          "agent.work_package_v2_registry",
+          "agent.result_registry",
+          "analysis.finding_history",
+          "analysis.input_disposition_registry",
+          "analysis.dispatch_outbox",
+          "analysis.visual_recommendation_registry",
+          "research.provider_status",
+          "analysis.depth_registry",
+          "forecast_registry"
+        ],
+        "function_blocks": [
+          "extracted_anchors_queued",
+          "valid_bilingual_understanding_result",
+          "typed_finding_auto_dispatched",
+          "no_finding_or_policy_rejected",
+          "analysis_operation_failed_or_blocked",
+          "current_ai_finding",
+          "current_researchguard_result",
+          "researchguard_not_current",
+          "legacy_parallel_guard_binding",
+          "current_scope_triage",
+          "depth_sufficient_current",
+          "depth_partial_or_stale",
+          "visual_candidates_ranked",
+          "stale_operation_result",
+          "scope_escape_attempt",
+          "forecast_delay",
+          "research_direct_canonical_write",
+          "skipped_or_progress_receipt"
+        ],
+        "layered_proof_evidence_id": "",
+        "leaf_boundary_matrix_status": "",
+        "model_id": "C11_guard_artifact_prediction",
+        "model_path": "flowguard_models/models/c11_guard_prediction.py",
+        "parent_coverage_status": "",
+        "parent_model_id": "M0_matters_end_to_end_authority",
+        "public_entrypoints": [],
+        "rationale": "replace_confirmation_with_workpackage_v2_input_accounting_and_auto_dispatch",
+        "responsibilities": [
+          "versioned scope-bound AI/ResearchOperation work packages, terminal results, ResearchGuard currentness, semantic depth, typed bilingual findings, input accounting, durable automatic original-owner dispatch, representative-visual recommendation, receipt freshness, and forecast/current-state separation"
+        ],
+        "side_effects_owned": [
+          "agent_work_package_write",
+          "finding_history_write",
+          "input_disposition_write",
+          "dispatch_outbox_write",
+          "visual_recommendation_write",
+          "depth_assessment_write"
+        ],
+        "state_owned": [
+          "agent.work_package_v2_registry",
+          "agent.result_registry",
+          "analysis.finding_history",
+          "analysis.input_disposition_registry",
+          "analysis.dispatch_outbox",
+          "analysis.visual_recommendation_registry",
+          "research.provider_status",
+          "analysis.depth_registry",
+          "forecast_registry"
+        ],
+        "validation_evidence": [
+          "prior Jira-shaped model and mesh receipts are stale",
+          "this hit proves source discovery and ownership context only"
+        ]
+      },
+      {
+        "child_disjointness_status": "",
+        "child_model_ids": [],
+        "child_reattachment_status": "",
+        "evidence_current": false,
+        "evidence_id": "source:sha256:ad2243d803f552a44cca56ec038d5b29ae5e8cf7846c5bb7bff4bfc9a17d0701",
+        "evidence_tier": "candidate_only",
+        "fields_owned": [
+          "projection.localized_values",
+          "projection.locale_registry",
+          "projection.equivalence_status",
+          "matter.card_visual_decision",
+          "matter.card_visual_revision",
+          "matter.card_visual_selection_mode",
+          "matter.card_visual_status",
+          "ui.selected_locale",
+          "ui.locale_preference",
+          "ui.card_density",
+          "ui.viewport_mode",
+          "ui.query",
+          "ui.filter_state",
+          "ui.sort_state",
+          "ui.catalog_window",
+          "ui.catalog_cursor",
+          "ui.catalog_revision",
+          "ui.selected_matter_id",
+          "ui.detail_section",
+          "ui.browser_scroll_anchor",
+          "ui.focus_context",
+          "ui.coverage_summary",
+          "ui.background_status",
+          "ui.correction_state",
+          "ui.request_state"
+        ],
+        "function_blocks": [
+          "same_revision_equivalent",
+          "first_launch_without_preference",
+          "select_chinese_same_context",
+          "future_locale_complete",
+          "missing_required_locale",
+          "matter_catalog_current",
+          "matter_coverage_relation_index_current",
+          "catalog_search_or_filter_changed",
+          "density_switched",
+          "viewport_changed",
+          "single_card_catalog",
+          "matter_detail_opened",
+          "human_readable_timeline",
+          "eligible_visual_selected",
+          "no_eligible_visual",
+          "optional_correction_requested",
+          "background_work_pending_or_blocked",
+          "stale_or_cancelled_response",
+          "recompute_not_terminal",
+          "ui_infers_state",
+          "internal_identifier_requested_by_default"
+        ],
+        "layered_proof_evidence_id": "",
+        "leaf_boundary_matrix_status": "",
+        "model_id": "C12_projection_bilingual_ui",
+        "model_path": "flowguard_models/models/c12_projection_bilingual_ui.py",
+        "parent_coverage_status": "",
+        "parent_model_id": "M0_matters_end_to_end_authority",
+        "public_entrypoints": [],
+        "rationale": "replace_review_workspace_with_bilingual_desktop_object_browser",
+        "responsibilities": [
+          "one-revision Matter catalog and detail projection, English-default and Chinese locale selection, human-readable timelines, representative visual decisions, Standard/Compact density, preserved search/filter/selection/scroll state, coverage and worker status, optional correction, internal-data hiding, and projection-only desktop UI"
+        ],
+        "side_effects_owned": [
+          "projection_publish",
+          "ui_preference_write",
+          "ui_window_write",
+          "card_visual_decision_write"
+        ],
+        "state_owned": [
+          "projection.localized_values",
+          "projection.locale_registry",
+          "projection.equivalence_status",
+          "matter.card_visual_decision",
+          "matter.card_visual_revision",
+          "matter.card_visual_selection_mode",
+          "matter.card_visual_status",
+          "ui.selected_locale",
+          "ui.locale_preference",
+          "ui.card_density",
+          "ui.viewport_mode",
+          "ui.query",
+          "ui.filter_state",
+          "ui.sort_state",
+          "ui.catalog_window",
+          "ui.catalog_cursor",
+          "ui.catalog_revision",
+          "ui.selected_matter_id",
+          "ui.detail_section",
+          "ui.browser_scroll_anchor",
+          "ui.focus_context",
+          "ui.coverage_summary",
+          "ui.background_status",
+          "ui.correction_state",
+          "ui.request_state"
+        ],
+        "validation_evidence": [
+          "prior Jira-shaped model and mesh receipts are stale",
+          "this hit proves source discovery and ownership context only"
+        ]
+      },
+      {
+        "child_disjointness_status": "",
+        "child_model_ids": [],
+        "child_reattachment_status": "",
+        "evidence_current": false,
+        "evidence_id": "source:sha256:dadb2e6ac0341a6ccd03467abe7a960f886c8955bb342eab43857653705a0f55",
+        "evidence_tier": "candidate_only",
+        "fields_owned": [
+          "skill_runtime.bundle_identity",
+          "skill_runtime.active_view_identity",
+          "skill_runtime.managed_projection_identity",
+          "skill_runtime.researchguard_integration_identity"
+        ],
+        "function_blocks": [],
+        "layered_proof_evidence_id": "",
+        "leaf_boundary_matrix_status": "",
+        "model_id": "S0_matters_skill_runtime",
+        "model_path": "flowguard_models/run_skill_runtime_model.py",
+        "parent_coverage_status": "",
+        "parent_model_id": "",
+        "public_entrypoints": [],
+        "rationale": "add_auxiliary_non_product_skill_runtime_boundary",
+        "responsibilities": [
+          "app-local Skill Pack inventory",
+          "compatible active-view resolution",
+          "Matters-managed synchronization and rollback",
+          "external ResearchGuard integration currentness"
+        ],
+        "side_effects_owned": [],
+        "state_owned": [
+          "skill_runtime.bundle_identity",
+          "skill_runtime.active_view_identity",
+          "skill_runtime.managed_projection_identity",
+          "skill_runtime.researchguard_integration_identity"
+        ],
+        "validation_evidence": [
+          "source boundary discovered; native execution evidence is not claimed"
+        ]
+      },
+      {
+        "child_disjointness_status": "",
+        "child_model_ids": [],
+        "child_reattachment_status": "",
+        "evidence_current": false,
+        "evidence_id": "source:sha256:3b650fd97e1ab4ec6d996949c17dbb3bdf34802146060013d8c5f324af1e33d0",
+        "evidence_tier": "candidate_only",
+        "fields_owned": [
+          "agent_operation.analysis_status",
+          "agent_operation.source_analysis_terminal_receipt"
+        ],
+        "function_blocks": [],
+        "layered_proof_evidence_id": "",
+        "leaf_boundary_matrix_status": "",
+        "model_id": "A0_matters_source_analysis_operation",
+        "model_path": "flowguard_models/agent_operation_models.py",
+        "parent_coverage_status": "",
+        "parent_model_id": "",
+        "public_entrypoints": [],
+        "rationale": "add_agent_operation_boundary",
+        "responsibilities": [
+          "bounded text, multimodal, and OCR agent operations"
+        ],
+        "side_effects_owned": [],
+        "state_owned": [
+          "agent_operation.analysis_status",
+          "agent_operation.source_analysis_terminal_receipt"
+        ],
+        "validation_evidence": [
+          "source boundary discovered; native execution evidence is not claimed"
+        ]
+      },
+      {
+        "child_disjointness_status": "",
+        "child_model_ids": [],
+        "child_reattachment_status": "",
+        "evidence_current": false,
+        "evidence_id": "source:sha256:3b650fd97e1ab4ec6d996949c17dbb3bdf34802146060013d8c5f324af1e33d0",
+        "evidence_tier": "candidate_only",
+        "fields_owned": [
+          "agent_operation.research_status",
+          "agent_operation.researchguard_identity",
+          "agent_operation.research_terminal_receipt"
+        ],
+        "function_blocks": [],
+        "layered_proof_evidence_id": "",
+        "leaf_boundary_matrix_status": "",
+        "model_id": "A1_matters_research_operation",
+        "model_path": "flowguard_models/agent_operation_models.py",
+        "parent_coverage_status": "",
+        "parent_model_id": "",
+        "public_entrypoints": [],
+        "rationale": "add_abstract_researchoperation_boundary",
+        "responsibilities": [
+          "abstract ResearchOperation and single ResearchGuard provider"
+        ],
+        "side_effects_owned": [],
+        "state_owned": [
+          "agent_operation.research_status",
+          "agent_operation.researchguard_identity",
+          "agent_operation.research_terminal_receipt"
+        ],
+        "validation_evidence": [
+          "source boundary discovered; native execution evidence is not claimed"
+        ]
+      }
+    ],
+    "require_complete_surface_inventory": true,
+    "reuse_decision": "extend_existing",
+    "search_paths": [
+      "flowguard_models/models",
+      "flowguard_models/model_mesh.py",
+      "flowguard_models/delivery_flow.py",
+      ".flowguard/behavior_commitment_ledger/ledger.json",
+      "flowguard_design",
+      "openspec/changes/build-matters-model-driven-core",
+      "docs/providers/jira-discovery-plan.md"
+    ],
+    "selected_commitment_id": "BC-DP-004",
+    "selected_primary_path_id": "path:dpf-progressive-private-first-run",
+    "similarity_handoff": null,
+    "similarity_review_required": false,
+    "skip_reason": "",
+    "spec_context": {
+      "artifact_ids": {
+        "openspec/changes/build-matters-model-driven-core/design.md": "sha256:90634c13637abcfce4499f80979d86722cf6d87dc8f9ad20bb8fc326076d6fa4",
+        "openspec/changes/build-matters-model-driven-core/proposal.md": "sha256:da52f4a2492e45683622f55a096b8bf6f62d7c2ac5bd2fcb1afe66ccf85ef8f9",
+        "openspec/changes/build-matters-model-driven-core/specs/authorization-coverage/spec.md": "sha256:36170a14330e24deee6d73706b56a80183630c2d08a3e56b0e2431397bd233e5",
+        "openspec/changes/build-matters-model-driven-core/specs/bilingual-projection-ui/spec.md": "sha256:1ef06559d4b126743c319f8b7b0dde0946c9e3ac07ad20600241c0b7dd06d750",
+        "openspec/changes/build-matters-model-driven-core/specs/bundled-skill-runtime-and-maintenance/spec.md": "sha256:d68359ddbe9100db69dcf4831183e19eee8f3cb2e41d8ef768ef5ba40d480348",
+        "openspec/changes/build-matters-model-driven-core/specs/correction-invalidation/spec.md": "sha256:810874c2fabb4c96bb230dd7235c02944e05e3791e7cec27ee8a8820baca9343",
+        "openspec/changes/build-matters-model-driven-core/specs/evidence-qualification/spec.md": "sha256:1078c541db9fc194745bf4f06597184bd2ca0984293eaac7b1f5dd91f4c469a0",
+        "openspec/changes/build-matters-model-driven-core/specs/guard-prediction-boundary/spec.md": "sha256:ed953104a2d84a0ad9075f09998754bb82c6ba3fbd7b5227aa5875306258506d",
+        "openspec/changes/build-matters-model-driven-core/specs/identity-resolution/spec.md": "sha256:0e42b45b2af03bfb463dc3741d3a704e6b3a7194a861d1a9f99e8e0fc0a2e8dd",
+        "openspec/changes/build-matters-model-driven-core/specs/lifecycle-board-state/spec.md": "sha256:e577f665171a4a20364c0cd15dad5055c68f852c10fd0f5f300ea1d798308d36",
+        "openspec/changes/build-matters-model-driven-core/specs/matter-admission/spec.md": "sha256:00554387ab55974f71da6091b070bdd800b3c3e19f71bbcfa43961b29d615425",
+        "openspec/changes/build-matters-model-driven-core/specs/open-loop-blocking/spec.md": "sha256:cc759ef4565dcdf512a19d2c5adb233f9c14b66be935f6618d82e732b4072672",
+        "openspec/changes/build-matters-model-driven-core/specs/outcomes-reopen/spec.md": "sha256:5d495db17f17ed966ba9dcc988ab560b2c02a5b0c664eaf0c92aadfe2410441f",
+        "openspec/changes/build-matters-model-driven-core/specs/privacy-release-boundary/spec.md": "sha256:76896239c8dc116a563658f51c024a6484d36962ac20444f200c650778139ea6",
+        "openspec/changes/build-matters-model-driven-core/specs/source-provenance/spec.md": "sha256:847bc448d5fc4546900308065ecd77e69a07b45dfcc29c92520a312ae96b0b16",
+        "openspec/changes/build-matters-model-driven-core/specs/temporal-trace/spec.md": "sha256:7d5301f5683349e188f6498de84f8d4850062fe4ca23477f8e69199e74db787e",
+        "openspec/changes/build-matters-model-driven-core/tasks.md": "sha256:12df447a8dd1d2c38b7050566693572a2270b379e09d82bc947fc048f5b42959"
+      },
+      "behavior_plane": "development_process",
+      "change_id": "build-matters-model-driven-core",
+      "context_hash": "sha256:6f3c31569e5659c9a448bc9251b53167d0ea9adba1246044401a8d6bc3cb7097",
+      "context_id": "openspec:build-matters-model-driven-core:autonomous-object-browser-v2",
+      "current": true,
+      "execution_bridge": false,
+      "ledger_fingerprint": "sha256:f376db2644b5ca159165ba6d3180d25a90e7887a65ddea784007be5ad2dd9251",
+      "provider_id": "openspec",
+      "provider_owns_product_behavior": false,
+      "read_only": true,
+      "receipt_bridge": false,
+      "reconciliation_current": true,
+      "reconciliation_fingerprint": "sha256:3ce6d5606ee62cc3da61d09d5b3539bdc2681b692d886a957c7b53c3f6863ace",
+      "target_commitment_ids": [
+        "BC-DP-004",
+        "BC-DP-005",
+        "BC-DP-006",
+        "BC-DP-007",
+        "BC-DP-008",
+        "BC-DP-009",
+        "BC-AO-001",
+        "BC-AO-002",
+        "BC-PR-001",
+        "BC-PR-002",
+        "BC-PR-010",
+        "BC-PR-011",
+        "BC-PR-012"
+      ],
+      "typed_relation_ids": [
+        "BC-DP-004:governs:BC-AO-001",
+        "BC-DP-004:governs:BC-AO-002",
+        "BC-DP-008:validates:BC-AO-002",
+        "BC-DP-004:requires_evidence_from:BC-PR-001",
+        "BC-DP-009:requires_evidence_from:BC-PR-010"
+      ],
+      "work_package_id": "openspec:build-matters-model-driven-core:autonomous-object-browser-v2"
+    },
+    "surface_inventory_evidence_ids": [
+      "sha256:2e8cc092f5721d028fc0f7c37e779bd07430eee3472c53ca66503542fc8aaf5f",
+      "sha256:f376db2644b5ca159165ba6d3180d25a90e7887a65ddea784007be5ad2dd9251"
+    ],
+    "surface_inventory_revision": "sha256:2e8cc092f5721d028fc0f7c37e779bd07430eee3472c53ca66503542fc8aaf5f",
+    "task_summary": "Extend Matters for a frozen candidate source universe, automatic reversible terminal dispositions, durable inventory and ObjectCoverageLedger freshness/depth, WorkPackageV2 input accounting and automatic owner dispatch, representative visuals, the Databank-authority bilingual desktop object browser, one abstract ResearchOperation with the single ResearchGuard provider, an exact eleven-skill app-local pack, managed sync/rollback, autonomous progressive private first run, and bounded Model Miss self-maintenance without Jira/Rovo or legacy Guard fallbacks.",
+    "typed_external_difference_ids": []
+  },
+  "preflight_fingerprint": "sha256:3e5fefede159db2c79149b000dad65927e01bb2eda455a84e860b7ae09c4c6bc",
+  "researchguard_status": "researchguard_pending_integration",
+  "retired_runtime_bindings": {
+    "LogicGuard": "stale_source_only",
+    "SourceGuard": "stale_source_only",
+    "TraceGuard": "stale_source_only"
+  },
+  "reuse_map": {
+    "A0_matters_source_analysis_operation": "add_agent_operation_boundary",
+    "A1_matters_research_operation": "add_abstract_researchoperation_boundary",
+    "C10_correction_revocation": "extend_with_optional_visual_correction_and_original_owner_recompute",
+    "C11_guard_artifact_prediction": "replace_confirmation_with_workpackage_v2_input_accounting_and_auto_dispatch",
+    "C12_projection_bilingual_ui": "replace_review_workspace_with_bilingual_desktop_object_browser",
+    "C1_authorization_coverage": "replace_review_with_automatic_reversible_terminal_dispositions",
+    "C2_source_registry": "extend_with_safe_visual_derivatives_and_freshness",
+    "C3_evidence_qualification": "extend_with_visual_anchors_display_permission_and_eligibility",
+    "C4_person_entity_resolution": "preserve_separate_uncertain_identities_without_confirmation",
+    "C5_event_temporal_trace": "preserve_conflict_and_publish_best_supported_human_readable_time",
+    "C6_matter_formation_admission": "replace_review_with_autonomous_terminal_admission_and_visual_relations",
+    "C7_lifecycle_board_state": "replace_review_with_uncertainty_preserved_lifecycle_projection",
+    "C8_open_loop_waiting_blocking": "replace_review_with_gap_and_not_applicable_terminals",
+    "C9_completion_cancellation_reopen": "replace_review_with_completion_gap_and_outcome_conflict_terminals",
+    "DPF_matters_delivery_gate": "extend_progressive_autonomous_first_run_skill_pack_desktop_and_release_gates",
+    "M0_matters_end_to_end_authority": "extend_with_object_coverage_ledger_worker_and_ui_readiness",
+    "S0_matters_skill_runtime": "add_auxiliary_non_product_skill_runtime_boundary"
+  },
+  "status": "preflight_green"
+}

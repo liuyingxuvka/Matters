@@ -1,0 +1,769 @@
+{
+  "artifact_type": "matters.skill-runtime-flowguard-receipt.v1",
+  "claim_boundary": "S3 proves the finite singular-selection and stale/fallback blockers. It does not prove discovery, installed bytes, or runtime loading.",
+  "contract_exhaustion": {
+    "plan": {
+      "allow_unbounded_scoped": true,
+      "axes": [],
+      "cartesian_case_limit": 100000,
+      "claim_scope": "routine",
+      "consumed_child_receipt_ids": [],
+      "coverage_receipts": [],
+      "coverage_shards": [],
+      "coverage_universe": {
+        "claim_scope": "routine",
+        "exclusions": [],
+        "metadata": {},
+        "require_full_product": false,
+        "required_axis_ids": [],
+        "required_boundary_ids": [],
+        "required_case_ids": [
+          "H-S3-001-stale-view-accepted",
+          "H-S3-002-legacy-provider-selected",
+          "H-S3-003-collision-winner-guessed"
+        ],
+        "required_coverage_receipt_ids": [],
+        "required_dimension_ids": [
+          "S3_active_skill_resolution:declared-case-inventory"
+        ],
+        "required_family_member_ids": [],
+        "required_interaction_group_ids": [],
+        "required_payload_contract_ids": [],
+        "required_reduction_candidate_ids": [],
+        "required_similarity_ids": [],
+        "source_refs": [
+          "S3_active_skill_resolution"
+        ],
+        "universe_id": "coverage-universe:S3_active_skill_resolution"
+      },
+      "dimensions": [
+        {
+          "consumer": "",
+          "currentness_rule": "",
+          "description": "Exact finite known-good and hazard source cases.",
+          "dimension_id": "S3_active_skill_resolution:declared-case-inventory",
+          "dimension_type": "declared_finite_case_inventory",
+          "evidence_refs": [],
+          "field_refs": [],
+          "finite": true,
+          "metadata": {},
+          "mutation_types": [],
+          "owner_model_id": "S3_active_skill_resolution",
+          "producer": "",
+          "required": true,
+          "source_route": "model_first_function_flow",
+          "values": [
+            "exact_match_candidates",
+            "newer_compatible_local_overlay",
+            "bundled_newer_unmanaged_local",
+            "bundled_newer_matters_managed",
+            "same_version_hash_collision",
+            "no_compatible_candidate",
+            "active_view_input_changed",
+            "legacy_three_guard_candidate"
+          ]
+        }
+      ],
+      "expected_family_member_ids": [],
+      "expected_reduction_candidate_ids": [],
+      "generation_policy": "bounded",
+      "interaction_groups": [],
+      "inventory_current": true,
+      "inventory_revision": "sha256:69f4f553342b68269c2174e204bb0a16917319c84a0ac5410a0a8f4d0afb4a75",
+      "materialized_family_member_ids": [],
+      "materialized_reduction_candidate_ids": [],
+      "metadata": {},
+      "model_id": "S3_active_skill_resolution",
+      "model_level": "child",
+      "observed_problem_backfeed": [],
+      "oracles": [
+        {
+          "allowed_side_effects": [],
+          "description": "H-S3-001-stale-view-accepted must be rejected by the declared model reaction without a canonical Matter write.",
+          "disallowed_side_effects": [
+            "canonical_matter_write"
+          ],
+          "expected_message_fields": [
+            "decision",
+            "reason"
+          ],
+          "expected_status": "blocked",
+          "forbidden_downstream_steps": [],
+          "metadata": {},
+          "oracle_id": "oracle:H-S3-001-stale-view-accepted",
+          "required_repair_fields": [
+            "case_id",
+            "required_disposition"
+          ]
+        },
+        {
+          "allowed_side_effects": [],
+          "description": "H-S3-002-legacy-provider-selected must be rejected by the declared model reaction without a canonical Matter write.",
+          "disallowed_side_effects": [
+            "canonical_matter_write"
+          ],
+          "expected_message_fields": [
+            "decision",
+            "reason"
+          ],
+          "expected_status": "blocked",
+          "forbidden_downstream_steps": [],
+          "metadata": {},
+          "oracle_id": "oracle:H-S3-002-legacy-provider-selected",
+          "required_repair_fields": [
+            "case_id",
+            "required_disposition"
+          ]
+        },
+        {
+          "allowed_side_effects": [],
+          "description": "H-S3-003-collision-winner-guessed must be rejected by the declared model reaction without a canonical Matter write.",
+          "disallowed_side_effects": [
+            "canonical_matter_write"
+          ],
+          "expected_message_fields": [
+            "decision",
+            "reason"
+          ],
+          "expected_status": "blocked",
+          "forbidden_downstream_steps": [],
+          "metadata": {},
+          "oracle_id": "oracle:H-S3-003-collision-winner-guessed",
+          "required_repair_fields": [
+            "case_id",
+            "required_disposition"
+          ]
+        }
+      ],
+      "parent_model_id": "S0_matters_skill_runtime",
+      "plan_id": "contract-exhaustion:S3_active_skill_resolution",
+      "require_actionable_oracle_feedback": false,
+      "require_composite_handoff_acceptance": false,
+      "require_coverage_universe": true,
+      "require_family_inventory": false,
+      "require_model_coverage_receipt": false,
+      "require_oracles_for_required_cases": false,
+      "require_reduction_inventory": false,
+      "required_child_receipt_ids": [],
+      "required_coverage_receipt_ids": [],
+      "required_route_ids": [],
+      "scoped_family_member_reasons": {},
+      "scoped_reduction_candidate_reasons": {},
+      "scoped_similarity_reasons": {},
+      "seed_cases": [
+        {
+          "axis_case_ids": [],
+          "case_id": "H-S3-001-stale-view-accepted",
+          "combination_order": 0,
+          "coverage_shard_id": "",
+          "description": "changed inputs retain the old active skill identity",
+          "dimension_id": "S3_active_skill_resolution:declared-case-inventory",
+          "dimension_ids": [],
+          "evidence_refs": [],
+          "expected_status": "blocked",
+          "family_id": "",
+          "freshness_scope": "",
+          "generation_kind": "single_dimension",
+          "input_delta": {},
+          "interaction_group_id": "",
+          "member_id": "",
+          "metadata": {},
+          "model_id": "S3_active_skill_resolution",
+          "mutation_type": "active_view_freshness_bypass",
+          "oracle_id": "oracle:H-S3-001-stale-view-accepted",
+          "parent_model_id": "",
+          "required": true,
+          "required_routes": [],
+          "required_test_cell_id": "",
+          "resolved_routes": [
+            "field_lifecycle_mesh",
+            "model_test_alignment"
+          ],
+          "risk_gate_id": "",
+          "source_case_id": "active_view_input_changed",
+          "source_route": "model_first_function_flow"
+        },
+        {
+          "axis_case_ids": [],
+          "case_id": "H-S3-002-legacy-provider-selected",
+          "combination_order": 0,
+          "coverage_shard_id": "",
+          "description": "a legacy Guard candidate becomes an active provider",
+          "dimension_id": "S3_active_skill_resolution:declared-case-inventory",
+          "dimension_ids": [],
+          "evidence_refs": [],
+          "expected_status": "blocked",
+          "family_id": "",
+          "freshness_scope": "",
+          "generation_kind": "single_dimension",
+          "input_delta": {},
+          "interaction_group_id": "",
+          "member_id": "",
+          "metadata": {},
+          "model_id": "S3_active_skill_resolution",
+          "mutation_type": "legacy_guard_resolution_fallback",
+          "oracle_id": "oracle:H-S3-002-legacy-provider-selected",
+          "parent_model_id": "",
+          "required": true,
+          "required_routes": [],
+          "required_test_cell_id": "",
+          "resolved_routes": [
+            "field_lifecycle_mesh",
+            "model_test_alignment"
+          ],
+          "risk_gate_id": "",
+          "source_case_id": "legacy_three_guard_candidate",
+          "source_route": "model_first_function_flow"
+        },
+        {
+          "axis_case_ids": [],
+          "case_id": "H-S3-003-collision-winner-guessed",
+          "combination_order": 0,
+          "coverage_shard_id": "",
+          "description": "one same-version different-hash candidate wins by guess",
+          "dimension_id": "S3_active_skill_resolution:declared-case-inventory",
+          "dimension_ids": [],
+          "evidence_refs": [],
+          "expected_status": "blocked",
+          "family_id": "",
+          "freshness_scope": "",
+          "generation_kind": "single_dimension",
+          "input_delta": {},
+          "interaction_group_id": "",
+          "member_id": "",
+          "metadata": {},
+          "model_id": "S3_active_skill_resolution",
+          "mutation_type": "identity_collision_silent_selection",
+          "oracle_id": "oracle:H-S3-003-collision-winner-guessed",
+          "parent_model_id": "",
+          "required": true,
+          "required_routes": [],
+          "required_test_cell_id": "",
+          "resolved_routes": [
+            "field_lifecycle_mesh",
+            "model_test_alignment"
+          ],
+          "risk_gate_id": "",
+          "source_case_id": "same_version_hash_collision",
+          "source_route": "model_first_function_flow"
+        }
+      ],
+      "similarity_handoff": null,
+      "similarity_materializations": {},
+      "source_bug_refs": [],
+      "source_model_ids": [
+        "S3_active_skill_resolution"
+      ]
+    },
+    "report": {
+      "combination_cases": [],
+      "composite_handoff_acceptances": [
+        {
+          "acceptance_id": "composite_handoff:H-S3-001-stale-view-accepted",
+          "case_id": "H-S3-001-stale-view-accepted",
+          "description": "single case matrix pass is not full-chain confidence; all route handoffs must close this case",
+          "metadata": {
+            "mutation_type": "active_view_freshness_bypass",
+            "source_case_id": "active_view_input_changed",
+            "source_route": "model_first_function_flow"
+          },
+          "required": true,
+          "route_ids": [
+            "field_lifecycle_mesh",
+            "model_test_alignment"
+          ]
+        },
+        {
+          "acceptance_id": "composite_handoff:H-S3-002-legacy-provider-selected",
+          "case_id": "H-S3-002-legacy-provider-selected",
+          "description": "single case matrix pass is not full-chain confidence; all route handoffs must close this case",
+          "metadata": {
+            "mutation_type": "legacy_guard_resolution_fallback",
+            "source_case_id": "legacy_three_guard_candidate",
+            "source_route": "model_first_function_flow"
+          },
+          "required": true,
+          "route_ids": [
+            "field_lifecycle_mesh",
+            "model_test_alignment"
+          ]
+        },
+        {
+          "acceptance_id": "composite_handoff:H-S3-003-collision-winner-guessed",
+          "case_id": "H-S3-003-collision-winner-guessed",
+          "description": "single case matrix pass is not full-chain confidence; all route handoffs must close this case",
+          "metadata": {
+            "mutation_type": "identity_collision_silent_selection",
+            "source_case_id": "same_version_hash_collision",
+            "source_route": "model_first_function_flow"
+          },
+          "required": true,
+          "route_ids": [
+            "field_lifecycle_mesh",
+            "model_test_alignment"
+          ]
+        },
+        {
+          "acceptance_id": "composite_handoff:contract:S3_active_skill_resolution:declared-case-inventory:missing_required_field",
+          "case_id": "contract:S3_active_skill_resolution:declared-case-inventory:missing_required_field",
+          "description": "single case matrix pass is not full-chain confidence; all route handoffs must close this case",
+          "metadata": {
+            "mutation_type": "missing_required_field",
+            "source_case_id": "S3_active_skill_resolution:declared-case-inventory",
+            "source_route": "model_first_function_flow"
+          },
+          "required": true,
+          "route_ids": [
+            "field_lifecycle_mesh",
+            "model_test_alignment"
+          ]
+        },
+        {
+          "acceptance_id": "composite_handoff:contract:S3_active_skill_resolution:declared-case-inventory:malformed_input",
+          "case_id": "contract:S3_active_skill_resolution:declared-case-inventory:malformed_input",
+          "description": "single case matrix pass is not full-chain confidence; all route handoffs must close this case",
+          "metadata": {
+            "mutation_type": "malformed_input",
+            "source_case_id": "S3_active_skill_resolution:declared-case-inventory",
+            "source_route": "model_first_function_flow"
+          },
+          "required": true,
+          "route_ids": [
+            "field_lifecycle_mesh",
+            "model_test_alignment"
+          ]
+        }
+      ],
+      "confidence": "full",
+      "contract_fault_profiles": [
+        {
+          "contract_path": "S3_active_skill_resolution:declared-case-inventory",
+          "expected_message_fields": [
+            "decision",
+            "reason"
+          ],
+          "expected_status": "blocked",
+          "live_completion_allowed": false,
+          "metadata": {
+            "dimension_ids": [],
+            "generation_kind": "single_dimension",
+            "source_case_id": "active_view_input_changed",
+            "source_route": "model_first_function_flow"
+          },
+          "mutation_type": "active_view_freshness_bypass",
+          "profile_id": "contract_fault:H-S3-001-stale-view-accepted",
+          "required_repair_fields": [
+            "case_id",
+            "required_disposition"
+          ],
+          "retry_class": "none",
+          "source_case_id": "H-S3-001-stale-view-accepted",
+          "synthetic_only": true
+        },
+        {
+          "contract_path": "S3_active_skill_resolution:declared-case-inventory",
+          "expected_message_fields": [
+            "decision",
+            "reason"
+          ],
+          "expected_status": "blocked",
+          "live_completion_allowed": false,
+          "metadata": {
+            "dimension_ids": [],
+            "generation_kind": "single_dimension",
+            "source_case_id": "legacy_three_guard_candidate",
+            "source_route": "model_first_function_flow"
+          },
+          "mutation_type": "legacy_guard_resolution_fallback",
+          "profile_id": "contract_fault:H-S3-002-legacy-provider-selected",
+          "required_repair_fields": [
+            "case_id",
+            "required_disposition"
+          ],
+          "retry_class": "none",
+          "source_case_id": "H-S3-002-legacy-provider-selected",
+          "synthetic_only": true
+        },
+        {
+          "contract_path": "S3_active_skill_resolution:declared-case-inventory",
+          "expected_message_fields": [
+            "decision",
+            "reason"
+          ],
+          "expected_status": "blocked",
+          "live_completion_allowed": false,
+          "metadata": {
+            "dimension_ids": [],
+            "generation_kind": "single_dimension",
+            "source_case_id": "same_version_hash_collision",
+            "source_route": "model_first_function_flow"
+          },
+          "mutation_type": "identity_collision_silent_selection",
+          "profile_id": "contract_fault:H-S3-003-collision-winner-guessed",
+          "required_repair_fields": [
+            "case_id",
+            "required_disposition"
+          ],
+          "retry_class": "none",
+          "source_case_id": "H-S3-003-collision-winner-guessed",
+          "synthetic_only": true
+        },
+        {
+          "contract_path": "S3_active_skill_resolution:declared-case-inventory",
+          "expected_message_fields": [],
+          "expected_status": "reject_before_side_effect",
+          "live_completion_allowed": false,
+          "metadata": {
+            "dimension_ids": [
+              "S3_active_skill_resolution:declared-case-inventory"
+            ],
+            "generation_kind": "single_dimension",
+            "source_case_id": "S3_active_skill_resolution:declared-case-inventory",
+            "source_route": "model_first_function_flow"
+          },
+          "mutation_type": "missing_required_field",
+          "profile_id": "contract_fault:contract:S3_active_skill_resolution:declared-case-inventory:missing_required_field",
+          "required_repair_fields": [],
+          "retry_class": "reject_and_repair",
+          "source_case_id": "contract:S3_active_skill_resolution:declared-case-inventory:missing_required_field",
+          "synthetic_only": true
+        },
+        {
+          "contract_path": "S3_active_skill_resolution:declared-case-inventory",
+          "expected_message_fields": [],
+          "expected_status": "reject_before_side_effect",
+          "live_completion_allowed": false,
+          "metadata": {
+            "dimension_ids": [
+              "S3_active_skill_resolution:declared-case-inventory"
+            ],
+            "generation_kind": "single_dimension",
+            "source_case_id": "S3_active_skill_resolution:declared-case-inventory",
+            "source_route": "model_first_function_flow"
+          },
+          "mutation_type": "malformed_input",
+          "profile_id": "contract_fault:contract:S3_active_skill_resolution:declared-case-inventory:malformed_input",
+          "required_repair_fields": [],
+          "retry_class": "reject_and_repair",
+          "source_case_id": "contract:S3_active_skill_resolution:declared-case-inventory:malformed_input",
+          "synthetic_only": true
+        }
+      ],
+      "coverage_receipts": [],
+      "coverage_shards": [],
+      "coverage_universe": {
+        "claim_scope": "routine",
+        "exclusions": [],
+        "metadata": {},
+        "require_full_product": false,
+        "required_axis_ids": [],
+        "required_boundary_ids": [],
+        "required_case_ids": [
+          "H-S3-001-stale-view-accepted",
+          "H-S3-002-legacy-provider-selected",
+          "H-S3-003-collision-winner-guessed"
+        ],
+        "required_coverage_receipt_ids": [],
+        "required_dimension_ids": [
+          "S3_active_skill_resolution:declared-case-inventory"
+        ],
+        "required_family_member_ids": [],
+        "required_interaction_group_ids": [],
+        "required_payload_contract_ids": [],
+        "required_reduction_candidate_ids": [],
+        "required_similarity_ids": [],
+        "source_refs": [
+          "S3_active_skill_resolution"
+        ],
+        "universe_id": "coverage-universe:S3_active_skill_resolution"
+      },
+      "decision": "contract_exhaustion_ready",
+      "downstream_similarity_obligation_ids": [],
+      "findings": [],
+      "generated_cases": [
+        {
+          "axis_case_ids": [],
+          "case_id": "H-S3-001-stale-view-accepted",
+          "combination_order": 0,
+          "coverage_shard_id": "",
+          "description": "changed inputs retain the old active skill identity",
+          "dimension_id": "S3_active_skill_resolution:declared-case-inventory",
+          "dimension_ids": [],
+          "evidence_refs": [],
+          "expected_status": "blocked",
+          "family_id": "",
+          "freshness_scope": "",
+          "generation_kind": "single_dimension",
+          "input_delta": {},
+          "interaction_group_id": "",
+          "member_id": "",
+          "metadata": {},
+          "model_id": "S3_active_skill_resolution",
+          "mutation_type": "active_view_freshness_bypass",
+          "oracle_id": "oracle:H-S3-001-stale-view-accepted",
+          "parent_model_id": "",
+          "required": true,
+          "required_routes": [],
+          "required_test_cell_id": "",
+          "resolved_routes": [
+            "field_lifecycle_mesh",
+            "model_test_alignment"
+          ],
+          "risk_gate_id": "",
+          "source_case_id": "active_view_input_changed",
+          "source_route": "model_first_function_flow"
+        },
+        {
+          "axis_case_ids": [],
+          "case_id": "H-S3-002-legacy-provider-selected",
+          "combination_order": 0,
+          "coverage_shard_id": "",
+          "description": "a legacy Guard candidate becomes an active provider",
+          "dimension_id": "S3_active_skill_resolution:declared-case-inventory",
+          "dimension_ids": [],
+          "evidence_refs": [],
+          "expected_status": "blocked",
+          "family_id": "",
+          "freshness_scope": "",
+          "generation_kind": "single_dimension",
+          "input_delta": {},
+          "interaction_group_id": "",
+          "member_id": "",
+          "metadata": {},
+          "model_id": "S3_active_skill_resolution",
+          "mutation_type": "legacy_guard_resolution_fallback",
+          "oracle_id": "oracle:H-S3-002-legacy-provider-selected",
+          "parent_model_id": "",
+          "required": true,
+          "required_routes": [],
+          "required_test_cell_id": "",
+          "resolved_routes": [
+            "field_lifecycle_mesh",
+            "model_test_alignment"
+          ],
+          "risk_gate_id": "",
+          "source_case_id": "legacy_three_guard_candidate",
+          "source_route": "model_first_function_flow"
+        },
+        {
+          "axis_case_ids": [],
+          "case_id": "H-S3-003-collision-winner-guessed",
+          "combination_order": 0,
+          "coverage_shard_id": "",
+          "description": "one same-version different-hash candidate wins by guess",
+          "dimension_id": "S3_active_skill_resolution:declared-case-inventory",
+          "dimension_ids": [],
+          "evidence_refs": [],
+          "expected_status": "blocked",
+          "family_id": "",
+          "freshness_scope": "",
+          "generation_kind": "single_dimension",
+          "input_delta": {},
+          "interaction_group_id": "",
+          "member_id": "",
+          "metadata": {},
+          "model_id": "S3_active_skill_resolution",
+          "mutation_type": "identity_collision_silent_selection",
+          "oracle_id": "oracle:H-S3-003-collision-winner-guessed",
+          "parent_model_id": "",
+          "required": true,
+          "required_routes": [],
+          "required_test_cell_id": "",
+          "resolved_routes": [
+            "field_lifecycle_mesh",
+            "model_test_alignment"
+          ],
+          "risk_gate_id": "",
+          "source_case_id": "same_version_hash_collision",
+          "source_route": "model_first_function_flow"
+        },
+        {
+          "axis_case_ids": [],
+          "case_id": "contract:S3_active_skill_resolution:declared-case-inventory:missing_required_field",
+          "combination_order": 0,
+          "coverage_shard_id": "",
+          "description": "Exact finite known-good and hazard source cases.",
+          "dimension_id": "S3_active_skill_resolution:declared-case-inventory",
+          "dimension_ids": [
+            "S3_active_skill_resolution:declared-case-inventory"
+          ],
+          "evidence_refs": [],
+          "expected_status": "reject_before_side_effect",
+          "family_id": "",
+          "freshness_scope": "",
+          "generation_kind": "single_dimension",
+          "input_delta": {
+            "dimension_type": "declared_finite_case_inventory",
+            "evidence_refs": [],
+            "field_refs": [],
+            "mutation_type": "missing_required_field"
+          },
+          "interaction_group_id": "",
+          "member_id": "",
+          "metadata": {
+            "consumer": "",
+            "owner_model_id": "S3_active_skill_resolution",
+            "producer": ""
+          },
+          "model_id": "S3_active_skill_resolution",
+          "mutation_type": "missing_required_field",
+          "oracle_id": "",
+          "parent_model_id": "",
+          "required": true,
+          "required_routes": [],
+          "required_test_cell_id": "",
+          "resolved_routes": [
+            "field_lifecycle_mesh",
+            "model_test_alignment"
+          ],
+          "risk_gate_id": "",
+          "source_case_id": "S3_active_skill_resolution:declared-case-inventory",
+          "source_route": "model_first_function_flow"
+        },
+        {
+          "axis_case_ids": [],
+          "case_id": "contract:S3_active_skill_resolution:declared-case-inventory:malformed_input",
+          "combination_order": 0,
+          "coverage_shard_id": "",
+          "description": "Exact finite known-good and hazard source cases.",
+          "dimension_id": "S3_active_skill_resolution:declared-case-inventory",
+          "dimension_ids": [
+            "S3_active_skill_resolution:declared-case-inventory"
+          ],
+          "evidence_refs": [],
+          "expected_status": "reject_before_side_effect",
+          "family_id": "",
+          "freshness_scope": "",
+          "generation_kind": "single_dimension",
+          "input_delta": {
+            "dimension_type": "declared_finite_case_inventory",
+            "evidence_refs": [],
+            "field_refs": [],
+            "mutation_type": "malformed_input"
+          },
+          "interaction_group_id": "",
+          "member_id": "",
+          "metadata": {
+            "consumer": "",
+            "owner_model_id": "S3_active_skill_resolution",
+            "producer": ""
+          },
+          "model_id": "S3_active_skill_resolution",
+          "mutation_type": "malformed_input",
+          "oracle_id": "",
+          "parent_model_id": "",
+          "required": true,
+          "required_routes": [],
+          "required_test_cell_id": "",
+          "resolved_routes": [
+            "field_lifecycle_mesh",
+            "model_test_alignment"
+          ],
+          "risk_gate_id": "",
+          "source_case_id": "S3_active_skill_resolution:declared-case-inventory",
+          "source_route": "model_first_function_flow"
+        }
+      ],
+      "inventory_revision": "sha256:69f4f553342b68269c2174e204bb0a16917319c84a0ac5410a0a8f4d0afb4a75",
+      "materialized_similarity_ids": [],
+      "missing_oracle_case_ids": [],
+      "model_gap_dimension_ids": [],
+      "observed_problem_backfeed_report": null,
+      "ok": true,
+      "omitted_family_member_ids": [],
+      "omitted_reduction_candidate_ids": [],
+      "plan_id": "contract-exhaustion:S3_active_skill_resolution",
+      "required_combination_case_ids": [],
+      "required_composite_handoff_acceptance_ids": [
+        "composite_handoff:H-S3-001-stale-view-accepted",
+        "composite_handoff:H-S3-002-legacy-provider-selected",
+        "composite_handoff:H-S3-003-collision-winner-guessed",
+        "composite_handoff:contract:S3_active_skill_resolution:declared-case-inventory:missing_required_field",
+        "composite_handoff:contract:S3_active_skill_resolution:declared-case-inventory:malformed_input"
+      ],
+      "required_coverage_receipt_ids": [],
+      "required_coverage_shard_ids": [],
+      "required_route_case_ids": {
+        "field_lifecycle_mesh": [
+          "H-S3-001-stale-view-accepted",
+          "H-S3-002-legacy-provider-selected",
+          "H-S3-003-collision-winner-guessed",
+          "contract:S3_active_skill_resolution:declared-case-inventory:missing_required_field",
+          "contract:S3_active_skill_resolution:declared-case-inventory:malformed_input"
+        ],
+        "model_test_alignment": [
+          "H-S3-001-stale-view-accepted",
+          "H-S3-002-legacy-provider-selected",
+          "H-S3-003-collision-winner-guessed",
+          "contract:S3_active_skill_resolution:declared-case-inventory:missing_required_field",
+          "contract:S3_active_skill_resolution:declared-case-inventory:malformed_input"
+        ]
+      },
+      "summary": "matrix ready; broad chain confidence still requires composite handoff closure",
+      "unmaterialized_similarity_ids": []
+    }
+  },
+  "evidence_id": "evidence:skill-runtime:S3_active_skill_resolution:69f4f553342b6826",
+  "evidence_tiers": [
+    "abstract_green",
+    "hazard_green"
+  ],
+  "function_signature": "S3_active_skill_resolution: CaseInput x ModelState -> Set(DecisionOutput x ModelState)",
+  "generated_at": "2026-07-19T05:49:08.282669+00:00",
+  "known_bad_proofs": [
+    {
+      "evidence_id": "S3_active_skill_resolution:known-bad:H-S3-001-stale-view-accepted",
+      "failure_id": "H-S3-001-stale-view-accepted",
+      "observed_status": "failed",
+      "protected_error_class": "active_view_freshness_bypass"
+    },
+    {
+      "evidence_id": "S3_active_skill_resolution:known-bad:H-S3-002-legacy-provider-selected",
+      "failure_id": "H-S3-002-legacy-provider-selected",
+      "observed_status": "failed",
+      "protected_error_class": "legacy_guard_resolution_fallback"
+    },
+    {
+      "evidence_id": "S3_active_skill_resolution:known-bad:H-S3-003-collision-winner-guessed",
+      "failure_id": "H-S3-003-collision-winner-guessed",
+      "observed_status": "failed",
+      "protected_error_class": "identity_collision_silent_selection"
+    }
+  ],
+  "model_fingerprint": "sha256:69f4f553342b68269c2174e204bb0a16917319c84a0ac5410a0a8f4d0afb4a75",
+  "model_id": "S3_active_skill_resolution",
+  "model_title": "S3 Active Skill Resolution",
+  "overall_status": "pass_with_gaps",
+  "owned_write_fields": [
+    "skill_runtime.candidate_dispositions",
+    "skill_runtime.active_view_identity",
+    "skill_runtime.active_view_freshness"
+  ],
+  "pass_for_skill_runtime": true,
+  "sections": {
+    "conformance_replay": "not_run",
+    "contract_check": "not_run",
+    "counterexample_minimization": "not_run",
+    "known_bad_proof": "pass",
+    "minimum_model_review": "pass",
+    "model_check": "pass",
+    "model_quality_audit": "pass_with_gaps",
+    "progress_check": "not_run",
+    "scenario_review": "pass",
+    "state_closure": "pass",
+    "template_harvest_review": "pass",
+    "topology_hazard": "pass_with_gaps"
+  },
+  "side_effect_classes": [
+    "write_active_view_receipt"
+  ],
+  "skipped_checks": {
+    "live_installation": "not_run: no real global or Matters-managed skill installation was attempted",
+    "m0_c1_c12_integration": "out_of_scope: S0 is auxiliary and cannot become C13",
+    "production_conformance": "not_run: auxiliary skill runtime implementation is intentionally outside this model-only workstream"
+  },
+  "toolchain": {
+    "flowguard_package_version": "0.58.4",
+    "flowguard_schema_version": "1.0"
+  }
+}

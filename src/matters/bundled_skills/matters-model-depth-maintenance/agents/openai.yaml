@@ -1,0 +1,4 @@
+interface:
+  display_name: "Matters Model Depth Maintenance"
+  short_description: "Assess semantic modeling depth"
+  default_prompt: "Use $matters-model-depth-maintenance through MatterService to assess every required current owner stage and request exact missing work without creating a human-review gate."

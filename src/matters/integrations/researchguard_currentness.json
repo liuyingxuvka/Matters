@@ -1,0 +1,77 @@
+{
+  "schema_version": "matters.researchguard-currentness-receipt.v1",
+  "receipt_id": "sha256:5fe05859adbd3c702988ceb7c7f539cdd30b3cda3ac4c86d7d9f5b641bd265b0",
+  "checked_at": "2026-07-19T00:15:00+00:00",
+  "terminal_disposition": "current",
+  "source": {
+    "commit": "31daa62268e2d57ae61e9833a0686a6c612e4cfc",
+    "clean": true,
+    "fingerprint": "78decb2bc77679371c67e25c1755f97a076b4da886813bfdded82d53b792b89a"
+  },
+  "distribution": {
+    "name": "researchguard",
+    "version": "0.1.1",
+    "command": "researchguard",
+    "console_entrypoint": "researchguard.cli:main",
+    "package_fingerprint": "af26dd1a2b9e6d584582141cf916621e1003a631b1aeaab699059b1e7b47b012"
+  },
+  "skills": {
+    "top_level": "researchguard",
+    "members": [
+      "logicguard",
+      "sourceguard",
+      "traceguard"
+    ],
+    "installed_skill_ids": [
+      "logicguard",
+      "researchguard",
+      "sourceguard",
+      "traceguard"
+    ],
+    "skill_fingerprints": {
+      "researchguard": "2591edc3d310aa4ffa19ade188dd1bfd73b53ddef6bc1ac7c843f56698333c48",
+      "logicguard": "1c7faa9a4738accad655abff2c7f00055e74db7cb52e397f88a9f78731043ddd",
+      "sourceguard": "330fe06d5684a1f67fd8d95efb145f9d968f7ea42beafdabce8c85b339751a69",
+      "traceguard": "c815dae6016f41c600788fe54a175b05d3ed07362a4f74b9da4b239ccfd8a794"
+    }
+  },
+  "manifest": {
+    "schema_version": "researchguard.install-manifest.v1",
+    "fingerprint": "sha256:c11d83415f5671602240df0ddce92d0daca75faf84a4f7ad3a7746b1c637c16f",
+    "source_fingerprint": "78decb2bc77679371c67e25c1755f97a076b4da886813bfdded82d53b792b89a"
+  },
+  "residual_state": {
+    "retired_skill_ids": [
+      "logicguard-source-library",
+      "logicguard-structured-artifact",
+      "logicguard-model-deepening",
+      "logicguard-artifact-synthesis",
+      "logicguard-project-library-viewer",
+      "traceguard-library"
+    ],
+    "present": [],
+    "status": "pass"
+  },
+  "compatibility": {
+    "matters_specifier": ">=0.2,<0.3",
+    "researchguard_specifier": "==0.1.1",
+    "researchguard_version": "0.1.1",
+    "status": "compatible"
+  },
+  "native_validation": {
+    "schema_version": "researchguard.native-suite-check.v1",
+    "command": "python scripts/check_researchguard_suite.py --member all --json",
+    "status": "pass",
+    "check_count": 15,
+    "checks_fingerprint": "sha256:887dbaa2629fbd3494de99804d966e9263eafed590b3a8f31a76a3b55c4e59a7",
+    "claim_boundary": "This check covers the current ResearchGuard consumer-skill topology, sole console, exact member bindings, and selected native boundary only."
+  },
+  "installed_currentness": {
+    "schema_version": "researchguard.install-check.v1",
+    "command": "python scripts/install_researchguard.py --check --json",
+    "status": "pass",
+    "fingerprint": "sha256:1abc996d10ce5ab4ac18b1e626549b5b3fefb9e7418ced548b6d660fe5e98f36",
+    "findings": []
+  },
+  "claim_boundary": "This portable receipt proves exact ResearchGuard source, distribution, consumer-skill, manifest, native-suite, residual, compatibility, and installed-currentness identities at checked_at. Runtime must recheck installed bytes against it. It does not prove research quality or authorize private-source disclosure."
+}

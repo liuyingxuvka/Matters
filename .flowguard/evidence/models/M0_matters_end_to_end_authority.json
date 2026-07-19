@@ -1,0 +1,118 @@
+{
+  "artifact_type": "matters.flowguard-model-receipt.v1",
+  "claim_boundary": "This model establishes abstract M0 orchestration, ObjectCoverageLedger terminality, automatic owner scheduling, object-isolated blocking, restart/no-delta liveness, ResearchGuard release gating, UI readiness, output consumption, and ownership hazards. It does not prove child refinement, real provider coverage, installed desktop behavior, or private-run usefulness.",
+  "evidence_id": "evidence:M0_matters_end_to_end_authority:96f9b1c9603a2ddc",
+  "evidence_tiers": [
+    "abstract_green",
+    "hazard_green"
+  ],
+  "generated_at": "2026-07-19T05:48:36.889273+00:00",
+  "known_bad_proofs": [
+    {
+      "evidence_id": "M0_matters_end_to_end_authority:known-bad:H-M0-001-incomplete-ledger-claimed-current",
+      "failure_id": "H-M0-001-incomplete-ledger-claimed-current",
+      "observed_status": "failed",
+      "protected_error_class": "object_coverage_false_complete"
+    },
+    {
+      "evidence_id": "M0_matters_end_to_end_authority:known-bad:H-M0-002-stale-child-accepted",
+      "failure_id": "H-M0-002-stale-child-accepted",
+      "observed_status": "failed",
+      "protected_error_class": "stale_child_false_green"
+    },
+    {
+      "evidence_id": "M0_matters_end_to_end_authority:known-bad:H-M0-003-unconsumed-output-ignored",
+      "failure_id": "H-M0-003-unconsumed-output-ignored",
+      "observed_status": "failed",
+      "protected_error_class": "integration_output_loss"
+    },
+    {
+      "evidence_id": "M0_matters_end_to_end_authority:known-bad:H-M0-004-parent-writes-child-state",
+      "failure_id": "H-M0-004-parent-writes-child-state",
+      "observed_status": "failed",
+      "protected_error_class": "parent_child_ownership_violation"
+    },
+    {
+      "evidence_id": "M0_matters_end_to_end_authority:known-bad:H-M0-005-correction-keeps-stale-receipts",
+      "failure_id": "H-M0-005-correction-keeps-stale-receipts",
+      "observed_status": "failed",
+      "protected_error_class": "correction_invalidation_failure"
+    },
+    {
+      "evidence_id": "M0_matters_end_to_end_authority:known-bad:H-M0-006-partial-inventory-claimed-complete",
+      "failure_id": "H-M0-006-partial-inventory-claimed-complete",
+      "observed_status": "failed",
+      "protected_error_class": "source_universe_false_complete"
+    },
+    {
+      "evidence_id": "M0_matters_end_to_end_authority:known-bad:H-M0-007-shallow-depth-claimed-complete",
+      "failure_id": "H-M0-007-shallow-depth-claimed-complete",
+      "observed_status": "failed",
+      "protected_error_class": "semantic_depth_false_complete"
+    },
+    {
+      "evidence_id": "M0_matters_end_to_end_authority:known-bad:H-M0-008-researchguard-pending-release",
+      "failure_id": "H-M0-008-researchguard-pending-release",
+      "observed_status": "failed",
+      "protected_error_class": "research_integration_false_release"
+    },
+    {
+      "evidence_id": "M0_matters_end_to_end_authority:known-bad:H-M0-009-original-owner-join-bypassed",
+      "failure_id": "H-M0-009-original-owner-join-bypassed",
+      "observed_status": "failed",
+      "protected_error_class": "original_owner_join_bypass"
+    },
+    {
+      "evidence_id": "M0_matters_end_to_end_authority:known-bad:H-M0-010-blocked-object-stops-all-progress",
+      "failure_id": "H-M0-010-blocked-object-stops-all-progress",
+      "observed_status": "failed",
+      "protected_error_class": "global_progress_starvation"
+    },
+    {
+      "evidence_id": "M0_matters_end_to_end_authority:known-bad:H-M0-011-restart-duplicates-work",
+      "failure_id": "H-M0-011-restart-duplicates-work",
+      "observed_status": "failed",
+      "protected_error_class": "worker_restart_duplication"
+    },
+    {
+      "evidence_id": "M0_matters_end_to_end_authority:known-bad:H-M0-012-no-delta-rescan-duplicates-analysis",
+      "failure_id": "H-M0-012-no-delta-rescan-duplicates-analysis",
+      "observed_status": "failed",
+      "protected_error_class": "unchanged_rescan_duplication"
+    },
+    {
+      "evidence_id": "M0_matters_end_to_end_authority:known-bad:H-M0-013-ui-ready-gap-claimed-complete",
+      "failure_id": "H-M0-013-ui-ready-gap-claimed-complete",
+      "observed_status": "failed",
+      "protected_error_class": "ui_reachability_false_complete"
+    }
+  ],
+  "model_fingerprint": "sha256:96f9b1c9603a2ddcfed348e7db113fe013c9abc03ad97117a466f9f5be818ee5",
+  "model_id": "M0_matters_end_to_end_authority",
+  "model_title": "M0 Autonomous Matters End-to-End Authority",
+  "overall_status": "pass_with_gaps",
+  "pass_for_g2": true,
+  "sections": {
+    "conformance_replay": "not_run",
+    "contract_check": "not_run",
+    "counterexample_minimization": "not_run",
+    "known_bad_proof": "pass",
+    "minimum_model_review": "pass",
+    "model_check": "pass",
+    "model_quality_audit": "pass_with_gaps",
+    "progress_check": "not_run",
+    "scenario_review": "pass",
+    "state_closure": "pass",
+    "template_harvest_review": "pass",
+    "topology_hazard": "pass_with_gaps"
+  },
+  "skipped_checks": {
+    "conformance_replay": "not_run_in_this_owner: production conformance belongs to the revision-bound TestMesh receipts",
+    "live_current": "not_run_in_this_owner: real private and installed-runtime evidence belong to separate delivery gates",
+    "model_mesh": "not_run_in_this_owner: cross-model topology belongs to the separate ModelMesh owner"
+  },
+  "toolchain": {
+    "flowguard_package_version": "0.58.4",
+    "flowguard_schema_version": "1.0"
+  }
+}

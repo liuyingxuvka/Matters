@@ -1,0 +1,4 @@
+interface:
+  display_name: "Matters Skill Runtime"
+  short_description: "Resolve and inspect the active Skill Pack"
+  default_prompt: "Use $matters-skill-runtime through MatterService to resolve the exact eleven-skill active view by version, hash, compatibility, validator, and ownership without global installation."

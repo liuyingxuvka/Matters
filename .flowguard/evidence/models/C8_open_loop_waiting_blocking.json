@@ -1,0 +1,64 @@
+{
+  "artifact_type": "matters.flowguard-model-receipt.v1",
+  "claim_boundary": "This receipt can establish C8 abstract wait, closure, and blocking-scope hazards. It does not establish real dependency criticality, notification delivery, or parent liveness.",
+  "evidence_id": "evidence:C8_open_loop_waiting_blocking:0ab663d7fe25bfed",
+  "evidence_tiers": [
+    "abstract_green",
+    "hazard_green"
+  ],
+  "generated_at": "2026-07-19T05:48:49.295692+00:00",
+  "known_bad_proofs": [
+    {
+      "evidence_id": "C8_open_loop_waiting_blocking:known-bad:H-C8-001-wait-without-closure-condition",
+      "failure_id": "H-C8-001-wait-without-closure-condition",
+      "observed_status": "failed",
+      "protected_error_class": "unclosable_wait"
+    },
+    {
+      "evidence_id": "C8_open_loop_waiting_blocking:known-bad:H-C8-002-noncritical-failure-fully-blocks",
+      "failure_id": "H-C8-002-noncritical-failure-fully-blocks",
+      "observed_status": "failed",
+      "protected_error_class": "blocking_scope_expansion"
+    },
+    {
+      "evidence_id": "C8_open_loop_waiting_blocking:known-bad:H-C8-003-matter-completion-closes-loop",
+      "failure_id": "H-C8-003-matter-completion-closes-loop",
+      "observed_status": "failed",
+      "protected_error_class": "independent_loop_silent_closure"
+    },
+    {
+      "evidence_id": "C8_open_loop_waiting_blocking:known-bad:H-C8-004-advisory-blocker-becomes-loop",
+      "failure_id": "H-C8-004-advisory-blocker-becomes-loop",
+      "observed_status": "failed",
+      "protected_error_class": "advisory_open_loop_authority_escape"
+    }
+  ],
+  "model_fingerprint": "sha256:0ab663d7fe25bfed51bdcadc916a0b8466f2e017f340326587d58fcceb8fd283",
+  "model_id": "C8_open_loop_waiting_blocking",
+  "model_title": "C8 Open Loop / Waiting / Blocking",
+  "overall_status": "pass_with_gaps",
+  "pass_for_g2": true,
+  "sections": {
+    "conformance_replay": "not_run",
+    "contract_check": "not_run",
+    "counterexample_minimization": "not_run",
+    "known_bad_proof": "pass",
+    "minimum_model_review": "pass",
+    "model_check": "pass",
+    "model_quality_audit": "pass_with_gaps",
+    "progress_check": "not_run",
+    "scenario_review": "pass",
+    "state_closure": "pass",
+    "template_harvest_review": "pass",
+    "topology_hazard": "pass_with_gaps"
+  },
+  "skipped_checks": {
+    "conformance_replay": "not_run_in_this_owner: production conformance belongs to the revision-bound TestMesh receipts",
+    "live_current": "not_run_in_this_owner: real private and installed-runtime evidence belong to separate delivery gates",
+    "model_mesh": "not_run_in_this_owner: cross-model topology belongs to the separate ModelMesh owner"
+  },
+  "toolchain": {
+    "flowguard_package_version": "0.58.4",
+    "flowguard_schema_version": "1.0"
+  }
+}

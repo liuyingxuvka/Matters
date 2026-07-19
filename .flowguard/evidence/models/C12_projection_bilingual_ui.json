@@ -1,0 +1,112 @@
+{
+  "artifact_type": "matters.flowguard-model-receipt.v1",
+  "claim_boundary": "This model establishes bounded C12 localization, Matter catalog/detail, timeline, density, search-state, representative-visual, stale-response, optional-correction, projection-only, and privacy transitions. It does not prove pixel parity, factual truth, desktop installation, or private-run usefulness.",
+  "evidence_id": "evidence:C12_projection_bilingual_ui:0f7891134bc61010",
+  "evidence_tiers": [
+    "abstract_green",
+    "hazard_green"
+  ],
+  "generated_at": "2026-07-19T05:48:56.048231+00:00",
+  "known_bad_proofs": [
+    {
+      "evidence_id": "C12_projection_bilingual_ui:known-bad:H-C12-001-missing-locale-fallback",
+      "failure_id": "H-C12-001-missing-locale-fallback",
+      "observed_status": "failed",
+      "protected_error_class": "localized_semantic_fallback"
+    },
+    {
+      "evidence_id": "C12_projection_bilingual_ui:known-bad:H-C12-002-locale-switch-mutates-context",
+      "failure_id": "H-C12-002-locale-switch-mutates-context",
+      "observed_status": "failed",
+      "protected_error_class": "locale_projection_context_loss"
+    },
+    {
+      "evidence_id": "C12_projection_bilingual_ui:known-bad:H-C12-003-density-changes-semantic-object",
+      "failure_id": "H-C12-003-density-changes-semantic-object",
+      "observed_status": "failed",
+      "protected_error_class": "density_semantic_drift"
+    },
+    {
+      "evidence_id": "C12_projection_bilingual_ui:known-bad:H-C12-004-single-card-stretches",
+      "failure_id": "H-C12-004-single-card-stretches",
+      "observed_status": "failed",
+      "protected_error_class": "single_card_geometry_failure"
+    },
+    {
+      "evidence_id": "C12_projection_bilingual_ui:known-bad:H-C12-005-search-resets-context",
+      "failure_id": "H-C12-005-search-resets-context",
+      "observed_status": "failed",
+      "protected_error_class": "catalog_query_context_loss"
+    },
+    {
+      "evidence_id": "C12_projection_bilingual_ui:known-bad:H-C12-006-stale-response-overwrites-current",
+      "failure_id": "H-C12-006-stale-response-overwrites-current",
+      "observed_status": "failed",
+      "protected_error_class": "stale_projection_overwrite"
+    },
+    {
+      "evidence_id": "C12_projection_bilingual_ui:known-bad:H-C12-007-early-projection",
+      "failure_id": "H-C12-007-early-projection",
+      "observed_status": "failed",
+      "protected_error_class": "nonterminal_owner_projection"
+    },
+    {
+      "evidence_id": "C12_projection_bilingual_ui:known-bad:H-C12-008-ui-writes-canonical",
+      "failure_id": "H-C12-008-ui-writes-canonical",
+      "observed_status": "failed",
+      "protected_error_class": "projection_writer_escape"
+    },
+    {
+      "evidence_id": "C12_projection_bilingual_ui:known-bad:H-C12-009-unsafe-visual-selected",
+      "failure_id": "H-C12-009-unsafe-visual-selected",
+      "observed_status": "failed",
+      "protected_error_class": "representative_visual_authority_escape"
+    },
+    {
+      "evidence_id": "C12_projection_bilingual_ui:known-bad:H-C12-010-correction-writes-directly",
+      "failure_id": "H-C12-010-correction-writes-directly",
+      "observed_status": "failed",
+      "protected_error_class": "correction_owner_bypass"
+    },
+    {
+      "evidence_id": "C12_projection_bilingual_ui:known-bad:H-C12-011-internal-data-shown",
+      "failure_id": "H-C12-011-internal-data-shown",
+      "observed_status": "failed",
+      "protected_error_class": "private_internal_surface_leak"
+    },
+    {
+      "evidence_id": "C12_projection_bilingual_ui:known-bad:H-C12-012-card-repeats-full-coverage-ledger-scan",
+      "failure_id": "H-C12-012-card-repeats-full-coverage-ledger-scan",
+      "observed_status": "failed",
+      "protected_error_class": "object_browser_coverage_relation_amplification"
+    }
+  ],
+  "model_fingerprint": "sha256:0f7891134bc610109d3c39af21c93478f2eecd87c9b6a9178f511db920b1ddd6",
+  "model_id": "C12_projection_bilingual_ui",
+  "model_title": "C12 Bilingual Desktop Matter Object Browser",
+  "overall_status": "pass_with_gaps",
+  "pass_for_g2": true,
+  "sections": {
+    "conformance_replay": "not_run",
+    "contract_check": "not_run",
+    "counterexample_minimization": "not_run",
+    "known_bad_proof": "pass",
+    "minimum_model_review": "pass",
+    "model_check": "pass",
+    "model_quality_audit": "pass_with_gaps",
+    "progress_check": "not_run",
+    "scenario_review": "pass",
+    "state_closure": "pass",
+    "template_harvest_review": "pass",
+    "topology_hazard": "pass_with_gaps"
+  },
+  "skipped_checks": {
+    "conformance_replay": "not_run_in_this_owner: production conformance belongs to the revision-bound TestMesh receipts",
+    "live_current": "not_run_in_this_owner: real private and installed-runtime evidence belong to separate delivery gates",
+    "model_mesh": "not_run_in_this_owner: cross-model topology belongs to the separate ModelMesh owner"
+  },
+  "toolchain": {
+    "flowguard_package_version": "0.58.4",
+    "flowguard_schema_version": "1.0"
+  }
+}

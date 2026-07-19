@@ -1,0 +1,116 @@
+schema_version: matters.scope-manifest.v1
+manifest_id: matters-g0-scope-001
+status: frozen_through_g8
+
+security_domains:
+  public_source_repo:
+    symbolic_root: matters/
+    git_authority: true
+    permitted_classes:
+      - public_source
+      - synthetic_fixture
+      - public_documentation
+      - public_model
+    forbidden_classes:
+      - private_source
+      - private_derived
+      - credential
+      - private_evaluation
+  private_local_workspace:
+    symbolic_root: MATTERS_HOME
+    required_location: outside_public_source_repo
+    git_authority: false
+    automatic_export: forbidden
+  private_evaluation_vault:
+    symbolic_root: MATTERS_EVAL_VAULT
+    required_location: outside_public_source_repo
+    git_authority: false
+    automatic_import_from_private_workspace: forbidden
+    export_requires:
+      - explicit_user_selection
+      - deidentification
+      - aggregation_when_applicable
+      - human_review
+      - public_boundary_scan
+
+jira_access:
+  current_status: forbidden
+  write_operations: always_forbidden_for_private_trials
+  prerequisite_gate: G8_synthetic_end_to_end_green
+  first_allowed_scope: one_explicitly_authorized_issue
+  required_before_read:
+    - deployment_type_and_version_discovery
+    - capability_discovery
+    - explicit_instance_project_issue_object_and_time_scope
+    - permission_fingerprint
+    - read_only_enforcement
+    - oracle_and_abort_conditions
+  abort_conditions:
+    - attempted_write
+    - scope_escape
+    - privacy_leak
+
+canonical_authorities:
+  product_requirements: OpenSpec
+  external_commitment_ownership: BehaviorCommitmentLedger
+  finite_behavior_and_failure_boundaries: FlowGuard
+  implementation_and_test_proof: CodeContract_and_TestMesh
+  jira: test_input_only
+  ui: projection_only
+  guard_artifacts: proposal_only
+
+hard_invariants:
+  - no_private_data_in_public_git
+  - no_real_content_hash_in_public_git
+  - one_canonical_writer_per_field
+  - adapters_never_write_canonical_matter_state
+  - ui_never_infers_or_writes_canonical_state
+  - guard_findings_and_forecasts_never_write_canonical_state
+  - jira_issue_is_source_before_matter
+  - jira_status_is_evidence_before_product_state
+  - candidate_is_excluded_from_canonical_statistics
+  - stale_skipped_not_run_and_progress_only_evidence_cannot_pass_a_gate
+
+phase_a_permissions:
+  allowed:
+    - repository_scaffolding
+    - security_and_scope_documents
+    - openspec_artifacts
+    - behavior_commitment_ledger
+    - flowguard_models_and_native_checks
+    - synthetic_known_good_and_known_bad_cases
+  forbidden:
+    - production_provider_code
+    - production_database_code
+    - real_connector_access
+    - real_user_data
+    - public_push_or_release
+
+g4_permissions:
+  allowed:
+    - model_derived_code_structure_design
+    - field_lifecycle_inventory
+    - code_contract_and_leaf_boundary_design
+    - transition_coverage_and_contract_exhaustion_design
+    - test_mesh_inventory_with_not_run_accounting
+    - fully_synthetic_jira_j1_j10_fixtures
+  forbidden:
+    - production_implementation
+    - executed_test_claims
+    - real_connector_access
+    - real_user_data
+
+g5_g8_permissions:
+  allowed:
+    - model_derived_production_core
+    - generic_provider_interfaces_without_live_activation
+    - fully_synthetic_j1_j10_execution
+    - synthetic_model_code_test_alignment
+    - synthetic_correction_and_recompute
+    - local_bilingual_projection_and_ui_shell
+  forbidden:
+    - real_jira_read
+    - any_provider_write
+    - private_pilot
+    - public_push_or_release
+    - claims_about_live_provider_conformance

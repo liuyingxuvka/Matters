@@ -1,0 +1,98 @@
+{
+  "artifact_type": "matters.test-suite-receipt.v1",
+  "generated_at": "2026-07-19T05:50:46.171035+00:00",
+  "pytest_observation": {
+    "errors": 0,
+    "failed": 0,
+    "observed_total": 16,
+    "passed": 16,
+    "skipped": 0,
+    "xfailed": 0,
+    "xpassed": 0
+  },
+  "source_fingerprint": "sha256:30ff91ab3d2c13d253d7b10f4aba531ff5e30e0cd423ab2b4dcc7f06fda39038",
+  "source_fingerprints": {
+    "tests/test_runtime_persistence_inventory.py": "sha256:2a72e1a92050e807bbddc7a4762971a070b2b47392746e8564104cc471a25edc",
+    "tests/test_source_workflows.py": "sha256:2084fd7233e9c3da8e47950e052236c411d0ec3965ec0486f4dc508c4372caa3"
+  },
+  "source_paths": [
+    "tests/test_runtime_persistence_inventory.py",
+    "tests/test_source_workflows.py"
+  ],
+  "stderr_tail": "",
+  "stdout_tail": "................                                                         [100%]\n16 passed in 7.77s\n",
+  "suite_id": "TM21_object_coverage_worker",
+  "test_suite_evidence": {
+    "artifact_version": "matters.test-suite-receipt.v1",
+    "background": false,
+    "command": "python -m pytest -q -o addopts= tests/test_runtime_persistence_inventory.py tests/test_source_workflows.py",
+    "covered_obligation_ids": [
+      "TI-TM21_object_coverage_worker"
+    ],
+    "diagnostic_boundary": "declared_complete",
+    "diagnostic_campaign_id": "G5-G8-TM21_object_coverage_worker",
+    "duration_seconds": null,
+    "evidence_current": true,
+    "evidence_tier": "conformance_green",
+    "executed_count": 1,
+    "exit_code": 0,
+    "failed_count": 0,
+    "finding_ids": [],
+    "has_exit_artifact": true,
+    "has_result_artifact": true,
+    "inventory_revision": "g4-testmesh-v3-autonomous-object-browser",
+    "layer": "child",
+    "log_root": "",
+    "not_run_count": 0,
+    "not_run_reason": "",
+    "owned_coverage_shard_ids": [],
+    "owned_inventory_item_ids": [
+      "TI-TM21_object_coverage_worker"
+    ],
+    "owned_leaf_cell_ids": [],
+    "owns_side_effects": [],
+    "owns_state": [],
+    "planned_count": 1,
+    "progress_only": false,
+    "proof_artifact": {
+      "artifact_fingerprints": {
+        "tests/test_runtime_persistence_inventory.py": "sha256:2a72e1a92050e807bbddc7a4762971a070b2b47392746e8564104cc471a25edc",
+        "tests/test_source_workflows.py": "sha256:2084fd7233e9c3da8e47950e052236c411d0ec3965ec0486f4dc508c4372caa3"
+      },
+      "artifact_id": "artifact:run:TM21_object_coverage_worker:8759facc6bd1cac0",
+      "assertion_scope": "external_contract",
+      "command": "python -m pytest -q -o addopts= tests/test_runtime_persistence_inventory.py tests/test_source_workflows.py",
+      "covered_obligation_ids": [
+        "TI-TM21_object_coverage_worker"
+      ],
+      "current": true,
+      "exit_code": 0,
+      "finished_at": "2026-07-19T05:50:46.171035+00:00",
+      "metadata": {},
+      "producer_route": "test_mesh",
+      "progress_only": false,
+      "result_path": ".flowguard/evidence/tests/TM21_object_coverage_worker.json",
+      "result_status": "passed",
+      "route_evidence_current": true,
+      "route_gap_codes": [],
+      "stale_reasons": [],
+      "started_at": "2026-07-19T05:50:37.457579+00:00"
+    },
+    "release_required": false,
+    "result_fingerprint": "sha256:30ff91ab3d2c13d253d7b10f4aba531ff5e30e0cd423ab2b4dcc7f06fda39038",
+    "result_path": ".flowguard/evidence/tests/TM21_object_coverage_worker.json",
+    "result_reused": false,
+    "result_status": "passed",
+    "reuse_ticket": null,
+    "run_id": "run:TM21_object_coverage_worker:8759facc6bd1cac0",
+    "selected_count": 16,
+    "skipped_count": 0,
+    "skipped_visible": true,
+    "stale_reasons": [],
+    "suite_id": "TM21_object_coverage_worker",
+    "terminal_status": "passed",
+    "test_count": 16,
+    "timeout_seconds": null,
+    "verifier_version": "9.0.3"
+  }
+}

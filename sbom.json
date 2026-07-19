@@ -1,0 +1,112 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "version": 1,
+  "metadata": {
+    "component": {
+      "bom-ref": "pkg:pypi/matters@0.2.0",
+      "name": "matters",
+      "purl": "pkg:pypi/matters@0.2.0",
+      "type": "application",
+      "version": "0.2.0"
+    },
+    "properties": [
+      {
+        "name": "matters:release-scope",
+        "value": "private-local-candidate"
+      },
+      {
+        "name": "matters:generated-from",
+        "value": "pyproject.toml"
+      }
+    ],
+    "timestamp": "2026-07-19T00:00:00Z"
+  },
+  "components": [
+    {
+      "bom-ref": "urn:matters:dependency:packaging:gte-24",
+      "name": "packaging",
+      "scope": "required",
+      "type": "library",
+      "version": ">=24",
+      "properties": [
+        {
+          "name": "matters:requirement",
+          "value": "packaging>=24"
+        }
+      ]
+    },
+    {
+      "bom-ref": "urn:matters:dependency:pillow:gte-10",
+      "name": "Pillow",
+      "scope": "required",
+      "type": "library",
+      "version": ">=10"
+    },
+    {
+      "bom-ref": "urn:matters:dependency:pymupdf:gte-1.24",
+      "name": "PyMuPDF",
+      "scope": "required",
+      "type": "library",
+      "version": ">=1.24"
+    },
+    {
+      "bom-ref": "urn:matters:dependency:openpyxl:gte-3.1",
+      "name": "openpyxl",
+      "scope": "required",
+      "type": "library",
+      "version": ">=3.1"
+    },
+    {
+      "bom-ref": "urn:matters:dependency:python-docx:gte-1.1",
+      "name": "python-docx",
+      "scope": "required",
+      "type": "library",
+      "version": ">=1.1"
+    },
+    {
+      "bom-ref": "urn:matters:dependency:python-pptx:gte-1.0",
+      "name": "python-pptx",
+      "scope": "required",
+      "type": "library",
+      "version": ">=1.0"
+    }
+  ],
+  "dependencies": [
+    {
+      "dependsOn": [
+        "urn:matters:dependency:packaging:gte-24",
+        "urn:matters:dependency:pillow:gte-10",
+        "urn:matters:dependency:pymupdf:gte-1.24",
+        "urn:matters:dependency:openpyxl:gte-3.1",
+        "urn:matters:dependency:python-docx:gte-1.1",
+        "urn:matters:dependency:python-pptx:gte-1.0"
+      ],
+      "ref": "pkg:pypi/matters@0.2.0"
+    },
+    {
+      "dependsOn": [],
+      "ref": "urn:matters:dependency:packaging:gte-24"
+    },
+    {
+      "dependsOn": [],
+      "ref": "urn:matters:dependency:pillow:gte-10"
+    },
+    {
+      "dependsOn": [],
+      "ref": "urn:matters:dependency:pymupdf:gte-1.24"
+    },
+    {
+      "dependsOn": [],
+      "ref": "urn:matters:dependency:openpyxl:gte-3.1"
+    },
+    {
+      "dependsOn": [],
+      "ref": "urn:matters:dependency:python-docx:gte-1.1"
+    },
+    {
+      "dependsOn": [],
+      "ref": "urn:matters:dependency:python-pptx:gte-1.0"
+    }
+  ]
+}

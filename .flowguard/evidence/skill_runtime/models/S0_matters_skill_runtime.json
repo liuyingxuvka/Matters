@@ -1,0 +1,768 @@
+{
+  "artifact_type": "matters.skill-runtime-flowguard-receipt.v1",
+  "claim_boundary": "S0 abstract evidence covers auxiliary child gating, singular identity publication, pending ResearchGuard, legacy-fallback rejection, and zero canonical Matter writes. It does not prove installed currentness, filesystem activation, ResearchGuard execution, or M0/C1-C12 behavior.",
+  "contract_exhaustion": {
+    "plan": {
+      "allow_unbounded_scoped": true,
+      "axes": [],
+      "cartesian_case_limit": 100000,
+      "claim_scope": "routine",
+      "consumed_child_receipt_ids": [],
+      "coverage_receipts": [],
+      "coverage_shards": [],
+      "coverage_universe": {
+        "claim_scope": "routine",
+        "exclusions": [],
+        "metadata": {},
+        "require_full_product": false,
+        "required_axis_ids": [],
+        "required_boundary_ids": [],
+        "required_case_ids": [
+          "H-S0-001-child-blocker-hidden",
+          "H-S0-002-legacy-fallback",
+          "H-S0-003-canonical-matter-write"
+        ],
+        "required_coverage_receipt_ids": [],
+        "required_dimension_ids": [
+          "S0_matters_skill_runtime:declared-case-inventory"
+        ],
+        "required_family_member_ids": [],
+        "required_interaction_group_ids": [],
+        "required_payload_contract_ids": [],
+        "required_reduction_candidate_ids": [],
+        "required_similarity_ids": [],
+        "source_refs": [
+          "S0_matters_skill_runtime"
+        ],
+        "universe_id": "coverage-universe:S0_matters_skill_runtime"
+      },
+      "dimensions": [
+        {
+          "consumer": "",
+          "currentness_rule": "",
+          "description": "Exact finite known-good and hazard source cases.",
+          "dimension_id": "S0_matters_skill_runtime:declared-case-inventory",
+          "dimension_type": "declared_finite_case_inventory",
+          "evidence_refs": [],
+          "field_refs": [],
+          "finite": true,
+          "metadata": {},
+          "mutation_types": [],
+          "owner_model_id": "S0_matters_skill_runtime",
+          "producer": "",
+          "required": true,
+          "source_route": "model_first_function_flow",
+          "values": [
+            "all_children_current_active_identity",
+            "bundled_only_internal_ready",
+            "required_child_blocked",
+            "required_child_stale",
+            "researchguard_pending",
+            "legacy_three_guard_fallback_requested",
+            "canonical_matter_write_requested"
+          ]
+        }
+      ],
+      "expected_family_member_ids": [],
+      "expected_reduction_candidate_ids": [],
+      "generation_policy": "bounded",
+      "interaction_groups": [],
+      "inventory_current": true,
+      "inventory_revision": "sha256:e060a50c8320e4d72714cad6a20c011c4fa865637383afee17001461b1f5c60e",
+      "materialized_family_member_ids": [],
+      "materialized_reduction_candidate_ids": [],
+      "metadata": {},
+      "model_id": "S0_matters_skill_runtime",
+      "model_level": "parent",
+      "observed_problem_backfeed": [],
+      "oracles": [
+        {
+          "allowed_side_effects": [],
+          "description": "H-S0-001-child-blocker-hidden must be rejected by the declared model reaction without a canonical Matter write.",
+          "disallowed_side_effects": [
+            "canonical_matter_write"
+          ],
+          "expected_message_fields": [
+            "decision",
+            "reason"
+          ],
+          "expected_status": "blocked",
+          "forbidden_downstream_steps": [],
+          "metadata": {},
+          "oracle_id": "oracle:H-S0-001-child-blocker-hidden",
+          "required_repair_fields": [
+            "case_id",
+            "required_disposition"
+          ]
+        },
+        {
+          "allowed_side_effects": [],
+          "description": "H-S0-002-legacy-fallback must be rejected by the declared model reaction without a canonical Matter write.",
+          "disallowed_side_effects": [
+            "canonical_matter_write"
+          ],
+          "expected_message_fields": [
+            "decision",
+            "reason"
+          ],
+          "expected_status": "blocked",
+          "forbidden_downstream_steps": [],
+          "metadata": {},
+          "oracle_id": "oracle:H-S0-002-legacy-fallback",
+          "required_repair_fields": [
+            "case_id",
+            "required_disposition"
+          ]
+        },
+        {
+          "allowed_side_effects": [],
+          "description": "H-S0-003-canonical-matter-write must be rejected by the declared model reaction without a canonical Matter write.",
+          "disallowed_side_effects": [
+            "canonical_matter_write"
+          ],
+          "expected_message_fields": [
+            "decision",
+            "reason"
+          ],
+          "expected_status": "blocked",
+          "forbidden_downstream_steps": [],
+          "metadata": {},
+          "oracle_id": "oracle:H-S0-003-canonical-matter-write",
+          "required_repair_fields": [
+            "case_id",
+            "required_disposition"
+          ]
+        }
+      ],
+      "parent_model_id": "",
+      "plan_id": "contract-exhaustion:S0_matters_skill_runtime",
+      "require_actionable_oracle_feedback": false,
+      "require_composite_handoff_acceptance": false,
+      "require_coverage_universe": true,
+      "require_family_inventory": false,
+      "require_model_coverage_receipt": false,
+      "require_oracles_for_required_cases": false,
+      "require_reduction_inventory": false,
+      "required_child_receipt_ids": [],
+      "required_coverage_receipt_ids": [],
+      "required_route_ids": [],
+      "scoped_family_member_reasons": {},
+      "scoped_reduction_candidate_reasons": {},
+      "scoped_similarity_reasons": {},
+      "seed_cases": [
+        {
+          "axis_case_ids": [],
+          "case_id": "H-S0-001-child-blocker-hidden",
+          "combination_order": 0,
+          "coverage_shard_id": "",
+          "description": "S0 publishes an active identity while a required child is blocked",
+          "dimension_id": "S0_matters_skill_runtime:declared-case-inventory",
+          "dimension_ids": [],
+          "evidence_refs": [],
+          "expected_status": "blocked",
+          "family_id": "",
+          "freshness_scope": "",
+          "generation_kind": "single_dimension",
+          "input_delta": {},
+          "interaction_group_id": "",
+          "member_id": "",
+          "metadata": {},
+          "model_id": "S0_matters_skill_runtime",
+          "mutation_type": "skill_runtime_child_false_green",
+          "oracle_id": "oracle:H-S0-001-child-blocker-hidden",
+          "parent_model_id": "",
+          "required": true,
+          "required_routes": [],
+          "required_test_cell_id": "",
+          "resolved_routes": [
+            "field_lifecycle_mesh",
+            "model_test_alignment"
+          ],
+          "risk_gate_id": "",
+          "source_case_id": "required_child_blocked",
+          "source_route": "model_first_function_flow"
+        },
+        {
+          "axis_case_ids": [],
+          "case_id": "H-S0-002-legacy-fallback",
+          "combination_order": 0,
+          "coverage_shard_id": "",
+          "description": "S0 falls back to three separate legacy Guard bindings",
+          "dimension_id": "S0_matters_skill_runtime:declared-case-inventory",
+          "dimension_ids": [],
+          "evidence_refs": [],
+          "expected_status": "blocked",
+          "family_id": "",
+          "freshness_scope": "",
+          "generation_kind": "single_dimension",
+          "input_delta": {},
+          "interaction_group_id": "",
+          "member_id": "",
+          "metadata": {},
+          "model_id": "S0_matters_skill_runtime",
+          "mutation_type": "legacy_guard_parallel_success",
+          "oracle_id": "oracle:H-S0-002-legacy-fallback",
+          "parent_model_id": "",
+          "required": true,
+          "required_routes": [],
+          "required_test_cell_id": "",
+          "resolved_routes": [
+            "field_lifecycle_mesh",
+            "model_test_alignment"
+          ],
+          "risk_gate_id": "",
+          "source_case_id": "legacy_three_guard_fallback_requested",
+          "source_route": "model_first_function_flow"
+        },
+        {
+          "axis_case_ids": [],
+          "case_id": "H-S0-003-canonical-matter-write",
+          "combination_order": 0,
+          "coverage_shard_id": "",
+          "description": "S0 directly writes a canonical Matter field",
+          "dimension_id": "S0_matters_skill_runtime:declared-case-inventory",
+          "dimension_ids": [],
+          "evidence_refs": [],
+          "expected_status": "blocked",
+          "family_id": "",
+          "freshness_scope": "",
+          "generation_kind": "single_dimension",
+          "input_delta": {},
+          "interaction_group_id": "",
+          "member_id": "",
+          "metadata": {},
+          "model_id": "S0_matters_skill_runtime",
+          "mutation_type": "skill_runtime_matter_owner_escape",
+          "oracle_id": "oracle:H-S0-003-canonical-matter-write",
+          "parent_model_id": "",
+          "required": true,
+          "required_routes": [],
+          "required_test_cell_id": "",
+          "resolved_routes": [
+            "field_lifecycle_mesh",
+            "model_test_alignment"
+          ],
+          "risk_gate_id": "",
+          "source_case_id": "canonical_matter_write_requested",
+          "source_route": "model_first_function_flow"
+        }
+      ],
+      "similarity_handoff": null,
+      "similarity_materializations": {},
+      "source_bug_refs": [],
+      "source_model_ids": [
+        "S0_matters_skill_runtime"
+      ]
+    },
+    "report": {
+      "combination_cases": [],
+      "composite_handoff_acceptances": [
+        {
+          "acceptance_id": "composite_handoff:H-S0-001-child-blocker-hidden",
+          "case_id": "H-S0-001-child-blocker-hidden",
+          "description": "single case matrix pass is not full-chain confidence; all route handoffs must close this case",
+          "metadata": {
+            "mutation_type": "skill_runtime_child_false_green",
+            "source_case_id": "required_child_blocked",
+            "source_route": "model_first_function_flow"
+          },
+          "required": true,
+          "route_ids": [
+            "field_lifecycle_mesh",
+            "model_test_alignment"
+          ]
+        },
+        {
+          "acceptance_id": "composite_handoff:H-S0-002-legacy-fallback",
+          "case_id": "H-S0-002-legacy-fallback",
+          "description": "single case matrix pass is not full-chain confidence; all route handoffs must close this case",
+          "metadata": {
+            "mutation_type": "legacy_guard_parallel_success",
+            "source_case_id": "legacy_three_guard_fallback_requested",
+            "source_route": "model_first_function_flow"
+          },
+          "required": true,
+          "route_ids": [
+            "field_lifecycle_mesh",
+            "model_test_alignment"
+          ]
+        },
+        {
+          "acceptance_id": "composite_handoff:H-S0-003-canonical-matter-write",
+          "case_id": "H-S0-003-canonical-matter-write",
+          "description": "single case matrix pass is not full-chain confidence; all route handoffs must close this case",
+          "metadata": {
+            "mutation_type": "skill_runtime_matter_owner_escape",
+            "source_case_id": "canonical_matter_write_requested",
+            "source_route": "model_first_function_flow"
+          },
+          "required": true,
+          "route_ids": [
+            "field_lifecycle_mesh",
+            "model_test_alignment"
+          ]
+        },
+        {
+          "acceptance_id": "composite_handoff:contract:S0_matters_skill_runtime:declared-case-inventory:missing_required_field",
+          "case_id": "contract:S0_matters_skill_runtime:declared-case-inventory:missing_required_field",
+          "description": "single case matrix pass is not full-chain confidence; all route handoffs must close this case",
+          "metadata": {
+            "mutation_type": "missing_required_field",
+            "source_case_id": "S0_matters_skill_runtime:declared-case-inventory",
+            "source_route": "model_first_function_flow"
+          },
+          "required": true,
+          "route_ids": [
+            "field_lifecycle_mesh",
+            "model_test_alignment"
+          ]
+        },
+        {
+          "acceptance_id": "composite_handoff:contract:S0_matters_skill_runtime:declared-case-inventory:malformed_input",
+          "case_id": "contract:S0_matters_skill_runtime:declared-case-inventory:malformed_input",
+          "description": "single case matrix pass is not full-chain confidence; all route handoffs must close this case",
+          "metadata": {
+            "mutation_type": "malformed_input",
+            "source_case_id": "S0_matters_skill_runtime:declared-case-inventory",
+            "source_route": "model_first_function_flow"
+          },
+          "required": true,
+          "route_ids": [
+            "field_lifecycle_mesh",
+            "model_test_alignment"
+          ]
+        }
+      ],
+      "confidence": "full",
+      "contract_fault_profiles": [
+        {
+          "contract_path": "S0_matters_skill_runtime:declared-case-inventory",
+          "expected_message_fields": [
+            "decision",
+            "reason"
+          ],
+          "expected_status": "blocked",
+          "live_completion_allowed": false,
+          "metadata": {
+            "dimension_ids": [],
+            "generation_kind": "single_dimension",
+            "source_case_id": "required_child_blocked",
+            "source_route": "model_first_function_flow"
+          },
+          "mutation_type": "skill_runtime_child_false_green",
+          "profile_id": "contract_fault:H-S0-001-child-blocker-hidden",
+          "required_repair_fields": [
+            "case_id",
+            "required_disposition"
+          ],
+          "retry_class": "none",
+          "source_case_id": "H-S0-001-child-blocker-hidden",
+          "synthetic_only": true
+        },
+        {
+          "contract_path": "S0_matters_skill_runtime:declared-case-inventory",
+          "expected_message_fields": [
+            "decision",
+            "reason"
+          ],
+          "expected_status": "blocked",
+          "live_completion_allowed": false,
+          "metadata": {
+            "dimension_ids": [],
+            "generation_kind": "single_dimension",
+            "source_case_id": "legacy_three_guard_fallback_requested",
+            "source_route": "model_first_function_flow"
+          },
+          "mutation_type": "legacy_guard_parallel_success",
+          "profile_id": "contract_fault:H-S0-002-legacy-fallback",
+          "required_repair_fields": [
+            "case_id",
+            "required_disposition"
+          ],
+          "retry_class": "none",
+          "source_case_id": "H-S0-002-legacy-fallback",
+          "synthetic_only": true
+        },
+        {
+          "contract_path": "S0_matters_skill_runtime:declared-case-inventory",
+          "expected_message_fields": [
+            "decision",
+            "reason"
+          ],
+          "expected_status": "blocked",
+          "live_completion_allowed": false,
+          "metadata": {
+            "dimension_ids": [],
+            "generation_kind": "single_dimension",
+            "source_case_id": "canonical_matter_write_requested",
+            "source_route": "model_first_function_flow"
+          },
+          "mutation_type": "skill_runtime_matter_owner_escape",
+          "profile_id": "contract_fault:H-S0-003-canonical-matter-write",
+          "required_repair_fields": [
+            "case_id",
+            "required_disposition"
+          ],
+          "retry_class": "none",
+          "source_case_id": "H-S0-003-canonical-matter-write",
+          "synthetic_only": true
+        },
+        {
+          "contract_path": "S0_matters_skill_runtime:declared-case-inventory",
+          "expected_message_fields": [],
+          "expected_status": "reject_before_side_effect",
+          "live_completion_allowed": false,
+          "metadata": {
+            "dimension_ids": [
+              "S0_matters_skill_runtime:declared-case-inventory"
+            ],
+            "generation_kind": "single_dimension",
+            "source_case_id": "S0_matters_skill_runtime:declared-case-inventory",
+            "source_route": "model_first_function_flow"
+          },
+          "mutation_type": "missing_required_field",
+          "profile_id": "contract_fault:contract:S0_matters_skill_runtime:declared-case-inventory:missing_required_field",
+          "required_repair_fields": [],
+          "retry_class": "reject_and_repair",
+          "source_case_id": "contract:S0_matters_skill_runtime:declared-case-inventory:missing_required_field",
+          "synthetic_only": true
+        },
+        {
+          "contract_path": "S0_matters_skill_runtime:declared-case-inventory",
+          "expected_message_fields": [],
+          "expected_status": "reject_before_side_effect",
+          "live_completion_allowed": false,
+          "metadata": {
+            "dimension_ids": [
+              "S0_matters_skill_runtime:declared-case-inventory"
+            ],
+            "generation_kind": "single_dimension",
+            "source_case_id": "S0_matters_skill_runtime:declared-case-inventory",
+            "source_route": "model_first_function_flow"
+          },
+          "mutation_type": "malformed_input",
+          "profile_id": "contract_fault:contract:S0_matters_skill_runtime:declared-case-inventory:malformed_input",
+          "required_repair_fields": [],
+          "retry_class": "reject_and_repair",
+          "source_case_id": "contract:S0_matters_skill_runtime:declared-case-inventory:malformed_input",
+          "synthetic_only": true
+        }
+      ],
+      "coverage_receipts": [],
+      "coverage_shards": [],
+      "coverage_universe": {
+        "claim_scope": "routine",
+        "exclusions": [],
+        "metadata": {},
+        "require_full_product": false,
+        "required_axis_ids": [],
+        "required_boundary_ids": [],
+        "required_case_ids": [
+          "H-S0-001-child-blocker-hidden",
+          "H-S0-002-legacy-fallback",
+          "H-S0-003-canonical-matter-write"
+        ],
+        "required_coverage_receipt_ids": [],
+        "required_dimension_ids": [
+          "S0_matters_skill_runtime:declared-case-inventory"
+        ],
+        "required_family_member_ids": [],
+        "required_interaction_group_ids": [],
+        "required_payload_contract_ids": [],
+        "required_reduction_candidate_ids": [],
+        "required_similarity_ids": [],
+        "source_refs": [
+          "S0_matters_skill_runtime"
+        ],
+        "universe_id": "coverage-universe:S0_matters_skill_runtime"
+      },
+      "decision": "contract_exhaustion_ready",
+      "downstream_similarity_obligation_ids": [],
+      "findings": [],
+      "generated_cases": [
+        {
+          "axis_case_ids": [],
+          "case_id": "H-S0-001-child-blocker-hidden",
+          "combination_order": 0,
+          "coverage_shard_id": "",
+          "description": "S0 publishes an active identity while a required child is blocked",
+          "dimension_id": "S0_matters_skill_runtime:declared-case-inventory",
+          "dimension_ids": [],
+          "evidence_refs": [],
+          "expected_status": "blocked",
+          "family_id": "",
+          "freshness_scope": "",
+          "generation_kind": "single_dimension",
+          "input_delta": {},
+          "interaction_group_id": "",
+          "member_id": "",
+          "metadata": {},
+          "model_id": "S0_matters_skill_runtime",
+          "mutation_type": "skill_runtime_child_false_green",
+          "oracle_id": "oracle:H-S0-001-child-blocker-hidden",
+          "parent_model_id": "",
+          "required": true,
+          "required_routes": [],
+          "required_test_cell_id": "",
+          "resolved_routes": [
+            "field_lifecycle_mesh",
+            "model_test_alignment"
+          ],
+          "risk_gate_id": "",
+          "source_case_id": "required_child_blocked",
+          "source_route": "model_first_function_flow"
+        },
+        {
+          "axis_case_ids": [],
+          "case_id": "H-S0-002-legacy-fallback",
+          "combination_order": 0,
+          "coverage_shard_id": "",
+          "description": "S0 falls back to three separate legacy Guard bindings",
+          "dimension_id": "S0_matters_skill_runtime:declared-case-inventory",
+          "dimension_ids": [],
+          "evidence_refs": [],
+          "expected_status": "blocked",
+          "family_id": "",
+          "freshness_scope": "",
+          "generation_kind": "single_dimension",
+          "input_delta": {},
+          "interaction_group_id": "",
+          "member_id": "",
+          "metadata": {},
+          "model_id": "S0_matters_skill_runtime",
+          "mutation_type": "legacy_guard_parallel_success",
+          "oracle_id": "oracle:H-S0-002-legacy-fallback",
+          "parent_model_id": "",
+          "required": true,
+          "required_routes": [],
+          "required_test_cell_id": "",
+          "resolved_routes": [
+            "field_lifecycle_mesh",
+            "model_test_alignment"
+          ],
+          "risk_gate_id": "",
+          "source_case_id": "legacy_three_guard_fallback_requested",
+          "source_route": "model_first_function_flow"
+        },
+        {
+          "axis_case_ids": [],
+          "case_id": "H-S0-003-canonical-matter-write",
+          "combination_order": 0,
+          "coverage_shard_id": "",
+          "description": "S0 directly writes a canonical Matter field",
+          "dimension_id": "S0_matters_skill_runtime:declared-case-inventory",
+          "dimension_ids": [],
+          "evidence_refs": [],
+          "expected_status": "blocked",
+          "family_id": "",
+          "freshness_scope": "",
+          "generation_kind": "single_dimension",
+          "input_delta": {},
+          "interaction_group_id": "",
+          "member_id": "",
+          "metadata": {},
+          "model_id": "S0_matters_skill_runtime",
+          "mutation_type": "skill_runtime_matter_owner_escape",
+          "oracle_id": "oracle:H-S0-003-canonical-matter-write",
+          "parent_model_id": "",
+          "required": true,
+          "required_routes": [],
+          "required_test_cell_id": "",
+          "resolved_routes": [
+            "field_lifecycle_mesh",
+            "model_test_alignment"
+          ],
+          "risk_gate_id": "",
+          "source_case_id": "canonical_matter_write_requested",
+          "source_route": "model_first_function_flow"
+        },
+        {
+          "axis_case_ids": [],
+          "case_id": "contract:S0_matters_skill_runtime:declared-case-inventory:missing_required_field",
+          "combination_order": 0,
+          "coverage_shard_id": "",
+          "description": "Exact finite known-good and hazard source cases.",
+          "dimension_id": "S0_matters_skill_runtime:declared-case-inventory",
+          "dimension_ids": [
+            "S0_matters_skill_runtime:declared-case-inventory"
+          ],
+          "evidence_refs": [],
+          "expected_status": "reject_before_side_effect",
+          "family_id": "",
+          "freshness_scope": "",
+          "generation_kind": "single_dimension",
+          "input_delta": {
+            "dimension_type": "declared_finite_case_inventory",
+            "evidence_refs": [],
+            "field_refs": [],
+            "mutation_type": "missing_required_field"
+          },
+          "interaction_group_id": "",
+          "member_id": "",
+          "metadata": {
+            "consumer": "",
+            "owner_model_id": "S0_matters_skill_runtime",
+            "producer": ""
+          },
+          "model_id": "S0_matters_skill_runtime",
+          "mutation_type": "missing_required_field",
+          "oracle_id": "",
+          "parent_model_id": "",
+          "required": true,
+          "required_routes": [],
+          "required_test_cell_id": "",
+          "resolved_routes": [
+            "field_lifecycle_mesh",
+            "model_test_alignment"
+          ],
+          "risk_gate_id": "",
+          "source_case_id": "S0_matters_skill_runtime:declared-case-inventory",
+          "source_route": "model_first_function_flow"
+        },
+        {
+          "axis_case_ids": [],
+          "case_id": "contract:S0_matters_skill_runtime:declared-case-inventory:malformed_input",
+          "combination_order": 0,
+          "coverage_shard_id": "",
+          "description": "Exact finite known-good and hazard source cases.",
+          "dimension_id": "S0_matters_skill_runtime:declared-case-inventory",
+          "dimension_ids": [
+            "S0_matters_skill_runtime:declared-case-inventory"
+          ],
+          "evidence_refs": [],
+          "expected_status": "reject_before_side_effect",
+          "family_id": "",
+          "freshness_scope": "",
+          "generation_kind": "single_dimension",
+          "input_delta": {
+            "dimension_type": "declared_finite_case_inventory",
+            "evidence_refs": [],
+            "field_refs": [],
+            "mutation_type": "malformed_input"
+          },
+          "interaction_group_id": "",
+          "member_id": "",
+          "metadata": {
+            "consumer": "",
+            "owner_model_id": "S0_matters_skill_runtime",
+            "producer": ""
+          },
+          "model_id": "S0_matters_skill_runtime",
+          "mutation_type": "malformed_input",
+          "oracle_id": "",
+          "parent_model_id": "",
+          "required": true,
+          "required_routes": [],
+          "required_test_cell_id": "",
+          "resolved_routes": [
+            "field_lifecycle_mesh",
+            "model_test_alignment"
+          ],
+          "risk_gate_id": "",
+          "source_case_id": "S0_matters_skill_runtime:declared-case-inventory",
+          "source_route": "model_first_function_flow"
+        }
+      ],
+      "inventory_revision": "sha256:e060a50c8320e4d72714cad6a20c011c4fa865637383afee17001461b1f5c60e",
+      "materialized_similarity_ids": [],
+      "missing_oracle_case_ids": [],
+      "model_gap_dimension_ids": [],
+      "observed_problem_backfeed_report": null,
+      "ok": true,
+      "omitted_family_member_ids": [],
+      "omitted_reduction_candidate_ids": [],
+      "plan_id": "contract-exhaustion:S0_matters_skill_runtime",
+      "required_combination_case_ids": [],
+      "required_composite_handoff_acceptance_ids": [
+        "composite_handoff:H-S0-001-child-blocker-hidden",
+        "composite_handoff:H-S0-002-legacy-fallback",
+        "composite_handoff:H-S0-003-canonical-matter-write",
+        "composite_handoff:contract:S0_matters_skill_runtime:declared-case-inventory:missing_required_field",
+        "composite_handoff:contract:S0_matters_skill_runtime:declared-case-inventory:malformed_input"
+      ],
+      "required_coverage_receipt_ids": [],
+      "required_coverage_shard_ids": [],
+      "required_route_case_ids": {
+        "field_lifecycle_mesh": [
+          "H-S0-001-child-blocker-hidden",
+          "H-S0-002-legacy-fallback",
+          "H-S0-003-canonical-matter-write",
+          "contract:S0_matters_skill_runtime:declared-case-inventory:missing_required_field",
+          "contract:S0_matters_skill_runtime:declared-case-inventory:malformed_input"
+        ],
+        "model_test_alignment": [
+          "H-S0-001-child-blocker-hidden",
+          "H-S0-002-legacy-fallback",
+          "H-S0-003-canonical-matter-write",
+          "contract:S0_matters_skill_runtime:declared-case-inventory:missing_required_field",
+          "contract:S0_matters_skill_runtime:declared-case-inventory:malformed_input"
+        ]
+      },
+      "summary": "matrix ready; broad chain confidence still requires composite handoff closure",
+      "unmaterialized_similarity_ids": []
+    }
+  },
+  "evidence_id": "evidence:skill-runtime:S0_matters_skill_runtime:e060a50c8320e4d7",
+  "evidence_tiers": [
+    "abstract_green",
+    "hazard_green"
+  ],
+  "function_signature": "S0_matters_skill_runtime: CaseInput x ModelState -> Set(DecisionOutput x ModelState)",
+  "generated_at": "2026-07-19T05:49:08.126049+00:00",
+  "known_bad_proofs": [
+    {
+      "evidence_id": "S0_matters_skill_runtime:known-bad:H-S0-001-child-blocker-hidden",
+      "failure_id": "H-S0-001-child-blocker-hidden",
+      "observed_status": "failed",
+      "protected_error_class": "skill_runtime_child_false_green"
+    },
+    {
+      "evidence_id": "S0_matters_skill_runtime:known-bad:H-S0-002-legacy-fallback",
+      "failure_id": "H-S0-002-legacy-fallback",
+      "observed_status": "failed",
+      "protected_error_class": "legacy_guard_parallel_success"
+    },
+    {
+      "evidence_id": "S0_matters_skill_runtime:known-bad:H-S0-003-canonical-matter-write",
+      "failure_id": "H-S0-003-canonical-matter-write",
+      "observed_status": "failed",
+      "protected_error_class": "skill_runtime_matter_owner_escape"
+    }
+  ],
+  "model_fingerprint": "sha256:e060a50c8320e4d72714cad6a20c011c4fa865637383afee17001461b1f5c60e",
+  "model_id": "S0_matters_skill_runtime",
+  "model_title": "S0 Matters Auxiliary Skill Runtime",
+  "overall_status": "pass_with_gaps",
+  "owned_write_fields": [
+    "skill_runtime.child_receipt_set",
+    "skill_runtime.parent_status",
+    "skill_runtime.published_active_identity"
+  ],
+  "pass_for_skill_runtime": true,
+  "sections": {
+    "conformance_replay": "not_run",
+    "contract_check": "not_run",
+    "counterexample_minimization": "not_run",
+    "known_bad_proof": "pass",
+    "minimum_model_review": "pass",
+    "model_check": "pass",
+    "model_quality_audit": "pass_with_gaps",
+    "progress_check": "not_run",
+    "scenario_review": "pass",
+    "state_closure": "pass",
+    "template_harvest_review": "pass",
+    "topology_hazard": "pass_with_gaps"
+  },
+  "side_effect_classes": [
+    "publish_active_skill_identity"
+  ],
+  "skipped_checks": {
+    "live_installation": "not_run: no real global or Matters-managed skill installation was attempted",
+    "m0_c1_c12_integration": "out_of_scope: S0 is auxiliary and cannot become C13",
+    "production_conformance": "not_run: auxiliary skill runtime implementation is intentionally outside this model-only workstream"
+  },
+  "toolchain": {
+    "flowguard_package_version": "0.58.4",
+    "flowguard_schema_version": "1.0"
+  }
+}

@@ -1,0 +1,1240 @@
+{
+  "artifact_type": "matters.skill-runtime-model-mesh-receipt.v1",
+  "child_evidence_ids": {
+    "S1_skill_bundle_inventory": "evidence:skill-runtime:S1_skill_bundle_inventory:db3bdf28eb36f0c8",
+    "S2_skill_compatibility": "evidence:skill-runtime:S2_skill_compatibility:8b14c1032312c5e8",
+    "S3_active_skill_resolution": "evidence:skill-runtime:S3_active_skill_resolution:69f4f553342b6826",
+    "S4_matters_managed_skill_sync": "evidence:skill-runtime:S4_matters_managed_skill_sync:84e6170be9e9b7ff",
+    "S5_skill_validation_rollback": "evidence:skill-runtime:S5_skill_validation_rollback:6a287007bac6083c"
+  },
+  "claim_boundary": "mesh_green proves only the bounded abstract S0/S1-S5 partition, unique auxiliary ownership, current child receipt reattachment, and terminal interface closure. It does not prove product runtime, M0/C1-C12 integration, installed skill bytes, global installation, ResearchGuard execution, or live conformance.",
+  "evidence_tier": "mesh_green",
+  "generated_at": "2026-07-19T05:49:09.787753+00:00",
+  "mesh_fingerprint": "sha256:9b048d24335eb0f4ab0757c2ad6427eec691eada1e722674fd3f01e23193fc29",
+  "mesh_id": "S0_skill_runtime_mesh",
+  "native_report": {
+    "activation_reasons": [
+      "model_count",
+      "closure_model"
+    ],
+    "boundary_change_decisions": {},
+    "closure_report": {
+      "decision": "mesh_closure_green",
+      "findings": [],
+      "ok": true,
+      "parent_model_id": "S0_matters_skill_runtime",
+      "reachable_tokens": [
+        "S0:SkillRuntimeRequest",
+        "S0:SkillRuntimeTerminal",
+        "S1:InventoryDisposition",
+        "S2:CompatibilityDisposition",
+        "S3:ActiveViewDisposition",
+        "S4:ManagedProjectionDisposition",
+        "S5:ActivationDisposition"
+      ],
+      "summary": "OK: parent=S0_matters_skill_runtime closure_decision=mesh_closure_green findings=0"
+    },
+    "decision": "mesh_green_can_continue",
+    "findings": [],
+    "ok": true,
+    "parent_model_id": "S0_matters_skill_runtime",
+    "split_decisions": {},
+    "summary": "OK: parent=S0_matters_skill_runtime decision=mesh_green_can_continue findings=0"
+  },
+  "non_supporting_unrun_layers": [
+    "production_code_contract",
+    "installed_projection",
+    "native_skill_validation",
+    "live_researchguard",
+    "m0_c1_c12_integration",
+    "release"
+  ],
+  "parent_current": true,
+  "parent_evidence_id": "evidence:skill-runtime:S0_matters_skill_runtime:e060a50c8320e4d7",
+  "parent_model_id": "S0_matters_skill_runtime",
+  "partition": {
+    "allowed_shared_areas": [],
+    "boundary_changes": [],
+    "child_models": [
+      {
+        "budgeted_incomplete": false,
+        "contracts_in": [
+          "input_contract:S1_skill_bundle_inventory:S0:SkillRuntimeRequest"
+        ],
+        "contracts_out": [
+          "guarantee:S1_skill_bundle_inventory:finite_relation"
+        ],
+        "depends_on": [],
+        "estimated_state_count": 6,
+        "evidence_current": true,
+        "evidence_id": "evidence:skill-runtime:S1_skill_bundle_inventory:db3bdf28eb36f0c8",
+        "evidence_tier": "hazard_green",
+        "functional_areas": [
+          "skill_runtime:S1_skill_bundle_inventory"
+        ],
+        "functions_owned": [
+          "S1_skill_bundle_inventory:finite_transition"
+        ],
+        "has_compatibility_contract": true,
+        "inputs_accepted": [
+          "S0:SkillRuntimeRequest"
+        ],
+        "invariants_owned": [
+          "S1_skill_bundle_inventory:declared_transition_contract",
+          "S1_skill_bundle_inventory:owned_writes_only",
+          "S1_skill_bundle_inventory:side_effect_at_most_once",
+          "S1_skill_bundle_inventory:canonical_write_at_most_once"
+        ],
+        "is_legacy": false,
+        "model_id": "S1_skill_bundle_inventory",
+        "not_run_checks": [],
+        "observed_state_count": 6,
+        "outputs_emitted": [
+          "S1:InventoryDisposition"
+        ],
+        "overlaps_existing_model": "",
+        "risk_boundary": "immutable app-local member inventory, exact manifests/runtime assets, and rejection of author-side control residuals",
+        "risk_classes": [
+          "S1_skill_bundle_inventory:inventory",
+          "S1_skill_bundle_inventory:ownership",
+          "S1_skill_bundle_inventory:privacy",
+          "S1_skill_bundle_inventory:side_effect"
+        ],
+        "runtime_path_evidence_ids": [],
+        "side_effects_owned": [
+          "write_skill_inventory_receipt"
+        ],
+        "skipped_checks": [],
+        "state_owned": [
+          "skill_runtime.bundle_identity",
+          "skill_runtime.member_inventory",
+          "skill_runtime.inventory_residuals"
+        ],
+        "structurally_cohesive": true,
+        "unrelated_functional_areas": false,
+        "validation_evidence": [
+          "evidence:skill-runtime:S1_skill_bundle_inventory:db3bdf28eb36f0c8",
+          "S1_skill_bundle_inventory:known-bad:H-S1-001-global-install-required",
+          "S1_skill_bundle_inventory:known-bad:H-S1-002-author-control-accepted"
+        ]
+      },
+      {
+        "budgeted_incomplete": false,
+        "contracts_in": [
+          "input_contract:S2_skill_compatibility:S1:InventoryDisposition"
+        ],
+        "contracts_out": [
+          "guarantee:S2_skill_compatibility:finite_relation"
+        ],
+        "depends_on": [
+          "S1_skill_bundle_inventory"
+        ],
+        "estimated_state_count": 10,
+        "evidence_current": true,
+        "evidence_id": "evidence:skill-runtime:S2_skill_compatibility:8b14c1032312c5e8",
+        "evidence_tier": "hazard_green",
+        "functional_areas": [
+          "skill_runtime:S2_skill_compatibility"
+        ],
+        "functions_owned": [
+          "S2_skill_compatibility:finite_transition"
+        ],
+        "has_compatibility_contract": true,
+        "inputs_accepted": [
+          "S1:InventoryDisposition"
+        ],
+        "invariants_owned": [
+          "S2_skill_compatibility:declared_transition_contract",
+          "S2_skill_compatibility:owned_writes_only",
+          "S2_skill_compatibility:side_effect_at_most_once",
+          "S2_skill_compatibility:canonical_write_at_most_once"
+        ],
+        "is_legacy": false,
+        "model_id": "S2_skill_compatibility",
+        "not_run_checks": [],
+        "observed_state_count": 10,
+        "outputs_emitted": [
+          "S2:CompatibilityDisposition"
+        ],
+        "overlaps_existing_model": "",
+        "risk_boundary": "version/hash/schema/Matters/native-validation compatibility and ResearchGuard integration status before selection",
+        "risk_classes": [
+          "S2_skill_compatibility:compatibility",
+          "S2_skill_compatibility:identity",
+          "S2_skill_compatibility:validation",
+          "S2_skill_compatibility:freshness"
+        ],
+        "runtime_path_evidence_ids": [],
+        "side_effects_owned": [
+          "write_compatibility_receipt"
+        ],
+        "skipped_checks": [],
+        "state_owned": [
+          "skill_runtime.compatibility_matrix",
+          "skill_runtime.identity_collisions",
+          "skill_runtime.researchguard_integration_status"
+        ],
+        "structurally_cohesive": true,
+        "unrelated_functional_areas": false,
+        "validation_evidence": [
+          "evidence:skill-runtime:S2_skill_compatibility:8b14c1032312c5e8",
+          "S2_skill_compatibility:known-bad:H-S2-001-hash-collision-accepted",
+          "S2_skill_compatibility:known-bad:H-S2-002-incompatible-accepted",
+          "S2_skill_compatibility:known-bad:H-S2-003-prerelease-accepted",
+          "S2_skill_compatibility:known-bad:H-S2-004-researchguard-pending-current"
+        ]
+      },
+      {
+        "budgeted_incomplete": false,
+        "contracts_in": [
+          "input_contract:S3_active_skill_resolution:S2:CompatibilityDisposition"
+        ],
+        "contracts_out": [
+          "guarantee:S3_active_skill_resolution:finite_relation"
+        ],
+        "depends_on": [
+          "S2_skill_compatibility"
+        ],
+        "estimated_state_count": 9,
+        "evidence_current": true,
+        "evidence_id": "evidence:skill-runtime:S3_active_skill_resolution:69f4f553342b6826",
+        "evidence_tier": "hazard_green",
+        "functional_areas": [
+          "skill_runtime:S3_active_skill_resolution"
+        ],
+        "functions_owned": [
+          "S3_active_skill_resolution:finite_transition"
+        ],
+        "has_compatibility_contract": true,
+        "inputs_accepted": [
+          "S2:CompatibilityDisposition"
+        ],
+        "invariants_owned": [
+          "S3_active_skill_resolution:declared_transition_contract",
+          "S3_active_skill_resolution:owned_writes_only",
+          "S3_active_skill_resolution:side_effect_at_most_once",
+          "S3_active_skill_resolution:canonical_write_at_most_once"
+        ],
+        "is_legacy": false,
+        "model_id": "S3_active_skill_resolution",
+        "not_run_checks": [],
+        "observed_state_count": 9,
+        "outputs_emitted": [
+          "S3:ActiveViewDisposition"
+        ],
+        "overlaps_existing_model": "",
+        "risk_boundary": "one deterministic validated active view with rejected-candidate visibility, freshness invalidation, and no legacy fallback",
+        "risk_classes": [
+          "S3_active_skill_resolution:selection",
+          "S3_active_skill_resolution:freshness",
+          "S3_active_skill_resolution:identity",
+          "S3_active_skill_resolution:fallback"
+        ],
+        "runtime_path_evidence_ids": [],
+        "side_effects_owned": [
+          "write_active_view_receipt"
+        ],
+        "skipped_checks": [],
+        "state_owned": [
+          "skill_runtime.candidate_dispositions",
+          "skill_runtime.active_view_identity",
+          "skill_runtime.active_view_freshness"
+        ],
+        "structurally_cohesive": true,
+        "unrelated_functional_areas": false,
+        "validation_evidence": [
+          "evidence:skill-runtime:S3_active_skill_resolution:69f4f553342b6826",
+          "S3_active_skill_resolution:known-bad:H-S3-001-stale-view-accepted",
+          "S3_active_skill_resolution:known-bad:H-S3-002-legacy-provider-selected",
+          "S3_active_skill_resolution:known-bad:H-S3-003-collision-winner-guessed"
+        ]
+      },
+      {
+        "budgeted_incomplete": false,
+        "contracts_in": [
+          "input_contract:S4_matters_managed_skill_sync:S3:ActiveViewDisposition"
+        ],
+        "contracts_out": [
+          "guarantee:S4_matters_managed_skill_sync:finite_relation"
+        ],
+        "depends_on": [
+          "S3_active_skill_resolution"
+        ],
+        "estimated_state_count": 6,
+        "evidence_current": true,
+        "evidence_id": "evidence:skill-runtime:S4_matters_managed_skill_sync:84e6170be9e9b7ff",
+        "evidence_tier": "hazard_green",
+        "functional_areas": [
+          "skill_runtime:S4_matters_managed_skill_sync"
+        ],
+        "functions_owned": [
+          "S4_matters_managed_skill_sync:finite_transition"
+        ],
+        "has_compatibility_contract": true,
+        "inputs_accepted": [
+          "S3:ActiveViewDisposition"
+        ],
+        "invariants_owned": [
+          "S4_matters_managed_skill_sync:declared_transition_contract",
+          "S4_matters_managed_skill_sync:owned_writes_only",
+          "S4_matters_managed_skill_sync:side_effect_at_most_once",
+          "S4_matters_managed_skill_sync:canonical_write_at_most_once"
+        ],
+        "is_legacy": false,
+        "model_id": "S4_matters_managed_skill_sync",
+        "not_run_checks": [],
+        "observed_state_count": 6,
+        "outputs_emitted": [
+          "S4:ManagedProjectionDisposition"
+        ],
+        "overlaps_existing_model": "",
+        "risk_boundary": "no-install bundled use, immutable external installations, and staged transactional synchronization only for a Matters-managed projection",
+        "risk_classes": [
+          "S4_matters_managed_skill_sync:transaction",
+          "S4_matters_managed_skill_sync:ownership",
+          "S4_matters_managed_skill_sync:side_effect",
+          "S4_matters_managed_skill_sync:rollback"
+        ],
+        "runtime_path_evidence_ids": [],
+        "side_effects_owned": [
+          "stage_managed_projection",
+          "activate_managed_projection",
+          "write_sync_receipt"
+        ],
+        "skipped_checks": [],
+        "state_owned": [
+          "skill_runtime.managed_projection_identity",
+          "skill_runtime.sync_transaction_state",
+          "skill_runtime.prior_projection_identity"
+        ],
+        "structurally_cohesive": true,
+        "unrelated_functional_areas": false,
+        "validation_evidence": [
+          "evidence:skill-runtime:S4_matters_managed_skill_sync:84e6170be9e9b7ff",
+          "S4_matters_managed_skill_sync:known-bad:H-S4-001-bundled-only-global-install",
+          "S4_matters_managed_skill_sync:known-bad:H-S4-002-unmanaged-overwritten",
+          "S4_matters_managed_skill_sync:known-bad:H-S4-003-direct-activation"
+        ]
+      },
+      {
+        "budgeted_incomplete": false,
+        "contracts_in": [
+          "input_contract:S5_skill_validation_rollback:S4:ManagedProjectionDisposition"
+        ],
+        "contracts_out": [
+          "guarantee:S5_skill_validation_rollback:finite_relation"
+        ],
+        "depends_on": [
+          "S4_matters_managed_skill_sync"
+        ],
+        "estimated_state_count": 7,
+        "evidence_current": true,
+        "evidence_id": "evidence:skill-runtime:S5_skill_validation_rollback:6a287007bac6083c",
+        "evidence_tier": "hazard_green",
+        "functional_areas": [
+          "skill_runtime:S5_skill_validation_rollback"
+        ],
+        "functions_owned": [
+          "S5_skill_validation_rollback:finite_transition"
+        ],
+        "has_compatibility_contract": true,
+        "inputs_accepted": [
+          "S4:ManagedProjectionDisposition"
+        ],
+        "invariants_owned": [
+          "S5_skill_validation_rollback:declared_transition_contract",
+          "S5_skill_validation_rollback:owned_writes_only",
+          "S5_skill_validation_rollback:side_effect_at_most_once",
+          "S5_skill_validation_rollback:canonical_write_at_most_once"
+        ],
+        "is_legacy": false,
+        "model_id": "S5_skill_validation_rollback",
+        "not_run_checks": [],
+        "observed_state_count": 7,
+        "outputs_emitted": [
+          "S5:ActivationDisposition"
+        ],
+        "overlaps_existing_model": "",
+        "risk_boundary": "native validation, installed-currentness, activation publication, and restoration of the prior managed projection on post-activation failure",
+        "risk_classes": [
+          "S5_skill_validation_rollback:validation",
+          "S5_skill_validation_rollback:rollback",
+          "S5_skill_validation_rollback:freshness",
+          "S5_skill_validation_rollback:fallback"
+        ],
+        "runtime_path_evidence_ids": [],
+        "side_effects_owned": [
+          "run_native_skill_validation",
+          "restore_prior_managed_projection",
+          "write_validation_receipt"
+        ],
+        "skipped_checks": [],
+        "state_owned": [
+          "skill_runtime.validation_receipt_set",
+          "skill_runtime.rollback_receipt",
+          "skill_runtime.activation_status"
+        ],
+        "structurally_cohesive": true,
+        "unrelated_functional_areas": false,
+        "validation_evidence": [
+          "evidence:skill-runtime:S5_skill_validation_rollback:6a287007bac6083c",
+          "S5_skill_validation_rollback:known-bad:H-S5-001-post-failure-no-rollback",
+          "S5_skill_validation_rollback:known-bad:H-S5-002-invalid-published",
+          "S5_skill_validation_rollback:known-bad:H-S5-003-author-control-published",
+          "S5_skill_validation_rollback:known-bad:H-S5-004-researchguard-pending-fallback"
+        ]
+      }
+    ],
+    "closure_model": {
+      "joins": [],
+      "parent_model_id": "S0_matters_skill_runtime",
+      "rationale": "S0 consumes every S1-S5 disposition without entering M0/C1-C12.",
+      "require_normal_exit": true,
+      "required_outputs": [
+        "S1:InventoryDisposition",
+        "S2:CompatibilityDisposition",
+        "S3:ActiveViewDisposition",
+        "S4:ManagedProjectionDisposition",
+        "S5:ActivationDisposition"
+      ],
+      "root_entries": [
+        "S0:SkillRuntimeRequest"
+      ],
+      "terminals": [
+        {
+          "consumes": [
+            "S0:SkillRuntimeTerminal"
+          ],
+          "rationale": "current, blocked, pending, or rollback dispositions terminate visibly",
+          "terminal_id": "skill-runtime-terminal",
+          "terminal_kind": "normal_exit"
+        }
+      ],
+      "transitions": [
+        {
+          "blocker_tokens": [],
+          "code_contract_id": "abstract:S1_skill_bundle_inventory:finite_relation",
+          "consumer_model_id": "S1_skill_bundle_inventory",
+          "consumes": [
+            "S0:SkillRuntimeRequest"
+          ],
+          "emits": [
+            "S1:InventoryDisposition"
+          ],
+          "loop": false,
+          "max_iterations": null,
+          "progress_rule": "",
+          "progress_tokens": [],
+          "rationale": "S1_skill_bundle_inventory consumes the prior auxiliary disposition",
+          "repair_feedback_tokens": [],
+          "repeat_input_tokens": [],
+          "runtime_node_id": "",
+          "transition_id": "skill-runtime-step-1"
+        },
+        {
+          "blocker_tokens": [],
+          "code_contract_id": "abstract:S2_skill_compatibility:finite_relation",
+          "consumer_model_id": "S2_skill_compatibility",
+          "consumes": [
+            "S1:InventoryDisposition"
+          ],
+          "emits": [
+            "S2:CompatibilityDisposition"
+          ],
+          "loop": false,
+          "max_iterations": null,
+          "progress_rule": "",
+          "progress_tokens": [],
+          "rationale": "S2_skill_compatibility consumes the prior auxiliary disposition",
+          "repair_feedback_tokens": [],
+          "repeat_input_tokens": [],
+          "runtime_node_id": "",
+          "transition_id": "skill-runtime-step-2"
+        },
+        {
+          "blocker_tokens": [],
+          "code_contract_id": "abstract:S3_active_skill_resolution:finite_relation",
+          "consumer_model_id": "S3_active_skill_resolution",
+          "consumes": [
+            "S2:CompatibilityDisposition"
+          ],
+          "emits": [
+            "S3:ActiveViewDisposition"
+          ],
+          "loop": false,
+          "max_iterations": null,
+          "progress_rule": "",
+          "progress_tokens": [],
+          "rationale": "S3_active_skill_resolution consumes the prior auxiliary disposition",
+          "repair_feedback_tokens": [],
+          "repeat_input_tokens": [],
+          "runtime_node_id": "",
+          "transition_id": "skill-runtime-step-3"
+        },
+        {
+          "blocker_tokens": [],
+          "code_contract_id": "abstract:S4_matters_managed_skill_sync:finite_relation",
+          "consumer_model_id": "S4_matters_managed_skill_sync",
+          "consumes": [
+            "S3:ActiveViewDisposition"
+          ],
+          "emits": [
+            "S4:ManagedProjectionDisposition"
+          ],
+          "loop": false,
+          "max_iterations": null,
+          "progress_rule": "",
+          "progress_tokens": [],
+          "rationale": "S4_matters_managed_skill_sync consumes the prior auxiliary disposition",
+          "repair_feedback_tokens": [],
+          "repeat_input_tokens": [],
+          "runtime_node_id": "",
+          "transition_id": "skill-runtime-step-4"
+        },
+        {
+          "blocker_tokens": [],
+          "code_contract_id": "abstract:S5_skill_validation_rollback:finite_relation",
+          "consumer_model_id": "S5_skill_validation_rollback",
+          "consumes": [
+            "S4:ManagedProjectionDisposition"
+          ],
+          "emits": [
+            "S5:ActivationDisposition"
+          ],
+          "loop": false,
+          "max_iterations": null,
+          "progress_rule": "",
+          "progress_tokens": [],
+          "rationale": "S5_skill_validation_rollback consumes the prior auxiliary disposition",
+          "repair_feedback_tokens": [],
+          "repeat_input_tokens": [],
+          "runtime_node_id": "",
+          "transition_id": "skill-runtime-step-5"
+        },
+        {
+          "blocker_tokens": [],
+          "code_contract_id": "abstract:S0_matters_skill_runtime:finite_relation",
+          "consumer_model_id": "S0_matters_skill_runtime",
+          "consumes": [
+            "S5:ActivationDisposition"
+          ],
+          "emits": [
+            "S0:SkillRuntimeTerminal"
+          ],
+          "loop": false,
+          "max_iterations": null,
+          "progress_rule": "",
+          "progress_tokens": [],
+          "rationale": "S0 publishes only a current terminal auxiliary disposition",
+          "repair_feedback_tokens": [],
+          "repeat_input_tokens": [],
+          "runtime_node_id": "",
+          "transition_id": "skill-runtime-parent-terminal"
+        }
+      ]
+    },
+    "coverage_items": [
+      {
+        "allowed_shared_with": [],
+        "description": "S0_matters_skill_runtime Input x State finite relation",
+        "item_id": "function:S0_matters_skill_runtime:finite_transition",
+        "item_type": "function",
+        "owner_model_id": "S0_matters_skill_runtime",
+        "ownership": "parent"
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "unique skill-runtime writer for skill_runtime.child_receipt_set",
+        "item_id": "state:S0_matters_skill_runtime:skill_runtime.child_receipt_set",
+        "item_type": "state",
+        "owner_model_id": "S0_matters_skill_runtime",
+        "ownership": "parent"
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "unique skill-runtime writer for skill_runtime.parent_status",
+        "item_id": "state:S0_matters_skill_runtime:skill_runtime.parent_status",
+        "item_type": "state",
+        "owner_model_id": "S0_matters_skill_runtime",
+        "ownership": "parent"
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "unique skill-runtime writer for skill_runtime.published_active_identity",
+        "item_id": "state:S0_matters_skill_runtime:skill_runtime.published_active_identity",
+        "item_type": "state",
+        "owner_model_id": "S0_matters_skill_runtime",
+        "ownership": "parent"
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "unique auxiliary side-effect owner for publish_active_skill_identity",
+        "item_id": "side_effect:S0_matters_skill_runtime:publish_active_skill_identity",
+        "item_type": "side_effect",
+        "owner_model_id": "S0_matters_skill_runtime",
+        "ownership": "parent"
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "S0_matters_skill_runtime owns declared_transition_contract",
+        "item_id": "invariant:S0_matters_skill_runtime:declared_transition_contract",
+        "item_type": "invariant",
+        "owner_model_id": "S0_matters_skill_runtime",
+        "ownership": "parent"
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "S0_matters_skill_runtime owns owned_writes_only",
+        "item_id": "invariant:S0_matters_skill_runtime:owned_writes_only",
+        "item_type": "invariant",
+        "owner_model_id": "S0_matters_skill_runtime",
+        "ownership": "parent"
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "S0_matters_skill_runtime owns side_effect_at_most_once",
+        "item_id": "invariant:S0_matters_skill_runtime:side_effect_at_most_once",
+        "item_type": "invariant",
+        "owner_model_id": "S0_matters_skill_runtime",
+        "ownership": "parent"
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "S0_matters_skill_runtime owns canonical_write_at_most_once",
+        "item_id": "invariant:S0_matters_skill_runtime:canonical_write_at_most_once",
+        "item_type": "invariant",
+        "owner_model_id": "S0_matters_skill_runtime",
+        "ownership": "parent"
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "S1_skill_bundle_inventory Input x State finite relation",
+        "item_id": "function:S1_skill_bundle_inventory:finite_transition",
+        "item_type": "function",
+        "owner_model_id": "S1_skill_bundle_inventory",
+        "ownership": "child"
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "unique skill-runtime writer for skill_runtime.bundle_identity",
+        "item_id": "state:S1_skill_bundle_inventory:skill_runtime.bundle_identity",
+        "item_type": "state",
+        "owner_model_id": "S1_skill_bundle_inventory",
+        "ownership": "child"
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "unique skill-runtime writer for skill_runtime.member_inventory",
+        "item_id": "state:S1_skill_bundle_inventory:skill_runtime.member_inventory",
+        "item_type": "state",
+        "owner_model_id": "S1_skill_bundle_inventory",
+        "ownership": "child"
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "unique skill-runtime writer for skill_runtime.inventory_residuals",
+        "item_id": "state:S1_skill_bundle_inventory:skill_runtime.inventory_residuals",
+        "item_type": "state",
+        "owner_model_id": "S1_skill_bundle_inventory",
+        "ownership": "child"
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "unique auxiliary side-effect owner for write_skill_inventory_receipt",
+        "item_id": "side_effect:S1_skill_bundle_inventory:write_skill_inventory_receipt",
+        "item_type": "side_effect",
+        "owner_model_id": "S1_skill_bundle_inventory",
+        "ownership": "child"
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "S1_skill_bundle_inventory owns declared_transition_contract",
+        "item_id": "invariant:S1_skill_bundle_inventory:declared_transition_contract",
+        "item_type": "invariant",
+        "owner_model_id": "S1_skill_bundle_inventory",
+        "ownership": "child"
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "S1_skill_bundle_inventory owns owned_writes_only",
+        "item_id": "invariant:S1_skill_bundle_inventory:owned_writes_only",
+        "item_type": "invariant",
+        "owner_model_id": "S1_skill_bundle_inventory",
+        "ownership": "child"
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "S1_skill_bundle_inventory owns side_effect_at_most_once",
+        "item_id": "invariant:S1_skill_bundle_inventory:side_effect_at_most_once",
+        "item_type": "invariant",
+        "owner_model_id": "S1_skill_bundle_inventory",
+        "ownership": "child"
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "S1_skill_bundle_inventory owns canonical_write_at_most_once",
+        "item_id": "invariant:S1_skill_bundle_inventory:canonical_write_at_most_once",
+        "item_type": "invariant",
+        "owner_model_id": "S1_skill_bundle_inventory",
+        "ownership": "child"
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "S2_skill_compatibility Input x State finite relation",
+        "item_id": "function:S2_skill_compatibility:finite_transition",
+        "item_type": "function",
+        "owner_model_id": "S2_skill_compatibility",
+        "ownership": "child"
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "unique skill-runtime writer for skill_runtime.compatibility_matrix",
+        "item_id": "state:S2_skill_compatibility:skill_runtime.compatibility_matrix",
+        "item_type": "state",
+        "owner_model_id": "S2_skill_compatibility",
+        "ownership": "child"
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "unique skill-runtime writer for skill_runtime.identity_collisions",
+        "item_id": "state:S2_skill_compatibility:skill_runtime.identity_collisions",
+        "item_type": "state",
+        "owner_model_id": "S2_skill_compatibility",
+        "ownership": "child"
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "unique skill-runtime writer for skill_runtime.researchguard_integration_status",
+        "item_id": "state:S2_skill_compatibility:skill_runtime.researchguard_integration_status",
+        "item_type": "state",
+        "owner_model_id": "S2_skill_compatibility",
+        "ownership": "child"
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "unique auxiliary side-effect owner for write_compatibility_receipt",
+        "item_id": "side_effect:S2_skill_compatibility:write_compatibility_receipt",
+        "item_type": "side_effect",
+        "owner_model_id": "S2_skill_compatibility",
+        "ownership": "child"
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "S2_skill_compatibility owns declared_transition_contract",
+        "item_id": "invariant:S2_skill_compatibility:declared_transition_contract",
+        "item_type": "invariant",
+        "owner_model_id": "S2_skill_compatibility",
+        "ownership": "child"
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "S2_skill_compatibility owns owned_writes_only",
+        "item_id": "invariant:S2_skill_compatibility:owned_writes_only",
+        "item_type": "invariant",
+        "owner_model_id": "S2_skill_compatibility",
+        "ownership": "child"
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "S2_skill_compatibility owns side_effect_at_most_once",
+        "item_id": "invariant:S2_skill_compatibility:side_effect_at_most_once",
+        "item_type": "invariant",
+        "owner_model_id": "S2_skill_compatibility",
+        "ownership": "child"
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "S2_skill_compatibility owns canonical_write_at_most_once",
+        "item_id": "invariant:S2_skill_compatibility:canonical_write_at_most_once",
+        "item_type": "invariant",
+        "owner_model_id": "S2_skill_compatibility",
+        "ownership": "child"
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "S3_active_skill_resolution Input x State finite relation",
+        "item_id": "function:S3_active_skill_resolution:finite_transition",
+        "item_type": "function",
+        "owner_model_id": "S3_active_skill_resolution",
+        "ownership": "child"
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "unique skill-runtime writer for skill_runtime.candidate_dispositions",
+        "item_id": "state:S3_active_skill_resolution:skill_runtime.candidate_dispositions",
+        "item_type": "state",
+        "owner_model_id": "S3_active_skill_resolution",
+        "ownership": "child"
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "unique skill-runtime writer for skill_runtime.active_view_identity",
+        "item_id": "state:S3_active_skill_resolution:skill_runtime.active_view_identity",
+        "item_type": "state",
+        "owner_model_id": "S3_active_skill_resolution",
+        "ownership": "child"
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "unique skill-runtime writer for skill_runtime.active_view_freshness",
+        "item_id": "state:S3_active_skill_resolution:skill_runtime.active_view_freshness",
+        "item_type": "state",
+        "owner_model_id": "S3_active_skill_resolution",
+        "ownership": "child"
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "unique auxiliary side-effect owner for write_active_view_receipt",
+        "item_id": "side_effect:S3_active_skill_resolution:write_active_view_receipt",
+        "item_type": "side_effect",
+        "owner_model_id": "S3_active_skill_resolution",
+        "ownership": "child"
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "S3_active_skill_resolution owns declared_transition_contract",
+        "item_id": "invariant:S3_active_skill_resolution:declared_transition_contract",
+        "item_type": "invariant",
+        "owner_model_id": "S3_active_skill_resolution",
+        "ownership": "child"
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "S3_active_skill_resolution owns owned_writes_only",
+        "item_id": "invariant:S3_active_skill_resolution:owned_writes_only",
+        "item_type": "invariant",
+        "owner_model_id": "S3_active_skill_resolution",
+        "ownership": "child"
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "S3_active_skill_resolution owns side_effect_at_most_once",
+        "item_id": "invariant:S3_active_skill_resolution:side_effect_at_most_once",
+        "item_type": "invariant",
+        "owner_model_id": "S3_active_skill_resolution",
+        "ownership": "child"
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "S3_active_skill_resolution owns canonical_write_at_most_once",
+        "item_id": "invariant:S3_active_skill_resolution:canonical_write_at_most_once",
+        "item_type": "invariant",
+        "owner_model_id": "S3_active_skill_resolution",
+        "ownership": "child"
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "S4_matters_managed_skill_sync Input x State finite relation",
+        "item_id": "function:S4_matters_managed_skill_sync:finite_transition",
+        "item_type": "function",
+        "owner_model_id": "S4_matters_managed_skill_sync",
+        "ownership": "child"
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "unique skill-runtime writer for skill_runtime.managed_projection_identity",
+        "item_id": "state:S4_matters_managed_skill_sync:skill_runtime.managed_projection_identity",
+        "item_type": "state",
+        "owner_model_id": "S4_matters_managed_skill_sync",
+        "ownership": "child"
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "unique skill-runtime writer for skill_runtime.sync_transaction_state",
+        "item_id": "state:S4_matters_managed_skill_sync:skill_runtime.sync_transaction_state",
+        "item_type": "state",
+        "owner_model_id": "S4_matters_managed_skill_sync",
+        "ownership": "child"
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "unique skill-runtime writer for skill_runtime.prior_projection_identity",
+        "item_id": "state:S4_matters_managed_skill_sync:skill_runtime.prior_projection_identity",
+        "item_type": "state",
+        "owner_model_id": "S4_matters_managed_skill_sync",
+        "ownership": "child"
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "unique auxiliary side-effect owner for stage_managed_projection",
+        "item_id": "side_effect:S4_matters_managed_skill_sync:stage_managed_projection",
+        "item_type": "side_effect",
+        "owner_model_id": "S4_matters_managed_skill_sync",
+        "ownership": "child"
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "unique auxiliary side-effect owner for activate_managed_projection",
+        "item_id": "side_effect:S4_matters_managed_skill_sync:activate_managed_projection",
+        "item_type": "side_effect",
+        "owner_model_id": "S4_matters_managed_skill_sync",
+        "ownership": "child"
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "unique auxiliary side-effect owner for write_sync_receipt",
+        "item_id": "side_effect:S4_matters_managed_skill_sync:write_sync_receipt",
+        "item_type": "side_effect",
+        "owner_model_id": "S4_matters_managed_skill_sync",
+        "ownership": "child"
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "S4_matters_managed_skill_sync owns declared_transition_contract",
+        "item_id": "invariant:S4_matters_managed_skill_sync:declared_transition_contract",
+        "item_type": "invariant",
+        "owner_model_id": "S4_matters_managed_skill_sync",
+        "ownership": "child"
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "S4_matters_managed_skill_sync owns owned_writes_only",
+        "item_id": "invariant:S4_matters_managed_skill_sync:owned_writes_only",
+        "item_type": "invariant",
+        "owner_model_id": "S4_matters_managed_skill_sync",
+        "ownership": "child"
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "S4_matters_managed_skill_sync owns side_effect_at_most_once",
+        "item_id": "invariant:S4_matters_managed_skill_sync:side_effect_at_most_once",
+        "item_type": "invariant",
+        "owner_model_id": "S4_matters_managed_skill_sync",
+        "ownership": "child"
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "S4_matters_managed_skill_sync owns canonical_write_at_most_once",
+        "item_id": "invariant:S4_matters_managed_skill_sync:canonical_write_at_most_once",
+        "item_type": "invariant",
+        "owner_model_id": "S4_matters_managed_skill_sync",
+        "ownership": "child"
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "S5_skill_validation_rollback Input x State finite relation",
+        "item_id": "function:S5_skill_validation_rollback:finite_transition",
+        "item_type": "function",
+        "owner_model_id": "S5_skill_validation_rollback",
+        "ownership": "child"
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "unique skill-runtime writer for skill_runtime.validation_receipt_set",
+        "item_id": "state:S5_skill_validation_rollback:skill_runtime.validation_receipt_set",
+        "item_type": "state",
+        "owner_model_id": "S5_skill_validation_rollback",
+        "ownership": "child"
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "unique skill-runtime writer for skill_runtime.rollback_receipt",
+        "item_id": "state:S5_skill_validation_rollback:skill_runtime.rollback_receipt",
+        "item_type": "state",
+        "owner_model_id": "S5_skill_validation_rollback",
+        "ownership": "child"
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "unique skill-runtime writer for skill_runtime.activation_status",
+        "item_id": "state:S5_skill_validation_rollback:skill_runtime.activation_status",
+        "item_type": "state",
+        "owner_model_id": "S5_skill_validation_rollback",
+        "ownership": "child"
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "unique auxiliary side-effect owner for run_native_skill_validation",
+        "item_id": "side_effect:S5_skill_validation_rollback:run_native_skill_validation",
+        "item_type": "side_effect",
+        "owner_model_id": "S5_skill_validation_rollback",
+        "ownership": "child"
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "unique auxiliary side-effect owner for restore_prior_managed_projection",
+        "item_id": "side_effect:S5_skill_validation_rollback:restore_prior_managed_projection",
+        "item_type": "side_effect",
+        "owner_model_id": "S5_skill_validation_rollback",
+        "ownership": "child"
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "unique auxiliary side-effect owner for write_validation_receipt",
+        "item_id": "side_effect:S5_skill_validation_rollback:write_validation_receipt",
+        "item_type": "side_effect",
+        "owner_model_id": "S5_skill_validation_rollback",
+        "ownership": "child"
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "S5_skill_validation_rollback owns declared_transition_contract",
+        "item_id": "invariant:S5_skill_validation_rollback:declared_transition_contract",
+        "item_type": "invariant",
+        "owner_model_id": "S5_skill_validation_rollback",
+        "ownership": "child"
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "S5_skill_validation_rollback owns owned_writes_only",
+        "item_id": "invariant:S5_skill_validation_rollback:owned_writes_only",
+        "item_type": "invariant",
+        "owner_model_id": "S5_skill_validation_rollback",
+        "ownership": "child"
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "S5_skill_validation_rollback owns side_effect_at_most_once",
+        "item_id": "invariant:S5_skill_validation_rollback:side_effect_at_most_once",
+        "item_type": "invariant",
+        "owner_model_id": "S5_skill_validation_rollback",
+        "ownership": "child"
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "S5_skill_validation_rollback owns canonical_write_at_most_once",
+        "item_id": "invariant:S5_skill_validation_rollback:canonical_write_at_most_once",
+        "item_type": "invariant",
+        "owner_model_id": "S5_skill_validation_rollback",
+        "ownership": "child"
+      }
+    ],
+    "coverage_receipts": [],
+    "parent_model_id": "S0_matters_skill_runtime",
+    "reattachment_contracts": [
+      {
+        "allow_extra_inputs": false,
+        "allow_extra_outputs": false,
+        "child_model_id": "S1_skill_bundle_inventory",
+        "consumed_evidence_id": "evidence:skill-runtime:S1_skill_bundle_inventory:db3bdf28eb36f0c8",
+        "consumed_runtime_path_evidence_ids": [],
+        "expected_contracts_out": [
+          "guarantee:S1_skill_bundle_inventory:finite_relation"
+        ],
+        "expected_inputs": [
+          "S0:SkillRuntimeRequest"
+        ],
+        "expected_outputs": [
+          "S1:InventoryDisposition"
+        ],
+        "expected_side_effects_owned": [
+          "write_skill_inventory_receipt"
+        ],
+        "expected_state_owned": [
+          "skill_runtime.bundle_identity",
+          "skill_runtime.member_inventory",
+          "skill_runtime.inventory_residuals"
+        ],
+        "rationale": "S0 consumes current S1_skill_bundle_inventory evidence"
+      },
+      {
+        "allow_extra_inputs": false,
+        "allow_extra_outputs": false,
+        "child_model_id": "S2_skill_compatibility",
+        "consumed_evidence_id": "evidence:skill-runtime:S2_skill_compatibility:8b14c1032312c5e8",
+        "consumed_runtime_path_evidence_ids": [],
+        "expected_contracts_out": [
+          "guarantee:S2_skill_compatibility:finite_relation"
+        ],
+        "expected_inputs": [
+          "S1:InventoryDisposition"
+        ],
+        "expected_outputs": [
+          "S2:CompatibilityDisposition"
+        ],
+        "expected_side_effects_owned": [
+          "write_compatibility_receipt"
+        ],
+        "expected_state_owned": [
+          "skill_runtime.compatibility_matrix",
+          "skill_runtime.identity_collisions",
+          "skill_runtime.researchguard_integration_status"
+        ],
+        "rationale": "S0 consumes current S2_skill_compatibility evidence"
+      },
+      {
+        "allow_extra_inputs": false,
+        "allow_extra_outputs": false,
+        "child_model_id": "S3_active_skill_resolution",
+        "consumed_evidence_id": "evidence:skill-runtime:S3_active_skill_resolution:69f4f553342b6826",
+        "consumed_runtime_path_evidence_ids": [],
+        "expected_contracts_out": [
+          "guarantee:S3_active_skill_resolution:finite_relation"
+        ],
+        "expected_inputs": [
+          "S2:CompatibilityDisposition"
+        ],
+        "expected_outputs": [
+          "S3:ActiveViewDisposition"
+        ],
+        "expected_side_effects_owned": [
+          "write_active_view_receipt"
+        ],
+        "expected_state_owned": [
+          "skill_runtime.candidate_dispositions",
+          "skill_runtime.active_view_identity",
+          "skill_runtime.active_view_freshness"
+        ],
+        "rationale": "S0 consumes current S3_active_skill_resolution evidence"
+      },
+      {
+        "allow_extra_inputs": false,
+        "allow_extra_outputs": false,
+        "child_model_id": "S4_matters_managed_skill_sync",
+        "consumed_evidence_id": "evidence:skill-runtime:S4_matters_managed_skill_sync:84e6170be9e9b7ff",
+        "consumed_runtime_path_evidence_ids": [],
+        "expected_contracts_out": [
+          "guarantee:S4_matters_managed_skill_sync:finite_relation"
+        ],
+        "expected_inputs": [
+          "S3:ActiveViewDisposition"
+        ],
+        "expected_outputs": [
+          "S4:ManagedProjectionDisposition"
+        ],
+        "expected_side_effects_owned": [
+          "stage_managed_projection",
+          "activate_managed_projection",
+          "write_sync_receipt"
+        ],
+        "expected_state_owned": [
+          "skill_runtime.managed_projection_identity",
+          "skill_runtime.sync_transaction_state",
+          "skill_runtime.prior_projection_identity"
+        ],
+        "rationale": "S0 consumes current S4_matters_managed_skill_sync evidence"
+      },
+      {
+        "allow_extra_inputs": false,
+        "allow_extra_outputs": false,
+        "child_model_id": "S5_skill_validation_rollback",
+        "consumed_evidence_id": "evidence:skill-runtime:S5_skill_validation_rollback:6a287007bac6083c",
+        "consumed_runtime_path_evidence_ids": [],
+        "expected_contracts_out": [
+          "guarantee:S5_skill_validation_rollback:finite_relation"
+        ],
+        "expected_inputs": [
+          "S4:ManagedProjectionDisposition"
+        ],
+        "expected_outputs": [
+          "S5:ActivationDisposition"
+        ],
+        "expected_side_effects_owned": [
+          "run_native_skill_validation",
+          "restore_prior_managed_projection",
+          "write_validation_receipt"
+        ],
+        "expected_state_owned": [
+          "skill_runtime.validation_receipt_set",
+          "skill_runtime.rollback_receipt",
+          "skill_runtime.activation_status"
+        ],
+        "rationale": "S0 consumes current S5_skill_validation_rollback evidence"
+      }
+    ],
+    "required_coverage_receipt_ids": [],
+    "required_evidence_tier": "hazard_green",
+    "target_split_derivation": {
+      "covered_partition_item_ids": [
+        "function:S0_matters_skill_runtime:finite_transition",
+        "state:S0_matters_skill_runtime:skill_runtime.child_receipt_set",
+        "state:S0_matters_skill_runtime:skill_runtime.parent_status",
+        "state:S0_matters_skill_runtime:skill_runtime.published_active_identity",
+        "side_effect:S0_matters_skill_runtime:publish_active_skill_identity",
+        "invariant:S0_matters_skill_runtime:declared_transition_contract",
+        "invariant:S0_matters_skill_runtime:owned_writes_only",
+        "invariant:S0_matters_skill_runtime:side_effect_at_most_once",
+        "invariant:S0_matters_skill_runtime:canonical_write_at_most_once",
+        "function:S1_skill_bundle_inventory:finite_transition",
+        "state:S1_skill_bundle_inventory:skill_runtime.bundle_identity",
+        "state:S1_skill_bundle_inventory:skill_runtime.member_inventory",
+        "state:S1_skill_bundle_inventory:skill_runtime.inventory_residuals",
+        "side_effect:S1_skill_bundle_inventory:write_skill_inventory_receipt",
+        "invariant:S1_skill_bundle_inventory:declared_transition_contract",
+        "invariant:S1_skill_bundle_inventory:owned_writes_only",
+        "invariant:S1_skill_bundle_inventory:side_effect_at_most_once",
+        "invariant:S1_skill_bundle_inventory:canonical_write_at_most_once",
+        "function:S2_skill_compatibility:finite_transition",
+        "state:S2_skill_compatibility:skill_runtime.compatibility_matrix",
+        "state:S2_skill_compatibility:skill_runtime.identity_collisions",
+        "state:S2_skill_compatibility:skill_runtime.researchguard_integration_status",
+        "side_effect:S2_skill_compatibility:write_compatibility_receipt",
+        "invariant:S2_skill_compatibility:declared_transition_contract",
+        "invariant:S2_skill_compatibility:owned_writes_only",
+        "invariant:S2_skill_compatibility:side_effect_at_most_once",
+        "invariant:S2_skill_compatibility:canonical_write_at_most_once",
+        "function:S3_active_skill_resolution:finite_transition",
+        "state:S3_active_skill_resolution:skill_runtime.candidate_dispositions",
+        "state:S3_active_skill_resolution:skill_runtime.active_view_identity",
+        "state:S3_active_skill_resolution:skill_runtime.active_view_freshness",
+        "side_effect:S3_active_skill_resolution:write_active_view_receipt",
+        "invariant:S3_active_skill_resolution:declared_transition_contract",
+        "invariant:S3_active_skill_resolution:owned_writes_only",
+        "invariant:S3_active_skill_resolution:side_effect_at_most_once",
+        "invariant:S3_active_skill_resolution:canonical_write_at_most_once",
+        "function:S4_matters_managed_skill_sync:finite_transition",
+        "state:S4_matters_managed_skill_sync:skill_runtime.managed_projection_identity",
+        "state:S4_matters_managed_skill_sync:skill_runtime.sync_transaction_state",
+        "state:S4_matters_managed_skill_sync:skill_runtime.prior_projection_identity",
+        "side_effect:S4_matters_managed_skill_sync:stage_managed_projection",
+        "side_effect:S4_matters_managed_skill_sync:activate_managed_projection",
+        "side_effect:S4_matters_managed_skill_sync:write_sync_receipt",
+        "invariant:S4_matters_managed_skill_sync:declared_transition_contract",
+        "invariant:S4_matters_managed_skill_sync:owned_writes_only",
+        "invariant:S4_matters_managed_skill_sync:side_effect_at_most_once",
+        "invariant:S4_matters_managed_skill_sync:canonical_write_at_most_once",
+        "function:S5_skill_validation_rollback:finite_transition",
+        "state:S5_skill_validation_rollback:skill_runtime.validation_receipt_set",
+        "state:S5_skill_validation_rollback:skill_runtime.rollback_receipt",
+        "state:S5_skill_validation_rollback:skill_runtime.activation_status",
+        "side_effect:S5_skill_validation_rollback:run_native_skill_validation",
+        "side_effect:S5_skill_validation_rollback:restore_prior_managed_projection",
+        "side_effect:S5_skill_validation_rollback:write_validation_receipt",
+        "invariant:S5_skill_validation_rollback:declared_transition_contract",
+        "invariant:S5_skill_validation_rollback:owned_writes_only",
+        "invariant:S5_skill_validation_rollback:side_effect_at_most_once",
+        "invariant:S5_skill_validation_rollback:canonical_write_at_most_once"
+      ],
+      "derived_from_flowguard_model": true,
+      "rationale": "S0 partitions inventory, compatibility, resolution, managed synchronization, and validation/rollback into five disjoint children.",
+      "side_effect_owner_fields": [
+        "write_skill_inventory_receipt",
+        "write_compatibility_receipt",
+        "write_active_view_receipt",
+        "stage_managed_projection",
+        "activate_managed_projection",
+        "write_sync_receipt",
+        "run_native_skill_validation",
+        "restore_prior_managed_projection",
+        "write_validation_receipt"
+      ],
+      "source_model_id": "S0_matters_skill_runtime",
+      "source_model_path": "flowguard_models/models/s00_skill_runtime.py",
+      "state_owner_fields": [
+        "skill_runtime.bundle_identity",
+        "skill_runtime.member_inventory",
+        "skill_runtime.inventory_residuals",
+        "skill_runtime.compatibility_matrix",
+        "skill_runtime.identity_collisions",
+        "skill_runtime.researchguard_integration_status",
+        "skill_runtime.candidate_dispositions",
+        "skill_runtime.active_view_identity",
+        "skill_runtime.active_view_freshness",
+        "skill_runtime.managed_projection_identity",
+        "skill_runtime.sync_transaction_state",
+        "skill_runtime.prior_projection_identity",
+        "skill_runtime.validation_receipt_set",
+        "skill_runtime.rollback_receipt",
+        "skill_runtime.activation_status"
+      ],
+      "target_child_model_ids": [
+        "S1_skill_bundle_inventory",
+        "S2_skill_compatibility",
+        "S3_active_skill_resolution",
+        "S4_matters_managed_skill_sync",
+        "S5_skill_validation_rollback"
+      ]
+    }
+  },
+  "status": "mesh_green"
+}

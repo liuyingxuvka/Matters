@@ -1,0 +1,59 @@
+{
+  "artifact_type": "matters.live-ui-evidence.v1",
+  "generated_at": "2026-07-19T05:20:15.568Z",
+  "status": "passed",
+  "evidence_id": "evidence:ui:6bd109896ddf53bc",
+  "ui_revision": "sha256:6bd109896ddf53bc11502265a305c8078ea80b39c04763553859c34bdf65a4d4",
+  "checks": {
+    "installed_runtime": true,
+    "english_default": true,
+    "zh_cn_selectable": true,
+    "same_revision_locale_reload": true,
+    "standard_density_default": true,
+    "compact_density_selectable": true,
+    "density_semantics_preserved": true,
+    "large_catalog_window": true,
+    "search_filter_state_preserved": true,
+    "matter_detail_open_return": true,
+    "human_readable_timeline": true,
+    "representative_visual": true,
+    "honest_visual_placeholder": true,
+    "background_blocked_catalog_usable": true,
+    "catalog_error_focus_and_recovery": true,
+    "evidence_reveal_and_return": true,
+    "optional_correction_recovery": true,
+    "optional_cover_correction": true,
+    "geometry_1880": true,
+    "geometry_1440": true,
+    "geometry_1180": true,
+    "narrow_geometry": true,
+    "private_internal_absent": true
+  },
+  "browser_errors": [],
+  "missing_checks": [],
+  "observed": {
+    "total_count": 230,
+    "standard_card_count": 200,
+    "loaded_catalog_count": 230,
+    "compact_card_width_1880": 180,
+    "compact_card_width_1440": 172,
+    "compact_card_width_1180": 180,
+    "detail_sections": [
+      "overview",
+      "timeline",
+      "people",
+      "openLoops",
+      "relatedMatters",
+      "sourceList",
+      "evidenceList",
+      "corrections",
+      "cover"
+    ],
+    "detail_geometry_1440": {
+      "width": 1400,
+      "height": 900,
+      "rail": 236
+    }
+  },
+  "claim_boundary": "Public synthetic installed-runtime evidence proves UI behavior and geometry only; it does not substitute for the separate real-private first run."
+}

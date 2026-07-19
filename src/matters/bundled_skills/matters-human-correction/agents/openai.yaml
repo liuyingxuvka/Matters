@@ -1,0 +1,4 @@
+interface:
+  display_name: "Matters Human Correction"
+  short_description: "Optionally correct an already published result"
+  default_prompt: "Use $matters-human-correction through MatterService only after the user explicitly chooses to correct a published result; preserve history and wait for original-owner recomputation."

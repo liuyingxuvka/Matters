@@ -1,0 +1,505 @@
+"""C12 bilingual desktop Matter object-browser finite FlowGuard model."""
+
+from flowguard_models.harness import CaseRule, FiniteModelSpec, HazardSpec
+
+
+SPEC = FiniteModelSpec(
+    model_id="C12_projection_bilingual_ui",
+    title="C12 Bilingual Desktop Matter Object Browser",
+    modeled_boundary=(
+        "one-revision Matter catalog and detail projection, English-default and "
+        "Chinese locale selection, human-readable timelines, representative "
+        "visual decisions, Standard/Compact density, preserved search/filter/"
+        "selection/scroll state, coverage and worker status, optional correction, "
+        "internal-data hiding, and projection-only desktop UI"
+    ),
+    state_fields=(
+        "projection.localized_values",
+        "projection.locale_registry",
+        "projection.equivalence_status",
+        "matter.card_visual_decision",
+        "matter.card_visual_revision",
+        "matter.card_visual_selection_mode",
+        "matter.card_visual_status",
+        "ui.selected_locale",
+        "ui.locale_preference",
+        "ui.card_density",
+        "ui.viewport_mode",
+        "ui.query",
+        "ui.filter_state",
+        "ui.sort_state",
+        "ui.catalog_window",
+        "ui.catalog_cursor",
+        "ui.catalog_revision",
+        "ui.selected_matter_id",
+        "ui.detail_section",
+        "ui.browser_scroll_anchor",
+        "ui.focus_context",
+        "ui.coverage_summary",
+        "ui.background_status",
+        "ui.correction_state",
+        "ui.request_state",
+    ),
+    owned_write_fields=(
+        "projection.localized_values",
+        "projection.locale_registry",
+        "projection.equivalence_status",
+        "matter.card_visual_decision",
+        "matter.card_visual_revision",
+        "matter.card_visual_selection_mode",
+        "matter.card_visual_status",
+        "ui.selected_locale",
+        "ui.locale_preference",
+        "ui.card_density",
+        "ui.viewport_mode",
+        "ui.query",
+        "ui.filter_state",
+        "ui.sort_state",
+        "ui.catalog_window",
+        "ui.catalog_cursor",
+        "ui.catalog_revision",
+        "ui.selected_matter_id",
+        "ui.detail_section",
+        "ui.browser_scroll_anchor",
+        "ui.focus_context",
+        "ui.coverage_summary",
+        "ui.background_status",
+        "ui.correction_state",
+        "ui.request_state",
+    ),
+    side_effect_classes=(
+        "projection_publish",
+        "ui_preference_write",
+        "ui_window_write",
+        "card_visual_decision_write",
+    ),
+    completion_evidence=(
+        "LocalizedProjection",
+        "LocaleRegistry",
+        "MatterCatalog",
+        "MatterCard",
+        "MatterDetail",
+        "HumanReadableTimeline",
+        "CardVisualDecision",
+        "NeutralVisualPlaceholder",
+        "DensitySelection",
+        "CoverageSummary",
+        "BackgroundStatus",
+        "ProjectionPending",
+        "CorrectionEvent",
+    ),
+    rules=(
+        CaseRule(
+            case_id="same_revision_equivalent",
+            decision="required_localized_projection_published",
+            label="required_localized_projection_published",
+            writes=(
+                "projection.localized_values",
+                "projection.locale_registry",
+                "projection.equivalence_status",
+            ),
+            side_effects=("projection_publish",),
+            emitted_tokens=("LocalizedProjection", "LocaleRegistry", "MatterCard"),
+            reason=(
+                "non-empty en and zh-CN values express one semantic revision; "
+                "additional locales require complete registered values"
+            ),
+        ),
+        CaseRule(
+            case_id="first_launch_without_preference",
+            decision="english_default_selected",
+            label="english_default_selected",
+            writes=("ui.selected_locale", "ui.locale_preference", "ui.focus_context"),
+            side_effects=("ui_preference_write",),
+            emitted_tokens=("LocaleSelection", "MatterCatalog"),
+            reason="desktop first launch defaults to English without changing canonical data",
+        ),
+        CaseRule(
+            case_id="select_chinese_same_context",
+            decision="locale_selection_applied",
+            label="locale_selection_applied",
+            writes=("ui.selected_locale", "ui.locale_preference", "ui.focus_context"),
+            side_effects=("ui_preference_write",),
+            emitted_tokens=("LocaleSelection", "LocalizedProjection"),
+            reason="locale changes only display projection and preserves object-browser context",
+        ),
+        CaseRule(
+            case_id="future_locale_complete",
+            decision="registered_locale_published",
+            label="registered_locale_published",
+            writes=(
+                "projection.localized_values",
+                "projection.locale_registry",
+                "projection.equivalence_status",
+            ),
+            side_effects=("projection_publish",),
+            emitted_tokens=("LocaleRegistry", "LocalizedProjection"),
+            reason="a future locale is published only after complete semantic-equivalence validation",
+        ),
+        CaseRule(
+            case_id="missing_required_locale",
+            decision="localization_gap_blocked",
+            label="localization_gap_blocked",
+            writes=("projection.equivalence_status",),
+            emitted_tokens=("LocalizationGap", "ProjectionPending"),
+            reason="missing English or Chinese values block a fresh complete projection",
+        ),
+        CaseRule(
+            case_id="matter_catalog_current",
+            decision="bounded_matter_catalog_rendered",
+            label="bounded_matter_catalog_rendered",
+            writes=(
+                "ui.catalog_window",
+                "ui.catalog_cursor",
+                "ui.catalog_revision",
+                "ui.coverage_summary",
+                "ui.background_status",
+                "ui.request_state",
+            ),
+            side_effects=("ui_window_write",),
+            emitted_tokens=("MatterCatalog", "MatterCard", "CoverageSummary", "BackgroundStatus"),
+            reason="one bounded current catalog window renders Databank-authority cards",
+        ),
+        CaseRule(
+            case_id="matter_coverage_relation_index_current",
+            decision="bounded_indexed_card_relation_lookup",
+            label="bounded_indexed_card_relation_lookup",
+            writes=("ui.catalog_window", "ui.catalog_revision"),
+            side_effects=("ui_window_write",),
+            emitted_tokens=("MatterCatalog", "MatterCard", "MatterDetail"),
+            reason=(
+                "catalog and detail readers resolve every visible Matter's "
+                "coverage relations through one current private index batch "
+                "instead of transferring and reparsing the full ledger per card"
+            ),
+        ),
+        CaseRule(
+            case_id="catalog_search_or_filter_changed",
+            decision="catalog_query_applied_preserving_context",
+            label="catalog_query_applied_preserving_context",
+            writes=(
+                "ui.query",
+                "ui.filter_state",
+                "ui.catalog_window",
+                "ui.catalog_cursor",
+                "ui.browser_scroll_anchor",
+                "ui.focus_context",
+            ),
+            side_effects=("ui_window_write",),
+            emitted_tokens=("MatterCatalog",),
+            reason=(
+                "search/filter updates a bounded window while preserving density, "
+                "locale, selected Matter, and restorable scroll context"
+            ),
+        ),
+        CaseRule(
+            case_id="density_switched",
+            decision="density_preference_applied",
+            label="density_preference_applied",
+            writes=("ui.card_density", "ui.focus_context", "ui.browser_scroll_anchor"),
+            side_effects=("ui_preference_write",),
+            emitted_tokens=("DensitySelection", "MatterCard"),
+            reason=(
+                "Standard/Compact changes geometry only; Matter order, status, "
+                "visual, locale, filters, selection, and responsive mode remain unchanged"
+            ),
+        ),
+        CaseRule(
+            case_id="viewport_changed",
+            decision="responsive_viewport_applied",
+            label="responsive_viewport_applied",
+            writes=("ui.viewport_mode",),
+            emitted_tokens=("MatterCatalog",),
+            reason="responsive columns change independently of persisted density",
+        ),
+        CaseRule(
+            case_id="single_card_catalog",
+            decision="single_card_top_aligned",
+            label="single_card_top_aligned",
+            writes=("ui.catalog_window",),
+            emitted_tokens=("MatterCard",),
+            reason="one card remains top-aligned and never stretches or vertically centers",
+        ),
+        CaseRule(
+            case_id="matter_detail_opened",
+            decision="matter_detail_rendered",
+            label="matter_detail_rendered",
+            writes=(
+                "ui.selected_matter_id",
+                "ui.detail_section",
+                "ui.browser_scroll_anchor",
+                "ui.focus_context",
+                "ui.request_state",
+            ),
+            side_effects=("ui_window_write",),
+            emitted_tokens=("MatterDetail",),
+            reason=(
+                "detail exposes Overview, Timeline, People, Actions/open loops, "
+                "Related Matters, Images, Files/messages, and Evidence/history"
+            ),
+        ),
+        CaseRule(
+            case_id="human_readable_timeline",
+            decision="localized_timeline_rendered",
+            label="localized_timeline_rendered",
+            writes=("projection.localized_values", "ui.detail_section"),
+            side_effects=("projection_publish",),
+            emitted_tokens=("HumanReadableTimeline",),
+            reason=(
+                "localized sentences distinguish record time from occurred time, "
+                "badge planned/reported/observed/inferred, and retain conflicts"
+            ),
+        ),
+        CaseRule(
+            case_id="eligible_visual_selected",
+            decision="card_visual_decision_current",
+            label="card_visual_decision_current",
+            writes=(
+                "matter.card_visual_decision",
+                "matter.card_visual_revision",
+                "matter.card_visual_selection_mode",
+                "matter.card_visual_status",
+            ),
+            side_effects=("card_visual_decision_write",),
+            emitted_tokens=("CardVisualDecision",),
+            reason=(
+                "C12 chooses one current allowlisted C2/C3/C6 candidate using "
+                "C11 recommendation and deterministic fallback"
+            ),
+        ),
+        CaseRule(
+            case_id="no_eligible_visual",
+            decision="neutral_visual_placeholder_current",
+            label="neutral_visual_placeholder_current",
+            writes=(
+                "matter.card_visual_decision",
+                "matter.card_visual_revision",
+                "matter.card_visual_selection_mode",
+                "matter.card_visual_status",
+            ),
+            side_effects=("card_visual_decision_write",),
+            emitted_tokens=("NeutralVisualPlaceholder",),
+            reason="no safe relevant current candidate yields a stable neutral placeholder",
+        ),
+        CaseRule(
+            case_id="optional_correction_requested",
+            decision="correction_delegated_to_c10",
+            label="correction_delegated_to_c10",
+            writes=("ui.correction_state",),
+            emitted_tokens=("CorrectionEvent", "C10Request"),
+            reason="optional source, semantic, or cover correction delegates to C10",
+        ),
+        CaseRule(
+            case_id="background_work_pending_or_blocked",
+            decision="background_status_visible_browser_usable",
+            label="background_status_visible_browser_usable",
+            writes=("ui.background_status", "ui.coverage_summary"),
+            emitted_tokens=("BackgroundStatus", "CoverageSummary", "ProjectionPending"),
+            reason="one blocked object or provider does not make current catalog objects unusable",
+        ),
+        CaseRule(
+            case_id="stale_or_cancelled_response",
+            decision="stale_response_discarded",
+            label="stale_response_discarded",
+            writes=("ui.request_state",),
+            emitted_tokens=("ProjectionPending",),
+            reason="an older revision, cancelled request, or stale page cannot overwrite current UI state",
+        ),
+        CaseRule(
+            case_id="recompute_not_terminal",
+            decision="projection_pending",
+            label="projection_pending",
+            writes=("projection.equivalence_status", "ui.background_status"),
+            emitted_tokens=("ProjectionPending", "BackgroundStatus"),
+            reason="C12 never publishes a fresh projection before required owner joins are terminal",
+        ),
+        CaseRule(
+            case_id="ui_infers_state",
+            decision="ui_inference_rejected",
+            label="ui_inference_rejected",
+            emitted_tokens=("ProjectionWriteRejected",),
+            reason="desktop and browser surfaces cannot infer or write canonical product state",
+        ),
+        CaseRule(
+            case_id="internal_identifier_requested_by_default",
+            decision="internal_content_hidden",
+            label="internal_content_hidden",
+            emitted_tokens=("ExplanationView",),
+            reason="paths, message ids, hashes, receipts, tokens, and internal model ids are hidden",
+        ),
+    ),
+    hazards=(
+        HazardSpec(
+            failure_id="H-C12-001-missing-locale-fallback",
+            protected_error_class="localized_semantic_fallback",
+            description="missing required language silently falls back to another language",
+            protected_harm="the UI presents incomplete or divergent meaning as complete",
+            case_id="missing_required_locale",
+            broken_decision="required_localized_projection_published",
+            broken_writes=("projection.localized_values", "projection.equivalence_status"),
+            broken_side_effects=("projection_publish",),
+            broken_tokens=("LocalizedProjection",),
+        ),
+        HazardSpec(
+            failure_id="H-C12-002-locale-switch-mutates-context",
+            protected_error_class="locale_projection_context_loss",
+            description="switching locale resets the current object-browser context",
+            protected_harm="language selection changes what the user is looking at",
+            case_id="select_chinese_same_context",
+            broken_decision="locale_switch_restarts_catalog",
+            broken_writes=(
+                "ui.selected_locale",
+                "ui.query",
+                "ui.filter_state",
+                "ui.selected_matter_id",
+            ),
+            broken_tokens=("LocaleSelection",),
+        ),
+        HazardSpec(
+            failure_id="H-C12-003-density-changes-semantic-object",
+            protected_error_class="density_semantic_drift",
+            description="Compact renders a different Matter, state, visual, or ordering",
+            protected_harm="display density becomes an alternate product truth",
+            case_id="density_switched",
+            broken_decision="compact_projection_recomputed",
+            broken_writes=("ui.card_density", "ui.catalog_revision"),
+            broken_side_effects=("ui_preference_write",),
+            broken_tokens=("MatterCard",),
+        ),
+        HazardSpec(
+            failure_id="H-C12-004-single-card-stretches",
+            protected_error_class="single_card_geometry_failure",
+            description="a one-card catalog stretches or vertically centers the card",
+            protected_harm="the reference layout breaks at an important empty-near state",
+            case_id="single_card_catalog",
+            broken_decision="single_card_stretched",
+            broken_writes=("ui.catalog_window",),
+            broken_tokens=("MatterCard",),
+        ),
+        HazardSpec(
+            failure_id="H-C12-005-search-resets-context",
+            protected_error_class="catalog_query_context_loss",
+            description="entering or clearing search resets density, locale, filters, selection, or scroll",
+            protected_harm="the user loses their place while browsing modeled objects",
+            case_id="catalog_search_or_filter_changed",
+            broken_decision="catalog_context_reset",
+            broken_writes=(
+                "ui.query",
+                "ui.card_density",
+                "ui.selected_locale",
+                "ui.selected_matter_id",
+            ),
+            broken_side_effects=("ui_window_write",),
+            broken_tokens=("MatterCatalog",),
+        ),
+        HazardSpec(
+            failure_id="H-C12-006-stale-response-overwrites-current",
+            protected_error_class="stale_projection_overwrite",
+            description="an older page or cancelled response overwrites current UI state",
+            protected_harm="the browser displays data from the wrong projection revision",
+            case_id="stale_or_cancelled_response",
+            broken_decision="stale_response_rendered",
+            broken_writes=("ui.catalog_window", "ui.catalog_revision"),
+            broken_side_effects=("ui_window_write",),
+            broken_tokens=("MatterCatalog",),
+        ),
+        HazardSpec(
+            failure_id="H-C12-007-early-projection",
+            protected_error_class="nonterminal_owner_projection",
+            description="C12 publishes fresh content before required owner joins terminate",
+            protected_harm="stale or partial canonical state looks current",
+            case_id="recompute_not_terminal",
+            broken_decision="required_localized_projection_published",
+            broken_writes=("projection.localized_values", "projection.equivalence_status"),
+            broken_side_effects=("projection_publish",),
+            broken_tokens=("LocalizedProjection",),
+        ),
+        HazardSpec(
+            failure_id="H-C12-008-ui-writes-canonical",
+            protected_error_class="projection_writer_escape",
+            description="the UI directly writes lifecycle, outcome, or relation state",
+            protected_harm="a second truth path bypasses the original owner",
+            case_id="ui_infers_state",
+            broken_decision="canonical_state_written",
+            broken_writes=("matter.lifecycle_axes",),
+            broken_tokens=("LifecycleState",),
+        ),
+        HazardSpec(
+            failure_id="H-C12-009-unsafe-visual-selected",
+            protected_error_class="representative_visual_authority_escape",
+            description="C12 selects a stale, denied, unsafe, or unrelated visual",
+            protected_harm="the card leaks private content or misrepresents the Matter",
+            case_id="no_eligible_visual",
+            broken_decision="card_visual_decision_current",
+            broken_writes=(
+                "matter.card_visual_decision",
+                "matter.card_visual_status",
+            ),
+            broken_side_effects=("card_visual_decision_write",),
+            broken_tokens=("CardVisualDecision",),
+        ),
+        HazardSpec(
+            failure_id="H-C12-010-correction-writes-directly",
+            protected_error_class="correction_owner_bypass",
+            description="an optional correction directly patches the current projection",
+            protected_harm="canonical data and other projections remain inconsistent",
+            case_id="optional_correction_requested",
+            broken_decision="projection_patched_directly",
+            broken_writes=("projection.localized_values",),
+            broken_side_effects=("projection_publish",),
+            broken_tokens=("LocalizedProjection",),
+        ),
+        HazardSpec(
+            failure_id="H-C12-011-internal-data-shown",
+            protected_error_class="private_internal_surface_leak",
+            description="paths, message ids, hashes, tokens, or receipts appear by default",
+            protected_harm="private implementation identity leaks into the product surface",
+            case_id="internal_identifier_requested_by_default",
+            broken_decision="internal_content_rendered",
+            broken_tokens=("InternalIdentifier",),
+        ),
+        HazardSpec(
+            failure_id="H-C12-012-card-repeats-full-coverage-ledger-scan",
+            protected_error_class="object_browser_coverage_relation_amplification",
+            description=(
+                "each catalog card and related-Matter candidate transfers and "
+                "parses the entire private ObjectCoverageLedger"
+            ),
+            protected_harm=(
+                "ordinary catalog and detail reads scale as cards times covered "
+                "objects and become unusable after a real first-run inventory"
+            ),
+            case_id="matter_coverage_relation_index_current",
+            broken_decision="bounded_matter_catalog_rendered",
+            broken_writes=("ui.catalog_window", "ui.catalog_revision"),
+            broken_side_effects=("ui_window_write",),
+            broken_tokens=("MatterCatalog", "MatterCard"),
+        ),
+    ),
+    risk_classes=(
+        "projection",
+        "localization",
+        "privacy",
+        "state_transition",
+        "ownership",
+        "visual",
+        "accessibility",
+        "resource",
+        "side_effect",
+    ),
+    template_no_match_reason=(
+        "No existing template owns the Databank-authority bilingual desktop "
+        "Matter object browser with density and representative-visual invariants."
+    ),
+    blindspots=(
+        "pixel geometry and focus behavior require executable desktop/browser capture evidence",
+        "bilingual semantic quality and representative-visual usefulness require private canaries",
+        "desktop packaging and worker lifecycle require installed-runtime evidence",
+    ),
+    claim_boundary=(
+        "This model establishes bounded C12 localization, Matter catalog/detail, "
+        "timeline, density, search-state, representative-visual, stale-response, "
+        "optional-correction, projection-only, and privacy transitions. It does "
+        "not prove pixel parity, factual truth, desktop installation, or private-run usefulness."
+    ),
+)

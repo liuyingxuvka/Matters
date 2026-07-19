@@ -1,0 +1,4 @@
+interface:
+  display_name: "Matters Source Governance"
+  short_description: "Govern authorized scope and automatic tracking policy"
+  default_prompt: "Use $matters-source-governance through MatterService to disposition every declared source target without expanding authorization or writing canonical owner state."

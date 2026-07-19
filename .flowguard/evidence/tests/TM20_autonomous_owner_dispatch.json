@@ -1,0 +1,101 @@
+{
+  "artifact_type": "matters.test-suite-receipt.v1",
+  "generated_at": "2026-07-19T05:50:37.443568+00:00",
+  "pytest_observation": {
+    "errors": 0,
+    "failed": 0,
+    "observed_total": 9,
+    "passed": 9,
+    "skipped": 0,
+    "xfailed": 0,
+    "xpassed": 0
+  },
+  "source_fingerprint": "sha256:796678218f61e2b95c6a6cdc7ed629b1e9f19d20f33e30c59e388791cfc27be1",
+  "source_fingerprints": {
+    "tests/test_analysis_operations_depth.py": "sha256:aa16c08b2c4bd7af15d70474f703ce4e87e41934d37bc084d104f9220cbb249f",
+    "tests/test_durable_work_recompute.py": "sha256:75e96a1580c839c468f19a7a7ca450fc5c01d3d7a0b5eb8a80905d4e154c9774",
+    "tests/test_understanding_workflow.py": "sha256:cbf2716e7c44dd9873d00a25f1d5be3c2dacdd6d3d668ed40bddd5b18b03487f"
+  },
+  "source_paths": [
+    "tests/test_understanding_workflow.py",
+    "tests/test_analysis_operations_depth.py",
+    "tests/test_durable_work_recompute.py"
+  ],
+  "stderr_tail": "",
+  "stdout_tail": ".........                                                                [100%]\n9 passed in 2.46s\n",
+  "suite_id": "TM20_autonomous_owner_dispatch",
+  "test_suite_evidence": {
+    "artifact_version": "matters.test-suite-receipt.v1",
+    "background": false,
+    "command": "python -m pytest -q -o addopts= tests/test_understanding_workflow.py tests/test_analysis_operations_depth.py tests/test_durable_work_recompute.py",
+    "covered_obligation_ids": [
+      "TI-TM20_autonomous_owner_dispatch"
+    ],
+    "diagnostic_boundary": "declared_complete",
+    "diagnostic_campaign_id": "G5-G8-TM20_autonomous_owner_dispatch",
+    "duration_seconds": null,
+    "evidence_current": true,
+    "evidence_tier": "conformance_green",
+    "executed_count": 1,
+    "exit_code": 0,
+    "failed_count": 0,
+    "finding_ids": [],
+    "has_exit_artifact": true,
+    "has_result_artifact": true,
+    "inventory_revision": "g4-testmesh-v3-autonomous-object-browser",
+    "layer": "child",
+    "log_root": "",
+    "not_run_count": 0,
+    "not_run_reason": "",
+    "owned_coverage_shard_ids": [],
+    "owned_inventory_item_ids": [
+      "TI-TM20_autonomous_owner_dispatch"
+    ],
+    "owned_leaf_cell_ids": [],
+    "owns_side_effects": [],
+    "owns_state": [],
+    "planned_count": 1,
+    "progress_only": false,
+    "proof_artifact": {
+      "artifact_fingerprints": {
+        "tests/test_analysis_operations_depth.py": "sha256:aa16c08b2c4bd7af15d70474f703ce4e87e41934d37bc084d104f9220cbb249f",
+        "tests/test_durable_work_recompute.py": "sha256:75e96a1580c839c468f19a7a7ca450fc5c01d3d7a0b5eb8a80905d4e154c9774",
+        "tests/test_understanding_workflow.py": "sha256:cbf2716e7c44dd9873d00a25f1d5be3c2dacdd6d3d668ed40bddd5b18b03487f"
+      },
+      "artifact_id": "artifact:run:TM20_autonomous_owner_dispatch:f38bb468013d7876",
+      "assertion_scope": "external_contract",
+      "command": "python -m pytest -q -o addopts= tests/test_understanding_workflow.py tests/test_analysis_operations_depth.py tests/test_durable_work_recompute.py",
+      "covered_obligation_ids": [
+        "TI-TM20_autonomous_owner_dispatch"
+      ],
+      "current": true,
+      "exit_code": 0,
+      "finished_at": "2026-07-19T05:50:37.443568+00:00",
+      "metadata": {},
+      "producer_route": "test_mesh",
+      "progress_only": false,
+      "result_path": ".flowguard/evidence/tests/TM20_autonomous_owner_dispatch.json",
+      "result_status": "passed",
+      "route_evidence_current": true,
+      "route_gap_codes": [],
+      "stale_reasons": [],
+      "started_at": "2026-07-19T05:50:34.038652+00:00"
+    },
+    "release_required": false,
+    "result_fingerprint": "sha256:796678218f61e2b95c6a6cdc7ed629b1e9f19d20f33e30c59e388791cfc27be1",
+    "result_path": ".flowguard/evidence/tests/TM20_autonomous_owner_dispatch.json",
+    "result_reused": false,
+    "result_status": "passed",
+    "reuse_ticket": null,
+    "run_id": "run:TM20_autonomous_owner_dispatch:f38bb468013d7876",
+    "selected_count": 9,
+    "skipped_count": 0,
+    "skipped_visible": true,
+    "stale_reasons": [],
+    "suite_id": "TM20_autonomous_owner_dispatch",
+    "terminal_status": "passed",
+    "test_count": 9,
+    "timeout_seconds": null,
+    "verifier_version": "9.0.3"
+  }
+}

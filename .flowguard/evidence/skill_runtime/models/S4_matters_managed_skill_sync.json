@@ -1,0 +1,768 @@
+{
+  "artifact_type": "matters.skill-runtime-flowguard-receipt.v1",
+  "claim_boundary": "S4 proves abstract installation authority and staged transaction rules. It performs no real installation, staging, activation, or rollback.",
+  "contract_exhaustion": {
+    "plan": {
+      "allow_unbounded_scoped": true,
+      "axes": [],
+      "cartesian_case_limit": 100000,
+      "claim_scope": "routine",
+      "consumed_child_receipt_ids": [],
+      "coverage_receipts": [],
+      "coverage_shards": [],
+      "coverage_universe": {
+        "claim_scope": "routine",
+        "exclusions": [],
+        "metadata": {},
+        "require_full_product": false,
+        "required_axis_ids": [],
+        "required_boundary_ids": [],
+        "required_case_ids": [
+          "H-S4-001-bundled-only-global-install",
+          "H-S4-002-unmanaged-overwritten",
+          "H-S4-003-direct-activation"
+        ],
+        "required_coverage_receipt_ids": [],
+        "required_dimension_ids": [
+          "S4_matters_managed_skill_sync:declared-case-inventory"
+        ],
+        "required_family_member_ids": [],
+        "required_interaction_group_ids": [],
+        "required_payload_contract_ids": [],
+        "required_reduction_candidate_ids": [],
+        "required_similarity_ids": [],
+        "source_refs": [
+          "S4_matters_managed_skill_sync"
+        ],
+        "universe_id": "coverage-universe:S4_matters_managed_skill_sync"
+      },
+      "dimensions": [
+        {
+          "consumer": "",
+          "currentness_rule": "",
+          "description": "Exact finite known-good and hazard source cases.",
+          "dimension_id": "S4_matters_managed_skill_sync:declared-case-inventory",
+          "dimension_type": "declared_finite_case_inventory",
+          "evidence_refs": [],
+          "field_refs": [],
+          "finite": true,
+          "metadata": {},
+          "mutation_types": [],
+          "owner_model_id": "S4_matters_managed_skill_sync",
+          "producer": "",
+          "required": true,
+          "source_route": "model_first_function_flow",
+          "values": [
+            "bundled_only_no_global_install",
+            "bundled_newer_unmanaged_local",
+            "bundled_newer_matters_managed",
+            "exact_or_local_overlay_no_sync",
+            "staging_validation_failed"
+          ]
+        }
+      ],
+      "expected_family_member_ids": [],
+      "expected_reduction_candidate_ids": [],
+      "generation_policy": "bounded",
+      "interaction_groups": [],
+      "inventory_current": true,
+      "inventory_revision": "sha256:84e6170be9e9b7ff856d157db5619dfa806c864a8dfd0c89588eb5f3683863f1",
+      "materialized_family_member_ids": [],
+      "materialized_reduction_candidate_ids": [],
+      "metadata": {},
+      "model_id": "S4_matters_managed_skill_sync",
+      "model_level": "child",
+      "observed_problem_backfeed": [],
+      "oracles": [
+        {
+          "allowed_side_effects": [],
+          "description": "H-S4-001-bundled-only-global-install must be rejected by the declared model reaction without a canonical Matter write.",
+          "disallowed_side_effects": [
+            "canonical_matter_write"
+          ],
+          "expected_message_fields": [
+            "decision",
+            "reason"
+          ],
+          "expected_status": "blocked",
+          "forbidden_downstream_steps": [],
+          "metadata": {},
+          "oracle_id": "oracle:H-S4-001-bundled-only-global-install",
+          "required_repair_fields": [
+            "case_id",
+            "required_disposition"
+          ]
+        },
+        {
+          "allowed_side_effects": [],
+          "description": "H-S4-002-unmanaged-overwritten must be rejected by the declared model reaction without a canonical Matter write.",
+          "disallowed_side_effects": [
+            "canonical_matter_write"
+          ],
+          "expected_message_fields": [
+            "decision",
+            "reason"
+          ],
+          "expected_status": "blocked",
+          "forbidden_downstream_steps": [],
+          "metadata": {},
+          "oracle_id": "oracle:H-S4-002-unmanaged-overwritten",
+          "required_repair_fields": [
+            "case_id",
+            "required_disposition"
+          ]
+        },
+        {
+          "allowed_side_effects": [],
+          "description": "H-S4-003-direct-activation must be rejected by the declared model reaction without a canonical Matter write.",
+          "disallowed_side_effects": [
+            "canonical_matter_write"
+          ],
+          "expected_message_fields": [
+            "decision",
+            "reason"
+          ],
+          "expected_status": "blocked",
+          "forbidden_downstream_steps": [],
+          "metadata": {},
+          "oracle_id": "oracle:H-S4-003-direct-activation",
+          "required_repair_fields": [
+            "case_id",
+            "required_disposition"
+          ]
+        }
+      ],
+      "parent_model_id": "S0_matters_skill_runtime",
+      "plan_id": "contract-exhaustion:S4_matters_managed_skill_sync",
+      "require_actionable_oracle_feedback": false,
+      "require_composite_handoff_acceptance": false,
+      "require_coverage_universe": true,
+      "require_family_inventory": false,
+      "require_model_coverage_receipt": false,
+      "require_oracles_for_required_cases": false,
+      "require_reduction_inventory": false,
+      "required_child_receipt_ids": [],
+      "required_coverage_receipt_ids": [],
+      "required_route_ids": [],
+      "scoped_family_member_reasons": {},
+      "scoped_reduction_candidate_reasons": {},
+      "scoped_similarity_reasons": {},
+      "seed_cases": [
+        {
+          "axis_case_ids": [],
+          "case_id": "H-S4-001-bundled-only-global-install",
+          "combination_order": 0,
+          "coverage_shard_id": "",
+          "description": "bundled-only operation creates a global installation",
+          "dimension_id": "S4_matters_managed_skill_sync:declared-case-inventory",
+          "dimension_ids": [],
+          "evidence_refs": [],
+          "expected_status": "blocked",
+          "family_id": "",
+          "freshness_scope": "",
+          "generation_kind": "single_dimension",
+          "input_delta": {},
+          "interaction_group_id": "",
+          "member_id": "",
+          "metadata": {},
+          "model_id": "S4_matters_managed_skill_sync",
+          "mutation_type": "unnecessary_global_skill_mutation",
+          "oracle_id": "oracle:H-S4-001-bundled-only-global-install",
+          "parent_model_id": "",
+          "required": true,
+          "required_routes": [],
+          "required_test_cell_id": "",
+          "resolved_routes": [
+            "field_lifecycle_mesh",
+            "model_test_alignment"
+          ],
+          "risk_gate_id": "",
+          "source_case_id": "bundled_only_no_global_install",
+          "source_route": "model_first_function_flow"
+        },
+        {
+          "axis_case_ids": [],
+          "case_id": "H-S4-002-unmanaged-overwritten",
+          "combination_order": 0,
+          "coverage_shard_id": "",
+          "description": "an unmanaged external installation is overwritten",
+          "dimension_id": "S4_matters_managed_skill_sync:declared-case-inventory",
+          "dimension_ids": [],
+          "evidence_refs": [],
+          "expected_status": "blocked",
+          "family_id": "",
+          "freshness_scope": "",
+          "generation_kind": "single_dimension",
+          "input_delta": {},
+          "interaction_group_id": "",
+          "member_id": "",
+          "metadata": {},
+          "model_id": "S4_matters_managed_skill_sync",
+          "mutation_type": "external_installation_authority_escape",
+          "oracle_id": "oracle:H-S4-002-unmanaged-overwritten",
+          "parent_model_id": "",
+          "required": true,
+          "required_routes": [],
+          "required_test_cell_id": "",
+          "resolved_routes": [
+            "field_lifecycle_mesh",
+            "model_test_alignment"
+          ],
+          "risk_gate_id": "",
+          "source_case_id": "bundled_newer_unmanaged_local",
+          "source_route": "model_first_function_flow"
+        },
+        {
+          "axis_case_ids": [],
+          "case_id": "H-S4-003-direct-activation",
+          "combination_order": 0,
+          "coverage_shard_id": "",
+          "description": "a Matters-managed update activates without staging",
+          "dimension_id": "S4_matters_managed_skill_sync:declared-case-inventory",
+          "dimension_ids": [],
+          "evidence_refs": [],
+          "expected_status": "blocked",
+          "family_id": "",
+          "freshness_scope": "",
+          "generation_kind": "single_dimension",
+          "input_delta": {},
+          "interaction_group_id": "",
+          "member_id": "",
+          "metadata": {},
+          "model_id": "S4_matters_managed_skill_sync",
+          "mutation_type": "managed_sync_transaction_bypass",
+          "oracle_id": "oracle:H-S4-003-direct-activation",
+          "parent_model_id": "",
+          "required": true,
+          "required_routes": [],
+          "required_test_cell_id": "",
+          "resolved_routes": [
+            "field_lifecycle_mesh",
+            "model_test_alignment"
+          ],
+          "risk_gate_id": "",
+          "source_case_id": "bundled_newer_matters_managed",
+          "source_route": "model_first_function_flow"
+        }
+      ],
+      "similarity_handoff": null,
+      "similarity_materializations": {},
+      "source_bug_refs": [],
+      "source_model_ids": [
+        "S4_matters_managed_skill_sync"
+      ]
+    },
+    "report": {
+      "combination_cases": [],
+      "composite_handoff_acceptances": [
+        {
+          "acceptance_id": "composite_handoff:H-S4-001-bundled-only-global-install",
+          "case_id": "H-S4-001-bundled-only-global-install",
+          "description": "single case matrix pass is not full-chain confidence; all route handoffs must close this case",
+          "metadata": {
+            "mutation_type": "unnecessary_global_skill_mutation",
+            "source_case_id": "bundled_only_no_global_install",
+            "source_route": "model_first_function_flow"
+          },
+          "required": true,
+          "route_ids": [
+            "field_lifecycle_mesh",
+            "model_test_alignment"
+          ]
+        },
+        {
+          "acceptance_id": "composite_handoff:H-S4-002-unmanaged-overwritten",
+          "case_id": "H-S4-002-unmanaged-overwritten",
+          "description": "single case matrix pass is not full-chain confidence; all route handoffs must close this case",
+          "metadata": {
+            "mutation_type": "external_installation_authority_escape",
+            "source_case_id": "bundled_newer_unmanaged_local",
+            "source_route": "model_first_function_flow"
+          },
+          "required": true,
+          "route_ids": [
+            "field_lifecycle_mesh",
+            "model_test_alignment"
+          ]
+        },
+        {
+          "acceptance_id": "composite_handoff:H-S4-003-direct-activation",
+          "case_id": "H-S4-003-direct-activation",
+          "description": "single case matrix pass is not full-chain confidence; all route handoffs must close this case",
+          "metadata": {
+            "mutation_type": "managed_sync_transaction_bypass",
+            "source_case_id": "bundled_newer_matters_managed",
+            "source_route": "model_first_function_flow"
+          },
+          "required": true,
+          "route_ids": [
+            "field_lifecycle_mesh",
+            "model_test_alignment"
+          ]
+        },
+        {
+          "acceptance_id": "composite_handoff:contract:S4_matters_managed_skill_sync:declared-case-inventory:missing_required_field",
+          "case_id": "contract:S4_matters_managed_skill_sync:declared-case-inventory:missing_required_field",
+          "description": "single case matrix pass is not full-chain confidence; all route handoffs must close this case",
+          "metadata": {
+            "mutation_type": "missing_required_field",
+            "source_case_id": "S4_matters_managed_skill_sync:declared-case-inventory",
+            "source_route": "model_first_function_flow"
+          },
+          "required": true,
+          "route_ids": [
+            "field_lifecycle_mesh",
+            "model_test_alignment"
+          ]
+        },
+        {
+          "acceptance_id": "composite_handoff:contract:S4_matters_managed_skill_sync:declared-case-inventory:malformed_input",
+          "case_id": "contract:S4_matters_managed_skill_sync:declared-case-inventory:malformed_input",
+          "description": "single case matrix pass is not full-chain confidence; all route handoffs must close this case",
+          "metadata": {
+            "mutation_type": "malformed_input",
+            "source_case_id": "S4_matters_managed_skill_sync:declared-case-inventory",
+            "source_route": "model_first_function_flow"
+          },
+          "required": true,
+          "route_ids": [
+            "field_lifecycle_mesh",
+            "model_test_alignment"
+          ]
+        }
+      ],
+      "confidence": "full",
+      "contract_fault_profiles": [
+        {
+          "contract_path": "S4_matters_managed_skill_sync:declared-case-inventory",
+          "expected_message_fields": [
+            "decision",
+            "reason"
+          ],
+          "expected_status": "blocked",
+          "live_completion_allowed": false,
+          "metadata": {
+            "dimension_ids": [],
+            "generation_kind": "single_dimension",
+            "source_case_id": "bundled_only_no_global_install",
+            "source_route": "model_first_function_flow"
+          },
+          "mutation_type": "unnecessary_global_skill_mutation",
+          "profile_id": "contract_fault:H-S4-001-bundled-only-global-install",
+          "required_repair_fields": [
+            "case_id",
+            "required_disposition"
+          ],
+          "retry_class": "none",
+          "source_case_id": "H-S4-001-bundled-only-global-install",
+          "synthetic_only": true
+        },
+        {
+          "contract_path": "S4_matters_managed_skill_sync:declared-case-inventory",
+          "expected_message_fields": [
+            "decision",
+            "reason"
+          ],
+          "expected_status": "blocked",
+          "live_completion_allowed": false,
+          "metadata": {
+            "dimension_ids": [],
+            "generation_kind": "single_dimension",
+            "source_case_id": "bundled_newer_unmanaged_local",
+            "source_route": "model_first_function_flow"
+          },
+          "mutation_type": "external_installation_authority_escape",
+          "profile_id": "contract_fault:H-S4-002-unmanaged-overwritten",
+          "required_repair_fields": [
+            "case_id",
+            "required_disposition"
+          ],
+          "retry_class": "none",
+          "source_case_id": "H-S4-002-unmanaged-overwritten",
+          "synthetic_only": true
+        },
+        {
+          "contract_path": "S4_matters_managed_skill_sync:declared-case-inventory",
+          "expected_message_fields": [
+            "decision",
+            "reason"
+          ],
+          "expected_status": "blocked",
+          "live_completion_allowed": false,
+          "metadata": {
+            "dimension_ids": [],
+            "generation_kind": "single_dimension",
+            "source_case_id": "bundled_newer_matters_managed",
+            "source_route": "model_first_function_flow"
+          },
+          "mutation_type": "managed_sync_transaction_bypass",
+          "profile_id": "contract_fault:H-S4-003-direct-activation",
+          "required_repair_fields": [
+            "case_id",
+            "required_disposition"
+          ],
+          "retry_class": "none",
+          "source_case_id": "H-S4-003-direct-activation",
+          "synthetic_only": true
+        },
+        {
+          "contract_path": "S4_matters_managed_skill_sync:declared-case-inventory",
+          "expected_message_fields": [],
+          "expected_status": "reject_before_side_effect",
+          "live_completion_allowed": false,
+          "metadata": {
+            "dimension_ids": [
+              "S4_matters_managed_skill_sync:declared-case-inventory"
+            ],
+            "generation_kind": "single_dimension",
+            "source_case_id": "S4_matters_managed_skill_sync:declared-case-inventory",
+            "source_route": "model_first_function_flow"
+          },
+          "mutation_type": "missing_required_field",
+          "profile_id": "contract_fault:contract:S4_matters_managed_skill_sync:declared-case-inventory:missing_required_field",
+          "required_repair_fields": [],
+          "retry_class": "reject_and_repair",
+          "source_case_id": "contract:S4_matters_managed_skill_sync:declared-case-inventory:missing_required_field",
+          "synthetic_only": true
+        },
+        {
+          "contract_path": "S4_matters_managed_skill_sync:declared-case-inventory",
+          "expected_message_fields": [],
+          "expected_status": "reject_before_side_effect",
+          "live_completion_allowed": false,
+          "metadata": {
+            "dimension_ids": [
+              "S4_matters_managed_skill_sync:declared-case-inventory"
+            ],
+            "generation_kind": "single_dimension",
+            "source_case_id": "S4_matters_managed_skill_sync:declared-case-inventory",
+            "source_route": "model_first_function_flow"
+          },
+          "mutation_type": "malformed_input",
+          "profile_id": "contract_fault:contract:S4_matters_managed_skill_sync:declared-case-inventory:malformed_input",
+          "required_repair_fields": [],
+          "retry_class": "reject_and_repair",
+          "source_case_id": "contract:S4_matters_managed_skill_sync:declared-case-inventory:malformed_input",
+          "synthetic_only": true
+        }
+      ],
+      "coverage_receipts": [],
+      "coverage_shards": [],
+      "coverage_universe": {
+        "claim_scope": "routine",
+        "exclusions": [],
+        "metadata": {},
+        "require_full_product": false,
+        "required_axis_ids": [],
+        "required_boundary_ids": [],
+        "required_case_ids": [
+          "H-S4-001-bundled-only-global-install",
+          "H-S4-002-unmanaged-overwritten",
+          "H-S4-003-direct-activation"
+        ],
+        "required_coverage_receipt_ids": [],
+        "required_dimension_ids": [
+          "S4_matters_managed_skill_sync:declared-case-inventory"
+        ],
+        "required_family_member_ids": [],
+        "required_interaction_group_ids": [],
+        "required_payload_contract_ids": [],
+        "required_reduction_candidate_ids": [],
+        "required_similarity_ids": [],
+        "source_refs": [
+          "S4_matters_managed_skill_sync"
+        ],
+        "universe_id": "coverage-universe:S4_matters_managed_skill_sync"
+      },
+      "decision": "contract_exhaustion_ready",
+      "downstream_similarity_obligation_ids": [],
+      "findings": [],
+      "generated_cases": [
+        {
+          "axis_case_ids": [],
+          "case_id": "H-S4-001-bundled-only-global-install",
+          "combination_order": 0,
+          "coverage_shard_id": "",
+          "description": "bundled-only operation creates a global installation",
+          "dimension_id": "S4_matters_managed_skill_sync:declared-case-inventory",
+          "dimension_ids": [],
+          "evidence_refs": [],
+          "expected_status": "blocked",
+          "family_id": "",
+          "freshness_scope": "",
+          "generation_kind": "single_dimension",
+          "input_delta": {},
+          "interaction_group_id": "",
+          "member_id": "",
+          "metadata": {},
+          "model_id": "S4_matters_managed_skill_sync",
+          "mutation_type": "unnecessary_global_skill_mutation",
+          "oracle_id": "oracle:H-S4-001-bundled-only-global-install",
+          "parent_model_id": "",
+          "required": true,
+          "required_routes": [],
+          "required_test_cell_id": "",
+          "resolved_routes": [
+            "field_lifecycle_mesh",
+            "model_test_alignment"
+          ],
+          "risk_gate_id": "",
+          "source_case_id": "bundled_only_no_global_install",
+          "source_route": "model_first_function_flow"
+        },
+        {
+          "axis_case_ids": [],
+          "case_id": "H-S4-002-unmanaged-overwritten",
+          "combination_order": 0,
+          "coverage_shard_id": "",
+          "description": "an unmanaged external installation is overwritten",
+          "dimension_id": "S4_matters_managed_skill_sync:declared-case-inventory",
+          "dimension_ids": [],
+          "evidence_refs": [],
+          "expected_status": "blocked",
+          "family_id": "",
+          "freshness_scope": "",
+          "generation_kind": "single_dimension",
+          "input_delta": {},
+          "interaction_group_id": "",
+          "member_id": "",
+          "metadata": {},
+          "model_id": "S4_matters_managed_skill_sync",
+          "mutation_type": "external_installation_authority_escape",
+          "oracle_id": "oracle:H-S4-002-unmanaged-overwritten",
+          "parent_model_id": "",
+          "required": true,
+          "required_routes": [],
+          "required_test_cell_id": "",
+          "resolved_routes": [
+            "field_lifecycle_mesh",
+            "model_test_alignment"
+          ],
+          "risk_gate_id": "",
+          "source_case_id": "bundled_newer_unmanaged_local",
+          "source_route": "model_first_function_flow"
+        },
+        {
+          "axis_case_ids": [],
+          "case_id": "H-S4-003-direct-activation",
+          "combination_order": 0,
+          "coverage_shard_id": "",
+          "description": "a Matters-managed update activates without staging",
+          "dimension_id": "S4_matters_managed_skill_sync:declared-case-inventory",
+          "dimension_ids": [],
+          "evidence_refs": [],
+          "expected_status": "blocked",
+          "family_id": "",
+          "freshness_scope": "",
+          "generation_kind": "single_dimension",
+          "input_delta": {},
+          "interaction_group_id": "",
+          "member_id": "",
+          "metadata": {},
+          "model_id": "S4_matters_managed_skill_sync",
+          "mutation_type": "managed_sync_transaction_bypass",
+          "oracle_id": "oracle:H-S4-003-direct-activation",
+          "parent_model_id": "",
+          "required": true,
+          "required_routes": [],
+          "required_test_cell_id": "",
+          "resolved_routes": [
+            "field_lifecycle_mesh",
+            "model_test_alignment"
+          ],
+          "risk_gate_id": "",
+          "source_case_id": "bundled_newer_matters_managed",
+          "source_route": "model_first_function_flow"
+        },
+        {
+          "axis_case_ids": [],
+          "case_id": "contract:S4_matters_managed_skill_sync:declared-case-inventory:missing_required_field",
+          "combination_order": 0,
+          "coverage_shard_id": "",
+          "description": "Exact finite known-good and hazard source cases.",
+          "dimension_id": "S4_matters_managed_skill_sync:declared-case-inventory",
+          "dimension_ids": [
+            "S4_matters_managed_skill_sync:declared-case-inventory"
+          ],
+          "evidence_refs": [],
+          "expected_status": "reject_before_side_effect",
+          "family_id": "",
+          "freshness_scope": "",
+          "generation_kind": "single_dimension",
+          "input_delta": {
+            "dimension_type": "declared_finite_case_inventory",
+            "evidence_refs": [],
+            "field_refs": [],
+            "mutation_type": "missing_required_field"
+          },
+          "interaction_group_id": "",
+          "member_id": "",
+          "metadata": {
+            "consumer": "",
+            "owner_model_id": "S4_matters_managed_skill_sync",
+            "producer": ""
+          },
+          "model_id": "S4_matters_managed_skill_sync",
+          "mutation_type": "missing_required_field",
+          "oracle_id": "",
+          "parent_model_id": "",
+          "required": true,
+          "required_routes": [],
+          "required_test_cell_id": "",
+          "resolved_routes": [
+            "field_lifecycle_mesh",
+            "model_test_alignment"
+          ],
+          "risk_gate_id": "",
+          "source_case_id": "S4_matters_managed_skill_sync:declared-case-inventory",
+          "source_route": "model_first_function_flow"
+        },
+        {
+          "axis_case_ids": [],
+          "case_id": "contract:S4_matters_managed_skill_sync:declared-case-inventory:malformed_input",
+          "combination_order": 0,
+          "coverage_shard_id": "",
+          "description": "Exact finite known-good and hazard source cases.",
+          "dimension_id": "S4_matters_managed_skill_sync:declared-case-inventory",
+          "dimension_ids": [
+            "S4_matters_managed_skill_sync:declared-case-inventory"
+          ],
+          "evidence_refs": [],
+          "expected_status": "reject_before_side_effect",
+          "family_id": "",
+          "freshness_scope": "",
+          "generation_kind": "single_dimension",
+          "input_delta": {
+            "dimension_type": "declared_finite_case_inventory",
+            "evidence_refs": [],
+            "field_refs": [],
+            "mutation_type": "malformed_input"
+          },
+          "interaction_group_id": "",
+          "member_id": "",
+          "metadata": {
+            "consumer": "",
+            "owner_model_id": "S4_matters_managed_skill_sync",
+            "producer": ""
+          },
+          "model_id": "S4_matters_managed_skill_sync",
+          "mutation_type": "malformed_input",
+          "oracle_id": "",
+          "parent_model_id": "",
+          "required": true,
+          "required_routes": [],
+          "required_test_cell_id": "",
+          "resolved_routes": [
+            "field_lifecycle_mesh",
+            "model_test_alignment"
+          ],
+          "risk_gate_id": "",
+          "source_case_id": "S4_matters_managed_skill_sync:declared-case-inventory",
+          "source_route": "model_first_function_flow"
+        }
+      ],
+      "inventory_revision": "sha256:84e6170be9e9b7ff856d157db5619dfa806c864a8dfd0c89588eb5f3683863f1",
+      "materialized_similarity_ids": [],
+      "missing_oracle_case_ids": [],
+      "model_gap_dimension_ids": [],
+      "observed_problem_backfeed_report": null,
+      "ok": true,
+      "omitted_family_member_ids": [],
+      "omitted_reduction_candidate_ids": [],
+      "plan_id": "contract-exhaustion:S4_matters_managed_skill_sync",
+      "required_combination_case_ids": [],
+      "required_composite_handoff_acceptance_ids": [
+        "composite_handoff:H-S4-001-bundled-only-global-install",
+        "composite_handoff:H-S4-002-unmanaged-overwritten",
+        "composite_handoff:H-S4-003-direct-activation",
+        "composite_handoff:contract:S4_matters_managed_skill_sync:declared-case-inventory:missing_required_field",
+        "composite_handoff:contract:S4_matters_managed_skill_sync:declared-case-inventory:malformed_input"
+      ],
+      "required_coverage_receipt_ids": [],
+      "required_coverage_shard_ids": [],
+      "required_route_case_ids": {
+        "field_lifecycle_mesh": [
+          "H-S4-001-bundled-only-global-install",
+          "H-S4-002-unmanaged-overwritten",
+          "H-S4-003-direct-activation",
+          "contract:S4_matters_managed_skill_sync:declared-case-inventory:missing_required_field",
+          "contract:S4_matters_managed_skill_sync:declared-case-inventory:malformed_input"
+        ],
+        "model_test_alignment": [
+          "H-S4-001-bundled-only-global-install",
+          "H-S4-002-unmanaged-overwritten",
+          "H-S4-003-direct-activation",
+          "contract:S4_matters_managed_skill_sync:declared-case-inventory:missing_required_field",
+          "contract:S4_matters_managed_skill_sync:declared-case-inventory:malformed_input"
+        ]
+      },
+      "summary": "matrix ready; broad chain confidence still requires composite handoff closure",
+      "unmaterialized_similarity_ids": []
+    }
+  },
+  "evidence_id": "evidence:skill-runtime:S4_matters_managed_skill_sync:84e6170be9e9b7ff",
+  "evidence_tiers": [
+    "abstract_green",
+    "hazard_green"
+  ],
+  "function_signature": "S4_matters_managed_skill_sync: CaseInput x ModelState -> Set(DecisionOutput x ModelState)",
+  "generated_at": "2026-07-19T05:49:08.310192+00:00",
+  "known_bad_proofs": [
+    {
+      "evidence_id": "S4_matters_managed_skill_sync:known-bad:H-S4-001-bundled-only-global-install",
+      "failure_id": "H-S4-001-bundled-only-global-install",
+      "observed_status": "failed",
+      "protected_error_class": "unnecessary_global_skill_mutation"
+    },
+    {
+      "evidence_id": "S4_matters_managed_skill_sync:known-bad:H-S4-002-unmanaged-overwritten",
+      "failure_id": "H-S4-002-unmanaged-overwritten",
+      "observed_status": "failed",
+      "protected_error_class": "external_installation_authority_escape"
+    },
+    {
+      "evidence_id": "S4_matters_managed_skill_sync:known-bad:H-S4-003-direct-activation",
+      "failure_id": "H-S4-003-direct-activation",
+      "observed_status": "failed",
+      "protected_error_class": "managed_sync_transaction_bypass"
+    }
+  ],
+  "model_fingerprint": "sha256:84e6170be9e9b7ff856d157db5619dfa806c864a8dfd0c89588eb5f3683863f1",
+  "model_id": "S4_matters_managed_skill_sync",
+  "model_title": "S4 Matters-Managed Skill Synchronization",
+  "overall_status": "pass_with_gaps",
+  "owned_write_fields": [
+    "skill_runtime.managed_projection_identity",
+    "skill_runtime.sync_transaction_state",
+    "skill_runtime.prior_projection_identity"
+  ],
+  "pass_for_skill_runtime": true,
+  "sections": {
+    "conformance_replay": "not_run",
+    "contract_check": "not_run",
+    "counterexample_minimization": "not_run",
+    "known_bad_proof": "pass",
+    "minimum_model_review": "pass",
+    "model_check": "pass",
+    "model_quality_audit": "pass_with_gaps",
+    "progress_check": "not_run",
+    "scenario_review": "pass",
+    "state_closure": "pass",
+    "template_harvest_review": "pass",
+    "topology_hazard": "pass_with_gaps"
+  },
+  "side_effect_classes": [
+    "stage_managed_projection",
+    "activate_managed_projection",
+    "write_sync_receipt"
+  ],
+  "skipped_checks": {
+    "live_installation": "not_run: no real global or Matters-managed skill installation was attempted",
+    "m0_c1_c12_integration": "out_of_scope: S0 is auxiliary and cannot become C13",
+    "production_conformance": "not_run: auxiliary skill runtime implementation is intentionally outside this model-only workstream"
+  },
+  "toolchain": {
+    "flowguard_package_version": "0.58.4",
+    "flowguard_schema_version": "1.0"
+  }
+}

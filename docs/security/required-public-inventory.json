@@ -1,0 +1,62 @@
+{
+  "schema": "matters.required-public-inventory.v1",
+  "authority": "repository_public_source",
+  "required_singletons": [
+    ".gitignore",
+    "AGENTS.md",
+    "MANIFEST.in",
+    "README.md",
+    "docs/security/data-classification.md",
+    "docs/security/public-boundary.md",
+    "docs/security/public-file-policy.json",
+    "docs/security/required-public-inventory.json",
+    "docs/security/scope-manifest.yaml",
+    "pyproject.toml",
+    "scripts/check_public_boundary.py",
+    "src/matters/__init__.py",
+    "tests/test_tm18_privacy_public_boundary.py"
+  ],
+  "required_trees": [
+    ".agents",
+    ".codex",
+    ".flowguard",
+    "docs",
+    "flowguard_design",
+    "flowguard_models",
+    "openspec",
+    "plugin",
+    "scripts",
+    "src",
+    "synthetic_fixtures",
+    "tests",
+    "ui"
+  ],
+  "excluded_patterns": [
+    "**/__pycache__/**",
+    "**/.pytest_cache/**",
+    "**/*.pyc",
+    "**/*.pyo",
+    "**/*.egg-info/**",
+    "**/*.log",
+    "**/*~"
+  ],
+  "fingerprint_excluded_patterns": [
+    ".flowguard/adoption_log.jsonl",
+    ".flowguard/evidence/**",
+    "docs/flowguard_adoption_log.md"
+  ],
+  "package_projection": [
+    {
+      "source_prefix": "src/",
+      "source_pattern": "src/matters/**",
+      "wheel_prefix": ""
+    }
+  ],
+  "release_required_singletons": [
+    "CHANGELOG.md",
+    "LICENSE",
+    "SECURITY.md",
+    "sbom.json"
+  ],
+  "claim_boundary": "Selectors define the complete public source inventory from the physical workspace. Release-only files become mandatory only for a release scan. Ignored, tracked, clean-clone, and package inventories are comparisons, never replacement authorities."
+}

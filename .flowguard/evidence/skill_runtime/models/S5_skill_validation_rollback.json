@@ -1,0 +1,902 @@
+{
+  "artifact_type": "matters.skill-runtime-flowguard-receipt.v1",
+  "claim_boundary": "S5 proves abstract validation, residual, pending/current ResearchGuard, and rollback dispositions. It performs no real skill activation or restore.",
+  "contract_exhaustion": {
+    "plan": {
+      "allow_unbounded_scoped": true,
+      "axes": [],
+      "cartesian_case_limit": 100000,
+      "claim_scope": "routine",
+      "consumed_child_receipt_ids": [],
+      "coverage_receipts": [],
+      "coverage_shards": [],
+      "coverage_universe": {
+        "claim_scope": "routine",
+        "exclusions": [],
+        "metadata": {},
+        "require_full_product": false,
+        "required_axis_ids": [],
+        "required_boundary_ids": [],
+        "required_case_ids": [
+          "H-S5-001-post-failure-no-rollback",
+          "H-S5-002-invalid-published",
+          "H-S5-003-author-control-published",
+          "H-S5-004-researchguard-pending-fallback"
+        ],
+        "required_coverage_receipt_ids": [],
+        "required_dimension_ids": [
+          "S5_skill_validation_rollback:declared-case-inventory"
+        ],
+        "required_family_member_ids": [],
+        "required_interaction_group_ids": [],
+        "required_payload_contract_ids": [],
+        "required_reduction_candidate_ids": [],
+        "required_similarity_ids": [],
+        "source_refs": [
+          "S5_skill_validation_rollback"
+        ],
+        "universe_id": "coverage-universe:S5_skill_validation_rollback"
+      },
+      "dimensions": [
+        {
+          "consumer": "",
+          "currentness_rule": "",
+          "description": "Exact finite known-good and hazard source cases.",
+          "dimension_id": "S5_skill_validation_rollback:declared-case-inventory",
+          "dimension_type": "declared_finite_case_inventory",
+          "evidence_refs": [],
+          "field_refs": [],
+          "finite": true,
+          "metadata": {},
+          "mutation_types": [],
+          "owner_model_id": "S5_skill_validation_rollback",
+          "producer": "",
+          "required": true,
+          "source_route": "model_first_function_flow",
+          "values": [
+            "candidate_all_checks_current",
+            "post_activation_check_failed",
+            "invalid_or_incompatible_candidate",
+            "author_control_residual_detected",
+            "researchguard_integration_pending",
+            "researchguard_integration_current"
+          ]
+        }
+      ],
+      "expected_family_member_ids": [],
+      "expected_reduction_candidate_ids": [],
+      "generation_policy": "bounded",
+      "interaction_groups": [],
+      "inventory_current": true,
+      "inventory_revision": "sha256:6a287007bac6083c079764982ba84c8e65e81965f5f548186afbbf2eca375a98",
+      "materialized_family_member_ids": [],
+      "materialized_reduction_candidate_ids": [],
+      "metadata": {},
+      "model_id": "S5_skill_validation_rollback",
+      "model_level": "child",
+      "observed_problem_backfeed": [],
+      "oracles": [
+        {
+          "allowed_side_effects": [],
+          "description": "H-S5-001-post-failure-no-rollback must be rejected by the declared model reaction without a canonical Matter write.",
+          "disallowed_side_effects": [
+            "canonical_matter_write"
+          ],
+          "expected_message_fields": [
+            "decision",
+            "reason"
+          ],
+          "expected_status": "blocked",
+          "forbidden_downstream_steps": [],
+          "metadata": {},
+          "oracle_id": "oracle:H-S5-001-post-failure-no-rollback",
+          "required_repair_fields": [
+            "case_id",
+            "required_disposition"
+          ]
+        },
+        {
+          "allowed_side_effects": [],
+          "description": "H-S5-002-invalid-published must be rejected by the declared model reaction without a canonical Matter write.",
+          "disallowed_side_effects": [
+            "canonical_matter_write"
+          ],
+          "expected_message_fields": [
+            "decision",
+            "reason"
+          ],
+          "expected_status": "blocked",
+          "forbidden_downstream_steps": [],
+          "metadata": {},
+          "oracle_id": "oracle:H-S5-002-invalid-published",
+          "required_repair_fields": [
+            "case_id",
+            "required_disposition"
+          ]
+        },
+        {
+          "allowed_side_effects": [],
+          "description": "H-S5-003-author-control-published must be rejected by the declared model reaction without a canonical Matter write.",
+          "disallowed_side_effects": [
+            "canonical_matter_write"
+          ],
+          "expected_message_fields": [
+            "decision",
+            "reason"
+          ],
+          "expected_status": "blocked",
+          "forbidden_downstream_steps": [],
+          "metadata": {},
+          "oracle_id": "oracle:H-S5-003-author-control-published",
+          "required_repair_fields": [
+            "case_id",
+            "required_disposition"
+          ]
+        },
+        {
+          "allowed_side_effects": [],
+          "description": "H-S5-004-researchguard-pending-fallback must be rejected by the declared model reaction without a canonical Matter write.",
+          "disallowed_side_effects": [
+            "canonical_matter_write"
+          ],
+          "expected_message_fields": [
+            "decision",
+            "reason"
+          ],
+          "expected_status": "blocked",
+          "forbidden_downstream_steps": [],
+          "metadata": {},
+          "oracle_id": "oracle:H-S5-004-researchguard-pending-fallback",
+          "required_repair_fields": [
+            "case_id",
+            "required_disposition"
+          ]
+        }
+      ],
+      "parent_model_id": "S0_matters_skill_runtime",
+      "plan_id": "contract-exhaustion:S5_skill_validation_rollback",
+      "require_actionable_oracle_feedback": false,
+      "require_composite_handoff_acceptance": false,
+      "require_coverage_universe": true,
+      "require_family_inventory": false,
+      "require_model_coverage_receipt": false,
+      "require_oracles_for_required_cases": false,
+      "require_reduction_inventory": false,
+      "required_child_receipt_ids": [],
+      "required_coverage_receipt_ids": [],
+      "required_route_ids": [],
+      "scoped_family_member_reasons": {},
+      "scoped_reduction_candidate_reasons": {},
+      "scoped_similarity_reasons": {},
+      "seed_cases": [
+        {
+          "axis_case_ids": [],
+          "case_id": "H-S5-001-post-failure-no-rollback",
+          "combination_order": 0,
+          "coverage_shard_id": "",
+          "description": "post-activation validation fails but the candidate remains active",
+          "dimension_id": "S5_skill_validation_rollback:declared-case-inventory",
+          "dimension_ids": [],
+          "evidence_refs": [],
+          "expected_status": "blocked",
+          "family_id": "",
+          "freshness_scope": "",
+          "generation_kind": "single_dimension",
+          "input_delta": {},
+          "interaction_group_id": "",
+          "member_id": "",
+          "metadata": {},
+          "model_id": "S5_skill_validation_rollback",
+          "mutation_type": "post_activation_rollback_failure",
+          "oracle_id": "oracle:H-S5-001-post-failure-no-rollback",
+          "parent_model_id": "",
+          "required": true,
+          "required_routes": [],
+          "required_test_cell_id": "",
+          "resolved_routes": [
+            "field_lifecycle_mesh",
+            "model_test_alignment"
+          ],
+          "risk_gate_id": "",
+          "source_case_id": "post_activation_check_failed",
+          "source_route": "model_first_function_flow"
+        },
+        {
+          "axis_case_ids": [],
+          "case_id": "H-S5-002-invalid-published",
+          "combination_order": 0,
+          "coverage_shard_id": "",
+          "description": "an invalid or incompatible candidate publishes an active identity",
+          "dimension_id": "S5_skill_validation_rollback:declared-case-inventory",
+          "dimension_ids": [],
+          "evidence_refs": [],
+          "expected_status": "blocked",
+          "family_id": "",
+          "freshness_scope": "",
+          "generation_kind": "single_dimension",
+          "input_delta": {},
+          "interaction_group_id": "",
+          "member_id": "",
+          "metadata": {},
+          "model_id": "S5_skill_validation_rollback",
+          "mutation_type": "invalid_skill_activation",
+          "oracle_id": "oracle:H-S5-002-invalid-published",
+          "parent_model_id": "",
+          "required": true,
+          "required_routes": [],
+          "required_test_cell_id": "",
+          "resolved_routes": [
+            "field_lifecycle_mesh",
+            "model_test_alignment"
+          ],
+          "risk_gate_id": "",
+          "source_case_id": "invalid_or_incompatible_candidate",
+          "source_route": "model_first_function_flow"
+        },
+        {
+          "axis_case_ids": [],
+          "case_id": "H-S5-003-author-control-published",
+          "combination_order": 0,
+          "coverage_shard_id": "",
+          "description": "a consumer projection with author-control residuals activates",
+          "dimension_id": "S5_skill_validation_rollback:declared-case-inventory",
+          "dimension_ids": [],
+          "evidence_refs": [],
+          "expected_status": "blocked",
+          "family_id": "",
+          "freshness_scope": "",
+          "generation_kind": "single_dimension",
+          "input_delta": {},
+          "interaction_group_id": "",
+          "member_id": "",
+          "metadata": {},
+          "model_id": "S5_skill_validation_rollback",
+          "mutation_type": "author_control_activation_escape",
+          "oracle_id": "oracle:H-S5-003-author-control-published",
+          "parent_model_id": "",
+          "required": true,
+          "required_routes": [],
+          "required_test_cell_id": "",
+          "resolved_routes": [
+            "field_lifecycle_mesh",
+            "model_test_alignment"
+          ],
+          "risk_gate_id": "",
+          "source_case_id": "author_control_residual_detected",
+          "source_route": "model_first_function_flow"
+        },
+        {
+          "axis_case_ids": [],
+          "case_id": "H-S5-004-researchguard-pending-fallback",
+          "combination_order": 0,
+          "coverage_shard_id": "",
+          "description": "pending ResearchGuard falls back to separate legacy Guard runtimes",
+          "dimension_id": "S5_skill_validation_rollback:declared-case-inventory",
+          "dimension_ids": [],
+          "evidence_refs": [],
+          "expected_status": "blocked",
+          "family_id": "",
+          "freshness_scope": "",
+          "generation_kind": "single_dimension",
+          "input_delta": {},
+          "interaction_group_id": "",
+          "member_id": "",
+          "metadata": {},
+          "model_id": "S5_skill_validation_rollback",
+          "mutation_type": "researchguard_pending_legacy_fallback",
+          "oracle_id": "oracle:H-S5-004-researchguard-pending-fallback",
+          "parent_model_id": "",
+          "required": true,
+          "required_routes": [],
+          "required_test_cell_id": "",
+          "resolved_routes": [
+            "field_lifecycle_mesh",
+            "model_test_alignment"
+          ],
+          "risk_gate_id": "",
+          "source_case_id": "researchguard_integration_pending",
+          "source_route": "model_first_function_flow"
+        }
+      ],
+      "similarity_handoff": null,
+      "similarity_materializations": {},
+      "source_bug_refs": [],
+      "source_model_ids": [
+        "S5_skill_validation_rollback"
+      ]
+    },
+    "report": {
+      "combination_cases": [],
+      "composite_handoff_acceptances": [
+        {
+          "acceptance_id": "composite_handoff:H-S5-001-post-failure-no-rollback",
+          "case_id": "H-S5-001-post-failure-no-rollback",
+          "description": "single case matrix pass is not full-chain confidence; all route handoffs must close this case",
+          "metadata": {
+            "mutation_type": "post_activation_rollback_failure",
+            "source_case_id": "post_activation_check_failed",
+            "source_route": "model_first_function_flow"
+          },
+          "required": true,
+          "route_ids": [
+            "field_lifecycle_mesh",
+            "model_test_alignment"
+          ]
+        },
+        {
+          "acceptance_id": "composite_handoff:H-S5-002-invalid-published",
+          "case_id": "H-S5-002-invalid-published",
+          "description": "single case matrix pass is not full-chain confidence; all route handoffs must close this case",
+          "metadata": {
+            "mutation_type": "invalid_skill_activation",
+            "source_case_id": "invalid_or_incompatible_candidate",
+            "source_route": "model_first_function_flow"
+          },
+          "required": true,
+          "route_ids": [
+            "field_lifecycle_mesh",
+            "model_test_alignment"
+          ]
+        },
+        {
+          "acceptance_id": "composite_handoff:H-S5-003-author-control-published",
+          "case_id": "H-S5-003-author-control-published",
+          "description": "single case matrix pass is not full-chain confidence; all route handoffs must close this case",
+          "metadata": {
+            "mutation_type": "author_control_activation_escape",
+            "source_case_id": "author_control_residual_detected",
+            "source_route": "model_first_function_flow"
+          },
+          "required": true,
+          "route_ids": [
+            "field_lifecycle_mesh",
+            "model_test_alignment"
+          ]
+        },
+        {
+          "acceptance_id": "composite_handoff:H-S5-004-researchguard-pending-fallback",
+          "case_id": "H-S5-004-researchguard-pending-fallback",
+          "description": "single case matrix pass is not full-chain confidence; all route handoffs must close this case",
+          "metadata": {
+            "mutation_type": "researchguard_pending_legacy_fallback",
+            "source_case_id": "researchguard_integration_pending",
+            "source_route": "model_first_function_flow"
+          },
+          "required": true,
+          "route_ids": [
+            "field_lifecycle_mesh",
+            "model_test_alignment"
+          ]
+        },
+        {
+          "acceptance_id": "composite_handoff:contract:S5_skill_validation_rollback:declared-case-inventory:missing_required_field",
+          "case_id": "contract:S5_skill_validation_rollback:declared-case-inventory:missing_required_field",
+          "description": "single case matrix pass is not full-chain confidence; all route handoffs must close this case",
+          "metadata": {
+            "mutation_type": "missing_required_field",
+            "source_case_id": "S5_skill_validation_rollback:declared-case-inventory",
+            "source_route": "model_first_function_flow"
+          },
+          "required": true,
+          "route_ids": [
+            "field_lifecycle_mesh",
+            "model_test_alignment"
+          ]
+        },
+        {
+          "acceptance_id": "composite_handoff:contract:S5_skill_validation_rollback:declared-case-inventory:malformed_input",
+          "case_id": "contract:S5_skill_validation_rollback:declared-case-inventory:malformed_input",
+          "description": "single case matrix pass is not full-chain confidence; all route handoffs must close this case",
+          "metadata": {
+            "mutation_type": "malformed_input",
+            "source_case_id": "S5_skill_validation_rollback:declared-case-inventory",
+            "source_route": "model_first_function_flow"
+          },
+          "required": true,
+          "route_ids": [
+            "field_lifecycle_mesh",
+            "model_test_alignment"
+          ]
+        }
+      ],
+      "confidence": "full",
+      "contract_fault_profiles": [
+        {
+          "contract_path": "S5_skill_validation_rollback:declared-case-inventory",
+          "expected_message_fields": [
+            "decision",
+            "reason"
+          ],
+          "expected_status": "blocked",
+          "live_completion_allowed": false,
+          "metadata": {
+            "dimension_ids": [],
+            "generation_kind": "single_dimension",
+            "source_case_id": "post_activation_check_failed",
+            "source_route": "model_first_function_flow"
+          },
+          "mutation_type": "post_activation_rollback_failure",
+          "profile_id": "contract_fault:H-S5-001-post-failure-no-rollback",
+          "required_repair_fields": [
+            "case_id",
+            "required_disposition"
+          ],
+          "retry_class": "none",
+          "source_case_id": "H-S5-001-post-failure-no-rollback",
+          "synthetic_only": true
+        },
+        {
+          "contract_path": "S5_skill_validation_rollback:declared-case-inventory",
+          "expected_message_fields": [
+            "decision",
+            "reason"
+          ],
+          "expected_status": "blocked",
+          "live_completion_allowed": false,
+          "metadata": {
+            "dimension_ids": [],
+            "generation_kind": "single_dimension",
+            "source_case_id": "invalid_or_incompatible_candidate",
+            "source_route": "model_first_function_flow"
+          },
+          "mutation_type": "invalid_skill_activation",
+          "profile_id": "contract_fault:H-S5-002-invalid-published",
+          "required_repair_fields": [
+            "case_id",
+            "required_disposition"
+          ],
+          "retry_class": "none",
+          "source_case_id": "H-S5-002-invalid-published",
+          "synthetic_only": true
+        },
+        {
+          "contract_path": "S5_skill_validation_rollback:declared-case-inventory",
+          "expected_message_fields": [
+            "decision",
+            "reason"
+          ],
+          "expected_status": "blocked",
+          "live_completion_allowed": false,
+          "metadata": {
+            "dimension_ids": [],
+            "generation_kind": "single_dimension",
+            "source_case_id": "author_control_residual_detected",
+            "source_route": "model_first_function_flow"
+          },
+          "mutation_type": "author_control_activation_escape",
+          "profile_id": "contract_fault:H-S5-003-author-control-published",
+          "required_repair_fields": [
+            "case_id",
+            "required_disposition"
+          ],
+          "retry_class": "none",
+          "source_case_id": "H-S5-003-author-control-published",
+          "synthetic_only": true
+        },
+        {
+          "contract_path": "S5_skill_validation_rollback:declared-case-inventory",
+          "expected_message_fields": [
+            "decision",
+            "reason"
+          ],
+          "expected_status": "blocked",
+          "live_completion_allowed": false,
+          "metadata": {
+            "dimension_ids": [],
+            "generation_kind": "single_dimension",
+            "source_case_id": "researchguard_integration_pending",
+            "source_route": "model_first_function_flow"
+          },
+          "mutation_type": "researchguard_pending_legacy_fallback",
+          "profile_id": "contract_fault:H-S5-004-researchguard-pending-fallback",
+          "required_repair_fields": [
+            "case_id",
+            "required_disposition"
+          ],
+          "retry_class": "none",
+          "source_case_id": "H-S5-004-researchguard-pending-fallback",
+          "synthetic_only": true
+        },
+        {
+          "contract_path": "S5_skill_validation_rollback:declared-case-inventory",
+          "expected_message_fields": [],
+          "expected_status": "reject_before_side_effect",
+          "live_completion_allowed": false,
+          "metadata": {
+            "dimension_ids": [
+              "S5_skill_validation_rollback:declared-case-inventory"
+            ],
+            "generation_kind": "single_dimension",
+            "source_case_id": "S5_skill_validation_rollback:declared-case-inventory",
+            "source_route": "model_first_function_flow"
+          },
+          "mutation_type": "missing_required_field",
+          "profile_id": "contract_fault:contract:S5_skill_validation_rollback:declared-case-inventory:missing_required_field",
+          "required_repair_fields": [],
+          "retry_class": "reject_and_repair",
+          "source_case_id": "contract:S5_skill_validation_rollback:declared-case-inventory:missing_required_field",
+          "synthetic_only": true
+        },
+        {
+          "contract_path": "S5_skill_validation_rollback:declared-case-inventory",
+          "expected_message_fields": [],
+          "expected_status": "reject_before_side_effect",
+          "live_completion_allowed": false,
+          "metadata": {
+            "dimension_ids": [
+              "S5_skill_validation_rollback:declared-case-inventory"
+            ],
+            "generation_kind": "single_dimension",
+            "source_case_id": "S5_skill_validation_rollback:declared-case-inventory",
+            "source_route": "model_first_function_flow"
+          },
+          "mutation_type": "malformed_input",
+          "profile_id": "contract_fault:contract:S5_skill_validation_rollback:declared-case-inventory:malformed_input",
+          "required_repair_fields": [],
+          "retry_class": "reject_and_repair",
+          "source_case_id": "contract:S5_skill_validation_rollback:declared-case-inventory:malformed_input",
+          "synthetic_only": true
+        }
+      ],
+      "coverage_receipts": [],
+      "coverage_shards": [],
+      "coverage_universe": {
+        "claim_scope": "routine",
+        "exclusions": [],
+        "metadata": {},
+        "require_full_product": false,
+        "required_axis_ids": [],
+        "required_boundary_ids": [],
+        "required_case_ids": [
+          "H-S5-001-post-failure-no-rollback",
+          "H-S5-002-invalid-published",
+          "H-S5-003-author-control-published",
+          "H-S5-004-researchguard-pending-fallback"
+        ],
+        "required_coverage_receipt_ids": [],
+        "required_dimension_ids": [
+          "S5_skill_validation_rollback:declared-case-inventory"
+        ],
+        "required_family_member_ids": [],
+        "required_interaction_group_ids": [],
+        "required_payload_contract_ids": [],
+        "required_reduction_candidate_ids": [],
+        "required_similarity_ids": [],
+        "source_refs": [
+          "S5_skill_validation_rollback"
+        ],
+        "universe_id": "coverage-universe:S5_skill_validation_rollback"
+      },
+      "decision": "contract_exhaustion_ready",
+      "downstream_similarity_obligation_ids": [],
+      "findings": [],
+      "generated_cases": [
+        {
+          "axis_case_ids": [],
+          "case_id": "H-S5-001-post-failure-no-rollback",
+          "combination_order": 0,
+          "coverage_shard_id": "",
+          "description": "post-activation validation fails but the candidate remains active",
+          "dimension_id": "S5_skill_validation_rollback:declared-case-inventory",
+          "dimension_ids": [],
+          "evidence_refs": [],
+          "expected_status": "blocked",
+          "family_id": "",
+          "freshness_scope": "",
+          "generation_kind": "single_dimension",
+          "input_delta": {},
+          "interaction_group_id": "",
+          "member_id": "",
+          "metadata": {},
+          "model_id": "S5_skill_validation_rollback",
+          "mutation_type": "post_activation_rollback_failure",
+          "oracle_id": "oracle:H-S5-001-post-failure-no-rollback",
+          "parent_model_id": "",
+          "required": true,
+          "required_routes": [],
+          "required_test_cell_id": "",
+          "resolved_routes": [
+            "field_lifecycle_mesh",
+            "model_test_alignment"
+          ],
+          "risk_gate_id": "",
+          "source_case_id": "post_activation_check_failed",
+          "source_route": "model_first_function_flow"
+        },
+        {
+          "axis_case_ids": [],
+          "case_id": "H-S5-002-invalid-published",
+          "combination_order": 0,
+          "coverage_shard_id": "",
+          "description": "an invalid or incompatible candidate publishes an active identity",
+          "dimension_id": "S5_skill_validation_rollback:declared-case-inventory",
+          "dimension_ids": [],
+          "evidence_refs": [],
+          "expected_status": "blocked",
+          "family_id": "",
+          "freshness_scope": "",
+          "generation_kind": "single_dimension",
+          "input_delta": {},
+          "interaction_group_id": "",
+          "member_id": "",
+          "metadata": {},
+          "model_id": "S5_skill_validation_rollback",
+          "mutation_type": "invalid_skill_activation",
+          "oracle_id": "oracle:H-S5-002-invalid-published",
+          "parent_model_id": "",
+          "required": true,
+          "required_routes": [],
+          "required_test_cell_id": "",
+          "resolved_routes": [
+            "field_lifecycle_mesh",
+            "model_test_alignment"
+          ],
+          "risk_gate_id": "",
+          "source_case_id": "invalid_or_incompatible_candidate",
+          "source_route": "model_first_function_flow"
+        },
+        {
+          "axis_case_ids": [],
+          "case_id": "H-S5-003-author-control-published",
+          "combination_order": 0,
+          "coverage_shard_id": "",
+          "description": "a consumer projection with author-control residuals activates",
+          "dimension_id": "S5_skill_validation_rollback:declared-case-inventory",
+          "dimension_ids": [],
+          "evidence_refs": [],
+          "expected_status": "blocked",
+          "family_id": "",
+          "freshness_scope": "",
+          "generation_kind": "single_dimension",
+          "input_delta": {},
+          "interaction_group_id": "",
+          "member_id": "",
+          "metadata": {},
+          "model_id": "S5_skill_validation_rollback",
+          "mutation_type": "author_control_activation_escape",
+          "oracle_id": "oracle:H-S5-003-author-control-published",
+          "parent_model_id": "",
+          "required": true,
+          "required_routes": [],
+          "required_test_cell_id": "",
+          "resolved_routes": [
+            "field_lifecycle_mesh",
+            "model_test_alignment"
+          ],
+          "risk_gate_id": "",
+          "source_case_id": "author_control_residual_detected",
+          "source_route": "model_first_function_flow"
+        },
+        {
+          "axis_case_ids": [],
+          "case_id": "H-S5-004-researchguard-pending-fallback",
+          "combination_order": 0,
+          "coverage_shard_id": "",
+          "description": "pending ResearchGuard falls back to separate legacy Guard runtimes",
+          "dimension_id": "S5_skill_validation_rollback:declared-case-inventory",
+          "dimension_ids": [],
+          "evidence_refs": [],
+          "expected_status": "blocked",
+          "family_id": "",
+          "freshness_scope": "",
+          "generation_kind": "single_dimension",
+          "input_delta": {},
+          "interaction_group_id": "",
+          "member_id": "",
+          "metadata": {},
+          "model_id": "S5_skill_validation_rollback",
+          "mutation_type": "researchguard_pending_legacy_fallback",
+          "oracle_id": "oracle:H-S5-004-researchguard-pending-fallback",
+          "parent_model_id": "",
+          "required": true,
+          "required_routes": [],
+          "required_test_cell_id": "",
+          "resolved_routes": [
+            "field_lifecycle_mesh",
+            "model_test_alignment"
+          ],
+          "risk_gate_id": "",
+          "source_case_id": "researchguard_integration_pending",
+          "source_route": "model_first_function_flow"
+        },
+        {
+          "axis_case_ids": [],
+          "case_id": "contract:S5_skill_validation_rollback:declared-case-inventory:missing_required_field",
+          "combination_order": 0,
+          "coverage_shard_id": "",
+          "description": "Exact finite known-good and hazard source cases.",
+          "dimension_id": "S5_skill_validation_rollback:declared-case-inventory",
+          "dimension_ids": [
+            "S5_skill_validation_rollback:declared-case-inventory"
+          ],
+          "evidence_refs": [],
+          "expected_status": "reject_before_side_effect",
+          "family_id": "",
+          "freshness_scope": "",
+          "generation_kind": "single_dimension",
+          "input_delta": {
+            "dimension_type": "declared_finite_case_inventory",
+            "evidence_refs": [],
+            "field_refs": [],
+            "mutation_type": "missing_required_field"
+          },
+          "interaction_group_id": "",
+          "member_id": "",
+          "metadata": {
+            "consumer": "",
+            "owner_model_id": "S5_skill_validation_rollback",
+            "producer": ""
+          },
+          "model_id": "S5_skill_validation_rollback",
+          "mutation_type": "missing_required_field",
+          "oracle_id": "",
+          "parent_model_id": "",
+          "required": true,
+          "required_routes": [],
+          "required_test_cell_id": "",
+          "resolved_routes": [
+            "field_lifecycle_mesh",
+            "model_test_alignment"
+          ],
+          "risk_gate_id": "",
+          "source_case_id": "S5_skill_validation_rollback:declared-case-inventory",
+          "source_route": "model_first_function_flow"
+        },
+        {
+          "axis_case_ids": [],
+          "case_id": "contract:S5_skill_validation_rollback:declared-case-inventory:malformed_input",
+          "combination_order": 0,
+          "coverage_shard_id": "",
+          "description": "Exact finite known-good and hazard source cases.",
+          "dimension_id": "S5_skill_validation_rollback:declared-case-inventory",
+          "dimension_ids": [
+            "S5_skill_validation_rollback:declared-case-inventory"
+          ],
+          "evidence_refs": [],
+          "expected_status": "reject_before_side_effect",
+          "family_id": "",
+          "freshness_scope": "",
+          "generation_kind": "single_dimension",
+          "input_delta": {
+            "dimension_type": "declared_finite_case_inventory",
+            "evidence_refs": [],
+            "field_refs": [],
+            "mutation_type": "malformed_input"
+          },
+          "interaction_group_id": "",
+          "member_id": "",
+          "metadata": {
+            "consumer": "",
+            "owner_model_id": "S5_skill_validation_rollback",
+            "producer": ""
+          },
+          "model_id": "S5_skill_validation_rollback",
+          "mutation_type": "malformed_input",
+          "oracle_id": "",
+          "parent_model_id": "",
+          "required": true,
+          "required_routes": [],
+          "required_test_cell_id": "",
+          "resolved_routes": [
+            "field_lifecycle_mesh",
+            "model_test_alignment"
+          ],
+          "risk_gate_id": "",
+          "source_case_id": "S5_skill_validation_rollback:declared-case-inventory",
+          "source_route": "model_first_function_flow"
+        }
+      ],
+      "inventory_revision": "sha256:6a287007bac6083c079764982ba84c8e65e81965f5f548186afbbf2eca375a98",
+      "materialized_similarity_ids": [],
+      "missing_oracle_case_ids": [],
+      "model_gap_dimension_ids": [],
+      "observed_problem_backfeed_report": null,
+      "ok": true,
+      "omitted_family_member_ids": [],
+      "omitted_reduction_candidate_ids": [],
+      "plan_id": "contract-exhaustion:S5_skill_validation_rollback",
+      "required_combination_case_ids": [],
+      "required_composite_handoff_acceptance_ids": [
+        "composite_handoff:H-S5-001-post-failure-no-rollback",
+        "composite_handoff:H-S5-002-invalid-published",
+        "composite_handoff:H-S5-003-author-control-published",
+        "composite_handoff:H-S5-004-researchguard-pending-fallback",
+        "composite_handoff:contract:S5_skill_validation_rollback:declared-case-inventory:missing_required_field",
+        "composite_handoff:contract:S5_skill_validation_rollback:declared-case-inventory:malformed_input"
+      ],
+      "required_coverage_receipt_ids": [],
+      "required_coverage_shard_ids": [],
+      "required_route_case_ids": {
+        "field_lifecycle_mesh": [
+          "H-S5-001-post-failure-no-rollback",
+          "H-S5-002-invalid-published",
+          "H-S5-003-author-control-published",
+          "H-S5-004-researchguard-pending-fallback",
+          "contract:S5_skill_validation_rollback:declared-case-inventory:missing_required_field",
+          "contract:S5_skill_validation_rollback:declared-case-inventory:malformed_input"
+        ],
+        "model_test_alignment": [
+          "H-S5-001-post-failure-no-rollback",
+          "H-S5-002-invalid-published",
+          "H-S5-003-author-control-published",
+          "H-S5-004-researchguard-pending-fallback",
+          "contract:S5_skill_validation_rollback:declared-case-inventory:missing_required_field",
+          "contract:S5_skill_validation_rollback:declared-case-inventory:malformed_input"
+        ]
+      },
+      "summary": "matrix ready; broad chain confidence still requires composite handoff closure",
+      "unmaterialized_similarity_ids": []
+    }
+  },
+  "evidence_id": "evidence:skill-runtime:S5_skill_validation_rollback:6a287007bac6083c",
+  "evidence_tiers": [
+    "abstract_green",
+    "hazard_green"
+  ],
+  "function_signature": "S5_skill_validation_rollback: CaseInput x ModelState -> Set(DecisionOutput x ModelState)",
+  "generated_at": "2026-07-19T05:49:08.355707+00:00",
+  "known_bad_proofs": [
+    {
+      "evidence_id": "S5_skill_validation_rollback:known-bad:H-S5-001-post-failure-no-rollback",
+      "failure_id": "H-S5-001-post-failure-no-rollback",
+      "observed_status": "failed",
+      "protected_error_class": "post_activation_rollback_failure"
+    },
+    {
+      "evidence_id": "S5_skill_validation_rollback:known-bad:H-S5-002-invalid-published",
+      "failure_id": "H-S5-002-invalid-published",
+      "observed_status": "failed",
+      "protected_error_class": "invalid_skill_activation"
+    },
+    {
+      "evidence_id": "S5_skill_validation_rollback:known-bad:H-S5-003-author-control-published",
+      "failure_id": "H-S5-003-author-control-published",
+      "observed_status": "failed",
+      "protected_error_class": "author_control_activation_escape"
+    },
+    {
+      "evidence_id": "S5_skill_validation_rollback:known-bad:H-S5-004-researchguard-pending-fallback",
+      "failure_id": "H-S5-004-researchguard-pending-fallback",
+      "observed_status": "failed",
+      "protected_error_class": "researchguard_pending_legacy_fallback"
+    }
+  ],
+  "model_fingerprint": "sha256:6a287007bac6083c079764982ba84c8e65e81965f5f548186afbbf2eca375a98",
+  "model_id": "S5_skill_validation_rollback",
+  "model_title": "S5 Skill Validation And Rollback",
+  "overall_status": "pass_with_gaps",
+  "owned_write_fields": [
+    "skill_runtime.validation_receipt_set",
+    "skill_runtime.rollback_receipt",
+    "skill_runtime.activation_status"
+  ],
+  "pass_for_skill_runtime": true,
+  "sections": {
+    "conformance_replay": "not_run",
+    "contract_check": "not_run",
+    "counterexample_minimization": "not_run",
+    "known_bad_proof": "pass",
+    "minimum_model_review": "pass",
+    "model_check": "pass",
+    "model_quality_audit": "pass_with_gaps",
+    "progress_check": "not_run",
+    "scenario_review": "pass",
+    "state_closure": "pass",
+    "template_harvest_review": "pass",
+    "topology_hazard": "pass_with_gaps"
+  },
+  "side_effect_classes": [
+    "run_native_skill_validation",
+    "restore_prior_managed_projection",
+    "write_validation_receipt"
+  ],
+  "skipped_checks": {
+    "live_installation": "not_run: no real global or Matters-managed skill installation was attempted",
+    "m0_c1_c12_integration": "out_of_scope: S0 is auxiliary and cannot become C13",
+    "production_conformance": "not_run: auxiliary skill runtime implementation is intentionally outside this model-only workstream"
+  },
+  "toolchain": {
+    "flowguard_package_version": "0.58.4",
+    "flowguard_schema_version": "1.0"
+  }
+}

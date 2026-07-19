@@ -1,0 +1,4 @@
+interface:
+  display_name: "Matters Inventory Reconciliation"
+  short_description: "Reconcile source inventories and changes"
+  default_prompt: "Use $matters-inventory-reconciliation through MatterService to account for every current and prior occurrence and return one exact inventory snapshot and change set."

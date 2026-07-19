@@ -1,0 +1,78 @@
+{
+  "schema_version": "matters.synthetic-source-universe.v1",
+  "synthetic_only": true,
+  "cases": [
+    {
+      "case_id": "S1_pasted_text_tracked",
+      "provider": "pasted_text",
+      "object_type": "text",
+      "expected_disposition": "ingested"
+    },
+    {
+      "case_id": "S2_local_file_metadata",
+      "provider": "filesystem",
+      "object_type": "file",
+      "expected_disposition": "tracked"
+    },
+    {
+      "case_id": "S3_unchanged_rescan",
+      "provider": "filesystem",
+      "object_type": "file",
+      "expected_change": "unchanged"
+    },
+    {
+      "case_id": "S4_modified_file",
+      "provider": "filesystem",
+      "object_type": "file",
+      "expected_change": "modified"
+    },
+    {
+      "case_id": "S5_moved_file",
+      "provider": "filesystem",
+      "object_type": "file",
+      "expected_change": "moved"
+    },
+    {
+      "case_id": "S6_deleted_file",
+      "provider": "filesystem",
+      "object_type": "file",
+      "expected_change": "deleted"
+    },
+    {
+      "case_id": "S7_cloud_placeholder",
+      "provider": "filesystem",
+      "object_type": "cloud_placeholder",
+      "expected_disposition": "cloud_placeholder"
+    },
+    {
+      "case_id": "S8_document_page",
+      "provider": "filesystem",
+      "object_type": "document",
+      "expected_disposition": "ingested"
+    },
+    {
+      "case_id": "S9_image_region",
+      "provider": "filesystem",
+      "object_type": "image",
+      "expected_disposition": "ingested"
+    },
+    {
+      "case_id": "S10_gmail_thread_attachment",
+      "provider": "gmail",
+      "object_type": "thread",
+      "expected_disposition": "ingested"
+    },
+    {
+      "case_id": "S11_ai_uncertain",
+      "provider": "fake",
+      "object_type": "occurrence",
+      "expected_disposition": "review_required"
+    },
+    {
+      "case_id": "S12_researchguard_pending",
+      "provider": "fake",
+      "object_type": "analysis",
+      "expected_operation_status": "researchguard_pending_integration"
+    }
+  ]
+}

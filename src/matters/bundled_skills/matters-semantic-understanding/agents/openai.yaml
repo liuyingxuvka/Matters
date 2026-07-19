@@ -1,0 +1,4 @@
+interface:
+  display_name: "Matters Semantic Understanding"
+  short_description: "Produce typed bilingual findings for automatic owner validation"
+  default_prompt: "Use $matters-semantic-understanding through MatterService to process only the frozen untrusted-evidence package, disposition every allowed input, and return the exact bilingual typed schema for automatic original-owner dispatch."

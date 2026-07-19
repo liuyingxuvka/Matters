@@ -1,0 +1,148 @@
+{
+  "artifact_type": "matters.flowguard-model-receipt.v1",
+  "claim_boundary": "This model establishes only bounded C1 authorization, candidate-scope, tracking, durable bounded partitioning, terminal-coverage, and privacy transitions. It does not prove live source completeness, AI classification quality, or private first-run coverage.",
+  "evidence_id": "evidence:C1_authorization_coverage:68f1f53f4b9e29af",
+  "evidence_tiers": [
+    "abstract_green",
+    "hazard_green"
+  ],
+  "generated_at": "2026-07-19T05:48:39.893153+00:00",
+  "known_bad_proofs": [
+    {
+      "evidence_id": "C1_authorization_coverage:known-bad:H-C1-001-out-of-scope-read",
+      "failure_id": "H-C1-001-out-of-scope-read",
+      "observed_status": "failed",
+      "protected_error_class": "authorization_scope_escape"
+    },
+    {
+      "evidence_id": "C1_authorization_coverage:known-bad:H-C1-002-nonterminal-claimed-complete",
+      "failure_id": "H-C1-002-nonterminal-claimed-complete",
+      "observed_status": "failed",
+      "protected_error_class": "coverage_overclaim"
+    },
+    {
+      "evidence_id": "C1_authorization_coverage:known-bad:H-C1-003-ai-silently-excludes-protected",
+      "failure_id": "H-C1-003-ai-silently-excludes-protected",
+      "observed_status": "failed",
+      "protected_error_class": "triage_authority_escape"
+    },
+    {
+      "evidence_id": "C1_authorization_coverage:known-bad:H-C1-004-policy-change-keeps-current-triage",
+      "failure_id": "H-C1-004-policy-change-keeps-current-triage",
+      "observed_status": "failed",
+      "protected_error_class": "stale_tracking_decision_reuse"
+    },
+    {
+      "evidence_id": "C1_authorization_coverage:known-bad:H-C1-005-revoked-read-continues",
+      "failure_id": "H-C1-005-revoked-read-continues",
+      "observed_status": "failed",
+      "protected_error_class": "revocation_bypass"
+    },
+    {
+      "evidence_id": "C1_authorization_coverage:known-bad:H-C1-006-private-root-inside-git",
+      "failure_id": "H-C1-006-private-root-inside-git",
+      "observed_status": "failed",
+      "protected_error_class": "private_data_public_boundary_escape"
+    },
+    {
+      "evidence_id": "C1_authorization_coverage:known-bad:H-C1-007-partition-parent-overclaims-child",
+      "failure_id": "H-C1-007-partition-parent-overclaims-child",
+      "observed_status": "failed",
+      "protected_error_class": "partition_coverage_overclaim"
+    },
+    {
+      "evidence_id": "C1_authorization_coverage:known-bad:H-C1-008-resource-failure-amplifies-memory",
+      "failure_id": "H-C1-008-resource-failure-amplifies-memory",
+      "observed_status": "failed",
+      "protected_error_class": "unbounded_inventory_materialization"
+    },
+    {
+      "evidence_id": "C1_authorization_coverage:known-bad:H-C1-009-partition-loses-policy-context",
+      "failure_id": "H-C1-009-partition-loses-policy-context",
+      "observed_status": "failed",
+      "protected_error_class": "partition_policy_context_loss"
+    },
+    {
+      "evidence_id": "C1_authorization_coverage:known-bad:H-C1-010-policy-erases-user-intent",
+      "failure_id": "H-C1-010-policy-erases-user-intent",
+      "observed_status": "failed",
+      "protected_error_class": "user_tracking_override_lost"
+    },
+    {
+      "evidence_id": "C1_authorization_coverage:known-bad:H-C1-011-stale-tracking-action-token",
+      "failure_id": "H-C1-011-stale-tracking-action-token",
+      "observed_status": "failed",
+      "protected_error_class": "tracking_action_revision_bypass"
+    },
+    {
+      "evidence_id": "C1_authorization_coverage:known-bad:H-C1-012-partition-checkpoint-write-amplification",
+      "failure_id": "H-C1-012-partition-checkpoint-write-amplification",
+      "observed_status": "failed",
+      "protected_error_class": "unbounded_partition_checkpoint_write_amplification"
+    },
+    {
+      "evidence_id": "C1_authorization_coverage:known-bad:H-C1-013-generated-state-descendant-expansion",
+      "failure_id": "H-C1-013-generated-state-descendant-expansion",
+      "observed_status": "failed",
+      "protected_error_class": "generated_state_partition_expansion"
+    },
+    {
+      "evidence_id": "C1_authorization_coverage:known-bad:H-C1-014-unconditional-descendant-partition-expansion",
+      "failure_id": "H-C1-014-unconditional-descendant-partition-expansion",
+      "observed_status": "failed",
+      "protected_error_class": "unbounded_partition_node_expansion"
+    },
+    {
+      "evidence_id": "C1_authorization_coverage:known-bad:H-C1-015-installed-private-root-alias-split",
+      "failure_id": "H-C1-015-installed-private-root-alias-split",
+      "observed_status": "failed",
+      "protected_error_class": "private_runtime_path_alias_split"
+    },
+    {
+      "evidence_id": "C1_authorization_coverage:known-bad:H-C1-016-canary-reinventories-largest-partition-first",
+      "failure_id": "H-C1-016-canary-reinventories-largest-partition-first",
+      "observed_status": "failed",
+      "protected_error_class": "unbounded_canary_reinventory"
+    },
+    {
+      "evidence_id": "C1_authorization_coverage:known-bad:H-C1-017-canary-per-stage-global-summary-amplification",
+      "failure_id": "H-C1-017-canary-per-stage-global-summary-amplification",
+      "observed_status": "failed",
+      "protected_error_class": "per_item_global_summary_reaggregation"
+    },
+    {
+      "evidence_id": "C1_authorization_coverage:known-bad:H-C1-018-gmail-budget-selects-metadata-only-first",
+      "failure_id": "H-C1-018-gmail-budget-selects-metadata-only-first",
+      "observed_status": "failed",
+      "protected_error_class": "gmail_content_budget_false_metadata_only"
+    }
+  ],
+  "model_fingerprint": "sha256:68f1f53f4b9e29afe4ca6ca121a5469c3529e6c9c274c12139e032d38d50cdfc",
+  "model_id": "C1_authorization_coverage",
+  "model_title": "C1 Authorization, Tracking & Coverage",
+  "overall_status": "pass_with_gaps",
+  "pass_for_g2": true,
+  "sections": {
+    "conformance_replay": "not_run",
+    "contract_check": "not_run",
+    "counterexample_minimization": "not_run",
+    "known_bad_proof": "pass",
+    "minimum_model_review": "pass",
+    "model_check": "pass",
+    "model_quality_audit": "pass_with_gaps",
+    "progress_check": "not_run",
+    "scenario_review": "pass",
+    "state_closure": "pass",
+    "template_harvest_review": "pass",
+    "topology_hazard": "pass_with_gaps"
+  },
+  "skipped_checks": {
+    "conformance_replay": "not_run_in_this_owner: production conformance belongs to the revision-bound TestMesh receipts",
+    "live_current": "not_run_in_this_owner: real private and installed-runtime evidence belong to separate delivery gates",
+    "model_mesh": "not_run_in_this_owner: cross-model topology belongs to the separate ModelMesh owner"
+  },
+  "toolchain": {
+    "flowguard_package_version": "0.58.4",
+    "flowguard_schema_version": "1.0"
+  }
+}

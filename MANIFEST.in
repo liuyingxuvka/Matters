@@ -1,0 +1,27 @@
+include .gitignore
+include AGENTS.md
+include CHANGELOG.md
+include LICENSE
+include README.md
+include SECURITY.md
+include sbom.json
+
+graft .agents
+graft .codex
+graft .flowguard
+graft docs
+graft flowguard_design
+graft flowguard_models
+graft openspec
+graft plugin
+graft scripts
+graft src
+graft tests
+graft ui
+
+global-exclude __pycache__
+global-exclude *.py[cod]
+global-exclude *.log
+prune build
+prune dist
+prune src/*.egg-info

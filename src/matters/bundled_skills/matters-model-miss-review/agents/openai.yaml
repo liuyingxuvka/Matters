@@ -1,0 +1,4 @@
+interface:
+  display_name: "Matters Model Miss Review"
+  short_description: "Escalate bounded runtime model misses"
+  default_prompt: "Use $matters-model-miss-review through MatterService to preserve one bounded expected-versus-observed model miss as a development work item without editing runtime rules."

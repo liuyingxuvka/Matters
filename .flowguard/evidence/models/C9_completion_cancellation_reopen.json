@@ -1,0 +1,70 @@
+{
+  "artifact_type": "matters.flowguard-model-receipt.v1",
+  "claim_boundary": "This receipt can establish C9 abstract completion-evidence, cancellation, reopen, and conflict hazards. It does not establish Matter-specific criteria, C8 loop closure, or production outcomes.",
+  "evidence_id": "evidence:C9_completion_cancellation_reopen:fd9fe90d10d99d57",
+  "evidence_tiers": [
+    "abstract_green",
+    "hazard_green"
+  ],
+  "generated_at": "2026-07-19T05:48:50.580310+00:00",
+  "known_bad_proofs": [
+    {
+      "evidence_id": "C9_completion_cancellation_reopen:known-bad:H-C9-001-false-completion-proof",
+      "failure_id": "H-C9-001-false-completion-proof",
+      "observed_status": "failed",
+      "protected_error_class": "premature_completion"
+    },
+    {
+      "evidence_id": "C9_completion_cancellation_reopen:known-bad:H-C9-002-cancellation-silently-closes-loops",
+      "failure_id": "H-C9-002-cancellation-silently-closes-loops",
+      "observed_status": "failed",
+      "protected_error_class": "independent_loop_silent_closure"
+    },
+    {
+      "evidence_id": "C9_completion_cancellation_reopen:known-bad:H-C9-003-new-obligation-does-not-reopen",
+      "failure_id": "H-C9-003-new-obligation-does-not-reopen",
+      "observed_status": "failed",
+      "protected_error_class": "stale_terminal_outcome"
+    },
+    {
+      "evidence_id": "C9_completion_cancellation_reopen:known-bad:H-C9-004-conflict-silently-terminates",
+      "failure_id": "H-C9-004-conflict-silently-terminates",
+      "observed_status": "failed",
+      "protected_error_class": "outcome_conflict_bypass"
+    },
+    {
+      "evidence_id": "C9_completion_cancellation_reopen:known-bad:H-C9-005-ai-reopens-without-obligation",
+      "failure_id": "H-C9-005-ai-reopens-without-obligation",
+      "observed_status": "failed",
+      "protected_error_class": "advisory_reopen_authority_escape"
+    }
+  ],
+  "model_fingerprint": "sha256:fd9fe90d10d99d576eeaf6b7cb8686d0425979a6603fddf0c8a3b2bcdfd8c95b",
+  "model_id": "C9_completion_cancellation_reopen",
+  "model_title": "C9 Completion / Cancellation / Reopen",
+  "overall_status": "pass_with_gaps",
+  "pass_for_g2": true,
+  "sections": {
+    "conformance_replay": "not_run",
+    "contract_check": "not_run",
+    "counterexample_minimization": "not_run",
+    "known_bad_proof": "pass",
+    "minimum_model_review": "pass",
+    "model_check": "pass",
+    "model_quality_audit": "pass_with_gaps",
+    "progress_check": "not_run",
+    "scenario_review": "pass",
+    "state_closure": "pass",
+    "template_harvest_review": "pass",
+    "topology_hazard": "pass_with_gaps"
+  },
+  "skipped_checks": {
+    "conformance_replay": "not_run_in_this_owner: production conformance belongs to the revision-bound TestMesh receipts",
+    "live_current": "not_run_in_this_owner: real private and installed-runtime evidence belong to separate delivery gates",
+    "model_mesh": "not_run_in_this_owner: cross-model topology belongs to the separate ModelMesh owner"
+  },
+  "toolchain": {
+    "flowguard_package_version": "0.58.4",
+    "flowguard_schema_version": "1.0"
+  }
+}

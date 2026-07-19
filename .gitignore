@@ -1,0 +1,62 @@
+# Python build and test outputs
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+build/
+dist/
+*.egg-info/
+.venv/
+venv/
+
+# Local editor and operating-system state
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Matters private runtime state must live outside this repository. These
+# patterns are a second line of defense if a tool is misconfigured.
+/MATTERS_HOME/
+/MATTERS_EVAL_VAULT/
+/data/
+/private/
+/vault/
+/runtime/
+/receipts/
+/logs/
+/cache/
+/indexes/
+/embeddings/
+/thumbnails/
+/blobs/
+/attachments/
+/screenshots/
+*.sqlite
+*.sqlite3
+*.db
+*.db-wal
+*.db-shm
+*.wal
+*.shm
+*.log
+
+# Credentials and connector state
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+oauth*.json
+credentials*.json
+cookies*.json
+connector-cursor*
+
+# Generated local evaluation and evidence
+coverage-receipt*.json
+guard-receipt*.json
+matter-depth-report*.json
+private-pilot-report*
