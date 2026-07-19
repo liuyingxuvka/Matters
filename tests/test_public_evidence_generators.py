@@ -4,6 +4,8 @@ import sys
 
 from flowguard_design.run_test_mesh import (
     _execution_test_command,
+    _parent_claim_boundary,
+    _parent_receipt_status,
     _portable_output_tail,
     _public_test_command,
 )
@@ -54,6 +56,37 @@ def test_test_mesh_output_tail_replaces_machine_local_paths():
     assert "runner=python" in portable
     assert "repo=repo://" in portable
     assert "home=home://" in portable
+
+
+def test_test_mesh_parent_receipt_distinguishes_routine_and_release():
+    deferred = ["TM19_clean_install_release"]
+    assert (
+        _parent_receipt_status(
+            report_ok=True,
+            deferred_suite_ids=deferred,
+        )
+        == "routine_green"
+    )
+    assert "TM19 remains release-only" in _parent_claim_boundary(deferred)
+
+    assert (
+        _parent_receipt_status(
+            report_ok=True,
+            deferred_suite_ids=[],
+        )
+        == "release_green"
+    )
+    release_boundary = _parent_claim_boundary([])
+    assert "TM01-TM23" in release_boundary
+    assert "does not claim complete private semantic coverage" in release_boundary
+
+    assert (
+        _parent_receipt_status(
+            report_ok=False,
+            deferred_suite_ids=[],
+        )
+        == "blocked"
+    )
 
 
 def test_openspec_projection_drops_provider_roots_and_raw_output():

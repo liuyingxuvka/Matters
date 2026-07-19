@@ -118,6 +118,46 @@
 - Rerun affected FlowGuard model checks and focused tests before broad confidence.
 
 
+## matters-testmesh-release-state-miss - Repair TestMesh release-state and G8 acceptance semantics
+
+- Project: matters
+- Trigger reason: the first full clean-clone release owner passed every suite
+  but the parent validator retained a routine-only status
+- Status: completed
+- Skill decision: used_flowguard_model_miss_review
+
+### Model Files
+
+- `flowguard_design/run_test_mesh.py`
+- `flowguard_design/run_g8_review.py`
+
+### Commands
+
+- OK (95.900s): full TM01-TM23 owner - exposed an incorrect routine-only
+  parent state after every suite had passed
+- OK (1.050s): focused release/routine parent-status regression
+
+### Findings
+
+- The parent receipt now emits `release_green` only when no suite is deferred.
+- The release claim boundary covers TM01-TM23 and preserves the incomplete
+  private semantic-coverage boundary.
+- G8 accepts the exact routine or exact release TestMesh shape while still
+  requiring native-green evidence.
+
+### Counterexamples
+
+- A full release run must not claim that TM19 remains deferred.
+- G8 must not reject a current release TestMesh solely because it is no longer
+  the routine deferred shape.
+
+### Next Actions
+
+- Commit the validator repair.
+- Run one accepted final TM01-TM23 owner in a new clean clone.
+- Freeze release evidence only after G8 and public boundaries consume it.
+
+
 ## matters-v0.2-model-miss-and-release-routing
 
 - Project: matters

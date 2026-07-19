@@ -53,6 +53,9 @@ Private local desktop candidate.
   aggregate, installed UI, clean-clone/package boundary, and frozen local
   Git/tag/package/install/model/TestMesh/ResearchGuard identities without
   claiming complete private semantic coverage or remote publication.
+- Distinguish routine and release TestMesh parent receipts so a successful
+  TM01-TM23 run, including TM19, becomes release-green and remains consumable
+  by G8 without falsely claiming that the release-only suite was deferred.
 
 ## 0.1.0 — 2026-07-18
 

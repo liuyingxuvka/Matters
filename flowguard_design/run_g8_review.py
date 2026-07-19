@@ -188,11 +188,12 @@ def main() -> int:
     mesh_gate = _mesh_gate(root)
     test_receipts = _test_receipts_current()
     test_mesh = json.loads(TEST_MESH_PATH.read_text(encoding="utf-8"))
+    deferred_suite_ids = test_mesh.get("deferred_suite_ids")
     test_mesh_current = (
-        test_mesh.get("status") == "routine_green"
+        test_mesh.get("status") in {"routine_green", "release_green"}
         and test_mesh.get("native_report", {}).get("ok") is True
-        and test_mesh.get("deferred_suite_ids")
-        == ["TM19_clean_install_release"]
+        and deferred_suite_ids
+        in (["TM19_clean_install_release"], [])
     )
     alignment = _alignment_current()
     fixture = review_fixture_inventory()

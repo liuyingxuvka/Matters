@@ -198,6 +198,33 @@ def _portable_output_tail(output: str, *, limit: int = 4000) -> str:
     return portable[-limit:]
 
 
+def _parent_receipt_status(
+    *,
+    report_ok: bool,
+    deferred_suite_ids: list[str],
+) -> str:
+    if not report_ok:
+        return "blocked"
+    if deferred_suite_ids:
+        return "routine_green"
+    return "release_green"
+
+
+def _parent_claim_boundary(deferred_suite_ids: list[str]) -> str:
+    if deferred_suite_ids:
+        return (
+            "Routine evidence covers TM01-TM18 and autonomous object-browser "
+            "TM20-TM23. TM19 remains release-only until the frozen G12 "
+            "candidate."
+        )
+    return (
+        "Frozen release evidence covers TM01-TM23, including the release-only "
+        "TM19 clean-install suite. It proves the declared synthetic, package, "
+        "installation, skill-runtime, privacy, and UI test inventory only; it "
+        "does not claim complete private semantic coverage."
+    )
+
+
 def _planned_suite(suite_id: str):
     plan = build_plan()
     return next(item for item in plan.child_suites if item.suite_id == suite_id)
@@ -338,24 +365,25 @@ def main() -> int:
         )
         return 1
     plan, report = run_review(RECEIPT_ROOT)
+    deferred_suite_ids = [
+        suite_id
+        for suite_id in ALL_TEST_SUITES
+        if not (RECEIPT_ROOT / f"{suite_id}.json").is_file()
+    ]
     payload = {
         "artifact_type": "matters.test-mesh-receipt.v1",
         "parent_suite_id": plan.parent_suite_id,
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "inventory_revision": INVENTORY_REVISION,
         "executed_suite_ids": list(suites),
-        "deferred_suite_ids": [
-            suite_id
-            for suite_id in ALL_TEST_SUITES
-            if not (RECEIPT_ROOT / f"{suite_id}.json").is_file()
-        ],
+        "deferred_suite_ids": deferred_suite_ids,
         "plan": plan.to_dict(),
         "native_report": report.to_dict(),
-        "status": "routine_green" if report.ok else "blocked",
-        "claim_boundary": (
-            "Routine evidence covers TM01-TM18 and autonomous object-browser "
-            "TM20-TM23. TM19 remains release-only until the frozen G12 candidate."
+        "status": _parent_receipt_status(
+            report_ok=report.ok,
+            deferred_suite_ids=deferred_suite_ids,
         ),
+        "claim_boundary": _parent_claim_boundary(deferred_suite_ids),
         "toolchain": {
             "python": sys.version,
             "pytest": importlib.metadata.version("pytest"),
