@@ -158,6 +158,36 @@
 - Freeze release evidence only after G8 and public boundaries consume it.
 
 
+## matters-ui-revision-line-ending-miss - Canonicalize UI revision identity across Git projections
+
+- Project: matters
+- Trigger reason: clean-clone release validation found an LF versus CRLF-only
+  UI revision mismatch
+- Status: completed
+- Skill decision: used_flowguard_model_miss_review
+
+### Model Files
+
+- `flowguard_design/ui_flow_structure.py`
+
+### Findings
+
+- UI authority fingerprinting canonicalizes CRLF and CR to LF before hashing.
+- A focused regression requires equivalent LF and CRLF authority text to
+  produce the same revision.
+
+### Counterexamples
+
+- Git may change line endings without changing UI behavior; raw text bytes
+  therefore cannot define a portable installed-currentness identity.
+
+### Next Actions
+
+- Commit the canonical revision repair.
+- Rerun installed UI validation against the frozen package.
+- Rerun the accepted final release owner after source identity is frozen.
+
+
 ## matters-v0.2-model-miss-and-release-routing
 
 - Project: matters

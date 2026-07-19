@@ -91,7 +91,8 @@ def current_revision(root: Path = Path(".")) -> str:
         digest.update(path.as_posix().encode("utf-8"))
         digest.update(b"\0")
         if resolved.is_file():
-            digest.update(resolved.read_bytes())
+            content = resolved.read_bytes()
+            digest.update(content.replace(b"\r\n", b"\n").replace(b"\r", b"\n"))
         else:
             digest.update(b"<missing>")
         digest.update(b"\0")

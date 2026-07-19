@@ -56,6 +56,9 @@ Private local desktop candidate.
 - Distinguish routine and release TestMesh parent receipts so a successful
   TM01-TM23 run, including TM19, becomes release-green and remains consumable
   by G8 without falsely claiming that the release-only suite was deferred.
+- Canonicalize text line endings in the UI authority fingerprint so source,
+  clean-clone, packaged, and installed Windows identities do not disagree only
+  because Git projected LF as CRLF.
 
 ## 0.1.0 — 2026-07-18
 

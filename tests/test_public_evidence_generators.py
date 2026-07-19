@@ -209,3 +209,15 @@ def test_installed_ui_gate_requires_exact_current_revision(tmp_path: Path):
     stale = _installed_ui_gate(tmp_path)
     assert not stale["ok"]
     assert stale["evidence_current"] is False
+
+
+def test_ui_revision_is_stable_across_text_line_endings(tmp_path: Path):
+    authority = tmp_path / "ui" / "index.html"
+    authority.parent.mkdir(parents=True)
+    authority.write_bytes(b"<main>\nMatter\n</main>\n")
+    lf_revision = current_revision(tmp_path)
+
+    authority.write_bytes(b"<main>\r\nMatter\r\n</main>\r\n")
+    crlf_revision = current_revision(tmp_path)
+
+    assert crlf_revision == lf_revision
