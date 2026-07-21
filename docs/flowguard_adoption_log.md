@@ -669,3 +669,27 @@ This record contains only public failure classes, repairs, and evidence routes. 
 - A real current-provider regression now queues one research package, imports one bilingual supplemental finding, and verifies original-owner auto-application.
 - Added A1 hazard `H-A1-005-current-import-loses-researchguard-identity`.
 - External research quality, current web evidence, complete private supplemental coverage, final ModelMesh/TestMesh/DPF, installation, and release evidence remain separate owners.
+
+## matters-v030-install-and-desktop-release-miss - Align AI, package, desktop, and release identities
+
+- Project: matters
+- Trigger reason: the source declared 0.3.0 and `matters-mcp`, while the machine still ran 0.2.0 without the AI entrypoint; real desktop packaging then exposed additional build-only gaps
+- Status: focused repair and transactional installation verified; final frozen full owner and GitHub publication remain pending
+- Skill decision: existing-model preflight + model-miss review + development process flow
+- Claim boundary: generic release ordering, package/launcher identity, desktop build/install mechanics, focused regressions, and current local installation only
+
+### Findings and repairs
+
+- The machine distribution was still 0.2.0 and had no `matters-mcp`; the frozen 0.3.0 wheel was first verified in an anonymous environment, then installed transactionally with rollback staging.
+- PyInstaller resolved relative UI and entry paths from its spec directory; build inputs now use repository-derived absolute paths and accept either relative or absolute output roots.
+- A windowed executable's stdout was invisible to direct PowerShell invocation; build and install owners now run `--self-test` hidden with explicit stdout/stderr capture.
+- `--collect-data matters` omitted each bundled skill's `scripts/invoke.py`; the exact eleven-skill directory is now an explicit desktop data input.
+- A system Python build attempted to include unrelated torch, pandas, and matplotlib packages; the accepted build used a dependency-minimal anonymous environment and contained none of them.
+- The delivery flow incorrectly required private-first-run completion before a generic release. G9 now proves direct separation: it consumes no private aggregate, blocks if one is supplied to the generic lane, and leaves Gmail/filesystem/Codex first-run evidence to post-release acceptance.
+
+### Evidence and remaining boundary
+
+- Anonymous and installed MCP checks both report Matters 0.3.0, protocol `2025-11-25`, exactly 28 tools, and the complete model-map, situation, observation, prediction-feedback, and Model Miss entrypoints.
+- The isolated desktop package is approximately 95 MB, passes its manifest and self-test, contains the exact eleven-skill pack, and is installed transactionally behind matching Desktop and Start Menu shortcuts.
+- Focused desktop/release and DPF projection regressions pass.
+- Final refrozen model owners, full TestMesh, final source packages, Git/tag/GitHub Release, and the post-release private first run remain separate required owners.

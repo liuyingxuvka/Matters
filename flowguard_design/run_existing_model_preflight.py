@@ -43,7 +43,7 @@ SOURCE_ANALYSIS_OWNER_ID = "A0_matters_source_analysis_operation"
 RESEARCH_OWNER_ID = "A1_matters_research_operation"
 MAINTENANCE_ORCHESTRATOR_OWNER_ID = "A2_matters_maintenance_orchestrator_operation"
 AI_GATEWAY_OWNER_ID = "A3_matters_ai_gateway_operation"
-SCOPE_REVISION = "v0.3.0-matter-browser-semantic-reset-v7"
+SCOPE_REVISION = "v0.3.0-matter-browser-semantic-reset-v8"
 REUSE_MAP = {
     "M0_matters_end_to_end_authority": "extend_with_source_in_place_migration_situation_graph_world_model_and_ui_reachability_join",
     "C1_authorization_coverage": "extend_with_source_in_place_storage_cleanup_group_graph_world_model_and_ui_stage_coverage",
@@ -58,7 +58,7 @@ REUSE_MAP = {
     "C10_correction_revocation": "extend_with_locator_derived_group_graph_world_model_hero_and_projection_invalidation",
     "C11_guard_artifact_prediction": "extend_with_persistent_advisory_world_model_and_root_only_photoreal_hero_disposition",
     "C12_projection_bilingual_ui": "extend_with_summary_free_root_cards_situation_graph_single_layer_quick_view_grouped_sources_root_only_photoreal_hero_and_automatic_root_supplemental_queue",
-    "DPF_matters_delivery_gate": "extend_with_source_in_place_migration_order_coverage_scan_desktop_visual_qa_install_and_release_gates",
+    "DPF_matters_delivery_gate": "extend_with_generic_v030_release_before_post_release_private_first_run_plus_source_in_place_migration_order_coverage_scan_desktop_visual_qa_install_and_release_gates",
     "S0_matters_skill_runtime": "add_auxiliary_non_product_skill_runtime_boundary",
     "A0_matters_source_analysis_operation": "add_agent_operation_boundary",
     "A1_matters_research_operation": "add_abstract_researchoperation_boundary",
@@ -187,7 +187,7 @@ def _process_hit() -> ModelContextHit:
         evidence_current=False,
         responsibilities=(
             "development gate order and evidence freshness",
-            "progressive private first-run sequencing",
+            "generic v0.3.0 release before progressive private first-run sequencing",
             "Model Miss handoff into ordinary development",
         ),
         function_blocks=(
@@ -484,6 +484,7 @@ def _spec_provider_context(
         and all(
             commitment_id in set(ledger.get("expected_commitment_ids", ()))
             for commitment_id in (
+                "BC-DP-003",
                 "BC-DP-004",
                 "BC-DP-005",
                 "BC-DP-006",
@@ -518,6 +519,7 @@ def _spec_provider_context(
         "ledger_fingerprint": ledger_fingerprint,
         "artifact_ids": artifact_ids,
         "target_commitment_ids": [
+            "BC-DP-003",
             "BC-DP-004",
             "BC-DP-005",
             "BC-DP-006",
@@ -535,6 +537,7 @@ def _spec_provider_context(
             "BC-PR-012",
         ],
         "typed_relation_ids": [
+            "BC-DP-004:requires_evidence_from:BC-DP-003",
             "BC-DP-004:governs:BC-AO-001",
             "BC-DP-004:governs:BC-AO-002",
             "BC-DP-004:governs:BC-AO-003",
@@ -593,6 +596,7 @@ def build_preflight() -> ExistingModelPreflight:
             "pack without machine-global overlays, one separate public Matters AI "
             "gateway for bounded model-map/context/history access and typed feedback, "
             "event-driven progressive private maintenance through one shared path "
+            "after one separately verified generic private-repository v0.3.0 release, "
             "with daily scheduling opt-in only, and bounded Model Miss handoff "
             "without app-owned API keys, Jira/Rovo, Guard vendoring, or legacy "
             "Guard fallbacks."
@@ -620,12 +624,25 @@ def build_preflight() -> ExistingModelPreflight:
                 score=100,
                 match_reasons=(
                     "same progressive private-first-run process intent",
-                    "existing DPF owns order and evidence freshness",
+                    "existing DPF owns generic-release-before-private-run order and evidence freshness",
                     "Jira-specific predecessor is explicitly replaced",
                 ),
             ),
         ),
         related_commitment_hits=(
+            BehaviorCommitmentHit(
+                commitment_id="BC-DP-003",
+                behavior_plane="development_process",
+                primary_owner_model_id=PROCESS_OWNER_ID,
+                score=99,
+                match_reasons=(
+                    "generic v0.3.0 private-repository release must close before the private first run",
+                    "release evidence excludes private aggregate consumption and completion claims",
+                ),
+                hit_role="validation_target",
+                relation_type="requires_evidence_from",
+                relation_path=("BC-DP-004", "BC-DP-003"),
+            ),
             BehaviorCommitmentHit(
                 commitment_id="BC-PR-001",
                 behavior_plane="product_runtime",
@@ -706,7 +723,8 @@ def build_preflight() -> ExistingModelPreflight:
         ledger_fingerprint=ledger_fingerprint,
         behavior_lookup_reason=(
             "The change is primarily a development lifecycle and integration "
-            "rebase. DPF remains the single process owner; C1-C12 and agent "
+            "rebase. DPF owns both the generic v0.3.0 release gate and the "
+            "separate post-release private-first-run sequence; C1-C12 and agent "
             "operations are typed evidence targets and never merge into the "
             "development-process plane."
         ),

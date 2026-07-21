@@ -1,6 +1,6 @@
 {
   "artifact_type": "matters.test-suite-receipt.v1",
-  "generated_at": "2026-07-21T04:42:21.659030+00:00",
+  "generated_at": "2026-07-21T10:10:42.195649+00:00",
   "pytest_observation": {
     "errors": 0,
     "failed": 0,
@@ -23,7 +23,7 @@
     "tests/test_tm09_completion_reopen.py"
   ],
   "stderr_tail": "",
-  "stdout_tail": ".                                                                        [100%]\n1 passed in 0.11s\n",
+  "stdout_tail": ".                                                                        [100%]\n1 passed in 0.12s\n",
   "suite_id": "TM09_completion_reopen",
   "test_suite_evidence": {
     "artifact_version": "matters.test-suite-receipt.v1",
@@ -133,7 +133,7 @@
         "src/matters/state/outcomes.py": "sha256:dd0c810a3252679f3102413e3462a8803876ea84204134dfdff3503f7d9786a4",
         "tests/test_tm09_completion_reopen.py": "sha256:ce37d8745edaa31a8b9a951993764770b2cbed020e14b8f05134f0cf24a6048a"
       },
-      "artifact_id": "artifact:run:TM09_completion_reopen:289dcbedd0a775b6",
+      "artifact_id": "artifact:run:TM09_completion_reopen:7dc8f56509ef3bd8",
       "assertion_scope": "external_contract",
       "command": "python -m pytest -q -o addopts= tests/test_tm09_completion_reopen.py",
       "covered_obligation_ids": [
@@ -184,7 +184,7 @@
       ],
       "current": true,
       "exit_code": 0,
-      "finished_at": "2026-07-21T04:42:21.659030+00:00",
+      "finished_at": "2026-07-21T10:10:42.195649+00:00",
       "metadata": {},
       "producer_route": "test_mesh",
       "progress_only": false,
@@ -193,7 +193,7 @@
       "route_evidence_current": true,
       "route_gap_codes": [],
       "stale_reasons": [],
-      "started_at": "2026-07-21T04:42:20.331920+00:00"
+      "started_at": "2026-07-21T10:10:40.283586+00:00"
     },
     "release_required": false,
     "result_fingerprint": "sha256:5e58f66463acef847cc7bd231cd7c14d1aebde3f35c69867b3e9e1c1c5f7f90f",
@@ -201,7 +201,7 @@
     "result_reused": false,
     "result_status": "passed",
     "reuse_ticket": null,
-    "run_id": "run:TM09_completion_reopen:289dcbedd0a775b6",
+    "run_id": "run:TM09_completion_reopen:7dc8f56509ef3bd8",
     "selected_count": 1,
     "skipped_count": 0,
     "skipped_visible": true,

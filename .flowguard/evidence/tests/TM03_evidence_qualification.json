@@ -1,6 +1,6 @@
 {
   "artifact_type": "matters.test-suite-receipt.v1",
-  "generated_at": "2026-07-21T04:39:22.792628+00:00",
+  "generated_at": "2026-07-21T10:05:45.110039+00:00",
   "pytest_observation": {
     "errors": 0,
     "failed": 0,
@@ -28,7 +28,7 @@
     "tests/test_source_image_adapters.py"
   ],
   "stderr_tail": "",
-  "stdout_tail": ".........                                                                [100%]\n9 passed in 0.27s\n",
+  "stdout_tail": ".........                                                                [100%]\n9 passed in 0.37s\n",
   "suite_id": "TM03_evidence_qualification",
   "test_suite_evidence": {
     "artifact_version": "matters.test-suite-receipt.v1",
@@ -225,7 +225,7 @@
         "tests/test_source_image_adapters.py": "sha256:4938f653c617f5cce35969248c7d6d73acbbdcbea4cdeeeb8e03695c6fd4e8ef",
         "tests/test_tm03_evidence_qualification.py": "sha256:78d6952ea40bd4a6042360213a28c120b511f0b49699946767cef4e6f5f9659a"
       },
-      "artifact_id": "artifact:run:TM03_evidence_qualification:8c4a71a33b3e2460",
+      "artifact_id": "artifact:run:TM03_evidence_qualification:d3214ad25409b555",
       "assertion_scope": "external_contract",
       "command": "python -m pytest -q -o addopts= tests/test_tm03_evidence_qualification.py tests/test_source_document_adapters.py tests/test_source_image_adapters.py",
       "covered_obligation_ids": [
@@ -332,7 +332,7 @@
       ],
       "current": true,
       "exit_code": 0,
-      "finished_at": "2026-07-21T04:39:22.792628+00:00",
+      "finished_at": "2026-07-21T10:05:45.110039+00:00",
       "metadata": {},
       "producer_route": "test_mesh",
       "progress_only": false,
@@ -341,7 +341,7 @@
       "route_evidence_current": true,
       "route_gap_codes": [],
       "stale_reasons": [],
-      "started_at": "2026-07-21T04:39:21.121092+00:00"
+      "started_at": "2026-07-21T10:05:42.672029+00:00"
     },
     "release_required": false,
     "result_fingerprint": "sha256:74a92d280eb3a266af13354c79ed5021a6278a6658bbe8195395b3800f12ed3f",
@@ -349,7 +349,7 @@
     "result_reused": false,
     "result_status": "passed",
     "reuse_ticket": null,
-    "run_id": "run:TM03_evidence_qualification:8c4a71a33b3e2460",
+    "run_id": "run:TM03_evidence_qualification:d3214ad25409b555",
     "selected_count": 9,
     "skipped_count": 0,
     "skipped_visible": true,

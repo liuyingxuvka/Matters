@@ -1,6 +1,6 @@
 {
   "artifact_type": "matters.test-suite-receipt.v1",
-  "generated_at": "2026-07-21T04:45:42.873913+00:00",
+  "generated_at": "2026-07-21T10:20:38.911351+00:00",
   "pytest_observation": {
     "errors": 0,
     "failed": 0,
@@ -10,24 +10,24 @@
     "xfailed": 0,
     "xpassed": 0
   },
-  "source_fingerprint": "sha256:a00b95caf70fba6d78fb29e44e9e3def459432ee425b8c79806d6f88888defcd",
+  "source_fingerprint": "sha256:60ea458fd9cfdb377a95ac841a51a8c5d761204653bb107c5a0351522f91bdce",
   "source_fingerprints": {
     "src/matters/api/http/app.py": "sha256:716f8a32cfa215962e6f968f2cf72d1d823cb99a99468644ba858152d156db98",
     "src/matters/api/http/static.py": "sha256:1e13b481809e779877d39189ef91d30175f82eadd305df320cec6d70d3297d00",
     "src/matters/desktop.py": "sha256:0bf10231884efc6d6ddebe69fbe4ccc4a7bfe83f614a62103e4a49eadc6f9150",
     "src/matters/presentation/browser.py": "sha256:f7dbee1674ba7945df77b47954bae23396ff0d80821217d69bc02a2248ba9856",
     "tests/test_desktop.py": "sha256:8d978f5cf17883716de4016745241745538859337769c11e03567f704543c60e",
-    "tests/test_entrypoint_ui.py": "sha256:c95f3426c4a94b3f140797f45420bdefb4eefd463815d9571f09a202bf586d32",
+    "tests/test_entrypoint_ui.py": "sha256:ba534166bc19483a6c068d4a8e39d4581736c2ab23ccc3b26ddcb45f0ca9bed6",
     "ui/app.js": "sha256:a8393dc0a908a3096f52845cb4494611557e77f548105a3c4af47c80a5259fe4",
     "ui/index.html": "sha256:5125b7f80c72b6569e3004aab029717dd909c7360c61d30623e6b912db161e07",
-    "ui/styles.css": "sha256:0ee61921142541b3f7a98a2c0ee81b2a53a7dff2e60addd7a64436fa3a68ec8f"
+    "ui/styles.css": "sha256:8e87e4974a1eab91f56db34db7936c6472199598665137a4ff9ea25be5abdc35"
   },
   "source_paths": [
     "tests/test_desktop.py",
     "tests/test_entrypoint_ui.py"
   ],
   "stderr_tail": "",
-  "stdout_tail": "...................                                                      [100%]\n19 passed in 1.81s\n",
+  "stdout_tail": "...................                                                      [100%]\n19 passed in 2.32s\n",
   "suite_id": "TM23_desktop_object_browser",
   "test_suite_evidence": {
     "artifact_version": "matters.test-suite-receipt.v1",
@@ -72,12 +72,12 @@
         "src/matters/desktop.py": "sha256:0bf10231884efc6d6ddebe69fbe4ccc4a7bfe83f614a62103e4a49eadc6f9150",
         "src/matters/presentation/browser.py": "sha256:f7dbee1674ba7945df77b47954bae23396ff0d80821217d69bc02a2248ba9856",
         "tests/test_desktop.py": "sha256:8d978f5cf17883716de4016745241745538859337769c11e03567f704543c60e",
-        "tests/test_entrypoint_ui.py": "sha256:c95f3426c4a94b3f140797f45420bdefb4eefd463815d9571f09a202bf586d32",
+        "tests/test_entrypoint_ui.py": "sha256:ba534166bc19483a6c068d4a8e39d4581736c2ab23ccc3b26ddcb45f0ca9bed6",
         "ui/app.js": "sha256:a8393dc0a908a3096f52845cb4494611557e77f548105a3c4af47c80a5259fe4",
         "ui/index.html": "sha256:5125b7f80c72b6569e3004aab029717dd909c7360c61d30623e6b912db161e07",
-        "ui/styles.css": "sha256:0ee61921142541b3f7a98a2c0ee81b2a53a7dff2e60addd7a64436fa3a68ec8f"
+        "ui/styles.css": "sha256:8e87e4974a1eab91f56db34db7936c6472199598665137a4ff9ea25be5abdc35"
       },
-      "artifact_id": "artifact:run:TM23_desktop_object_browser:a435416532574ae9",
+      "artifact_id": "artifact:run:TM23_desktop_object_browser:af273f22eac2413a",
       "assertion_scope": "external_contract",
       "command": "python -m pytest -q -o addopts= tests/test_desktop.py tests/test_entrypoint_ui.py",
       "covered_obligation_ids": [
@@ -87,7 +87,7 @@
       ],
       "current": true,
       "exit_code": 0,
-      "finished_at": "2026-07-21T04:45:42.873913+00:00",
+      "finished_at": "2026-07-21T10:20:38.911351+00:00",
       "metadata": {},
       "producer_route": "test_mesh",
       "progress_only": false,
@@ -96,15 +96,15 @@
       "route_evidence_current": true,
       "route_gap_codes": [],
       "stale_reasons": [],
-      "started_at": "2026-07-21T04:45:39.544741+00:00"
+      "started_at": "2026-07-21T10:20:34.380903+00:00"
     },
     "release_required": false,
-    "result_fingerprint": "sha256:a00b95caf70fba6d78fb29e44e9e3def459432ee425b8c79806d6f88888defcd",
+    "result_fingerprint": "sha256:60ea458fd9cfdb377a95ac841a51a8c5d761204653bb107c5a0351522f91bdce",
     "result_path": ".flowguard/evidence/tests/TM23_desktop_object_browser.json",
     "result_reused": false,
     "result_status": "passed",
     "reuse_ticket": null,
-    "run_id": "run:TM23_desktop_object_browser:a435416532574ae9",
+    "run_id": "run:TM23_desktop_object_browser:af273f22eac2413a",
     "selected_count": 19,
     "skipped_count": 0,
     "skipped_visible": true,

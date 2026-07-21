@@ -1,6 +1,6 @@
 {
   "artifact_type": "matters.test-suite-receipt.v1",
-  "generated_at": "2026-07-21T04:45:08.143068+00:00",
+  "generated_at": "2026-07-21T10:19:47.822485+00:00",
   "pytest_observation": {
     "errors": 0,
     "failed": 0,
@@ -10,7 +10,7 @@
     "xfailed": 0,
     "xpassed": 0
   },
-  "source_fingerprint": "sha256:8725eefa38ae849bf5a6e5ce226eaf75e3b846378c6ffd5cbc0d68b3677c6cc4",
+  "source_fingerprint": "sha256:74e187a44e48223b5df4f38ac3ab9821572fe853eb3c28efda769f7860e003b4",
   "source_fingerprints": {
     "src/matters/analysis/__init__.py": "sha256:4610c328506049750179cae6c44e1bce505b65f9d568cc18a6f70ad27a3282d4",
     "src/matters/analysis/depth.py": "sha256:5d25ca51f287422fb79939e72477e53fdfc0d2b0cacd8b9da017a0a6fb7f61ef",
@@ -26,7 +26,7 @@
     "tests/test_contract_rebase_and_global_recall.py": "sha256:1b2a4007cc22ae5a6090fbe709d035dd927432f12df667fc4a1ee3952204b623",
     "tests/test_durable_work_recompute.py": "sha256:75e96a1580c839c468f19a7a7ca450fc5c01d3d7a0b5eb8a80905d4e154c9774",
     "tests/test_execution_profiles.py": "sha256:3e9d7ec329982b214e63acb278bb012539aa627e7caf23b9a67055f1c5b77320",
-    "tests/test_understanding_workflow.py": "sha256:f5e4bd2495cee0d1d5a5e932e103522f13140c581269e62b4266f01cd56a5fd3"
+    "tests/test_understanding_workflow.py": "sha256:fe7fd8f69cbb1e470e632f3db0235afe54678560bb4d637f8c9e6736b3e5217c"
   },
   "source_paths": [
     "tests/test_understanding_workflow.py",
@@ -37,7 +37,7 @@
     "tests/test_execution_profiles.py"
   ],
   "stderr_tail": "",
-  "stdout_tail": ".......................................................                  [100%]\n55 passed in 39.05s\n",
+  "stdout_tail": ".......................................................                  [100%]\n55 passed in 56.53s\n",
   "suite_id": "TM20_autonomous_owner_dispatch",
   "test_suite_evidence": {
     "artifact_version": "matters.test-suite-receipt.v1",
@@ -209,9 +209,9 @@
         "tests/test_contract_rebase_and_global_recall.py": "sha256:1b2a4007cc22ae5a6090fbe709d035dd927432f12df667fc4a1ee3952204b623",
         "tests/test_durable_work_recompute.py": "sha256:75e96a1580c839c468f19a7a7ca450fc5c01d3d7a0b5eb8a80905d4e154c9774",
         "tests/test_execution_profiles.py": "sha256:3e9d7ec329982b214e63acb278bb012539aa627e7caf23b9a67055f1c5b77320",
-        "tests/test_understanding_workflow.py": "sha256:f5e4bd2495cee0d1d5a5e932e103522f13140c581269e62b4266f01cd56a5fd3"
+        "tests/test_understanding_workflow.py": "sha256:fe7fd8f69cbb1e470e632f3db0235afe54678560bb4d637f8c9e6736b3e5217c"
       },
-      "artifact_id": "artifact:run:TM20_autonomous_owner_dispatch:f9e85630ff7feba0",
+      "artifact_id": "artifact:run:TM20_autonomous_owner_dispatch:cffe077a6d6f60aa",
       "assertion_scope": "external_contract",
       "command": "python -m pytest -q -o addopts= tests/test_understanding_workflow.py tests/test_analysis_operations_depth.py tests/test_codex_provider.py tests/test_contract_rebase_and_global_recall.py tests/test_durable_work_recompute.py tests/test_execution_profiles.py",
       "covered_obligation_ids": [
@@ -297,7 +297,7 @@
       ],
       "current": true,
       "exit_code": 0,
-      "finished_at": "2026-07-21T04:45:08.143068+00:00",
+      "finished_at": "2026-07-21T10:19:47.822485+00:00",
       "metadata": {},
       "producer_route": "test_mesh",
       "progress_only": false,
@@ -306,15 +306,15 @@
       "route_evidence_current": true,
       "route_gap_codes": [],
       "stale_reasons": [],
-      "started_at": "2026-07-21T04:44:27.693546+00:00"
+      "started_at": "2026-07-21T10:18:49.239483+00:00"
     },
     "release_required": false,
-    "result_fingerprint": "sha256:8725eefa38ae849bf5a6e5ce226eaf75e3b846378c6ffd5cbc0d68b3677c6cc4",
+    "result_fingerprint": "sha256:74e187a44e48223b5df4f38ac3ab9821572fe853eb3c28efda769f7860e003b4",
     "result_path": ".flowguard/evidence/tests/TM20_autonomous_owner_dispatch.json",
     "result_reused": false,
     "result_status": "passed",
     "reuse_ticket": null,
-    "run_id": "run:TM20_autonomous_owner_dispatch:f9e85630ff7feba0",
+    "run_id": "run:TM20_autonomous_owner_dispatch:cffe077a6d6f60aa",
     "selected_count": 55,
     "skipped_count": 0,
     "skipped_visible": true,

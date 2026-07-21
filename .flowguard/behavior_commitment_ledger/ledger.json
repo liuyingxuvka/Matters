@@ -31,20 +31,72 @@
             "CC-M0-orchestrator"
           ],
           "coverage_case_ids": [
+            "TC-M0_matters_end_to_end_authority-source_in_place_migration_and_retention_current",
+            "TC-M0_matters_end_to_end_authority-source_in_place_migration_and_retention_current-retry",
+            "TC-M0_matters_end_to_end_authority-source_groups_graph_world_model_and_ui_current",
+            "TC-M0_matters_end_to_end_authority-source_groups_graph_world_model_and_ui_current-retry",
+            "TC-M0_matters_end_to_end_authority-coverage_ledger_and_first_gap_index_current",
+            "TC-M0_matters_end_to_end_authority-coverage_ledger_and_first_gap_index_current-retry",
+            "TC-M0_matters_end_to_end_authority-codex_project_source_inventory_current",
+            "TC-M0_matters_end_to_end_authority-codex_project_source_inventory_current-retry",
+            "TC-M0_matters_end_to_end_authority-current_contract_repair_owners_terminal",
+            "TC-M0_matters_end_to_end_authority-current_contract_repair_owners_terminal-retry",
+            "TC-M0_matters_end_to_end_authority-gmail_metadata_owner_reconciliation_current",
+            "TC-M0_matters_end_to_end_authority-gmail_metadata_owner_reconciliation_current-retry",
+            "TC-M0_matters_end_to_end_authority-gmail_legacy_content_receipts_and_current_scope_terminal",
+            "TC-M0_matters_end_to_end_authority-gmail_legacy_content_receipts_and_current_scope_terminal-retry",
+            "TC-M0_matters_end_to_end_authority-annotation_followups_and_source_revisions_terminal",
+            "TC-M0_matters_end_to_end_authority-annotation_followups_and_source_revisions_terminal-retry",
+            "TC-M0_matters_end_to_end_authority-gmail_body_continuation_prefix_current",
+            "TC-M0_matters_end_to_end_authority-gmail_body_continuation_prefix_current-retry",
+            "TC-M0_matters_end_to_end_authority-gmail_no_text_body_terminal",
+            "TC-M0_matters_end_to_end_authority-gmail_no_text_body_terminal-retry",
+            "TC-M0_matters_end_to_end_authority-catalog_indexed_page_and_visible_hydration_current",
+            "TC-M0_matters_end_to_end_authority-catalog_indexed_page_and_visible_hydration_current-retry",
+            "TC-M0_matters_end_to_end_authority-parent_narrative_complete_scope_current",
+            "TC-M0_matters_end_to_end_authority-parent_narrative_complete_scope_current-retry",
+            "TC-M0_matters_end_to_end_authority-registered_filesystem_batch_claimed",
+            "TC-M0_matters_end_to_end_authority-registered_filesystem_batch_claimed-retry",
+            "TC-M0_matters_end_to_end_authority-source_analysis_expansion_pending",
+            "TC-M0_matters_end_to_end_authority-source_analysis_expansion_pending-retry",
+            "TC-M0_matters_end_to_end_authority-source_analysis_expansion_complete",
+            "TC-M0_matters_end_to_end_authority-source_analysis_expansion_complete-retry",
+            "TC-M0_matters_end_to_end_authority-interactive_service_started_with_legacy_rows",
+            "TC-M0_matters_end_to_end_authority-interactive_service_started_with_legacy_rows-retry",
+            "TC-M0_matters_end_to_end_authority-explicit_maintenance_rebase_terminal",
+            "TC-M0_matters_end_to_end_authority-explicit_maintenance_rebase_terminal-retry",
+            "TC-M0_matters_end_to_end_authority-explicit_storage_migrations_terminal_in_safe_order",
+            "TC-M0_matters_end_to_end_authority-explicit_storage_migrations_terminal_in_safe_order-retry",
             "TC-M0_matters_end_to_end_authority-all_registered_objects_terminal_and_ui_ready",
             "TC-M0_matters_end_to_end_authority-all_registered_objects_terminal_and_ui_ready-retry",
+            "TC-M0_matters_end_to_end_authority-hierarchy_stage_chain_current",
+            "TC-M0_matters_end_to_end_authority-hierarchy_stage_chain_current-retry",
+            "TC-M0_matters_end_to_end_authority-hierarchy_stage_missing_or_stale",
+            "TC-M0_matters_end_to_end_authority-hierarchy_stage_missing_or_stale-retry",
+            "TC-M0_matters_end_to_end_authority-hierarchy_depth_pending",
+            "TC-M0_matters_end_to_end_authority-hierarchy_depth_pending-retry",
+            "TC-M0_matters_end_to_end_authority-old_or_new_ancestor_chain_stale",
+            "TC-M0_matters_end_to_end_authority-old_or_new_ancestor_chain_stale-retry",
             "TC-M0_matters_end_to_end_authority-missing_or_stale_stage_work",
             "TC-M0_matters_end_to_end_authority-missing_or_stale_stage_work-retry",
             "TC-M0_matters_end_to_end_authority-typed_finding_owner_join_pending",
             "TC-M0_matters_end_to_end_authority-typed_finding_owner_join_pending-retry",
+            "TC-M0_matters_end_to_end_authority-owner_result_coverage_join_mismatch",
+            "TC-M0_matters_end_to_end_authority-owner_result_coverage_join_mismatch-retry",
+            "TC-M0_matters_end_to_end_authority-matter_semantic_depth_rollup_current",
+            "TC-M0_matters_end_to_end_authority-matter_semantic_depth_rollup_current-retry",
             "TC-M0_matters_end_to_end_authority-one_object_blocked_others_progress",
             "TC-M0_matters_end_to_end_authority-one_object_blocked_others_progress-retry",
             "TC-M0_matters_end_to_end_authority-progressive_inventory_partial",
             "TC-M0_matters_end_to_end_authority-progressive_inventory_partial-retry",
             "TC-M0_matters_end_to_end_authority-semantic_depth_partial",
             "TC-M0_matters_end_to_end_authority-semantic_depth_partial-retry",
-            "TC-M0_matters_end_to_end_authority-visual_localization_or_ui_gap",
-            "TC-M0_matters_end_to_end_authority-visual_localization_or_ui_gap-retry",
+            "TC-M0_matters_end_to_end_authority-hero_localization_supplemental_or_ui_gap",
+            "TC-M0_matters_end_to_end_authority-hero_localization_supplemental_or_ui_gap-retry",
+            "TC-M0_matters_end_to_end_authority-material_clue_summary_or_activity_gap",
+            "TC-M0_matters_end_to_end_authority-material_clue_summary_or_activity_gap-retry",
+            "TC-M0_matters_end_to_end_authority-daily_orchestrator_or_delegated_join_gap",
+            "TC-M0_matters_end_to_end_authority-daily_orchestrator_or_delegated_join_gap-retry",
             "TC-M0_matters_end_to_end_authority-researchguard_pending",
             "TC-M0_matters_end_to_end_authority-researchguard_pending-retry",
             "TC-M0_matters_end_to_end_authority-stale_child_receipt",
@@ -57,24 +109,38 @@
             "TC-M0_matters_end_to_end_authority-restart_from_checkpoint-retry",
             "TC-M0_matters_end_to_end_authority-unchanged_rescan",
             "TC-M0_matters_end_to_end_authority-unchanged_rescan-retry",
+            "TC-M0_matters_end_to_end_authority-capability_route_pending_or_unavailable",
+            "TC-M0_matters_end_to_end_authority-capability_route_pending_or_unavailable-retry",
+            "TC-M0_matters_end_to_end_authority-shared_invocation_no_delta",
+            "TC-M0_matters_end_to_end_authority-shared_invocation_no_delta-retry",
+            "TC-M0_matters_end_to_end_authority-shared_invocation_interrupted",
+            "TC-M0_matters_end_to_end_authority-shared_invocation_interrupted-retry",
+            "TC-M0_matters_end_to_end_authority-owner_redispatch_without_codex",
+            "TC-M0_matters_end_to_end_authority-owner_redispatch_without_codex-retry",
+            "TC-M0_matters_end_to_end_authority-codex_runner_unavailable",
+            "TC-M0_matters_end_to_end_authority-codex_runner_unavailable-retry",
+            "TC-M0_matters_end_to_end_authority-codex_pending_page_requested",
+            "TC-M0_matters_end_to_end_authority-codex_pending_page_requested-retry",
+            "TC-M0_matters_end_to_end_authority-scheduled_adapter_attempts_forbidden_action_or_final_gate",
+            "TC-M0_matters_end_to_end_authority-scheduled_adapter_attempts_forbidden_action_or_final_gate-retry",
             "TC-M0_matters_end_to_end_authority-parent_attempts_child_write",
             "TC-M0_matters_end_to_end_authority-parent_attempts_child_write-retry"
           ],
           "coverage_receipt_ids": [
-            "run:TM14_end_to_end_conformance:029cfaf6e667804e"
+            "run:TM14_end_to_end_conformance:80514938ce4a7f52"
           ],
           "coverage_shard_ids": [
             "TM14_end_to_end_conformance"
           ],
-          "current": false,
-          "evidence_state": "stale",
+          "current": true,
+          "evidence_state": "current_pass",
           "metadata": {
-            "alignment_evidence_id": "evidence:model-code-test-alignment:656e66dd6db30bd7",
+            "alignment_evidence_id": "evidence:model-code-test-alignment:4ad14cafdfb5d191",
             "g8_evidence_id": "evidence:G8-fully-synthetic:ffe0563f16dabefc",
             "live_provider_evidence": false,
-            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v7",
+            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v8",
             "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed",
-            "test_receipt_fingerprint": "sha256:ce4376f95d269a0562d10c77e6db337a5660a4415471c93b44061d7104280a40",
+            "test_receipt_fingerprint": "sha256:496e977ab4c39c0c53a32d34f46385a7945b421c6dbe9758072be1d75cdc60d1",
             "test_receipt_path": ".flowguard/evidence/tests/TM14_end_to_end_conformance.json",
             "through_gate": "G8"
           },
@@ -82,9 +148,9 @@
             "OB-M0-001"
           ],
           "proof_artifact_ids": [
-            "evidence:M0_matters_end_to_end_authority:96f9b1c9603a2ddc",
-            "artifact:run:TM14_end_to_end_conformance:029cfaf6e667804e",
-            "evidence:model-code-test-alignment:656e66dd6db30bd7",
+            "evidence:M0_matters_end_to_end_authority:4abae21e2657e0bc",
+            "artifact:run:TM14_end_to_end_conformance:80514938ce4a7f52",
+            "evidence:model-code-test-alignment:4ad14cafdfb5d191",
             "evidence:G8-fully-synthetic:ffe0563f16dabefc"
           ],
           "risk_gate_ids": [
@@ -93,9 +159,9 @@
             "G8-fully-synthetic"
           ],
           "test_evidence_ids": [
-            "run:TM14_end_to_end_conformance:029cfaf6e667804e"
+            "run:TM14_end_to_end_conformance:80514938ce4a7f52"
           ],
-          "test_mesh_state": "stale"
+          "test_mesh_state": "shard_current"
         },
         "excluded_behavior_ids": [],
         "expected_result": "a current per-occurrence and per-Matter stage ledger plus evidence-backed Matter, source-only, not-applicable, uncertain, no-finding, blocked, or UI-ready terminal results; source originals remain in place while pointer/fingerprint and durable-derived stages, SourceGroup, a Matter-only hierarchy projection, logical-event timeline, people/relations, human narrative, Situation/World Model, root-only photographic Hero, materialized first-gap index, and actual UI reachability remain independently auditable; a passed result awaiting only original-owner redispatch is recovered as one isolated phase that defers new AI work to the next maintenance cycle",
@@ -137,7 +203,7 @@
           "behavior_commitment_id": "BC-PR-000",
           "business_intent": "autonomously maintain an authorized situation",
           "business_intent_id": "BI-PR-000-review-authorized-situation",
-          "evidence_current": false,
+          "evidence_current": true,
           "evidence_refs": [
             ".flowguard/evidence/tests/TM14_end_to_end_conformance.json",
             ".flowguard/evidence/alignment/model_code_test.json",
@@ -146,15 +212,15 @@
           "fallback_candidate_ids": [],
           "metadata": {},
           "path_sensitive": true,
-          "ppa_confidence": "blocked",
+          "ppa_confidence": "full",
           "ppa_coverage_receipt_ids": [
-            "run:TM14_end_to_end_conformance:029cfaf6e667804e"
+            "run:TM14_end_to_end_conformance:80514938ce4a7f52"
           ],
           "ppa_coverage_shard_ids": [
             "TM14_end_to_end_conformance"
           ],
-          "ppa_decision": "primary_path_authority_blocked",
-          "ppa_ok": false,
+          "ppa_decision": "primary_path_authority_green",
+          "ppa_ok": true,
           "ppa_report_id": "PPA-BC-PR-000-G8",
           "ppa_risk_gate_ids": [
             "authority",
@@ -163,26 +229,78 @@
           ],
           "primary_path_id": "path:matters-end-to-end-authority",
           "proof_artifact_ids": [
-            "evidence:M0_matters_end_to_end_authority:96f9b1c9603a2ddc",
-            "artifact:run:TM14_end_to_end_conformance:029cfaf6e667804e",
-            "evidence:model-code-test-alignment:656e66dd6db30bd7",
+            "evidence:M0_matters_end_to_end_authority:4abae21e2657e0bc",
+            "artifact:run:TM14_end_to_end_conformance:80514938ce4a7f52",
+            "evidence:model-code-test-alignment:4ad14cafdfb5d191",
             "evidence:G8-fully-synthetic:ffe0563f16dabefc"
           ],
           "runtime_observation_ids": [
+            "BO-TC-M0_matters_end_to_end_authority-source_in_place_migration_and_retention_current",
+            "BO-TC-M0_matters_end_to_end_authority-source_in_place_migration_and_retention_current-retry",
+            "BO-TC-M0_matters_end_to_end_authority-source_groups_graph_world_model_and_ui_current",
+            "BO-TC-M0_matters_end_to_end_authority-source_groups_graph_world_model_and_ui_current-retry",
+            "BO-TC-M0_matters_end_to_end_authority-coverage_ledger_and_first_gap_index_current",
+            "BO-TC-M0_matters_end_to_end_authority-coverage_ledger_and_first_gap_index_current-retry",
+            "BO-TC-M0_matters_end_to_end_authority-codex_project_source_inventory_current",
+            "BO-TC-M0_matters_end_to_end_authority-codex_project_source_inventory_current-retry",
+            "BO-TC-M0_matters_end_to_end_authority-current_contract_repair_owners_terminal",
+            "BO-TC-M0_matters_end_to_end_authority-current_contract_repair_owners_terminal-retry",
+            "BO-TC-M0_matters_end_to_end_authority-gmail_metadata_owner_reconciliation_current",
+            "BO-TC-M0_matters_end_to_end_authority-gmail_metadata_owner_reconciliation_current-retry",
+            "BO-TC-M0_matters_end_to_end_authority-gmail_legacy_content_receipts_and_current_scope_terminal",
+            "BO-TC-M0_matters_end_to_end_authority-gmail_legacy_content_receipts_and_current_scope_terminal-retry",
+            "BO-TC-M0_matters_end_to_end_authority-annotation_followups_and_source_revisions_terminal",
+            "BO-TC-M0_matters_end_to_end_authority-annotation_followups_and_source_revisions_terminal-retry",
+            "BO-TC-M0_matters_end_to_end_authority-gmail_body_continuation_prefix_current",
+            "BO-TC-M0_matters_end_to_end_authority-gmail_body_continuation_prefix_current-retry",
+            "BO-TC-M0_matters_end_to_end_authority-gmail_no_text_body_terminal",
+            "BO-TC-M0_matters_end_to_end_authority-gmail_no_text_body_terminal-retry",
+            "BO-TC-M0_matters_end_to_end_authority-catalog_indexed_page_and_visible_hydration_current",
+            "BO-TC-M0_matters_end_to_end_authority-catalog_indexed_page_and_visible_hydration_current-retry",
+            "BO-TC-M0_matters_end_to_end_authority-parent_narrative_complete_scope_current",
+            "BO-TC-M0_matters_end_to_end_authority-parent_narrative_complete_scope_current-retry",
+            "BO-TC-M0_matters_end_to_end_authority-registered_filesystem_batch_claimed",
+            "BO-TC-M0_matters_end_to_end_authority-registered_filesystem_batch_claimed-retry",
+            "BO-TC-M0_matters_end_to_end_authority-source_analysis_expansion_pending",
+            "BO-TC-M0_matters_end_to_end_authority-source_analysis_expansion_pending-retry",
+            "BO-TC-M0_matters_end_to_end_authority-source_analysis_expansion_complete",
+            "BO-TC-M0_matters_end_to_end_authority-source_analysis_expansion_complete-retry",
+            "BO-TC-M0_matters_end_to_end_authority-interactive_service_started_with_legacy_rows",
+            "BO-TC-M0_matters_end_to_end_authority-interactive_service_started_with_legacy_rows-retry",
+            "BO-TC-M0_matters_end_to_end_authority-explicit_maintenance_rebase_terminal",
+            "BO-TC-M0_matters_end_to_end_authority-explicit_maintenance_rebase_terminal-retry",
+            "BO-TC-M0_matters_end_to_end_authority-explicit_storage_migrations_terminal_in_safe_order",
+            "BO-TC-M0_matters_end_to_end_authority-explicit_storage_migrations_terminal_in_safe_order-retry",
             "BO-TC-M0_matters_end_to_end_authority-all_registered_objects_terminal_and_ui_ready",
             "BO-TC-M0_matters_end_to_end_authority-all_registered_objects_terminal_and_ui_ready-retry",
+            "BO-TC-M0_matters_end_to_end_authority-hierarchy_stage_chain_current",
+            "BO-TC-M0_matters_end_to_end_authority-hierarchy_stage_chain_current-retry",
+            "BO-TC-M0_matters_end_to_end_authority-hierarchy_stage_missing_or_stale",
+            "BO-TC-M0_matters_end_to_end_authority-hierarchy_stage_missing_or_stale-retry",
+            "BO-TC-M0_matters_end_to_end_authority-hierarchy_depth_pending",
+            "BO-TC-M0_matters_end_to_end_authority-hierarchy_depth_pending-retry",
+            "BO-TC-M0_matters_end_to_end_authority-old_or_new_ancestor_chain_stale",
+            "BO-TC-M0_matters_end_to_end_authority-old_or_new_ancestor_chain_stale-retry",
             "BO-TC-M0_matters_end_to_end_authority-missing_or_stale_stage_work",
             "BO-TC-M0_matters_end_to_end_authority-missing_or_stale_stage_work-retry",
             "BO-TC-M0_matters_end_to_end_authority-typed_finding_owner_join_pending",
             "BO-TC-M0_matters_end_to_end_authority-typed_finding_owner_join_pending-retry",
+            "BO-TC-M0_matters_end_to_end_authority-owner_result_coverage_join_mismatch",
+            "BO-TC-M0_matters_end_to_end_authority-owner_result_coverage_join_mismatch-retry",
+            "BO-TC-M0_matters_end_to_end_authority-matter_semantic_depth_rollup_current",
+            "BO-TC-M0_matters_end_to_end_authority-matter_semantic_depth_rollup_current-retry",
             "BO-TC-M0_matters_end_to_end_authority-one_object_blocked_others_progress",
             "BO-TC-M0_matters_end_to_end_authority-one_object_blocked_others_progress-retry",
             "BO-TC-M0_matters_end_to_end_authority-progressive_inventory_partial",
             "BO-TC-M0_matters_end_to_end_authority-progressive_inventory_partial-retry",
             "BO-TC-M0_matters_end_to_end_authority-semantic_depth_partial",
             "BO-TC-M0_matters_end_to_end_authority-semantic_depth_partial-retry",
-            "BO-TC-M0_matters_end_to_end_authority-visual_localization_or_ui_gap",
-            "BO-TC-M0_matters_end_to_end_authority-visual_localization_or_ui_gap-retry",
+            "BO-TC-M0_matters_end_to_end_authority-hero_localization_supplemental_or_ui_gap",
+            "BO-TC-M0_matters_end_to_end_authority-hero_localization_supplemental_or_ui_gap-retry",
+            "BO-TC-M0_matters_end_to_end_authority-material_clue_summary_or_activity_gap",
+            "BO-TC-M0_matters_end_to_end_authority-material_clue_summary_or_activity_gap-retry",
+            "BO-TC-M0_matters_end_to_end_authority-daily_orchestrator_or_delegated_join_gap",
+            "BO-TC-M0_matters_end_to_end_authority-daily_orchestrator_or_delegated_join_gap-retry",
             "BO-TC-M0_matters_end_to_end_authority-researchguard_pending",
             "BO-TC-M0_matters_end_to_end_authority-researchguard_pending-retry",
             "BO-TC-M0_matters_end_to_end_authority-stale_child_receipt",
@@ -195,6 +313,20 @@
             "BO-TC-M0_matters_end_to_end_authority-restart_from_checkpoint-retry",
             "BO-TC-M0_matters_end_to_end_authority-unchanged_rescan",
             "BO-TC-M0_matters_end_to_end_authority-unchanged_rescan-retry",
+            "BO-TC-M0_matters_end_to_end_authority-capability_route_pending_or_unavailable",
+            "BO-TC-M0_matters_end_to_end_authority-capability_route_pending_or_unavailable-retry",
+            "BO-TC-M0_matters_end_to_end_authority-shared_invocation_no_delta",
+            "BO-TC-M0_matters_end_to_end_authority-shared_invocation_no_delta-retry",
+            "BO-TC-M0_matters_end_to_end_authority-shared_invocation_interrupted",
+            "BO-TC-M0_matters_end_to_end_authority-shared_invocation_interrupted-retry",
+            "BO-TC-M0_matters_end_to_end_authority-owner_redispatch_without_codex",
+            "BO-TC-M0_matters_end_to_end_authority-owner_redispatch_without_codex-retry",
+            "BO-TC-M0_matters_end_to_end_authority-codex_runner_unavailable",
+            "BO-TC-M0_matters_end_to_end_authority-codex_runner_unavailable-retry",
+            "BO-TC-M0_matters_end_to_end_authority-codex_pending_page_requested",
+            "BO-TC-M0_matters_end_to_end_authority-codex_pending_page_requested-retry",
+            "BO-TC-M0_matters_end_to_end_authority-scheduled_adapter_attempts_forbidden_action_or_final_gate",
+            "BO-TC-M0_matters_end_to_end_authority-scheduled_adapter_attempts_forbidden_action_or_final_gate-retry",
             "BO-TC-M0_matters_end_to_end_authority-parent_attempts_child_write",
             "BO-TC-M0_matters_end_to_end_authority-parent_attempts_child_write-retry",
             "BO-M0_matters_end_to_end_authority-foreign_owner_write",
@@ -401,6 +533,20 @@
             "CC-C1-owner"
           ],
           "coverage_case_ids": [
+            "TC-C1_authorization_coverage-active_tracked_legacy_coverage_rebased",
+            "TC-C1_authorization_coverage-active_tracked_legacy_coverage_rebased-retry",
+            "TC-C1_authorization_coverage-retired_or_nontracked_legacy_coverage_seen",
+            "TC-C1_authorization_coverage-retired_or_nontracked_legacy_coverage_seen-retry",
+            "TC-C1_authorization_coverage-active_source_coverage_missing_inventory",
+            "TC-C1_authorization_coverage-active_source_coverage_missing_inventory-retry",
+            "TC-C1_authorization_coverage-current_coverage_full_noncurrent_history_archived",
+            "TC-C1_authorization_coverage-current_coverage_full_noncurrent_history_archived-retry",
+            "TC-C1_authorization_coverage-software_artifact_deterministically_excluded",
+            "TC-C1_authorization_coverage-software_artifact_deterministically_excluded-retry",
+            "TC-C1_authorization_coverage-ordinary_user_content_deterministically_admitted",
+            "TC-C1_authorization_coverage-ordinary_user_content_deterministically_admitted-retry",
+            "TC-C1_authorization_coverage-unknown_machine_format_deterministically_excluded",
+            "TC-C1_authorization_coverage-unknown_machine_format_deterministically_excluded-retry",
             "TC-C1_authorization_coverage-candidate_scope_frozen",
             "TC-C1_authorization_coverage-candidate_scope_frozen-retry",
             "TC-C1_authorization_coverage-tracked_current",
@@ -435,14 +581,34 @@
             "TC-C1_authorization_coverage-canary_stage_updates_batch_summary_once-retry",
             "TC-C1_authorization_coverage-gmail_budget_prioritizes_supplied_authorized_content",
             "TC-C1_authorization_coverage-gmail_budget_prioritizes_supplied_authorized_content-retry",
+            "TC-C1_authorization_coverage-gmail_metadata_owner_exact_current_gate",
+            "TC-C1_authorization_coverage-gmail_metadata_owner_exact_current_gate-retry",
+            "TC-C1_authorization_coverage-gmail_single_newer_tracked_scope_current",
+            "TC-C1_authorization_coverage-gmail_single_newer_tracked_scope_current-retry",
+            "TC-C1_authorization_coverage-gmail_tracked_content_successor_after_policy_rebase",
+            "TC-C1_authorization_coverage-gmail_tracked_content_successor_after_policy_rebase-retry",
+            "TC-C1_authorization_coverage-gmail_tracked_scope_ambiguous",
+            "TC-C1_authorization_coverage-gmail_tracked_scope_ambiguous-retry",
+            "TC-C1_authorization_coverage-gmail_current_body_disposition_missing",
+            "TC-C1_authorization_coverage-gmail_current_body_disposition_missing-retry",
+            "TC-C1_authorization_coverage-gmail_legacy_current_digest_and_evidence_exact",
+            "TC-C1_authorization_coverage-gmail_legacy_current_digest_and_evidence_exact-retry",
+            "TC-C1_authorization_coverage-gmail_legacy_content_proof_incomplete",
+            "TC-C1_authorization_coverage-gmail_legacy_content_proof_incomplete-retry",
+            "TC-C1_authorization_coverage-gmail_body_continuation_exact_batch",
+            "TC-C1_authorization_coverage-gmail_body_continuation_exact_batch-retry",
+            "TC-C1_authorization_coverage-gmail_no_text_body_exact_disposition",
+            "TC-C1_authorization_coverage-gmail_no_text_body_exact_disposition-retry",
             "TC-C1_authorization_coverage-all_partitions_and_items_terminal",
             "TC-C1_authorization_coverage-all_partitions_and_items_terminal-retry",
             "TC-C1_authorization_coverage-tracking_policy_changed",
             "TC-C1_authorization_coverage-tracking_policy_changed-retry",
+            "TC-C1_authorization_coverage-stale_partition_manifest_replaced",
+            "TC-C1_authorization_coverage-stale_partition_manifest_replaced-retry",
+            "TC-C1_authorization_coverage-retired_occurrence_rediscovered",
+            "TC-C1_authorization_coverage-retired_occurrence_rediscovered-retry",
             "TC-C1_authorization_coverage-policy_changed_after_user_override",
             "TC-C1_authorization_coverage-policy_changed_after_user_override-retry",
-            "TC-C1_authorization_coverage-source_catalog_action_current",
-            "TC-C1_authorization_coverage-source_catalog_action_current-retry",
             "TC-C1_authorization_coverage-outside_scope",
             "TC-C1_authorization_coverage-outside_scope-retry",
             "TC-C1_authorization_coverage-authorization_revoked",
@@ -455,20 +621,20 @@
             "TC-C1_authorization_coverage-private_root_inside_git-retry"
           ],
           "coverage_receipt_ids": [
-            "run:TM01_authorization_coverage:7a24caff94d489af"
+            "run:TM01_authorization_coverage:8280c323c9b5c484"
           ],
           "coverage_shard_ids": [
             "TM01_authorization_coverage"
           ],
-          "current": false,
-          "evidence_state": "stale",
+          "current": true,
+          "evidence_state": "current_pass",
           "metadata": {
-            "alignment_evidence_id": "evidence:model-code-test-alignment:656e66dd6db30bd7",
+            "alignment_evidence_id": "evidence:model-code-test-alignment:4ad14cafdfb5d191",
             "g8_evidence_id": "evidence:G8-fully-synthetic:ffe0563f16dabefc",
             "live_provider_evidence": false,
-            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v7",
+            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v8",
             "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed",
-            "test_receipt_fingerprint": "sha256:6381123d25fb55fc4e83afc5febfaa2ca77da29d7b6722ce52239f0ec2075935",
+            "test_receipt_fingerprint": "sha256:039810f5d4a3ee8951eef06d4eba6973514ebb6c048551ff74b0e06b200c52a1",
             "test_receipt_path": ".flowguard/evidence/tests/TM01_authorization_coverage.json",
             "through_gate": "G8"
           },
@@ -478,9 +644,9 @@
             "OB-C1-003"
           ],
           "proof_artifact_ids": [
-            "evidence:C1_authorization_coverage:68f1f53f4b9e29af",
-            "artifact:run:TM01_authorization_coverage:7a24caff94d489af",
-            "evidence:model-code-test-alignment:656e66dd6db30bd7",
+            "evidence:C1_authorization_coverage:fb63cdbfa75fc982",
+            "artifact:run:TM01_authorization_coverage:8280c323c9b5c484",
+            "evidence:model-code-test-alignment:4ad14cafdfb5d191",
             "evidence:G8-fully-synthetic:ffe0563f16dabefc"
           ],
           "risk_gate_ids": [
@@ -489,9 +655,9 @@
             "G8-fully-synthetic"
           ],
           "test_evidence_ids": [
-            "run:TM01_authorization_coverage:7a24caff94d489af"
+            "run:TM01_authorization_coverage:8280c323c9b5c484"
           ],
-          "test_mesh_state": "stale"
+          "test_mesh_state": "shard_current"
         },
         "excluded_behavior_ids": [],
         "expected_result": "a versioned candidate-scope grant plus tracked, not_tracked, hard_excluded, metadata_only, blocked, or unavailable terminal disposition with reason and confidence; a Gmail body continuation additionally requires one raw-manifest hash, exact at-most-20 batch membership, status-specific minimal result projection, current metadata owners, and a recomputed canonical-row proof for no_text_body",
@@ -531,7 +697,7 @@
           "behavior_commitment_id": "BC-PR-001",
           "business_intent": "",
           "business_intent_id": "BI-PR-001-read-authorized-sources",
-          "evidence_current": false,
+          "evidence_current": true,
           "evidence_refs": [
             ".flowguard/evidence/tests/TM01_authorization_coverage.json",
             ".flowguard/evidence/alignment/model_code_test.json",
@@ -540,15 +706,15 @@
           "fallback_candidate_ids": [],
           "metadata": {},
           "path_sensitive": true,
-          "ppa_confidence": "blocked",
+          "ppa_confidence": "full",
           "ppa_coverage_receipt_ids": [
-            "run:TM01_authorization_coverage:7a24caff94d489af"
+            "run:TM01_authorization_coverage:8280c323c9b5c484"
           ],
           "ppa_coverage_shard_ids": [
             "TM01_authorization_coverage"
           ],
-          "ppa_decision": "primary_path_authority_blocked",
-          "ppa_ok": false,
+          "ppa_decision": "primary_path_authority_green",
+          "ppa_ok": true,
           "ppa_report_id": "PPA-BC-PR-001-G8",
           "ppa_risk_gate_ids": [
             "authority",
@@ -557,12 +723,26 @@
           ],
           "primary_path_id": "path:c1-freeze-and-classify-candidate-universe",
           "proof_artifact_ids": [
-            "evidence:C1_authorization_coverage:68f1f53f4b9e29af",
-            "artifact:run:TM01_authorization_coverage:7a24caff94d489af",
-            "evidence:model-code-test-alignment:656e66dd6db30bd7",
+            "evidence:C1_authorization_coverage:fb63cdbfa75fc982",
+            "artifact:run:TM01_authorization_coverage:8280c323c9b5c484",
+            "evidence:model-code-test-alignment:4ad14cafdfb5d191",
             "evidence:G8-fully-synthetic:ffe0563f16dabefc"
           ],
           "runtime_observation_ids": [
+            "BO-TC-C1_authorization_coverage-active_tracked_legacy_coverage_rebased",
+            "BO-TC-C1_authorization_coverage-active_tracked_legacy_coverage_rebased-retry",
+            "BO-TC-C1_authorization_coverage-retired_or_nontracked_legacy_coverage_seen",
+            "BO-TC-C1_authorization_coverage-retired_or_nontracked_legacy_coverage_seen-retry",
+            "BO-TC-C1_authorization_coverage-active_source_coverage_missing_inventory",
+            "BO-TC-C1_authorization_coverage-active_source_coverage_missing_inventory-retry",
+            "BO-TC-C1_authorization_coverage-current_coverage_full_noncurrent_history_archived",
+            "BO-TC-C1_authorization_coverage-current_coverage_full_noncurrent_history_archived-retry",
+            "BO-TC-C1_authorization_coverage-software_artifact_deterministically_excluded",
+            "BO-TC-C1_authorization_coverage-software_artifact_deterministically_excluded-retry",
+            "BO-TC-C1_authorization_coverage-ordinary_user_content_deterministically_admitted",
+            "BO-TC-C1_authorization_coverage-ordinary_user_content_deterministically_admitted-retry",
+            "BO-TC-C1_authorization_coverage-unknown_machine_format_deterministically_excluded",
+            "BO-TC-C1_authorization_coverage-unknown_machine_format_deterministically_excluded-retry",
             "BO-TC-C1_authorization_coverage-candidate_scope_frozen",
             "BO-TC-C1_authorization_coverage-candidate_scope_frozen-retry",
             "BO-TC-C1_authorization_coverage-tracked_current",
@@ -597,14 +777,34 @@
             "BO-TC-C1_authorization_coverage-canary_stage_updates_batch_summary_once-retry",
             "BO-TC-C1_authorization_coverage-gmail_budget_prioritizes_supplied_authorized_content",
             "BO-TC-C1_authorization_coverage-gmail_budget_prioritizes_supplied_authorized_content-retry",
+            "BO-TC-C1_authorization_coverage-gmail_metadata_owner_exact_current_gate",
+            "BO-TC-C1_authorization_coverage-gmail_metadata_owner_exact_current_gate-retry",
+            "BO-TC-C1_authorization_coverage-gmail_single_newer_tracked_scope_current",
+            "BO-TC-C1_authorization_coverage-gmail_single_newer_tracked_scope_current-retry",
+            "BO-TC-C1_authorization_coverage-gmail_tracked_content_successor_after_policy_rebase",
+            "BO-TC-C1_authorization_coverage-gmail_tracked_content_successor_after_policy_rebase-retry",
+            "BO-TC-C1_authorization_coverage-gmail_tracked_scope_ambiguous",
+            "BO-TC-C1_authorization_coverage-gmail_tracked_scope_ambiguous-retry",
+            "BO-TC-C1_authorization_coverage-gmail_current_body_disposition_missing",
+            "BO-TC-C1_authorization_coverage-gmail_current_body_disposition_missing-retry",
+            "BO-TC-C1_authorization_coverage-gmail_legacy_current_digest_and_evidence_exact",
+            "BO-TC-C1_authorization_coverage-gmail_legacy_current_digest_and_evidence_exact-retry",
+            "BO-TC-C1_authorization_coverage-gmail_legacy_content_proof_incomplete",
+            "BO-TC-C1_authorization_coverage-gmail_legacy_content_proof_incomplete-retry",
+            "BO-TC-C1_authorization_coverage-gmail_body_continuation_exact_batch",
+            "BO-TC-C1_authorization_coverage-gmail_body_continuation_exact_batch-retry",
+            "BO-TC-C1_authorization_coverage-gmail_no_text_body_exact_disposition",
+            "BO-TC-C1_authorization_coverage-gmail_no_text_body_exact_disposition-retry",
             "BO-TC-C1_authorization_coverage-all_partitions_and_items_terminal",
             "BO-TC-C1_authorization_coverage-all_partitions_and_items_terminal-retry",
             "BO-TC-C1_authorization_coverage-tracking_policy_changed",
             "BO-TC-C1_authorization_coverage-tracking_policy_changed-retry",
+            "BO-TC-C1_authorization_coverage-stale_partition_manifest_replaced",
+            "BO-TC-C1_authorization_coverage-stale_partition_manifest_replaced-retry",
+            "BO-TC-C1_authorization_coverage-retired_occurrence_rediscovered",
+            "BO-TC-C1_authorization_coverage-retired_occurrence_rediscovered-retry",
             "BO-TC-C1_authorization_coverage-policy_changed_after_user_override",
             "BO-TC-C1_authorization_coverage-policy_changed_after_user_override-retry",
-            "BO-TC-C1_authorization_coverage-source_catalog_action_current",
-            "BO-TC-C1_authorization_coverage-source_catalog_action_current-retry",
             "BO-TC-C1_authorization_coverage-outside_scope",
             "BO-TC-C1_authorization_coverage-outside_scope-retry",
             "BO-TC-C1_authorization_coverage-authorization_revoked",
@@ -663,10 +863,44 @@
             "CC-C2-owner"
           ],
           "coverage_case_ids": [
+            "TC-C2_source_registry-authorized_original_registered_in_place",
+            "TC-C2_source_registry-authorized_original_registered_in_place-retry",
+            "TC-C2_source_registry-derived_understanding_persisted_without_original_copy",
+            "TC-C2_source_registry-derived_understanding_persisted_without_original_copy-retry",
+            "TC-C2_source_registry-transient_connector_body_committed_or_expired",
+            "TC-C2_source_registry-transient_connector_body_committed_or_expired-retry",
+            "TC-C2_source_registry-original_source_temporarily_or_permanently_unavailable",
+            "TC-C2_source_registry-original_source_temporarily_or_permanently_unavailable-retry",
+            "TC-C2_source_registry-stable_private_source_group_projected",
+            "TC-C2_source_registry-stable_private_source_group_projected-retry",
+            "TC-C2_source_registry-overlapping_registered_scopes_same_occurrence",
+            "TC-C2_source_registry-overlapping_registered_scopes_same_occurrence-retry",
+            "TC-C2_source_registry-unchanged_selection_semantics_new_inventory_scan_revision",
+            "TC-C2_source_registry-unchanged_selection_semantics_new_inventory_scan_revision-retry",
+            "TC-C2_source_registry-registered_occurrence_exact_index_current",
+            "TC-C2_source_registry-registered_occurrence_exact_index_current-retry",
+            "TC-C2_source_registry-concurrent_identical_source_registration",
+            "TC-C2_source_registry-concurrent_identical_source_registration-retry",
+            "TC-C2_source_registry-filesystem_source_neighborhood_registered",
+            "TC-C2_source_registry-filesystem_source_neighborhood_registered-retry",
             "TC-C2_source_registry-inventory_first_snapshot",
             "TC-C2_source_registry-inventory_first_snapshot-retry",
+            "TC-C2_source_registry-registered_occurrence_content_deferred",
+            "TC-C2_source_registry-registered_occurrence_content_deferred-retry",
+            "TC-C2_source_registry-registered_occurrence_content_admitted",
+            "TC-C2_source_registry-registered_occurrence_content_admitted-retry",
             "TC-C2_source_registry-new_content",
             "TC-C2_source_registry-new_content-retry",
+            "TC-C2_source_registry-gmail_partial_inventory_page",
+            "TC-C2_source_registry-gmail_partial_inventory_page-retry",
+            "TC-C2_source_registry-gmail_metadata_owner_bounded_reconciliation",
+            "TC-C2_source_registry-gmail_metadata_owner_bounded_reconciliation-retry",
+            "TC-C2_source_registry-gmail_bounded_content_resume",
+            "TC-C2_source_registry-gmail_bounded_content_resume-retry",
+            "TC-C2_source_registry-gmail_manifest_body_continuation",
+            "TC-C2_source_registry-gmail_manifest_body_continuation-retry",
+            "TC-C2_source_registry-gmail_no_text_body_disposition",
+            "TC-C2_source_registry-gmail_no_text_body_disposition-retry",
             "TC-C2_source_registry-metadata_only_change",
             "TC-C2_source_registry-metadata_only_change-retry",
             "TC-C2_source_registry-occurrence_moved_same_content",
@@ -679,28 +913,28 @@
             "TC-C2_source_registry-source_modified-retry",
             "TC-C2_source_registry-source_deleted",
             "TC-C2_source_registry-source_deleted-retry",
-            "TC-C2_source_registry-eligible_visual_derivative",
-            "TC-C2_source_registry-eligible_visual_derivative-retry",
-            "TC-C2_source_registry-unsafe_or_stale_visual",
-            "TC-C2_source_registry-unsafe_or_stale_visual-retry",
+            "TC-C2_source_registry-eligible_gallery_derivative",
+            "TC-C2_source_registry-eligible_gallery_derivative-retry",
+            "TC-C2_source_registry-unsafe_or_stale_gallery_asset",
+            "TC-C2_source_registry-unsafe_or_stale_gallery_asset-retry",
             "TC-C2_source_registry-ai_rewrite_attempt",
             "TC-C2_source_registry-ai_rewrite_attempt-retry"
           ],
           "coverage_receipt_ids": [
-            "run:TM02_source_registry:fdaed2e94eeb89f5"
+            "run:TM02_source_registry:8462b298c054f860"
           ],
           "coverage_shard_ids": [
             "TM02_source_registry"
           ],
-          "current": false,
-          "evidence_state": "stale",
+          "current": true,
+          "evidence_state": "current_pass",
           "metadata": {
-            "alignment_evidence_id": "evidence:model-code-test-alignment:656e66dd6db30bd7",
+            "alignment_evidence_id": "evidence:model-code-test-alignment:4ad14cafdfb5d191",
             "g8_evidence_id": "evidence:G8-fully-synthetic:ffe0563f16dabefc",
             "live_provider_evidence": false,
-            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v7",
+            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v8",
             "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed",
-            "test_receipt_fingerprint": "sha256:6fb1823575aaf71490a1a2e28962bc592fa8d583f9ee9431b3afb5a3160e1784",
+            "test_receipt_fingerprint": "sha256:1e457d5dcdff9b7dd21c4e3c4deec491789aefcd798368432cd1abd8cae83d53",
             "test_receipt_path": ".flowguard/evidence/tests/TM02_source_registry.json",
             "through_gate": "G8"
           },
@@ -711,9 +945,9 @@
             "OB-C2-004"
           ],
           "proof_artifact_ids": [
-            "evidence:C2_source_registry:9197d59c0887a460",
-            "artifact:run:TM02_source_registry:fdaed2e94eeb89f5",
-            "evidence:model-code-test-alignment:656e66dd6db30bd7",
+            "evidence:C2_source_registry:db58fa066dbdbc05",
+            "artifact:run:TM02_source_registry:8462b298c054f860",
+            "evidence:model-code-test-alignment:4ad14cafdfb5d191",
             "evidence:G8-fully-synthetic:ffe0563f16dabefc"
           ],
           "risk_gate_ids": [
@@ -722,9 +956,9 @@
             "G8-fully-synthetic"
           ],
           "test_evidence_ids": [
-            "run:TM02_source_registry:fdaed2e94eeb89f5"
+            "run:TM02_source_registry:8462b298c054f860"
           ],
-          "test_mesh_state": "stale"
+          "test_mesh_state": "shard_current"
         },
         "excluded_behavior_ids": [],
         "expected_result": "immutable locator/fingerprint occurrence observations, change sets, tombstones, durable derived understanding, and safe private evidence-gallery caches with renderer identity, retention class, references, quota, TTL, and freshness; complete local/Gmail/image originals remain external and transient reads are removed after derived-state commit; content-selection semantic identity excludes scan-only inventory revision, generated heroes never become sources or evidence, and an exact Gmail body continuation writes either a locator/fingerprint receipt, exact anchor coordinates/digests, and declared derived outputs or one no-text content disposition over unchanged metadata, then removes complete staging bodies; every current metadata-only/identity-only Gmail message also retains one minimal SourceVersion under an exact current inventory/coverage-owner gate",
@@ -763,7 +997,7 @@
           "behavior_commitment_id": "BC-PR-002",
           "business_intent": "",
           "business_intent_id": "BI-PR-002-preserve-source-provenance",
-          "evidence_current": false,
+          "evidence_current": true,
           "evidence_refs": [
             ".flowguard/evidence/tests/TM02_source_registry.json",
             ".flowguard/evidence/alignment/model_code_test.json",
@@ -772,15 +1006,15 @@
           "fallback_candidate_ids": [],
           "metadata": {},
           "path_sensitive": true,
-          "ppa_confidence": "blocked",
+          "ppa_confidence": "full",
           "ppa_coverage_receipt_ids": [
-            "run:TM02_source_registry:fdaed2e94eeb89f5"
+            "run:TM02_source_registry:8462b298c054f860"
           ],
           "ppa_coverage_shard_ids": [
             "TM02_source_registry"
           ],
-          "ppa_decision": "primary_path_authority_blocked",
-          "ppa_ok": false,
+          "ppa_decision": "primary_path_authority_green",
+          "ppa_ok": true,
           "ppa_report_id": "PPA-BC-PR-002-G8",
           "ppa_risk_gate_ids": [
             "authority",
@@ -789,16 +1023,50 @@
           ],
           "primary_path_id": "path:c2-register-source-version",
           "proof_artifact_ids": [
-            "evidence:C2_source_registry:9197d59c0887a460",
-            "artifact:run:TM02_source_registry:fdaed2e94eeb89f5",
-            "evidence:model-code-test-alignment:656e66dd6db30bd7",
+            "evidence:C2_source_registry:db58fa066dbdbc05",
+            "artifact:run:TM02_source_registry:8462b298c054f860",
+            "evidence:model-code-test-alignment:4ad14cafdfb5d191",
             "evidence:G8-fully-synthetic:ffe0563f16dabefc"
           ],
           "runtime_observation_ids": [
+            "BO-TC-C2_source_registry-authorized_original_registered_in_place",
+            "BO-TC-C2_source_registry-authorized_original_registered_in_place-retry",
+            "BO-TC-C2_source_registry-derived_understanding_persisted_without_original_copy",
+            "BO-TC-C2_source_registry-derived_understanding_persisted_without_original_copy-retry",
+            "BO-TC-C2_source_registry-transient_connector_body_committed_or_expired",
+            "BO-TC-C2_source_registry-transient_connector_body_committed_or_expired-retry",
+            "BO-TC-C2_source_registry-original_source_temporarily_or_permanently_unavailable",
+            "BO-TC-C2_source_registry-original_source_temporarily_or_permanently_unavailable-retry",
+            "BO-TC-C2_source_registry-stable_private_source_group_projected",
+            "BO-TC-C2_source_registry-stable_private_source_group_projected-retry",
+            "BO-TC-C2_source_registry-overlapping_registered_scopes_same_occurrence",
+            "BO-TC-C2_source_registry-overlapping_registered_scopes_same_occurrence-retry",
+            "BO-TC-C2_source_registry-unchanged_selection_semantics_new_inventory_scan_revision",
+            "BO-TC-C2_source_registry-unchanged_selection_semantics_new_inventory_scan_revision-retry",
+            "BO-TC-C2_source_registry-registered_occurrence_exact_index_current",
+            "BO-TC-C2_source_registry-registered_occurrence_exact_index_current-retry",
+            "BO-TC-C2_source_registry-concurrent_identical_source_registration",
+            "BO-TC-C2_source_registry-concurrent_identical_source_registration-retry",
+            "BO-TC-C2_source_registry-filesystem_source_neighborhood_registered",
+            "BO-TC-C2_source_registry-filesystem_source_neighborhood_registered-retry",
             "BO-TC-C2_source_registry-inventory_first_snapshot",
             "BO-TC-C2_source_registry-inventory_first_snapshot-retry",
+            "BO-TC-C2_source_registry-registered_occurrence_content_deferred",
+            "BO-TC-C2_source_registry-registered_occurrence_content_deferred-retry",
+            "BO-TC-C2_source_registry-registered_occurrence_content_admitted",
+            "BO-TC-C2_source_registry-registered_occurrence_content_admitted-retry",
             "BO-TC-C2_source_registry-new_content",
             "BO-TC-C2_source_registry-new_content-retry",
+            "BO-TC-C2_source_registry-gmail_partial_inventory_page",
+            "BO-TC-C2_source_registry-gmail_partial_inventory_page-retry",
+            "BO-TC-C2_source_registry-gmail_metadata_owner_bounded_reconciliation",
+            "BO-TC-C2_source_registry-gmail_metadata_owner_bounded_reconciliation-retry",
+            "BO-TC-C2_source_registry-gmail_bounded_content_resume",
+            "BO-TC-C2_source_registry-gmail_bounded_content_resume-retry",
+            "BO-TC-C2_source_registry-gmail_manifest_body_continuation",
+            "BO-TC-C2_source_registry-gmail_manifest_body_continuation-retry",
+            "BO-TC-C2_source_registry-gmail_no_text_body_disposition",
+            "BO-TC-C2_source_registry-gmail_no_text_body_disposition-retry",
             "BO-TC-C2_source_registry-metadata_only_change",
             "BO-TC-C2_source_registry-metadata_only_change-retry",
             "BO-TC-C2_source_registry-occurrence_moved_same_content",
@@ -811,10 +1079,10 @@
             "BO-TC-C2_source_registry-source_modified-retry",
             "BO-TC-C2_source_registry-source_deleted",
             "BO-TC-C2_source_registry-source_deleted-retry",
-            "BO-TC-C2_source_registry-eligible_visual_derivative",
-            "BO-TC-C2_source_registry-eligible_visual_derivative-retry",
-            "BO-TC-C2_source_registry-unsafe_or_stale_visual",
-            "BO-TC-C2_source_registry-unsafe_or_stale_visual-retry",
+            "BO-TC-C2_source_registry-eligible_gallery_derivative",
+            "BO-TC-C2_source_registry-eligible_gallery_derivative-retry",
+            "BO-TC-C2_source_registry-unsafe_or_stale_gallery_asset",
+            "BO-TC-C2_source_registry-unsafe_or_stale_gallery_asset-retry",
             "BO-TC-C2_source_registry-ai_rewrite_attempt",
             "BO-TC-C2_source_registry-ai_rewrite_attempt-retry",
             "BO-C2_source_registry-foreign_owner_write",
@@ -1026,6 +1294,42 @@
           "source.cache_reference_status",
           "source.unavailable_status",
           "source.source_group_identity",
+          "source.source_group_membership_revision",
+          "gallery_asset.identity",
+          "gallery_asset.derivative_revision",
+          "gallery_asset.renderer_identity",
+          "gallery_asset.safety_disposition",
+          "source.content_selection_semantic_identity",
+          "source.content_selection_inventory_revision_context",
+          "source.gmail_metadata_owner_status",
+          "source.gmail_metadata_reconciliation_cursor",
+          "source.locator",
+          "source.content_fingerprint",
+          "source.metadata_fingerprint",
+          "source.storage_class",
+          "source.transient_cleanup_status",
+          "source.cache_retention_policy",
+          "source.cache_reference_status",
+          "source.unavailable_status",
+          "source.source_group_identity",
+          "source.source_group_membership_revision",
+          "gallery_asset.identity",
+          "gallery_asset.derivative_revision",
+          "gallery_asset.renderer_identity",
+          "gallery_asset.safety_disposition",
+          "source.content_selection_semantic_identity",
+          "source.content_selection_inventory_revision_context",
+          "source.gmail_metadata_owner_status",
+          "source.gmail_metadata_reconciliation_cursor",
+          "source.locator",
+          "source.content_fingerprint",
+          "source.metadata_fingerprint",
+          "source.storage_class",
+          "source.transient_cleanup_status",
+          "source.cache_retention_policy",
+          "source.cache_reference_status",
+          "source.unavailable_status",
+          "source.source_group_identity",
           "source.source_group_membership_revision"
         ],
         "supporting_model_ids": [],
@@ -1047,6 +1351,12 @@
             "CC-C3-owner"
           ],
           "coverage_case_ids": [
+            "TC-C3_evidence_qualification-complete_anchor_set_batched",
+            "TC-C3_evidence_qualification-complete_anchor_set_batched-retry",
+            "TC-C3_evidence_qualification-large_anchor_set_referenced_by_bounded_pointer",
+            "TC-C3_evidence_qualification-large_anchor_set_referenced_by_bounded_pointer-retry",
+            "TC-C3_evidence_qualification-folder_neighborhood_context_only",
+            "TC-C3_evidence_qualification-folder_neighborhood_context_only-retry",
             "TC-C3_evidence_qualification-exact_field_anchor",
             "TC-C3_evidence_qualification-exact_field_anchor-retry",
             "TC-C3_evidence_qualification-exact_image_region",
@@ -1057,10 +1367,14 @@
             "TC-C3_evidence_qualification-exact_sheet_cell_range-retry",
             "TC-C3_evidence_qualification-exact_mail_attachment_anchor",
             "TC-C3_evidence_qualification-exact_mail_attachment_anchor-retry",
-            "TC-C3_evidence_qualification-exact_safe_visual_anchor",
-            "TC-C3_evidence_qualification-exact_safe_visual_anchor-retry",
-            "TC-C3_evidence_qualification-visual_anchor_denied_or_unrelated",
-            "TC-C3_evidence_qualification-visual_anchor_denied_or_unrelated-retry",
+            "TC-C3_evidence_qualification-exact_gmail_body_continuation_anchor",
+            "TC-C3_evidence_qualification-exact_gmail_body_continuation_anchor-retry",
+            "TC-C3_evidence_qualification-gmail_no_text_body_has_no_evidence",
+            "TC-C3_evidence_qualification-gmail_no_text_body_has_no_evidence-retry",
+            "TC-C3_evidence_qualification-exact_safe_gallery_anchor",
+            "TC-C3_evidence_qualification-exact_safe_gallery_anchor-retry",
+            "TC-C3_evidence_qualification-gallery_anchor_denied_or_unrelated",
+            "TC-C3_evidence_qualification-gallery_anchor_denied_or_unrelated-retry",
             "TC-C3_evidence_qualification-unsupported_or_unreadable_payload",
             "TC-C3_evidence_qualification-unsupported_or_unreadable_payload-retry",
             "TC-C3_evidence_qualification-title_or_filename_only",
@@ -1071,20 +1385,20 @@
             "TC-C3_evidence_qualification-superseded_anchor-retry"
           ],
           "coverage_receipt_ids": [
-            "run:TM03_evidence_qualification:b2018041e7447fe6"
+            "run:TM03_evidence_qualification:d3214ad25409b555"
           ],
           "coverage_shard_ids": [
             "TM03_evidence_qualification"
           ],
-          "current": false,
-          "evidence_state": "stale",
+          "current": true,
+          "evidence_state": "current_pass",
           "metadata": {
-            "alignment_evidence_id": "evidence:model-code-test-alignment:656e66dd6db30bd7",
+            "alignment_evidence_id": "evidence:model-code-test-alignment:4ad14cafdfb5d191",
             "g8_evidence_id": "evidence:G8-fully-synthetic:ffe0563f16dabefc",
             "live_provider_evidence": false,
-            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v7",
+            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v8",
             "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed",
-            "test_receipt_fingerprint": "sha256:7ec9e26e06dea9a27ebcccb57be52ad563f0e4d10b9d0cbda1263e5698a5f07d",
+            "test_receipt_fingerprint": "sha256:41ab2f82b404aea8ef72096d0c068e126f2e194981b9a6b63ff65f552275537b",
             "test_receipt_path": ".flowguard/evidence/tests/TM03_evidence_qualification.json",
             "through_gate": "G8"
           },
@@ -1094,9 +1408,9 @@
             "OB-C3-003"
           ],
           "proof_artifact_ids": [
-            "evidence:C3_evidence_qualification:c4772b78e1a3dfeb",
-            "artifact:run:TM03_evidence_qualification:b2018041e7447fe6",
-            "evidence:model-code-test-alignment:656e66dd6db30bd7",
+            "evidence:C3_evidence_qualification:652d9df4c2157123",
+            "artifact:run:TM03_evidence_qualification:d3214ad25409b555",
+            "evidence:model-code-test-alignment:4ad14cafdfb5d191",
             "evidence:G8-fully-synthetic:ffe0563f16dabefc"
           ],
           "risk_gate_ids": [
@@ -1104,9 +1418,9 @@
             "G8-fully-synthetic"
           ],
           "test_evidence_ids": [
-            "run:TM03_evidence_qualification:b2018041e7447fe6"
+            "run:TM03_evidence_qualification:d3214ad25409b555"
           ],
-          "test_mesh_state": "stale"
+          "test_mesh_state": "shard_current"
         },
         "excluded_behavior_ids": [],
         "expected_result": "exact current textual or visual anchors with modality, display permission, gallery display eligibility, or an explicit evidence gap; downstream owners receive only a bounded SourceVersion/count/digest anchor-set pointer while C3 retains every exact anchor; accepted Gmail continuation bodies receive exact current-version line anchors without model use, while proof-bound no_text_body terminates as not_applicable with no invented anchor; no evidence anchor authorizes generated-hero selection",
@@ -1144,7 +1458,7 @@
           "behavior_commitment_id": "BC-PR-003",
           "business_intent": "",
           "business_intent_id": "BI-PR-003-use-anchored-evidence",
-          "evidence_current": false,
+          "evidence_current": true,
           "evidence_refs": [
             ".flowguard/evidence/tests/TM03_evidence_qualification.json",
             ".flowguard/evidence/alignment/model_code_test.json",
@@ -1153,15 +1467,15 @@
           "fallback_candidate_ids": [],
           "metadata": {},
           "path_sensitive": true,
-          "ppa_confidence": "blocked",
+          "ppa_confidence": "full",
           "ppa_coverage_receipt_ids": [
-            "run:TM03_evidence_qualification:b2018041e7447fe6"
+            "run:TM03_evidence_qualification:d3214ad25409b555"
           ],
           "ppa_coverage_shard_ids": [
             "TM03_evidence_qualification"
           ],
-          "ppa_decision": "primary_path_authority_blocked",
-          "ppa_ok": false,
+          "ppa_decision": "primary_path_authority_green",
+          "ppa_ok": true,
           "ppa_report_id": "PPA-BC-PR-003-G8",
           "ppa_risk_gate_ids": [
             "authority",
@@ -1170,12 +1484,18 @@
           ],
           "primary_path_id": "path:c3-qualify-evidence",
           "proof_artifact_ids": [
-            "evidence:C3_evidence_qualification:c4772b78e1a3dfeb",
-            "artifact:run:TM03_evidence_qualification:b2018041e7447fe6",
-            "evidence:model-code-test-alignment:656e66dd6db30bd7",
+            "evidence:C3_evidence_qualification:652d9df4c2157123",
+            "artifact:run:TM03_evidence_qualification:d3214ad25409b555",
+            "evidence:model-code-test-alignment:4ad14cafdfb5d191",
             "evidence:G8-fully-synthetic:ffe0563f16dabefc"
           ],
           "runtime_observation_ids": [
+            "BO-TC-C3_evidence_qualification-complete_anchor_set_batched",
+            "BO-TC-C3_evidence_qualification-complete_anchor_set_batched-retry",
+            "BO-TC-C3_evidence_qualification-large_anchor_set_referenced_by_bounded_pointer",
+            "BO-TC-C3_evidence_qualification-large_anchor_set_referenced_by_bounded_pointer-retry",
+            "BO-TC-C3_evidence_qualification-folder_neighborhood_context_only",
+            "BO-TC-C3_evidence_qualification-folder_neighborhood_context_only-retry",
             "BO-TC-C3_evidence_qualification-exact_field_anchor",
             "BO-TC-C3_evidence_qualification-exact_field_anchor-retry",
             "BO-TC-C3_evidence_qualification-exact_image_region",
@@ -1186,10 +1506,14 @@
             "BO-TC-C3_evidence_qualification-exact_sheet_cell_range-retry",
             "BO-TC-C3_evidence_qualification-exact_mail_attachment_anchor",
             "BO-TC-C3_evidence_qualification-exact_mail_attachment_anchor-retry",
-            "BO-TC-C3_evidence_qualification-exact_safe_visual_anchor",
-            "BO-TC-C3_evidence_qualification-exact_safe_visual_anchor-retry",
-            "BO-TC-C3_evidence_qualification-visual_anchor_denied_or_unrelated",
-            "BO-TC-C3_evidence_qualification-visual_anchor_denied_or_unrelated-retry",
+            "BO-TC-C3_evidence_qualification-exact_gmail_body_continuation_anchor",
+            "BO-TC-C3_evidence_qualification-exact_gmail_body_continuation_anchor-retry",
+            "BO-TC-C3_evidence_qualification-gmail_no_text_body_has_no_evidence",
+            "BO-TC-C3_evidence_qualification-gmail_no_text_body_has_no_evidence-retry",
+            "BO-TC-C3_evidence_qualification-exact_safe_gallery_anchor",
+            "BO-TC-C3_evidence_qualification-exact_safe_gallery_anchor-retry",
+            "BO-TC-C3_evidence_qualification-gallery_anchor_denied_or_unrelated",
+            "BO-TC-C3_evidence_qualification-gallery_anchor_denied_or_unrelated-retry",
             "BO-TC-C3_evidence_qualification-unsupported_or_unreadable_payload",
             "BO-TC-C3_evidence_qualification-unsupported_or_unreadable_payload-retry",
             "BO-TC-C3_evidence_qualification-title_or_filename_only",
@@ -1258,20 +1582,20 @@
             "TC-C4_person_entity_resolution-researchguard_identity_proposal-retry"
           ],
           "coverage_receipt_ids": [
-            "run:TM04_identity_resolution:a161fdf7eb3ea2bc"
+            "run:TM04_identity_resolution:4d89616879c2bf85"
           ],
           "coverage_shard_ids": [
             "TM04_identity_resolution"
           ],
-          "current": false,
-          "evidence_state": "stale",
+          "current": true,
+          "evidence_state": "current_pass",
           "metadata": {
-            "alignment_evidence_id": "evidence:model-code-test-alignment:656e66dd6db30bd7",
+            "alignment_evidence_id": "evidence:model-code-test-alignment:4ad14cafdfb5d191",
             "g8_evidence_id": "evidence:G8-fully-synthetic:ffe0563f16dabefc",
             "live_provider_evidence": false,
-            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v7",
+            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v8",
             "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed",
-            "test_receipt_fingerprint": "sha256:92a9e59cc40cd8c8d9080527eaa029d8eb20f4f7614db82a5985157b92c72dd3",
+            "test_receipt_fingerprint": "sha256:2461f786802d97b831fc83a23da68773ccca40e02e853a1c7f4f63de3797573c",
             "test_receipt_path": ".flowguard/evidence/tests/TM04_identity_resolution.json",
             "through_gate": "G8"
           },
@@ -1282,8 +1606,8 @@
           ],
           "proof_artifact_ids": [
             "evidence:C4_person_entity_resolution:603526a339d987e3",
-            "artifact:run:TM04_identity_resolution:a161fdf7eb3ea2bc",
-            "evidence:model-code-test-alignment:656e66dd6db30bd7",
+            "artifact:run:TM04_identity_resolution:4d89616879c2bf85",
+            "evidence:model-code-test-alignment:4ad14cafdfb5d191",
             "evidence:G8-fully-synthetic:ffe0563f16dabefc"
           ],
           "risk_gate_ids": [
@@ -1291,9 +1615,9 @@
             "G8-fully-synthetic"
           ],
           "test_evidence_ids": [
-            "run:TM04_identity_resolution:a161fdf7eb3ea2bc"
+            "run:TM04_identity_resolution:4d89616879c2bf85"
           ],
-          "test_mesh_state": "stale"
+          "test_mesh_state": "shard_current"
         },
         "excluded_behavior_ids": [],
         "expected_result": "current identity assertions, separate uncertain identities, scoped roles, or explicit identity uncertainty with evidence",
@@ -1333,7 +1657,7 @@
           "behavior_commitment_id": "BC-PR-004",
           "business_intent": "",
           "business_intent_id": "BI-PR-004-resolve-identities-safely",
-          "evidence_current": false,
+          "evidence_current": true,
           "evidence_refs": [
             ".flowguard/evidence/tests/TM04_identity_resolution.json",
             ".flowguard/evidence/alignment/model_code_test.json",
@@ -1342,15 +1666,15 @@
           "fallback_candidate_ids": [],
           "metadata": {},
           "path_sensitive": true,
-          "ppa_confidence": "blocked",
+          "ppa_confidence": "full",
           "ppa_coverage_receipt_ids": [
-            "run:TM04_identity_resolution:a161fdf7eb3ea2bc"
+            "run:TM04_identity_resolution:4d89616879c2bf85"
           ],
           "ppa_coverage_shard_ids": [
             "TM04_identity_resolution"
           ],
-          "ppa_decision": "primary_path_authority_blocked",
-          "ppa_ok": false,
+          "ppa_decision": "primary_path_authority_green",
+          "ppa_ok": true,
           "ppa_report_id": "PPA-BC-PR-004-G8",
           "ppa_risk_gate_ids": [
             "authority",
@@ -1360,8 +1684,8 @@
           "primary_path_id": "path:c4-resolve-identity",
           "proof_artifact_ids": [
             "evidence:C4_person_entity_resolution:603526a339d987e3",
-            "artifact:run:TM04_identity_resolution:a161fdf7eb3ea2bc",
-            "evidence:model-code-test-alignment:656e66dd6db30bd7",
+            "artifact:run:TM04_identity_resolution:4d89616879c2bf85",
+            "evidence:model-code-test-alignment:4ad14cafdfb5d191",
             "evidence:G8-fully-synthetic:ffe0563f16dabefc"
           ],
           "runtime_observation_ids": [
@@ -1417,38 +1741,70 @@
             "CC-C5-owner"
           ],
           "coverage_case_ids": [
+            "TC-C5_event_temporal_trace-same_logical_event_multiple_source_revisions",
+            "TC-C5_event_temporal_trace-same_logical_event_multiple_source_revisions-retry",
+            "TC-C5_event_temporal_trace-restart_before_event_correction",
+            "TC-C5_event_temporal_trace-restart_before_event_correction-retry",
+            "TC-C5_event_temporal_trace-logical_event_revision_conflicts",
+            "TC-C5_event_temporal_trace-logical_event_revision_conflicts-retry",
             "TC-C5_event_temporal_trace-earliest_traceable_start_boundary",
             "TC-C5_event_temporal_trace-earliest_traceable_start_boundary-retry",
             "TC-C5_event_temporal_trace-new_evidence_predates_start_boundary",
             "TC-C5_event_temporal_trace-new_evidence_predates_start_boundary-retry",
             "TC-C5_event_temporal_trace-only_processing_time_for_start",
             "TC-C5_event_temporal_trace-only_processing_time_for_start-retry",
+            "TC-C5_event_temporal_trace-typed_event_projected_to_situation_graph",
+            "TC-C5_event_temporal_trace-typed_event_projected_to_situation_graph-retry",
+            "TC-C5_event_temporal_trace-future_due_activity_has_historical_observation",
+            "TC-C5_event_temporal_trace-future_due_activity_has_historical_observation-retry",
+            "TC-C5_event_temporal_trace-canonical_matter_missing_activity_with_source_time",
+            "TC-C5_event_temporal_trace-canonical_matter_missing_activity_with_source_time-retry",
+            "TC-C5_event_temporal_trace-corrected_clue_late_bound_to_canonical_matter",
+            "TC-C5_event_temporal_trace-corrected_clue_late_bound_to_canonical_matter-retry",
+            "TC-C5_event_temporal_trace-no_parseable_observation_time",
+            "TC-C5_event_temporal_trace-no_parseable_observation_time-retry",
             "TC-C5_event_temporal_trace-explicit_actual_start",
             "TC-C5_event_temporal_trace-explicit_actual_start-retry",
             "TC-C5_event_temporal_trace-future_meeting",
             "TC-C5_event_temporal_trace-future_meeting-retry",
+            "TC-C5_event_temporal_trace-explicit_source_modality_preserved",
+            "TC-C5_event_temporal_trace-explicit_source_modality_preserved-retry",
+            "TC-C5_event_temporal_trace-necessary_past_gap_supported",
+            "TC-C5_event_temporal_trace-necessary_past_gap_supported-retry",
+            "TC-C5_event_temporal_trace-future_candidate_marked_ai_inferred",
+            "TC-C5_event_temporal_trace-future_candidate_marked_ai_inferred-retry",
+            "TC-C5_event_temporal_trace-rebased_stale_temporal_owner_output",
+            "TC-C5_event_temporal_trace-rebased_stale_temporal_owner_output-retry",
             "TC-C5_event_temporal_trace-assignment_without_start",
             "TC-C5_event_temporal_trace-assignment_without_start-retry",
             "TC-C5_event_temporal_trace-file_or_exif_time_without_event_claim",
             "TC-C5_event_temporal_trace-file_or_exif_time_without_event_claim-retry",
             "TC-C5_event_temporal_trace-done_then_reopen_blocked",
-            "TC-C5_event_temporal_trace-done_then_reopen_blocked-retry"
+            "TC-C5_event_temporal_trace-done_then_reopen_blocked-retry",
+            "TC-C5_event_temporal_trace-bounded_child_activity_event",
+            "TC-C5_event_temporal_trace-bounded_child_activity_event-retry",
+            "TC-C5_event_temporal_trace-material_user_world_clue",
+            "TC-C5_event_temporal_trace-material_user_world_clue-retry",
+            "TC-C5_event_temporal_trace-material_child_clue_changes_parent_understanding",
+            "TC-C5_event_temporal_trace-material_child_clue_changes_parent_understanding-retry",
+            "TC-C5_event_temporal_trace-scan_retry_or_reword_without_semantic_change",
+            "TC-C5_event_temporal_trace-scan_retry_or_reword_without_semantic_change-retry"
           ],
           "coverage_receipt_ids": [
-            "run:TM05_event_trace:9151d6e5c5ca23c5"
+            "run:TM05_event_trace:31f5a3714fe9256f"
           ],
           "coverage_shard_ids": [
             "TM05_event_trace"
           ],
-          "current": false,
-          "evidence_state": "stale",
+          "current": true,
+          "evidence_state": "current_pass",
           "metadata": {
-            "alignment_evidence_id": "evidence:model-code-test-alignment:656e66dd6db30bd7",
+            "alignment_evidence_id": "evidence:model-code-test-alignment:4ad14cafdfb5d191",
             "g8_evidence_id": "evidence:G8-fully-synthetic:ffe0563f16dabefc",
             "live_provider_evidence": false,
-            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v7",
+            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v8",
             "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed",
-            "test_receipt_fingerprint": "sha256:a0784a40e6644f2246dfc22fed3a6a9497f83e557730b62710d9314a196c03a2",
+            "test_receipt_fingerprint": "sha256:0de5b14e9ba6071192e0d9bf4c60adbe57f33ebbc21b07e437dc1da4844f6c49",
             "test_receipt_path": ".flowguard/evidence/tests/TM05_event_trace.json",
             "through_gate": "G8"
           },
@@ -1458,9 +1814,9 @@
             "OB-C5-003"
           ],
           "proof_artifact_ids": [
-            "evidence:C5_event_temporal_trace:72d80a24bcaecef0",
-            "artifact:run:TM05_event_trace:9151d6e5c5ca23c5",
-            "evidence:model-code-test-alignment:656e66dd6db30bd7",
+            "evidence:C5_event_temporal_trace:a9636cba74a284fc",
+            "artifact:run:TM05_event_trace:31f5a3714fe9256f",
+            "evidence:model-code-test-alignment:4ad14cafdfb5d191",
             "evidence:G8-fully-synthetic:ffe0563f16dabefc"
           ],
           "risk_gate_ids": [
@@ -1468,9 +1824,9 @@
             "G8-fully-synthetic"
           ],
           "test_evidence_ids": [
-            "run:TM05_event_trace:9151d6e5c5ca23c5"
+            "run:TM05_event_trace:31f5a3714fe9256f"
           ],
-          "test_mesh_state": "stale"
+          "test_mesh_state": "shard_current"
         },
         "excluded_behavior_ids": [],
         "expected_result": "typed planned, reported, observed, or inferred events with record/occurred times separated, conflicts retained, plus materiality disposition, rationale, latest_meaningful_clue_at, logical_event_key, one current revision with supersession history, and bounded ancestor activity propagation; events enter one versioned internal SituationGraph projection without changing C5 ownership; scan/retry/localization/hero work never bubbles catalog order",
@@ -1511,7 +1867,7 @@
           "behavior_commitment_id": "BC-PR-005",
           "business_intent": "",
           "business_intent_id": "BI-PR-005-reconstruct-temporal-trace",
-          "evidence_current": false,
+          "evidence_current": true,
           "evidence_refs": [
             ".flowguard/evidence/tests/TM05_event_trace.json",
             ".flowguard/evidence/alignment/model_code_test.json",
@@ -1520,15 +1876,15 @@
           "fallback_candidate_ids": [],
           "metadata": {},
           "path_sensitive": true,
-          "ppa_confidence": "blocked",
+          "ppa_confidence": "full",
           "ppa_coverage_receipt_ids": [
-            "run:TM05_event_trace:9151d6e5c5ca23c5"
+            "run:TM05_event_trace:31f5a3714fe9256f"
           ],
           "ppa_coverage_shard_ids": [
             "TM05_event_trace"
           ],
-          "ppa_decision": "primary_path_authority_blocked",
-          "ppa_ok": false,
+          "ppa_decision": "primary_path_authority_green",
+          "ppa_ok": true,
           "ppa_report_id": "PPA-BC-PR-005-G8",
           "ppa_risk_gate_ids": [
             "authority",
@@ -1537,22 +1893,60 @@
           ],
           "primary_path_id": "path:c5-build-temporal-trace",
           "proof_artifact_ids": [
-            "evidence:C5_event_temporal_trace:72d80a24bcaecef0",
-            "artifact:run:TM05_event_trace:9151d6e5c5ca23c5",
-            "evidence:model-code-test-alignment:656e66dd6db30bd7",
+            "evidence:C5_event_temporal_trace:a9636cba74a284fc",
+            "artifact:run:TM05_event_trace:31f5a3714fe9256f",
+            "evidence:model-code-test-alignment:4ad14cafdfb5d191",
             "evidence:G8-fully-synthetic:ffe0563f16dabefc"
           ],
           "runtime_observation_ids": [
+            "BO-TC-C5_event_temporal_trace-same_logical_event_multiple_source_revisions",
+            "BO-TC-C5_event_temporal_trace-same_logical_event_multiple_source_revisions-retry",
+            "BO-TC-C5_event_temporal_trace-restart_before_event_correction",
+            "BO-TC-C5_event_temporal_trace-restart_before_event_correction-retry",
+            "BO-TC-C5_event_temporal_trace-logical_event_revision_conflicts",
+            "BO-TC-C5_event_temporal_trace-logical_event_revision_conflicts-retry",
+            "BO-TC-C5_event_temporal_trace-earliest_traceable_start_boundary",
+            "BO-TC-C5_event_temporal_trace-earliest_traceable_start_boundary-retry",
+            "BO-TC-C5_event_temporal_trace-new_evidence_predates_start_boundary",
+            "BO-TC-C5_event_temporal_trace-new_evidence_predates_start_boundary-retry",
+            "BO-TC-C5_event_temporal_trace-only_processing_time_for_start",
+            "BO-TC-C5_event_temporal_trace-only_processing_time_for_start-retry",
+            "BO-TC-C5_event_temporal_trace-typed_event_projected_to_situation_graph",
+            "BO-TC-C5_event_temporal_trace-typed_event_projected_to_situation_graph-retry",
+            "BO-TC-C5_event_temporal_trace-future_due_activity_has_historical_observation",
+            "BO-TC-C5_event_temporal_trace-future_due_activity_has_historical_observation-retry",
+            "BO-TC-C5_event_temporal_trace-canonical_matter_missing_activity_with_source_time",
+            "BO-TC-C5_event_temporal_trace-canonical_matter_missing_activity_with_source_time-retry",
+            "BO-TC-C5_event_temporal_trace-corrected_clue_late_bound_to_canonical_matter",
+            "BO-TC-C5_event_temporal_trace-corrected_clue_late_bound_to_canonical_matter-retry",
+            "BO-TC-C5_event_temporal_trace-no_parseable_observation_time",
+            "BO-TC-C5_event_temporal_trace-no_parseable_observation_time-retry",
             "BO-TC-C5_event_temporal_trace-explicit_actual_start",
             "BO-TC-C5_event_temporal_trace-explicit_actual_start-retry",
             "BO-TC-C5_event_temporal_trace-future_meeting",
             "BO-TC-C5_event_temporal_trace-future_meeting-retry",
+            "BO-TC-C5_event_temporal_trace-explicit_source_modality_preserved",
+            "BO-TC-C5_event_temporal_trace-explicit_source_modality_preserved-retry",
+            "BO-TC-C5_event_temporal_trace-necessary_past_gap_supported",
+            "BO-TC-C5_event_temporal_trace-necessary_past_gap_supported-retry",
+            "BO-TC-C5_event_temporal_trace-future_candidate_marked_ai_inferred",
+            "BO-TC-C5_event_temporal_trace-future_candidate_marked_ai_inferred-retry",
+            "BO-TC-C5_event_temporal_trace-rebased_stale_temporal_owner_output",
+            "BO-TC-C5_event_temporal_trace-rebased_stale_temporal_owner_output-retry",
             "BO-TC-C5_event_temporal_trace-assignment_without_start",
             "BO-TC-C5_event_temporal_trace-assignment_without_start-retry",
             "BO-TC-C5_event_temporal_trace-file_or_exif_time_without_event_claim",
             "BO-TC-C5_event_temporal_trace-file_or_exif_time_without_event_claim-retry",
             "BO-TC-C5_event_temporal_trace-done_then_reopen_blocked",
             "BO-TC-C5_event_temporal_trace-done_then_reopen_blocked-retry",
+            "BO-TC-C5_event_temporal_trace-bounded_child_activity_event",
+            "BO-TC-C5_event_temporal_trace-bounded_child_activity_event-retry",
+            "BO-TC-C5_event_temporal_trace-material_user_world_clue",
+            "BO-TC-C5_event_temporal_trace-material_user_world_clue-retry",
+            "BO-TC-C5_event_temporal_trace-material_child_clue_changes_parent_understanding",
+            "BO-TC-C5_event_temporal_trace-material_child_clue_changes_parent_understanding-retry",
+            "BO-TC-C5_event_temporal_trace-scan_retry_or_reword_without_semantic_change",
+            "BO-TC-C5_event_temporal_trace-scan_retry_or_reword_without_semantic_change-retry",
             "BO-C5_event_temporal_trace-foreign_owner_write",
             "BO-C5_event_temporal_trace-undeclared_provider_field"
           ],
@@ -1619,6 +2013,38 @@
             "CC-C6-owner"
           ],
           "coverage_case_ids": [
+            "TC-C6_matter_formation_admission-root_matter_situation_graph_requested",
+            "TC-C6_matter_formation_admission-root_matter_situation_graph_requested-retry",
+            "TC-C6_matter_formation_admission-ordinary_submatters_projection_requested",
+            "TC-C6_matter_formation_admission-ordinary_submatters_projection_requested-retry",
+            "TC-C6_matter_formation_admission-travel_and_software_fragments_reconciled",
+            "TC-C6_matter_formation_admission-travel_and_software_fragments_reconciled-retry",
+            "TC-C6_matter_formation_admission-same_matter_already_admits_current_source_revision",
+            "TC-C6_matter_formation_admission-same_matter_already_admits_current_source_revision-retry",
+            "TC-C6_matter_formation_admission-exact_existing_matter_current_revision_processed",
+            "TC-C6_matter_formation_admission-exact_existing_matter_current_revision_processed-retry",
+            "TC-C6_matter_formation_admission-admitted_source_revision_is_behind_registry_current",
+            "TC-C6_matter_formation_admission-admitted_source_revision_is_behind_registry_current-retry",
+            "TC-C6_matter_formation_admission-same_matter_sibling_refresh_stales_after_prior_admission",
+            "TC-C6_matter_formation_admission-same_matter_sibling_refresh_stales_after_prior_admission-retry",
+            "TC-C6_matter_formation_admission-matter_participates_in_multiple_domains",
+            "TC-C6_matter_formation_admission-matter_participates_in_multiple_domains-retry",
+            "TC-C6_matter_formation_admission-situation_graph_has_more_descendants",
+            "TC-C6_matter_formation_admission-situation_graph_has_more_descendants-retry",
+            "TC-C6_matter_formation_admission-composed_parent_and_children_valid",
+            "TC-C6_matter_formation_admission-composed_parent_and_children_valid-retry",
+            "TC-C6_matter_formation_admission-exact_admitted_matter_id_enters_canonical_owners",
+            "TC-C6_matter_formation_admission-exact_admitted_matter_id_enters_canonical_owners-retry",
+            "TC-C6_matter_formation_admission-projection_source_or_candidate_without_admitted_matter_id",
+            "TC-C6_matter_formation_admission-projection_source_or_candidate_without_admitted_matter_id-retry",
+            "TC-C6_matter_formation_admission-complete_current_child_scope_for_parent_narrative",
+            "TC-C6_matter_formation_admission-complete_current_child_scope_for_parent_narrative-retry",
+            "TC-C6_matter_formation_admission-same_matter_duplicate_licensed",
+            "TC-C6_matter_formation_admission-same_matter_duplicate_licensed-retry",
+            "TC-C6_matter_formation_admission-candidate_belongs_as_work_item_or_event",
+            "TC-C6_matter_formation_admission-candidate_belongs_as_work_item_or_event-retry",
+            "TC-C6_matter_formation_admission-candidate_has_no_trackable_goal",
+            "TC-C6_matter_formation_admission-candidate_has_no_trackable_goal-retry",
             "TC-C6_matter_formation_admission-provider_item_basic",
             "TC-C6_matter_formation_admission-provider_item_basic-retry",
             "TC-C6_matter_formation_admission-future_maybe_research",
@@ -1634,23 +2060,51 @@
             "TC-C6_matter_formation_admission-visual_unrelated_to_matter",
             "TC-C6_matter_formation_admission-visual_unrelated_to_matter-retry",
             "TC-C6_matter_formation_admission-access_blocked",
-            "TC-C6_matter_formation_admission-access_blocked-retry"
+            "TC-C6_matter_formation_admission-access_blocked-retry",
+            "TC-C6_matter_formation_admission-licensed_project_or_situation_context",
+            "TC-C6_matter_formation_admission-licensed_project_or_situation_context-retry",
+            "TC-C6_matter_formation_admission-licensed_match_beyond_initial_context_page",
+            "TC-C6_matter_formation_admission-licensed_match_beyond_initial_context_page-retry",
+            "TC-C6_matter_formation_admission-weak_single_context_signal",
+            "TC-C6_matter_formation_admission-weak_single_context_signal-retry",
+            "TC-C6_matter_formation_admission-large_goal_root_matter",
+            "TC-C6_matter_formation_admission-large_goal_root_matter-retry",
+            "TC-C6_matter_formation_admission-independent_child_goal",
+            "TC-C6_matter_formation_admission-independent_child_goal-retry",
+            "TC-C6_matter_formation_admission-bounded_action_without_independent_outcome",
+            "TC-C6_matter_formation_admission-bounded_action_without_independent_outcome-retry",
+            "TC-C6_matter_formation_admission-bounded_event_or_source",
+            "TC-C6_matter_formation_admission-bounded_event_or_source-retry",
+            "TC-C6_matter_formation_admission-shared_person_or_source_only",
+            "TC-C6_matter_formation_admission-shared_person_or_source_only-retry",
+            "TC-C6_matter_formation_admission-cycle_or_self_parent_proposed",
+            "TC-C6_matter_formation_admission-cycle_or_self_parent_proposed-retry",
+            "TC-C6_matter_formation_admission-multiple_primary_parents_proposed",
+            "TC-C6_matter_formation_admission-multiple_primary_parents_proposed-retry",
+            "TC-C6_matter_formation_admission-reparent_split_or_merge",
+            "TC-C6_matter_formation_admission-reparent_split_or_merge-retry",
+            "TC-C6_matter_formation_admission-hierarchy_depth_budget_exhausted",
+            "TC-C6_matter_formation_admission-hierarchy_depth_budget_exhausted-retry",
+            "TC-C6_matter_formation_admission-bounded_containment_batch_valid",
+            "TC-C6_matter_formation_admission-bounded_containment_batch_valid-retry",
+            "TC-C6_matter_formation_admission-batch_publication_interrupted",
+            "TC-C6_matter_formation_admission-batch_publication_interrupted-retry"
           ],
           "coverage_receipt_ids": [
-            "run:TM06_matter_admission:0d678bfc40bc483b"
+            "run:TM06_matter_admission:4d3489758f644f33"
           ],
           "coverage_shard_ids": [
             "TM06_matter_admission"
           ],
-          "current": false,
-          "evidence_state": "stale",
+          "current": true,
+          "evidence_state": "current_pass",
           "metadata": {
-            "alignment_evidence_id": "evidence:model-code-test-alignment:656e66dd6db30bd7",
+            "alignment_evidence_id": "evidence:model-code-test-alignment:4ad14cafdfb5d191",
             "g8_evidence_id": "evidence:G8-fully-synthetic:ffe0563f16dabefc",
             "live_provider_evidence": false,
-            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v7",
+            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v8",
             "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed",
-            "test_receipt_fingerprint": "sha256:bf6ef1d6c524a9504dcac3daa1f5839802681ce4d8ebf530347e61c213f810c0",
+            "test_receipt_fingerprint": "sha256:884b8541a95e36fab202c89cd01ab57672b61c8e933a0a414f2bfc859b1d80f7",
             "test_receipt_path": ".flowguard/evidence/tests/TM06_matter_admission.json",
             "through_gate": "G8"
           },
@@ -1660,9 +2114,9 @@
             "OB-C6-003"
           ],
           "proof_artifact_ids": [
-            "evidence:C6_matter_formation_admission:5952495975d42700",
-            "artifact:run:TM06_matter_admission:0d678bfc40bc483b",
-            "evidence:model-code-test-alignment:656e66dd6db30bd7",
+            "evidence:C6_matter_formation_admission:cbb76081a7a7054e",
+            "artifact:run:TM06_matter_admission:4d3489758f644f33",
+            "evidence:model-code-test-alignment:4ad14cafdfb5d191",
             "evidence:G8-fully-synthetic:ffe0563f16dabefc"
           ],
           "risk_gate_ids": [
@@ -1671,9 +2125,9 @@
             "G8-fully-synthetic"
           ],
           "test_evidence_ids": [
-            "run:TM06_matter_admission:0d678bfc40bc483b"
+            "run:TM06_matter_admission:4d3489758f644f33"
           ],
-          "test_mesh_state": "stale"
+          "test_mesh_state": "shard_current"
         },
         "excluded_behavior_ids": [],
         "expected_result": "admitted, source_only, not_applicable, uncertain, or blocked Matter disposition plus current Matter-source relations; hierarchy, coverage, lifecycle, activity, and projection use only the exact current C6-admitted matter_id; one bounded internal SituationGraphSnapshot may include WorkItems, Events, and inference, while the ordinary UI MatterHierarchyProjection contains Matter nodes only with primary containment and typed Matter-to-Matter secondary relations; travel/software portfolio roots and cross-domain relations are reconciled; when one same-Matter source refresh makes a sibling package stale, that package is append-only superseded and exactly one exact-current successor is required",
@@ -1712,7 +2166,7 @@
           "behavior_commitment_id": "BC-PR-006",
           "business_intent": "",
           "business_intent_id": "BI-PR-006-admit-matter-conservatively",
-          "evidence_current": false,
+          "evidence_current": true,
           "evidence_refs": [
             ".flowguard/evidence/tests/TM06_matter_admission.json",
             ".flowguard/evidence/alignment/model_code_test.json",
@@ -1721,15 +2175,15 @@
           "fallback_candidate_ids": [],
           "metadata": {},
           "path_sensitive": true,
-          "ppa_confidence": "blocked",
+          "ppa_confidence": "full",
           "ppa_coverage_receipt_ids": [
-            "run:TM06_matter_admission:0d678bfc40bc483b"
+            "run:TM06_matter_admission:4d3489758f644f33"
           ],
           "ppa_coverage_shard_ids": [
             "TM06_matter_admission"
           ],
-          "ppa_decision": "primary_path_authority_blocked",
-          "ppa_ok": false,
+          "ppa_decision": "primary_path_authority_green",
+          "ppa_ok": true,
           "ppa_report_id": "PPA-BC-PR-006-G8",
           "ppa_risk_gate_ids": [
             "authority",
@@ -1738,12 +2192,44 @@
           ],
           "primary_path_id": "path:c6-admit-matter",
           "proof_artifact_ids": [
-            "evidence:C6_matter_formation_admission:5952495975d42700",
-            "artifact:run:TM06_matter_admission:0d678bfc40bc483b",
-            "evidence:model-code-test-alignment:656e66dd6db30bd7",
+            "evidence:C6_matter_formation_admission:cbb76081a7a7054e",
+            "artifact:run:TM06_matter_admission:4d3489758f644f33",
+            "evidence:model-code-test-alignment:4ad14cafdfb5d191",
             "evidence:G8-fully-synthetic:ffe0563f16dabefc"
           ],
           "runtime_observation_ids": [
+            "BO-TC-C6_matter_formation_admission-root_matter_situation_graph_requested",
+            "BO-TC-C6_matter_formation_admission-root_matter_situation_graph_requested-retry",
+            "BO-TC-C6_matter_formation_admission-ordinary_submatters_projection_requested",
+            "BO-TC-C6_matter_formation_admission-ordinary_submatters_projection_requested-retry",
+            "BO-TC-C6_matter_formation_admission-travel_and_software_fragments_reconciled",
+            "BO-TC-C6_matter_formation_admission-travel_and_software_fragments_reconciled-retry",
+            "BO-TC-C6_matter_formation_admission-same_matter_already_admits_current_source_revision",
+            "BO-TC-C6_matter_formation_admission-same_matter_already_admits_current_source_revision-retry",
+            "BO-TC-C6_matter_formation_admission-exact_existing_matter_current_revision_processed",
+            "BO-TC-C6_matter_formation_admission-exact_existing_matter_current_revision_processed-retry",
+            "BO-TC-C6_matter_formation_admission-admitted_source_revision_is_behind_registry_current",
+            "BO-TC-C6_matter_formation_admission-admitted_source_revision_is_behind_registry_current-retry",
+            "BO-TC-C6_matter_formation_admission-same_matter_sibling_refresh_stales_after_prior_admission",
+            "BO-TC-C6_matter_formation_admission-same_matter_sibling_refresh_stales_after_prior_admission-retry",
+            "BO-TC-C6_matter_formation_admission-matter_participates_in_multiple_domains",
+            "BO-TC-C6_matter_formation_admission-matter_participates_in_multiple_domains-retry",
+            "BO-TC-C6_matter_formation_admission-situation_graph_has_more_descendants",
+            "BO-TC-C6_matter_formation_admission-situation_graph_has_more_descendants-retry",
+            "BO-TC-C6_matter_formation_admission-composed_parent_and_children_valid",
+            "BO-TC-C6_matter_formation_admission-composed_parent_and_children_valid-retry",
+            "BO-TC-C6_matter_formation_admission-exact_admitted_matter_id_enters_canonical_owners",
+            "BO-TC-C6_matter_formation_admission-exact_admitted_matter_id_enters_canonical_owners-retry",
+            "BO-TC-C6_matter_formation_admission-projection_source_or_candidate_without_admitted_matter_id",
+            "BO-TC-C6_matter_formation_admission-projection_source_or_candidate_without_admitted_matter_id-retry",
+            "BO-TC-C6_matter_formation_admission-complete_current_child_scope_for_parent_narrative",
+            "BO-TC-C6_matter_formation_admission-complete_current_child_scope_for_parent_narrative-retry",
+            "BO-TC-C6_matter_formation_admission-same_matter_duplicate_licensed",
+            "BO-TC-C6_matter_formation_admission-same_matter_duplicate_licensed-retry",
+            "BO-TC-C6_matter_formation_admission-candidate_belongs_as_work_item_or_event",
+            "BO-TC-C6_matter_formation_admission-candidate_belongs_as_work_item_or_event-retry",
+            "BO-TC-C6_matter_formation_admission-candidate_has_no_trackable_goal",
+            "BO-TC-C6_matter_formation_admission-candidate_has_no_trackable_goal-retry",
             "BO-TC-C6_matter_formation_admission-provider_item_basic",
             "BO-TC-C6_matter_formation_admission-provider_item_basic-retry",
             "BO-TC-C6_matter_formation_admission-future_maybe_research",
@@ -1760,6 +2246,34 @@
             "BO-TC-C6_matter_formation_admission-visual_unrelated_to_matter-retry",
             "BO-TC-C6_matter_formation_admission-access_blocked",
             "BO-TC-C6_matter_formation_admission-access_blocked-retry",
+            "BO-TC-C6_matter_formation_admission-licensed_project_or_situation_context",
+            "BO-TC-C6_matter_formation_admission-licensed_project_or_situation_context-retry",
+            "BO-TC-C6_matter_formation_admission-licensed_match_beyond_initial_context_page",
+            "BO-TC-C6_matter_formation_admission-licensed_match_beyond_initial_context_page-retry",
+            "BO-TC-C6_matter_formation_admission-weak_single_context_signal",
+            "BO-TC-C6_matter_formation_admission-weak_single_context_signal-retry",
+            "BO-TC-C6_matter_formation_admission-large_goal_root_matter",
+            "BO-TC-C6_matter_formation_admission-large_goal_root_matter-retry",
+            "BO-TC-C6_matter_formation_admission-independent_child_goal",
+            "BO-TC-C6_matter_formation_admission-independent_child_goal-retry",
+            "BO-TC-C6_matter_formation_admission-bounded_action_without_independent_outcome",
+            "BO-TC-C6_matter_formation_admission-bounded_action_without_independent_outcome-retry",
+            "BO-TC-C6_matter_formation_admission-bounded_event_or_source",
+            "BO-TC-C6_matter_formation_admission-bounded_event_or_source-retry",
+            "BO-TC-C6_matter_formation_admission-shared_person_or_source_only",
+            "BO-TC-C6_matter_formation_admission-shared_person_or_source_only-retry",
+            "BO-TC-C6_matter_formation_admission-cycle_or_self_parent_proposed",
+            "BO-TC-C6_matter_formation_admission-cycle_or_self_parent_proposed-retry",
+            "BO-TC-C6_matter_formation_admission-multiple_primary_parents_proposed",
+            "BO-TC-C6_matter_formation_admission-multiple_primary_parents_proposed-retry",
+            "BO-TC-C6_matter_formation_admission-reparent_split_or_merge",
+            "BO-TC-C6_matter_formation_admission-reparent_split_or_merge-retry",
+            "BO-TC-C6_matter_formation_admission-hierarchy_depth_budget_exhausted",
+            "BO-TC-C6_matter_formation_admission-hierarchy_depth_budget_exhausted-retry",
+            "BO-TC-C6_matter_formation_admission-bounded_containment_batch_valid",
+            "BO-TC-C6_matter_formation_admission-bounded_containment_batch_valid-retry",
+            "BO-TC-C6_matter_formation_admission-batch_publication_interrupted",
+            "BO-TC-C6_matter_formation_admission-batch_publication_interrupted-retry",
             "BO-C6_matter_formation_admission-foreign_owner_write",
             "BO-C6_matter_formation_admission-undeclared_provider_field"
           ],
@@ -1834,6 +2348,10 @@
             "CC-C7-owner"
           ],
           "coverage_case_ids": [
+            "TC-C7_lifecycle_board_state-elapsed_planned_activity_with_supporting_trace_but_no_confirmation",
+            "TC-C7_lifecycle_board_state-elapsed_planned_activity_with_supporting_trace_but_no_confirmation-retry",
+            "TC-C7_lifecycle_board_state-lifecycle_state_projected_for_human_display",
+            "TC-C7_lifecycle_board_state-lifecycle_state_projected_for_human_display-retry",
             "TC-C7_lifecycle_board_state-explicit_start_evidence",
             "TC-C7_lifecycle_board_state-explicit_start_evidence-retry",
             "TC-C7_lifecycle_board_state-scheduled_only",
@@ -1843,23 +2361,31 @@
             "TC-C7_lifecycle_board_state-provider_done_without_completion",
             "TC-C7_lifecycle_board_state-provider_done_without_completion-retry",
             "TC-C7_lifecycle_board_state-ui_direct_state_write",
-            "TC-C7_lifecycle_board_state-ui_direct_state_write-retry"
+            "TC-C7_lifecycle_board_state-ui_direct_state_write-retry",
+            "TC-C7_lifecycle_board_state-required_children_mixed_state",
+            "TC-C7_lifecycle_board_state-required_children_mixed_state-retry",
+            "TC-C7_lifecycle_board_state-completed_child_parent_evidence_unchanged",
+            "TC-C7_lifecycle_board_state-completed_child_parent_evidence_unchanged-retry",
+            "TC-C7_lifecycle_board_state-related_matter_state_changed",
+            "TC-C7_lifecycle_board_state-related_matter_state_changed-retry",
+            "TC-C7_lifecycle_board_state-known_children_with_depth_pending",
+            "TC-C7_lifecycle_board_state-known_children_with_depth_pending-retry"
           ],
           "coverage_receipt_ids": [
-            "run:TM07_lifecycle_board_state:b0368573b50ca695"
+            "run:TM07_lifecycle_board_state:d5589db8c71a2b07"
           ],
           "coverage_shard_ids": [
             "TM07_lifecycle_board_state"
           ],
-          "current": false,
-          "evidence_state": "stale",
+          "current": true,
+          "evidence_state": "current_pass",
           "metadata": {
-            "alignment_evidence_id": "evidence:model-code-test-alignment:656e66dd6db30bd7",
+            "alignment_evidence_id": "evidence:model-code-test-alignment:4ad14cafdfb5d191",
             "g8_evidence_id": "evidence:G8-fully-synthetic:ffe0563f16dabefc",
             "live_provider_evidence": false,
-            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v7",
+            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v8",
             "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed",
-            "test_receipt_fingerprint": "sha256:a2060d8e07278a1365dbe300460eceda85d7ff7ce0c9b99e40d6a511ca76eba0",
+            "test_receipt_fingerprint": "sha256:0d98c6edf7ef36673bb6faa9d84ceeddd56913ce6e218b9a543b57ef8362e4ee",
             "test_receipt_path": ".flowguard/evidence/tests/TM07_lifecycle_board_state.json",
             "through_gate": "G8"
           },
@@ -1869,9 +2395,9 @@
             "OB-C7-003"
           ],
           "proof_artifact_ids": [
-            "evidence:C7_lifecycle_board_state:951befd66451fa09",
-            "artifact:run:TM07_lifecycle_board_state:b0368573b50ca695",
-            "evidence:model-code-test-alignment:656e66dd6db30bd7",
+            "evidence:C7_lifecycle_board_state:48dbb364b6c25605",
+            "artifact:run:TM07_lifecycle_board_state:d5589db8c71a2b07",
+            "evidence:model-code-test-alignment:4ad14cafdfb5d191",
             "evidence:G8-fully-synthetic:ffe0563f16dabefc"
           ],
           "risk_gate_ids": [
@@ -1880,9 +2406,9 @@
             "G8-fully-synthetic"
           ],
           "test_evidence_ids": [
-            "run:TM07_lifecycle_board_state:b0368573b50ca695"
+            "run:TM07_lifecycle_board_state:d5589db8c71a2b07"
           ],
-          "test_mesh_state": "stale"
+          "test_mesh_state": "shard_current"
         },
         "excluded_behavior_ids": [],
         "expected_result": "planned, in_progress, completed, provisional/ai_inferred, uncertain, or blocked lifecycle axes with rationale, coverage-bounded gaps, a stable lifecycle display key separate from reported/observed/inferred modality, and no UI-owned write path",
@@ -1920,7 +2446,7 @@
           "behavior_commitment_id": "BC-PR-007",
           "business_intent": "",
           "business_intent_id": "BI-PR-007-decide-lifecycle-and-board",
-          "evidence_current": false,
+          "evidence_current": true,
           "evidence_refs": [
             ".flowguard/evidence/tests/TM07_lifecycle_board_state.json",
             ".flowguard/evidence/alignment/model_code_test.json",
@@ -1929,15 +2455,15 @@
           "fallback_candidate_ids": [],
           "metadata": {},
           "path_sensitive": true,
-          "ppa_confidence": "blocked",
+          "ppa_confidence": "full",
           "ppa_coverage_receipt_ids": [
-            "run:TM07_lifecycle_board_state:b0368573b50ca695"
+            "run:TM07_lifecycle_board_state:d5589db8c71a2b07"
           ],
           "ppa_coverage_shard_ids": [
             "TM07_lifecycle_board_state"
           ],
-          "ppa_decision": "primary_path_authority_blocked",
-          "ppa_ok": false,
+          "ppa_decision": "primary_path_authority_green",
+          "ppa_ok": true,
           "ppa_report_id": "PPA-BC-PR-007-G8",
           "ppa_risk_gate_ids": [
             "authority",
@@ -1946,12 +2472,16 @@
           ],
           "primary_path_id": "path:c7-decide-lifecycle",
           "proof_artifact_ids": [
-            "evidence:C7_lifecycle_board_state:951befd66451fa09",
-            "artifact:run:TM07_lifecycle_board_state:b0368573b50ca695",
-            "evidence:model-code-test-alignment:656e66dd6db30bd7",
+            "evidence:C7_lifecycle_board_state:48dbb364b6c25605",
+            "artifact:run:TM07_lifecycle_board_state:d5589db8c71a2b07",
+            "evidence:model-code-test-alignment:4ad14cafdfb5d191",
             "evidence:G8-fully-synthetic:ffe0563f16dabefc"
           ],
           "runtime_observation_ids": [
+            "BO-TC-C7_lifecycle_board_state-elapsed_planned_activity_with_supporting_trace_but_no_confirmation",
+            "BO-TC-C7_lifecycle_board_state-elapsed_planned_activity_with_supporting_trace_but_no_confirmation-retry",
+            "BO-TC-C7_lifecycle_board_state-lifecycle_state_projected_for_human_display",
+            "BO-TC-C7_lifecycle_board_state-lifecycle_state_projected_for_human_display-retry",
             "BO-TC-C7_lifecycle_board_state-explicit_start_evidence",
             "BO-TC-C7_lifecycle_board_state-explicit_start_evidence-retry",
             "BO-TC-C7_lifecycle_board_state-scheduled_only",
@@ -1962,6 +2492,14 @@
             "BO-TC-C7_lifecycle_board_state-provider_done_without_completion-retry",
             "BO-TC-C7_lifecycle_board_state-ui_direct_state_write",
             "BO-TC-C7_lifecycle_board_state-ui_direct_state_write-retry",
+            "BO-TC-C7_lifecycle_board_state-required_children_mixed_state",
+            "BO-TC-C7_lifecycle_board_state-required_children_mixed_state-retry",
+            "BO-TC-C7_lifecycle_board_state-completed_child_parent_evidence_unchanged",
+            "BO-TC-C7_lifecycle_board_state-completed_child_parent_evidence_unchanged-retry",
+            "BO-TC-C7_lifecycle_board_state-related_matter_state_changed",
+            "BO-TC-C7_lifecycle_board_state-related_matter_state_changed-retry",
+            "BO-TC-C7_lifecycle_board_state-known_children_with_depth_pending",
+            "BO-TC-C7_lifecycle_board_state-known_children_with_depth_pending-retry",
             "BO-C7_lifecycle_board_state-foreign_owner_write",
             "BO-C7_lifecycle_board_state-undeclared_provider_field"
           ],
@@ -2022,26 +2560,28 @@
             "TC-C8_open_loop_waiting_blocking-noncritical_subtask_failure-retry",
             "TC-C8_open_loop_waiting_blocking-critical_dependency_failure",
             "TC-C8_open_loop_waiting_blocking-critical_dependency_failure-retry",
+            "TC-C8_open_loop_waiting_blocking-optional_child_blocked",
+            "TC-C8_open_loop_waiting_blocking-optional_child_blocked-retry",
             "TC-C8_open_loop_waiting_blocking-matter_complete_loop_unmet",
             "TC-C8_open_loop_waiting_blocking-matter_complete_loop_unmet-retry",
             "TC-C8_open_loop_waiting_blocking-declared_closure_evidence",
             "TC-C8_open_loop_waiting_blocking-declared_closure_evidence-retry"
           ],
           "coverage_receipt_ids": [
-            "run:TM08_open_loop_blocking:f618b5f89f0578d1"
+            "run:TM08_open_loop_blocking:26afd42ffae594b1"
           ],
           "coverage_shard_ids": [
             "TM08_open_loop_blocking"
           ],
-          "current": false,
-          "evidence_state": "stale",
+          "current": true,
+          "evidence_state": "current_pass",
           "metadata": {
-            "alignment_evidence_id": "evidence:model-code-test-alignment:656e66dd6db30bd7",
+            "alignment_evidence_id": "evidence:model-code-test-alignment:4ad14cafdfb5d191",
             "g8_evidence_id": "evidence:G8-fully-synthetic:ffe0563f16dabefc",
             "live_provider_evidence": false,
-            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v7",
+            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v8",
             "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed",
-            "test_receipt_fingerprint": "sha256:1d7d41e925bb425d0973943c1526c1c5d91812ef90ff9458d2899f3626bf3f8f",
+            "test_receipt_fingerprint": "sha256:7f6e83733b23542ad939f844cd0658324cec41f1050305ebb3c00c1662345e08",
             "test_receipt_path": ".flowguard/evidence/tests/TM08_open_loop_blocking.json",
             "through_gate": "G8"
           },
@@ -2051,9 +2591,9 @@
             "OB-C8-003"
           ],
           "proof_artifact_ids": [
-            "evidence:C8_open_loop_waiting_blocking:0ab663d7fe25bfed",
-            "artifact:run:TM08_open_loop_blocking:f618b5f89f0578d1",
-            "evidence:model-code-test-alignment:656e66dd6db30bd7",
+            "evidence:C8_open_loop_waiting_blocking:87ab92d77bb88b87",
+            "artifact:run:TM08_open_loop_blocking:26afd42ffae594b1",
+            "evidence:model-code-test-alignment:4ad14cafdfb5d191",
             "evidence:G8-fully-synthetic:ffe0563f16dabefc"
           ],
           "risk_gate_ids": [
@@ -2061,9 +2601,9 @@
             "G8-fully-synthetic"
           ],
           "test_evidence_ids": [
-            "run:TM08_open_loop_blocking:f618b5f89f0578d1"
+            "run:TM08_open_loop_blocking:26afd42ffae594b1"
           ],
-          "test_mesh_state": "stale"
+          "test_mesh_state": "shard_current"
         },
         "excluded_behavior_ids": [],
         "expected_result": "open loop, closed loop, open_loop_gap, partial block, full block, or not-applicable terminal disposition",
@@ -2101,7 +2641,7 @@
           "behavior_commitment_id": "BC-PR-008",
           "business_intent": "",
           "business_intent_id": "BI-PR-008-track-open-loops-and-blocking",
-          "evidence_current": false,
+          "evidence_current": true,
           "evidence_refs": [
             ".flowguard/evidence/tests/TM08_open_loop_blocking.json",
             ".flowguard/evidence/alignment/model_code_test.json",
@@ -2110,15 +2650,15 @@
           "fallback_candidate_ids": [],
           "metadata": {},
           "path_sensitive": true,
-          "ppa_confidence": "blocked",
+          "ppa_confidence": "full",
           "ppa_coverage_receipt_ids": [
-            "run:TM08_open_loop_blocking:f618b5f89f0578d1"
+            "run:TM08_open_loop_blocking:26afd42ffae594b1"
           ],
           "ppa_coverage_shard_ids": [
             "TM08_open_loop_blocking"
           ],
-          "ppa_decision": "primary_path_authority_blocked",
-          "ppa_ok": false,
+          "ppa_decision": "primary_path_authority_green",
+          "ppa_ok": true,
           "ppa_report_id": "PPA-BC-PR-008-G8",
           "ppa_risk_gate_ids": [
             "authority",
@@ -2127,9 +2667,9 @@
           ],
           "primary_path_id": "path:c8-evaluate-open-loop",
           "proof_artifact_ids": [
-            "evidence:C8_open_loop_waiting_blocking:0ab663d7fe25bfed",
-            "artifact:run:TM08_open_loop_blocking:f618b5f89f0578d1",
-            "evidence:model-code-test-alignment:656e66dd6db30bd7",
+            "evidence:C8_open_loop_waiting_blocking:87ab92d77bb88b87",
+            "artifact:run:TM08_open_loop_blocking:26afd42ffae594b1",
+            "evidence:model-code-test-alignment:4ad14cafdfb5d191",
             "evidence:G8-fully-synthetic:ffe0563f16dabefc"
           ],
           "runtime_observation_ids": [
@@ -2143,6 +2683,8 @@
             "BO-TC-C8_open_loop_waiting_blocking-noncritical_subtask_failure-retry",
             "BO-TC-C8_open_loop_waiting_blocking-critical_dependency_failure",
             "BO-TC-C8_open_loop_waiting_blocking-critical_dependency_failure-retry",
+            "BO-TC-C8_open_loop_waiting_blocking-optional_child_blocked",
+            "BO-TC-C8_open_loop_waiting_blocking-optional_child_blocked-retry",
             "BO-TC-C8_open_loop_waiting_blocking-matter_complete_loop_unmet",
             "BO-TC-C8_open_loop_waiting_blocking-matter_complete_loop_unmet-retry",
             "BO-TC-C8_open_loop_waiting_blocking-declared_closure_evidence",
@@ -2203,23 +2745,25 @@
             "TC-C9_completion_cancellation_reopen-source_revision_or_ai_reopen_proposal",
             "TC-C9_completion_cancellation_reopen-source_revision_or_ai_reopen_proposal-retry",
             "TC-C9_completion_cancellation_reopen-conflicting_termination_evidence",
-            "TC-C9_completion_cancellation_reopen-conflicting_termination_evidence-retry"
+            "TC-C9_completion_cancellation_reopen-conflicting_termination_evidence-retry",
+            "TC-C9_completion_cancellation_reopen-all_known_children_completed_parent_criteria_unmet",
+            "TC-C9_completion_cancellation_reopen-all_known_children_completed_parent_criteria_unmet-retry"
           ],
           "coverage_receipt_ids": [
-            "run:TM09_completion_reopen:0f4e242d801d86b8"
+            "run:TM09_completion_reopen:7dc8f56509ef3bd8"
           ],
           "coverage_shard_ids": [
             "TM09_completion_reopen"
           ],
-          "current": false,
-          "evidence_state": "stale",
+          "current": true,
+          "evidence_state": "current_pass",
           "metadata": {
-            "alignment_evidence_id": "evidence:model-code-test-alignment:656e66dd6db30bd7",
+            "alignment_evidence_id": "evidence:model-code-test-alignment:4ad14cafdfb5d191",
             "g8_evidence_id": "evidence:G8-fully-synthetic:ffe0563f16dabefc",
             "live_provider_evidence": false,
-            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v7",
+            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v8",
             "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed",
-            "test_receipt_fingerprint": "sha256:cfe32fba25042e41259a939903311be9fa354d24cbd90d73acf99f6aa0144dbb",
+            "test_receipt_fingerprint": "sha256:a71d34c977dbb10beadae659c70a9fa7cb8f8fddae6e9fe3929ce1a8fdd19bc5",
             "test_receipt_path": ".flowguard/evidence/tests/TM09_completion_reopen.json",
             "through_gate": "G8"
           },
@@ -2229,9 +2773,9 @@
             "OB-C9-003"
           ],
           "proof_artifact_ids": [
-            "evidence:C9_completion_cancellation_reopen:fd9fe90d10d99d57",
-            "artifact:run:TM09_completion_reopen:0f4e242d801d86b8",
-            "evidence:model-code-test-alignment:656e66dd6db30bd7",
+            "evidence:C9_completion_cancellation_reopen:7e567c24f8a5704a",
+            "artifact:run:TM09_completion_reopen:7dc8f56509ef3bd8",
+            "evidence:model-code-test-alignment:4ad14cafdfb5d191",
             "evidence:G8-fully-synthetic:ffe0563f16dabefc"
           ],
           "risk_gate_ids": [
@@ -2239,9 +2783,9 @@
             "G8-fully-synthetic"
           ],
           "test_evidence_ids": [
-            "run:TM09_completion_reopen:0f4e242d801d86b8"
+            "run:TM09_completion_reopen:7dc8f56509ef3bd8"
           ],
-          "test_mesh_state": "stale"
+          "test_mesh_state": "shard_current"
         },
         "excluded_behavior_ids": [],
         "expected_result": "completed, cancelled, abandoned, reopened, completion_unproven, or outcome_conflict terminal disposition",
@@ -2280,7 +2824,7 @@
           "behavior_commitment_id": "BC-PR-009",
           "business_intent": "",
           "business_intent_id": "BI-PR-009-decide-outcome-and-reopen",
-          "evidence_current": false,
+          "evidence_current": true,
           "evidence_refs": [
             ".flowguard/evidence/tests/TM09_completion_reopen.json",
             ".flowguard/evidence/alignment/model_code_test.json",
@@ -2289,15 +2833,15 @@
           "fallback_candidate_ids": [],
           "metadata": {},
           "path_sensitive": true,
-          "ppa_confidence": "blocked",
+          "ppa_confidence": "full",
           "ppa_coverage_receipt_ids": [
-            "run:TM09_completion_reopen:0f4e242d801d86b8"
+            "run:TM09_completion_reopen:7dc8f56509ef3bd8"
           ],
           "ppa_coverage_shard_ids": [
             "TM09_completion_reopen"
           ],
-          "ppa_decision": "primary_path_authority_blocked",
-          "ppa_ok": false,
+          "ppa_decision": "primary_path_authority_green",
+          "ppa_ok": true,
           "ppa_report_id": "PPA-BC-PR-009-G8",
           "ppa_risk_gate_ids": [
             "authority",
@@ -2306,9 +2850,9 @@
           ],
           "primary_path_id": "path:c9-decide-outcome",
           "proof_artifact_ids": [
-            "evidence:C9_completion_cancellation_reopen:fd9fe90d10d99d57",
-            "artifact:run:TM09_completion_reopen:0f4e242d801d86b8",
-            "evidence:model-code-test-alignment:656e66dd6db30bd7",
+            "evidence:C9_completion_cancellation_reopen:7e567c24f8a5704a",
+            "artifact:run:TM09_completion_reopen:7dc8f56509ef3bd8",
+            "evidence:model-code-test-alignment:4ad14cafdfb5d191",
             "evidence:G8-fully-synthetic:ffe0563f16dabefc"
           ],
           "runtime_observation_ids": [
@@ -2324,6 +2868,8 @@
             "BO-TC-C9_completion_cancellation_reopen-source_revision_or_ai_reopen_proposal-retry",
             "BO-TC-C9_completion_cancellation_reopen-conflicting_termination_evidence",
             "BO-TC-C9_completion_cancellation_reopen-conflicting_termination_evidence-retry",
+            "BO-TC-C9_completion_cancellation_reopen-all_known_children_completed_parent_criteria_unmet",
+            "BO-TC-C9_completion_cancellation_reopen-all_known_children_completed_parent_criteria_unmet-retry",
             "BO-C9_completion_cancellation_reopen-foreign_owner_write",
             "BO-C9_completion_cancellation_reopen-undeclared_provider_field"
           ],
@@ -2368,10 +2914,12 @@
             "CC-C10-owner"
           ],
           "coverage_case_ids": [
+            "TC-C10_correction_revocation-source_locator_or_fingerprint_changed",
+            "TC-C10_correction_revocation-source_locator_or_fingerprint_changed-retry",
+            "TC-C10_correction_revocation-future_due_activity_observation_corrected",
+            "TC-C10_correction_revocation-future_due_activity_observation_corrected-retry",
             "TC-C10_correction_revocation-user_correction",
             "TC-C10_correction_revocation-user_correction-retry",
-            "TC-C10_correction_revocation-card_visual_pin_unpin_or_change",
-            "TC-C10_correction_revocation-card_visual_pin_unpin_or_change-retry",
             "TC-C10_correction_revocation-source_or_tracking_stale",
             "TC-C10_correction_revocation-source_or_tracking_stale-retry",
             "TC-C10_correction_revocation-all_required_owners_terminal",
@@ -2385,23 +2933,33 @@
             "TC-C10_correction_revocation-ui_only_patch_request",
             "TC-C10_correction_revocation-ui_only_patch_request-retry",
             "TC-C10_correction_revocation-direct_foreign_state_write",
-            "TC-C10_correction_revocation-direct_foreign_state_write-retry"
+            "TC-C10_correction_revocation-direct_foreign_state_write-retry",
+            "TC-C10_correction_revocation-child_state_or_containment_changed",
+            "TC-C10_correction_revocation-child_state_or_containment_changed-retry",
+            "TC-C10_correction_revocation-material_clue_or_nonmaterial_processing_changed",
+            "TC-C10_correction_revocation-material_clue_or_nonmaterial_processing_changed-retry",
+            "TC-C10_correction_revocation-hero_identity_theme_or_policy_dependency_changed",
+            "TC-C10_correction_revocation-hero_identity_theme_or_policy_dependency_changed-retry",
+            "TC-C10_correction_revocation-hierarchy_split_revision",
+            "TC-C10_correction_revocation-hierarchy_split_revision-retry",
+            "TC-C10_correction_revocation-hierarchy_merge_revision",
+            "TC-C10_correction_revocation-hierarchy_merge_revision-retry"
           ],
           "coverage_receipt_ids": [
-            "run:TM10_correction_invalidation:98eb85d4f7738b33"
+            "run:TM10_correction_invalidation:d236cb2295a37cb0"
           ],
           "coverage_shard_ids": [
             "TM10_correction_invalidation"
           ],
-          "current": false,
-          "evidence_state": "stale",
+          "current": true,
+          "evidence_state": "current_pass",
           "metadata": {
-            "alignment_evidence_id": "evidence:model-code-test-alignment:656e66dd6db30bd7",
+            "alignment_evidence_id": "evidence:model-code-test-alignment:4ad14cafdfb5d191",
             "g8_evidence_id": "evidence:G8-fully-synthetic:ffe0563f16dabefc",
             "live_provider_evidence": false,
-            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v7",
+            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v8",
             "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed",
-            "test_receipt_fingerprint": "sha256:4707780e34a4f843651c43c5cd66d35f0ed8b0af4e4bf63ac58c31bed9b99045",
+            "test_receipt_fingerprint": "sha256:de19ba89e63a29e07ce412bb6a1118fdfb27e6a847c3642a2d957e1d2fe04a3b",
             "test_receipt_path": ".flowguard/evidence/tests/TM10_correction_invalidation.json",
             "through_gate": "G8"
           },
@@ -2411,9 +2969,9 @@
             "OB-C10-003"
           ],
           "proof_artifact_ids": [
-            "evidence:C10_correction_revocation:af05d44733387852",
-            "artifact:run:TM10_correction_invalidation:98eb85d4f7738b33",
-            "evidence:model-code-test-alignment:656e66dd6db30bd7",
+            "evidence:C10_correction_revocation:d20cec9a21b64ad7",
+            "artifact:run:TM10_correction_invalidation:d236cb2295a37cb0",
+            "evidence:model-code-test-alignment:4ad14cafdfb5d191",
             "evidence:G8-fully-synthetic:ffe0563f16dabefc"
           ],
           "risk_gate_ids": [
@@ -2422,9 +2980,9 @@
             "G8-fully-synthetic"
           ],
           "test_evidence_ids": [
-            "run:TM10_correction_invalidation:98eb85d4f7738b33"
+            "run:TM10_correction_invalidation:d236cb2295a37cb0"
           ],
-          "test_mesh_state": "stale"
+          "test_mesh_state": "shard_current"
         },
         "excluded_behavior_ids": [],
         "expected_result": "append-only correction or revocation with exact MaterialClue, bilingual summary, ancestor activity, graph, World Model, root-Hero, source-retention, and supplemental-information invalidation, durable owner dispatch, and same-revision terminal join",
@@ -2465,7 +3023,7 @@
           "behavior_commitment_id": "BC-PR-010",
           "business_intent": "",
           "business_intent_id": "BI-PR-010-correct-and-recompute",
-          "evidence_current": false,
+          "evidence_current": true,
           "evidence_refs": [
             ".flowguard/evidence/tests/TM10_correction_invalidation.json",
             ".flowguard/evidence/alignment/model_code_test.json",
@@ -2474,15 +3032,15 @@
           "fallback_candidate_ids": [],
           "metadata": {},
           "path_sensitive": true,
-          "ppa_confidence": "blocked",
+          "ppa_confidence": "full",
           "ppa_coverage_receipt_ids": [
-            "run:TM10_correction_invalidation:98eb85d4f7738b33"
+            "run:TM10_correction_invalidation:d236cb2295a37cb0"
           ],
           "ppa_coverage_shard_ids": [
             "TM10_correction_invalidation"
           ],
-          "ppa_decision": "primary_path_authority_blocked",
-          "ppa_ok": false,
+          "ppa_decision": "primary_path_authority_green",
+          "ppa_ok": true,
           "ppa_report_id": "PPA-BC-PR-010-G8",
           "ppa_risk_gate_ids": [
             "authority",
@@ -2491,16 +3049,18 @@
           ],
           "primary_path_id": "path:c10-invalidate-and-request-recompute",
           "proof_artifact_ids": [
-            "evidence:C10_correction_revocation:af05d44733387852",
-            "artifact:run:TM10_correction_invalidation:98eb85d4f7738b33",
-            "evidence:model-code-test-alignment:656e66dd6db30bd7",
+            "evidence:C10_correction_revocation:d20cec9a21b64ad7",
+            "artifact:run:TM10_correction_invalidation:d236cb2295a37cb0",
+            "evidence:model-code-test-alignment:4ad14cafdfb5d191",
             "evidence:G8-fully-synthetic:ffe0563f16dabefc"
           ],
           "runtime_observation_ids": [
+            "BO-TC-C10_correction_revocation-source_locator_or_fingerprint_changed",
+            "BO-TC-C10_correction_revocation-source_locator_or_fingerprint_changed-retry",
+            "BO-TC-C10_correction_revocation-future_due_activity_observation_corrected",
+            "BO-TC-C10_correction_revocation-future_due_activity_observation_corrected-retry",
             "BO-TC-C10_correction_revocation-user_correction",
             "BO-TC-C10_correction_revocation-user_correction-retry",
-            "BO-TC-C10_correction_revocation-card_visual_pin_unpin_or_change",
-            "BO-TC-C10_correction_revocation-card_visual_pin_unpin_or_change-retry",
             "BO-TC-C10_correction_revocation-source_or_tracking_stale",
             "BO-TC-C10_correction_revocation-source_or_tracking_stale-retry",
             "BO-TC-C10_correction_revocation-all_required_owners_terminal",
@@ -2515,6 +3075,16 @@
             "BO-TC-C10_correction_revocation-ui_only_patch_request-retry",
             "BO-TC-C10_correction_revocation-direct_foreign_state_write",
             "BO-TC-C10_correction_revocation-direct_foreign_state_write-retry",
+            "BO-TC-C10_correction_revocation-child_state_or_containment_changed",
+            "BO-TC-C10_correction_revocation-child_state_or_containment_changed-retry",
+            "BO-TC-C10_correction_revocation-material_clue_or_nonmaterial_processing_changed",
+            "BO-TC-C10_correction_revocation-material_clue_or_nonmaterial_processing_changed-retry",
+            "BO-TC-C10_correction_revocation-hero_identity_theme_or_policy_dependency_changed",
+            "BO-TC-C10_correction_revocation-hero_identity_theme_or_policy_dependency_changed-retry",
+            "BO-TC-C10_correction_revocation-hierarchy_split_revision",
+            "BO-TC-C10_correction_revocation-hierarchy_split_revision-retry",
+            "BO-TC-C10_correction_revocation-hierarchy_merge_revision",
+            "BO-TC-C10_correction_revocation-hierarchy_merge_revision-retry",
             "BO-C10_correction_revocation-foreign_owner_write",
             "BO-C10_correction_revocation-undeclared_provider_field"
           ],
@@ -2572,6 +3142,16 @@
           "coverage_case_ids": [
             "TC-C11_guard_artifact_prediction-extracted_anchors_queued",
             "TC-C11_guard_artifact_prediction-extracted_anchors_queued-retry",
+            "TC-C11_guard_artifact_prediction-capability_role_assigned",
+            "TC-C11_guard_artifact_prediction-capability_role_assigned-retry",
+            "TC-C11_guard_artifact_prediction-capability_unavailable_or_escalating",
+            "TC-C11_guard_artifact_prediction-capability_unavailable_or_escalating-retry",
+            "TC-C11_guard_artifact_prediction-retired_capability_package_loaded",
+            "TC-C11_guard_artifact_prediction-retired_capability_package_loaded-retry",
+            "TC-C11_guard_artifact_prediction-queued_source_no_longer_tracked",
+            "TC-C11_guard_artifact_prediction-queued_source_no_longer_tracked-retry",
+            "TC-C11_guard_artifact_prediction-named_model_or_direct_api_required",
+            "TC-C11_guard_artifact_prediction-named_model_or_direct_api_required-retry",
             "TC-C11_guard_artifact_prediction-valid_bilingual_understanding_result",
             "TC-C11_guard_artifact_prediction-valid_bilingual_understanding_result-retry",
             "TC-C11_guard_artifact_prediction-typed_finding_auto_dispatched",
@@ -2594,34 +3174,60 @@
             "TC-C11_guard_artifact_prediction-depth_sufficient_current-retry",
             "TC-C11_guard_artifact_prediction-depth_partial_or_stale",
             "TC-C11_guard_artifact_prediction-depth_partial_or_stale-retry",
-            "TC-C11_guard_artifact_prediction-visual_candidates_ranked",
-            "TC-C11_guard_artifact_prediction-visual_candidates_ranked-retry",
+            "TC-C11_guard_artifact_prediction-stable_matter_identity_needs_generated_hero",
+            "TC-C11_guard_artifact_prediction-stable_matter_identity_needs_generated_hero-retry",
+            "TC-C11_guard_artifact_prediction-current_generated_hero_fails_visual_specificity",
+            "TC-C11_guard_artifact_prediction-current_generated_hero_fails_visual_specificity-retry",
+            "TC-C11_guard_artifact_prediction-descendant_or_non_matter_hero_requested",
+            "TC-C11_guard_artifact_prediction-descendant_or_non_matter_hero_requested-retry",
+            "TC-C11_guard_artifact_prediction-hero_generation_unavailable_or_invalid",
+            "TC-C11_guard_artifact_prediction-hero_generation_unavailable_or_invalid-retry",
+            "TC-C11_guard_artifact_prediction-current_ai_supplemental_information",
+            "TC-C11_guard_artifact_prediction-current_ai_supplemental_information-retry",
+            "TC-C11_guard_artifact_prediction-supplemental_information_unavailable",
+            "TC-C11_guard_artifact_prediction-supplemental_information_unavailable-retry",
+            "TC-C11_guard_artifact_prediction-human_matter_narrative_requested",
+            "TC-C11_guard_artifact_prediction-human_matter_narrative_requested-retry",
+            "TC-C11_guard_artifact_prediction-hierarchy_trace_advisory_current",
+            "TC-C11_guard_artifact_prediction-hierarchy_trace_advisory_current-retry",
             "TC-C11_guard_artifact_prediction-stale_operation_result",
             "TC-C11_guard_artifact_prediction-stale_operation_result-retry",
             "TC-C11_guard_artifact_prediction-scope_escape_attempt",
             "TC-C11_guard_artifact_prediction-scope_escape_attempt-retry",
             "TC-C11_guard_artifact_prediction-forecast_delay",
             "TC-C11_guard_artifact_prediction-forecast_delay-retry",
+            "TC-C11_guard_artifact_prediction-future_prediction_contract_current",
+            "TC-C11_guard_artifact_prediction-future_prediction_contract_current-retry",
+            "TC-C11_guard_artifact_prediction-later_observation_confirms_prediction",
+            "TC-C11_guard_artifact_prediction-later_observation_confirms_prediction-retry",
+            "TC-C11_guard_artifact_prediction-later_observation_contradicts_prediction",
+            "TC-C11_guard_artifact_prediction-later_observation_contradicts_prediction-retry",
+            "TC-C11_guard_artifact_prediction-prediction_horizon_passed_without_decisive_observation",
+            "TC-C11_guard_artifact_prediction-prediction_horizon_passed_without_decisive_observation-retry",
+            "TC-C11_guard_artifact_prediction-current_situation_graph_supports_advisory_inference",
+            "TC-C11_guard_artifact_prediction-current_situation_graph_supports_advisory_inference-retry",
+            "TC-C11_guard_artifact_prediction-situation_world_model_dependency_changed_or_expired",
+            "TC-C11_guard_artifact_prediction-situation_world_model_dependency_changed_or_expired-retry",
             "TC-C11_guard_artifact_prediction-research_direct_canonical_write",
             "TC-C11_guard_artifact_prediction-research_direct_canonical_write-retry",
             "TC-C11_guard_artifact_prediction-skipped_or_progress_receipt",
             "TC-C11_guard_artifact_prediction-skipped_or_progress_receipt-retry"
           ],
           "coverage_receipt_ids": [
-            "run:TM11_guard_prediction_boundary:4d4870c06a0fb2d2"
+            "run:TM11_guard_prediction_boundary:eb116bcefaf5f69b"
           ],
           "coverage_shard_ids": [
             "TM11_guard_prediction_boundary"
           ],
-          "current": false,
-          "evidence_state": "stale",
+          "current": true,
+          "evidence_state": "current_pass",
           "metadata": {
-            "alignment_evidence_id": "evidence:model-code-test-alignment:656e66dd6db30bd7",
+            "alignment_evidence_id": "evidence:model-code-test-alignment:4ad14cafdfb5d191",
             "g8_evidence_id": "evidence:G8-fully-synthetic:ffe0563f16dabefc",
             "live_provider_evidence": false,
-            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v7",
+            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v8",
             "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed",
-            "test_receipt_fingerprint": "sha256:eea652d1a1f342ae5fce9520520a8536a3c95275fe68f52618fee2d470b99187",
+            "test_receipt_fingerprint": "sha256:befb43dd1fb2f5cdd21f160a39803ae04b33adfcdb89edabc5f42396016f0c4a",
             "test_receipt_path": ".flowguard/evidence/tests/TM11_guard_prediction_boundary.json",
             "through_gate": "G8"
           },
@@ -2631,9 +3237,9 @@
             "OB-C11-003"
           ],
           "proof_artifact_ids": [
-            "evidence:C11_guard_artifact_prediction:bdb7bc7a407ec5ec",
-            "artifact:run:TM11_guard_prediction_boundary:4d4870c06a0fb2d2",
-            "evidence:model-code-test-alignment:656e66dd6db30bd7",
+            "evidence:C11_guard_artifact_prediction:c11c7badfced8e30",
+            "artifact:run:TM11_guard_prediction_boundary:eb116bcefaf5f69b",
+            "evidence:model-code-test-alignment:4ad14cafdfb5d191",
             "evidence:G8-fully-synthetic:ffe0563f16dabefc"
           ],
           "risk_gate_ids": [
@@ -2641,9 +3247,9 @@
             "G8-fully-synthetic"
           ],
           "test_evidence_ids": [
-            "run:TM11_guard_prediction_boundary:4d4870c06a0fb2d2"
+            "run:TM11_guard_prediction_boundary:eb116bcefaf5f69b"
           ],
-          "test_mesh_state": "stale"
+          "test_mesh_state": "shard_current"
         },
         "excluded_behavior_ids": [
           "legacy-runtime-binding:sourceguard",
@@ -2690,7 +3296,7 @@
           "behavior_commitment_id": "BC-PR-011",
           "business_intent": "",
           "business_intent_id": "BI-PR-011-register-advisory-analysis",
-          "evidence_current": false,
+          "evidence_current": true,
           "evidence_refs": [
             ".flowguard/evidence/tests/TM11_guard_prediction_boundary.json",
             ".flowguard/evidence/alignment/model_code_test.json",
@@ -2699,15 +3305,15 @@
           "fallback_candidate_ids": [],
           "metadata": {},
           "path_sensitive": true,
-          "ppa_confidence": "blocked",
+          "ppa_confidence": "full",
           "ppa_coverage_receipt_ids": [
-            "run:TM11_guard_prediction_boundary:4d4870c06a0fb2d2"
+            "run:TM11_guard_prediction_boundary:eb116bcefaf5f69b"
           ],
           "ppa_coverage_shard_ids": [
             "TM11_guard_prediction_boundary"
           ],
-          "ppa_decision": "primary_path_authority_blocked",
-          "ppa_ok": false,
+          "ppa_decision": "primary_path_authority_green",
+          "ppa_ok": true,
           "ppa_report_id": "PPA-BC-PR-011-G8",
           "ppa_risk_gate_ids": [
             "authority",
@@ -2716,14 +3322,24 @@
           ],
           "primary_path_id": "path:c11-register-advisory-analysis-artifact",
           "proof_artifact_ids": [
-            "evidence:C11_guard_artifact_prediction:bdb7bc7a407ec5ec",
-            "artifact:run:TM11_guard_prediction_boundary:4d4870c06a0fb2d2",
-            "evidence:model-code-test-alignment:656e66dd6db30bd7",
+            "evidence:C11_guard_artifact_prediction:c11c7badfced8e30",
+            "artifact:run:TM11_guard_prediction_boundary:eb116bcefaf5f69b",
+            "evidence:model-code-test-alignment:4ad14cafdfb5d191",
             "evidence:G8-fully-synthetic:ffe0563f16dabefc"
           ],
           "runtime_observation_ids": [
             "BO-TC-C11_guard_artifact_prediction-extracted_anchors_queued",
             "BO-TC-C11_guard_artifact_prediction-extracted_anchors_queued-retry",
+            "BO-TC-C11_guard_artifact_prediction-capability_role_assigned",
+            "BO-TC-C11_guard_artifact_prediction-capability_role_assigned-retry",
+            "BO-TC-C11_guard_artifact_prediction-capability_unavailable_or_escalating",
+            "BO-TC-C11_guard_artifact_prediction-capability_unavailable_or_escalating-retry",
+            "BO-TC-C11_guard_artifact_prediction-retired_capability_package_loaded",
+            "BO-TC-C11_guard_artifact_prediction-retired_capability_package_loaded-retry",
+            "BO-TC-C11_guard_artifact_prediction-queued_source_no_longer_tracked",
+            "BO-TC-C11_guard_artifact_prediction-queued_source_no_longer_tracked-retry",
+            "BO-TC-C11_guard_artifact_prediction-named_model_or_direct_api_required",
+            "BO-TC-C11_guard_artifact_prediction-named_model_or_direct_api_required-retry",
             "BO-TC-C11_guard_artifact_prediction-valid_bilingual_understanding_result",
             "BO-TC-C11_guard_artifact_prediction-valid_bilingual_understanding_result-retry",
             "BO-TC-C11_guard_artifact_prediction-typed_finding_auto_dispatched",
@@ -2746,14 +3362,40 @@
             "BO-TC-C11_guard_artifact_prediction-depth_sufficient_current-retry",
             "BO-TC-C11_guard_artifact_prediction-depth_partial_or_stale",
             "BO-TC-C11_guard_artifact_prediction-depth_partial_or_stale-retry",
-            "BO-TC-C11_guard_artifact_prediction-visual_candidates_ranked",
-            "BO-TC-C11_guard_artifact_prediction-visual_candidates_ranked-retry",
+            "BO-TC-C11_guard_artifact_prediction-stable_matter_identity_needs_generated_hero",
+            "BO-TC-C11_guard_artifact_prediction-stable_matter_identity_needs_generated_hero-retry",
+            "BO-TC-C11_guard_artifact_prediction-current_generated_hero_fails_visual_specificity",
+            "BO-TC-C11_guard_artifact_prediction-current_generated_hero_fails_visual_specificity-retry",
+            "BO-TC-C11_guard_artifact_prediction-descendant_or_non_matter_hero_requested",
+            "BO-TC-C11_guard_artifact_prediction-descendant_or_non_matter_hero_requested-retry",
+            "BO-TC-C11_guard_artifact_prediction-hero_generation_unavailable_or_invalid",
+            "BO-TC-C11_guard_artifact_prediction-hero_generation_unavailable_or_invalid-retry",
+            "BO-TC-C11_guard_artifact_prediction-current_ai_supplemental_information",
+            "BO-TC-C11_guard_artifact_prediction-current_ai_supplemental_information-retry",
+            "BO-TC-C11_guard_artifact_prediction-supplemental_information_unavailable",
+            "BO-TC-C11_guard_artifact_prediction-supplemental_information_unavailable-retry",
+            "BO-TC-C11_guard_artifact_prediction-human_matter_narrative_requested",
+            "BO-TC-C11_guard_artifact_prediction-human_matter_narrative_requested-retry",
+            "BO-TC-C11_guard_artifact_prediction-hierarchy_trace_advisory_current",
+            "BO-TC-C11_guard_artifact_prediction-hierarchy_trace_advisory_current-retry",
             "BO-TC-C11_guard_artifact_prediction-stale_operation_result",
             "BO-TC-C11_guard_artifact_prediction-stale_operation_result-retry",
             "BO-TC-C11_guard_artifact_prediction-scope_escape_attempt",
             "BO-TC-C11_guard_artifact_prediction-scope_escape_attempt-retry",
             "BO-TC-C11_guard_artifact_prediction-forecast_delay",
             "BO-TC-C11_guard_artifact_prediction-forecast_delay-retry",
+            "BO-TC-C11_guard_artifact_prediction-future_prediction_contract_current",
+            "BO-TC-C11_guard_artifact_prediction-future_prediction_contract_current-retry",
+            "BO-TC-C11_guard_artifact_prediction-later_observation_confirms_prediction",
+            "BO-TC-C11_guard_artifact_prediction-later_observation_confirms_prediction-retry",
+            "BO-TC-C11_guard_artifact_prediction-later_observation_contradicts_prediction",
+            "BO-TC-C11_guard_artifact_prediction-later_observation_contradicts_prediction-retry",
+            "BO-TC-C11_guard_artifact_prediction-prediction_horizon_passed_without_decisive_observation",
+            "BO-TC-C11_guard_artifact_prediction-prediction_horizon_passed_without_decisive_observation-retry",
+            "BO-TC-C11_guard_artifact_prediction-current_situation_graph_supports_advisory_inference",
+            "BO-TC-C11_guard_artifact_prediction-current_situation_graph_supports_advisory_inference-retry",
+            "BO-TC-C11_guard_artifact_prediction-situation_world_model_dependency_changed_or_expired",
+            "BO-TC-C11_guard_artifact_prediction-situation_world_model_dependency_changed_or_expired-retry",
             "BO-TC-C11_guard_artifact_prediction-research_direct_canonical_write",
             "BO-TC-C11_guard_artifact_prediction-research_direct_canonical_write-retry",
             "BO-TC-C11_guard_artifact_prediction-skipped_or_progress_receipt",
@@ -2814,8 +3456,16 @@
             "CC-C12-owner"
           ],
           "coverage_case_ids": [
+            "TC-C12_projection_bilingual_ui-indexed_catalog_page_requested",
+            "TC-C12_projection_bilingual_ui-indexed_catalog_page_requested-retry",
             "TC-C12_projection_bilingual_ui-same_revision_equivalent",
             "TC-C12_projection_bilingual_ui-same_revision_equivalent-retry",
+            "TC-C12_projection_bilingual_ui-exact_admitted_matter_projection_identity",
+            "TC-C12_projection_bilingual_ui-exact_admitted_matter_projection_identity-retry",
+            "TC-C12_projection_bilingual_ui-projection_source_or_candidate_without_c6_identity",
+            "TC-C12_projection_bilingual_ui-projection_source_or_candidate_without_c6_identity-retry",
+            "TC-C12_projection_bilingual_ui-analysis_owned_projection_or_admission_superseded",
+            "TC-C12_projection_bilingual_ui-analysis_owned_projection_or_admission_superseded-retry",
             "TC-C12_projection_bilingual_ui-first_launch_without_preference",
             "TC-C12_projection_bilingual_ui-first_launch_without_preference-retry",
             "TC-C12_projection_bilingual_ui-select_chinese_same_context",
@@ -2824,12 +3474,34 @@
             "TC-C12_projection_bilingual_ui-future_locale_complete-retry",
             "TC-C12_projection_bilingual_ui-missing_required_locale",
             "TC-C12_projection_bilingual_ui-missing_required_locale-retry",
+            "TC-C12_projection_bilingual_ui-catalog_load_started",
+            "TC-C12_projection_bilingual_ui-catalog_load_started-retry",
+            "TC-C12_projection_bilingual_ui-catalog_processing_current",
+            "TC-C12_projection_bilingual_ui-catalog_processing_current-retry",
             "TC-C12_projection_bilingual_ui-matter_catalog_current",
             "TC-C12_projection_bilingual_ui-matter_catalog_current-retry",
+            "TC-C12_projection_bilingual_ui-material_clue_summary_activity_current",
+            "TC-C12_projection_bilingual_ui-material_clue_summary_activity_current-retry",
+            "TC-C12_projection_bilingual_ui-evidence_bound_parent_narrative_current",
+            "TC-C12_projection_bilingual_ui-evidence_bound_parent_narrative_current-retry",
+            "TC-C12_projection_bilingual_ui-parent_narrative_bound_input_changed",
+            "TC-C12_projection_bilingual_ui-parent_narrative_bound_input_changed-retry",
+            "TC-C12_projection_bilingual_ui-nonmaterial_processing_update",
+            "TC-C12_projection_bilingual_ui-nonmaterial_processing_update-retry",
+            "TC-C12_projection_bilingual_ui-matter_card_summary_free_current",
+            "TC-C12_projection_bilingual_ui-matter_card_summary_free_current-retry",
+            "TC-C12_projection_bilingual_ui-matter_card_same_result_owner_binding_current",
+            "TC-C12_projection_bilingual_ui-matter_card_same_result_owner_binding_current-retry",
+            "TC-C12_projection_bilingual_ui-catalog_honest_empty_current",
+            "TC-C12_projection_bilingual_ui-catalog_honest_empty_current-retry",
+            "TC-C12_projection_bilingual_ui-catalog_no_filter_results_current",
+            "TC-C12_projection_bilingual_ui-catalog_no_filter_results_current-retry",
             "TC-C12_projection_bilingual_ui-matter_coverage_relation_index_current",
             "TC-C12_projection_bilingual_ui-matter_coverage_relation_index_current-retry",
             "TC-C12_projection_bilingual_ui-catalog_search_or_filter_changed",
             "TC-C12_projection_bilingual_ui-catalog_search_or_filter_changed-retry",
+            "TC-C12_projection_bilingual_ui-child_search_result_with_path",
+            "TC-C12_projection_bilingual_ui-child_search_result_with_path-retry",
             "TC-C12_projection_bilingual_ui-density_switched",
             "TC-C12_projection_bilingual_ui-density_switched-retry",
             "TC-C12_projection_bilingual_ui-viewport_changed",
@@ -2838,18 +3510,62 @@
             "TC-C12_projection_bilingual_ui-single_card_catalog-retry",
             "TC-C12_projection_bilingual_ui-matter_detail_opened",
             "TC-C12_projection_bilingual_ui-matter_detail_opened-retry",
+            "TC-C12_projection_bilingual_ui-files_information_table_current",
+            "TC-C12_projection_bilingual_ui-files_information_table_current-retry",
+            "TC-C12_projection_bilingual_ui-images_gallery_current",
+            "TC-C12_projection_bilingual_ui-images_gallery_current-retry",
+            "TC-C12_projection_bilingual_ui-ai_supplemental_information_current",
+            "TC-C12_projection_bilingual_ui-ai_supplemental_information_current-retry",
+            "TC-C12_projection_bilingual_ui-ai_supplemental_information_unavailable",
+            "TC-C12_projection_bilingual_ui-ai_supplemental_information_unavailable-retry",
+            "TC-C12_projection_bilingual_ui-eligible_root_supplemental_research_queued",
+            "TC-C12_projection_bilingual_ui-eligible_root_supplemental_research_queued-retry",
+            "TC-C12_projection_bilingual_ui-descendant_supplemental_not_applicable",
+            "TC-C12_projection_bilingual_ui-descendant_supplemental_not_applicable-retry",
+            "TC-C12_projection_bilingual_ui-future_world_model_prediction_current",
+            "TC-C12_projection_bilingual_ui-future_world_model_prediction_current-retry",
+            "TC-C12_projection_bilingual_ui-situation_graph_current",
+            "TC-C12_projection_bilingual_ui-situation_graph_current-retry",
+            "TC-C12_projection_bilingual_ui-descendant_graph_node_opened",
+            "TC-C12_projection_bilingual_ui-descendant_graph_node_opened-retry",
+            "TC-C12_projection_bilingual_ui-historical_inferred_completion_opened",
+            "TC-C12_projection_bilingual_ui-historical_inferred_completion_opened-retry",
+            "TC-C12_projection_bilingual_ui-different_descendant_selected_while_quick_view_open",
+            "TC-C12_projection_bilingual_ui-different_descendant_selected_while_quick_view_open-retry",
+            "TC-C12_projection_bilingual_ui-hierarchy_reparented_projection",
+            "TC-C12_projection_bilingual_ui-hierarchy_reparented_projection-retry",
+            "TC-C12_projection_bilingual_ui-hierarchy_depth_pending",
+            "TC-C12_projection_bilingual_ui-hierarchy_depth_pending-retry",
+            "TC-C12_projection_bilingual_ui-descendant_event_in_parent_timeline",
+            "TC-C12_projection_bilingual_ui-descendant_event_in_parent_timeline-retry",
+            "TC-C12_projection_bilingual_ui-logical_event_revisions_current",
+            "TC-C12_projection_bilingual_ui-logical_event_revisions_current-retry",
             "TC-C12_projection_bilingual_ui-human_readable_timeline",
             "TC-C12_projection_bilingual_ui-human_readable_timeline-retry",
-            "TC-C12_projection_bilingual_ui-eligible_visual_selected",
-            "TC-C12_projection_bilingual_ui-eligible_visual_selected-retry",
-            "TC-C12_projection_bilingual_ui-no_eligible_visual",
-            "TC-C12_projection_bilingual_ui-no_eligible_visual-retry",
+            "TC-C12_projection_bilingual_ui-generated_hero_current",
+            "TC-C12_projection_bilingual_ui-generated_hero_current-retry",
+            "TC-C12_projection_bilingual_ui-descendant_hero_not_applicable",
+            "TC-C12_projection_bilingual_ui-descendant_hero_not_applicable-retry",
+            "TC-C12_projection_bilingual_ui-generated_hero_pending_or_blocked",
+            "TC-C12_projection_bilingual_ui-generated_hero_pending_or_blocked-retry",
+            "TC-C12_projection_bilingual_ui-desktop_surface_evidence_current",
+            "TC-C12_projection_bilingual_ui-desktop_surface_evidence_current-retry",
             "TC-C12_projection_bilingual_ui-optional_correction_requested",
             "TC-C12_projection_bilingual_ui-optional_correction_requested-retry",
             "TC-C12_projection_bilingual_ui-background_work_pending_or_blocked",
             "TC-C12_projection_bilingual_ui-background_work_pending_or_blocked-retry",
+            "TC-C12_projection_bilingual_ui-coverage_current_with_first_gap_index",
+            "TC-C12_projection_bilingual_ui-coverage_current_with_first_gap_index-retry",
+            "TC-C12_projection_bilingual_ui-lifecycle_visual_projection_current",
+            "TC-C12_projection_bilingual_ui-lifecycle_visual_projection_current-retry",
             "TC-C12_projection_bilingual_ui-stale_or_cancelled_response",
             "TC-C12_projection_bilingual_ui-stale_or_cancelled_response-retry",
+            "TC-C12_projection_bilingual_ui-catalog_timeout_with_prior_content",
+            "TC-C12_projection_bilingual_ui-catalog_timeout_with_prior_content-retry",
+            "TC-C12_projection_bilingual_ui-catalog_transport_error_initial",
+            "TC-C12_projection_bilingual_ui-catalog_transport_error_initial-retry",
+            "TC-C12_projection_bilingual_ui-catalog_transport_recovered",
+            "TC-C12_projection_bilingual_ui-catalog_transport_recovered-retry",
             "TC-C12_projection_bilingual_ui-recompute_not_terminal",
             "TC-C12_projection_bilingual_ui-recompute_not_terminal-retry",
             "TC-C12_projection_bilingual_ui-ui_infers_state",
@@ -2858,20 +3574,20 @@
             "TC-C12_projection_bilingual_ui-internal_identifier_requested_by_default-retry"
           ],
           "coverage_receipt_ids": [
-            "run:TM12_projection_bilingual_ui:95f7ca779dc61dd6"
+            "run:TM12_projection_bilingual_ui:adec10ee92aeac73"
           ],
           "coverage_shard_ids": [
             "TM12_projection_bilingual_ui"
           ],
-          "current": false,
-          "evidence_state": "stale",
+          "current": true,
+          "evidence_state": "current_pass",
           "metadata": {
-            "alignment_evidence_id": "evidence:model-code-test-alignment:656e66dd6db30bd7",
+            "alignment_evidence_id": "evidence:model-code-test-alignment:4ad14cafdfb5d191",
             "g8_evidence_id": "evidence:G8-fully-synthetic:ffe0563f16dabefc",
             "live_provider_evidence": false,
-            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v7",
+            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v8",
             "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed",
-            "test_receipt_fingerprint": "sha256:cb5c61a7902f187f7536ba803938c9691f46489125ae0632bd2067c71d329196",
+            "test_receipt_fingerprint": "sha256:5d4c4fc7f818565ac601744d3ba3c024a8216c220d9be8a598e99b5def0a5a3e",
             "test_receipt_path": ".flowguard/evidence/tests/TM12_projection_bilingual_ui.json",
             "through_gate": "G8"
           },
@@ -2882,9 +3598,9 @@
             "OB-C12-004"
           ],
           "proof_artifact_ids": [
-            "evidence:C12_projection_bilingual_ui:0f7891134bc61010",
-            "artifact:run:TM12_projection_bilingual_ui:95f7ca779dc61dd6",
-            "evidence:model-code-test-alignment:656e66dd6db30bd7",
+            "evidence:C12_projection_bilingual_ui:c28a74c07f26dc67",
+            "artifact:run:TM12_projection_bilingual_ui:adec10ee92aeac73",
+            "evidence:model-code-test-alignment:4ad14cafdfb5d191",
             "evidence:G8-fully-synthetic:ffe0563f16dabefc"
           ],
           "risk_gate_ids": [
@@ -2893,9 +3609,9 @@
             "G8-fully-synthetic"
           ],
           "test_evidence_ids": [
-            "run:TM12_projection_bilingual_ui:95f7ca779dc61dd6"
+            "run:TM12_projection_bilingual_ui:adec10ee92aeac73"
           ],
-          "test_mesh_state": "stale"
+          "test_mesh_state": "shard_current"
         },
         "excluded_behavior_ids": [],
         "expected_result": "a current bounded root-Matter catalog ordered by latest meaningful clue after every search/filter, with en/zh-CN atomic summary/activity content, Start-time filter, summary-free Standard/Compact cards retaining the same visible root photographic Hero (with metrics only in Standard), exactly eight detail sections with a minimal human Overview, one multi-depth Matter-only Sub-matters graph, one reusable node quick view containing itemized facts/events/work/waits and node-specific flat sources, grouped folder/Gmail-thread/Codex-project/provider source locations, logical-event-deduplicated timeline, nonempty-or-explicitly-unavailable AI supplemental information with automatic root-only A1 queuing and descendant not-applicable disposition, an evidence-only Images gallery, separate lifecycle and reported/observed/inferred modality labels, compact indexed coverage drilldown, preserved browsing state, exact C6-admitted matter_id projection, and optional correction entry",
@@ -2940,7 +3656,7 @@
           "behavior_commitment_id": "BC-PR-012",
           "business_intent": "",
           "business_intent_id": "BI-PR-012-view-bilingual-projection",
-          "evidence_current": false,
+          "evidence_current": true,
           "evidence_refs": [
             ".flowguard/evidence/tests/TM12_projection_bilingual_ui.json",
             ".flowguard/evidence/alignment/model_code_test.json",
@@ -2949,15 +3665,15 @@
           "fallback_candidate_ids": [],
           "metadata": {},
           "path_sensitive": true,
-          "ppa_confidence": "blocked",
+          "ppa_confidence": "full",
           "ppa_coverage_receipt_ids": [
-            "run:TM12_projection_bilingual_ui:95f7ca779dc61dd6"
+            "run:TM12_projection_bilingual_ui:adec10ee92aeac73"
           ],
           "ppa_coverage_shard_ids": [
             "TM12_projection_bilingual_ui"
           ],
-          "ppa_decision": "primary_path_authority_blocked",
-          "ppa_ok": false,
+          "ppa_decision": "primary_path_authority_green",
+          "ppa_ok": true,
           "ppa_report_id": "PPA-BC-PR-012-G8",
           "ppa_risk_gate_ids": [
             "authority",
@@ -2966,14 +3682,22 @@
           ],
           "primary_path_id": "path:c12-project-inventory-freshness-depth-review",
           "proof_artifact_ids": [
-            "evidence:C12_projection_bilingual_ui:0f7891134bc61010",
-            "artifact:run:TM12_projection_bilingual_ui:95f7ca779dc61dd6",
-            "evidence:model-code-test-alignment:656e66dd6db30bd7",
+            "evidence:C12_projection_bilingual_ui:c28a74c07f26dc67",
+            "artifact:run:TM12_projection_bilingual_ui:adec10ee92aeac73",
+            "evidence:model-code-test-alignment:4ad14cafdfb5d191",
             "evidence:G8-fully-synthetic:ffe0563f16dabefc"
           ],
           "runtime_observation_ids": [
+            "BO-TC-C12_projection_bilingual_ui-indexed_catalog_page_requested",
+            "BO-TC-C12_projection_bilingual_ui-indexed_catalog_page_requested-retry",
             "BO-TC-C12_projection_bilingual_ui-same_revision_equivalent",
             "BO-TC-C12_projection_bilingual_ui-same_revision_equivalent-retry",
+            "BO-TC-C12_projection_bilingual_ui-exact_admitted_matter_projection_identity",
+            "BO-TC-C12_projection_bilingual_ui-exact_admitted_matter_projection_identity-retry",
+            "BO-TC-C12_projection_bilingual_ui-projection_source_or_candidate_without_c6_identity",
+            "BO-TC-C12_projection_bilingual_ui-projection_source_or_candidate_without_c6_identity-retry",
+            "BO-TC-C12_projection_bilingual_ui-analysis_owned_projection_or_admission_superseded",
+            "BO-TC-C12_projection_bilingual_ui-analysis_owned_projection_or_admission_superseded-retry",
             "BO-TC-C12_projection_bilingual_ui-first_launch_without_preference",
             "BO-TC-C12_projection_bilingual_ui-first_launch_without_preference-retry",
             "BO-TC-C12_projection_bilingual_ui-select_chinese_same_context",
@@ -2982,12 +3706,34 @@
             "BO-TC-C12_projection_bilingual_ui-future_locale_complete-retry",
             "BO-TC-C12_projection_bilingual_ui-missing_required_locale",
             "BO-TC-C12_projection_bilingual_ui-missing_required_locale-retry",
+            "BO-TC-C12_projection_bilingual_ui-catalog_load_started",
+            "BO-TC-C12_projection_bilingual_ui-catalog_load_started-retry",
+            "BO-TC-C12_projection_bilingual_ui-catalog_processing_current",
+            "BO-TC-C12_projection_bilingual_ui-catalog_processing_current-retry",
             "BO-TC-C12_projection_bilingual_ui-matter_catalog_current",
             "BO-TC-C12_projection_bilingual_ui-matter_catalog_current-retry",
+            "BO-TC-C12_projection_bilingual_ui-material_clue_summary_activity_current",
+            "BO-TC-C12_projection_bilingual_ui-material_clue_summary_activity_current-retry",
+            "BO-TC-C12_projection_bilingual_ui-evidence_bound_parent_narrative_current",
+            "BO-TC-C12_projection_bilingual_ui-evidence_bound_parent_narrative_current-retry",
+            "BO-TC-C12_projection_bilingual_ui-parent_narrative_bound_input_changed",
+            "BO-TC-C12_projection_bilingual_ui-parent_narrative_bound_input_changed-retry",
+            "BO-TC-C12_projection_bilingual_ui-nonmaterial_processing_update",
+            "BO-TC-C12_projection_bilingual_ui-nonmaterial_processing_update-retry",
+            "BO-TC-C12_projection_bilingual_ui-matter_card_summary_free_current",
+            "BO-TC-C12_projection_bilingual_ui-matter_card_summary_free_current-retry",
+            "BO-TC-C12_projection_bilingual_ui-matter_card_same_result_owner_binding_current",
+            "BO-TC-C12_projection_bilingual_ui-matter_card_same_result_owner_binding_current-retry",
+            "BO-TC-C12_projection_bilingual_ui-catalog_honest_empty_current",
+            "BO-TC-C12_projection_bilingual_ui-catalog_honest_empty_current-retry",
+            "BO-TC-C12_projection_bilingual_ui-catalog_no_filter_results_current",
+            "BO-TC-C12_projection_bilingual_ui-catalog_no_filter_results_current-retry",
             "BO-TC-C12_projection_bilingual_ui-matter_coverage_relation_index_current",
             "BO-TC-C12_projection_bilingual_ui-matter_coverage_relation_index_current-retry",
             "BO-TC-C12_projection_bilingual_ui-catalog_search_or_filter_changed",
             "BO-TC-C12_projection_bilingual_ui-catalog_search_or_filter_changed-retry",
+            "BO-TC-C12_projection_bilingual_ui-child_search_result_with_path",
+            "BO-TC-C12_projection_bilingual_ui-child_search_result_with_path-retry",
             "BO-TC-C12_projection_bilingual_ui-density_switched",
             "BO-TC-C12_projection_bilingual_ui-density_switched-retry",
             "BO-TC-C12_projection_bilingual_ui-viewport_changed",
@@ -2996,18 +3742,62 @@
             "BO-TC-C12_projection_bilingual_ui-single_card_catalog-retry",
             "BO-TC-C12_projection_bilingual_ui-matter_detail_opened",
             "BO-TC-C12_projection_bilingual_ui-matter_detail_opened-retry",
+            "BO-TC-C12_projection_bilingual_ui-files_information_table_current",
+            "BO-TC-C12_projection_bilingual_ui-files_information_table_current-retry",
+            "BO-TC-C12_projection_bilingual_ui-images_gallery_current",
+            "BO-TC-C12_projection_bilingual_ui-images_gallery_current-retry",
+            "BO-TC-C12_projection_bilingual_ui-ai_supplemental_information_current",
+            "BO-TC-C12_projection_bilingual_ui-ai_supplemental_information_current-retry",
+            "BO-TC-C12_projection_bilingual_ui-ai_supplemental_information_unavailable",
+            "BO-TC-C12_projection_bilingual_ui-ai_supplemental_information_unavailable-retry",
+            "BO-TC-C12_projection_bilingual_ui-eligible_root_supplemental_research_queued",
+            "BO-TC-C12_projection_bilingual_ui-eligible_root_supplemental_research_queued-retry",
+            "BO-TC-C12_projection_bilingual_ui-descendant_supplemental_not_applicable",
+            "BO-TC-C12_projection_bilingual_ui-descendant_supplemental_not_applicable-retry",
+            "BO-TC-C12_projection_bilingual_ui-future_world_model_prediction_current",
+            "BO-TC-C12_projection_bilingual_ui-future_world_model_prediction_current-retry",
+            "BO-TC-C12_projection_bilingual_ui-situation_graph_current",
+            "BO-TC-C12_projection_bilingual_ui-situation_graph_current-retry",
+            "BO-TC-C12_projection_bilingual_ui-descendant_graph_node_opened",
+            "BO-TC-C12_projection_bilingual_ui-descendant_graph_node_opened-retry",
+            "BO-TC-C12_projection_bilingual_ui-historical_inferred_completion_opened",
+            "BO-TC-C12_projection_bilingual_ui-historical_inferred_completion_opened-retry",
+            "BO-TC-C12_projection_bilingual_ui-different_descendant_selected_while_quick_view_open",
+            "BO-TC-C12_projection_bilingual_ui-different_descendant_selected_while_quick_view_open-retry",
+            "BO-TC-C12_projection_bilingual_ui-hierarchy_reparented_projection",
+            "BO-TC-C12_projection_bilingual_ui-hierarchy_reparented_projection-retry",
+            "BO-TC-C12_projection_bilingual_ui-hierarchy_depth_pending",
+            "BO-TC-C12_projection_bilingual_ui-hierarchy_depth_pending-retry",
+            "BO-TC-C12_projection_bilingual_ui-descendant_event_in_parent_timeline",
+            "BO-TC-C12_projection_bilingual_ui-descendant_event_in_parent_timeline-retry",
+            "BO-TC-C12_projection_bilingual_ui-logical_event_revisions_current",
+            "BO-TC-C12_projection_bilingual_ui-logical_event_revisions_current-retry",
             "BO-TC-C12_projection_bilingual_ui-human_readable_timeline",
             "BO-TC-C12_projection_bilingual_ui-human_readable_timeline-retry",
-            "BO-TC-C12_projection_bilingual_ui-eligible_visual_selected",
-            "BO-TC-C12_projection_bilingual_ui-eligible_visual_selected-retry",
-            "BO-TC-C12_projection_bilingual_ui-no_eligible_visual",
-            "BO-TC-C12_projection_bilingual_ui-no_eligible_visual-retry",
+            "BO-TC-C12_projection_bilingual_ui-generated_hero_current",
+            "BO-TC-C12_projection_bilingual_ui-generated_hero_current-retry",
+            "BO-TC-C12_projection_bilingual_ui-descendant_hero_not_applicable",
+            "BO-TC-C12_projection_bilingual_ui-descendant_hero_not_applicable-retry",
+            "BO-TC-C12_projection_bilingual_ui-generated_hero_pending_or_blocked",
+            "BO-TC-C12_projection_bilingual_ui-generated_hero_pending_or_blocked-retry",
+            "BO-TC-C12_projection_bilingual_ui-desktop_surface_evidence_current",
+            "BO-TC-C12_projection_bilingual_ui-desktop_surface_evidence_current-retry",
             "BO-TC-C12_projection_bilingual_ui-optional_correction_requested",
             "BO-TC-C12_projection_bilingual_ui-optional_correction_requested-retry",
             "BO-TC-C12_projection_bilingual_ui-background_work_pending_or_blocked",
             "BO-TC-C12_projection_bilingual_ui-background_work_pending_or_blocked-retry",
+            "BO-TC-C12_projection_bilingual_ui-coverage_current_with_first_gap_index",
+            "BO-TC-C12_projection_bilingual_ui-coverage_current_with_first_gap_index-retry",
+            "BO-TC-C12_projection_bilingual_ui-lifecycle_visual_projection_current",
+            "BO-TC-C12_projection_bilingual_ui-lifecycle_visual_projection_current-retry",
             "BO-TC-C12_projection_bilingual_ui-stale_or_cancelled_response",
             "BO-TC-C12_projection_bilingual_ui-stale_or_cancelled_response-retry",
+            "BO-TC-C12_projection_bilingual_ui-catalog_timeout_with_prior_content",
+            "BO-TC-C12_projection_bilingual_ui-catalog_timeout_with_prior_content-retry",
+            "BO-TC-C12_projection_bilingual_ui-catalog_transport_error_initial",
+            "BO-TC-C12_projection_bilingual_ui-catalog_transport_error_initial-retry",
+            "BO-TC-C12_projection_bilingual_ui-catalog_transport_recovered",
+            "BO-TC-C12_projection_bilingual_ui-catalog_transport_recovered-retry",
             "BO-TC-C12_projection_bilingual_ui-recompute_not_terminal",
             "BO-TC-C12_projection_bilingual_ui-recompute_not_terminal-retry",
             "BO-TC-C12_projection_bilingual_ui-ui_infers_state",
@@ -3126,20 +3916,20 @@
           ],
           "coverage_case_ids": [],
           "coverage_receipt_ids": [
-            "run:TM18_privacy_public_boundary:964bc23c9ffc316f"
+            "run:TM18_privacy_public_boundary:0ba840b8a183452f"
           ],
           "coverage_shard_ids": [
             "TM18_privacy_public_boundary"
           ],
-          "current": false,
-          "evidence_state": "stale",
+          "current": true,
+          "evidence_state": "current_pass",
           "metadata": {
-            "alignment_evidence_id": "evidence:model-code-test-alignment:656e66dd6db30bd7",
+            "alignment_evidence_id": "evidence:model-code-test-alignment:4ad14cafdfb5d191",
             "g8_evidence_id": "evidence:G8-fully-synthetic:ffe0563f16dabefc",
             "live_provider_evidence": false,
-            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v7",
+            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v8",
             "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed",
-            "test_receipt_fingerprint": "sha256:b01466c26ce7669cc14d6f80577997a6d2b6e42106c8a02b2abc96c73437b9fd",
+            "test_receipt_fingerprint": "sha256:bd35ac37299c5de1dc5484fc345ba3783d8e9963044e98b6a767b390e4f4baa6",
             "test_receipt_path": ".flowguard/evidence/tests/TM18_privacy_public_boundary.json",
             "through_gate": "G8"
           },
@@ -3147,9 +3937,9 @@
             "OB-C1-004"
           ],
           "proof_artifact_ids": [
-            "evidence:C1_authorization_coverage:68f1f53f4b9e29af",
-            "artifact:run:TM18_privacy_public_boundary:964bc23c9ffc316f",
-            "evidence:model-code-test-alignment:656e66dd6db30bd7",
+            "evidence:C1_authorization_coverage:fb63cdbfa75fc982",
+            "artifact:run:TM18_privacy_public_boundary:0ba840b8a183452f",
+            "evidence:model-code-test-alignment:4ad14cafdfb5d191",
             "evidence:G8-fully-synthetic:ffe0563f16dabefc"
           ],
           "risk_gate_ids": [
@@ -3158,9 +3948,9 @@
             "G8-fully-synthetic"
           ],
           "test_evidence_ids": [
-            "run:TM18_privacy_public_boundary:964bc23c9ffc316f"
+            "run:TM18_privacy_public_boundary:0ba840b8a183452f"
           ],
-          "test_mesh_state": "stale"
+          "test_mesh_state": "shard_current"
         },
         "excluded_behavior_ids": [],
         "expected_result": "private roots outside Git are accepted and inside-Git roots fail visibly",
@@ -3197,7 +3987,7 @@
           "behavior_commitment_id": "BC-PR-013",
           "business_intent": "",
           "business_intent_id": "BI-PR-013-keep-private-data-outside-git",
-          "evidence_current": false,
+          "evidence_current": true,
           "evidence_refs": [
             ".flowguard/evidence/tests/TM18_privacy_public_boundary.json",
             ".flowguard/evidence/alignment/model_code_test.json",
@@ -3206,15 +3996,15 @@
           "fallback_candidate_ids": [],
           "metadata": {},
           "path_sensitive": true,
-          "ppa_confidence": "blocked",
+          "ppa_confidence": "full",
           "ppa_coverage_receipt_ids": [
-            "run:TM18_privacy_public_boundary:964bc23c9ffc316f"
+            "run:TM18_privacy_public_boundary:0ba840b8a183452f"
           ],
           "ppa_coverage_shard_ids": [
             "TM18_privacy_public_boundary"
           ],
-          "ppa_decision": "primary_path_authority_blocked",
-          "ppa_ok": false,
+          "ppa_decision": "primary_path_authority_green",
+          "ppa_ok": true,
           "ppa_report_id": "PPA-BC-PR-013-G8",
           "ppa_risk_gate_ids": [
             "authority",
@@ -3223,12 +4013,26 @@
           ],
           "primary_path_id": "path:c1-activate-external-private-root",
           "proof_artifact_ids": [
-            "evidence:C1_authorization_coverage:68f1f53f4b9e29af",
-            "artifact:run:TM18_privacy_public_boundary:964bc23c9ffc316f",
-            "evidence:model-code-test-alignment:656e66dd6db30bd7",
+            "evidence:C1_authorization_coverage:fb63cdbfa75fc982",
+            "artifact:run:TM18_privacy_public_boundary:0ba840b8a183452f",
+            "evidence:model-code-test-alignment:4ad14cafdfb5d191",
             "evidence:G8-fully-synthetic:ffe0563f16dabefc"
           ],
           "runtime_observation_ids": [
+            "BO-TC-C1_authorization_coverage-active_tracked_legacy_coverage_rebased",
+            "BO-TC-C1_authorization_coverage-active_tracked_legacy_coverage_rebased-retry",
+            "BO-TC-C1_authorization_coverage-retired_or_nontracked_legacy_coverage_seen",
+            "BO-TC-C1_authorization_coverage-retired_or_nontracked_legacy_coverage_seen-retry",
+            "BO-TC-C1_authorization_coverage-active_source_coverage_missing_inventory",
+            "BO-TC-C1_authorization_coverage-active_source_coverage_missing_inventory-retry",
+            "BO-TC-C1_authorization_coverage-current_coverage_full_noncurrent_history_archived",
+            "BO-TC-C1_authorization_coverage-current_coverage_full_noncurrent_history_archived-retry",
+            "BO-TC-C1_authorization_coverage-software_artifact_deterministically_excluded",
+            "BO-TC-C1_authorization_coverage-software_artifact_deterministically_excluded-retry",
+            "BO-TC-C1_authorization_coverage-ordinary_user_content_deterministically_admitted",
+            "BO-TC-C1_authorization_coverage-ordinary_user_content_deterministically_admitted-retry",
+            "BO-TC-C1_authorization_coverage-unknown_machine_format_deterministically_excluded",
+            "BO-TC-C1_authorization_coverage-unknown_machine_format_deterministically_excluded-retry",
             "BO-TC-C1_authorization_coverage-candidate_scope_frozen",
             "BO-TC-C1_authorization_coverage-candidate_scope_frozen-retry",
             "BO-TC-C1_authorization_coverage-tracked_current",
@@ -3263,14 +4067,34 @@
             "BO-TC-C1_authorization_coverage-canary_stage_updates_batch_summary_once-retry",
             "BO-TC-C1_authorization_coverage-gmail_budget_prioritizes_supplied_authorized_content",
             "BO-TC-C1_authorization_coverage-gmail_budget_prioritizes_supplied_authorized_content-retry",
+            "BO-TC-C1_authorization_coverage-gmail_metadata_owner_exact_current_gate",
+            "BO-TC-C1_authorization_coverage-gmail_metadata_owner_exact_current_gate-retry",
+            "BO-TC-C1_authorization_coverage-gmail_single_newer_tracked_scope_current",
+            "BO-TC-C1_authorization_coverage-gmail_single_newer_tracked_scope_current-retry",
+            "BO-TC-C1_authorization_coverage-gmail_tracked_content_successor_after_policy_rebase",
+            "BO-TC-C1_authorization_coverage-gmail_tracked_content_successor_after_policy_rebase-retry",
+            "BO-TC-C1_authorization_coverage-gmail_tracked_scope_ambiguous",
+            "BO-TC-C1_authorization_coverage-gmail_tracked_scope_ambiguous-retry",
+            "BO-TC-C1_authorization_coverage-gmail_current_body_disposition_missing",
+            "BO-TC-C1_authorization_coverage-gmail_current_body_disposition_missing-retry",
+            "BO-TC-C1_authorization_coverage-gmail_legacy_current_digest_and_evidence_exact",
+            "BO-TC-C1_authorization_coverage-gmail_legacy_current_digest_and_evidence_exact-retry",
+            "BO-TC-C1_authorization_coverage-gmail_legacy_content_proof_incomplete",
+            "BO-TC-C1_authorization_coverage-gmail_legacy_content_proof_incomplete-retry",
+            "BO-TC-C1_authorization_coverage-gmail_body_continuation_exact_batch",
+            "BO-TC-C1_authorization_coverage-gmail_body_continuation_exact_batch-retry",
+            "BO-TC-C1_authorization_coverage-gmail_no_text_body_exact_disposition",
+            "BO-TC-C1_authorization_coverage-gmail_no_text_body_exact_disposition-retry",
             "BO-TC-C1_authorization_coverage-all_partitions_and_items_terminal",
             "BO-TC-C1_authorization_coverage-all_partitions_and_items_terminal-retry",
             "BO-TC-C1_authorization_coverage-tracking_policy_changed",
             "BO-TC-C1_authorization_coverage-tracking_policy_changed-retry",
+            "BO-TC-C1_authorization_coverage-stale_partition_manifest_replaced",
+            "BO-TC-C1_authorization_coverage-stale_partition_manifest_replaced-retry",
+            "BO-TC-C1_authorization_coverage-retired_occurrence_rediscovered",
+            "BO-TC-C1_authorization_coverage-retired_occurrence_rediscovered-retry",
             "BO-TC-C1_authorization_coverage-policy_changed_after_user_override",
             "BO-TC-C1_authorization_coverage-policy_changed_after_user_override-retry",
-            "BO-TC-C1_authorization_coverage-source_catalog_action_current",
-            "BO-TC-C1_authorization_coverage-source_catalog_action_current-retry",
             "BO-TC-C1_authorization_coverage-outside_scope",
             "BO-TC-C1_authorization_coverage-outside_scope-retry",
             "BO-TC-C1_authorization_coverage-authorization_revoked",
@@ -3330,7 +4154,7 @@
           "evidence_state": "stale",
           "metadata": {
             "reason": "owner model, code contract, TestMesh, and runtime evidence not yet current",
-            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v7",
+            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v8",
             "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed"
           },
           "model_obligation_ids": [
@@ -3475,7 +4299,7 @@
           "evidence_state": "stale",
           "metadata": {
             "reason": "owner model, code contract, TestMesh, and runtime evidence not yet current",
-            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v7",
+            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v8",
             "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed"
           },
           "model_obligation_ids": [
@@ -3613,7 +4437,7 @@
           "current": false,
           "evidence_state": "stale",
           "metadata": {
-            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v7",
+            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v8",
             "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed"
           },
           "model_obligation_ids": [
@@ -3863,7 +4687,7 @@
           "current": false,
           "evidence_state": "stale",
           "metadata": {
-            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v7",
+            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v8",
             "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed"
           },
           "model_obligation_ids": [
@@ -3878,36 +4702,49 @@
           "test_mesh_state": "stale"
         },
         "excluded_behavior_ids": [],
-        "expected_result": "a source-only GitHub version, tag, release, commit, and anonymous download with matching identity and current verification",
-        "expected_terminal": "published_and_anonymously_rechecked or blocked",
+        "expected_result": "one private GitHub repository release whose commit, v0.3.0 tag, wheel, source distribution, Windows desktop package, installed Python and desktop identities, matters-mcp AI gateway, model/test receipts, public-safe inventory, and anonymous recheck agree without consuming or claiming completion of private-first-run data",
+        "expected_terminal": "published_and_anonymously_rechecked or blocked with exact package, privacy, install, Git, or publication gaps",
         "external_differences": [],
-        "failure_boundary": "candidate changes invalidate downstream evidence; private data, stable private identifiers, unsupported license state, or mismatched release identities block publication",
+        "failure_boundary": "private Gmail, filesystem, Codex-project, aggregate, receipt, screenshot, identifier, or first-run completion evidence cannot enter or gate the generic release; candidate drift, unexpected build-environment packages, missing matters-mcp, incomplete bundled skills, mismatched tag/install/assets, or a non-private remote blocks publication",
         "in_scope": true,
-        "label": "publish a clean source-only release without private data",
+        "label": "publish generic v0.3.0 source, package, desktop, and AI gateway before the private first run",
         "lookup_binding": {
-          "error_signatures": [],
+          "error_signatures": [
+            "installed_version_stale",
+            "matters_mcp_missing",
+            "desktop_package_incomplete",
+            "private_aggregate_must_not_be_consumed_by_generic_release"
+          ],
           "metadata": {},
           "path_patterns": [
-            "specs/privacy-release-boundary/**",
+            "openspec/changes/build-matters-model-driven-core/specs/privacy-release-boundary/**",
             "docs/security/public-boundary.md",
+            "plugins/matters/**",
+            "scripts/build_desktop_package.ps1",
+            "scripts/install_desktop_package.ps1",
             ".github/**",
             "SECURITY.md"
           ],
           "task_terms": [
-            "public release",
-            "GitHub",
+            "generic release",
+            "private GitHub",
+            "v0.3.0",
             "tag",
-            "source-only",
+            "wheel",
+            "source distribution",
+            "Windows desktop",
+            "matters-mcp",
             "clean clone",
             "SBOM",
             "anonymous download"
           ],
           "tool_ids": [
             "git",
-            "github-release"
+            "github-release",
+            "matters-mcp"
           ],
           "workflow_families": [
-            "public_release"
+            "generic_private_repository_release"
           ]
         },
         "metadata": {},
@@ -3916,7 +4753,7 @@
         "owner": "matters-project-maintainer",
         "path_authority": {
           "behavior_commitment_id": "BC-DP-003",
-          "business_intent": "",
+          "business_intent": "publish generic v0.3.0 before the private first run",
           "business_intent_id": "BI-DP-003-publish-clean-source-release",
           "evidence_current": false,
           "evidence_refs": [],
@@ -3930,14 +4767,14 @@
           "ppa_ok": false,
           "ppa_report_id": "",
           "ppa_risk_gate_ids": [],
-          "primary_path_id": "path:dpf-clean-source-release",
+          "primary_path_id": "path:dpf-generic-v030-release-before-private-first-run",
           "proof_artifact_ids": [],
           "runtime_observation_ids": [],
-          "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
+          "scoped_out_reason": "current generic release requires fresh package, installed desktop/MCP, TestMesh, Git/tag, privacy, and publication evidence; private-first-run completion is explicitly not required"
         },
         "preconditions": [],
         "primary_owner_model_id": "DPF_matters_delivery_gate",
-        "rationale": "This is the single publication path; no private experiment repository is converted to public.",
+        "rationale": "This is the single generic private-repository publication path. It closes before, and never consumes, the separate private first run.",
         "relations": [
           {
             "metadata": {},
@@ -3955,8 +4792,9 @@
         "replacement_state": "active",
         "scoped_out_reason": "",
         "side_effects": [
-          "push approved public source",
-          "create tag and GitHub Release"
+          "push approved generic public-safe source to the private remote",
+          "create the v0.3.0 tag and GitHub Release",
+          "publish the wheel, source distribution, Windows desktop package, and checksums"
         ],
         "similarity_obligation_ids": [],
         "similarity_relation_ids": [],
@@ -3969,11 +4807,16 @@
         "state_writes": [
           "release_candidate.identity",
           "release_evidence.freshness",
+          "release.private_first_run_separation",
+          "release.package_identity",
+          "release.desktop_identity",
+          "release.ai_gateway_identity",
+          "release.git_identity",
           "release.status"
         ],
         "supporting_model_ids": [],
         "surface_delegation_only": false,
-        "trigger": "the private pilot is frozen and the user authorizes public release",
+        "trigger": "generic source, model, TestMesh, UI, privacy, package, desktop, MCP, bundled-skill, and ResearchGuard identities are current and the user authorizes liuyingxuvka/Matters as a private v0.3.0 release",
         "validation_boundary": "public inventory, history/privacy/license scans, clean-clone CI, frozen full verification, release identity, and anonymous post-release recheck",
         "variant_of_business_intent_id": ""
       },
@@ -3994,7 +4837,7 @@
           "evidence_state": "stale",
           "metadata": {
             "reason": "owner model, code contract, TestMesh, and runtime evidence not yet current",
-            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v7",
+            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v8",
             "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed"
           },
           "model_obligation_ids": [
@@ -4116,6 +4959,12 @@
             "rationale": "The first-run process preserves visible pending integration when ResearchGuard is not current.",
             "relation_type": "governs",
             "target_commitment_id": "BC-AO-002"
+          },
+          {
+            "metadata": {},
+            "rationale": "The authorized private first run starts against the already released generic v0.3.0 contract.",
+            "relation_type": "requires_evidence_from",
+            "target_commitment_id": "BC-DP-003"
           }
         ],
         "replacement_state": "active",
@@ -4140,7 +4989,7 @@
         ],
         "supporting_model_ids": [],
         "surface_delegation_only": false,
-        "trigger": "synthetic source-type gates are current and the user starts the private first run, or the manually rehearsed Codex-hosted daily task resumes current authorized changed-item work",
+        "trigger": "the generic v0.3.0 release identity is current and the user starts or resumes the authorized post-release private first run",
         "validation_boundary": "single shared service path, manual schedule rehearsal, private run/profile receipts, no-delta idempotency, missed/interrupted resume, current source-type synthetic evidence, authorized canaries, durable inventory/freshness/depth ledgers, per-item terminal coverage, zero mailbox/source/outbound mutation, and foreground-only final gates",
         "variant_of_business_intent_id": ""
       },
@@ -4161,7 +5010,7 @@
           "evidence_state": "stale",
           "metadata": {
             "reason": "owner model, code contract, TestMesh, and runtime evidence not yet current",
-            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v7",
+            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v8",
             "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed"
           },
           "model_obligation_ids": [
@@ -4270,7 +5119,7 @@
           "evidence_state": "stale",
           "metadata": {
             "reason": "owner model, code contract, TestMesh, and runtime evidence not yet current",
-            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v7",
+            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v8",
             "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed"
           },
           "model_obligation_ids": [
@@ -4384,7 +5233,7 @@
           "evidence_state": "stale",
           "metadata": {
             "reason": "owner model, code contract, TestMesh, and runtime evidence not yet current",
-            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v7",
+            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v8",
             "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed"
           },
           "model_obligation_ids": [
@@ -4501,7 +5350,7 @@
           "evidence_state": "stale",
           "metadata": {
             "reason": "owner model, code contract, TestMesh, and runtime evidence not yet current",
-            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v7",
+            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v8",
             "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed"
           },
           "model_obligation_ids": [
@@ -4620,7 +5469,7 @@
           "evidence_state": "stale",
           "metadata": {
             "reason": "owner model, code contract, TestMesh, and runtime evidence not yet current",
-            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v7",
+            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v8",
             "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed"
           },
           "model_obligation_ids": [
@@ -4742,7 +5591,7 @@
           "evidence_state": "stale",
           "metadata": {
             "reason": "owner model, code contract, TestMesh, and runtime evidence not yet current",
-            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v7",
+            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v8",
             "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed"
           },
           "model_obligation_ids": [
@@ -4879,7 +5728,7 @@
           "evidence_state": "stale",
           "metadata": {
             "reason": "owner model, code contract, TestMesh, and runtime evidence not yet current",
-            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v7",
+            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v8",
             "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed"
           },
           "model_obligation_ids": [
@@ -5012,7 +5861,7 @@
         "variant_of_business_intent_id": ""
       }
     ],
-    "current_revision": "v0.3.0-matter-browser-semantic-reset-v7",
+    "current_revision": "v0.3.0-matter-browser-semantic-reset-v8",
     "expected_business_intent_ids": [
       "BI-PR-000-review-authorized-situation",
       "BI-PR-001-read-authorized-sources",

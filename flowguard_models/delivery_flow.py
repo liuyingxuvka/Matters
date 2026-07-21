@@ -576,6 +576,31 @@ def _private_first_run_gate() -> dict:
     }
 
 
+def _generic_release_private_separation_gate() -> dict:
+    private_aggregate = os.environ.get("MATTERS_PRIVATE_AGGREGATE", "")
+    ok = not private_aggregate
+    return {
+        "ok": ok,
+        "status": "passed" if ok else "blocked",
+        "private_first_run_required_for_generic_release": False,
+        "private_first_run_deferred_until_after_release": True,
+        "private_aggregate_consumed": False,
+        "reason": (
+            ""
+            if ok
+            else "private_aggregate_must_not_be_consumed_by_generic_release"
+        ),
+        "claim_boundary": (
+            "The generic release lane does not consume, validate, serialize, "
+            "or claim completion of a private first-run aggregate. Private "
+            "Gmail, filesystem, Codex-project, migration, maintenance, and "
+            "semantic-coverage evidence remain a post-release acceptance "
+            "domain. Supplying MATTERS_PRIVATE_AGGREGATE to this lane blocks "
+            "release instead of widening the claim."
+        ),
+    }
+
+
 def _installed_ui_gate(root: Path) -> dict:
     path = root / ".flowguard" / "evidence" / "ui" / "G10_live_ui.json"
     try:
@@ -902,7 +927,6 @@ def _frozen_release_gate(
     root: Path,
     *,
     models: dict,
-    private: dict,
     installed_ui: dict,
     public_release: dict,
 ) -> dict:
@@ -1004,7 +1028,6 @@ def _frozen_release_gate(
         if row.get("behavior_plane") == "agent_operation"
     )
     checks = {
-        "private_first_run": private.get("ok") is True,
         "installed_ui": installed_ui.get("ok") is True,
         "public_release_boundary": public_release.get("ok") is True,
         "git_commit": len(commit) == 40,
@@ -1065,7 +1088,7 @@ def _frozen_release_gate(
             "wheel/install, M0/C1-C12 product, A0/A1/A2/A3 agent-operation, and "
             "S0-S5 skill-runtime model evidence from separate roots, complete "
             "TestMesh including TM19, current installed UI, public package "
-            "boundary, bounded private-first-run aggregate, and the frozen "
+            "boundary, explicit private-first-run separation, and the frozen "
             "ResearchGuard currentness identity. It does not claim GitHub "
             "publication, Linux CI, Figma evidence, or complete private "
             "semantic coverage."
@@ -1086,12 +1109,12 @@ def capture_delivery_snapshot(root: Path) -> dict:
     design = _design_gate(root)
     g8 = _g8_gate(root)
     private = _private_first_run_gate()
+    private_separation = _generic_release_private_separation_gate()
     installed_ui = _installed_ui_gate(root)
     public_release = _public_release_gate(root)
     frozen_release = _frozen_release_gate(
         root,
         models=models,
-        private=private,
         installed_ui=installed_ui,
         public_release=public_release,
     )
@@ -1147,7 +1170,7 @@ def capture_delivery_snapshot(root: Path) -> dict:
             },
         }
     for gate_id, evidence in (
-        ("G9", private),
+        ("G9", private_separation),
         ("G10", installed_ui),
         ("G11", public_release),
         ("G12", frozen_release),
@@ -1174,14 +1197,13 @@ def capture_delivery_snapshot(root: Path) -> dict:
         "next_gate": next_gate,
         "ok": current_index == 12,
         "gates": gates,
+        "post_release_private_first_run": private,
         "claim_boundary": (
             "This snapshot advances only through consecutive current gates. "
-            "G9 consumes a minimized real-private aggregate including the "
-            "manually rehearsed model-agnostic Codex daily-maintenance boundary "
-            "and exact terminal receipts for evidence-pointer rebase followed by "
-            "coverage-history archive. Missing, partial, out-of-order, startup-owned, "
-            "or VACUUM-owning migration evidence keeps G9 not run or blocked. "
-            "G10 current "
+            "G9 proves that the generic release does not consume or claim a "
+            "private-first-run aggregate. The private Gmail/filesystem/Codex "
+            "first run is reported separately as a post-release acceptance "
+            "domain and cannot block or widen the generic release claim. G10 current "
             "installed-browser evidence, G11 clean-clone/package privacy "
             "evidence, and G12 frozen local-release identities. Open private "
             "semantic coverage, Linux CI, Figma, GitHub publication, and "
@@ -1295,7 +1317,7 @@ def build_plan(
         "artifact.g6.implementation": _aggregate_hash(root, source_files),
         "artifact.g7.validation": _aggregate_hash(root, g7_files),
         "artifact.g8.synthetic": _file_hash(g8_path),
-        "artifact.g9.private_first_run": _json_hash(
+        "artifact.g9.generic_private_separation": _json_hash(
             snapshot["gates"]["G9"]["evidence"]
         ),
         "artifact.g10.installed_ui": _json_hash(
@@ -1398,17 +1420,17 @@ def build_plan(
                 "fully synthetic cross-provider and correction conformance receipt",
             ),
             (
-                "artifact.g9.private_first_run",
+                "artifact.g9.generic_private_separation",
                 "G9",
-                "private://first-run-aggregate",
+                "release://generic-private-separation",
                 ("artifact.g8.synthetic",),
-                "privacy-minimized real-private first-run, ordered bounded storage-migration, and Codex daily-maintenance aggregate",
+                "generic release excludes and defers the private first run",
             ),
             (
                 "artifact.g10.installed_ui",
                 "G10",
                 ".flowguard/evidence/ui",
-                ("artifact.g9.private_first_run",),
+                ("artifact.g9.generic_private_separation",),
                 "current installed object-browser interaction evidence",
             ),
             (
@@ -1512,10 +1534,10 @@ def build_plan(
     release_gate_rows = (
         (
             "G9",
-            "artifact.g9.private_first_run",
-            "private_first_run",
-            "private_first_run",
-            "python scripts/build_private_aggregate.py --database <private> --evidence-handle <opaque> --maintenance-evidence <private-maintenance-receipt>",
+            "artifact.g9.generic_private_separation",
+            "generic_private_separation",
+            "development_process_flow",
+            "python -m flowguard_models.run_delivery_flow",
         ),
         (
             "G10",
@@ -1649,7 +1671,7 @@ def build_plan(
         6: "artifact.g6.implementation",
         7: "artifact.g7.validation",
         8: "artifact.g8.synthetic",
-        9: "artifact.g9.private_first_run",
+        9: "artifact.g9.generic_private_separation",
         10: "artifact.g10.installed_ui",
         11: "artifact.g11.public_release",
         12: "artifact.g12.frozen_release",
@@ -1826,25 +1848,25 @@ def build_plan(
                 description="test or alignment receipt changes invalidate G8",
             ),
             FreshnessRule(
-                "synthetic-invalidates-private-first-run",
+                "synthetic-invalidates-generic-private-separation",
                 upstream_artifact_id="artifact.g8.synthetic",
                 invalidates_artifact_ids=(
-                    "artifact.g9.private_first_run",
+                    "artifact.g9.generic_private_separation",
                     "artifact.g10.installed_ui",
                     "artifact.g11.public_release",
                     "artifact.g12.frozen_release",
                 ),
                 invalidates_evidence_kinds=(
-                    "private_first_run",
+                    "generic_private_separation",
                     "installed_ui",
                     "public_release_boundary",
                     "frozen_release",
                 ),
-                description="synthetic contract drift invalidates every live and release gate",
+                description="synthetic contract drift invalidates every generic release gate",
             ),
             FreshnessRule(
-                "private-first-run-invalidates-installed-ui-release",
-                upstream_artifact_id="artifact.g9.private_first_run",
+                "generic-private-separation-invalidates-installed-ui-release",
+                upstream_artifact_id="artifact.g9.generic_private_separation",
                 invalidates_artifact_ids=(
                     "artifact.g10.installed_ui",
                     "artifact.g11.public_release",
@@ -1855,7 +1877,7 @@ def build_plan(
                     "public_release_boundary",
                     "frozen_release",
                 ),
-                description="private first-run identity drift invalidates downstream release claims",
+                description="generic/private claim-boundary drift invalidates downstream release claims",
             ),
             FreshnessRule(
                 "installed-ui-invalidates-public-release",
@@ -1938,12 +1960,12 @@ def build_receipt(root: Path) -> dict:
         "claim_boundary": (
             "The receipt proves only consecutive current gates through "
             f"{current_gate}. A G12 result is a frozen local-release claim "
-            "covering the bounded private aggregate, installed UI, clean "
+            "covering explicit private-first-run separation, installed UI, clean "
             "clone/packages, Git/tag/version, model, TestMesh, skill, install, "
-            "ResearchGuard identities, and exact terminal pointer/archive "
-            "migration receipts. It never treats startup, a partial page, or "
-            "logical migration as VACUUM or physical-shrink evidence. It never claims complete private "
-            "semantic coverage, Figma evidence, Linux CI, licensing approval, "
+            "and ResearchGuard identities. The separate post-release private "
+            "first-run acceptance may later require exact terminal pointer/archive "
+            "migration receipts, but G12 does not consume or claim them. It never "
+            "claims complete private semantic coverage, Figma evidence, Linux CI, licensing approval, "
             "GitHub push, or public publication."
         ),
     }

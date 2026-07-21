@@ -1,6 +1,6 @@
 {
   "artifact_type": "matters.test-suite-receipt.v1",
-  "generated_at": "2026-07-21T04:39:21.054091+00:00",
+  "generated_at": "2026-07-21T10:05:42.591018+00:00",
   "pytest_observation": {
     "errors": 0,
     "failed": 0,
@@ -30,7 +30,7 @@
     "tests/test_source_in_place_storage_policy.py"
   ],
   "stderr_tail": "",
-  "stdout_tail": ".....................                                                    [100%]\n21 passed in 2.28s\n",
+  "stdout_tail": ".....................                                                    [100%]\n21 passed in 3.42s\n",
   "suite_id": "TM02_source_registry",
   "test_suite_evidence": {
     "artifact_version": "matters.test-suite-receipt.v1",
@@ -363,7 +363,7 @@
         "tests/test_source_in_place_storage_policy.py": "sha256:3a87bb2550bdbf1c431102e79645e00d13cdd5104ba71689a82137174adba375",
         "tests/test_tm02_source_registry.py": "sha256:b5edd8712b898bfaeef9e9eee472e477443fdc76ef3a06c79a2aba7f88e70ea1"
       },
-      "artifact_id": "artifact:run:TM02_source_registry:6ca3ad40eae1d0c9",
+      "artifact_id": "artifact:run:TM02_source_registry:8462b298c054f860",
       "assertion_scope": "external_contract",
       "command": "python -m pytest -q -o addopts= tests/test_tm02_source_registry.py tests/test_source_group_service.py tests/test_source_in_place_migration.py tests/test_source_in_place_storage_policy.py",
       "covered_obligation_ids": [
@@ -543,7 +543,7 @@
       ],
       "current": true,
       "exit_code": 0,
-      "finished_at": "2026-07-21T04:39:21.054091+00:00",
+      "finished_at": "2026-07-21T10:05:42.591018+00:00",
       "metadata": {},
       "producer_route": "test_mesh",
       "progress_only": false,
@@ -552,7 +552,7 @@
       "route_evidence_current": true,
       "route_gap_codes": [],
       "stale_reasons": [],
-      "started_at": "2026-07-21T04:39:17.386213+00:00"
+      "started_at": "2026-07-21T10:05:37.081178+00:00"
     },
     "release_required": false,
     "result_fingerprint": "sha256:5b162ae98df351f29954f27fbed51de2cdffcad752175b47fefa83b6d9678e7d",
@@ -560,7 +560,7 @@
     "result_reused": false,
     "result_status": "passed",
     "reuse_ticket": null,
-    "run_id": "run:TM02_source_registry:6ca3ad40eae1d0c9",
+    "run_id": "run:TM02_source_registry:8462b298c054f860",
     "selected_count": 21,
     "skipped_count": 0,
     "skipped_visible": true,

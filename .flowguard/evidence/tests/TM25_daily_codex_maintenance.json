@@ -1,26 +1,26 @@
 {
   "artifact_type": "matters.test-suite-receipt.v1",
-  "generated_at": "2026-07-21T04:45:46.848706+00:00",
+  "generated_at": "2026-07-21T10:20:43.568099+00:00",
   "pytest_observation": {
     "errors": 0,
     "failed": 0,
-    "observed_total": 2,
-    "passed": 2,
+    "observed_total": 3,
+    "passed": 3,
     "skipped": 0,
     "xfailed": 0,
     "xpassed": 0
   },
-  "source_fingerprint": "sha256:0e6b1547c03ac739c7b89e094e572153688a562de9d78ba0ec5d7f9689583008",
+  "source_fingerprint": "sha256:0b4273292fe350fc0988a972c6ec0f03750ed0f55a0e7b78270f96b785886df3",
   "source_fingerprints": {
-    "src/matters/application/maintenance.py": "sha256:0268d1bf6cef0d34a1613909c74f5d7873586f633d0409c032ea4ba840458957",
-    "src/matters/application/orchestrator.py": "sha256:7eb7998a342588a24ca256f35b15f4079aaf87f147d15180b6c41d2c77b1c7da",
-    "tests/test_autonomous_maintenance.py": "sha256:cd532eaf21ec6a35bc7bd8291a1d2f9c320ce42d738cdc3cc66147fd0e79517d"
+    "src/matters/application/maintenance.py": "sha256:ff47df531d12543a4d1d0f536e301171dafcd8eef120459b6165255f2e8c4f6a",
+    "src/matters/application/orchestrator.py": "sha256:f94b4cde6ece35e498f917ae2edf73cc28f21088b2d190ad0bf4a383b4d80e93",
+    "tests/test_autonomous_maintenance.py": "sha256:372f64818acdaeb610d3ac7251aca430ae45dfb061a53635e4dcf92ce18d4c82"
   },
   "source_paths": [
     "tests/test_autonomous_maintenance.py"
   ],
   "stderr_tail": "",
-  "stdout_tail": "..                                                                       [100%]\n2 passed in 0.10s\n",
+  "stdout_tail": "...                                                                      [100%]\n3 passed in 0.16s\n",
   "suite_id": "TM25_daily_codex_maintenance",
   "test_suite_evidence": {
     "artifact_version": "matters.test-suite-receipt.v1",
@@ -58,11 +58,11 @@
     "progress_only": false,
     "proof_artifact": {
       "artifact_fingerprints": {
-        "src/matters/application/maintenance.py": "sha256:0268d1bf6cef0d34a1613909c74f5d7873586f633d0409c032ea4ba840458957",
-        "src/matters/application/orchestrator.py": "sha256:7eb7998a342588a24ca256f35b15f4079aaf87f147d15180b6c41d2c77b1c7da",
-        "tests/test_autonomous_maintenance.py": "sha256:cd532eaf21ec6a35bc7bd8291a1d2f9c320ce42d738cdc3cc66147fd0e79517d"
+        "src/matters/application/maintenance.py": "sha256:ff47df531d12543a4d1d0f536e301171dafcd8eef120459b6165255f2e8c4f6a",
+        "src/matters/application/orchestrator.py": "sha256:f94b4cde6ece35e498f917ae2edf73cc28f21088b2d190ad0bf4a383b4d80e93",
+        "tests/test_autonomous_maintenance.py": "sha256:372f64818acdaeb610d3ac7251aca430ae45dfb061a53635e4dcf92ce18d4c82"
       },
-      "artifact_id": "artifact:run:TM25_daily_codex_maintenance:ebbadd504507d6b8",
+      "artifact_id": "artifact:run:TM25_daily_codex_maintenance:5f696c9d4e98c399",
       "assertion_scope": "external_contract",
       "command": "python -m pytest -q -o addopts= tests/test_autonomous_maintenance.py",
       "covered_obligation_ids": [
@@ -71,7 +71,7 @@
       ],
       "current": true,
       "exit_code": 0,
-      "finished_at": "2026-07-21T04:45:46.848706+00:00",
+      "finished_at": "2026-07-21T10:20:43.568099+00:00",
       "metadata": {},
       "producer_route": "test_mesh",
       "progress_only": false,
@@ -80,22 +80,22 @@
       "route_evidence_current": true,
       "route_gap_codes": [],
       "stale_reasons": [],
-      "started_at": "2026-07-21T04:45:45.292324+00:00"
+      "started_at": "2026-07-21T10:20:41.560598+00:00"
     },
     "release_required": false,
-    "result_fingerprint": "sha256:0e6b1547c03ac739c7b89e094e572153688a562de9d78ba0ec5d7f9689583008",
+    "result_fingerprint": "sha256:0b4273292fe350fc0988a972c6ec0f03750ed0f55a0e7b78270f96b785886df3",
     "result_path": ".flowguard/evidence/tests/TM25_daily_codex_maintenance.json",
     "result_reused": false,
     "result_status": "passed",
     "reuse_ticket": null,
-    "run_id": "run:TM25_daily_codex_maintenance:ebbadd504507d6b8",
-    "selected_count": 2,
+    "run_id": "run:TM25_daily_codex_maintenance:5f696c9d4e98c399",
+    "selected_count": 3,
     "skipped_count": 0,
     "skipped_visible": true,
     "stale_reasons": [],
     "suite_id": "TM25_daily_codex_maintenance",
     "terminal_status": "passed",
-    "test_count": 2,
+    "test_count": 3,
     "timeout_seconds": null,
     "verifier_version": "9.0.3"
   }

@@ -6,6 +6,11 @@ import argparse
 from hashlib import sha256
 import json
 from pathlib import Path
+import sys
+
+REPOSITORY_ROOT = Path(__file__).resolve().parents[1]
+if str(REPOSITORY_ROOT) not in sys.path:
+    sys.path.insert(0, str(REPOSITORY_ROOT))
 
 from flowguard import (
     BehaviorCommitmentLedger,
@@ -175,7 +180,6 @@ def main() -> int:
             }
         )
         updated.append(commitment_id)
-    ledger["current_revision"] = "g8-synthetic-current"
     payload = behavior_commitment_ledger_to_mapping(
         BehaviorCommitmentLedger(**ledger)
     )

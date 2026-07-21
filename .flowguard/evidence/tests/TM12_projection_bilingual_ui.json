@@ -1,6 +1,6 @@
 {
   "artifact_type": "matters.test-suite-receipt.v1",
-  "generated_at": "2026-07-21T07:36:14.144103+00:00",
+  "generated_at": "2026-07-21T10:12:29.587078+00:00",
   "pytest_observation": {
     "errors": 0,
     "failed": 0,
@@ -10,13 +10,13 @@
     "xfailed": 0,
     "xpassed": 0
   },
-  "source_fingerprint": "sha256:ade94a2b2de64273332e20cea14ae823603be1261d0e96868812a6426b221478",
+  "source_fingerprint": "sha256:83af6049a0c35c58baba4e5dff39db03dba15e6f336341c1ce934956eafe8d62",
   "source_fingerprints": {
     "flowguard_design/run_ui_flow_structure.py": "sha256:9c98a21a8a4aa259bd76d4381b65ac8395f3b618700c6343f383aeb9acee4552",
     "flowguard_design/ui_flow_structure.py": "sha256:375e1b9d67ac818d3c89d3ca67731c99363aab1e11325d0e1d75ce3f32c922c7",
     "src/matters/api/http/app.py": "sha256:716f8a32cfa215962e6f968f2cf72d1d823cb99a99468644ba858152d156db98",
     "src/matters/api/http/static.py": "sha256:1e13b481809e779877d39189ef91d30175f82eadd305df320cec6d70d3297d00",
-    "src/matters/application/orchestrator.py": "sha256:0eebc8af8ca4d349a1c5830c64741a7608c99da69f42f7a65200b80140c6898f",
+    "src/matters/application/orchestrator.py": "sha256:f94b4cde6ece35e498f917ae2edf73cc28f21088b2d190ad0bf4a383b4d80e93",
     "src/matters/presentation/__init__.py": "sha256:73d671b58100e2e04b57cf0f2022b38d0bff19aa3167d765c8bcf7e055d29b12",
     "src/matters/presentation/browser.py": "sha256:f7dbee1674ba7945df77b47954bae23396ff0d80821217d69bc02a2248ba9856",
     "src/matters/presentation/heroes.py": "sha256:2c25a7e162365c2cf4f055ec6f5208217f2f6def5a0978c438d2d59e938d38d6",
@@ -32,7 +32,7 @@
     "tests/test_tm12_projection_bilingual_ui.py": "sha256:4c1f3b2b6af20a01c101245599be650904e2e6e1917e227bcd9e75d383ef6521",
     "ui/app.js": "sha256:a8393dc0a908a3096f52845cb4494611557e77f548105a3c4af47c80a5259fe4",
     "ui/index.html": "sha256:5125b7f80c72b6569e3004aab029717dd909c7360c61d30623e6b912db161e07",
-    "ui/styles.css": "sha256:d94986f7623626b5d1b6c0301ef69d0c24580571530a2b5e468c2c3444fa6fa9"
+    "ui/styles.css": "sha256:8e87e4974a1eab91f56db34db7936c6472199598665137a4ff9ea25be5abdc35"
   },
   "source_paths": [
     "tests/test_tm12_projection_bilingual_ui.py",
@@ -43,7 +43,7 @@
     "tests/test_source_group_projection.py"
   ],
   "stderr_tail": "",
-  "stdout_tail": "...................................................                      [100%]\n51 passed in 97.84s (0:01:37)\n",
+  "stdout_tail": "...................................................                      [100%]\n51 passed in 93.19s (0:01:33)\n",
   "suite_id": "TM12_projection_bilingual_ui",
   "test_suite_evidence": {
     "artifact_version": "matters.test-suite-receipt.v1",
@@ -641,7 +641,7 @@
         "flowguard_design/ui_flow_structure.py": "sha256:375e1b9d67ac818d3c89d3ca67731c99363aab1e11325d0e1d75ce3f32c922c7",
         "src/matters/api/http/app.py": "sha256:716f8a32cfa215962e6f968f2cf72d1d823cb99a99468644ba858152d156db98",
         "src/matters/api/http/static.py": "sha256:1e13b481809e779877d39189ef91d30175f82eadd305df320cec6d70d3297d00",
-        "src/matters/application/orchestrator.py": "sha256:0eebc8af8ca4d349a1c5830c64741a7608c99da69f42f7a65200b80140c6898f",
+        "src/matters/application/orchestrator.py": "sha256:f94b4cde6ece35e498f917ae2edf73cc28f21088b2d190ad0bf4a383b4d80e93",
         "src/matters/presentation/__init__.py": "sha256:73d671b58100e2e04b57cf0f2022b38d0bff19aa3167d765c8bcf7e055d29b12",
         "src/matters/presentation/browser.py": "sha256:f7dbee1674ba7945df77b47954bae23396ff0d80821217d69bc02a2248ba9856",
         "src/matters/presentation/heroes.py": "sha256:2c25a7e162365c2cf4f055ec6f5208217f2f6def5a0978c438d2d59e938d38d6",
@@ -657,9 +657,9 @@
         "tests/test_tm12_projection_bilingual_ui.py": "sha256:4c1f3b2b6af20a01c101245599be650904e2e6e1917e227bcd9e75d383ef6521",
         "ui/app.js": "sha256:a8393dc0a908a3096f52845cb4494611557e77f548105a3c4af47c80a5259fe4",
         "ui/index.html": "sha256:5125b7f80c72b6569e3004aab029717dd909c7360c61d30623e6b912db161e07",
-        "ui/styles.css": "sha256:d94986f7623626b5d1b6c0301ef69d0c24580571530a2b5e468c2c3444fa6fa9"
+        "ui/styles.css": "sha256:8e87e4974a1eab91f56db34db7936c6472199598665137a4ff9ea25be5abdc35"
       },
-      "artifact_id": "artifact:run:TM12_projection_bilingual_ui:3a87674235221b53",
+      "artifact_id": "artifact:run:TM12_projection_bilingual_ui:adec10ee92aeac73",
       "assertion_scope": "external_contract",
       "command": "python -m pytest -q -o addopts= tests/test_tm12_projection_bilingual_ui.py tests/test_matter_presentation_reconciliation.py tests/test_object_browser_autonomy.py tests/test_object_browser_catalog_query.py tests/test_semantic_data_layer_projection.py tests/test_source_group_projection.py",
       "covered_obligation_ids": [
@@ -1021,7 +1021,7 @@
       ],
       "current": true,
       "exit_code": 0,
-      "finished_at": "2026-07-21T07:36:14.144103+00:00",
+      "finished_at": "2026-07-21T10:12:29.587078+00:00",
       "metadata": {},
       "producer_route": "test_mesh",
       "progress_only": false,
@@ -1030,15 +1030,15 @@
       "route_evidence_current": true,
       "route_gap_codes": [],
       "stale_reasons": [],
-      "started_at": "2026-07-21T07:34:33.508926+00:00"
+      "started_at": "2026-07-21T10:10:54.292094+00:00"
     },
     "release_required": false,
-    "result_fingerprint": "sha256:ade94a2b2de64273332e20cea14ae823603be1261d0e96868812a6426b221478",
+    "result_fingerprint": "sha256:83af6049a0c35c58baba4e5dff39db03dba15e6f336341c1ce934956eafe8d62",
     "result_path": ".flowguard/evidence/tests/TM12_projection_bilingual_ui.json",
     "result_reused": false,
     "result_status": "passed",
     "reuse_ticket": null,
-    "run_id": "run:TM12_projection_bilingual_ui:3a87674235221b53",
+    "run_id": "run:TM12_projection_bilingual_ui:adec10ee92aeac73",
     "selected_count": 51,
     "skipped_count": 0,
     "skipped_visible": true,

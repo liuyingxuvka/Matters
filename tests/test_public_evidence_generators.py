@@ -21,6 +21,7 @@ from flowguard_design.run_g4_review import (
 from flowguard_models.delivery_flow import _portable_openspec_projection
 from flowguard_models.delivery_flow import (
     REQUIRED_UI_CHECKS,
+    _generic_release_private_separation_gate,
     _installed_ui_gate,
     _private_first_run_gate,
 )
@@ -244,6 +245,38 @@ def test_private_first_run_gate_consumes_only_safe_aggregate(
     assert gate["storage_startup_migration_attempt_count"] == 0
     assert gate["storage_vacuum_attempt_count"] == 0
     assert str(tmp_path) not in json.dumps(gate)
+
+
+def test_generic_release_defers_private_first_run_without_consuming_it(
+    tmp_path: Path,
+    monkeypatch,
+):
+    monkeypatch.delenv("MATTERS_PRIVATE_AGGREGATE", raising=False)
+
+    gate = _generic_release_private_separation_gate()
+
+    assert gate["ok"]
+    assert gate["status"] == "passed"
+    assert gate["private_first_run_required_for_generic_release"] is False
+    assert gate["private_first_run_deferred_until_after_release"] is True
+    assert gate["private_aggregate_consumed"] is False
+
+    private_path = tmp_path / "private-aggregate.json"
+    monkeypatch.setenv("MATTERS_PRIVATE_AGGREGATE", str(private_path))
+    blocked = _generic_release_private_separation_gate()
+
+    assert not blocked["ok"]
+    assert blocked["status"] == "blocked"
+    assert blocked["private_aggregate_consumed"] is False
+    assert str(private_path) not in json.dumps(blocked)
+
+
+def test_behavior_evidence_refresh_preserves_the_scope_revision_and_direct_entrypoint():
+    script = Path("scripts/update_behavior_evidence.py").read_text(encoding="utf-8")
+
+    assert "REPOSITORY_ROOT = Path(__file__).resolve().parents[1]" in script
+    assert "sys.path.insert(0, str(REPOSITORY_ROOT))" in script
+    assert 'ledger["current_revision"] = "g8-synthetic-current"' not in script
 
 
 def test_installed_ui_gate_requires_exact_current_revision(tmp_path: Path):

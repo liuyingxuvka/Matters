@@ -147,9 +147,25 @@ def test_desktop_build_keeps_manifest_and_self_test_outside_package_tree():
     assert 'Join-Path $OutputPath "desktop-self-test.json"' in script
     assert 'Join-Path $OutputPath "desktop-manifest.json"' in script
     assert 'Join-Path $OutputPath "Matters"' in script
-    assert "$Executable --self-test" in script
+    assert "[System.IO.Path]::IsPathRooted($OutputRoot)" in script
+    assert "-FilePath $Executable" in script
+    assert '-ArgumentList "--self-test"' in script
+    assert "-RedirectStandardOutput $SelfTestStdoutPath" in script
+    assert "-RedirectStandardError $SelfTestStderrPath" in script
+    assert "$SelfTestProcess.ExitCode" in script
     assert "desktop-build-toolchain.json" in script
     assert "--toolchain $ToolchainPath" in script
+    assert '$IconPath = Join-Path $RepositoryRoot "src\\matters\\assets\\matters.ico"' in script
+    assert '$SourcePath = Join-Path $RepositoryRoot "src"' in script
+    assert '$BundledSkillsPath = Join-Path $SourcePath "matters\\bundled_skills"' in script
+    assert '$UiPath = Join-Path $RepositoryRoot "ui"' in script
+    assert '$EntryPath = Join-Path $RepositoryRoot "scripts\\matters_desktop_entry.py"' in script
+    assert "--icon $IconPath" in script
+    assert "--paths $SourcePath" in script
+    assert '--add-data "$BundledSkillsPath;matters\\bundled_skills"' in script
+    assert '--add-data "$UiPath;ui"' in script
+    assert "$EntryPath" in script
+    assert '--add-data "ui;ui"' not in script
 
 
 def test_desktop_installer_has_verified_unique_snapshots_and_atomic_receipt():
@@ -165,3 +181,7 @@ def test_desktop_installer_has_verified_unique_snapshots_and_atomic_receipt():
     assert "[System.IO.File]::Replace($ReceiptCandidatePath, $ReceiptPath, $null)" in script
     assert "transaction_plan_fingerprint" in script
     assert "executable_sha256" in script
+    assert "-FilePath $InstalledExecutable" in script
+    assert "-RedirectStandardOutput $InstalledSelfTestStdoutPath" in script
+    assert "-RedirectStandardError $InstalledSelfTestStderrPath" in script
+    assert "$InstalledSelfTestProcess.ExitCode" in script

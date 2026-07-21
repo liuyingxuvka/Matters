@@ -3101,7 +3101,7 @@
     ]
   },
   "evidence_tier": "mesh_green",
-  "generated_at": "2026-07-21T07:18:04.005919+00:00",
+  "generated_at": "2026-07-21T09:47:36.541932+00:00",
   "layered_boundary_plan": {
     "allow_scoped_leaf_exemptions": false,
     "allowed_shared_functions": [],
@@ -3150,7 +3150,7 @@
         ],
         "proof_artifact": {
           "artifact_fingerprints": {
-            ".flowguard/evidence/agent_operations/models/A0_matters_source_analysis_operation.json": "sha256:0f28312fe903581d444e3bfa5e9fac868b739206e3d28a21ffdc7ff5eb9f833d"
+            ".flowguard/evidence/agent_operations/models/A0_matters_source_analysis_operation.json": "sha256:3a3a4eb6f1cd40f4fa0534b91044612c067ee4508c54bc59794d2abfa37dd556"
           },
           "artifact_id": "artifact:A0_matters_source_analysis_operation:g2",
           "assertion_scope": "external_contract",
@@ -3263,7 +3263,7 @@
         ],
         "proof_artifact": {
           "artifact_fingerprints": {
-            ".flowguard/evidence/agent_operations/models/A1_matters_research_operation.json": "sha256:02b3a1401e0bbf43741301acc9ecd68338004b4b07bc79fa8d9981bd0d699832"
+            ".flowguard/evidence/agent_operations/models/A1_matters_research_operation.json": "sha256:bc9ae5f374395e48d9690e2693d1333d7e9230abd56c46b62b357e95ccafa03a"
           },
           "artifact_id": "artifact:A1_matters_research_operation:g2",
           "assertion_scope": "external_contract",
@@ -3409,7 +3409,7 @@
         ],
         "proof_artifact": {
           "artifact_fingerprints": {
-            ".flowguard/evidence/agent_operations/models/A2_matters_maintenance_orchestrator_operation.json": "sha256:6112fa02b7beb1c0f9324d1fc1c93faf85b1f2a498c77a3b6518bc65fa02fb0c"
+            ".flowguard/evidence/agent_operations/models/A2_matters_maintenance_orchestrator_operation.json": "sha256:4f952d97e817a3630356e35d18091e99bfb9480ddc140b163024dd8e8fc6aec3"
           },
           "artifact_id": "artifact:A2_matters_maintenance_orchestrator_operation:g2",
           "assertion_scope": "external_contract",
@@ -3532,7 +3532,7 @@
         ],
         "proof_artifact": {
           "artifact_fingerprints": {
-            ".flowguard/evidence/agent_operations/models/A3_matters_ai_gateway_operation.json": "sha256:3670874c9fc6d41ce4d194dd081b8159696469c6b118ecd95d8db3cd7fe965b1"
+            ".flowguard/evidence/agent_operations/models/A3_matters_ai_gateway_operation.json": "sha256:ebf0273db2a46f957e829afc192195e04ef1da3066248ae80530120cead20b03"
           },
           "artifact_id": "artifact:A3_matters_ai_gateway_operation:g2",
           "assertion_scope": "external_contract",
@@ -3674,7 +3674,7 @@
         ],
         "proof_artifact": {
           "artifact_fingerprints": {
-            ".flowguard/evidence/models/C1_authorization_coverage.json": "sha256:28ec7ab7a1b771c41de3af0e958679474da20b1ac1d7818668e9671350374018"
+            ".flowguard/evidence/models/C1_authorization_coverage.json": "sha256:5fb2409c2d3dbe535503cbf6a7775722ffd122c68da8e8a3be2b782d745dd695"
           },
           "artifact_id": "artifact:C1_authorization_coverage:g2",
           "assertion_scope": "external_contract",
@@ -3926,7 +3926,7 @@
         ],
         "proof_artifact": {
           "artifact_fingerprints": {
-            ".flowguard/evidence/models/C2_source_registry.json": "sha256:c771afe1e60419097e089e2ad8aa030f636d6e0dc66f06c3d2d9e940661bb010"
+            ".flowguard/evidence/models/C2_source_registry.json": "sha256:f6ef8e704ab76d823738728c8203f6d40928fd61e84ef42df0b04e8c541808ea"
           },
           "artifact_id": "artifact:C2_source_registry:g2",
           "assertion_scope": "external_contract",
@@ -4165,7 +4165,7 @@
         ],
         "proof_artifact": {
           "artifact_fingerprints": {
-            ".flowguard/evidence/models/C3_evidence_qualification.json": "sha256:631f082d2c6f57a7dc2e85ad263bf33c63c093518a30fae608347783845ddd6f"
+            ".flowguard/evidence/models/C3_evidence_qualification.json": "sha256:41d69492c26f21ead288e0bcce8f6fa519ae3bbfaaee93c7461961300a626af6"
           },
           "artifact_id": "artifact:C3_evidence_qualification:g2",
           "assertion_scope": "external_contract",
@@ -4283,7 +4283,7 @@
         ],
         "proof_artifact": {
           "artifact_fingerprints": {
-            ".flowguard/evidence/models/C4_person_entity_resolution.json": "sha256:3c11b250837e745fe896d44a05d694e3ec17116b5814d906433fcd131ab462dd"
+            ".flowguard/evidence/models/C4_person_entity_resolution.json": "sha256:af22eceb80e77175f5eea4303d5ab9440d8d19941932a834edd10d3843b10092"
           },
           "artifact_id": "artifact:C4_person_entity_resolution:g2",
           "assertion_scope": "external_contract",
@@ -4391,7 +4391,7 @@
         ],
         "proof_artifact": {
           "artifact_fingerprints": {
-            ".flowguard/evidence/models/C5_event_temporal_trace.json": "sha256:077dbca2ea3bd6db496ed63b80a0af521a006f26acc8ff5254f06f3e5443c45a"
+            ".flowguard/evidence/models/C5_event_temporal_trace.json": "sha256:61141cc30dafd6eabc01bc239c6767344aff28e2f124f17e4c06fc7709d8971a"
           },
           "artifact_id": "artifact:C5_event_temporal_trace:g2",
           "assertion_scope": "external_contract",
@@ -4598,7 +4598,7 @@
         ],
         "proof_artifact": {
           "artifact_fingerprints": {
-            ".flowguard/evidence/models/C6_matter_formation_admission.json": "sha256:a74ab07a21aafeddd2cb51fceb848edeafcd2fa21eb5d045bd99b209049c9f0f"
+            ".flowguard/evidence/models/C6_matter_formation_admission.json": "sha256:1f955e7d645c50fd41de636051907fb9c39d57c21179909b1dfbbab172757787"
           },
           "artifact_id": "artifact:C6_matter_formation_admission:g2",
           "assertion_scope": "external_contract",
@@ -4810,7 +4810,7 @@
         ],
         "proof_artifact": {
           "artifact_fingerprints": {
-            ".flowguard/evidence/models/C7_lifecycle_board_state.json": "sha256:0bc66ecae174e9d571fc9749cf9b1a04ca5f11db19d5eeb65f9d42f5d2058ec8"
+            ".flowguard/evidence/models/C7_lifecycle_board_state.json": "sha256:5000fccc9bb230f5b7fb8f46ed90048a8aba95243b19827a05b2861c32564cfb"
           },
           "artifact_id": "artifact:C7_lifecycle_board_state:g2",
           "assertion_scope": "external_contract",
@@ -4930,7 +4930,7 @@
         ],
         "proof_artifact": {
           "artifact_fingerprints": {
-            ".flowguard/evidence/models/C8_open_loop_waiting_blocking.json": "sha256:04770d059958d50d40602b8a6d7798ce9eca267f1dcd6272ac3edb68f27be677"
+            ".flowguard/evidence/models/C8_open_loop_waiting_blocking.json": "sha256:f3c0a27555352f2d06389f805c2d8e31252a032ba4aa8600c6f0f7a883925d0f"
           },
           "artifact_id": "artifact:C8_open_loop_waiting_blocking:g2",
           "assertion_scope": "external_contract",
@@ -5045,7 +5045,7 @@
         ],
         "proof_artifact": {
           "artifact_fingerprints": {
-            ".flowguard/evidence/models/C9_completion_cancellation_reopen.json": "sha256:ef791f579c17d11257cdd642eb71ac9b7987e52ab41125ad59eb5380e28525e8"
+            ".flowguard/evidence/models/C9_completion_cancellation_reopen.json": "sha256:305098d27157094cafbc6e97a2c64081659632c85210c367ca595ad5de658b51"
           },
           "artifact_id": "artifact:C9_completion_cancellation_reopen:g2",
           "assertion_scope": "external_contract",
@@ -5168,7 +5168,7 @@
         ],
         "proof_artifact": {
           "artifact_fingerprints": {
-            ".flowguard/evidence/models/C10_correction_revocation.json": "sha256:717af937a8deff63b9edba6ed5b21b9f65f74ba1e9fc7556b4f9926c0873676d"
+            ".flowguard/evidence/models/C10_correction_revocation.json": "sha256:55839235f912b1a484190c7499003facd16abec3ba2a52dd0cad9fb8231985c1"
           },
           "artifact_id": "artifact:C10_correction_revocation:g2",
           "assertion_scope": "external_contract",
@@ -5363,7 +5363,7 @@
         ],
         "proof_artifact": {
           "artifact_fingerprints": {
-            ".flowguard/evidence/models/C11_guard_artifact_prediction.json": "sha256:98c8ebe011fe64867b086e48e4a76d760ed3d379626026b15141e5d034298753"
+            ".flowguard/evidence/models/C11_guard_artifact_prediction.json": "sha256:d3963bd058e8b49142be1db48ac743e7e8dbc4de680181a7c7d4f1664e05e8d3"
           },
           "artifact_id": "artifact:C11_guard_artifact_prediction:g2",
           "assertion_scope": "external_contract",
@@ -5647,7 +5647,7 @@
         ],
         "proof_artifact": {
           "artifact_fingerprints": {
-            ".flowguard/evidence/models/C12_projection_bilingual_ui.json": "sha256:a49545d0a2ef9ac8a608f28820ad607cf253d23dd1d9b5afbf4312366c3e44e2"
+            ".flowguard/evidence/models/C12_projection_bilingual_ui.json": "sha256:ca2afdabcaa91ec0769200bf1ce79e0aa330a1f9d4cfc9bdff976c77ac9a7b05"
           },
           "artifact_id": "artifact:C12_projection_bilingual_ui:g2",
           "assertion_scope": "external_contract",
@@ -6125,6 +6125,15 @@
         "allowed_shared_with": [],
         "description": "unique writer for orchestration.worker_health",
         "item_id": "state:M0_matters_end_to_end_authority:orchestration.worker_health",
+        "item_type": "state",
+        "owner_kind": "parent",
+        "owner_model_id": "M0_matters_end_to_end_authority",
+        "rationale": "Derived from the current checked A0/A1/A2/A3 operation-plane plus M0/C1-C12 product partition."
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "unique writer for orchestration.owner_redispatch_count",
+        "item_id": "state:M0_matters_end_to_end_authority:orchestration.owner_redispatch_count",
         "item_type": "state",
         "owner_kind": "parent",
         "owner_model_id": "M0_matters_end_to_end_authority",
@@ -11976,7 +11985,7 @@
     "proof_id": "LBP0_matters_parent_child_models",
     "summary": "OK: layered_boundary_proof parent=M0_matters_end_to_end_authority decision=layered_boundary_proof_green findings=0"
   },
-  "mesh_fingerprint": "sha256:d8edb6ee0fb8660299ba01296f564d2a14d4270e20a7812976915abc32240ba2",
+  "mesh_fingerprint": "sha256:147ab169f83af9795b3f6ff475eee6870956fc88d7fa2e1a16b62ed20a99bb9a",
   "mesh_id": "MM0_matters_parent_child_mesh",
   "native_report": {
     "activation_reasons": [
@@ -12407,8 +12416,8 @@
     }
   },
   "parent_current": true,
-  "parent_evidence_id": "evidence:M0_matters_end_to_end_authority:59732e36509bd9ee",
-  "parent_model_fingerprint": "sha256:59732e36509bd9ee5e94c6ff5ab34c6de15db63fecc48f4de9b16ec68dd182f2",
+  "parent_evidence_id": "evidence:M0_matters_end_to_end_authority:4abae21e2657e0bc",
+  "parent_model_fingerprint": "sha256:4abae21e2657e0bc534d58e48e434c771cd5abed30bfdc084905197ffcad592d",
   "parent_model_id": "M0_matters_end_to_end_authority",
   "partition": {
     "allowed_shared_areas": [],
@@ -16304,6 +16313,14 @@
         "allowed_shared_with": [],
         "description": "unique writer for orchestration.worker_health",
         "item_id": "state:M0_matters_end_to_end_authority:orchestration.worker_health",
+        "item_type": "state",
+        "owner_model_id": "M0_matters_end_to_end_authority",
+        "ownership": "parent"
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "unique writer for orchestration.owner_redispatch_count",
+        "item_id": "state:M0_matters_end_to_end_authority:orchestration.owner_redispatch_count",
         "item_type": "state",
         "owner_model_id": "M0_matters_end_to_end_authority",
         "ownership": "parent"
@@ -21628,6 +21645,7 @@
         "state:M0_matters_end_to_end_authority:orchestration.blocked_object_count",
         "state:M0_matters_end_to_end_authority:orchestration.worker_checkpoint",
         "state:M0_matters_end_to_end_authority:orchestration.worker_health",
+        "state:M0_matters_end_to_end_authority:orchestration.owner_redispatch_count",
         "state:M0_matters_end_to_end_authority:orchestration.worker_poll_due_at",
         "state:M0_matters_end_to_end_authority:orchestration.foreground_availability",
         "state:M0_matters_end_to_end_authority:orchestration.filesystem_claim_lease",

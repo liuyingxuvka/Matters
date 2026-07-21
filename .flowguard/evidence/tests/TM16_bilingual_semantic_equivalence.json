@@ -1,6 +1,6 @@
 {
   "artifact_type": "matters.test-suite-receipt.v1",
-  "generated_at": "2026-07-21T04:44:04.821151+00:00",
+  "generated_at": "2026-07-21T10:13:57.263815+00:00",
   "pytest_observation": {
     "errors": 0,
     "failed": 0,
@@ -10,7 +10,7 @@
     "xfailed": 0,
     "xpassed": 0
   },
-  "source_fingerprint": "sha256:2536a22856ad81e885e948909a8eee34302412c28224d9fe03bdd9845702636d",
+  "source_fingerprint": "sha256:2a1bd5666987a121e5adf4f223275c05f0c4f4d0ea19d5e07ea025e26c4e7254",
   "source_fingerprints": {
     "src/matters/presentation/__init__.py": "sha256:73d671b58100e2e04b57cf0f2022b38d0bff19aa3167d765c8bcf7e055d29b12",
     "src/matters/presentation/browser.py": "sha256:f7dbee1674ba7945df77b47954bae23396ff0d80821217d69bc02a2248ba9856",
@@ -23,14 +23,14 @@
     "tests/test_tm16_bilingual_semantic_equivalence.py": "sha256:75e4b61aad9d2842247596a9b6c348ac518db3dc3e133c3ccd58c986f1f9270e",
     "ui/app.js": "sha256:a8393dc0a908a3096f52845cb4494611557e77f548105a3c4af47c80a5259fe4",
     "ui/index.html": "sha256:5125b7f80c72b6569e3004aab029717dd909c7360c61d30623e6b912db161e07",
-    "ui/styles.css": "sha256:0ee61921142541b3f7a98a2c0ee81b2a53a7dff2e60addd7a64436fa3a68ec8f"
+    "ui/styles.css": "sha256:8e87e4974a1eab91f56db34db7936c6472199598665137a4ff9ea25be5abdc35"
   },
   "source_paths": [
     "tests/test_tm16_bilingual_semantic_equivalence.py",
     "tests/test_localization_registry.py"
   ],
   "stderr_tail": "",
-  "stdout_tail": "....                                                                     [100%]\n4 passed in 0.28s\n",
+  "stdout_tail": "....                                                                     [100%]\n4 passed in 0.75s\n",
   "suite_id": "TM16_bilingual_semantic_equivalence",
   "test_suite_evidence": {
     "artifact_version": "matters.test-suite-receipt.v1",
@@ -81,9 +81,9 @@
         "tests/test_tm16_bilingual_semantic_equivalence.py": "sha256:75e4b61aad9d2842247596a9b6c348ac518db3dc3e133c3ccd58c986f1f9270e",
         "ui/app.js": "sha256:a8393dc0a908a3096f52845cb4494611557e77f548105a3c4af47c80a5259fe4",
         "ui/index.html": "sha256:5125b7f80c72b6569e3004aab029717dd909c7360c61d30623e6b912db161e07",
-        "ui/styles.css": "sha256:0ee61921142541b3f7a98a2c0ee81b2a53a7dff2e60addd7a64436fa3a68ec8f"
+        "ui/styles.css": "sha256:8e87e4974a1eab91f56db34db7936c6472199598665137a4ff9ea25be5abdc35"
       },
-      "artifact_id": "artifact:run:TM16_bilingual_semantic_equivalence:c1ea1d08662e4325",
+      "artifact_id": "artifact:run:TM16_bilingual_semantic_equivalence:3938a9e4f385dd86",
       "assertion_scope": "external_contract",
       "command": "python -m pytest -q -o addopts= tests/test_tm16_bilingual_semantic_equivalence.py tests/test_localization_registry.py",
       "covered_obligation_ids": [
@@ -93,7 +93,7 @@
       ],
       "current": true,
       "exit_code": 0,
-      "finished_at": "2026-07-21T04:44:04.821151+00:00",
+      "finished_at": "2026-07-21T10:13:57.263815+00:00",
       "metadata": {},
       "producer_route": "test_mesh",
       "progress_only": false,
@@ -102,15 +102,15 @@
       "route_evidence_current": true,
       "route_gap_codes": [],
       "stale_reasons": [],
-      "started_at": "2026-07-21T04:44:03.213841+00:00"
+      "started_at": "2026-07-21T10:13:53.247880+00:00"
     },
     "release_required": false,
-    "result_fingerprint": "sha256:2536a22856ad81e885e948909a8eee34302412c28224d9fe03bdd9845702636d",
+    "result_fingerprint": "sha256:2a1bd5666987a121e5adf4f223275c05f0c4f4d0ea19d5e07ea025e26c4e7254",
     "result_path": ".flowguard/evidence/tests/TM16_bilingual_semantic_equivalence.json",
     "result_reused": false,
     "result_status": "passed",
     "reuse_ticket": null,
-    "run_id": "run:TM16_bilingual_semantic_equivalence:c1ea1d08662e4325",
+    "run_id": "run:TM16_bilingual_semantic_equivalence:3938a9e4f385dd86",
     "selected_count": 4,
     "skipped_count": 0,
     "skipped_visible": true,

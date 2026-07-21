@@ -706,7 +706,7 @@
     "hazard_green"
   ],
   "function_signature": "S4_matters_managed_skill_sync: CaseInput x ModelState -> Set(DecisionOutput x ModelState)",
-  "generated_at": "2026-07-19T05:49:08.310192+00:00",
+  "generated_at": "2026-07-21T09:47:32.666313+00:00",
   "known_bad_proofs": [
     {
       "evidence_id": "S4_matters_managed_skill_sync:known-bad:H-S4-001-bundled-only-global-install",
@@ -762,7 +762,7 @@
     "production_conformance": "not_run: auxiliary skill runtime implementation is intentionally outside this model-only workstream"
   },
   "toolchain": {
-    "flowguard_package_version": "0.58.4",
+    "flowguard_package_version": "0.58.5",
     "flowguard_schema_version": "1.0"
   }
 }

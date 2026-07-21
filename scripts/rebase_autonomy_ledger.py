@@ -24,7 +24,7 @@ from flowguard_design.inventory import MODELS
 
 
 LEDGER_PATH = Path(".flowguard/behavior_commitment_ledger/ledger.json")
-REVISION = "v0.3.0-matter-browser-semantic-reset-v7"
+REVISION = "v0.3.0-matter-browser-semantic-reset-v8"
 
 UPDATES: dict[str, dict[str, object]] = {
     "BC-PR-000": {
@@ -290,6 +290,36 @@ UPDATES: dict[str, dict[str, object]] = {
             "or hide a ResearchGuard-dependent gap"
         ),
     },
+    "BC-DP-003": {
+        "label": (
+            "publish generic v0.3.0 source, package, desktop, and AI gateway "
+            "before the private first run"
+        ),
+        "expected_result": (
+            "one private GitHub repository release whose commit, v0.3.0 tag, "
+            "wheel, source distribution, Windows desktop package, installed "
+            "Python and desktop identities, matters-mcp AI gateway, model/test "
+            "receipts, public-safe inventory, and anonymous recheck agree "
+            "without consuming or claiming completion of private-first-run data"
+        ),
+        "expected_terminal": (
+            "published_and_anonymously_rechecked or blocked with exact "
+            "package, privacy, install, Git, or publication gaps"
+        ),
+        "trigger": (
+            "generic source, model, TestMesh, UI, privacy, package, desktop, "
+            "MCP, bundled-skill, and ResearchGuard identities are current and "
+            "the user authorizes liuyingxuvka/Matters as a private v0.3.0 release"
+        ),
+        "failure_boundary": (
+            "private Gmail, filesystem, Codex-project, aggregate, receipt, "
+            "screenshot, identifier, or first-run completion evidence cannot "
+            "enter or gate the generic release; candidate drift, unexpected "
+            "build-environment packages, missing matters-mcp, incomplete "
+            "bundled skills, mismatched tag/install/assets, or a non-private "
+            "remote blocks publication"
+        ),
+    },
     "BC-DP-004": {
         "label": "complete an autonomous progressive private first run with truthful object coverage",
         "expected_result": (
@@ -299,6 +329,10 @@ UPDATES: dict[str, dict[str, object]] = {
             "information, localization, and UI reachability reconcile progressively under "
             "one strongest-compatible primary Codex plan with bounded low-cost delegation "
             "and no normal human gate"
+        ),
+        "trigger": (
+            "the generic v0.3.0 release identity is current and the user starts "
+            "or resumes the authorized post-release private first run"
         ),
     },
     "BC-DP-005": {
@@ -311,7 +345,7 @@ UPDATES: dict[str, dict[str, object]] = {
 }
 
 
-def _append_unique(row: dict[str, object], key: str, *values: str) -> None:
+def _append_unique(row: dict[str, object], key: str, *values: object) -> None:
     current = list(row.get(key, ()))
     for value in values:
         if value not in current:
@@ -716,6 +750,89 @@ def main() -> int:
                 "orchestration.people_relation_status",
                 "orchestration.matter_hierarchy_projection_status",
                 "orchestration.codex_source_coverage_status",
+            )
+        elif commitment_id == "BC-DP-003":
+            row["rationale"] = (
+                "This is the single generic private-repository publication path. "
+                "It closes before, and never consumes, the separate private first run."
+            )
+            row["side_effects"] = [
+                "push approved generic public-safe source to the private remote",
+                "create the v0.3.0 tag and GitHub Release",
+                "publish the wheel, source distribution, Windows desktop package, and checksums",
+            ]
+            row["source_surface_ids"] = [
+                "surface:spec:privacy-publication-boundary",
+                "surface:doc:public-boundary",
+                "surface:openspec:tasks-release",
+            ]
+            row["state_writes"] = [
+                "release_candidate.identity",
+                "release_evidence.freshness",
+                "release.private_first_run_separation",
+                "release.package_identity",
+                "release.desktop_identity",
+                "release.ai_gateway_identity",
+                "release.git_identity",
+                "release.status",
+            ]
+            row["lookup_binding"] = {
+                "error_signatures": [
+                    "installed_version_stale",
+                    "matters_mcp_missing",
+                    "desktop_package_incomplete",
+                    "private_aggregate_must_not_be_consumed_by_generic_release",
+                ],
+                "metadata": {},
+                "path_patterns": [
+                    "openspec/changes/build-matters-model-driven-core/specs/privacy-release-boundary/**",
+                    "docs/security/public-boundary.md",
+                    "plugins/matters/**",
+                    "scripts/build_desktop_package.ps1",
+                    "scripts/install_desktop_package.ps1",
+                    ".github/**",
+                    "SECURITY.md",
+                ],
+                "task_terms": [
+                    "generic release",
+                    "private GitHub",
+                    "v0.3.0",
+                    "tag",
+                    "wheel",
+                    "source distribution",
+                    "Windows desktop",
+                    "matters-mcp",
+                    "clean clone",
+                    "SBOM",
+                    "anonymous download",
+                ],
+                "tool_ids": ["git", "github-release", "matters-mcp"],
+                "workflow_families": ["generic_private_repository_release"],
+            }
+            authority["business_intent"] = (
+                "publish generic v0.3.0 before the private first run"
+            )
+            authority["primary_path_id"] = (
+                "path:dpf-generic-v030-release-before-private-first-run"
+            )
+            authority["scoped_out_reason"] = (
+                "current generic release requires fresh package, installed "
+                "desktop/MCP, TestMesh, Git/tag, privacy, and publication evidence; "
+                "private-first-run completion is explicitly not required"
+            )
+        elif commitment_id == "BC-DP-004":
+            _append_unique(
+                row,
+                "relations",
+                {
+                    "metadata": {},
+                    "rationale": (
+                        "The authorized private first run starts against the "
+                        "already released generic v0.3.0 contract."
+                    ),
+                    "relation_type": "requires_evidence_from",
+                    "target_commitment_id": "BC-DP-003",
+                },
             )
         elif commitment_id == "BC-PR-002":
             row["state_writes"] = [

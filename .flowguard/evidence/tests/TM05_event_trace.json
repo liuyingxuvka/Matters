@@ -1,6 +1,6 @@
 {
   "artifact_type": "matters.test-suite-receipt.v1",
-  "generated_at": "2026-07-21T04:39:26.193133+00:00",
+  "generated_at": "2026-07-21T10:05:49.844694+00:00",
   "pytest_observation": {
     "errors": 0,
     "failed": 0,
@@ -10,14 +10,14 @@
     "xfailed": 0,
     "xpassed": 0
   },
-  "source_fingerprint": "sha256:0dd4e73594a02ce57d0e033e2a847b75c03d96478a8e47f43711a12ee914ac39",
+  "source_fingerprint": "sha256:ef74ab165dc2477355c0f196181ff16fae9db7c83f2c346d37fd28554d152391",
   "source_fingerprints": {
     "src/matters/timeline/__init__.py": "sha256:79262facb06cf5e47f507512ec953c63edd0ff430b85571b154047cb67d6f3a0",
     "src/matters/timeline/events.py": "sha256:ec7268dd43564bb239783031a0638bf808fde363533237d1c1ab2eaba597ab84",
     "src/matters/timeline/start_boundary.py": "sha256:41b495502f83d83e3c99fe70827bc9c7b257818e956ab42b3937835b38dd2c73",
     "src/matters/timeline/traces.py": "sha256:a5e4160da988dd9aaf1f252acb06706068bcb264d23fc000f6226fb4f72c4eb7",
     "tests/test_matter_activity.py": "sha256:68de5f44182d21cd35d168e0d3a37dd309420776909f1790a6381ef8413970a9",
-    "tests/test_start_boundary.py": "sha256:1aac979eff035273c7baf930c61f11daa4742760745789f1f9c4307a3adc7d89",
+    "tests/test_start_boundary.py": "sha256:191553d01fb800b505518cdcee5afc5ccdf12354cde1dd1d046dcf0aaad0c3f9",
     "tests/test_tm05_event_trace.py": "sha256:7aa0e5fdb156a2a014ebd49938caf7e68304960e5b16532af76901cebf44299a"
   },
   "source_paths": [
@@ -26,7 +26,7 @@
     "tests/test_start_boundary.py"
   ],
   "stderr_tail": "",
-  "stdout_tail": "...........................                                              [100%]\n27 passed in 0.42s\n",
+  "stdout_tail": "...........................                                              [100%]\n27 passed in 0.62s\n",
   "suite_id": "TM05_event_trace",
   "test_suite_evidence": {
     "artifact_version": "matters.test-suite-receipt.v1",
@@ -296,10 +296,10 @@
         "src/matters/timeline/start_boundary.py": "sha256:41b495502f83d83e3c99fe70827bc9c7b257818e956ab42b3937835b38dd2c73",
         "src/matters/timeline/traces.py": "sha256:a5e4160da988dd9aaf1f252acb06706068bcb264d23fc000f6226fb4f72c4eb7",
         "tests/test_matter_activity.py": "sha256:68de5f44182d21cd35d168e0d3a37dd309420776909f1790a6381ef8413970a9",
-        "tests/test_start_boundary.py": "sha256:1aac979eff035273c7baf930c61f11daa4742760745789f1f9c4307a3adc7d89",
+        "tests/test_start_boundary.py": "sha256:191553d01fb800b505518cdcee5afc5ccdf12354cde1dd1d046dcf0aaad0c3f9",
         "tests/test_tm05_event_trace.py": "sha256:7aa0e5fdb156a2a014ebd49938caf7e68304960e5b16532af76901cebf44299a"
       },
-      "artifact_id": "artifact:run:TM05_event_trace:8ac929150c26981a",
+      "artifact_id": "artifact:run:TM05_event_trace:31f5a3714fe9256f",
       "assertion_scope": "external_contract",
       "command": "python -m pytest -q -o addopts= tests/test_tm05_event_trace.py tests/test_matter_activity.py tests/test_start_boundary.py",
       "covered_obligation_ids": [
@@ -454,7 +454,7 @@
       ],
       "current": true,
       "exit_code": 0,
-      "finished_at": "2026-07-21T04:39:26.193133+00:00",
+      "finished_at": "2026-07-21T10:05:49.844694+00:00",
       "metadata": {},
       "producer_route": "test_mesh",
       "progress_only": false,
@@ -463,15 +463,15 @@
       "route_evidence_current": true,
       "route_gap_codes": [],
       "stale_reasons": [],
-      "started_at": "2026-07-21T04:39:24.501186+00:00"
+      "started_at": "2026-07-21T10:05:47.306834+00:00"
     },
     "release_required": false,
-    "result_fingerprint": "sha256:0dd4e73594a02ce57d0e033e2a847b75c03d96478a8e47f43711a12ee914ac39",
+    "result_fingerprint": "sha256:ef74ab165dc2477355c0f196181ff16fae9db7c83f2c346d37fd28554d152391",
     "result_path": ".flowguard/evidence/tests/TM05_event_trace.json",
     "result_reused": false,
     "result_status": "passed",
     "reuse_ticket": null,
-    "run_id": "run:TM05_event_trace:8ac929150c26981a",
+    "run_id": "run:TM05_event_trace:31f5a3714fe9256f",
     "selected_count": 27,
     "skipped_count": 0,
     "skipped_visible": true,

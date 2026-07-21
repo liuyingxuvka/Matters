@@ -6,7 +6,7 @@
     "abstract_green",
     "hazard_green"
   ],
-  "generated_at": "2026-07-21T07:12:00.851248+00:00",
+  "generated_at": "2026-07-21T09:45:47.852773+00:00",
   "known_bad_proofs": [
     {
       "evidence_id": "C9_completion_cancellation_reopen:known-bad:H-C9-001-false-completion-proof",

@@ -256,14 +256,28 @@ try {
     ) {
         throw "The installed Matters desktop executable identity changed."
     }
-    $SelfTestOutput = @(& $InstalledExecutable --self-test)
-    if ($LASTEXITCODE -ne 0 -or $SelfTestOutput.Count -eq 0) {
+    $InstalledSelfTestStdoutPath = Join-Path $TransactionRoot "installed-self-test.stdout.json"
+    $InstalledSelfTestStderrPath = Join-Path $TransactionRoot "installed-self-test.stderr.txt"
+    $InstalledSelfTestProcess = Start-Process `
+        -FilePath $InstalledExecutable `
+        -ArgumentList "--self-test" `
+        -Wait `
+        -PassThru `
+        -WindowStyle Hidden `
+        -RedirectStandardOutput $InstalledSelfTestStdoutPath `
+        -RedirectStandardError $InstalledSelfTestStderrPath
+    $SelfTestOutput = if (Test-Path -LiteralPath $InstalledSelfTestStdoutPath -PathType Leaf) {
+        Get-Content -LiteralPath $InstalledSelfTestStdoutPath -Raw -Encoding UTF8
+    } else {
+        ""
+    }
+    if (
+        $InstalledSelfTestProcess.ExitCode -ne 0 -or
+        [string]::IsNullOrWhiteSpace($SelfTestOutput)
+    ) {
         throw "The installed Matters desktop package currentness check failed."
     }
-    $SelfTest = (
-        [string]::Join([Environment]::NewLine, $SelfTestOutput) |
-            ConvertFrom-Json
-    )
+    $SelfTest = $SelfTestOutput | ConvertFrom-Json
     if (
         $SelfTest.ok -ne $true -or
         [string]$SelfTest.result.matters_version -ne $Version -or

@@ -6,7 +6,7 @@
     "abstract_green",
     "hazard_green"
   ],
-  "generated_at": "2026-07-21T07:11:37.017088+00:00",
+  "generated_at": "2026-07-21T09:45:30.353520+00:00",
   "known_bad_proofs": [
     {
       "evidence_id": "C5_event_temporal_trace:known-bad:H-C5-016-restart-revives-superseded-event",

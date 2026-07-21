@@ -1,6 +1,6 @@
 {
   "artifact_type": "matters.test-suite-receipt.v1",
-  "generated_at": "2026-07-21T04:45:33.191014+00:00",
+  "generated_at": "2026-07-21T10:20:23.917207+00:00",
   "pytest_observation": {
     "errors": 0,
     "failed": 0,
@@ -26,7 +26,7 @@
     "tests/test_sqlite_store_scale_kernel.py"
   ],
   "stderr_tail": "",
-  "stdout_tail": "..........................................................               [100%]\n58 passed in 23.54s\n",
+  "stdout_tail": "..........................................................               [100%]\n58 passed in 33.76s\n",
   "suite_id": "TM21_object_coverage_worker",
   "test_suite_evidence": {
     "artifact_version": "matters.test-suite-receipt.v1",
@@ -76,7 +76,7 @@
         "tests/test_runtime_persistence_inventory.py": "sha256:4c8da7db8ce0debb965442ece45387c59cab61c4851a10d08b61c689b5b230fa",
         "tests/test_sqlite_store_scale_kernel.py": "sha256:ab371b5651b6d308d809b05433d8730019fb2549072a00c7efec532ce3823515"
       },
-      "artifact_id": "artifact:run:TM21_object_coverage_worker:4d957fac98fa8090",
+      "artifact_id": "artifact:run:TM21_object_coverage_worker:5e747c92802dc4da",
       "assertion_scope": "external_contract",
       "command": "python -m pytest -q -o addopts= tests/test_runtime_persistence_inventory.py tests/test_coverage_audit.py tests/test_sqlite_store_scale_kernel.py",
       "covered_obligation_ids": [
@@ -87,7 +87,7 @@
       ],
       "current": true,
       "exit_code": 0,
-      "finished_at": "2026-07-21T04:45:33.191014+00:00",
+      "finished_at": "2026-07-21T10:20:23.917207+00:00",
       "metadata": {},
       "producer_route": "test_mesh",
       "progress_only": false,
@@ -96,7 +96,7 @@
       "route_evidence_current": true,
       "route_gap_codes": [],
       "stale_reasons": [],
-      "started_at": "2026-07-21T04:45:08.213076+00:00"
+      "started_at": "2026-07-21T10:19:47.924011+00:00"
     },
     "release_required": false,
     "result_fingerprint": "sha256:774ced039880695bae22cf79df79ba4bed5a7c3d9c1f17a77f362bfa479e3b19",
@@ -104,7 +104,7 @@
     "result_reused": false,
     "result_status": "passed",
     "reuse_ticket": null,
-    "run_id": "run:TM21_object_coverage_worker:4d957fac98fa8090",
+    "run_id": "run:TM21_object_coverage_worker:5e747c92802dc4da",
     "selected_count": 58,
     "skipped_count": 0,
     "skipped_visible": true,

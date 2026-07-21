@@ -1,6 +1,6 @@
 {
   "artifact_type": "matters.test-suite-receipt.v1",
-  "generated_at": "2026-07-21T04:54:07.072895+00:00",
+  "generated_at": "2026-07-21T10:14:02.521630+00:00",
   "pytest_observation": {
     "errors": 0,
     "failed": 0,
@@ -10,9 +10,9 @@
     "xfailed": 0,
     "xpassed": 0
   },
-  "source_fingerprint": "sha256:7e2b7fc38359b6f30a4eb984ebba45642dd19f33fe07a45bfc9d56e9041efd7b",
+  "source_fingerprint": "sha256:c6ee744ec18b0246f3ce4ad7e7c6e324852d19fcd90cae1efaedefccefcab6a6",
   "source_fingerprints": {
-    "src/matters/application/orchestrator.py": "sha256:7eb7998a342588a24ca256f35b15f4079aaf87f147d15180b6c41d2c77b1c7da",
+    "src/matters/application/orchestrator.py": "sha256:f94b4cde6ece35e498f917ae2edf73cc28f21088b2d190ad0bf4a383b4d80e93",
     "src/matters/revisions/__init__.py": "sha256:e892b7753f5ade76b734e87b2f80ef91b97ca262371d613e869cff0fcabd42ee",
     "src/matters/revisions/corrections.py": "sha256:b248d33dd9d2d8d12dab18fa81107656a032ac6d06b7385ce9494236418a9c05",
     "src/matters/revisions/deletion.py": "sha256:7d829f1e26167911a25937a7629f492d6bbcac86e185d3a7bf4403163a26cb4e",
@@ -24,7 +24,7 @@
     "tests/test_tm17_revocation_full_propagation.py"
   ],
   "stderr_tail": "",
-  "stdout_tail": ".                                                                        [100%]\n1 passed in 0.83s\n",
+  "stdout_tail": ".                                                                        [100%]\n1 passed in 1.83s\n",
   "suite_id": "TM17_revocation_full_propagation",
   "test_suite_evidence": {
     "artifact_version": "matters.test-suite-receipt.v1",
@@ -62,7 +62,7 @@
     "progress_only": false,
     "proof_artifact": {
       "artifact_fingerprints": {
-        "src/matters/application/orchestrator.py": "sha256:7eb7998a342588a24ca256f35b15f4079aaf87f147d15180b6c41d2c77b1c7da",
+        "src/matters/application/orchestrator.py": "sha256:f94b4cde6ece35e498f917ae2edf73cc28f21088b2d190ad0bf4a383b4d80e93",
         "src/matters/revisions/__init__.py": "sha256:e892b7753f5ade76b734e87b2f80ef91b97ca262371d613e869cff0fcabd42ee",
         "src/matters/revisions/corrections.py": "sha256:b248d33dd9d2d8d12dab18fa81107656a032ac6d06b7385ce9494236418a9c05",
         "src/matters/revisions/deletion.py": "sha256:7d829f1e26167911a25937a7629f492d6bbcac86e185d3a7bf4403163a26cb4e",
@@ -70,7 +70,7 @@
         "src/matters/revisions/recompute.py": "sha256:a695d0258b7db5ac47d1bce7f0040edebad4ee1ff8f549067e6c2af35f41b918",
         "tests/test_tm17_revocation_full_propagation.py": "sha256:df22ac9bf9a3b1ea20f1bad39077ace71a173d99c45b04f441d14308f11d6b17"
       },
-      "artifact_id": "artifact:run:TM17_revocation_full_propagation:98752ccd422fa8d4",
+      "artifact_id": "artifact:run:TM17_revocation_full_propagation:da1e00e277f6a4d9",
       "assertion_scope": "external_contract",
       "command": "python -m pytest -q -o addopts= tests/test_tm17_revocation_full_propagation.py",
       "covered_obligation_ids": [
@@ -79,7 +79,7 @@
       ],
       "current": true,
       "exit_code": 0,
-      "finished_at": "2026-07-21T04:54:07.072895+00:00",
+      "finished_at": "2026-07-21T10:14:02.521630+00:00",
       "metadata": {},
       "producer_route": "test_mesh",
       "progress_only": false,
@@ -88,15 +88,15 @@
       "route_evidence_current": true,
       "route_gap_codes": [],
       "stale_reasons": [],
-      "started_at": "2026-07-21T04:54:04.954770+00:00"
+      "started_at": "2026-07-21T10:13:57.404340+00:00"
     },
     "release_required": false,
-    "result_fingerprint": "sha256:7e2b7fc38359b6f30a4eb984ebba45642dd19f33fe07a45bfc9d56e9041efd7b",
+    "result_fingerprint": "sha256:c6ee744ec18b0246f3ce4ad7e7c6e324852d19fcd90cae1efaedefccefcab6a6",
     "result_path": ".flowguard/evidence/tests/TM17_revocation_full_propagation.json",
     "result_reused": false,
     "result_status": "passed",
     "reuse_ticket": null,
-    "run_id": "run:TM17_revocation_full_propagation:98752ccd422fa8d4",
+    "run_id": "run:TM17_revocation_full_propagation:da1e00e277f6a4d9",
     "selected_count": 1,
     "skipped_count": 0,
     "skipped_visible": true,

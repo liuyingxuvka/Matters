@@ -6,7 +6,7 @@
     "abstract_green",
     "hazard_green"
   ],
-  "generated_at": "2026-07-21T07:11:25.065829+00:00",
+  "generated_at": "2026-07-21T09:45:21.148924+00:00",
   "known_bad_proofs": [
     {
       "evidence_id": "C2_source_registry:known-bad:H-C2-017-inventory-revision-rewrites-content-selection",

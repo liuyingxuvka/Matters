@@ -709,7 +709,7 @@
     "hazard_green"
   ],
   "function_signature": "S3_active_skill_resolution: CaseInput x ModelState -> Set(DecisionOutput x ModelState)",
-  "generated_at": "2026-07-19T05:49:08.282669+00:00",
+  "generated_at": "2026-07-21T09:47:32.601308+00:00",
   "known_bad_proofs": [
     {
       "evidence_id": "S3_active_skill_resolution:known-bad:H-S3-001-stale-view-accepted",
@@ -763,7 +763,7 @@
     "production_conformance": "not_run: auxiliary skill runtime implementation is intentionally outside this model-only workstream"
   },
   "toolchain": {
-    "flowguard_package_version": "0.58.4",
+    "flowguard_package_version": "0.58.5",
     "flowguard_schema_version": "1.0"
   }
 }

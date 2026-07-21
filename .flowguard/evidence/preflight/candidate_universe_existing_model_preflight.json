@@ -2,8 +2,8 @@
   "artifact_type": "matters.existing-model-preflight.v2",
   "blockers": [],
   "claim_boundary": "This current receipt proves plane-first lookup, source/model discovery, ownership, reuse/extension, same-intent surface inventory, OpenSpec read-only context, and explicit legacy disposition only. It does not prove model execution, mesh closure, field lifecycle, agent operations, ResearchGuard availability, Skill Pack validation, TestMesh, runtime, private first run, install, or release. Model source edits after this fingerprint stale this receipt.",
-  "evidence_id": "evidence:existing-model-preflight:a43acf724c23f548",
-  "generated_at": "2026-07-21T07:12:16.144880+00:00",
+  "evidence_id": "evidence:existing-model-preflight:7f95f8c4da00273d",
+  "generated_at": "2026-07-21T10:21:34.454125+00:00",
   "native_report": {
     "behavior_commitment_id": "BC-DP-004",
     "business_intent_id": "BI-DP-004-progressive-private-first-run",
@@ -23,7 +23,7 @@
           "child_model_ids": [],
           "child_reattachment_status": "",
           "evidence_current": false,
-          "evidence_id": "source:sha256:6e334715c3422df54d1bc58a8ec5849fe96051d33c3c5b6da8e83fb015a34b03",
+          "evidence_id": "source:sha256:bcd66f0ced2ec98868a3a23ffc7d26f7d4f7b7c53bd61dd7c6473b3602c32adb",
           "evidence_tier": "candidate_only",
           "fields_owned": [
             "development_gate.status",
@@ -43,10 +43,10 @@
           "parent_coverage_status": "",
           "parent_model_id": "",
           "public_entrypoints": [],
-          "rationale": "extend_with_source_in_place_migration_order_coverage_scan_desktop_visual_qa_install_and_release_gates",
+          "rationale": "extend_with_generic_v030_release_before_post_release_private_first_run_plus_source_in_place_migration_order_coverage_scan_desktop_visual_qa_install_and_release_gates",
           "responsibilities": [
             "development gate order and evidence freshness",
-            "progressive private first-run sequencing",
+            "generic v0.3.0 release before progressive private first-run sequencing",
             "Model Miss handoff into ordinary development"
           ],
           "side_effects_owned": [
@@ -89,7 +89,7 @@
           ],
           "child_reattachment_status": "stale_requires_candidate_universe_revalidation",
           "evidence_current": false,
-          "evidence_id": "source:sha256:833c36d9bcc337fca2b0b5e65d5f4da7791cd4ca8cb50024f5be74653c88fb07",
+          "evidence_id": "source:sha256:0d6e08fa1ceb4e8bd496c6c744960a59eb13c58b659b22d113fd58139b7d205e",
           "evidence_tier": "candidate_only",
           "fields_owned": [
             "orchestration.child_receipt_set",
@@ -112,6 +112,7 @@
             "orchestration.blocked_object_count",
             "orchestration.worker_checkpoint",
             "orchestration.worker_health",
+            "orchestration.owner_redispatch_count",
             "orchestration.worker_poll_due_at",
             "orchestration.foreground_availability",
             "orchestration.filesystem_claim_lease",
@@ -244,6 +245,7 @@
             "orchestration.blocked_object_count",
             "orchestration.worker_checkpoint",
             "orchestration.worker_health",
+            "orchestration.owner_redispatch_count",
             "orchestration.worker_poll_due_at",
             "orchestration.foreground_availability",
             "orchestration.filesystem_claim_lease",
@@ -1666,7 +1668,7 @@
           "child_model_ids": [],
           "child_reattachment_status": "",
           "evidence_current": false,
-          "evidence_id": "source:sha256:6e334715c3422df54d1bc58a8ec5849fe96051d33c3c5b6da8e83fb015a34b03",
+          "evidence_id": "source:sha256:bcd66f0ced2ec98868a3a23ffc7d26f7d4f7b7c53bd61dd7c6473b3602c32adb",
           "evidence_tier": "candidate_only",
           "fields_owned": [
             "skill_runtime.bundle_identity",
@@ -1913,6 +1915,7 @@
       "orchestration.blocked_object_count",
       "orchestration.worker_checkpoint",
       "orchestration.worker_health",
+      "orchestration.owner_redispatch_count",
       "orchestration.worker_poll_due_at",
       "orchestration.foreground_availability",
       "orchestration.filesystem_claim_lease",
@@ -2256,7 +2259,7 @@
       "ai_gateway.researchguard_status",
       "ai_gateway.completion_status"
     ],
-    "behavior_lookup_reason": "The change is primarily a development lifecycle and integration rebase. DPF remains the single process owner; C1-C12 and agent operations are typed evidence targets and never merge into the development-process plane.",
+    "behavior_lookup_reason": "The change is primarily a development lifecycle and integration rebase. DPF owns both the generic v0.3.0 release gate and the separate post-release private-first-run sequence; C1-C12 and agent operations are typed evidence targets and never merge into the development-process plane.",
     "behavior_lookup_required": true,
     "behavior_lookup_status": "performed",
     "candidate_commitment_hits": [],
@@ -2310,8 +2313,8 @@
         "disposition": "materialized",
         "evidence_current": true,
         "evidence_ids": [
-          "sha256:d3f0e96744db5ad5c9285ca94980c8621304f5acb70e92f0e647868a15c89d22",
-          "sha256:ba5c1c6893b90b856fbc4b9e38d97a99c3eddb476882055ac2d53c70b3d93515"
+          "sha256:03b1d0c7b22e9f4c0058c83f4f4ebd62285f71919e9809902d921e2b4c0187aa",
+          "sha256:9485c89c762a8dda11a781e0fd3e1b93005e1db72095b2fe2a1456768e8a5ba2"
         ],
         "expected_terminal": "complete, researchguard_pending_integration, or blocked with typed next actions",
         "in_scope": true,
@@ -2339,7 +2342,7 @@
         "evidence_current": true,
         "evidence_ids": [
           "sha256:f69ae31a1b48da4cabad199358dd9c17aa008ae5ac9f1a4a754cecb9513ba498",
-          "sha256:ba5c1c6893b90b856fbc4b9e38d97a99c3eddb476882055ac2d53c70b3d93515"
+          "sha256:9485c89c762a8dda11a781e0fd3e1b93005e1db72095b2fe2a1456768e8a5ba2"
         ],
         "expected_terminal": "complete, researchguard_pending_integration, or blocked with typed next actions",
         "in_scope": true,
@@ -2363,8 +2366,8 @@
         "disposition": "materialized",
         "evidence_current": true,
         "evidence_ids": [
-          "sha256:6e334715c3422df54d1bc58a8ec5849fe96051d33c3c5b6da8e83fb015a34b03",
-          "sha256:ba5c1c6893b90b856fbc4b9e38d97a99c3eddb476882055ac2d53c70b3d93515"
+          "sha256:bcd66f0ced2ec98868a3a23ffc7d26f7d4f7b7c53bd61dd7c6473b3602c32adb",
+          "sha256:9485c89c762a8dda11a781e0fd3e1b93005e1db72095b2fe2a1456768e8a5ba2"
         ],
         "expected_terminal": "complete, researchguard_pending_integration, or blocked with typed next actions",
         "in_scope": true,
@@ -2392,7 +2395,7 @@
         "evidence_current": true,
         "evidence_ids": [
           "sha256:10090da4fc19284ece20aa7c9fd58826ebb8a442e1b680008cda62b5d84d4ffb",
-          "sha256:ba5c1c6893b90b856fbc4b9e38d97a99c3eddb476882055ac2d53c70b3d93515"
+          "sha256:9485c89c762a8dda11a781e0fd3e1b93005e1db72095b2fe2a1456768e8a5ba2"
         ],
         "expected_terminal": "",
         "in_scope": false,
@@ -2410,7 +2413,7 @@
         "validation_boundary": "source-only dormant adapter with zero required runtime, install, acceptance, or release authority"
       }
     ],
-    "ledger_fingerprint": "sha256:ba5c1c6893b90b856fbc4b9e38d97a99c3eddb476882055ac2d53c70b3d93515",
+    "ledger_fingerprint": "sha256:9485c89c762a8dda11a781e0fd3e1b93005e1db72095b2fe2a1456768e8a5ba2",
     "mode": "full",
     "model_angle_deliberations": [],
     "model_angle_gap_ids": [],
@@ -2497,6 +2500,10 @@
         ],
         [
           "orchestration.worker_health",
+          "M0_matters_end_to_end_authority"
+        ],
+        [
+          "orchestration.owner_redispatch_count",
           "M0_matters_end_to_end_authority"
         ],
         [
@@ -5289,7 +5296,7 @@
           "DPF_matters_delivery_gate"
         ],
         [
-          "progressive private first-run sequencing",
+          "generic v0.3.0 release before progressive private first-run sequencing",
           "DPF_matters_delivery_gate"
         ],
         [
@@ -5682,6 +5689,10 @@
         ],
         [
           "orchestration.worker_health",
+          "M0_matters_end_to_end_authority"
+        ],
+        [
+          "orchestration.owner_redispatch_count",
           "M0_matters_end_to_end_authority"
         ],
         [
@@ -7068,7 +7079,7 @@
         "hit_role": "primary",
         "match_reasons": [
           "same progressive private-first-run process intent",
-          "existing DPF owns order and evidence freshness",
+          "existing DPF owns generic-release-before-private-run order and evidence freshness",
           "Jira-specific predecessor is explicitly replaced"
         ],
         "primary_owner_model_id": "DPF_matters_delivery_gate",
@@ -7080,6 +7091,22 @@
     "proposed_new_boundaries": [],
     "rationale": "M0/C1-C12 retain product ownership and DPF retains process order. S0 is an auxiliary non-product skill-runtime boundary, while A0/A1/A2/A3 are disjoint agent-operation owners. A3 owns gateway receipts only. No C13, Jira/Rovo gate, Guard vendoring, or three-Guard parallel runtime authority is introduced.",
     "related_commitment_hits": [
+      {
+        "behavior_plane": "development_process",
+        "commitment_id": "BC-DP-003",
+        "hit_role": "validation_target",
+        "match_reasons": [
+          "generic v0.3.0 private-repository release must close before the private first run",
+          "release evidence excludes private aggregate consumption and completion claims"
+        ],
+        "primary_owner_model_id": "DPF_matters_delivery_gate",
+        "relation_path": [
+          "BC-DP-004",
+          "BC-DP-003"
+        ],
+        "relation_type": "requires_evidence_from",
+        "score": 99
+      },
       {
         "behavior_plane": "product_runtime",
         "commitment_id": "BC-PR-001",
@@ -7192,7 +7219,7 @@
         "child_model_ids": [],
         "child_reattachment_status": "",
         "evidence_current": false,
-        "evidence_id": "source:sha256:6e334715c3422df54d1bc58a8ec5849fe96051d33c3c5b6da8e83fb015a34b03",
+        "evidence_id": "source:sha256:bcd66f0ced2ec98868a3a23ffc7d26f7d4f7b7c53bd61dd7c6473b3602c32adb",
         "evidence_tier": "candidate_only",
         "fields_owned": [
           "development_gate.status",
@@ -7212,10 +7239,10 @@
         "parent_coverage_status": "",
         "parent_model_id": "",
         "public_entrypoints": [],
-        "rationale": "extend_with_source_in_place_migration_order_coverage_scan_desktop_visual_qa_install_and_release_gates",
+        "rationale": "extend_with_generic_v030_release_before_post_release_private_first_run_plus_source_in_place_migration_order_coverage_scan_desktop_visual_qa_install_and_release_gates",
         "responsibilities": [
           "development gate order and evidence freshness",
-          "progressive private first-run sequencing",
+          "generic v0.3.0 release before progressive private first-run sequencing",
           "Model Miss handoff into ordinary development"
         ],
         "side_effects_owned": [
@@ -7251,7 +7278,7 @@
         ],
         "child_reattachment_status": "stale_requires_candidate_universe_revalidation",
         "evidence_current": false,
-        "evidence_id": "source:sha256:833c36d9bcc337fca2b0b5e65d5f4da7791cd4ca8cb50024f5be74653c88fb07",
+        "evidence_id": "source:sha256:0d6e08fa1ceb4e8bd496c6c744960a59eb13c58b659b22d113fd58139b7d205e",
         "evidence_tier": "candidate_only",
         "fields_owned": [
           "orchestration.child_receipt_set",
@@ -7274,6 +7301,7 @@
           "orchestration.blocked_object_count",
           "orchestration.worker_checkpoint",
           "orchestration.worker_health",
+          "orchestration.owner_redispatch_count",
           "orchestration.worker_poll_due_at",
           "orchestration.foreground_availability",
           "orchestration.filesystem_claim_lease",
@@ -7406,6 +7434,7 @@
           "orchestration.blocked_object_count",
           "orchestration.worker_checkpoint",
           "orchestration.worker_health",
+          "orchestration.owner_redispatch_count",
           "orchestration.worker_poll_due_at",
           "orchestration.foreground_availability",
           "orchestration.filesystem_claim_lease",
@@ -8737,7 +8766,7 @@
         "child_model_ids": [],
         "child_reattachment_status": "",
         "evidence_current": false,
-        "evidence_id": "source:sha256:6e334715c3422df54d1bc58a8ec5849fe96051d33c3c5b6da8e83fb015a34b03",
+        "evidence_id": "source:sha256:bcd66f0ced2ec98868a3a23ffc7d26f7d4f7b7c53bd61dd7c6473b3602c32adb",
         "evidence_tier": "candidate_only",
         "fields_owned": [
           "skill_runtime.bundle_identity",
@@ -8939,7 +8968,7 @@
     "skip_reason": "",
     "spec_context": {
       "artifact_ids": {
-        "openspec/changes/build-matters-model-driven-core/design.md": "sha256:2e5189b18bbee23b07241e0edee311acd364b864ab1989e6e4a314a5829d152d",
+        "openspec/changes/build-matters-model-driven-core/design.md": "sha256:05b667c2aaa80e97d654efdae14a101c6708dcf34b9933aa1a41a2e70ee741e4",
         "openspec/changes/build-matters-model-driven-core/proposal.md": "sha256:f69ae31a1b48da4cabad199358dd9c17aa008ae5ac9f1a4a754cecb9513ba498",
         "openspec/changes/build-matters-model-driven-core/specs/authorization-coverage/spec.md": "sha256:e06f6ca8c4cfda67c9ac75b0643fa7ac267b0a756e71a2d5b558c54b55b68252",
         "openspec/changes/build-matters-model-driven-core/specs/bilingual-projection-ui/spec.md": "sha256:6fdeafc86a288b501e5cab963e2fbdada77a3dcb64efe48b9ee091603bd33562",
@@ -8952,25 +8981,26 @@
         "openspec/changes/build-matters-model-driven-core/specs/matter-admission/spec.md": "sha256:1ac45c7f7cc52db797bac33f21cdb17b702a7996202dd82d80145f4e7ccbc55d",
         "openspec/changes/build-matters-model-driven-core/specs/open-loop-blocking/spec.md": "sha256:f7ff9323cade5e0aaa02ca0957bf1431a5c19f6f25448cb0d9f0604fb3c9ca9e",
         "openspec/changes/build-matters-model-driven-core/specs/outcomes-reopen/spec.md": "sha256:1492e585d87aad1055290b5983ec2c597f148a145d54595ca0ba831a11e468ef",
-        "openspec/changes/build-matters-model-driven-core/specs/privacy-release-boundary/spec.md": "sha256:16547f86aea850e29d1522d9c7a44fd5560148b547d95a308eef024c540fa09a",
+        "openspec/changes/build-matters-model-driven-core/specs/privacy-release-boundary/spec.md": "sha256:0519aa0cedf547971c1df97e0449016ee758a45b6e326bdb0f4af8f48054b6c7",
         "openspec/changes/build-matters-model-driven-core/specs/source-provenance/spec.md": "sha256:eb704496b2d3388d089e8c73a17eb0b9e2c5cbc6658fbc0bc92f63bff09eb084",
         "openspec/changes/build-matters-model-driven-core/specs/temporal-trace/spec.md": "sha256:ed05acfb7cc0130a30dbe6aefa9981894fa0c4695b10b9d50254f0c84adacc21",
-        "openspec/changes/build-matters-model-driven-core/tasks.md": "sha256:d3f0e96744db5ad5c9285ca94980c8621304f5acb70e92f0e647868a15c89d22"
+        "openspec/changes/build-matters-model-driven-core/tasks.md": "sha256:03b1d0c7b22e9f4c0058c83f4f4ebd62285f71919e9809902d921e2b4c0187aa"
       },
       "behavior_plane": "development_process",
       "change_id": "build-matters-model-driven-core",
-      "context_hash": "sha256:45cb6f1f64465b176b77fd5a468afcdf8577cf274b7d5eeff2252849f9efeecc",
-      "context_id": "openspec:build-matters-model-driven-core:v0.3.0-matter-browser-semantic-reset-v7",
+      "context_hash": "sha256:55a045c03c73568e5f346d36299f4416821dfbc2e2ab6fe7d69aac504e32eece",
+      "context_id": "openspec:build-matters-model-driven-core:v0.3.0-matter-browser-semantic-reset-v8",
       "current": true,
       "execution_bridge": false,
-      "ledger_fingerprint": "sha256:ba5c1c6893b90b856fbc4b9e38d97a99c3eddb476882055ac2d53c70b3d93515",
+      "ledger_fingerprint": "sha256:9485c89c762a8dda11a781e0fd3e1b93005e1db72095b2fe2a1456768e8a5ba2",
       "provider_id": "openspec",
       "provider_owns_product_behavior": false,
       "read_only": true,
       "receipt_bridge": false,
       "reconciliation_current": true,
-      "reconciliation_fingerprint": "sha256:e62eff0ce7c263c8857ba9fb59128c880095e7c747597dce6cff5d605f099bf8",
+      "reconciliation_fingerprint": "sha256:0e6c08e8b6ce57c5bed930a865ee3bdeacba9dd214e76559d81858c0c810403e",
       "target_commitment_ids": [
+        "BC-DP-003",
         "BC-DP-004",
         "BC-DP-005",
         "BC-DP-006",
@@ -8988,6 +9018,7 @@
         "BC-PR-012"
       ],
       "typed_relation_ids": [
+        "BC-DP-004:requires_evidence_from:BC-DP-003",
         "BC-DP-004:governs:BC-AO-001",
         "BC-DP-004:governs:BC-AO-002",
         "BC-DP-004:governs:BC-AO-003",
@@ -8996,17 +9027,17 @@
         "BC-DP-004:requires_evidence_from:BC-PR-001",
         "BC-DP-009:requires_evidence_from:BC-PR-010"
       ],
-      "work_package_id": "openspec:build-matters-model-driven-core:v0.3.0-matter-browser-semantic-reset-v7"
+      "work_package_id": "openspec:build-matters-model-driven-core:v0.3.0-matter-browser-semantic-reset-v8"
     },
     "surface_inventory_evidence_ids": [
-      "sha256:e045b1166f6e9d18bd88d32b4f7df71a3e12feb6322762cb79bb3a7cfe4aa89c",
-      "sha256:ba5c1c6893b90b856fbc4b9e38d97a99c3eddb476882055ac2d53c70b3d93515"
+      "sha256:9f192f5dab784861f0de85253a8d1681484e193c9bf99ea7ca1f20d2d07e804c",
+      "sha256:9485c89c762a8dda11a781e0fd3e1b93005e1db72095b2fe2a1456768e8a5ba2"
     ],
-    "surface_inventory_revision": "sha256:e045b1166f6e9d18bd88d32b4f7df71a3e12feb6322762cb79bb3a7cfe4aa89c",
-    "task_summary": "Extend Matters v0.3.0 for a frozen candidate source universe, automatic reversible terminal dispositions, durable inventory and ObjectCoverageLedger freshness/depth and exact per-object stage audit, context-aware root/child reconciliation, source-in-place storage with durable pointer/fingerprint and derived understanding, transient raw cleanup and grouped source locations, a bounded multi-depth SituationGraph plus advisory Situation/World Model inference with visible certainty, MaterialClue activity and atomic bilingual summaries, model-agnostic capability-routed WorkPackageV2 execution with replaceable private Codex profiles, strongest-compatible primary Codex maintenance planning plus bounded low-cost delegation, generated presentation-only root-only photorealistic heroes, summary-free standard and compact root cards, the eight-section Databank-authority bilingual desktop object browser with one reusable single-layer descendant quick view, one abstract ResearchOperation with the single ResearchGuard provider plus automatic idempotent root-only supplemental queuing and descendant not-applicable disposition, an exact eleven-skill app-local pack without machine-global overlays, one separate public Matters AI gateway for bounded model-map/context/history access and typed feedback, event-driven progressive private maintenance through one shared path with daily scheduling opt-in only, and bounded Model Miss handoff without app-owned API keys, Jira/Rovo, Guard vendoring, or legacy Guard fallbacks.",
+    "surface_inventory_revision": "sha256:9f192f5dab784861f0de85253a8d1681484e193c9bf99ea7ca1f20d2d07e804c",
+    "task_summary": "Extend Matters v0.3.0 for a frozen candidate source universe, automatic reversible terminal dispositions, durable inventory and ObjectCoverageLedger freshness/depth and exact per-object stage audit, context-aware root/child reconciliation, source-in-place storage with durable pointer/fingerprint and derived understanding, transient raw cleanup and grouped source locations, a bounded multi-depth SituationGraph plus advisory Situation/World Model inference with visible certainty, MaterialClue activity and atomic bilingual summaries, model-agnostic capability-routed WorkPackageV2 execution with replaceable private Codex profiles, strongest-compatible primary Codex maintenance planning plus bounded low-cost delegation, generated presentation-only root-only photorealistic heroes, summary-free standard and compact root cards, the eight-section Databank-authority bilingual desktop object browser with one reusable single-layer descendant quick view, one abstract ResearchOperation with the single ResearchGuard provider plus automatic idempotent root-only supplemental queuing and descendant not-applicable disposition, an exact eleven-skill app-local pack without machine-global overlays, one separate public Matters AI gateway for bounded model-map/context/history access and typed feedback, event-driven progressive private maintenance through one shared path after one separately verified generic private-repository v0.3.0 release, with daily scheduling opt-in only, and bounded Model Miss handoff without app-owned API keys, Jira/Rovo, Guard vendoring, or legacy Guard fallbacks.",
     "typed_external_difference_ids": []
   },
-  "preflight_fingerprint": "sha256:a43acf724c23f5484e785794291a3c34d12b70e8a2df160974b77d35524bfb0a",
+  "preflight_fingerprint": "sha256:7f95f8c4da00273d9c21ec43a58eaaa000d6942a2e8b345d4635fda86a86c5e7",
   "researchguard_status": "researchguard_pending_integration",
   "retired_runtime_bindings": {
     "LogicGuard": "stale_source_only",
@@ -9030,7 +9061,7 @@
     "C7_lifecycle_board_state": "extend_with_confirmed_reported_planned_and_ai_inferred_lifecycle_certainty",
     "C8_open_loop_waiting_blocking": "replace_review_with_gap_and_not_applicable_terminals",
     "C9_completion_cancellation_reopen": "replace_review_with_completion_gap_and_outcome_conflict_terminals",
-    "DPF_matters_delivery_gate": "extend_with_source_in_place_migration_order_coverage_scan_desktop_visual_qa_install_and_release_gates",
+    "DPF_matters_delivery_gate": "extend_with_generic_v030_release_before_post_release_private_first_run_plus_source_in_place_migration_order_coverage_scan_desktop_visual_qa_install_and_release_gates",
     "M0_matters_end_to_end_authority": "extend_with_source_in_place_migration_situation_graph_world_model_and_ui_reachability_join",
     "S0_matters_skill_runtime": "add_auxiliary_non_product_skill_runtime_boundary"
   },

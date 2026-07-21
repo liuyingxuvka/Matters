@@ -6,11 +6,20 @@ $ErrorActionPreference = "Stop"
 $RepositoryRoot = [System.IO.Path]::GetFullPath(
     (Join-Path $PSScriptRoot "..")
 )
-$OutputPath = [System.IO.Path]::GetFullPath(
-    (Join-Path $RepositoryRoot $OutputRoot)
-)
+$OutputPath = if ([System.IO.Path]::IsPathRooted($OutputRoot)) {
+    [System.IO.Path]::GetFullPath($OutputRoot)
+} else {
+    [System.IO.Path]::GetFullPath(
+        (Join-Path $RepositoryRoot $OutputRoot)
+    )
+}
 $WorkPath = Join-Path $RepositoryRoot "build\desktop"
 $SpecPath = Join-Path $RepositoryRoot "build\desktop-spec"
+$IconPath = Join-Path $RepositoryRoot "src\matters\assets\matters.ico"
+$SourcePath = Join-Path $RepositoryRoot "src"
+$BundledSkillsPath = Join-Path $SourcePath "matters\bundled_skills"
+$UiPath = Join-Path $RepositoryRoot "ui"
+$EntryPath = Join-Path $RepositoryRoot "scripts\matters_desktop_entry.py"
 $PreviousPythonPath = $env:PYTHONPATH
 
 Push-Location $RepositoryRoot
@@ -26,15 +35,16 @@ try {
         --clean `
         --name Matters `
         --windowed `
-        --icon "src\matters\assets\matters.ico" `
-        --paths "src" `
+        --icon $IconPath `
+        --paths $SourcePath `
         --collect-all "webview" `
         --collect-data "matters" `
-        --add-data "ui;ui" `
+        --add-data "$BundledSkillsPath;matters\bundled_skills" `
+        --add-data "$UiPath;ui" `
         --distpath $OutputPath `
         --workpath $WorkPath `
         --specpath $SpecPath `
-        "scripts\matters_desktop_entry.py"
+        $EntryPath
     if ($LASTEXITCODE -ne 0) {
         throw "Matters desktop package build failed."
     }
@@ -43,18 +53,35 @@ try {
         throw "Matters desktop executable was not produced."
     }
     $SelfTestPath = Join-Path $OutputPath "desktop-self-test.json"
-    $SelfTestLines = @(& $Executable --self-test)
-    if ($LASTEXITCODE -ne 0 -or $SelfTestLines.Count -eq 0) {
+    $SelfTestStdoutPath = Join-Path $OutputPath "desktop-self-test.stdout.tmp"
+    $SelfTestStderrPath = Join-Path $OutputPath "desktop-self-test.stderr.tmp"
+    $SelfTestProcess = Start-Process `
+        -FilePath $Executable `
+        -ArgumentList "--self-test" `
+        -Wait `
+        -PassThru `
+        -WindowStyle Hidden `
+        -RedirectStandardOutput $SelfTestStdoutPath `
+        -RedirectStandardError $SelfTestStderrPath
+    $SelfTestOutput = if (Test-Path -LiteralPath $SelfTestStdoutPath -PathType Leaf) {
+        Get-Content -LiteralPath $SelfTestStdoutPath -Raw -Encoding UTF8
+    } else {
+        ""
+    }
+    if ($SelfTestProcess.ExitCode -ne 0 -or [string]::IsNullOrWhiteSpace($SelfTestOutput)) {
+        $SelfTestError = if (Test-Path -LiteralPath $SelfTestStderrPath -PathType Leaf) {
+            (Get-Content -LiteralPath $SelfTestStderrPath -Raw -Encoding UTF8).Trim()
+        } else {
+            ""
+        }
         throw "Matters packaged desktop self-test failed."
     }
     [System.IO.File]::WriteAllText(
         $SelfTestPath,
-        (
-            [string]::Join([Environment]::NewLine, $SelfTestLines) +
-            [Environment]::NewLine
-        ),
+        ($SelfTestOutput.TrimEnd() + [Environment]::NewLine),
         [System.Text.UTF8Encoding]::new($false)
     )
+    Remove-Item -LiteralPath $SelfTestStdoutPath, $SelfTestStderrPath -Force
     $ManifestPath = Join-Path $OutputPath "desktop-manifest.json"
     $env:PYTHONPATH = Join-Path $RepositoryRoot "src"
     python scripts\build_desktop_manifest.py `

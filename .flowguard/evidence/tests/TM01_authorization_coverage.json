@@ -1,6 +1,6 @@
 {
   "artifact_type": "matters.test-suite-receipt.v1",
-  "generated_at": "2026-07-21T04:39:17.323692+00:00",
+  "generated_at": "2026-07-21T10:05:36.963432+00:00",
   "pytest_observation": {
     "errors": 0,
     "failed": 0,
@@ -10,10 +10,10 @@
     "xfailed": 0,
     "xpassed": 0
   },
-  "source_fingerprint": "sha256:0872c63a1355a3bda92b9175fefb85e5b43288980d87657af1dbc0eed5140f4f",
+  "source_fingerprint": "sha256:dabfa7fae603924352ee3f48357753d64d87dabc0fc3d8e32f4a3706d850d935",
   "source_fingerprints": {
     "src/matters/analysis/depth.py": "sha256:5d25ca51f287422fb79939e72477e53fdfc0d2b0cacd8b9da017a0a6fb7f61ef",
-    "src/matters/application/orchestrator.py": "sha256:7eb7998a342588a24ca256f35b15f4079aaf87f147d15180b6c41d2c77b1c7da",
+    "src/matters/application/orchestrator.py": "sha256:f94b4cde6ece35e498f917ae2edf73cc28f21088b2d190ad0bf4a383b4d80e93",
     "src/matters/application/partitioned_filesystem.py": "sha256:dbe8d5c67cad6deace4d669c8d3f147cdec0dca463237680f5abc9911d33733f",
     "src/matters/application/source_workflows.py": "sha256:5e3b75101cba505bdd3db3d09aa2e0914dbeb66b4e08db29fbc02e10412e9c3a",
     "src/matters/authorization/__init__.py": "sha256:791cc41dd119996ec93b309c182ce299ae0bc4763ce7cfc6b12df157e2e2373b",
@@ -36,7 +36,7 @@
     "tests/test_partitioned_filesystem_runner.py"
   ],
   "stderr_tail": "",
-  "stdout_tail": "............................                                             [100%]\n28 passed in 32.13s\n",
+  "stdout_tail": "............................                                             [100%]\n28 passed in 49.96s\n",
   "suite_id": "TM01_authorization_coverage",
   "test_suite_evidence": {
     "artifact_version": "matters.test-suite-receipt.v1",
@@ -472,7 +472,7 @@
     "proof_artifact": {
       "artifact_fingerprints": {
         "src/matters/analysis/depth.py": "sha256:5d25ca51f287422fb79939e72477e53fdfc0d2b0cacd8b9da017a0a6fb7f61ef",
-        "src/matters/application/orchestrator.py": "sha256:7eb7998a342588a24ca256f35b15f4079aaf87f147d15180b6c41d2c77b1c7da",
+        "src/matters/application/orchestrator.py": "sha256:f94b4cde6ece35e498f917ae2edf73cc28f21088b2d190ad0bf4a383b4d80e93",
         "src/matters/application/partitioned_filesystem.py": "sha256:dbe8d5c67cad6deace4d669c8d3f147cdec0dca463237680f5abc9911d33733f",
         "src/matters/application/source_workflows.py": "sha256:5e3b75101cba505bdd3db3d09aa2e0914dbeb66b4e08db29fbc02e10412e9c3a",
         "src/matters/authorization/__init__.py": "sha256:791cc41dd119996ec93b309c182ce299ae0bc4763ce7cfc6b12df157e2e2373b",
@@ -488,7 +488,7 @@
         "tests/test_partitioned_filesystem_runner.py": "sha256:7a43e08bcfddaa8e49370a7420a75dc199b19b02b5f5e468ec95b849c976a65d",
         "tests/test_tm01_authorization_coverage.py": "sha256:2a4e1885ced2cf38dbfcb16a3cdede6bcc1703ec4a5f316e06a0f306f43c2131"
       },
-      "artifact_id": "artifact:run:TM01_authorization_coverage:f5f8d32cc55cf57d",
+      "artifact_id": "artifact:run:TM01_authorization_coverage:8280c323c9b5c484",
       "assertion_scope": "external_contract",
       "command": "python -m pytest -q -o addopts= tests/test_tm01_authorization_coverage.py tests/test_current_scope_reconciliation.py tests/test_inventory_policy_rebase.py tests/test_partitioned_filesystem_runner.py",
       "covered_obligation_ids": [
@@ -758,7 +758,7 @@
       ],
       "current": true,
       "exit_code": 0,
-      "finished_at": "2026-07-21T04:39:17.323692+00:00",
+      "finished_at": "2026-07-21T10:05:36.963432+00:00",
       "metadata": {},
       "producer_route": "test_mesh",
       "progress_only": false,
@@ -767,15 +767,15 @@
       "route_evidence_current": true,
       "route_gap_codes": [],
       "stale_reasons": [],
-      "started_at": "2026-07-21T04:38:43.930076+00:00"
+      "started_at": "2026-07-21T10:04:45.255889+00:00"
     },
     "release_required": false,
-    "result_fingerprint": "sha256:0872c63a1355a3bda92b9175fefb85e5b43288980d87657af1dbc0eed5140f4f",
+    "result_fingerprint": "sha256:dabfa7fae603924352ee3f48357753d64d87dabc0fc3d8e32f4a3706d850d935",
     "result_path": ".flowguard/evidence/tests/TM01_authorization_coverage.json",
     "result_reused": false,
     "result_status": "passed",
     "reuse_ticket": null,
-    "run_id": "run:TM01_authorization_coverage:f5f8d32cc55cf57d",
+    "run_id": "run:TM01_authorization_coverage:8280c323c9b5c484",
     "selected_count": 28,
     "skipped_count": 0,
     "skipped_visible": true,
