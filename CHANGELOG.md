@@ -4,7 +4,8 @@ All notable changes to Matters are recorded in this file.
 
 ## 0.3.1 — 2026-07-21
 
-Documentation and licensing correction released immediately after v0.3.0.
+Public licensing, AI installation, and product-positioning correction released
+immediately after v0.3.0.
 
 - Replaced the temporary source-available license with the standard MIT
   License, including matching Python package, plugin, SBOM, security, and
@@ -12,9 +13,23 @@ Documentation and licensing correction released immediately after v0.3.0.
 - Corrected the bilingual README so Matters is defined by the user's explicitly
   authorized file-reading scope, information-reading scope, and connected data
   sources, without defining the product around any fixed connector list.
+- Clarified that Matters reconstructs a small number of human-scale situations
+  such as a trip, job search, project, or household decision from scattered
+  clues; it is not a transcript archive or a card for every file and message.
 - Preserved the non-mutating source-in-place design and kept mailbox mutation,
   file deletion or execution, outbound messaging, remote-model disclosure, and
   public publication as separate permissions.
+- Added one AI-owned installation contract to the README, public plugin, wheel,
+  and Windows desktop archive. A compatible installing AI connects the MCP and
+  skills, asks the user for the authorized source scope, creates or repairs
+  exactly one daily schedule, runs initial bounded maintenance, and opens the
+  UI; no personal source scope is hard-coded into the release.
+- Added the public `matters-mcp` information-map and typed feedback gateway as a
+  shared human/AI entrance without turning it into a second canonical writer.
+- Separated publication readiness from the user's active local installation:
+  the frozen candidate is tested in an isolated anonymous environment and
+  published first, then the published assets are installed and verified as an
+  ordinary consumer.
 - Advanced the public package, desktop archive, plugin, and MCP server identity
   to 0.3.1 without changing the historical v0.3.0 tag or release assets.
 
