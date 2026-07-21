@@ -1,13 +1,37 @@
 {
   "artifact_type": "matters.flowguard-model-receipt.v1",
-  "claim_boundary": "This model establishes only bounded C1 authorization, candidate-scope, tracking, durable bounded partitioning, terminal-coverage, and privacy transitions. It does not prove live source completeness, AI classification quality, or private first-run coverage.",
-  "evidence_id": "evidence:C1_authorization_coverage:68f1f53f4b9e29af",
+  "claim_boundary": "This model establishes only bounded C1 authorization, candidate-scope, tracking, durable bounded partitioning, terminal-coverage, exact compressed noncurrent-history archival only after decompression-equivalence verification, and privacy transitions. It does not prove live source completeness, AI classification quality, private first-run coverage, a real private migration, physical SQLite shrinkage, or VACUUM safety.",
+  "evidence_id": "evidence:C1_authorization_coverage:fb63cdbfa75fc982",
   "evidence_tiers": [
     "abstract_green",
     "hazard_green"
   ],
-  "generated_at": "2026-07-19T05:48:39.893153+00:00",
+  "generated_at": "2026-07-21T07:11:16.428205+00:00",
   "known_bad_proofs": [
+    {
+      "evidence_id": "C1_authorization_coverage:known-bad:H-C1-024-coverage-archive-deletes-before-verification",
+      "failure_id": "H-C1-024-coverage-archive-deletes-before-verification",
+      "observed_status": "failed",
+      "protected_error_class": "coverage_history_archive_recovery_loss"
+    },
+    {
+      "evidence_id": "C1_authorization_coverage:known-bad:H-C1-022-coverage-rebase-reopens-retired-row",
+      "failure_id": "H-C1-022-coverage-rebase-reopens-retired-row",
+      "observed_status": "failed",
+      "protected_error_class": "tracked_only_coverage_rebase_escape"
+    },
+    {
+      "evidence_id": "C1_authorization_coverage:known-bad:H-C1-023-coverage-orphan-remains-active",
+      "failure_id": "H-C1-023-coverage-orphan-remains-active",
+      "observed_status": "failed",
+      "protected_error_class": "coverage_inventory_orphan_ghost"
+    },
+    {
+      "evidence_id": "C1_authorization_coverage:known-bad:H-C1-013-software-artifact-sent-to-ai",
+      "failure_id": "H-C1-013-software-artifact-sent-to-ai",
+      "observed_status": "failed",
+      "protected_error_class": "deterministic_admission_bypass"
+    },
     {
       "evidence_id": "C1_authorization_coverage:known-bad:H-C1-001-out-of-scope-read",
       "failure_id": "H-C1-001-out-of-scope-read",
@@ -69,12 +93,6 @@
       "protected_error_class": "user_tracking_override_lost"
     },
     {
-      "evidence_id": "C1_authorization_coverage:known-bad:H-C1-011-stale-tracking-action-token",
-      "failure_id": "H-C1-011-stale-tracking-action-token",
-      "observed_status": "failed",
-      "protected_error_class": "tracking_action_revision_bypass"
-    },
-    {
       "evidence_id": "C1_authorization_coverage:known-bad:H-C1-012-partition-checkpoint-write-amplification",
       "failure_id": "H-C1-012-partition-checkpoint-write-amplification",
       "observed_status": "failed",
@@ -115,9 +133,75 @@
       "failure_id": "H-C1-018-gmail-budget-selects-metadata-only-first",
       "observed_status": "failed",
       "protected_error_class": "gmail_content_budget_false_metadata_only"
+    },
+    {
+      "evidence_id": "C1_authorization_coverage:known-bad:H-C1-023-gmail-metadata-owner-gate-bypassed",
+      "failure_id": "H-C1-023-gmail-metadata-owner-gate-bypassed",
+      "observed_status": "failed",
+      "protected_error_class": "gmail_metadata_owner_scope_escape"
+    },
+    {
+      "evidence_id": "C1_authorization_coverage:known-bad:H-C1-025-gmail-current-scope-ambiguity-guessed",
+      "failure_id": "H-C1-025-gmail-current-scope-ambiguity-guessed",
+      "observed_status": "failed",
+      "protected_error_class": "gmail_current_scope_ambiguity_bypass"
+    },
+    {
+      "evidence_id": "C1_authorization_coverage:known-bad:H-C1-026-gmail-current-scope-stale-partial-commit",
+      "failure_id": "H-C1-026-gmail-current-scope-stale-partial-commit",
+      "observed_status": "failed",
+      "protected_error_class": "gmail_current_scope_cas_bypass"
+    },
+    {
+      "evidence_id": "C1_authorization_coverage:known-bad:H-C1-027-policy-rebase-time-hides-content-successor",
+      "failure_id": "H-C1-027-policy-rebase-time-hides-content-successor",
+      "observed_status": "failed",
+      "protected_error_class": "gmail_current_scope_maintenance_time_ordering"
+    },
+    {
+      "evidence_id": "C1_authorization_coverage:known-bad:H-C1-028-gmail-content-receipt-fabricated-from-metadata",
+      "failure_id": "H-C1-028-gmail-content-receipt-fabricated-from-metadata",
+      "observed_status": "failed",
+      "protected_error_class": "gmail_content_receipt_proof_bypass"
+    },
+    {
+      "evidence_id": "C1_authorization_coverage:known-bad:H-C1-029-gmail-content-receipt-rebase-copies-or-refetches",
+      "failure_id": "H-C1-029-gmail-content-receipt-rebase-copies-or-refetches",
+      "observed_status": "failed",
+      "protected_error_class": "gmail_content_receipt_rebase_privacy_escape"
+    },
+    {
+      "evidence_id": "C1_authorization_coverage:known-bad:H-C1-021-gmail-continuation-expands-manifest",
+      "failure_id": "H-C1-021-gmail-continuation-expands-manifest",
+      "observed_status": "failed",
+      "protected_error_class": "gmail_continuation_scope_expansion"
+    },
+    {
+      "evidence_id": "C1_authorization_coverage:known-bad:H-C1-022-gmail-no-text-body-unproven",
+      "failure_id": "H-C1-022-gmail-no-text-body-unproven",
+      "observed_status": "failed",
+      "protected_error_class": "gmail_no_text_admission_bypass"
+    },
+    {
+      "evidence_id": "C1_authorization_coverage:known-bad:H-C1-019-unknown-machine-file-sent-to-ai",
+      "failure_id": "H-C1-019-unknown-machine-file-sent-to-ai",
+      "observed_status": "failed",
+      "protected_error_class": "unknown_machine_admission_bypass"
+    },
+    {
+      "evidence_id": "C1_authorization_coverage:known-bad:H-C1-020-pruned-scope-remains-active",
+      "failure_id": "H-C1-020-pruned-scope-remains-active",
+      "observed_status": "failed",
+      "protected_error_class": "retired_coverage_ghost_work"
+    },
+    {
+      "evidence_id": "C1_authorization_coverage:known-bad:H-C1-021-retired-rediscovery-stays-terminal",
+      "failure_id": "H-C1-021-retired-rediscovery-stays-terminal",
+      "observed_status": "failed",
+      "protected_error_class": "coverage_reactivation_loss"
     }
   ],
-  "model_fingerprint": "sha256:68f1f53f4b9e29afe4ca6ca121a5469c3529e6c9c274c12139e032d38d50cdfc",
+  "model_fingerprint": "sha256:fb63cdbfa75fc982c228e1553ef706ad43fab4e95fc83845dc41e5d88b1f4f46",
   "model_id": "C1_authorization_coverage",
   "model_title": "C1 Authorization, Tracking & Coverage",
   "overall_status": "pass_with_gaps",
@@ -142,7 +226,7 @@
     "model_mesh": "not_run_in_this_owner: cross-model topology belongs to the separate ModelMesh owner"
   },
   "toolchain": {
-    "flowguard_package_version": "0.58.4",
+    "flowguard_package_version": "0.58.5",
     "flowguard_schema_version": "1.0"
   }
 }

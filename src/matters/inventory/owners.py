@@ -36,7 +36,7 @@ DEPENDENCY_KINDS = (
     "evidence",
     "projection",
 )
-CURRENT_TRACKING_POLICY_REVISION = 3
+CURRENT_TRACKING_POLICY_REVISION = 5
 
 
 def _utc_now() -> str:
@@ -243,19 +243,6 @@ def occurrence_id(provider: str, object_type: str, locator: str) -> str:
     return "occurrence:" + sha256(raw.encode("utf-8")).hexdigest()[:24]
 
 
-def tracking_action_token(
-    scope_id: str,
-    occurrence_id_value: str,
-    disposition: str,
-) -> str:
-    """Return a stable token invalidated by a disposition change."""
-
-    raw = (
-        f"{scope_id}\0{occurrence_id_value}\0{disposition}"
-    ).encode("utf-8")
-    return "action:" + sha256(raw).hexdigest()
-
-
 def classify_occurrence(
     occurrence: InventoryOccurrence,
     policy: TrackingPolicy,
@@ -402,15 +389,16 @@ def compare_snapshots(
     added_ids = set(new) - set(old)
     deleted_ids = set(old) - set(new)
     moved: list[tuple[str, str]] = []
-    deleted_by_content = {
-        old[item_id].content_identity: item_id
-        for item_id in deleted_ids
-        if old[item_id].content_identity
-    }
+    deleted_by_content: dict[str, list[str]] = {}
+    for item_id in sorted(deleted_ids):
+        identity = old[item_id].content_identity
+        if identity:
+            deleted_by_content.setdefault(identity, []).append(item_id)
     for item_id in tuple(sorted(added_ids)):
         identity = new[item_id].content_identity
-        prior_id = deleted_by_content.get(identity)
-        if prior_id:
+        prior_candidates = deleted_by_content.get(identity) if identity else None
+        if prior_candidates:
+            prior_id = prior_candidates.pop(0)
             moved.append((prior_id, item_id))
             added_ids.remove(item_id)
             deleted_ids.remove(prior_id)
@@ -501,24 +489,8 @@ class InventoryOwner:
             catalog_ids,
         )
         catalog_rows: list[tuple[str, str, int, Any]] = []
-        active_tokens: dict[str, tuple[str, str]] = {}
-        retired_tokens: set[str] = set()
         for occurrence_id_value, occurrence in occurrence_by_id.items():
             disposition = disposition_by_id[occurrence_id_value]
-            token = tracking_action_token(
-                snapshot.scope_id,
-                occurrence_id_value,
-                disposition.status,
-            )
-            prior_token = str(
-                current_catalog.get(occurrence_id_value, {}).get(
-                    "action_token",
-                    "",
-                )
-            )
-            if prior_token and prior_token != token:
-                retired_tokens.add(prior_token)
-            active_tokens[token] = (snapshot.scope_id, occurrence_id_value)
             display_name = str(
                 occurrence.metadata.get(
                     "display_name",
@@ -538,21 +510,16 @@ class InventoryOwner:
                         "display_name": display_name,
                         "disposition": disposition.status,
                         "disposition_reason": disposition.reason,
-                        "action_token": token,
                         "active": True,
                     },
                 )
             )
         for occurrence_id_value in deleted_ids:
             prior = dict(current_catalog.get(occurrence_id_value, {}))
-            prior_token = str(prior.get("action_token", ""))
-            if prior_token:
-                retired_tokens.add(prior_token)
             prior.update(
                 {
                     "occurrence_id": occurrence_id_value,
                     "snapshot_id": snapshot.snapshot_id,
-                    "action_token": "",
                     "active": False,
                 }
             )
@@ -565,47 +532,6 @@ class InventoryOwner:
                 )
             )
         self.store.append_many(catalog_rows)
-
-        token_ids = (*active_tokens, *retired_tokens)
-        token_revisions = self.store.next_revisions(
-            "tracking_action_token",
-            token_ids,
-        )
-        existing_tokens = self.store.current_many(
-            "tracking_action_token",
-            active_tokens,
-        )
-        token_rows: list[tuple[str, str, int, Any]] = []
-        for token, (scope_id, occurrence_id_value) in active_tokens.items():
-            current = existing_tokens.get(token)
-            if (
-                current
-                and current.get("active") is True
-                and current.get("occurrence_id") == occurrence_id_value
-            ):
-                continue
-            token_rows.append(
-                (
-                    "tracking_action_token",
-                    token,
-                    token_revisions[token],
-                    {
-                        "scope_id": scope_id,
-                        "occurrence_id": occurrence_id_value,
-                        "active": True,
-                    },
-                )
-            )
-        for token in retired_tokens - set(active_tokens):
-            token_rows.append(
-                (
-                    "tracking_action_token",
-                    token,
-                    token_revisions[token],
-                    {"active": False},
-                )
-            )
-        self.store.append_many(token_rows)
 
     def rebuild_catalog(self) -> int:
         """Rebuild the private UI catalog from current inventory snapshots."""
@@ -757,5 +683,4 @@ __all__ = [
     "classify_occurrence",
     "compare_snapshots",
     "occurrence_id",
-    "tracking_action_token",
 ]

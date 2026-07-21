@@ -34,6 +34,9 @@ def test_filesystem_discovery_is_metadata_only_deterministic_and_paged(
     second = adapter.discover(cursor=first.next_cursor)
 
     assert [item.external_id for item in first.items] == ["a.md", "nested/b.py"]
+    assert first.items[0].outcome == "candidate"
+    assert first.items[1].outcome == "hard_excluded"
+    assert first.items[1].reason == "software_source_not_user_content"
     assert first == retry
     assert not first.terminal
     assert first.coverage == "partial"
@@ -41,6 +44,141 @@ def test_filesystem_discovery_is_metadata_only_deterministic_and_paged(
     assert second.terminal
     assert second.coverage == "complete"
     assert content_reads == []
+
+
+def test_filesystem_classifies_software_artifacts_before_content_ai_and_groups_files(
+    tmp_path: Path,
+):
+    user_folder = tmp_path / "Trip" / "Bookings"
+    user_folder.mkdir(parents=True)
+    (user_folder / "hotel.docx").write_bytes(b"synthetic")
+    (user_folder / "notes.md").write_text("Travel notes", encoding="utf-8")
+    project = tmp_path / "project"
+    project.mkdir()
+    (project / "main.py").write_text("print('x')", encoding="utf-8")
+    (project / "pyproject.toml").write_text("[project]", encoding="utf-8")
+    (project / "runtime.sqlite3").write_bytes(b"synthetic")
+
+    page = FilesystemReadOnlyAdapter(tmp_path).discover()
+    by_id = {item.external_id: item for item in page.items}
+
+    assert by_id["Trip/Bookings/hotel.docx"].outcome == "candidate"
+    assert by_id["Trip/Bookings/notes.md"].outcome == "candidate"
+    assert by_id["project/main.py"].reason == "software_source_not_user_content"
+    assert by_id["project/pyproject.toml"].reason == (
+        "software_manifest_not_user_content"
+    )
+    assert by_id["project/runtime.sqlite3"].reason == (
+        "software_internal_record_not_user_content"
+    )
+    hotel = by_id["Trip/Bookings/hotel.docx"].metadata
+    notes = by_id["Trip/Bookings/notes.md"].metadata
+    assert hotel["source_neighborhood_id"] == notes["source_neighborhood_id"]
+    assert hotel["parent_relative_path"] == "Trip/Bookings"
+    assert hotel["source_group_chain"]
+    assert hotel["source_group_labels"] == ("Trip", "Bookings")
+
+
+def test_filesystem_hard_blocks_unknown_files_and_software_config_without_ai(
+    tmp_path: Path,
+):
+    project = tmp_path / "project"
+    project.mkdir()
+    (project / ".git").mkdir()
+    (project / "settings.json").write_text("{}", encoding="utf-8")
+    (project / "notes.md").write_text("Human plan", encoding="utf-8")
+    (tmp_path / "opaque.bin").write_bytes(b"\x00\x01")
+    (tmp_path / "video.mp4").write_bytes(b"synthetic")
+    reads: list[Path] = []
+
+    def forbidden_read(path: Path) -> bytes:
+        reads.append(path)
+        raise AssertionError("deterministic admission read content")
+
+    page = FilesystemReadOnlyAdapter(
+        tmp_path,
+        read_bytes=forbidden_read,
+    ).discover()
+    by_id = {item.external_id: item for item in page.items}
+
+    assert by_id["project/settings.json"].outcome == "hard_excluded"
+    assert by_id["project/settings.json"].reason == (
+        "software_config_not_user_content"
+    )
+    assert by_id["project/notes.md"].outcome == "candidate"
+    assert by_id["project/notes.md"].metadata["software_tree"] is True
+    assert by_id["opaque.bin"].outcome == "hard_excluded"
+    assert by_id["opaque.bin"].reason == (
+        "unknown_or_machine_file_format_not_read"
+    )
+    assert by_id["video.mp4"].outcome == "unsupported"
+    assert reads == []
+
+
+def test_filesystem_keeps_safe_message_exports_but_blocks_application_state(
+    tmp_path: Path,
+):
+    downloads = tmp_path / "Messaging Downloads"
+    downloads.mkdir()
+    (downloads / "trip-plan.docx").write_bytes(b"synthetic")
+    (downloads / "chat-export.json").write_text(
+        '{"messages": [{"text": "Book the hotel"}]}',
+        encoding="utf-8",
+    )
+    application_state = tmp_path / "Messaging App"
+    application_state.mkdir()
+    (application_state / "messages.sqlite3").write_bytes(b"synthetic")
+    (application_state / "runtime.log").write_text(
+        "internal",
+        encoding="utf-8",
+    )
+
+    page = FilesystemReadOnlyAdapter(tmp_path).discover()
+    by_id = {item.external_id: item for item in page.items}
+
+    assert by_id["Messaging Downloads/trip-plan.docx"].outcome == "candidate"
+    assert by_id["Messaging Downloads/chat-export.json"].outcome == "candidate"
+    assert by_id["Messaging App/messages.sqlite3"].outcome == "hard_excluded"
+    assert by_id["Messaging App/messages.sqlite3"].reason == (
+        "software_internal_record_not_user_content"
+    )
+    assert by_id["Messaging App/runtime.log"].outcome == "hard_excluded"
+    assert by_id["Messaging App/runtime.log"].reason == (
+        "software_internal_record_not_user_content"
+    )
+
+
+def test_filesystem_spatial_context_is_stable_across_partition_boundaries(
+    tmp_path: Path,
+):
+    bookings = tmp_path / "Trip" / "Bookings"
+    bookings.mkdir(parents=True)
+    (bookings / "hotel.txt").write_text("Hotel", encoding="utf-8")
+
+    whole = FilesystemReadOnlyAdapter(tmp_path).discover()
+    whole_item = next(
+        item for item in whole.items if item.external_id == "Trip/Bookings/hotel.txt"
+    )
+    partition = FilesystemReadOnlyAdapter(
+        bookings,
+        policy_path_prefix=("Trip", "Bookings"),
+    ).discover()
+    partition_item = next(
+        item for item in partition.items if item.external_id == "hotel.txt"
+    )
+
+    assert (
+        whole_item.metadata["source_neighborhood_id"]
+        == partition_item.metadata["source_neighborhood_id"]
+    )
+    assert (
+        whole_item.metadata["source_group_chain"]
+        == partition_item.metadata["source_group_chain"]
+    )
+    assert partition_item.metadata["source_group_labels"] == (
+        "Trip",
+        "Bookings",
+    )
 
 
 def test_filesystem_cursor_stales_when_inventory_changes(tmp_path: Path):
@@ -191,6 +329,75 @@ def test_filesystem_partition_prunes_generated_software_state_before_descent(
         not item.external_id.startswith(excluded_prefixes)
         for item in page.items
     )
+
+
+def test_filesystem_prunes_hidden_application_state_before_descent(
+    tmp_path: Path,
+):
+    hidden_state = tmp_path / ".job-application-browser"
+    extension = hidden_state / "Default" / "Extensions"
+    extension.mkdir(parents=True)
+    (extension / "filter.txt").write_text("machine filter", encoding="utf-8")
+    (tmp_path / "cover-letter.txt").write_text(
+        "Human-authored application letter",
+        encoding="utf-8",
+    )
+
+    page = FilesystemReadOnlyAdapter(tmp_path).discover()
+    by_id = {item.external_id: item for item in page.items}
+
+    assert by_id[".job-application-browser"].outcome == "hard_excluded"
+    assert by_id[".job-application-browser"].reason == (
+        "hidden_application_state_not_user_content"
+    )
+    assert ".job-application-browser/Default/Extensions/filter.txt" not in by_id
+    assert by_id["cover-letter.txt"].outcome == "candidate"
+
+
+def test_filesystem_prunes_generated_directories_only_inside_software_trees(
+    tmp_path: Path,
+):
+    project = tmp_path / "ProjectRadar"
+    project.mkdir()
+    (project / ".flowpilot").mkdir()
+    processed = project / "data" / "processed"
+    processed.mkdir(parents=True)
+    (processed / "job.json").write_text("{}", encoding="utf-8")
+    exports = project / "data" / "exports"
+    exports.mkdir(parents=True)
+    (exports / "job.json").write_text("{}", encoding="utf-8")
+    reports = project / "reports"
+    reports.mkdir()
+    (reports / "release-validation.txt").write_text(
+        "machine report",
+        encoding="utf-8",
+    )
+    (project / "README.md").write_text("Human project context", encoding="utf-8")
+
+    user_reports = tmp_path / "Reports"
+    user_reports.mkdir()
+    (user_reports / "travel.txt").write_text(
+        "Human travel report",
+        encoding="utf-8",
+    )
+
+    page = FilesystemReadOnlyAdapter(tmp_path).discover()
+    by_id = {item.external_id: item for item in page.items}
+
+    assert by_id["ProjectRadar/.flowpilot"].outcome == "hard_excluded"
+    assert by_id["ProjectRadar/data/processed"].reason == (
+        "generated_software_state_not_user_content"
+    )
+    assert by_id["ProjectRadar/data/exports"].reason == (
+        "generated_software_state_not_user_content"
+    )
+    assert by_id["ProjectRadar/reports"].reason == (
+        "generated_software_state_not_user_content"
+    )
+    assert by_id["ProjectRadar/README.md"].outcome == "candidate"
+    assert by_id["ProjectRadar/README.md"].metadata["software_tree"] is True
+    assert by_id["Reports/travel.txt"].outcome == "candidate"
+    assert by_id["Reports/travel.txt"].metadata["software_tree"] is False
 
 
 def test_filesystem_partition_children_reject_links(tmp_path: Path):

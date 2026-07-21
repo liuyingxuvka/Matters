@@ -1,0 +1,23 @@
+{
+  "ok": true,
+  "receipt": ".flowguard/evidence/design/G4_model_derived_design.json",
+  "evidence_id": "evidence:G4-model-derived-design:31910c7f36131aed",
+  "structural_status": "g4_design_green",
+  "execution_status": "not_run",
+  "transition_cells": 682,
+  "contract_combinations": 17531,
+  "test_mesh": {
+    "suite_ids_exact": true,
+    "suite_count": 26,
+    "accounting_ok": true,
+    "all_tests_not_run": true,
+    "planned_count": 692,
+    "executed_count": 0,
+    "failed_count": 0,
+    "not_run_count": 692,
+    "leaf_ownership_exact": true,
+    "inventory_ownership_exact": true,
+    "state_ownership_unique": true,
+    "side_effect_ownership_unique": true
+  }
+}

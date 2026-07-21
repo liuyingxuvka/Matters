@@ -9,13 +9,14 @@ The required initial inventory SHALL contain exactly eleven required consumer
 skills: source governance, inventory reconciliation, freshness maintenance,
 model-depth maintenance, human correction, model-miss review, skill-runtime
 management, research orchestration, semantic understanding, autonomous
-maintenance, and card-visual curation. Each skill SHALL call the shared
+maintenance, and hero-image generation. Each skill SHALL call the shared
 MatterService/CLI/API boundary and SHALL NOT read undeclared sources, expand
 authorization, or write canonical owner state. Human correction SHALL be
 optional after publication and SHALL NOT become a normal first-modeling gate.
 Autonomous maintenance SHALL coordinate ledger stages without becoming a new
-canonical owner. Card-visual curation SHALL select only from an eligible
-allowlist and SHALL NOT fetch or invent evidence.
+canonical owner. Hero-image generation SHALL consume only a privacy-minimized
+current Matter theme, SHALL create presentation assets rather than evidence,
+and SHALL NOT select real source images as a fallback.
 
 #### Scenario: Machine has no matching skill installed
 - **WHEN** Matters starts with a valid bundled required skill and no machine-installed copy
@@ -167,6 +168,25 @@ or canonical core rules.
   development pipeline and SHALL keep the current runtime result partial or
   blocked
 
+### Requirement: Guard upgrades require a minimized owning-Guard proof
+The default repair SHALL remain inside Matters models, bundled skills, code,
+and tests. Upgrading FlowGuard, ResearchGuard, SkillGuard, or another Guard
+SHALL require one minimized Matters good/bad case proving that the current
+owning Guard cannot express or check the required invariant. The upgrade SHALL
+occur in the owning Guard's separate change authority, use its native
+validation under author-side SkillGuard supervision, synchronize the installed
+consumer projection, and rerun the original Matters case. It SHALL NOT add a
+compatibility reader, legacy alias, parallel Guard binding, or alternate
+successful route.
+
+#### Scenario: Current Guard expresses the case
+- **WHEN** the installed current Guard can represent and validate the minimized Matter-specific good/bad case
+- **THEN** no Guard upgrade SHALL occur and the repair SHALL remain in Matters
+
+#### Scenario: Owning Guard is proven insufficient
+- **WHEN** the minimized case fails because the current owning Guard has no valid representation or validator path
+- **THEN** only that owning Guard MAY be upgraded through its separate OpenSpec, native checks, SkillGuard supervision, installed synchronization, and Matters replay
+
 ### Requirement: Semantic depth is explicit and freshness-bound
 For every applicable tracked occurrence the system SHALL record one
 revision-bound semantic-depth state: `not_assessed`, `partial`, `sufficient`,
@@ -175,14 +195,15 @@ analysis class to have current anchored evidence or an explicit non-applicable
 disposition and no unresolved blocking gap. `partial` SHALL mean useful current
 analysis exists but sufficient criteria are unmet. `blocked` SHALL identify a
 required source, extractor, ResearchGuard operation, original-owner dispatch,
-localization, visual, or projection stage that cannot terminate.
+localization, generated-hero, supplemental-information, or projection stage
+that cannot terminate.
 
 #### Scenario: Required analysis is incomplete
 - **WHEN** at least one current anchored result exists but another policy-required analysis class or owner stage remains unresolved
 - **THEN** semantic depth SHALL be `partial`, the unmet criteria SHALL be visible, and the system SHALL NOT claim complete modeling
 
 #### Scenario: Required operation cannot terminate
-- **WHEN** a required source, extractor, current ResearchGuard operation, owner dispatch, localization, visual, or projection stage is unavailable or blocked
+- **WHEN** a required source, extractor, current ResearchGuard operation, owner dispatch, localization, generated-hero, supplemental-information, or projection stage is unavailable or blocked
 - **THEN** semantic depth SHALL be `blocked` with the exact blocking criterion
 
 #### Scenario: A depth dependency changes
@@ -209,3 +230,68 @@ Matter field.
 #### Scenario: Skill activation is blocked
 - **WHEN** any required S1-S5 owner is non-terminal, incompatible, failed, or stale
 - **THEN** skill activation SHALL remain blocked while unaffected M0/C1-C12 capabilities report their own status independently
+
+### Requirement: Guard-family skills remain external independent dependencies
+This requirement supersedes any earlier plan to distribute Guard-family skills
+inside Matters. Matters SHALL NOT vendor, fork, copy, globally install, or
+maintain FlowGuard, WorldGuard, ResearchGuard, SourceGuard, TraceGuard,
+LogicGuard, SkillGuard, or another Guard-family skill. Each Guard SHALL retain
+its own repository, release, OpenSpec, native validation, SkillGuard
+maintenance authority when applicable, and installation identity.
+
+The external ResearchGuard contract SHALL remain the sole real research
+provider. Its currentness MAY gate research-dependent analysis and completeness
+claims, but SHALL NOT prevent bounded Matter catalog, graph, history, World
+Model, correction, observation, prediction-feedback, or model-miss access.
+
+#### Scenario: Matters is installed without Guard-family source trees
+- **WHEN** the Matters package and its exact internal pack are present but one or more external Guard repositories are absent
+- **THEN** Matters SHALL NOT synthesize or unpack private Guard copies; unaffected product access SHALL remain available and each Guard-dependent operation SHALL report its exact unavailable or stale status
+
+#### Scenario: ResearchGuard is unavailable
+- **WHEN** no portable current ResearchGuard identity satisfies the external provider contract
+- **THEN** research-dependent work and completeness claims SHALL remain visibly blocked while ordinary situation/history access and non-research maintenance continue through their existing owners
+
+### Requirement: The internal pack is exact and has no machine-global overlay
+The exactly eleven Matters-owned consumer skills SHALL be an immutable
+hash-bound app-local implementation pack for the running Matters release. A
+machine-global skill with the same name SHALL NOT overlay, replace, or silently
+alter that internal pack. The earlier compatible-overlay behavior is retired
+for these eleven skills.
+
+#### Scenario: Same-named global skill is newer
+- **WHEN** Codex exposes a newer machine-global skill whose id matches one of the eleven internal Matters skills
+- **THEN** Matters SHALL continue using the exact bundled identity and SHALL report the external candidate without activating it as an internal override
+
+#### Scenario: Bundled internal identity is missing or changed
+- **WHEN** an internal skill's declared bytes do not match the running release manifest
+- **THEN** that internal capability SHALL fail visibly and SHALL NOT fall back to a global copy or another Guard
+
+### Requirement: Codex receives one separate public Matters gateway skill
+The distributable source SHALL provide one public `matters` gateway skill/plugin
+whose purpose is to teach Codex how to discover and invoke the bounded
+MatterService/MCP model map. It SHALL be separate from the exactly eleven
+app-local skills and SHALL NOT become their installer, a canonical owner, or a
+Guard-family distribution.
+
+#### Scenario: AI needs current personal situation context
+- **WHEN** a Codex AI invokes the public `matters` skill with a bounded question
+- **THEN** it SHALL use the model map and situation-context operations, preserve freshness and modality labels, and return visible gaps rather than inspect raw storage or guess an owner
+
+#### Scenario: Gateway and internal pack versions differ
+- **WHEN** the public gateway discovers a service contract it does not support
+- **THEN** it SHALL stop with an explicit compatibility gap and SHALL NOT copy, rewrite, or overlay the internal pack
+
+### Requirement: Routine maintenance is event-driven by default
+The shared A2 maintenance path SHALL be invokable from installed-UI launch,
+first run, explicit Codex/CLI/MCP request, or a detected registered-source or
+project change. A recurring daily schedule SHALL be disabled by default and
+MAY exist only as an explicit user opt-in adapter over the same path.
+
+#### Scenario: Installed UI opens
+- **WHEN** the user launches the installed Matters UI
+- **THEN** the application MAY start or resume the same bounded A2 plan/delegate/join path and SHALL surface its real progress or terminal gap through the existing status indicator
+
+#### Scenario: No recurring schedule was enabled
+- **WHEN** Matters is installed or upgraded without an explicit recurring-maintenance preference
+- **THEN** it SHALL create no daily task and SHALL rely on UI launch, explicit invocation, first-run, and registered-change triggers

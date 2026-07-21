@@ -4,11 +4,11 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "matters"
-version = "0.2.0"
+dynamic = ["version"]
 description = "Model-first personal situation intelligence with explicit evidence and correction boundaries"
 readme = "README.md"
 requires-python = ">=3.11"
-license = "LicenseRef-Proprietary-Pending-Public-Release"
+license = "LicenseRef-Proprietary-Private-Repository-Release"
 license-files = ["LICENSE"]
 authors = [{name = "Matters contributors"}]
 dependencies = [
@@ -18,11 +18,13 @@ dependencies = [
   "openpyxl>=3.1",
   "python-docx>=1.1",
   "python-pptx>=1.0",
+  "pywebview>=6.2,<7; sys_platform == 'win32'",
 ]
 
 [project.scripts]
 matters = "matters.cli.main:main"
 matters-desktop = "matters.desktop:main"
+matters-mcp = "matters.api.mcp.stdio:main"
 
 [project.optional-dependencies]
 test = ["pytest>=8.0", "coverage>=7.0"]
@@ -30,8 +32,13 @@ test = ["pytest>=8.0", "coverage>=7.0"]
 [tool.setuptools.packages.find]
 where = ["src"]
 
+[tool.setuptools.dynamic]
+version = {attr = "matters._version.VERSION"}
+
 [tool.setuptools.package-data]
 matters = [
+  "assets/*.ico",
+  "assets/*.png",
   "bundled_skills/*/SKILL.md",
   "bundled_skills/*/agents/*.yaml",
   "bundled_skills/*/references/*.md",
@@ -42,6 +49,11 @@ matters = [
 [tool.setuptools.data-files]
 "share/matters" = ["CHANGELOG.md", "SECURITY.md", "sbom.json"]
 "share/matters/ui" = ["ui/index.html", "ui/styles.css", "ui/app.js"]
+"share/matters/plugins/matters" = ["plugins/matters/.mcp.json"]
+"share/matters/plugins/matters/.codex-plugin" = ["plugins/matters/.codex-plugin/plugin.json"]
+"share/matters/plugins/matters/skills/matters" = ["plugins/matters/skills/matters/SKILL.md"]
+"share/matters/plugins/matters/skills/matters/agents" = ["plugins/matters/skills/matters/agents/openai.yaml"]
+"share/matters/plugins/matters/skills/matters/references" = ["plugins/matters/skills/matters/references/service-contract.md"]
 
 [tool.pytest.ini_options]
 addopts = "-ra -m 'not release'"

@@ -10,6 +10,7 @@ from __future__ import annotations
 
 from collections.abc import Callable, Mapping, Sequence
 from dataclasses import dataclass, field
+from datetime import date
 from hashlib import sha256
 import json
 from typing import Any
@@ -48,6 +49,9 @@ class GmailReadManifest:
     excluded_categories: frozenset[str] = frozenset({"spam", "trash"})
     attachment_metadata_allowed: bool = True
     attachment_content_allowed: bool = False
+    # Empty deliberately means all history.  A non-empty value is a fixed
+    # lower date boundary, never a rolling "last N days" window.
+    authorized_from: str = ""
     active: bool = True
     operations: frozenset[str] = frozenset({"read"})
 
@@ -64,6 +68,13 @@ class GmailReadManifest:
             raise ValueError("Gmail query_fingerprint must be opaque")
         if self.operations != frozenset({"read"}):
             raise ValueError("Gmail v0.1 authorization must be read-only")
+        if self.authorized_from:
+            try:
+                date.fromisoformat(self.authorized_from)
+            except (TypeError, ValueError) as error:
+                raise ValueError(
+                    "Gmail authorized_from must be a fixed YYYY-MM-DD date"
+                ) from error
         object.__setattr__(
             self,
             "included_categories",
@@ -74,6 +85,27 @@ class GmailReadManifest:
             "excluded_categories",
             frozenset(item.casefold() for item in self.excluded_categories),
         )
+
+    def assert_not_narrower_than(self, earlier: "GmailReadManifest") -> None:
+        """Reject a successor that would drop already-authorized history.
+
+        The caller supplies the predecessor because this adapter deliberately
+        owns no private state.  Empty means all history, so it can never be
+        replaced by a date; a date may only stay fixed or move earlier.
+        """
+
+        if self.account_ref != earlier.account_ref:
+            raise ValueError("Gmail authorization successor account mismatch")
+        if not earlier.authorized_from:
+            if self.authorized_from:
+                raise ValueError("Gmail authorized_from cannot narrow full history")
+            return
+        if not self.authorized_from:
+            return
+        if date.fromisoformat(self.authorized_from) > date.fromisoformat(
+            earlier.authorized_from
+        ):
+            raise ValueError("Gmail authorized_from cannot move later")
 
 
 @dataclass(frozen=True)
@@ -97,11 +129,26 @@ class GmailMessageMetadata:
     internal_date: str
     attachments: tuple[GmailAttachmentMetadata, ...] = ()
     metadata: Mapping[str, object] = field(default_factory=dict)
+    identity_only: bool = False
 
     def __post_init__(self) -> None:
-        if not self.message_id or not self.thread_id or not self.internal_date:
-            raise ValueError("Gmail message identity and date are required")
-        object.__setattr__(self, "category", self.category.casefold())
+        if not self.message_id:
+            raise ValueError("Gmail message identity is required")
+        if not self.identity_only and (
+            not self.thread_id or not self.internal_date
+        ):
+            raise ValueError(
+                "Gmail thread identity and date are required for full metadata"
+            )
+        if self.identity_only and self.attachments:
+            raise ValueError(
+                "identity-only Gmail messages cannot carry attachment metadata"
+            )
+        object.__setattr__(
+            self,
+            "category",
+            "unknown" if self.identity_only else self.category.casefold(),
+        )
         object.__setattr__(
             self,
             "label_ids",
@@ -164,6 +211,13 @@ class GmailAuthorizedPage:
             raise ValueError("Gmail page content ids must be unique")
         if not set(content_ids).issubset(message_ids):
             raise ValueError("Gmail content must belong to a page message")
+        identity_only_ids = {
+            item.message_id for item in self.messages if item.identity_only
+        }
+        if identity_only_ids.intersection(content_ids):
+            raise ValueError(
+                "identity-only Gmail messages cannot carry message content"
+            )
         object.__setattr__(self, "messages", tuple(self.messages))
         object.__setattr__(self, "contents", tuple(self.contents))
         object.__setattr__(
@@ -289,6 +343,18 @@ class GmailReadOnlyAdapter:
         self,
         message: GmailMessageMetadata,
     ) -> tuple[str, str]:
+        if message.identity_only:
+            return "metadata_only", "pending_metadata"
+        if self._manifest.authorized_from:
+            try:
+                message_date = date.fromisoformat(message.internal_date[:10])
+            except ValueError:
+                return (
+                    "not_tracked",
+                    "gmail_internal_date_invalid_for_authorized_from",
+                )
+            if message_date < date.fromisoformat(self._manifest.authorized_from):
+                return "not_tracked", "gmail_before_authorized_from"
         labels = set(message.label_ids)
         labels.add(message.category)
         if labels.intersection(self._manifest.excluded_categories):
@@ -306,7 +372,10 @@ class GmailReadOnlyAdapter:
         items: list[GmailDiscoveryItem] = []
         thread_messages: dict[str, list[GmailMessageMetadata]] = {}
         for message in page.messages:
-            thread_messages.setdefault(message.thread_id, []).append(message)
+            if not message.identity_only:
+                thread_messages.setdefault(message.thread_id, []).append(
+                    message
+                )
         for thread_id in sorted(thread_messages):
             external_id = self._opaque_id("thread", thread_id)
             items.append(
@@ -336,6 +405,7 @@ class GmailReadOnlyAdapter:
                                 self._manifest.query_fingerprint
                             ),
                             "metadata_only": True,
+                            "authorized_from": self._manifest.authorized_from,
                         },
                     ),
                     "metadata_only",
@@ -349,21 +419,57 @@ class GmailReadOnlyAdapter:
                 "message",
                 message.message_id,
             )
-            thread_external_id = self._opaque_id("thread", message.thread_id)
+            thread_external_id = (
+                self._opaque_id("thread", message.thread_id)
+                if not message.identity_only
+                else ""
+            )
+            message_payload: dict[str, object] = {
+                "provider_message_id": message.message_id,
+                "identity_only": message.identity_only,
+                "authorized_from": self._manifest.authorized_from,
+            }
+            if not message.identity_only:
+                message_payload.update(
+                    {
+                        "provider_thread_id": message.thread_id,
+                        "category": message.category,
+                        "label_ids": message.label_ids,
+                        "internal_date": message.internal_date,
+                        **dict(message.metadata),
+                    }
+                )
+            references = [
+                ExternalReference(
+                    self.provider_id,
+                    message_external_id,
+                    "gmail_message",
+                ),
+            ]
+            if thread_external_id:
+                references.append(
+                    ExternalReference(
+                        self.provider_id,
+                        thread_external_id,
+                        "gmail_thread",
+                    )
+                )
+            message_metadata: dict[str, object] = {
+                "scope_id": self._manifest.scope_id,
+                "authorization_revision": self._manifest.authorization_revision,
+                "query_fingerprint": self._manifest.query_fingerprint,
+                "metadata_only": True,
+                "identity_only": message.identity_only,
+            }
+            if thread_external_id:
+                message_metadata["parent_external_id"] = thread_external_id
             items.append(
                 GmailDiscoveryItem(
                     ProviderEnvelope(
                         provider=self.provider_id,
                         external_id=message_external_id,
                         object_type="gmail_message",
-                        payload={
-                            "provider_message_id": message.message_id,
-                            "provider_thread_id": message.thread_id,
-                            "category": message.category,
-                            "label_ids": message.label_ids,
-                            "internal_date": message.internal_date,
-                            **dict(message.metadata),
-                        },
+                        payload=message_payload,
                         coverage=page.coverage,
                         cursor=page.next_cursor,
                         denied_fields=(
@@ -371,29 +477,8 @@ class GmailReadOnlyAdapter:
                             if message.message_id in page.denied_object_ids
                             else ()
                         ),
-                        references=(
-                            ExternalReference(
-                                self.provider_id,
-                                message_external_id,
-                                "gmail_message",
-                            ),
-                            ExternalReference(
-                                self.provider_id,
-                                thread_external_id,
-                                "gmail_thread",
-                            ),
-                        ),
-                        metadata={
-                            "parent_external_id": thread_external_id,
-                            "scope_id": self._manifest.scope_id,
-                            "authorization_revision": (
-                                self._manifest.authorization_revision
-                            ),
-                            "query_fingerprint": (
-                                self._manifest.query_fingerprint
-                            ),
-                            "metadata_only": True,
-                        },
+                        references=tuple(references),
+                        metadata=message_metadata,
                     ),
                     disposition,
                     reason,
@@ -446,6 +531,7 @@ class GmailReadOnlyAdapter:
                                 "parent_external_id": message_external_id,
                                 "thread_external_id": thread_external_id,
                                 "scope_id": self._manifest.scope_id,
+                                "authorized_from": self._manifest.authorized_from,
                                 "metadata_only": True,
                             },
                         ),
@@ -455,7 +541,7 @@ class GmailReadOnlyAdapter:
                             else (
                                 "tracked"
                                 if disposition == "tracked"
-                                else "metadata_only"
+                                else "not_tracked"
                             )
                         ),
                         (
@@ -464,7 +550,7 @@ class GmailReadOnlyAdapter:
                             else (
                                 "authorized_attachment_metadata"
                                 if disposition == "tracked"
-                                else "attachment_metadata_only"
+                                else reason
                             )
                         ),
                     )
@@ -489,6 +575,7 @@ class GmailReadOnlyAdapter:
                     "authorization": page.authorization_revision,
                     "query": page.query_fingerprint,
                     "policy": page.policy_revision,
+                    "authorized_from": self._manifest.authorized_from,
                 },
                 "cursor": page.requested_cursor,
                 "next_cursor": page.next_cursor,
@@ -499,6 +586,7 @@ class GmailReadOnlyAdapter:
                         "category": item.category,
                         "labels": item.label_ids,
                         "date": item.internal_date,
+                        "identity_only": item.identity_only,
                         "attachments": [
                             (
                                 attachment.attachment_id,
@@ -546,11 +634,20 @@ class GmailReadOnlyAdapter:
         contents = {item.message_id: item for item in page.contents}
         results: list[GmailReadResult] = []
         for message in sorted(page.messages, key=lambda item: item.message_id):
-            disposition, _reason = self._message_disposition(message)
+            disposition, reason = self._message_disposition(message)
             message_external_id = self._opaque_id(
                 "message",
                 message.message_id,
             )
+            if message.identity_only:
+                results.append(
+                    GmailReadResult(
+                        message_external_id,
+                        "metadata_only",
+                        reason="pending_metadata",
+                    )
+                )
+                continue
             thread_external_id = self._opaque_id("thread", message.thread_id)
             if disposition == "hard_excluded":
                 results.append(
@@ -558,6 +655,15 @@ class GmailReadOnlyAdapter:
                         message_external_id,
                         "hard_excluded",
                         reason="gmail_spam_or_trash_content_not_read",
+                    )
+                )
+                continue
+            if disposition == "not_tracked":
+                results.append(
+                    GmailReadResult(
+                        message_external_id,
+                        "not_tracked",
+                        reason=reason,
                     )
                 )
                 continue

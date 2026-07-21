@@ -1,13 +1,85 @@
 {
   "artifact_type": "matters.flowguard-model-receipt.v1",
-  "claim_boundary": "This receipt can establish C6 abstract source-first admission and rejection hazards. It does not prove the substantive admission policy, statistics implementation, production persistence, or parent closure.",
-  "evidence_id": "evidence:C6_matter_formation_admission:5952495975d42700",
+  "claim_boundary": "This receipt can establish C6 abstract source-first admission, bounded multi-signal context reconciliation, full-library indexed candidate recall before bounded AI context, broad-root/object-kind classification, single-parent acyclic containment, role, revision, and bounded-depth hazards, atomic parent composition, and singular append-only same-Matter canonicalization whose downstream identity is the exact admitted matter_id. It rejects source, candidate, package, title, or projection identities as canonical substitutes. It does not prove the substantive admission or merge policy, statistics implementation, production persistence, ancestor rollup, or parent closure.",
+  "evidence_id": "evidence:C6_matter_formation_admission:cbb76081a7a7054e",
   "evidence_tiers": [
     "abstract_green",
     "hazard_green"
   ],
-  "generated_at": "2026-07-19T05:48:46.431145+00:00",
+  "generated_at": "2026-07-21T07:29:10.329515+00:00",
   "known_bad_proofs": [
+    {
+      "evidence_id": "C6_matter_formation_admission:known-bad:H-C6-024-new-source-revision-bypasses-analysis",
+      "failure_id": "H-C6-024-new-source-revision-bypasses-analysis",
+      "observed_status": "failed",
+      "protected_error_class": "source_revision_semantic_owner_bypass"
+    },
+    {
+      "evidence_id": "C6_matter_formation_admission:known-bad:H-C6-025-target-bound-revision-escapes-to-similar-matter",
+      "failure_id": "H-C6-025-target-bound-revision-escapes-to-similar-matter",
+      "observed_status": "failed",
+      "protected_error_class": "source_revision_exact_target_bypass"
+    },
+    {
+      "evidence_id": "C6_matter_formation_admission:known-bad:H-C6-026-old-revision-evidence-remains-current",
+      "failure_id": "H-C6-026-old-revision-evidence-remains-current",
+      "observed_status": "failed",
+      "protected_error_class": "source_revision_evidence_membership_stale"
+    },
+    {
+      "evidence_id": "C6_matter_formation_admission:known-bad:H-C6-027-stale-sibling-retried-or-duplicate-successor",
+      "failure_id": "H-C6-027-stale-sibling-retried-or-duplicate-successor",
+      "observed_status": "failed",
+      "protected_error_class": "source_revision_stale_successor_cardinality"
+    },
+    {
+      "evidence_id": "C6_matter_formation_admission:known-bad:H-C6-021-nonmatter-node-enters-ui-hierarchy",
+      "failure_id": "H-C6-021-nonmatter-node-enters-ui-hierarchy",
+      "observed_status": "failed",
+      "protected_error_class": "ui_hierarchy_object_kind_escape"
+    },
+    {
+      "evidence_id": "C6_matter_formation_admission:known-bad:H-C6-022-travel-or-software-fragments-remain-roots",
+      "failure_id": "H-C6-022-travel-or-software-fragments-remain-roots",
+      "observed_status": "failed",
+      "protected_error_class": "known_portfolio_hierarchy_undermerge"
+    },
+    {
+      "evidence_id": "C6_matter_formation_admission:known-bad:H-C6-023-cross-domain-relation-creates-second-parent",
+      "failure_id": "H-C6-023-cross-domain-relation-creates-second-parent",
+      "observed_status": "failed",
+      "protected_error_class": "cross_domain_multi_parent_escape"
+    },
+    {
+      "evidence_id": "C6_matter_formation_admission:known-bad:H-C6-020-projection-or-candidate-id-enters-hierarchy",
+      "failure_id": "H-C6-020-projection-or-candidate-id-enters-hierarchy",
+      "observed_status": "failed",
+      "protected_error_class": "canonical_matter_identity_authority_escape"
+    },
+    {
+      "evidence_id": "C6_matter_formation_admission:known-bad:H-C6-019-parent-narrative-scope-truncated-to-latest-child",
+      "failure_id": "H-C6-019-parent-narrative-scope-truncated-to-latest-child",
+      "observed_status": "failed",
+      "protected_error_class": "parent_narrative_scope_undercoverage"
+    },
+    {
+      "evidence_id": "C6_matter_formation_admission:known-bad:H-C6-016-parent-composition-leaves-partial-parent",
+      "failure_id": "H-C6-016-parent-composition-leaves-partial-parent",
+      "observed_status": "failed",
+      "protected_error_class": "parent_composition_transaction_escape"
+    },
+    {
+      "evidence_id": "C6_matter_formation_admission:known-bad:H-C6-017-canonicalization-splits-transaction",
+      "failure_id": "H-C6-017-canonicalization-splits-transaction",
+      "observed_status": "failed",
+      "protected_error_class": "matter_canonicalization_partial_commit"
+    },
+    {
+      "evidence_id": "C6_matter_formation_admission:known-bad:H-C6-018-canonicalization-retry-changes-materialization",
+      "failure_id": "H-C6-018-canonicalization-retry-changes-materialization",
+      "observed_status": "failed",
+      "protected_error_class": "matter_canonicalization_retry_conflict"
+    },
     {
       "evidence_id": "C6_matter_formation_admission:known-bad:H-C6-001-one-source-item-one-matter",
       "failure_id": "H-C6-001-one-source-item-one-matter",
@@ -37,9 +109,69 @@
       "failure_id": "H-C6-004-access-gap-admitted",
       "observed_status": "failed",
       "protected_error_class": "access_gap_overclaim"
+    },
+    {
+      "evidence_id": "C6_matter_formation_admission:known-bad:H-C6-006-event-promoted-to-matter",
+      "failure_id": "H-C6-006-event-promoted-to-matter",
+      "observed_status": "failed",
+      "protected_error_class": "event_matter_identity_conflation"
+    },
+    {
+      "evidence_id": "C6_matter_formation_admission:known-bad:H-C6-007-shared-person-implies-parent",
+      "failure_id": "H-C6-007-shared-person-implies-parent",
+      "observed_status": "failed",
+      "protected_error_class": "relation_containment_conflation"
+    },
+    {
+      "evidence_id": "C6_matter_formation_admission:known-bad:H-C6-008-cycle-or-self-parent-accepted",
+      "failure_id": "H-C6-008-cycle-or-self-parent-accepted",
+      "observed_status": "failed",
+      "protected_error_class": "hierarchy_cycle"
+    },
+    {
+      "evidence_id": "C6_matter_formation_admission:known-bad:H-C6-009-multiple-primary-parents",
+      "failure_id": "H-C6-009-multiple-primary-parents",
+      "observed_status": "failed",
+      "protected_error_class": "hierarchy_multi_parent"
+    },
+    {
+      "evidence_id": "C6_matter_formation_admission:known-bad:H-C6-010-depth-pending-claimed-complete",
+      "failure_id": "H-C6-010-depth-pending-claimed-complete",
+      "observed_status": "failed",
+      "protected_error_class": "hierarchy_depth_false_complete"
+    },
+    {
+      "evidence_id": "C6_matter_formation_admission:known-bad:H-C6-011-partial-containment-batch",
+      "failure_id": "H-C6-011-partial-containment-batch",
+      "observed_status": "failed",
+      "protected_error_class": "hierarchy_batch_partial_commit"
+    },
+    {
+      "evidence_id": "C6_matter_formation_admission:known-bad:H-C6-012-pending-publication-lost",
+      "failure_id": "H-C6-012-pending-publication-lost",
+      "observed_status": "failed",
+      "protected_error_class": "hierarchy_batch_publication_loss"
+    },
+    {
+      "evidence_id": "C6_matter_formation_admission:known-bad:H-C6-013-single-context-signal-forces-merge",
+      "failure_id": "H-C6-013-single-context-signal-forces-merge",
+      "observed_status": "failed",
+      "protected_error_class": "matter_context_overmerge"
+    },
+    {
+      "evidence_id": "C6_matter_formation_admission:known-bad:H-C6-014-one-situation-fragmented-into-root-cards",
+      "failure_id": "H-C6-014-one-situation-fragmented-into-root-cards",
+      "observed_status": "failed",
+      "protected_error_class": "matter_context_undermerge"
+    },
+    {
+      "evidence_id": "C6_matter_formation_admission:known-bad:H-C6-015-global-context-recall-truncated",
+      "failure_id": "H-C6-015-global-context-recall-truncated",
+      "observed_status": "failed",
+      "protected_error_class": "matter_context_candidate_window_truncation"
     }
   ],
-  "model_fingerprint": "sha256:5952495975d4270066f457c73a97a4ef66d87a67fa24f61554a740cfcd35f056",
+  "model_fingerprint": "sha256:cbb76081a7a7054ee1ca08e212c04ee7ec4a0a386936fd4e7823b0f139a27aae",
   "model_id": "C6_matter_formation_admission",
   "model_title": "C6 Matter Formation & Admission",
   "overall_status": "pass_with_gaps",
@@ -64,7 +196,7 @@
     "model_mesh": "not_run_in_this_owner: cross-model topology belongs to the separate ModelMesh owner"
   },
   "toolchain": {
-    "flowguard_package_version": "0.58.4",
+    "flowguard_package_version": "0.58.5",
     "flowguard_schema_version": "1.0"
   }
 }

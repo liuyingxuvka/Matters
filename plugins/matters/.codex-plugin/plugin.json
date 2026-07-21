@@ -1,0 +1,36 @@
+{
+  "name": "matters",
+  "version": "0.3.0",
+  "description": "Give Codex one bounded information map for current Matters, history, predictions, corrections, and durable AI feedback.",
+  "author": {
+    "name": "Matters contributors"
+  },
+  "license": "LicenseRef-Proprietary-Private-Repository-Release",
+  "keywords": [
+    "personal-situation",
+    "history",
+    "prediction",
+    "ai-context",
+    "model-map"
+  ],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "Matters",
+    "shortDescription": "Understand current situations and leave durable clues",
+    "longDescription": "Use one bounded AI information map to understand a person's current Matters, history, gaps, World Model predictions, corrections, and pending observations without exposing raw private storage or creating a second truth owner.",
+    "developerName": "Matters contributors",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Use Matters to explain what is happening now.",
+      "Check a Matter prediction against what happened.",
+      "Record this new user observation for later maintenance."
+    ],
+    "brandColor": "#597A72"
+  }
+}

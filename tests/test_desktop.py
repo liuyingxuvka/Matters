@@ -1,11 +1,20 @@
 from __future__ import annotations
 
 import json
+import os
 from pathlib import Path
 
 import pytest
 
 from matters import desktop
+
+
+def test_application_icon_is_packaged_and_current() -> None:
+    icon = desktop.application_icon_path()
+
+    assert icon.name == "matters.ico"
+    assert icon.is_file()
+    assert icon.read_bytes().startswith(b"\x00\x00\x01\x00")
 
 
 def test_resolve_browser_and_launch_command(tmp_path: Path) -> None:
@@ -36,6 +45,7 @@ def test_check_desktop_is_loopback_and_bilingual(
     result = desktop.check_desktop(browser=browser)
 
     assert result["desktop_shell"] == "available"
+    assert result["application_icon"] == str(desktop.application_icon_path())
     assert result["loopback_only"] is True
     assert result["available_locales"] == ["en", "zh-CN"]
     assert result["private_root"] == str((tmp_path / "private").resolve())
@@ -64,6 +74,43 @@ def test_main_check_emits_canonical_json(
     payload = json.loads(capsys.readouterr().out)
     assert payload["ok"] is True
     assert payload["result"]["desktop_shell"] == "available"
+
+
+def test_packaged_self_test_starts_recovers_and_stops_owned_service(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    class FakeWebview:
+        @staticmethod
+        def create_window(*_args: object, **_kwargs: object) -> object:
+            return object()
+
+        @staticmethod
+        def start(*_args: object, **_kwargs: object) -> None:
+            return None
+
+    monkeypatch.setattr(desktop, "_native_webview", lambda: FakeWebview())
+    monkeypatch.setenv("MATTERS_HOME", "original-private-root")
+
+    result = desktop.self_test_desktop(startup_timeout=3.0)
+
+    assert result["matters_version"]
+    assert result["shell_kind"] == "packaged_windows_webview"
+    assert result["private_shell_profile"] is True
+    assert result["persists_locale_density_window_state"] is True
+    assert result["startup_health_gate"] is True
+    assert result["in_shell_recovery_surface"] is True
+    assert result["clean_owned_process_shutdown"] is True
+    assert result["available_locales"] == ["en", "zh-CN"]
+    assert os.environ["MATTERS_HOME"] == "original-private-root"
+
+
+def test_packaged_self_test_rejects_missing_window_contract(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    monkeypatch.setattr(desktop, "_native_webview", lambda: object())
+
+    with pytest.raises(desktop.DesktopShellUnavailable, match="window contract"):
+        desktop.self_test_desktop(startup_timeout=0.1)
 
 
 def test_missing_browser_is_visible_failure(tmp_path: Path) -> None:

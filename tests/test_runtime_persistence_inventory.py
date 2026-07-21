@@ -1,7 +1,9 @@
+import json
 from pathlib import Path
 
 import pytest
 
+from matters.application.coverage_ledger import STAGE_ORDER
 from matters.application.orchestrator import MatterService
 from matters.config import RuntimeConfig
 from matters.inventory.owners import (
@@ -34,7 +36,8 @@ def _occurrence(
     )
 
 
-def test_absent_private_root_is_visible_and_non_writing(tmp_path):
+def test_absent_private_root_is_visible_and_non_writing(tmp_path, monkeypatch):
+    monkeypatch.delenv("MATTERS_HOME", raising=False)
     repo = tmp_path / "repo"
     repo.mkdir()
     config = RuntimeConfig.resolve(repository_root=repo)
@@ -87,6 +90,51 @@ def test_source_versions_and_idempotency_survive_restart(tmp_path):
     assert len(restarted.sources.history(first.registration.source_version.source_id)) == 1
 
 
+def test_source_processing_receipt_never_persists_transient_provider_body(
+    tmp_path,
+):
+    repo = tmp_path / "repo"
+    home = tmp_path / "private"
+    repo.mkdir()
+    secret_body = "complete private source body that must remain transient"
+    envelope = ProviderEnvelope(
+        provider="pasted_text",
+        external_id="transient-body",
+        object_type="text",
+        payload={
+            "summary": "Transient body storage check",
+            "explicit_goal_or_obligation": True,
+            "body_text": secret_body,
+        },
+    )
+    service = MatterService(private_root=home, repository_root=repo)
+
+    result = service.process_envelope(
+        scope=scope_for(envelope),
+        envelope=envelope,
+        idempotency_key="transient-body",
+    )
+
+    assert result.registration is not None
+    assert result.registration.source_version is not None
+    assert (
+        result.registration.source_version.transient_content["body_text"]
+        == secret_body
+    )
+    durable = json.dumps(
+        service.current_records("source_processing_result"),
+        ensure_ascii=False,
+        sort_keys=True,
+    )
+    assert secret_body not in durable
+    assert "transient_content" not in durable
+    source = service.current_records("source_version")[0]
+    assert "body_text" not in source["content"]
+    assert source["content"]["body_text_byte_length"] == len(
+        secret_body.encode("utf-8")
+    )
+
+
 def test_inventory_move_policy_change_and_staleness_are_durable(tmp_path):
     repo = tmp_path / "repo"
     home = tmp_path / "private"
@@ -131,6 +179,50 @@ def test_inventory_move_policy_change_and_staleness_are_durable(tmp_path):
     assert snapshot.dispositions[0].status == "not_tracked"
 
 
+def test_duplicate_content_identities_pair_moves_one_to_one(tmp_path):
+    repo = tmp_path / "repo"
+    home = tmp_path / "private"
+    repo.mkdir()
+    service = MatterService(private_root=home, repository_root=repo)
+    scope = CandidateScope(
+        "scope:duplicate-content",
+        1,
+        "gmail",
+        "gmail://in:anywhere",
+        ("message",),
+    )
+    policy = TrackingPolicy("policy:default", 1)
+    originals = (
+        _occurrence("gmail/message/old-a", content_identity="content:same"),
+        _occurrence("gmail/message/old-b", content_identity="content:same"),
+    )
+    service.reconcile_inventory(
+        scope=scope,
+        policy=policy,
+        occurrences=originals,
+    )
+
+    replacements = (
+        _occurrence("gmail/message/new-a", content_identity="content:same"),
+        _occurrence("gmail/message/new-b", content_identity="content:same"),
+    )
+    _, changes = service.reconcile_inventory(
+        scope=scope,
+        policy=policy,
+        occurrences=replacements,
+    )
+
+    assert len(changes.moved) == 2
+    assert {source_id for source_id, _ in changes.moved} == {
+        occurrence.occurrence_id for occurrence in originals
+    }
+    assert {target_id for _, target_id in changes.moved} == {
+        occurrence.occurrence_id for occurrence in replacements
+    }
+    assert changes.added == ()
+    assert changes.deleted == ()
+
+
 def test_user_tracking_intent_survives_policy_only_reconciliation(tmp_path):
     repo = tmp_path / "repo"
     home = tmp_path / "private"
@@ -163,6 +255,45 @@ def test_user_tracking_intent_survives_policy_only_reconciliation(tmp_path):
     )
     assert second.dispositions[0].status == "not_tracked"
     assert second.dispositions[0].user_intent == "do_not_track"
+
+
+def test_source_catalog_contains_only_current_inventory_fields(tmp_path):
+    repo = tmp_path / "repo"
+    home = tmp_path / "private"
+    repo.mkdir()
+    service = MatterService(private_root=home, repository_root=repo)
+    scope = CandidateScope(
+        "scope:docs",
+        1,
+        "filesystem",
+        str(tmp_path / "Documents"),
+        ("file",),
+    )
+    occurrence = _occurrence(
+        "Documents/note.txt",
+        content_identity="content:note",
+    )
+    service.reconcile_inventory(
+        scope=scope,
+        policy=TrackingPolicy("policy:default", 1),
+        occurrences=(occurrence,),
+    )
+    assert service.store is not None
+    catalog = service.store.current(
+        "source_catalog",
+        occurrence.occurrence_id,
+    )
+    assert catalog is not None
+    assert set(catalog) == {
+        "active",
+        "display_name",
+        "disposition",
+        "disposition_reason",
+        "object_type",
+        "occurrence_id",
+        "scope_id",
+        "snapshot_id",
+    }
 
 
 def test_inventory_batch_refreshes_coverage_summary_once(tmp_path, monkeypatch):
@@ -267,7 +398,162 @@ def test_coverage_rows_and_stale_stages_use_one_batch_each(
     assert all(row.retry_count == 1 for row in stale)
 
 
-def test_private_provider_requires_external_home(tmp_path):
+def test_coverage_index_exposes_bounded_next_work_and_true_ui_readiness(
+    tmp_path,
+):
+    assert "visual" not in STAGE_ORDER
+    assert STAGE_ORDER[-5:] == (
+        "meaningful_clue_summary",
+        "generated_hero",
+        "supplemental_information",
+        "ui_projection",
+        "ui_reachable",
+    )
+    repo = tmp_path / "repo"
+    home = tmp_path / "private"
+    repo.mkdir()
+    service = MatterService(private_root=home, repository_root=repo)
+    ledger = service.coverage_ledger
+    object_id = "filesystem:indexed-user-document"
+    ledger.reconcile_inventory(
+        scope_id="scope:indexed",
+        inventory_revision=1,
+        occurrences=(
+            {
+                "occurrence_id": object_id,
+                "provider": "filesystem",
+                "object_type": "file",
+                "metadata": {"size": 12},
+            },
+        ),
+        dispositions=(
+            {
+                "occurrence_id": object_id,
+                "status": "tracked",
+            },
+        ),
+    )
+
+    assert ledger.next_work(limit=10) == (
+        (object_id, "content_selection"),
+    )
+    page, total = ledger.page(offset=0, limit=10)
+    assert total == 1
+    assert page[0]["next_stage"] == "content_selection"
+    assert page[0]["ui_ready"] is False
+
+    for stage_id in STAGE_ORDER[2:]:
+        ledger.mark_stage(
+            object_id=object_id,
+            stage_id=stage_id,
+            status="current",
+            input_fingerprint=f"test:{stage_id}",
+            output_ref=f"output:{stage_id}",
+            matter_ids=(
+                ("matter:indexed",)
+                if stage_id == "matter"
+                else None
+            ),
+            refresh_summary=False,
+        )
+
+    summary = ledger.summary()
+    ready_page, _ = ledger.page(offset=0, limit=10)
+    assert ledger.next_work(limit=10) == ()
+    assert summary.terminal_object_count == 1
+    assert summary.ui_ready_object_count == 1
+    assert ready_page[0]["terminal"] is True
+    assert ready_page[0]["ui_ready"] is True
+    assert service.store.matter_coverage_ui_ready("matter:indexed") is True
+
+
+def test_retired_coverage_leaves_active_counts_and_reactivation_requeues(
+    tmp_path,
+):
+    repo = tmp_path / "repo"
+    home = tmp_path / "private"
+    repo.mkdir()
+    service = MatterService(private_root=home, repository_root=repo)
+    ledger = service.coverage_ledger
+    object_id = "filesystem:retired-user-document"
+    occurrence = {
+        "occurrence_id": object_id,
+        "provider": "filesystem",
+        "object_type": "document",
+        "metadata": {"size": 12},
+    }
+    disposition = {
+        "occurrence_id": object_id,
+        "status": "tracked",
+    }
+    ledger.reconcile_inventory(
+        scope_id="scope:retirement",
+        inventory_revision=1,
+        occurrences=(occurrence,),
+        dispositions=(disposition,),
+    )
+
+    retired = ledger.retire_objects(
+        object_ids=(object_id,),
+        scope_id="scope:retirement",
+        inventory_revision=2,
+        reason="synthetic_deleted",
+    )[0]
+
+    assert retired.active is False
+    assert retired.terminal is True
+    assert retired.ui_ready is False
+    assert ledger.summary().registered_object_count == 0
+    assert ledger.next_work(limit=10) == ()
+    assert ledger.page(offset=0, limit=10) == ((), 0)
+
+    reactivated = ledger.reconcile_inventory(
+        scope_id="scope:retirement",
+        inventory_revision=3,
+        occurrences=(occurrence,),
+        dispositions=(disposition,),
+    )[0]
+
+    assert reactivated.active is True
+    assert reactivated.next_stage == "content_selection"
+    assert ledger.summary().registered_object_count == 1
+    assert ledger.next_work(limit=10) == (
+        (object_id, "content_selection"),
+    )
+
+
+def test_parallel_worker_state_publication_keeps_one_current_summary(tmp_path):
+    from concurrent.futures import ThreadPoolExecutor
+
+    repo = tmp_path / "repo"
+    home = tmp_path / "private"
+    repo.mkdir()
+    first = MatterService(private_root=home, repository_root=repo)
+    second = MatterService(private_root=home, repository_root=repo)
+
+    def publish(service, marker):
+        return service.coverage_ledger.record_worker_state(
+            worker_health="running",
+            worker_checkpoint=marker,
+        )
+
+    with ThreadPoolExecutor(max_workers=2) as executor:
+        results = tuple(
+            future.result()
+            for future in (
+                executor.submit(publish, first, "worker:first"),
+                executor.submit(publish, second, "worker:second"),
+            )
+        )
+
+    current = first.coverage_ledger.current_summary()
+    assert current is not None
+    assert current.worker_checkpoint in {"worker:first", "worker:second"}
+    assert all(item.ledger_revision >= 1 for item in results)
+
+
+def test_private_provider_requires_external_home(tmp_path, monkeypatch):
+    monkeypatch.delenv("MATTERS_HOME", raising=False)
     repo = tmp_path / "repo"
     repo.mkdir()
     service = MatterService(repository_root=repo)
@@ -354,3 +640,45 @@ def test_sqlite_groups_current_rows_by_json_array_members(tmp_path):
     assert updated["matter:a"] == ({"matter_ids": ["matter:a"]},)
     assert updated["matter:b"] == ()
     assert updated["matter:c"] == ({"matter_ids": ["matter:c"]},)
+
+
+def test_empty_matter_coverage_lookup_does_not_scan_snapshot_history(
+    tmp_path,
+):
+    repo = tmp_path / "repo"
+    home = tmp_path / "private"
+    repo.mkdir()
+    store = SQLiteStore(home, repo)
+    for revision in range(1, 301):
+        store.append(
+            "unrelated_history",
+            "large-object",
+            revision,
+            {"revision": revision},
+        )
+
+    traced = []
+    original_connection = store.connection
+
+    class _TracedConnection:
+        def __enter__(self):
+            self._manager = original_connection()
+            self._connection = self._manager.__enter__()
+            self._connection.set_trace_callback(traced.append)
+            return self._connection
+
+        def __exit__(self, exc_type, exc, traceback):
+            self._connection.set_trace_callback(None)
+            return self._manager.__exit__(exc_type, exc, traceback)
+
+    store.connection = _TracedConnection
+    grouped = store.current_by_json_array_members(
+        "object_coverage",
+        json_field="matter_ids",
+        values=("matter:without-coverage",),
+    )
+
+    assert grouped == {"matter:without-coverage": ()}
+    statements = "\n".join(traced)
+    assert "FROM coverage_matter_index" in statements
+    assert "JOIN snapshots" not in statements

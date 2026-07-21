@@ -1,4 +1,4 @@
-"""Execute routine TM01-TM18/TM20-TM23 owners and build a TestMesh receipt."""
+"""Execute routine TM01-TM18/TM20-TM27 owners and build a TestMesh receipt."""
 
 from __future__ import annotations
 
@@ -16,6 +16,8 @@ import flowguard
 from flowguard import ProofArtifactRef
 
 from flowguard_design.inventory import (
+    AGENT_OPERATION_MODULES,
+    AGENT_OPERATION_TEST_SUITES,
     ALL_TEST_SUITES,
     MODEL_MODULES,
     MODEL_TEST_SUITES,
@@ -53,16 +55,24 @@ def _files_under(path: Path, pattern: str = "*.py") -> tuple[Path, ...]:
 
 def _suite_inputs(suite_id: str, test_files: tuple[Path, ...]) -> tuple[Path, ...]:
     paths: set[Path] = set(test_files)
+    owner_suites = {
+        **MODEL_TEST_SUITES,
+        **AGENT_OPERATION_TEST_SUITES,
+    }
+    module_owners = {
+        **MODEL_MODULES,
+        **AGENT_OPERATION_MODULES,
+    }
     model_id = next(
         (
             model_id
-            for model_id, owner_suite in MODEL_TEST_SUITES.items()
+            for model_id, owner_suite in owner_suites.items()
             if owner_suite == suite_id
         ),
         "",
     )
     if model_id:
-        area = MODEL_MODULES[model_id].split(".", 1)[0]
+        area = module_owners[model_id].split(".", 1)[0]
         paths.update(_files_under(Path("src/matters") / area))
         if suite_id == "TM01_authorization_coverage":
             paths.update(
@@ -118,6 +128,39 @@ def _suite_inputs(suite_id: str, test_files: tuple[Path, ...]) -> tuple[Path, ..
         paths.add(Path("docs/security/scope-manifest.yaml"))
         paths.update(
             _files_under(Path("src/matters/infrastructure/capability_status"))
+        )
+    elif suite_id == "TM21_object_coverage_worker":
+        paths.update(
+            {
+                Path("src/matters/application/coverage_audit.py"),
+                Path("src/matters/application/coverage_ledger.py"),
+                Path("src/matters/application/source_workflows.py"),
+                Path("src/matters/infrastructure/sqlite/store.py"),
+            }
+        )
+    elif suite_id == "TM22_generated_hero":
+        paths.update(
+            {
+                Path("src/matters/presentation/heroes.py"),
+                Path("src/matters/presentation/visuals.py"),
+            }
+        )
+    elif suite_id == "TM23_desktop_object_browser":
+        paths.update(
+            {
+                Path("src/matters/desktop.py"),
+                Path("src/matters/presentation/browser.py"),
+                Path("src/matters/api/http/app.py"),
+                Path("src/matters/api/http/static.py"),
+            }
+        )
+        paths.update(Path("ui").glob("*"))
+    elif suite_id == "TM25_daily_codex_maintenance":
+        paths.update(
+            {
+                Path("src/matters/application/maintenance.py"),
+                Path("src/matters/application/orchestrator.py"),
+            }
         )
     return tuple(sorted(path for path in paths if path.is_file()))
 
@@ -213,15 +256,27 @@ def _parent_receipt_status(
 def _parent_claim_boundary(deferred_suite_ids: list[str]) -> str:
     if deferred_suite_ids:
         return (
-            "Routine evidence covers TM01-TM18 and autonomous object-browser "
-            "TM20-TM23. TM19 remains release-only until the frozen G12 "
+            "Routine evidence covers TM01-TM18 and autonomous operation, "
+            "coverage, generated-hero, desktop, research, daily-maintenance, "
+            "maintenance-orchestration, and AI-gateway owners TM20-TM27. "
+            "TM19 remains release-only until the frozen G12 "
             "candidate."
         )
     return (
-        "Frozen release evidence covers TM01-TM23, including the release-only "
+        "Frozen release evidence covers TM01-TM27, including the release-only "
         "TM19 clean-install suite. It proves the declared synthetic, package, "
         "installation, skill-runtime, privacy, and UI test inventory only; it "
         "does not claim complete private semantic coverage."
+    )
+
+
+def _deferred_suite_ids(executed_suite_ids: tuple[str, ...]) -> list[str]:
+    """Keep release-only evidence deferred unless this owner executed it now."""
+
+    return (
+        []
+        if "TM19_clean_install_release" in executed_suite_ids
+        else ["TM19_clean_install_release"]
     )
 
 
@@ -333,7 +388,7 @@ def main() -> int:
         choices=ALL_TEST_SUITES,
         help=(
             "Run only selected suite owners; defaults to routine "
-            "TM01-TM18 and TM20-TM23."
+            "TM01-TM18 and TM20-TM27."
         ),
     )
     args = parser.parse_args()
@@ -365,11 +420,7 @@ def main() -> int:
         )
         return 1
     plan, report = run_review(RECEIPT_ROOT)
-    deferred_suite_ids = [
-        suite_id
-        for suite_id in ALL_TEST_SUITES
-        if not (RECEIPT_ROOT / f"{suite_id}.json").is_file()
-    ]
+    deferred_suite_ids = _deferred_suite_ids(suites)
     payload = {
         "artifact_type": "matters.test-mesh-receipt.v1",
         "parent_suite_id": plan.parent_suite_id,

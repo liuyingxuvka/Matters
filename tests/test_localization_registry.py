@@ -70,7 +70,12 @@ def test_private_store_migrates_legacy_projection_pair_to_locale_maps(tmp_path):
         },
     )
 
-    MatterService(private_root=home, repository_root=repo)
+    restarted = MatterService(private_root=home, repository_root=repo)
+    assert first.store.current(
+        "schema_migration",
+        "projection-locale-map-v1",
+    ) is None
+    restarted._migrate_projection_locale_maps()
 
     payload = first.store.current("projection", "matter:legacy")
     assert payload is not None

@@ -25,6 +25,7 @@
     "flowguard_models",
     "openspec",
     "plugin",
+    "plugins",
     "scripts",
     "src",
     "synthetic_fixtures",
@@ -38,7 +39,9 @@
     "**/*.pyo",
     "**/*.egg-info/**",
     "**/*.log",
-    "**/*~"
+    "**/*~",
+    ".flowguard/evidence/ui/screenshots/**",
+    ".flowguard/evidence/ui/**/screenshots/**"
   ],
   "fingerprint_excluded_patterns": [
     ".flowguard/adoption_log.jsonl",
@@ -51,6 +54,69 @@
       "source_pattern": "src/matters/**",
       "wheel_prefix": ""
     }
+  ],
+  "wheel_data_projection": [
+    {
+      "source_path": "CHANGELOG.md",
+      "wheel_data_path": "share/matters/CHANGELOG.md"
+    },
+    {
+      "source_path": "SECURITY.md",
+      "wheel_data_path": "share/matters/SECURITY.md"
+    },
+    {
+      "source_path": "sbom.json",
+      "wheel_data_path": "share/matters/sbom.json"
+    },
+    {
+      "source_path": "ui/app.js",
+      "wheel_data_path": "share/matters/ui/app.js"
+    },
+    {
+      "source_path": "ui/index.html",
+      "wheel_data_path": "share/matters/ui/index.html"
+    },
+    {
+      "source_path": "ui/styles.css",
+      "wheel_data_path": "share/matters/ui/styles.css"
+    },
+    {
+      "source_path": "plugins/matters/.mcp.json",
+      "wheel_data_path": "share/matters/plugins/matters/.mcp.json"
+    },
+    {
+      "source_path": "plugins/matters/.codex-plugin/plugin.json",
+      "wheel_data_path": "share/matters/plugins/matters/.codex-plugin/plugin.json"
+    },
+    {
+      "source_path": "plugins/matters/skills/matters/SKILL.md",
+      "wheel_data_path": "share/matters/plugins/matters/skills/matters/SKILL.md"
+    },
+    {
+      "source_path": "plugins/matters/skills/matters/agents/openai.yaml",
+      "wheel_data_path": "share/matters/plugins/matters/skills/matters/agents/openai.yaml"
+    },
+    {
+      "source_path": "plugins/matters/skills/matters/references/service-contract.md",
+      "wheel_data_path": "share/matters/plugins/matters/skills/matters/references/service-contract.md"
+    }
+  ],
+  "sdist_excluded_patterns": [
+    ".flowguard/adoption_log.jsonl",
+    ".flowguard/evidence/**"
+  ],
+  "package_forbidden_patterns": [
+    ".flowguard/adoption_log.jsonl",
+    ".flowguard/evidence/**",
+    "**/.flowguard/evidence/**",
+    "screenshots/**",
+    "**/screenshots/**",
+    "receipts/**",
+    "**/receipts/**",
+    "MATTERS_HOME/**",
+    "**/MATTERS_HOME/**",
+    "MATTERS_EVAL_VAULT/**",
+    "**/MATTERS_EVAL_VAULT/**"
   ],
   "release_required_singletons": [
     "CHANGELOG.md",

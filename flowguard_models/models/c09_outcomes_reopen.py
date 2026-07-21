@@ -6,16 +6,23 @@ from flowguard_models.harness import CaseRule, FiniteModelSpec, HazardSpec
 SPEC = FiniteModelSpec(
     model_id="C9_completion_cancellation_reopen",
     title="C9 Completion / Cancellation / Reopen",
-    modeled_boundary="explicit completion and termination criteria, independent-loop disposition, and reopening",
+    modeled_boundary=(
+        "explicit completion and termination criteria, independent-loop "
+        "disposition, reopening, and non-mechanical child-outcome rollup"
+    ),
     state_fields=(
         "matter.outcome",
         "matter.outcome_criteria",
         "matter.reopen_revision",
+        "matter.child_outcome_summary",
+        "matter.ancestor_outcome_rollup",
     ),
     owned_write_fields=(
         "matter.outcome",
         "matter.outcome_criteria",
         "matter.reopen_revision",
+        "matter.child_outcome_summary",
+        "matter.ancestor_outcome_rollup",
     ),
     side_effect_classes=("outcome_registry_write",),
     completion_evidence=(
@@ -27,6 +34,9 @@ SPEC = FiniteModelSpec(
         "CompletionUnproven",
         "OutcomeConflict",
         "OutcomeUncertainty",
+        "ChildOutcomeCurrent",
+        "AncestorOutcomeRollupCurrent",
+        "ParentCompletionUnproven",
     ),
     rules=(
         CaseRule(
@@ -89,6 +99,28 @@ SPEC = FiniteModelSpec(
                 "preserving the current best autonomous disposition"
             ),
         ),
+        CaseRule(
+            case_id="all_known_children_completed_parent_criteria_unmet",
+            decision="parent_completion_unproven",
+            label="parent_completion_unproven",
+            writes=(
+                "matter.outcome_criteria",
+                "matter.child_outcome_summary",
+                "matter.ancestor_outcome_rollup",
+            ),
+            side_effects=("outcome_registry_write",),
+            emitted_tokens=(
+                "CompletionUnproven",
+                "ChildOutcomeCurrent",
+                "AncestorOutcomeRollupCurrent",
+                "ParentCompletionUnproven",
+            ),
+            reason=(
+                "all currently known children may be complete while parent-level "
+                "criteria, unknown depth, independent loops, or direct obligations "
+                "remain; child outcomes update the summary but never complete the parent"
+            ),
+        ),
     ),
     hazards=(
         HazardSpec(
@@ -146,16 +178,31 @@ SPEC = FiniteModelSpec(
             broken_side_effects=("outcome_registry_write",),
             broken_tokens=("Reopened", "NewObligation"),
         ),
+        HazardSpec(
+            failure_id="H-C9-006-all-children-mechanically-complete-parent",
+            protected_error_class="child_parent_completion_conflation",
+            description="all known child Matters completed mechanically completes the parent",
+            protected_harm=(
+                "parent criteria, independent obligations, and unmodeled depth "
+                "are silently discarded"
+            ),
+            case_id="all_known_children_completed_parent_criteria_unmet",
+            broken_decision="completed",
+            broken_writes=("matter.outcome", "matter.outcome_criteria"),
+            broken_side_effects=("outcome_registry_write",),
+            broken_tokens=("Completed",),
+        ),
     ),
     risk_classes=("completion", "state_transition", "evidence", "side_effect"),
     template_ids=("completion_requires_evidence", "side_effect_at_most_once"),
     blindspots=(
-        "the exact completion criteria for each Matter require user or domain policy",
+        "the exact parent and child completion criteria for each Matter require user or domain policy",
         "OpenLoop disposition conformance belongs to C8 and parent alignment",
     ),
     claim_boundary=(
         "This receipt can establish C9 abstract completion-evidence, cancellation, "
-        "reopen, and conflict hazards. It does not establish Matter-specific "
-        "criteria, C8 loop closure, or production outcomes."
+        "reopen, conflict, and child/parent completion-separation hazards. It does "
+        "not establish Matter-specific criteria, hierarchy completeness, C8 loop "
+        "closure, or production outcomes."
     ),
 )

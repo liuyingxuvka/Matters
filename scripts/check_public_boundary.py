@@ -31,6 +31,23 @@ SECRET_PATTERNS = (
     ),
     re.compile(r"(?i)authorization\s*:\s*bearer\s+[A-Za-z0-9_./+=-]{12,}"),
 )
+EMAIL_ADDRESS_PATTERN = re.compile(
+    r"(?i)\b[A-Z0-9._%+-]+@(?P<domain>[A-Z0-9.-]+\.[A-Z]{2,})\b"
+)
+RESERVED_SYNTHETIC_EMAIL_DOMAINS = (
+    "example.com",
+    "example.net",
+    "example.org",
+    "example.test",
+    "example.invalid",
+)
+GMAIL_IDENTIFIER_KEYS = {
+    "gmailmessageid",
+    "gmailthreadid",
+    "messageid",
+    "threadid",
+}
+OPAQUE_GMAIL_IDENTIFIER_PATTERN = re.compile(r"(?i)^[0-9a-f]{12,32}$")
 WINDOWS_HOME_PATTERN = re.compile(
     r"(?i)(?:file:(?:/{1,3})?)?[A-Z]:[\\/]+Users[\\/]+[^\\/\s\"'<>]+"
 )
@@ -187,18 +204,27 @@ def _structured_strings(value: Any) -> Iterable[str]:
             yield from _structured_strings(item)
 
 
-def _decoded_documents(text: str, suffix: str) -> Iterable[str]:
+def _decoded_structures(text: str, suffix: str) -> Iterable[Any]:
     if suffix == ".json":
         try:
-            yield from _structured_strings(json.loads(text))
+            yield json.loads(text)
         except (json.JSONDecodeError, UnicodeDecodeError):
             return
     elif suffix in {".yaml", ".yml"} and yaml is not None:
         try:
-            for document in yaml.safe_load_all(text):
-                yield from _structured_strings(document)
+            yield from yaml.safe_load_all(text)
         except yaml.YAMLError:
             return
+
+
+def _structured_key_values(value: Any) -> Iterable[tuple[str, Any]]:
+    if isinstance(value, dict):
+        for key, item in value.items():
+            yield str(key), item
+            yield from _structured_key_values(item)
+    elif isinstance(value, (list, tuple)):
+        for item in value:
+            yield from _structured_key_values(item)
 
 
 def _text_variants(text: str) -> tuple[str, ...]:
@@ -257,7 +283,15 @@ def _scan_text(
 ) -> list[dict[str, str]]:
     findings: list[dict[str, str]] = []
     variants: set[str] = set()
-    for candidate in (text, *_decoded_documents(text, suffix)):
+    documents = tuple(_decoded_structures(text, suffix))
+    for candidate in (
+        text,
+        *(
+            structured
+            for document in documents
+            for structured in _structured_strings(document)
+        ),
+    ):
         variants.update(_text_variants(candidate))
     markers = _identity_markers(private_roots)
     has_machine_marker = any(
@@ -291,6 +325,33 @@ def _scan_text(
                 "code": "high_confidence_secret_pattern",
                 "path": relative,
                 "message": "file contains a high-confidence assigned secret",
+            }
+        )
+    if any(
+        match.group("domain").casefold()
+        not in RESERVED_SYNTHETIC_EMAIL_DOMAINS
+        for value in variants
+        for match in EMAIL_ADDRESS_PATTERN.finditer(value)
+    ):
+        findings.append(
+            {
+                "code": "personal_email_identifier_leak",
+                "path": relative,
+                "message": "file contains a non-synthetic email address",
+            }
+        )
+    if any(
+        re.sub(r"[^a-z0-9]", "", key.casefold()) in GMAIL_IDENTIFIER_KEYS
+        and isinstance(value, str)
+        and OPAQUE_GMAIL_IDENTIFIER_PATTERN.fullmatch(value.strip())
+        for document in documents
+        for key, value in _structured_key_values(document)
+    ):
+        findings.append(
+            {
+                "code": "gmail_identifier_leak",
+                "path": relative,
+                "message": "file contains an opaque Gmail message or thread identifier",
             }
         )
     return findings
@@ -348,6 +409,83 @@ def _archive_inventory(path: Path) -> tuple[str, tuple[str, ...]]:
     raise ValueError(f"unsupported package artifact: {path.name}")
 
 
+def _scan_archive_text(
+    path: Path,
+    *,
+    private_roots: tuple[tuple[str, Path], ...],
+    max_bytes: int,
+) -> list[dict[str, str]]:
+    """Scan generated package members without extracting them to the host."""
+
+    findings: list[dict[str, str]] = []
+
+    def scan_member(relative: str, size: int, content: bytes) -> None:
+        portable = f"package://{path.name}!/{relative}"
+        name_findings = _scan_text(
+            portable,
+            relative,
+            Path(relative).suffix.casefold(),
+            private_roots,
+        )
+        findings.extend(name_findings)
+        if size > max_bytes:
+            findings.append(
+                {
+                    "code": "package_file_too_large",
+                    "path": portable,
+                    "message": (
+                        f"package member has {size} bytes; maximum is {max_bytes}"
+                    ),
+                }
+            )
+            return
+        if b"\0" in content:
+            return
+        try:
+            text = content.decode("utf-8")
+        except UnicodeDecodeError:
+            return
+        for row in _scan_text(
+            portable,
+            text,
+            Path(relative).suffix.casefold(),
+            private_roots,
+        ):
+            findings.append(row)
+
+    suffixes = "".join(path.suffixes).casefold()
+    if path.suffix.casefold() in {".whl", ".zip"}:
+        with zipfile.ZipFile(path) as archive:
+            for row in archive.infolist():
+                if row.is_dir():
+                    continue
+                relative = row.filename.replace("\\", "/")
+                content = archive.read(row) if row.file_size <= max_bytes else b""
+                scan_member(relative, row.file_size, content)
+        return findings
+    if suffixes.endswith(".tar.gz") or path.suffix.casefold() == ".tar":
+        with tarfile.open(path) as archive:
+            members = [row for row in archive.getmembers() if row.isfile()]
+            names = [row.name.replace("\\", "/") for row in members]
+            first_segments = {name.split("/", 1)[0] for name in names}
+            strip_root = len(first_segments) == 1
+            for row, name in zip(members, names, strict=True):
+                relative = (
+                    name.split("/", 1)[1]
+                    if strip_root and "/" in name
+                    else name
+                )
+                stream = archive.extractfile(row)
+                content = (
+                    stream.read()
+                    if stream is not None and row.size <= max_bytes
+                    else b""
+                )
+                scan_member(relative, row.size, content)
+        return findings
+    raise ValueError(f"unsupported package artifact: {path.name}")
+
+
 def _expected_wheel_paths(
     required: Iterable[str],
     inventory: dict[str, Any],
@@ -363,28 +501,121 @@ def _expected_wheel_paths(
     return tuple(sorted(expected))
 
 
+def _expected_wheel_data_paths(
+    observed: Iterable[str],
+    inventory: dict[str, Any],
+) -> tuple[tuple[str, ...], tuple[str, ...]]:
+    metadata_paths = sorted(
+        path
+        for path in observed
+        if path.endswith(".dist-info/METADATA")
+    )
+    if len(metadata_paths) != 1:
+        return (), ("wheel must contain exactly one .dist-info/METADATA file",)
+    dist_info_root = metadata_paths[0].removesuffix("/METADATA")
+    distribution_root = dist_info_root.removesuffix(".dist-info")
+    data_root = f"{distribution_root}.data/data/"
+    expected = {
+        f"{data_root}{row['wheel_data_path']}"
+        for row in inventory.get("wheel_data_projection", ())
+    }
+    return tuple(sorted(expected)), ()
+
+
+def _wheel_generated_metadata_paths(observed: Iterable[str]) -> tuple[str, ...]:
+    metadata_paths = sorted(
+        path
+        for path in observed
+        if path.endswith(".dist-info/METADATA")
+    )
+    if len(metadata_paths) != 1:
+        return ()
+    dist_info_root = metadata_paths[0].removesuffix("/METADATA")
+    return tuple(
+        sorted(
+            {
+                f"{dist_info_root}/METADATA",
+                f"{dist_info_root}/RECORD",
+                f"{dist_info_root}/WHEEL",
+                f"{dist_info_root}/entry_points.txt",
+                f"{dist_info_root}/licenses/LICENSE",
+                f"{dist_info_root}/top_level.txt",
+            }
+        )
+    )
+
+
 def _package_comparison(
     required: tuple[str, ...],
     inventory: dict[str, Any],
     artifacts: Iterable[Path],
+    *,
+    private_roots: tuple[tuple[str, Path], ...],
+    max_bytes: int,
 ) -> dict[str, Any]:
     rows: list[dict[str, Any]] = []
+    package_findings: list[dict[str, str]] = []
+    sdist_excluded = tuple(inventory.get("sdist_excluded_patterns", ()))
+    package_forbidden = tuple(
+        inventory.get("package_forbidden_patterns", ())
+    )
     for artifact in artifacts:
         kind, observed = _archive_inventory(artifact)
-        expected = (
-            _expected_wheel_paths(required, inventory)
-            if kind == "wheel"
-            else required
-        )
+        package_errors: tuple[str, ...] = ()
+        if kind == "wheel":
+            projected = _expected_wheel_paths(required, inventory)
+            expected_data, package_errors = _expected_wheel_data_paths(
+                observed,
+                inventory,
+            )
+            expected = tuple(sorted({*projected, *expected_data}))
+            allowed = {
+                *expected,
+                *_wheel_generated_metadata_paths(observed),
+            }
+        else:
+            expected = tuple(
+                path
+                for path in required
+                if not _matches(path, sdist_excluded)
+            )
+            allowed = {
+                *expected,
+                "PKG-INFO",
+                "setup.cfg",
+                "src/matters.egg-info/SOURCES.txt",
+            }
         missing = sorted(set(expected) - set(observed))
+        unexpected = sorted(set(observed) - allowed)
+        forbidden_payload = sorted(
+            path for path in observed if _matches(path, package_forbidden)
+        )
+        artifact_findings = _scan_archive_text(
+            artifact,
+            private_roots=private_roots,
+            max_bytes=max_bytes,
+        )
+        package_findings.extend(artifact_findings)
         rows.append(
             {
                 "artifact": f"package://{artifact.name}",
                 "kind": kind,
-                "status": "pass" if not missing else "fail",
+                "status": (
+                    "pass"
+                    if not missing
+                    and not unexpected
+                    and not forbidden_payload
+                    and not package_errors
+                    and not artifact_findings
+                    else "fail"
+                ),
                 "expected_count": len(expected),
                 "observed_count": len(observed),
                 "missing_required": missing,
+                "unexpected_public": unexpected,
+                "forbidden_payload": forbidden_payload,
+                "package_errors": list(package_errors),
+                "privacy_findings": artifact_findings,
             }
         )
     return {
@@ -393,6 +624,7 @@ def _package_comparison(
         ),
         "reason": "no_package_artifact_supplied" if not rows else "",
         "artifacts": rows,
+        "privacy_findings": package_findings,
     }
 
 
@@ -599,13 +831,23 @@ def check(
                 }
             )
 
-    package = _package_comparison(required, inventory, package_artifacts)
+    package = _package_comparison(
+        required,
+        inventory,
+        package_artifacts,
+        private_roots=private_roots,
+        max_bytes=max_bytes,
+    )
+    findings.extend(package["privacy_findings"])
     if package["status"] == "fail":
         findings.append(
             {
                 "code": "package_inventory_mismatch",
                 "path": "package://",
-                "message": "package artifact omits required projected files",
+                "message": (
+                    "package artifact has missing, unexpected, forbidden, "
+                    "or privacy-invalid payload"
+                ),
             }
         )
 
@@ -677,9 +919,12 @@ def check(
         "claim_boundary": (
             "This check enforces authoritative required-public inventory "
             "reconciliation, ignored/tracked/package/clean-clone accounting, "
+            "missing and unexpected package payload rejection, "
+            "package member path and generated-text privacy scanning, "
             "external private-root placement, link and junction rejection, "
             "portable evidence paths, decoded JSON/YAML and encoded-path "
-            "scanning, size limits, and high-confidence secret patterns. "
+            "scanning, size limits, non-synthetic email and structured opaque "
+            "Gmail identifier rejection, and high-confidence secret patterns. "
             "No-commit, clean-clone-not-supplied, package-not-supplied, and "
             "unreviewed ACL/encryption/cloud-sync dispositions remain visible "
             "and are not claimed as passed release evidence."

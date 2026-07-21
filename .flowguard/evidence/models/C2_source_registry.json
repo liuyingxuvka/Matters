@@ -1,13 +1,91 @@
 {
   "artifact_type": "matters.flowguard-model-receipt.v1",
-  "claim_boundary": "This model establishes bounded C2 inventory, change-set, source-version, freshness, safe visual-derivative, no-delta, and tombstone behavior. It does not prove durable storage, provider enumeration completeness, or real dependency execution.",
-  "evidence_id": "evidence:C2_source_registry:9197d59c0887a460",
+  "claim_boundary": "This model establishes bounded C2 inventory, value/neighborhood-aware content-selection plans whose semantic identity is independent from inventory scan revision, explicit deferred/bounded/continuation states, change-set, source-version, freshness, safe Images-gallery derivative, no-delta, and tombstone behavior. It does not prove durable storage, provider enumeration completeness, or real dependency execution.",
+  "evidence_id": "evidence:C2_source_registry:db58fa066dbdbc05",
   "evidence_tiers": [
     "abstract_green",
     "hazard_green"
   ],
-  "generated_at": "2026-07-19T05:48:41.301900+00:00",
+  "generated_at": "2026-07-21T07:11:25.065829+00:00",
   "known_bad_proofs": [
+    {
+      "evidence_id": "C2_source_registry:known-bad:H-C2-017-inventory-revision-rewrites-content-selection",
+      "failure_id": "H-C2-017-inventory-revision-rewrites-content-selection",
+      "observed_status": "failed",
+      "protected_error_class": "content_selection_scan_revision_identity_conflation"
+    },
+    {
+      "evidence_id": "C2_source_registry:known-bad:H-C2-016-overlapping-root-duplicates-content-plan",
+      "failure_id": "H-C2-016-overlapping-root-duplicates-content-plan",
+      "observed_status": "failed",
+      "protected_error_class": "content_selection_overlap_amplification"
+    },
+    {
+      "evidence_id": "C2_source_registry:known-bad:H-C2-014-registration-implies-full-content-read",
+      "failure_id": "H-C2-014-registration-implies-full-content-read",
+      "observed_status": "failed",
+      "protected_error_class": "inventory_content_admission_conflation"
+    },
+    {
+      "evidence_id": "C2_source_registry:known-bad:H-C2-015-bounded-selection-silently-truncates-content",
+      "failure_id": "H-C2-015-bounded-selection-silently-truncates-content",
+      "observed_status": "failed",
+      "protected_error_class": "content_selection_continuation_loss"
+    },
+    {
+      "evidence_id": "C2_source_registry:known-bad:H-C2-012-whole-snapshot-read-per-object",
+      "failure_id": "H-C2-012-whole-snapshot-read-per-object",
+      "observed_status": "failed",
+      "protected_error_class": "registered_batch_snapshot_amplification"
+    },
+    {
+      "evidence_id": "C2_source_registry:known-bad:H-C2-013-nonatomic-source-revision-race",
+      "failure_id": "H-C2-013-nonatomic-source-revision-race",
+      "observed_status": "failed",
+      "protected_error_class": "source_revision_allocation_race"
+    },
+    {
+      "evidence_id": "C2_source_registry:known-bad:H-C2-008-folder-proximity-collapses-source-identity",
+      "failure_id": "H-C2-008-folder-proximity-collapses-source-identity",
+      "observed_status": "failed",
+      "protected_error_class": "source_neighborhood_identity_collapse"
+    },
+    {
+      "evidence_id": "C2_source_registry:known-bad:H-C2-009-partition-boundary-changes-neighborhood",
+      "failure_id": "H-C2-009-partition-boundary-changes-neighborhood",
+      "observed_status": "failed",
+      "protected_error_class": "partition_relative_spatial_identity_drift"
+    },
+    {
+      "evidence_id": "C2_source_registry:known-bad:H-C2-011-gmail-partial-page-deletes-prior-page",
+      "failure_id": "H-C2-011-gmail-partial-page-deletes-prior-page",
+      "observed_status": "failed",
+      "protected_error_class": "partial_inventory_false_deletion"
+    },
+    {
+      "evidence_id": "C2_source_registry:known-bad:H-C2-020-gmail-metadata-owner-creates-semantic-depth",
+      "failure_id": "H-C2-020-gmail-metadata-owner-creates-semantic-depth",
+      "observed_status": "failed",
+      "protected_error_class": "gmail_metadata_owner_depth_or_retry_escape"
+    },
+    {
+      "evidence_id": "C2_source_registry:known-bad:H-C2-010-gmail-metadata-regresses-content",
+      "failure_id": "H-C2-010-gmail-metadata-regresses-content",
+      "observed_status": "failed",
+      "protected_error_class": "gmail_content_depth_regression"
+    },
+    {
+      "evidence_id": "C2_source_registry:known-bad:H-C2-018-gmail-continuation-rewrites-unbound-body",
+      "failure_id": "H-C2-018-gmail-continuation-rewrites-unbound-body",
+      "observed_status": "failed",
+      "protected_error_class": "gmail_continuation_predecessor_mismatch"
+    },
+    {
+      "evidence_id": "C2_source_registry:known-bad:H-C2-019-gmail-no-text-creates-fake-source",
+      "failure_id": "H-C2-019-gmail-no-text-creates-fake-source",
+      "observed_status": "failed",
+      "protected_error_class": "gmail_no_text_fake_content"
+    },
     {
       "evidence_id": "C2_source_registry:known-bad:H-C2-001-ai-rewrites-original",
       "failure_id": "H-C2-001-ai-rewrites-original",
@@ -39,10 +117,10 @@
       "protected_error_class": "deletion_propagation_loss"
     },
     {
-      "evidence_id": "C2_source_registry:known-bad:H-C2-007-unsafe-visual-rendered",
-      "failure_id": "H-C2-007-unsafe-visual-rendered",
+      "evidence_id": "C2_source_registry:known-bad:H-C2-007-unsafe-gallery-asset-rendered",
+      "failure_id": "H-C2-007-unsafe-gallery-asset-rendered",
       "observed_status": "failed",
-      "protected_error_class": "visual_derivative_safety_escape"
+      "protected_error_class": "gallery_derivative_safety_escape"
     },
     {
       "evidence_id": "C2_source_registry:known-bad:H-C2-006-move-creates-unrelated-content",
@@ -51,7 +129,7 @@
       "protected_error_class": "occurrence_content_identity_collapse"
     }
   ],
-  "model_fingerprint": "sha256:9197d59c0887a4601a69541bdcf94b420f5199d3c9417a56f6241920ea46b534",
+  "model_fingerprint": "sha256:db58fa066dbdbc05e5e310f7ddb98aea9a9355b0b894f2677ca2b75690b86be5",
   "model_id": "C2_source_registry",
   "model_title": "C2 Source Registry, Inventory & Freshness",
   "overall_status": "pass_with_gaps",
@@ -76,7 +154,7 @@
     "model_mesh": "not_run_in_this_owner: cross-model topology belongs to the separate ModelMesh owner"
   },
   "toolchain": {
-    "flowguard_package_version": "0.58.4",
+    "flowguard_package_version": "0.58.5",
     "flowguard_schema_version": "1.0"
   }
 }

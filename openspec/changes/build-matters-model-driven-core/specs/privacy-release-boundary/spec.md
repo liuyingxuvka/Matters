@@ -49,9 +49,13 @@ evaluation roots.
 - **WHEN** a tracked, staged, packaged, documented, logged, screenshot, model, receipt, cache, or build file contains private source or derived material
 - **THEN** the publication gate SHALL block and identify the contaminated public artifact
 
-#### Scenario: Representative visual derivative is created
-- **WHEN** the application generates a thumbnail, document preview, OCR overlay, representative visual, or desktop screenshot from real private content
+#### Scenario: Private visual derivative is created
+- **WHEN** the application generates a thumbnail, document preview, OCR overlay, Matter generation brief, generated Matter hero, or desktop screenshot from real private content or derived understanding
 - **THEN** the derivative and every reconstructable identity SHALL remain under `MATTERS_HOME` or an explicitly private evaluation root and SHALL NOT enter Git, package data, public UI fixtures, release receipts, or public design captures
+
+#### Scenario: A Matter hero is sent for generation
+- **WHEN** the current private execution profile invokes a declared image-generation capability
+- **THEN** the package SHALL contain only the minimized Matter theme permitted by the current policy, exclude source excerpts, paths, names, addresses, private identifiers, logos, literal text, and identifiable real people by default, and record the provider/tool disclosure disposition privately
 
 ### Requirement: Discovery and analysis cannot export private data implicitly
 Filesystem, Gmail, document, image, AI, Guard, UI, logging, telemetry, and
@@ -125,7 +129,7 @@ fourth skill-runtime layer.
 - **THEN** Matters MAY preserve a blocked local candidate but SHALL NOT claim final v0.2 complete-release
 
 ### Requirement: Package verification is private-source independent
-The v0.2 package, clean-clone tests, install checks, and release candidate SHALL
+The generic package, clean-clone tests, install checks, and release candidate SHALL
 start in non-writing capability mode without Jira, Rovo, Gmail, cloud, or real
 private source access. The user's private first run SHALL remain a separate
 acceptance domain and SHALL NOT be copied into clean-clone evidence.
@@ -133,6 +137,24 @@ acceptance domain and SHALL NOT be copied into clean-clone evidence.
 #### Scenario: Jira and Rovo are unavailable
 - **WHEN** no Atlassian account, token, host, plugin, Rovo installation, Gmail connection, cloud hydration, or private root exists
 - **THEN** package health, synthetic tests, and capability reporting SHALL remain installable and runnable without pretending the private first run occurred
+
+### Requirement: A generic GitHub release may precede the private first run
+Matters MAY publish a generic GitHub release before the user's private Gmail,
+local-file, and Codex first run is complete only when every generic product
+capability promised by the release—including hierarchy, people, timeline,
+summary, inference/correction, bilingual object browser, desktop shell, MCP,
+and bundled-skill behavior—has current model, test, privacy, package, and
+installation evidence on one frozen candidate. The release SHALL describe the
+private first run as separate and not yet completed, and SHALL NOT use private
+coverage progress as generic product proof.
+
+#### Scenario: Generic v0.3.0 is frozen while the private first run remains pending
+- **WHEN** the generic candidate, anonymous install, public inventory, privacy scan, model owners, TestMesh, desktop shell, MCP, and bundled skills are current, but private Gmail/local/Codex modeling remains incomplete
+- **THEN** the system MAY publish v0.3.0 without private artifacts or a private-completion claim, SHALL continue the private first run against the released contract, and MAY aggregate later generic defects into a separately verified patch release
+
+#### Scenario: A private first run exposes a generic product defect
+- **WHEN** real private operation reveals a reusable implementation defect after v0.3.0
+- **THEN** the defect SHALL be reproduced with public-safe synthetic evidence, fixed and verified as generic behavior, and MAY be published in a later patch release without exporting the private triggering content
 
 ### Requirement: Remote publication requires a separate frozen decision
 Local package installation, local Git commit, and local tag SHALL NOT imply
@@ -142,3 +164,12 @@ GitHub release.
 #### Scenario: Local release candidate is green
 - **WHEN** the frozen local package, install, model, test, privacy, and Git identities agree
 - **THEN** remote publication SHALL remain blocked until a separate explicit publication decision supplies the remote, license, and public inventory
+
+#### Scenario: Publication intent is explicit but remote identity is not frozen
+- **WHEN** the user authorizes GitHub publication but the exact repository, visibility, license disposition, or public inventory is not current
+- **THEN** the generic release work SHALL continue through the local frozen-candidate gate, but push, tag publication, and GitHub Release creation SHALL remain blocked until those publication identities are explicit and mutually consistent
+
+#### Scenario: Generic v0.3.0 private GitHub identity is frozen
+- **WHEN** the authorized owner selects `liuyingxuvka/Matters` as a private repository, retains a proprietary private-repository license, selects the approved generic public-safe inventory, and requests source, tag `v0.3.0`, and GitHub Release publication
+- **THEN** the publication owner MAY create and push that private remote only after the frozen candidate passes its generic model, test, UI, privacy, package, anonymous-install, desktop, MCP, and bundled-skill gates
+- **AND** the private repository decision SHALL NOT authorize public visibility, open-source licensing, private-data upload, or a private-first-run completion claim

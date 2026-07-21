@@ -1,13 +1,19 @@
 {
   "artifact_type": "matters.flowguard-model-receipt.v1",
-  "claim_boundary": "This receipt can establish C7 abstract planned/active, partial-coverage, provider-status, and UI-writer hazards. It does not prove the final lifecycle policy, real board behavior, or outcome completion.",
-  "evidence_id": "evidence:C7_lifecycle_board_state:951befd66451fa09",
+  "claim_boundary": "This receipt can establish C7 abstract planned/active, partial-coverage, provider-status, hierarchy-rollup, false-percentage, and UI-writer hazards. It does not prove the final lifecycle policy, real board behavior, hierarchy completeness, or outcome completion.",
+  "evidence_id": "evidence:C7_lifecycle_board_state:48dbb364b6c25605",
   "evidence_tiers": [
     "abstract_green",
     "hazard_green"
   ],
-  "generated_at": "2026-07-19T05:48:47.784283+00:00",
+  "generated_at": "2026-07-21T07:11:55.636939+00:00",
   "known_bad_proofs": [
+    {
+      "evidence_id": "C7_lifecycle_board_state:known-bad:H-C7-008-modality-replaces-lifecycle-state",
+      "failure_id": "H-C7-008-modality-replaces-lifecycle-state",
+      "observed_status": "failed",
+      "protected_error_class": "lifecycle_modality_conflation"
+    },
     {
       "evidence_id": "C7_lifecycle_board_state:known-bad:H-C7-001-scheduled-becomes-active",
       "failure_id": "H-C7-001-scheduled-becomes-active",
@@ -31,9 +37,27 @@
       "failure_id": "H-C7-004-ui-writes-state",
       "observed_status": "failed",
       "protected_error_class": "projection_writer_escape"
+    },
+    {
+      "evidence_id": "C7_lifecycle_board_state:known-bad:H-C7-005-active-child-mechanically-activates-parent",
+      "failure_id": "H-C7-005-active-child-mechanically-activates-parent",
+      "observed_status": "failed",
+      "protected_error_class": "child_parent_state_conflation"
+    },
+    {
+      "evidence_id": "C7_lifecycle_board_state:known-bad:H-C7-006-related-relation-rolls-up-state",
+      "failure_id": "H-C7-006-related-relation-rolls-up-state",
+      "observed_status": "failed",
+      "protected_error_class": "related_edge_rollup_escape"
+    },
+    {
+      "evidence_id": "C7_lifecycle_board_state:known-bad:H-C7-007-partial-depth-fake-percentage",
+      "failure_id": "H-C7-007-partial-depth-fake-percentage",
+      "observed_status": "failed",
+      "protected_error_class": "unknown_denominator_false_precision"
     }
   ],
-  "model_fingerprint": "sha256:951befd66451fa09fd78877399365501db90a42b6cf2bcabdb560a71b2f68a54",
+  "model_fingerprint": "sha256:48dbb364b6c2560542db3cfaa033d23dc92818ff04f29f25c2d029a3bc5c5d3f",
   "model_id": "C7_lifecycle_board_state",
   "model_title": "C7 Lifecycle & Board State",
   "overall_status": "pass_with_gaps",
@@ -58,7 +82,7 @@
     "model_mesh": "not_run_in_this_owner: cross-model topology belongs to the separate ModelMesh owner"
   },
   "toolchain": {
-    "flowguard_package_version": "0.58.4",
+    "flowguard_package_version": "0.58.5",
     "flowguard_schema_version": "1.0"
   }
 }

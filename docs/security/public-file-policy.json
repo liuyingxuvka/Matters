@@ -21,6 +21,7 @@
     "flowguard_models/**",
     "openspec/**",
     "plugin/**",
+    "plugins/**",
     "pyproject.toml",
     "scripts/**",
     "sbom.json",
@@ -56,6 +57,8 @@
     "receipts/**",
     "runtime/**",
     "screenshots/**",
+    ".flowguard/evidence/ui/screenshots/**",
+    ".flowguard/evidence/ui/**/screenshots/**",
     "thumbnails/**",
     "vault/**"
   ],

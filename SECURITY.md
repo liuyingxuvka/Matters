@@ -7,15 +7,15 @@ configured `MATTERS_HOME` outside the source checkout and package build roots.
 
 ## Supported version
 
-The private local 0.2.x candidate is the only supported line.
+The private-repository 0.3.x release line is the only supported line.
 
 ## Reporting a vulnerability
 
-Do not publish private data or a vulnerability report in a public issue.
-Report it through a private channel agreed with the repository owner and
-include only the minimum information needed to reproduce the issue. Until a
-private reporting channel and public license are explicitly configured, this
-project remains local-only.
+Do not put private data into an issue, release, log, or reproduction fixture.
+Report a vulnerability through a private channel agreed with the repository
+owner and include only the minimum synthetic information needed to reproduce
+the issue. The repository and releases remain private and proprietary unless a
+later decision explicitly establishes a public security and license policy.
 
 ## Security boundaries
 

@@ -11,6 +11,7 @@ class MatterCandidate:
     source_ids: tuple[str, ...]
     rationale: str
     evidence_ids: tuple[str, ...] = ()
+    semantic_identity_id: str = ""
 
 
 @dataclass(frozen=True)
@@ -20,6 +21,8 @@ class Matter:
     rationale: str
     evidence_ids: tuple[str, ...]
     admitted: bool = True
+    semantic_identity_id: str = ""
+    object_kind: str = "matter"
 
 
 @dataclass(frozen=True)

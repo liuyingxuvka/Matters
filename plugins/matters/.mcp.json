@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "matters": {
+      "command": "matters-mcp",
+      "args": []
+    }
+  }
+}

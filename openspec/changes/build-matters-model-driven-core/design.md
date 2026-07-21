@@ -1,6 +1,6 @@
 ## Context
 
-Matters v0.2 is a local-first application for turning the user's authorized
+Matters v0.3.0 is a local-first application for turning the user's authorized
 content universe into traceable sources, evidence, candidate people and events,
 Matters, open loops, outcomes, and bilingual views. The content universe
 includes local user-content roots, documents, PDFs, spreadsheets, photos and
@@ -50,18 +50,25 @@ repository.
   analysis; separate `hard_excluded` system material, generated clutter, junk,
   irrelevant items, unavailable inputs, and `tracked` items without losing
   disposition history or waiting for ordinary user classification.
-- Discover and disposition local text/code/config, PDF/Office/spreadsheet,
-  image/photo, Gmail/thread/attachment, audio/video/archive metadata, cloud
-  placeholders, unsupported files, and inaccessible items in resumable stages.
+- Discover and disposition local user-authored text and declared safe
+  exports/downloads, PDF/Office/spreadsheet, image/photo,
+  Gmail/thread/attachment, audio/video/archive metadata, cloud placeholders,
+  unsupported files, and inaccessible items in resumable stages. Program
+  source/scripts and software-owned configuration/state never enter content
+  analysis.
 - Distinguish metadata inventory, source-type canary, staged extraction, current
   coverage, partial coverage, and complete terminal disposition.
 - Detect added, modified, moved, deleted, and newly reachable occurrences;
   invalidate affected scope decisions and downstream evidence, then
   incrementally re-triage only changed items and declared dependents.
-- Persist source content, metadata, analysis work, revisions, dependencies,
-  discovery cursors, dispositions, recomputation state, and current projections
-  under the external `MATTERS_HOME` root.
-- Preserve immutable source versions and precise line/character, page,
+- Keep original files, Gmail content, attachments, and provider objects in
+  their current locations; persist locators, fingerprints, derived
+  understanding, analysis work, revisions, dependencies, discovery cursors,
+  dispositions, recomputation state, and current projections under the
+  external `MATTERS_HOME` root. Complete source bytes/text are transient
+  extraction material with explicit cleanup, quota, TTL, and garbage
+  collection.
+- Preserve immutable source observation versions and precise line/character, page,
   sheet/cell, message/thread, attachment, image-region, OCR, and metadata
   anchors.
 - Run text and multimodal AI plus the single ResearchGuard research entrypoint
@@ -74,6 +81,13 @@ repository.
 - Make admission, state, blocking, and outcomes evidence-licensed decisions
   with explicit source-only, candidate, uncertainty-preserved, not-applicable,
   no-delta, and blocked branches.
+- Represent large Matters, child Matters, WorkItems/Actions, Events, OpenLoops,
+  and Source/Evidence as distinct semantic levels while keeping one canonical
+  owner per field and one stable semantic identity per Matter.
+- Keep the top-level catalog focused on root Matters while making every
+  descendant Matter, WorkItem, and Event reachable through search, a
+  multi-depth Sub-matters graph, and one reusable single-layer node quick view
+  that never opens another full Matter reader.
 - Automatically validate and dispatch typed advisory findings to the unique
   original C4-C9/C12 owner without requiring user confirmation; preserve user
   correction as an optional later action.
@@ -81,6 +95,11 @@ repository.
   projection.
 - Provide one runnable local service path shared by HTTP, MCP, CLI, the
   browser development surface, and the primary bilingual Windows desktop UI.
+- Define AI work in capability roles and keep the concrete model/reasoning
+  mapping in replaceable machine-local Codex deployment state.
+- Reuse the same bounded service path from a Codex-hosted daily maintenance
+  schedule without giving the application an API key or an unattended release
+  owner.
 - Derive changed modules, fields, code contracts, exhaustive finite cases, UI
   transitions, and test ownership from the revised models.
 - Prevent credentials, secrets, browser/session stores, operating-system and
@@ -117,6 +136,10 @@ repository.
   or evidence state.
 - Silent fallback from unavailable AI/local skills to keyword heuristics while
   claiming equivalent analysis.
+- Hard-coding Luna, Terra, or another model/provider as a product contract,
+  canonical field, or release dependency.
+- Requiring an application-owned OpenAI API key or silently falling back from a
+  Codex execution profile to direct provider API calls.
 - Multiple compatibility success paths or UI/provider-owned canonical state.
 - Publishing renamed, pseudonymized, hashed, embedded, summarized, screenshotted,
   or otherwise derived real private material as synthetic data.
@@ -172,7 +195,11 @@ tree preserves the original root grant while avoiding a second authorization
 owner or a whole-tree memory dependency.
 
 Hard system, credential, browser/session, VCS, cache, dependency, build, and
-unsafe-execution exclusions are deterministic policy decisions. Relevance,
+unsafe-execution exclusions are deterministic policy decisions. Program
+sources, software-tree configuration, internal application databases/state,
+and unknown machine formats are terminal before content reads. Declared
+unsupported media and archives remain metadata-only and are never recursively
+expanded or submitted as arbitrary bytes. Relevance,
 duplicate-clutter, and junk triage are decided by AI under the frozen product
 policy when the decision is reversible and auditable. Low-confidence or
 potentially valuable items receive the best supported current disposition plus
@@ -187,7 +214,11 @@ work. Known software-control, dependency, cache, build, test, and temporary
 directories are terminal at their directory boundary, so their descendants do
 not inflate coverage or semantic work. Every private partition manifest binds
 the numeric tracking-policy revision; a revision mismatch is stale evidence
-and cannot be resumed or counted as current.
+and cannot be resumed or counted as current. The coordinator directly creates
+a current replacement manifest and retires omitted former scopes and
+occurrences from active coverage, work, relation, and UI indexes while
+preserving their append-only history. Rediscovery appends an active revision
+and resumes at the first required incomplete stage.
 
 The installed Windows default uses one non-virtualized directory directly
 under the user profile. This avoids Windows Store LocalAppData virtualization
@@ -212,6 +243,41 @@ chooses an arbitrary giant subtree nor crosses many single-file scopes merely
 to obtain a few content samples. Canary completion remains separate from
 whole-root semantic coverage.
 
+Full registration is not full-content admission. After inventory and before
+`source_version`, the private `ContentSelection` owner records one current plan
+per active tracked occurrence. Deterministic hard exclusions remain before AI;
+safe but low-value or ambiguous occurrences may finish as metadata-only or
+deferred, while sampled, bounded, and explicit resumable-deep modes admit only
+their declared content budget. The planner uses file kind, size, material
+freshness, and stable source-neighborhood context for priority. Software-tree
+support documents remain individually registered but are not all read merely
+because Markdown is human-readable. A low-cost replaceable Codex capability may
+propose ambiguous metadata dispositions; the original owner alone publishes the
+plan. Coverage exposes the selection state and reason, so deferred work is
+auditable rather than silently omitted.
+
+The plan's semantic identity deliberately excludes the inventory scan revision.
+The scan revision remains a separate freshness/audit reference; it cannot make
+an otherwise identical occurrence, policy, metadata, neighborhood, mode, reason,
+priority, or continuation look like a changed content decision. This prevents a
+no-delta scan from rewriting selection plans and amplifying extraction,
+EvidenceAnchors, WorkPackages, coverage history, and UI refresh. A genuine
+selection-relevant change produces a new plan identity and bounded dependent
+invalidation.
+
+Foreground startup is also separate from migration. Opening the product reads
+current indexes and projections only; legacy catalog repair is explicit,
+bounded, resumable maintenance so a large private corpus cannot make the UI or
+CLI appear unavailable. Startup never owns evidence-pointer rebase,
+coverage-history archive, `VACUUM`, `VACUUM INTO`, or another whole-database
+rewrite.
+
+Large evidence sets stay authoritative in C3. Downstream coverage and work rows
+carry only a bounded `SourceVersion + count + canonical digest` anchor-set
+pointer; they never copy an unbounded anchor-id list. C3 retains every exact
+anchor and resolves bounded pages. Pointer migration is an explicit stable-key
+page owner whose partial receipt is not terminal.
+
 Within that canary, per-item source, evidence, analysis, and projection stage
 updates are persisted without recomputing the global coverage summary. The
 bounded batch performs one summary refresh only after all selected items reach
@@ -226,6 +292,20 @@ occurrence plus declared dependents is reprocessed; an unchanged occurrence
 produces no duplicate work. Tracking-policy changes stale the affected
 classification set even when source bytes did not change.
 
+Filesystem occurrences also retain stable private spatial provenance. The
+neighborhood id hashes the physical parent, and the ordered group chain binds
+the authorized-root ancestor sequence, so partitioning does not turn related
+files into unrelated inputs. Bounded private AI packages may receive opaque
+neighborhood/group ids, contained folder labels, depth, and file kind, but
+never an absolute path. Those spatial signals may support grouping and
+ResearchGuard source qualification and trace reasoning; they never by
+themselves prove a Matter, Event, identity, temporal order, or causal
+relationship. A downloaded or explicitly exported messaging-app document is
+ordinary user content when it satisfies the same deterministic policy; the
+application's own database, log, cache, session, or runtime-state files remain
+terminal until a separately authorized, safe, provider-specific export adapter
+exists.
+
 For Gmail, the grant freezes account identity, query/policy revision, mailbox
 categories, allowed operations, pagination cursor, and attachment policy.
 Inbox, Sent, and archived non-Spam/non-Trash mail are progressively read and
@@ -238,7 +318,122 @@ through the frozen relevance policy. Inside a bounded canary, current tracked
 messages whose authorized connector page actually supplies body content are
 selected before tracked metadata-only messages; the exact content budget still
 applies. Opaque message identifiers are provenance identities, not a content
-priority signal.
+priority signal. Bounded resume uses a stable content offset plus limit over
+that frozen page. When a connector page supplies a complete message body, the
+content-observation envelope is the SourceVersion authority for that pass; the
+body is transient extraction input and is removed after the derived-state
+commit. The
+metadata-only envelope must not be registered first or later replace the
+deeper content version. Later batches therefore preserve earlier current
+extraction, evidence, and queued analysis instead of alternating each message
+between metadata-only and content-observation versions.
+
+Every current Gmail message occurrence classified `metadata_only`, including
+an identity-only connector row, still requires a minimal private C2
+SourceVersion so inventory coverage and source provenance cannot disagree.
+This metadata-owner path copies only the already-authorized message envelope;
+it does not read a body or dispatch extraction, evidence, analysis, Matter,
+person, event, or projection owners. It requires an exact active
+ObjectCoverage row and exactly one matching current inventory occurrence under
+the same Gmail scope, inventory revision, message type, and `metadata_only`
+disposition. A stale, foreign-scope, ambiguous, or missing owner is skipped
+without writes. If a deeper current SourceVersion already contains a content
+fingerprint and derived anchors/results, the metadata path preserves it
+unchanged.
+
+Legacy inventories that predate this rule are repaired only from a verified
+terminal Gmail page chain. Reconciliation is deterministic by message object
+id, accepts an exclusive `after_object_id` cursor and a limit from 1 through
+500, returns exact selected/remaining/next-cursor counts, and refreshes only
+the affected source-version coverage pointers. Exact replay is no-delta.
+Non-terminal or non-progressing page chains are rejected rather than used to
+claim source-owner completeness. This bounded repair does not rescan a broader
+mailbox, mutate Gmail, or turn metadata into evidence.
+
+If that legacy metadata-only coverage later coexists with one newer current
+tracked occurrence for the same authorized mailbox, a separate current-scope
+owner may rebind the coverage without a connector read. It selects by stable
+object-id keyset, requires exactly one newer same-account tracked scope,
+requires a current SourceVersion plus either the exact body receipt or exact
+`no_text_body` disposition, and atomically compare-and-swaps coverage plus a
+minimized receipt. Multiple tracked scopes are explicitly blocked rather than
+ranked by unrelated per-scope revision numbers. A changed input returns stale
+with zero partial switch.
+
+A current-scope decision cannot consume a stale policy snapshot. Before that
+decision, a bounded inventory-policy rebase may reuse the exact durable
+occurrences and preserved user intents to produce a new C1 inventory snapshot
+under the current TrackingPolicy without reading the provider. It refreshes
+only the affected SourceGroup, freshness, and coverage owners. The operation
+never weakens the current-policy equality gate and never treats revision
+numbers from different scope identities as one global sequence.
+
+Some current private Gmail SourceVersions were created before the minimized
+content-receipt contract existed. They are not reread merely to manufacture a
+new receipt. A bounded receipt-rebase owner may append that missing receipt
+only when the same registry-current tracked SourceVersion already has an exact
+SHA-256 content fingerprint, positive derived byte count, and exact current
+evidence anchors. Its output carries only digest, length, evidence ids,
+contract identity, and `provider_read_performed=false`; it never stores body
+text, creates evidence, reads Gmail, or treats metadata as content proof.
+Without every exact proof the row remains visibly pending or blocked.
+
+Passed source annotation is also replay-stable. Its persisted follow-up
+relation is the sole current semantic-package identity. Recovery returns that
+same package rather than regenerating an `analysis_as_of` timestamp. A bounded
+reconciler may append an invalidation for redundant unexecuted follow-ups, but
+never deletes completed or uncertain history.
+
+When source-revision reconciliation reports `analysis_required`, a separate
+target-bound semantic package binds the exact existing Matter id,
+registry-current SourceVersion, current admission fingerprint, and exact
+current evidence anchors. C6 adopts that revision into the named Matter
+without title-similarity selection or root creation. Only after the current
+revision and anchors are admitted does reconciliation remove the old source
+membership and old-revision evidence membership from the current admission;
+the prior admission and receipts remain append-only history.
+
+When a verified Gmail inventory is followed by a connector-hosted body
+continuation, the continuation is a separate, privacy-minimized import leaf.
+Its private manifest is an exact JSON array of
+`message_id/source_page_identity/batch_number` rows. The importer hashes the
+raw manifest bytes, accepts exactly one 1-based batch of at most 20 messages,
+and accepts only the top-level
+`artifact_type/manifest_sha256/batch_number/messages` projection. An
+`available` message result is exactly `message_id/body/content_status` and
+requires non-empty text. A connector raw-MIME recovery result that proves the
+message has no textual MIME part is exactly
+`message_id/body/content_status/raw_recovery_proof_identity`, where
+`content_status=no_text_body`, `body` is the exact empty string, and the proof
+identity is not an arbitrary assertion: the importer recomputes
+`sha256(domain || canonical-row)` with domain
+`matters.gmail.raw-mime-recovery.no-text-body.v1\0` and canonical UTF-8 JSON
+`{message_id, body:"", content_status:"no_text_body",
+disposition:"no_text_body"}` using sorted keys, no optional whitespace, and
+unescaped Unicode. The batch is rejected before writes if the
+manifest/hash/batch identity differs, an id is foreign, missing, or duplicated,
+an available body is empty, a no-text result contains body content or lacks,
+malforms, or mismatches that derived proof, another unavailable status is
+supplied, or any title, address, header, cursor, token, or other field is
+present. A current Gmail-message metadata
+SourceVersion and its current occurrence/coverage row must already exist for
+every manifest id.
+
+An available result may use the body only transiently and write the Gmail read
+receipt, a deeper immutable pointer/fingerprint SourceVersion, exact anchor
+coordinates/digests, declared derived outputs, and ObjectCoverageLedger
+pointers before deleting the complete staging body. A
+`no_text_body` result instead writes one explicit
+`gmail_message_content_disposition` owner and owned terminal
+`not_applicable` extraction/evidence/analysis coverage pointers over the
+already-current metadata SourceVersion; it creates no durable complete-body
+SourceVersion, EvidenceAnchor, semantic package, or fake empty evidence. The
+existing message metadata remains available for relation and chronology work.
+Neither branch changes the mailbox, inventory grant, Matter, person, event,
+projection, or model state, and neither invokes or binds the product to an AI
+model or direct API. Each message write is content-addressed/idempotent, so an
+interrupted batch can be resumed by replaying the exact same manifest and
+connector result without duplicating current state.
 
 ### 2a. Keep AI scope triage distinct from authorization and product truth
 
@@ -249,7 +444,8 @@ versioned AI triage work package and records the bounded result. M0 routes the
 result back to C1; C11 never changes grants or writes a C1 disposition
 directly. C12 shows `tracked`/`not_tracked`/`hard_excluded`/`metadata_only`/
 `blocked` counts, reasons on demand, stale classifications, changed-item
-queues, and optional user override controls.
+queues. The ordinary object browser has no per-source tracking controls;
+explicit post-publication correction remains a separate append-only path.
 
 This partition lets AI perform the user's requested first-pass organization
 without turning a model guess into silent authorization expansion or
@@ -258,24 +454,142 @@ was rejected because it wastes analysis and hides clutter. Treating AI output
 as an unreviewable delete/exclusion command was rejected because freshness,
 false exclusion, and correction could not be repaired.
 
-### 3. Use one durable local store under MATTERS_HOME
+Deterministic admission also governs already queued AI work. A package with a
+retired capability role is direct-migrated to the current seven-role contract.
+A package whose registered source occurrence is now inactive or has a current
+non-`tracked` disposition is excluded from the runnable queue while its private
+history remains auditable. A policy rescan must therefore stop old
+program/config/cache/internal-file packages before another model invocation.
+
+### 2b. Use one evidence-bound Matter hierarchy and graph, not page nesting or source trees
+
+The product hierarchy is:
+
+```text
+Root Matter
+  -> Child Matter (recursively, when it has its own goal/state/outcome)
+       -> WorkItem/Action (a lightweight task with a bounded result)
+       -> Event (a temporal fact)
+            -> SourceVersion/EvidenceAnchor
+```
+
+Source parent-child provenance, such as message-to-attachment or
+document-to-page, never implies Matter containment. Shared people, shared
+sources, temporal proximity, and Related Matter links are also insufficient.
+C11 may produce `matter_structure_candidate`, `containment_candidate`,
+`reparent_candidate`, `split_candidate`, `merge_candidate`,
+`work_item_candidate`, and `event_assignment_candidate` findings, but C6 is the
+only containment/admission owner and every accepted edge cites current
+evidence, confidence, rationale, and policy identity.
+
+Each admitted Matter has one stable semantic identity that does not change when
+supporting sources are added or removed. A Matter has zero or one current
+primary containment parent. Self-parenting, cycles, and two simultaneous
+primary parents are rejected. Other relationships remain typed Related
+Matters. The storage model supports arbitrary acyclic depth. Version 0.2 must
+make every current depth reachable through bounded continuation; a branch may
+remain `depth_pending` only while the ledger and UI describe its exact pending
+count and the worker continues bounded processing.
+
+That semantic identity is concretely the exact current C6-admitted `matter_id`.
+No projection id, SourceVersion id, MatterCandidate id, package id, title,
+source-overlap match, or inferred nearest Matter may enter canonical hierarchy,
+coverage, lifecycle, activity, relation, localization, hero, or UI state. Zero
+or multiple possible C6 owners blocks publication; a projection-only row stays
+outside admitted-Matter totals and hierarchy until C6 returns exactly one id.
+
+Child role is `required`, `optional`, or `critical`. A child owns its own
+lifecycle, completion criteria, OpenLoops, and current outcome. Parent state is
+not `max(child_state)`: child activity is evidence, not a parent decision.
+Parent completion requires its own criteria plus every required child; optional
+children do not block it. A child blocker propagates full parent blocking only
+when the edge is critical and no valid parent path remains. Unknown denominators
+produce a narrative summary rather than a fabricated percentage.
+
+Reparent, split, merge, child correction, child source change, and child
+outcome change invalidate the changed Matter, its previous ancestor chain, its
+new ancestor chain, their summaries, timelines, localization, visuals when
+affected, and C12 projections. Old edges and identities remain in append-only
+history. C6 stays the public owner; if its graph becomes too thick, an internal
+C6 hierarchy child model is added without creating a top-level C13.
+
+Containment writes also have a bounded batch path for one parent and at most
+500 children. The whole batch is validated for duplicate children, cycles,
+existing primary-parent conflicts, roles, evidence, and freshness before any
+write. Edges, hierarchy revision, stale audits, and a pending publication
+request commit atomically; summary and projection are computed once after that
+commit. Idempotent retry returns the same batch revision, and startup recovers
+a committed pending publication after an interruption. This avoids quadratic
+per-child summary recomputation without weakening append-only history,
+acyclicity, or the single-primary-parent rule.
+
+The internal `SituationGraphSnapshot` joins the hierarchy with C5 Events,
+WorkItems, typed C6 Related Matter edges, and explicit inference nodes without
+becoming a second owner. The ordinary Sub-matters UI consumes a narrower
+`MatterHierarchyProjection`: its visible boxes are admitted Matters only,
+primary lines are containment, and secondary lines are typed Matter-to-Matter
+relations. Events, WorkItems, sources, and inferences are attached to their
+owning Matter as itemized quick-view facts instead of visible graph nodes.
+Every graph and quick-view row still binds its canonical owner revision,
+evidence or inference identity, modality, freshness, and bounded source-group
+references. C12 may page and render these projections but cannot infer new
+graph structure.
+
+The Sub-matters surface preserves pan, zoom, reset, minimap, keyboard focus,
+and bounded continuation as UI-only state. It has no per-node collapse/expand
+control because hiding branches obscures the hierarchy the user opened the
+graph to inspect. Selecting any Matter node opens one reusable quick-view
+overlay with two primary regions: the first contains the human summary,
+current state, important time, and itemized facts/events/work items with their
+basis; the second contains one flat files/information list with Source group
+as an ordinary field. Changing nodes replaces that same overlay projection.
+It never opens another eight-section reader, another graph, another hero, or
+another modal. This directly removes the recursive reader/back-stack route
+rather than retaining a compatibility path.
+
+### 3. Use source-in-place authority plus one derived local store under MATTERS_HOME
 
 SQLite stores grants, candidate-scope and tracking-policy revisions, discovery
 cursors, inventory snapshots, change sets, triage decisions, per-item
-dispositions, metadata, source/version identities, evidence anchors, advisory
-artifacts, user decisions, revisions, dependency edges, recomputation work,
-and current projection references. BlobStore stores immutable source bodies
-and private derived artifacts under `MATTERS_HOME`. The repository contains
+dispositions, provider/source locators, metadata/content fingerprints,
+source-observation identities, evidence coordinates/digests, durable derived
+facts/summaries/relationships/models, advisory artifacts, user decisions,
+revisions, dependency edges, recomputation work, current-active coverage
+indexes, scope-retirement history, and current projection references.
+BlobStore stores only declared private presentation assets and bounded
+rebuildable derivatives/caches under `MATTERS_HOME`; it is not the owner of
+complete original files, mail bodies, source images, or attachments. The
+repository contains
 schemas and fully synthetic tests only; it never stores live rows, blobs,
 excerpts, embeddings, screenshots, private paths, or private content hashes.
+
+Every private object has one storage class:
+
+- `external_original`: source-in-place locator plus fingerprints only;
+- `durable_derived`: minimum restart-safe anchors, facts, summaries,
+  relationships, models, and coverage/projection state;
+- `rebuildable_cache`: thumbnails, document previews, and other bounded
+  derivatives with reference accounting, byte quota, and retention;
+- `transient_staging`: complete extraction/connector input removed after the
+  atomic derived-state commit or bounded failure/TTL;
+- `recovery_backup`: explicit offline rollback material that never becomes
+  normal runtime authority.
+
+Blob and staging maintenance uses stable cursors, reference rechecks,
+idempotent terminal receipts, and mark-before-delete semantics. The service
+does not run an unbounded garbage collection or physical database compaction at
+startup. If a source later becomes unavailable, prior derived understanding
+remains visible as historical/inferred state while raw-evidence inspection and
+dependent currentness become unavailable or stale.
 
 Every durable write is append-oriented or versioned. Service startup requires a
 configured external `MATTERS_HOME`; tests use explicitly created temporary
 external roots. Restart recovery rebuilds current views from durable records
 and resumes only work whose authorization and input identities remain current.
 
-An in-repository database, implicit temp fallback, or in-memory-only success
-path was rejected because it breaks privacy and restart semantics.
+An in-repository database, implicit temp fallback, in-memory-only success path,
+or default copied-original archive was rejected because each breaks privacy,
+restart, disk-use, or source-ownership semantics.
 
 ### 4. Define a real text and multimodal agent-operation boundary
 
@@ -287,6 +601,34 @@ locale-registry revisions, required skill/model/runner identities, allowed
 evidence/asset/tool ids, and `autonomy_mode="auto_apply"`. An injected
 `AgentOperationRunner` returns versioned `AgentOperationResult` rows for text
 AI, multimodal image/OCR analysis, and an abstract `ResearchOperation`.
+Every operation requests one of seven capability roles:
+
+- `maintenance_orchestrator` for whole-run ledger reading, bounded planning,
+  safe delegation, merge/hierarchy/summary judgment, and terminal join review;
+- `deterministic_preprocessor` for parsing, hashing, chunking, and exact
+  accounting that does not require model judgment;
+- `low_cost_annotator` for bounded classification, extraction labels,
+  bilingual draft fields, and other high-volume low-reasoning work;
+- `ambiguity_resolver` for conflicting, uncertain, or underspecified findings;
+- `matter_modeler` for semantic Matter identity, hierarchy, narrative,
+  lifecycle, and cross-source synthesis;
+- `hero_image_generator` for a privacy-minimized, text-free photorealistic
+  documentary/editorial root-Matter hero and bilingual alt text after
+  identity/hierarchy stabilization;
+- `consistency_reviewer` for bilingual equivalence, evidence licensing,
+  hierarchy coherence, and projection-readiness review.
+
+These roles are product contracts; model names are deployment choices. A
+private `CodexExecutionProfile` maps each role to an available Codex model,
+reasoning level, concurrency/budget, escalation target, and fallback policy.
+For the first user's current machine, `low_cost_annotator` may map to
+`gpt-5.6-luna` with low reasoning, while complex roles map to a stronger
+available model. `maintenance_orchestrator` maps to the strongest compatible
+reasoning profile available for the scheduled run and delegates only typed
+bounded packages; `hero_image_generator` maps to an available Codex image
+generation capability rather than an application-owned API. Replacing those mappings does not change a work package,
+canonical semantic revision, or public product schema. Each private execution
+receipt records the concrete model and reasoning level actually used.
 ResearchGuard is the intended single provider for that research operation
 after its separate SourceGuard, TraceGuard, and LogicGuard merger is frozen and
 validated. Each result records runner identity, operation id, tool/skill
@@ -312,6 +654,21 @@ candidates.
 Direct model/API calls from canonical owner modules were rejected because they
 would hide tool identity, authorization, and freshness.
 
+Matters does not own or request an OpenAI API key. If no compatible Codex
+execution profile is available, work remains `analysis_unavailable` or
+`pending_capability`; it does not switch to a direct API path. A Codex-hosted
+daily maintenance schedule may call the same CLI/MCP facade after a manual
+rehearsal. The scheduled task starts with the strongest compatible reasoning
+profile as the run orchestrator. That orchestrator inventories the current
+ledger, plans bounded work, judges merges/hierarchy/summary changes, and may
+delegate deterministic preprocessing or low-cost annotation packages to
+cheaper replaceable background profiles. A delegated profile can return only a
+typed advisory result to the same original-owner path; it cannot become a
+canonical owner or a product dependency. The schedule records a private run
+receipt and cannot mutate Gmail, send outbound messages, expand source grants,
+edit user source files, or own final FlowGuard, full-test, installation, Git,
+tag, or release gates.
+
 ### 4a. Bundle self-maintenance skills and resolve one validated active view
 
 Matters ships an immutable, app-local consumer Skill Pack alongside the
@@ -335,9 +692,10 @@ skills:
 - `matters-autonomous-maintenance`, which advances the durable coverage ledger
   by dispatching the next missing or stale stage without owning another
   component's canonical fields; and
-- `matters-card-visual-curation`, which selects one representative visual from
-  an allowlisted current candidate set and returns bilingual display text
-  without creating or fetching evidence.
+- `matters-hero-image-generation`, which prepares and validates one
+  privacy-minimized photographic presentation brief, invokes a replaceable
+  image-generation capability for a root Matter, and returns one private
+  generated asset plus bilingual alt text without creating source evidence.
 
 Each consumer skill calls the same MatterService/CLI/API operations as the UI.
 It cannot read undeclared sources, enlarge grants, or write canonical owner
@@ -402,6 +760,15 @@ S5 validation/rollback. It is not C13 and owns no Matter, evidence, lifecycle,
 or projection field. Product-semantic freshness and depth are maintained
 through C1/C2/C10/C11/C12; software behavior or FlowGuard model changes enter
 the explicit Model Miss/development pipeline and are never live self-edits.
+The default repair boundary is Matters itself. A Guard upgrade is permitted
+only after one minimized Matter-specific good/bad case demonstrates that the
+current owning Guard cannot express or check the required invariant. That case
+must identify exactly one owning Guard, enter that Guard's separate OpenSpec
+and native validation under author-side SkillGuard supervision, synchronize
+its installed consumer projection, and then rerun the original Matters case.
+No compatibility reader, legacy alias, parallel Guard route, or alternate
+success path may be introduced. If the current Guard can express the case,
+only Matters models, bundled skills, code, and tests change.
 
 Semantic depth is a revision-bound product assessment with states
 `not_assessed`, `partial`, `sufficient`, `blocked`, and `stale`. `sufficient`
@@ -425,6 +792,44 @@ runtime fallbacks. A missing current ResearchGuard permits inventory,
 autonomous non-research processing, optional inspection/correction, synthetic
 work, and a blocked local candidate, but it blocks both the
 ResearchGuard-complete analysis claim and the final v0.2 complete-release claim.
+
+### 4b. Maintain a derived personal Situation/World Model without a second truth owner
+
+The product needs more than source summarization: it must maintain a useful
+current picture of the user's Matters, people, goals, obligations, times,
+events, expected trajectories, source groups, and unresolved gaps. That picture
+is a versioned `SituationModelSnapshot` assembled from current C2/C3
+provenance, C4 identities, C5 events, C6 hierarchy/relations, C7-C9 state and
+outcomes, and C11 advisory inferences. M0 coordinates its currentness and C12
+publishes it. The snapshot is a read model, not C13 and not a canonical writer.
+
+Every statement keeps one modality:
+`confirmed_observed`, `reported`, `planned`, or `ai_inferred`. C11 may produce
+typed trajectory/outcome hypotheses when positive evidence, expected temporal
+progress, current source coverage, and absence of material contradiction make
+an inference useful. For example, an elapsed booked flight may become “likely
+occurred” when the booked route and departure are current and no cancellation
+or refund contradiction is known. The result must retain confidence,
+alternatives, coverage boundary, missing expected evidence, expiry/freshness,
+and the exact graph/evidence snapshot. Absence of one message alone never
+proves completion, and an inference never becomes an observed event without
+new licensed evidence.
+
+The design distinguishes two C11 products. A historical-gap inference can
+fill a necessary already-elapsed step in the visible Situation Graph, with an
+`AI inferred` badge and no canonical write. A future prediction is instead a
+frozen, testable World Model expectation: it names verification and
+contradiction conditions, an observation horizon, expiry, alternatives, and
+weakening conditions. It is shown only in AI supplemental information or the
+World Model. A later licensed observation confirms, contradicts, or leaves it
+unresolved. Contradiction preserves both records and queues a FlowGuard
+Model-Miss review of the original evidence/model boundary; it never silently
+backwrites history or turns the forecast into a fact.
+
+Source, hierarchy, event, policy, or contradiction changes invalidate only the
+affected snapshot neighborhood and its ancestor narrative. A daily Codex run
+may refresh typed advisory inference packages, but original C4-C9 owners remain
+the only writers of identity, event, lifecycle, loop, and outcome state.
 
 ### 5. Complete recomputation before projection publication
 
@@ -461,8 +866,8 @@ are its dependencies. CLI, HTTP, MCP, and UI call the same service methods for
 health/capability, source-universe grants, inventory/disposition progress,
 pasted and selected-file input, staged discovery/extraction, analysis, listing,
 detail, optional correction, revocation, deletion, recomputation status,
-representative-visual intents, and bilingual projection. The plugin manifest must
-enumerate only implemented methods.
+generated-hero recovery status, supplemental information, and bilingual
+projection. The plugin manifest must enumerate only implemented methods.
 
 The primary UI is a Windows desktop application that embeds the packaged web
 surface and starts the local service plus bounded durable worker. The browser
@@ -470,6 +875,15 @@ surface remains runnable for development and accessibility verification but
 does not become a second business path. Every enabled control has a
 `control -> event -> owner -> function -> UI update -> evidence` chain,
 including cancel, failure, retry, keyboard, and recovery paths.
+
+The final installed product therefore owns one Windows application shell,
+application/shortcut identity, packaged static UI, loopback-only service,
+bounded worker, private shell profile, persisted locale/density/window state,
+startup health gate, and clean owned-process shutdown. It may use an installed
+system WebView/browser runtime as its rendering engine, but it presents one
+application window and never asks the user to operate a development URL. The
+browser-development surface remains verification evidence only and cannot
+close the desktop installation or release gate.
 
 Separate “demo” and “real” business routes were rejected. Synthetic behavior
 is obtained by injecting synthetic providers and runners into the same facade.
@@ -500,64 +914,281 @@ localization gap and blocks publication for that locale; the normal runtime
 does not silently substitute another language.
 
 The UI can initiate authorization, analysis, optional correction, revocation,
-deletion, and representative-visual intents but cannot write canonical state.
+deletion, and bounded recovery/retry intents but cannot write canonical state.
 Evidence detail is user-on-demand and machine-local identifiers remain
 internal. A localization conflict, stale analysis result, or pending
 recomputation is visible and blocks canonical board publication.
 
 ### 8a. Reuse the Databank shell as the object-browser design authority
 
-The frozen Databank UI handoff owns Matters v0.2 color, typography, spacing,
-left navigation, card, detail-dialog, and interaction geometry. Matters changes
-only the brand/logo asset and maps modeled Matter content into those
-components. A Figma component library and desktop frames mirror the same source
-authority; Figma is a design and comparison surface, not a separate product
-implementation.
+The frozen Databank UI handoff owns Matters v0.2 color, typography, card,
+detail-dialog, and interaction geometry. Matters changes the brand/logo asset
+and maps modeled Matter content into those components. Two bounded presentation
+exceptions are explicitly approved by the user on 2026-07-19: the left-sidebar
+brand region uses the selected red/yellow/blue Matters icon and proportionally
+enlarges only that icon and adjacent `Matters` wordmark for legibility; and the
+search box plus navigation move upward so the brand-to-search gap and
+search-to-navigation gap are both smaller than the space above the brand.
+These asymmetric gaps are deliberate and do not authorize another typography,
+card, detail-dialog, or interaction redesign. The icon's external canvas is
+transparent, so the three-card symbol renders directly on its owning surface
+without an additional white container; white and cream regions intrinsic to
+the stacked cards remain part of the approved artwork. The same approved icon
+asset is the canonical browser-window, Windows-shortcut, and packaged-
+application icon. A Figma component library and desktop frames mirror the same
+source authority; Figma is a design and comparison surface, not a separate
+product implementation.
 
-The right content region renders Matter cards; the left navigation filters by
-state, time, people, topic/type, and source type. The current primary detail
-sections are Overview, Timeline, People, Actions and open loops, Related
-Matters, Images, Files and messages, and Evidence and change history. Internal
-model ids, receipts, paths, connector ids, and debug metadata remain hidden.
+The brand group remains left aligned. Its visible non-transparent icon center,
+the `Matters` wordmark's typographic center, and the catalog heading's
+typographic center share one horizontal line. Because the approved icon
+contains transparent internal canvas padding, the implementation compensates
+that padding instead of treating equal image-box coordinates as visual
+alignment. Independently, the search control's top edge shares one horizontal
+line with the first visible Matter-card row's top edge. Brand-center alignment
+and search/card top alignment are separate geometry contracts.
+
+The right content region renders root Matter cards. The left navigation has one
+`All matters` entry and collapsible groups for Status, Start time, People,
+Relationships, Topic/Type, and Source type. Start time is based on occurrence
+start and uses years or an explicit range. Its current value is the earliest
+parseable user-world boundary across every related typed Event claimed/record
+time and exact SourceVersion authored/created/modified/sent/received/observed
+time. The selected boundary retains a private-path-safe typed basis and moves
+earlier when newly covered evidence proves an earlier trace. Processing, scan,
+registration, analysis, due, deadline, expiry, and Hero times never enter this
+candidate set. Vague metadata buckets such as Recent, Upcoming, and Updated are
+not primary time filters. The ordinary detail
+reader has exactly eight primary sections: Overview, Sub-matters, Timeline,
+People, Related Matters, Files & information, Images, and AI supplemental
+information. Overview contains only the generated root Hero, one
+human-readable project narrative, lifecycle state, and Start date; those
+elements are vertically balanced around the useful center of the overview
+rather than crowded against the top. Source/evidence counters, Actions, and
+OpenLoops are not overview panels. Actions, waits, facts, and outcomes are
+itemized under their owning Matter quick view or Timeline. Evidence and change
+history are on-demand disclosures within Files & information rather than peer
+navigation. AI supplemental information contains clearly labeled,
+refreshable background context or practical implications produced from the
+current Matter; it is not source evidence and cannot silently change canonical
+state. There is no ordinary `Change cover`, `Sources`, `Evidence`,
+`Corrections`, or `Representative visual` primary section. Internal model ids,
+execution profiles, receipts, paths, connector ids, and debug metadata remain
+hidden.
+
+Sub-matters use a handoff-styled interactive graph rather than another card
+grid, status-only table, or recursive reader. Primary edges render the complete
+bounded single-parent Matter hierarchy; styled secondary edges render typed
+related Matter links without becoming containment. Only admitted Matters are
+graph boxes. WorkItems, Events, facts, sources, and inferences are itemized
+inside the owning Matter's quick view. The graph supports pan, 0.5x-5x zoom,
+reset, minimap, keyboard traversal, and bounded continuation for deep or large
+branches, with no per-node collapse/expand buttons. Every node displays its
+localized title, one human lifecycle state, Start/important date when useful,
+and a separate inferred/confirmed marker without an independent hero.
+
+Activating any Matter node opens one reusable quick-view dialog above the root
+detail. The quick view keeps two primary regions: its first region contains
+the human summary/current state plus itemized facts, events, work, and waits
+with time and evidence basis; its second region contains only the sources
+directly related to that selected node in one flat files/information list.
+Activating a different node replaces the same dialog's data; it never
+navigates to another eight-section detail, nests another graph, or opens
+another modal. Escape first closes quick view and returns focus to its node; a
+later Escape closes the root reader and returns focus to the original card.
+
+Parent timelines include only important descendant milestones, labeled with
+their graph path. A logical-event key plus supersession/current projection
+collapses repeated SourceVersions and re-analysis revisions into one current
+timeline row while preserving full history on demand. Full small events remain
+reachable from node quick view. Projection search may return a descendant but includes the complete
+primary path, opens the owning root at Sub-matters, focuses that node, and never
+duplicates the descendant in the root catalog.
+
+Files & information uses the handoff's bounded flat-table language for related
+files, Gmail-derived information, Codex projects/tasks, and other source-backed
+records. Contained folder, Gmail thread, Codex project/workspace, or declared
+provider group is one ordinary Source group column, never a repeated group
+heading or nested table. Each row shows a localized human label, source type,
+privacy-safe location, Source group, source-observed/received/modified time,
+content summary, and availability; it does not substitute generic relationship
+text, processing time, or “included in understanding.” Expanded
+evidence/history stays inside that row's on-demand disclosure. Body typography
+is subordinate to the table and section headings, uses bounded wrapping and
+line height, and never forces the table beyond its viewport merely to display
+a subject or summary.
+
+Images uses the handoff's real gallery behavior only for authorized current
+source-related photos or already-existing meaningful visual images: visible
+thumbnails, one selected large image, zoom from 0.5x to 5x, reset, mouse-wheel
+zoom, panning when enlarged, keyboard selection/navigation, and privacy-safe
+unavailable or empty states. Mail, TXT, office-document, PDF-page, source-code,
+terminal, generic application screenshots, and document previews are rejected
+from the gallery. The generated Matter hero is presentation-only and does not
+enter or replace this evidence gallery.
 
 `ui.card_density` is an independent persisted preference with values
 `standard` and `compact`. It is not the responsive viewport mode and never
 changes canonical state, sorting, filtering, selected Matter, locale, semantic
 revision, visual decision, focus ownership, or freshness. Standard preserves
 the handoff's three-column desktop card geometry and secondary metrics;
-compact preserves the same hero/title/state while using smaller geometry and
-hiding low-priority metrics. The current one-card vertical-stretch behavior is
-a source defect to repair without redesigning the shell.
+compact preserves the same recognizable hero/title/state/Start date and the
+same semantic revision while removing all event/people/source metrics and
+giving the remaining equal-size card body to the Hero. Neither density renders
+the Matter summary or key-person row in the catalog. Every visible card Start
+value is a day-only `YYYY-MM-DD` projection without a time-of-day, timezone, or
+clipped timestamp suffix; the canonical source time retains full internal
+precision. Lifecycle status reuses the Start-date metadata typography and has
+no capsule, pill, chip, fill, border, or rounded status container. The current one-card vertical-stretch behavior is
+a source defect to repair without redesigning the shell. Cards are always
+sorted by `latest_meaningful_clue_at` descending after the active filter and
+search are applied. This order is identical across density and locale.
 
-### 8b. Give every Matter one current representative-visual disposition
+`latest_meaningful_clue_at` advances only for a material semantic clue: new or
+changed evidence that alters the current state, outcome, next step, important
+time, involved person, relationship, hierarchy, or bounded summary. A material
+child clue propagates to each current ancestor in the same projection
+recomputation. Inventory scans, retries, technical receipts, read timestamps,
+rephrasing, localization-only refresh, and hero generation do not advance the
+field. C12 publishes a new bilingual summary and the corresponding clue
+identity atomically; until both required locales are current, the last current
+summary and order remain visible with a stale/recomputing indication.
 
-C2 owns original and derived visual versions, C3 owns the exact page/region
-anchor, C6 owns the Matter-source relation, C11 owns the advisory multimodal
-selection, and C12 owns the current display decision. Eligible candidates are
-current authorized related photos, existing images, mail/document attachments,
-embedded images, and offline deterministic document/page/slide/sheet previews.
-Renderers disable macros, active content, external links, and network access.
+Every current summary is written for the user, not for an internal reviewer.
+It states what the Matter is, what has finished or is happening now, and the
+next important thing when one exists. It does not say “the evidence shows,”
+“the semantic revision contains,” “was included in understanding,” or expose
+coverage/model terminology. A parent summary covers the complete current child
+set; a child summary covers that child. Important uncertainty is expressed
+plainly, while evidence modality and technical basis remain on demand.
 
-Safety and permission filtering occurs before AI selection. When the allowlist
-is non-empty, AI must choose one candidate. A deterministic compiler validates
-the result, preserves a still-valid current or user-pinned choice, and resolves
-AI failure or ties through declared relation, asset-kind, quality, and stable
-hash ordering. With zero eligible candidates it publishes a neutral
-placeholder. It never searches the Internet or generates decorative imagery
-that could be mistaken for evidence. Source, relationship, renderer, policy,
-model, prompt, or user-correction changes stale the decision and schedule
-bounded recomputation.
+Lifecycle state remains independent from evidence modality and runtime
+currentness. In the Sub-matters graph, planned uses green, in progress uses
+red, and completed uses blue, always with a text/icon cue. Internal values such
+as `current`, `reported`, or `observed` never render as a second lifecycle
+state.
+
+The catalog coverage control is one slim horizontal status unit containing one
+small dot and one label, not a two-row card or a second density-sized capsule.
+Its on-demand panel reads an indexed materialized first-gap view and drills from
+SourceGroup through stage and object to owner, failure reason, freshness, and
+UI reachability. Green requires current inventory, terminal dispositions,
+SourceGroup reconciliation, all admitted-Matter semantic/hierarchy/summary/UI
+stages current, and zero blockers. Blue requires measured forward movement in
+those stages. Red covers stale, blocked, missing, inconsistent, or UI-
+unreachable state. An updating aggregate timestamp alone cannot produce blue,
+and terminal hard exclusions cannot masquerade as modeled objects.
+
+Every meaningful UI batch enters one runnable evidence loop against the current
+source service on port 8766: open the desktop surface, capture 1880x900 and
+1440x900 in `en` and `zh-CN`, exercise Standard and Compact plus the changed
+loaded/processing/empty/error/detail/filter/gallery state, record DOM geometry,
+and check text overlap, image overlap, metric-on-image overlap, clipping,
+duplicate date/summary/person content, section overflow, and incoherent empty
+space. Any failure is repaired and the same revision is recaptured. Figma is a
+design comparison surface; its quota or availability cannot substitute for or
+block this runtime evidence loop.
+
+### 8b. Give every root Matter one photorealistic generated hero
+
+C6 owns the stable Matter semantic identity and current containment hierarchy;
+C11 owns a bounded presentation-image work package and runner receipt; C12 is
+the sole publisher of the current hero disposition. Original photos, existing
+images, mail/document attachments, embedded images, and deterministic document
+previews remain C2/C3 source or evidence derivatives and are never candidates
+for the hero path.
+
+Generation begins only after a root Matter has one current semantic identity,
+merge disposition, hierarchy revision, localized title/summary theme, and
+permission-safe generation brief. Child Matters, WorkItems, Events, sources,
+and quick-view nodes do not receive independent heroes and terminate that
+coverage stage as `not_applicable`. The brief excludes source excerpts, names,
+addresses, private identifiers, logos, literal UI text, and identifiable real
+users by default. It asks for a natural-light, plausible, photorealistic
+documentary/editorial photograph appropriate to the real-world situation and
+requires scene-defining physical place, objects, equipment, or activity that
+makes the Matter recognizable without a caption. A generic person at a
+computer or interchangeable office scene is rejected alongside abstract
+diagrams, symbolic collage art, illustrations,
+3D/isometric rendering, mail/document screenshots, and poster language. It
+also preserves the explicit presentation-only boundary so the scene never
+asserts that the depicted occurrence happened. The generated bytes, prompt
+fingerprint, runner identity, policy revision, bilingual alt text, safety
+disposition, and generation status remain private under `MATTERS_HOME`.
+
+C12 exposes exactly one of `generated_current`,
+`generation_pending_placeholder`, or `generation_blocked_placeholder`.
+Generation failure schedules a bounded retry and keeps a neutral temporary
+placeholder; it never falls back to a real source image or a second cover
+authority. A current hero remains stable across Standard, Compact, locale, and
+ordinary new clues. It becomes stale only when semantic identity, topic/theme,
+merge/split/reparent disposition, permission, safety policy, runner contract,
+explicit correction, or a typed visual-specificity review materially
+invalidates it. A visual-quality failure is non-blocking: C12 retires the
+current private token, publishes the pending placeholder, and prepares one
+replacement brief rather than accepting a generic person-at-computer image.
+The same generated image is shared by English and Chinese projections while
+alt text is stored in both required locales. Generated heroes are presentation
+artifacts, not SourceVersions, EvidenceAnchors, or proof.
 
 ### 8c. Make completion machine-auditable through ObjectCoverageLedger
 
 One private durable ledger row exists for every registered occurrence and
 admitted Matter. It records authorization, discovery, tracking disposition,
 source version, extraction, analysis, original-owner terminal, semantic depth,
-required localization, representative-visual disposition, UI reachability,
-freshness, retries, and terminal reason. The worker repeatedly chooses a
-missing or stale stage and delegates it to the existing owner until the row is
-UI-ready or genuinely blocked. The ledger coordinates completion but owns no
-canonical source, Matter, lifecycle, outcome, or projection field.
+required localization, meaningful-clue/summary freshness, generated-hero
+disposition for root Matters and explicit `not_applicable` for descendants, AI supplemental-information
+freshness, UI reachability, retries, and terminal reason. The worker repeatedly
+chooses a missing or stale stage and delegates it to the existing owner until
+the row is UI-ready or genuinely blocked. The ledger coordinates completion
+but owns no canonical source, Matter, lifecycle, outcome, or projection field.
+
+AI supplemental-information admission is also automatic and bounded. Each
+admitted root Matter with a current equivalent bilingual projection and no
+accepted supplemental item receives one idempotent A1 package for the single
+external ResearchGuard provider. The C12 owner records `pending`, `blocked`, or
+`unavailable` together with the opaque package and provider-gate identities
+until a validated bilingual item returns through the original owner. Descendant
+Matters receive an explicit `not_applicable` disposition and never duplicate
+their root's research request. An empty projection is never `current`, and a
+missing ResearchGuard never activates a legacy SourceGuard, TraceGuard, or
+LogicGuard fallback.
+
+The storage representation separates current truth from historical weight. Each
+object keeps one full current coverage payload directly queryable. Replaced
+noncurrent revisions move, in revision order, to a versioned compressed archive
+that records object identity, record count, uncompressed size, canonical digest,
+compression identity, and verification state. History reads transparently merge
+the current payload and exact verified archive. The archive owner rereads and
+decompresses each bounded page and verifies count, digest, object identity,
+ordering, and logical equality before original duplicate rows may be deleted.
+An interruption preserves the originals and resumes from the durable cursor.
+
+Private recovery is intentionally a staged offline decision, not an installation
+or startup side effect:
+
+```text
+stop all writers
+-> create and verify a restorable copy on separate storage
+-> bounded evidence-pointer rebase pages
+-> validate pointer counts/digests
+-> bounded coverage-history archive pages
+-> integrity + count + sampled historical-equivalence checks
+-> resume ordinary writers
+```
+
+Logical archive completion only makes freed SQLite pages reusable. It does not
+prove that the database file shrank. Physical compaction is a separate later
+offline operation requiring its own capacity, backup, integrity, and activation
+evidence; neither migration owner runs `VACUUM` or `VACUUM INTO`.
+
+For admitted Matters, the ordered hierarchy stages are
+`hierarchy_decision -> containment_current -> child_state_current ->
+ancestor_rollup_current -> hierarchy_projection_current -> ui_reachable`.
+Occurrence-only rows receive an explicit not-applicable hierarchy disposition.
+The audit reports the first missing or stale stage for every object and
+distinguishes a transport failure from an honest empty catalog. An API timeout
+or fetch error never projects zero objects or zero coverage.
 
 ### 9. Separate three security and evidence domains
 
@@ -587,13 +1218,17 @@ The active sequence is:
 
 1. rebase OpenSpec, G0 privacy/inventory evidence, and the source-universe
    policy; mark earlier bounded-input evidence stale;
-2. rebase G1 product, agent-operation, and development-process commitments;
+2. rebase G1 product, model-agnostic Codex capability routing/scheduling,
+   agent-operation, and development-process commitments;
 3. run full existing-model preflight and update affected C1-C12/M0 models,
-   known-bad cases, field lifecycle, and parent reattachment;
+   including C5-C12 hierarchy behavior, known-bad cases, field lifecycle, and
+   parent reattachment;
 4. regenerate model-derived module, contract, transition, exhaustion, UI, and
    TestMesh inventories;
-5. implement the private catalog, durable store, discovery/extraction,
-   agent-operation, recomputation, and service/UI surfaces one owner at a time;
+5. implement the private catalog, hierarchy store/indexes, bounded coverage
+   queries, discovery/extraction, agent-operation, replaceable Codex execution
+   profiles, recomputation, generated heroes, latest-clue ordering, and
+   eight-section service/UI surfaces one owner at a time;
 6. pass fully synthetic source-type safety and end-to-end cases;
 7. run real private canaries for text/code, PDF/Office/spreadsheets, images,
    Gmail/attachments, `cloud_placeholder`, and declared `metadata_only` types;
@@ -633,6 +1268,14 @@ terminate current before the complete-release claim.
   inputs, runner/tool identity, schema validation, anchored evidence, and
   automatic canonical-owner validation; keep synthetic runner cases
   deterministic and preserve uncertainty instead of requiring confirmation.
+- **A deployment model can become an accidental product dependency** → Keep
+  capability roles in public contracts, concrete model/reasoning mappings in
+  private machine-local Codex profiles, require explicit substitution and
+  escalation tests, and never add an app-owned API-key fallback.
+- **A daily task can become a second workflow or unsafe verifier** → Make Codex
+  call the same bounded facade, rehearse the exact prompt manually, persist
+  resumable run receipts, prohibit source/mailbox/outbound mutation, and keep
+  final model/full-test/install/Git/release ownership foreground-only.
 - **SQLite and blob state can diverge** → Use one transaction boundary for
   metadata plus staged blob activation and verify references at startup.
 - **Corrections can cause wide recomputation** → Persist exact dependency edges,
@@ -642,6 +1285,14 @@ terminate current before the complete-release claim.
   use durable page cursors, bounded concurrency, quotas, per-type canaries,
   backpressure, and one owner per write; reserve one broad verification for the
   frozen candidate.
+- **Hierarchy can become a misleading source-shaped tree** → Require stable
+  semantic Matter identity, evidence-backed admission, single primary parent,
+  cycle checks, and explicit WorkItem/Event boundaries; shared sources or
+  people remain ordinary relations.
+- **A deep hierarchy can create slow recursive UI and coverage queries** → Use
+  indexed parent/ancestor paths, bounded child pages, batch-visible relation
+  resolution, one dialog reader, and explicit `depth_pending` rather than
+  serializing the entire hierarchy.
 - **Recursive discovery can escape or loop** → Normalize and resolve every
   path, block symlink/junction escape, track stable occurrence identities, and
   make cycle/permission/change-during-read outcomes explicit.
@@ -669,9 +1320,11 @@ terminate current before the complete-release claim.
 - **The current FlowGuard project audit has an external suite-inventory
   blocker** → Keep it visible, run target-owned model checks directly, and
   never convert the disposition into broad project-audit green evidence.
-- **No public license has been selected** → Produce a local source release
-  candidate only; public remote release remains out of scope until explicit
-  legal/product direction.
+- **The v0.3.0 GitHub publication identity is private and proprietary** →
+  Freeze `liuyingxuvka/Matters`, private visibility, the proprietary
+  private-repository license, the approved generic inventory, and tag
+  `v0.3.0`; do not widen that decision into public visibility, open-source
+  licensing, or private-data publication.
 
 ## Migration Plan
 
@@ -679,48 +1332,188 @@ terminate current before the complete-release claim.
    evidence-generator, packaging, and install surfaces.
 2. Update and strictly validate this OpenSpec change; mark older bounded-input,
    Jira-shaped, G0/G1/G8, and pilot evidence stale.
-3. Update the three-plane Behavior Commitment Ledger and run the full
-   Existing Model Preflight over M0 plus C1-C12 and the separate skill-runtime
-   infrastructure boundary.
+3. Update the three-plane Behavior Commitment Ledger for model-agnostic Codex
+   capability routing and scheduling, then run the full Existing Model
+   Preflight over M0 plus C1-C12 and the separate skill-runtime infrastructure
+   boundary.
 4. Update affected FlowGuard models and nested source/extractor leaves, build
    auxiliary S0-S5 skill-runtime owners, and update field
    and owner maps, known-bad families, ModelMesh reattachment, CodeContracts,
    transition coverage, Contract Exhaustion, UI Flow Structure, Model-Test
    Alignment, and TestMesh inventory.
-5. Repair the public/private boundary before broad private reads; then
+5. Direct-migrate existing Matters as roots, add stable semantic identities
+   and append-only containment revisions, then re-evaluate hierarchy without
+   converting prior Related Matter candidates into containment automatically.
+6. Freeze all private writers and verify a separate restorable backup; migrate
+   legacy complete source bodies and copied original-image blobs through
+   bounded source-in-place pages, verify locator/fingerprint and durable-derived
+   equivalence, clean terminal connector/staging/cache residuals, and keep
+   physical compaction as a later separately evidenced offline step.
+7. Repair the public/private boundary before broad private reads; then
    implement catalog, durable storage, discovery/extraction, agent operation,
-   app-local Skill Pack/resolver, recomputation, and the shared service/UI path.
-6. Run source-type synthetic safety/conformance cases through the real facade
+   replaceable private Codex execution profiles, a manually rehearsed
+   Codex-hosted daily schedule, app-local Skill Pack/resolver, recomputation,
+   root-only photorealistic generated-hero path, Situation Graph/World Model,
+   flat SourceGroup-bearing quick views, and the shared eight-section
+   service/UI path.
+8. Run source-type synthetic safety/conformance cases through the real facade
    with fake content and runners.
-7. Integrate one frozen compatible ResearchGuard identity if its external
+9. Integrate one frozen compatible ResearchGuard identity if its external
    package/skill/manifest/native-validation/currentness gate is current; never
    substitute separate legacy Guard bindings.
-8. Run resumable real private canaries for each source type, convert every
+10. Run resumable real private canaries for each source type, convert every
    discovered model miss into a same-class synthetic regression, and expand in
    bounded batches only after the canary is current.
    Source processing and one multi-finding AI-result dispatch each defer global
    coverage aggregation until their own terminal batch join; neither may
    rescan the whole ledger once per item, finding, owner, or stage.
-9. Complete the progressive first run only when all enumerated sources have a
-   current terminal disposition and the UI reports gaps honestly.
-10. Freeze source, toolchain, dependency, model, test, package, Skill Pack,
+11. Complete the progressive first run only when all enumerated sources have a
+    current terminal disposition, every admitted Matter has current hierarchy
+    stages, and the UI reports gaps honestly.
+12. Freeze source, toolchain, dependency, model, test, package, Skill Pack,
    active-view, managed-install, ResearchGuard, and Git identities; run one
    foreground M0+C1-C12 model owner, one separate non-overlapping foreground
    S0-S5 model owner, and one final full-test owner. All three are required.
-11. Build/install the local package, verify internal bundled skill use and the
-    optional Matters-managed projection, create the privacy-audited initial local Git
-    commit and local release tag, and re-run the portable public-boundary check.
+13. Build/install the local package, verify internal bundled skill use and the
+    optional Matters-managed projection, create the next privacy-audited local
+    Git commit and local release tag, and re-run the portable public-boundary
+    check.
+
+### Direct-current v0.3.0 rebaseline
+
+The v0.3.0 source-in-place/object-browser contract directly retires the prior
+normal-runtime copied-original authority and the prior visible projections for
+durable Gmail body copies, descendant or conceptual Heroes, card summaries,
+recursive child readers, Overview source/evidence/Action/OpenLoop panels,
+multi-type visible graph nodes, per-node collapse controls, duplicate logical
+timeline events, repeated source-group subheaders, and inference without a
+persistent advisory World Model. Historical receipts remain append-only, but
+the Behavior Commitment Ledger rebase invalidates their active-evidence
+bindings and no compatibility or fallback reader may close a current gate.
+
+### Current-contract reconciliation and query shape
+
+The current private runtime uses explicit, bounded repair owners rather than
+startup mutation:
+
+- the coverage-stage rebase visits only active `tracked` occurrence rows,
+  adds the current `content_selection` stage, preserves historical retired
+  rows byte-for-byte, checkpoints a stable continuation, and is idempotent;
+- content-selection rebase deduplicates overlapping registered roots by stable
+  occurrence identity while retaining the complete source-neighborhood
+  context and one current selection plan per occurrence;
+- coverage-orphan reconciliation retires an active source-coverage row when no
+  current inventory occurrence owns it, preserving history and preventing
+  ghost work from entering counts, queues, relationships, or UI reachability;
+- parent composition validates the complete parent-and-children request first,
+  then commits admission, projection, classification, coverage, containment,
+  activity propagation, and supplemental-information rows in one private
+  transaction; no parent row survives a failed attachment;
+- same-Matter merge, candidate append, and source-only retirement write one
+  append-only `matter_canonicalization` disposition, update coverage
+  references in the same transaction, preserve evidence, hide only the
+  superseded projection, and make an exact retry idempotent;
+- activity repair derives observation time from the exact historical source
+  revision or current event record, never from a future due/claimed time, and
+  may late-bind the corrected clue to a canonical Matter projection.
+- bounded current-Matter activity reconciliation reuses that same C5 authority,
+  resolves admitted-source time from the exact SourceVersion or its current
+  inventory occurrence, reports unresolved gaps, and never substitutes scan,
+  analysis, reconciliation, or UI generation time;
+- source-revision reconciliation visits canonical Matters in stable bounded
+  order, compares exact `source:<id>:vN` admissions with the registry-current
+  SourceVersion, removes only an older duplicate when the same Matter already
+  admits current, and otherwise returns `analysis_required` instead of
+  mechanically promoting an equal-looking revision. The original source,
+  evidence, semantic, and Matter owners remain the only path that can admit a
+  newly published revision and restore downstream freshness. If an earlier
+  same-Matter refresh changes the exact admission fingerprint while a sibling
+  package is still pending, the stale sibling is append-only superseded and
+  exactly one successor is bound to the same Matter, registry-current source,
+  current admission fingerprint, and current anchors. The stale package is
+  never retried, its fingerprint is never relaxed, and an exact retry reuses
+  the one successor.
+- Gmail current-scope reconciliation treats an exact same-account tracked
+  body or no-text occurrence as the content successor of metadata-only
+  coverage even when provider-read-free policy rebase wrote the metadata
+  inventory later; atomic current authority, not maintenance time, controls
+  the switch.
+
+The object catalog must finish the same scaling correction. Search, filters,
+root/child scope, activity ordering, counts, and page identity SHALL be
+evaluated by bounded indexed private-store queries before card hydration.
+Only the requested page and the bounded facet/count rows may be hydrated into
+card context. Iterating every current projection, building every card, and
+then slicing the requested page remains a known release-blocking gap even when
+the currently small catalog is fast.
 
 Rollback restores the last installed package/skill projection and current
-canonical revision without copying private state into Git. Because this
-repository has no prior commit or installed Matters package, the first
-activation must preserve a pre-install inventory and remove only files owned by
-this installation if activation fails.
+canonical revision without copying private state into Git. The upgrade
+activation preserves the existing v0.2.0 install and private catalog until the
+new candidate passes post-activation checks, then restores that exact prior
+projection on failure.
+
+### 14. Add one AI-facing information map without a second product authority
+
+The public AI entrypoint is one installable `matters` Codex skill/plugin backed
+by the existing MatterService and MCP facade. It exposes a bounded functional
+model map and routes an AI to the existing owner instead of teaching every AI
+the storage schema. The map includes M0, C1-C12, S0, and A0-A3; each entry
+declares its purpose, inputs, outputs, freshness boundary, allowed operation,
+and related owners. A3 owns only gateway query/feedback receipts. It owns none
+of the canonical fields governed by C1-C12.
+
+A normal context request returns one bounded `SituationContextPacket`:
+
+- exact Matter identity and `as_of` revision;
+- current human-readable state with confirmed, reported, planned, and
+  `ai_inferred` modalities kept distinct;
+- relevant graph, people, time, open-loop, outcome, source-group, World Model,
+  and prediction views;
+- coverage/freshness status plus exact missing, stale, unavailable, or
+  ResearchGuard-dependent gaps; and
+- opaque continuation handles rather than raw private paths, full chat
+  transcripts, or an unbounded database export.
+
+The gateway supports four different kinds of AI-to-Matters input and never
+conflates them:
+
+1. a `user_observation` is an append-only reported candidate with source
+   attribution and an original-owner-dispatch disposition;
+2. an explicit `correction` continues through C10 and may invalidate affected
+   owners;
+3. `prediction_feedback` compares a later licensed observation with a frozen
+   C11 prediction and preserves both records; and
+4. a `model_miss` is a software/model-maintenance clue, not a live product-rule
+   edit.
+
+Every accepted input receives an idempotent receipt and remains pending,
+applied, rejected, stale, blocked, or superseded visibly until its owning path
+terminates. The gateway never silently turns conversation text into canonical
+truth, stores a complete conversation by default, writes another owner's
+fields, edits code/OpenSpec/FlowGuard at runtime, or treats feedback as proof
+that a prediction was correct.
+
+The eleven app-local skills and the public `matters` gateway have intentionally
+different lifecycles. The internal pack is exact and immutable for one
+application release. The gateway is the external Codex discovery surface. All
+Guard-family skills stay external and independently maintained. ResearchGuard
+is the sole external research provider; its absence blocks only the
+research-dependent portion and the corresponding completeness claim, with no
+SourceGuard/TraceGuard/LogicGuard fallback.
+
+The default maintenance triggers are installed-UI launch, first run, an
+explicit AI/CLI/MCP request, or a detected registered-source/project change.
+A daily Codex schedule is optional and disabled until the user explicitly
+enables it. Every trigger invokes the existing A2 plan/delegate/join operation
+and the same one-click registration-to-UI audit; A3 can submit durable clues
+but cannot run or complete A2 on its own.
 
 ## Open Questions
 
-- Which public license and remote repository identity should be selected if a
-  later change authorizes public publication?
+- Should a later change make `liuyingxuvka/Matters` public, and if so which
+  open-source license and public security/reporting policy should replace the
+  current private-repository boundary?
 - Which cloud providers beyond already reachable filesystem placeholders need
   product connectors in a later change?
 - Which audio/video/archive/database formats should move from `metadata_only` or

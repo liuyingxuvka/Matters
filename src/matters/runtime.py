@@ -4,7 +4,12 @@ from __future__ import annotations
 
 import os
 from pathlib import Path
+import sys
 
+from matters.application.maintenance_orchestration import (
+    MaintenancePlanner,
+    MaintenanceTaskExecutor,
+)
 from matters.application.orchestrator import MatterService
 from matters.integrations.researchguard import probe_researchguard
 
@@ -13,6 +18,8 @@ def repository_root() -> Path:
     configured = os.environ.get("MATTERS_REPOSITORY_ROOT")
     if configured:
         return Path(configured).expanduser().resolve()
+    if getattr(sys, "frozen", False) and hasattr(sys, "_MEIPASS"):
+        return Path(sys._MEIPASS).resolve()
     current = Path.cwd().resolve()
     for candidate in (current, *current.parents):
         if (candidate / "pyproject.toml").is_file() and (
@@ -27,12 +34,18 @@ def repository_root() -> Path:
     return Path(__file__).resolve().parent
 
 
-def create_service() -> MatterService:
+def create_service(
+    *,
+    maintenance_planner: MaintenancePlanner | None = None,
+    maintenance_task_executor: MaintenanceTaskExecutor | None = None,
+) -> MatterService:
     """Compose exactly one canonical service for a local process."""
 
     return MatterService(
         repository_root=repository_root(),
         research_status=probe_researchguard(),
+        maintenance_planner=maintenance_planner,
+        maintenance_task_executor=maintenance_task_executor,
     )
 
 

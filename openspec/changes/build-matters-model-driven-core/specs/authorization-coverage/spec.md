@@ -61,7 +61,7 @@ supported current disposition and SHALL NOT create a user-confirmation gate.
 
 #### Scenario: A partition begins below a generated-state directory
 - **WHEN** bounded partitioning creates a child scope below a directory token governed by the original-root tracking policy
-- **THEN** classification SHALL retain the original-root policy context, record reversible `not_tracked` dispositions for generated clutter, and SHALL NOT reinterpret the child as ordinary user content merely because its local relative path lost the ancestor token
+- **THEN** classification SHALL retain the original-root policy context, record terminal `hard_excluded` for a current hard-rule ancestor or reversible `not_tracked` only for declared reversible clutter, and SHALL NOT reinterpret the child as ordinary user content merely because its local relative path lost the ancestor token
 
 #### Scenario: Known generated state is pruned before partition descent
 - **WHEN** a safe-boundary scan encounters a directory named by the current hard-exclusion policy, including software-control, dependency, cache, build, test, or temporary state
@@ -69,7 +69,7 @@ supported current disposition and SHALL NOT create a user-confirmation gate.
 
 #### Scenario: A partition manifest was created under an older policy
 - **WHEN** the current tracking-policy revision differs from the revision bound into a durable partition manifest
-- **THEN** the system SHALL treat the manifest as stale, prevent a current or complete claim, and require a new policy-current inventory rather than resuming obsolete descendant work
+- **THEN** the system SHALL directly replace it with a new policy-current inventory, SHALL NOT resume obsolete descendant work, and SHALL retire omitted former child scopes and their objects from active work and UI counts while preserving append-only history
 
 #### Scenario: Potentially valuable item is uncertain
 - **WHEN** relevance classification is below the frozen confidence threshold or would exclude a potentially valuable source
@@ -96,6 +96,47 @@ archive expansion even when they are physically nested below a broad root.
 #### Scenario: Discovery encounters an executable or unsafe model
 - **WHEN** an in-scope occurrence is executable or requires unsafe deserialization
 - **THEN** the system SHALL NOT execute or deserialize it and SHALL record the declared `metadata_only`, `quarantined`, or `unsupported` disposition
+
+### Requirement: Deterministic user-content admission precedes AI
+Before any AI content task, the system SHALL classify each filesystem
+occurrence using current path, directory, suffix, filename, file-kind, safety,
+and source-neighborhood rules. Software source code, dependency manifests,
+runtime databases, logs, caches, generated state, executables, and unsafe
+serialized objects that match a hard rule SHALL receive a terminal non-content
+disposition without spending an AI operation. Ordinary documents, images,
+spreadsheets, presentations, and readable user-authored text MAY proceed to
+bounded content analysis. Ambiguous safe files SHALL remain visibly
+`metadata_only` or on a bounded reversible classification path; they SHALL NOT
+be silently treated as useful content.
+
+#### Scenario: User root contains a software project
+- **WHEN** deterministic discovery finds program source files, dependency manifests, runtime databases, logs, or generated state inside an authorized user-content root
+- **THEN** those occurrences SHALL be registered and terminally `hard_excluded` or `metadata_only` with a machine-readable reason before any AI task, while neighboring ordinary user documents remain independently eligible
+
+#### Scenario: Application download folder contains ordinary documents
+- **WHEN** a WeChat or other application download area contains an ordinary document or image but not an internal database, cache, executable, or log
+- **THEN** the ordinary file MAY follow the normal user-content path while application-internal records remain hard-blocked
+
+#### Scenario: Deterministic classifier cannot safely decide
+- **WHEN** a safe unknown file does not match a hard exclusion or supported user-content rule
+- **THEN** the system SHALL record terminal `hard_excluded` for unknown or machine formats, or `metadata_only` for a declared known unsupported media/archive class, with a machine reason and without executing, deserializing, or automatically submitting arbitrary bytes to AI
+
+### Requirement: Active coverage excludes retired objects
+Coverage summaries, next-work queues, indexed pages, Matter reachability, and UI
+counts SHALL consume only current active occurrences. A deleted occurrence or
+former partition scope removed by a current policy SHALL retain append-only
+history but SHALL not remain active, pending, blocked, UI-ready, or attached to
+a current Matter projection. Rediscovery under a current allowed policy SHALL
+append a new active revision and re-enter the appropriate first incomplete
+stage.
+
+#### Scenario: A policy-current rebuild prunes an old software-state subtree
+- **WHEN** an earlier partition scope is absent from the new current manifest because the subtree is now hard-excluded or no longer exists
+- **THEN** the system SHALL deactivate the scope, retire its former occurrences from active coverage and UI indexes, preserve their history, and report only aggregate retirement counts outside the private runtime
+
+#### Scenario: A retired occurrence becomes eligible again
+- **WHEN** a previously retired occurrence is rediscovered under a current authorized and trackable policy
+- **THEN** the system SHALL append an active coverage revision, clear obsolete terminal non-applicable stages, and schedule the first required current stage without duplicating source history
 
 ### Requirement: Gmail coverage is progressive and read-only
 The system SHALL freeze the Gmail account identity, inclusion/exclusion query
@@ -135,7 +176,7 @@ terminal occurrence dispositions are `ingested`, `not_tracked`,
 - **THEN** the system SHALL first select the smallest current tracked complete partition that can fill the remaining sample, or the largest useful partial partition when none can, and SHALL NOT begin with an arbitrary giant subtree or cross many single-item scopes solely to obtain the sample
 
 #### Scenario: Canary items update several coverage stages
-- **WHEN** selected canary items or one imported AI result persist source, extraction, evidence, analysis, original-owner, Matter, localization, visual, or projection stage updates
+- **WHEN** selected canary items or one imported AI result persist source, extraction, evidence, analysis, original-owner, Matter, localization, meaningful-clue/summary, generated-hero, supplemental-information, or projection stage updates
 - **THEN** those item updates SHALL defer global coverage aggregation and the bounded canary or AI-result dispatch SHALL refresh the summary once at its terminal batch join rather than once per item, finding, owner, or stage
 
 #### Scenario: A Gmail content canary has fewer supplied bodies than tracked messages
@@ -222,18 +263,125 @@ read boundary or activate undeclared tools.
 - **WHEN** a document, image, or message attempts to direct the runner to read another source or perform an external action
 - **THEN** the runner SHALL treat the instruction as untrusted source content and SHALL preserve the original authorization boundary
 
+#### Scenario: A queued source becomes excluded or inactive
+- **WHEN** a current policy revision changes a registered source occurrence to non-`tracked` or inactive after an AI package was created
+- **THEN** the package SHALL leave the runnable queue without erasing history and SHALL NOT be submitted to a model
+
+#### Scenario: A queued package uses a retired capability role
+- **WHEN** a durable package uses a pre-current capability name while its inputs remain authorized and tracked
+- **THEN** the system SHALL direct-migrate it to exactly one current seven-role package, hide the retired package from runnable work, and SHALL NOT add a compatibility runner or named-model dependency
+
+#### Scenario: A Codex worker requests one pending analysis page
+- **WHEN** thousands of current and historical WorkPackages, results, source revisions, migrations, and coverage rows exist
+- **THEN** the system SHALL join only current owner-indexed sets, apply authorization, dependency, migration, and terminal-result filters once, return the bounded page plus exact current total, and SHALL NOT execute a correlated full-history query per package
+
 ### Requirement: Object coverage is machine-auditable through UI readiness
 The system SHALL maintain one durable `ObjectCoverageLedger` row for every
 registered occurrence and admitted Matter. Each row SHALL record the current
 authorization, discovery, tracking disposition, source/version, extraction,
 analysis, original-owner decision, semantic-depth, required localization,
-representative-visual, UI-projection, freshness, retry, and terminal-reason
-dispositions without becoming the owner of those component states.
+meaningful-clue/summary freshness, generated-hero disposition for independently
+openable Matters, supplemental-information freshness, UI-projection,
+freshness, retry, and terminal-reason dispositions without becoming the owner
+of those component states.
 
 #### Scenario: One occurrence is not yet UI-ready
-- **WHEN** any required extraction, analysis, owner, localization, visual, or projection stage is missing, stale, retrying, or blocked
+- **WHEN** any required extraction, analysis, owner, localization, meaningful-clue/summary, generated-hero, supplemental-information, or projection stage is missing, stale, retrying, or blocked
 - **THEN** the coverage ledger SHALL name that exact stage and SHALL NOT report the occurrence or aggregate run as UI-ready
 
 #### Scenario: Registered universe is current
-- **WHEN** every registered occurrence has a terminal source disposition and every admitted Matter has current owner, locale, visual-or-placeholder, and reachable UI projections
+- **WHEN** every registered occurrence has a terminal source disposition, every root Matter has current owner, locale, clue/summary, generated-hero-or-typed-temporary-placeholder, every descendant has an explicit hero `not_applicable` disposition, and every admitted Matter has supplemental-information disposition and reachable UI projections
 - **THEN** the coverage audit MAY report the exact inventory revision as current and complete
+
+### Requirement: Coverage keeps one full current payload and an exact compressed noncurrent archive
+Each `ObjectCoverageLedger` object SHALL keep its complete current stage payload
+directly queryable. Replaced noncurrent revisions SHALL move to an exact,
+versioned compressed archive with object id, revision order, uncompressed byte
+count, record count, canonical digest, compression identity, and verification
+state. Reading history SHALL reconstruct the exact logical revision sequence;
+compression SHALL NOT discard, summarize, or reorder prior dispositions.
+
+#### Scenario: A current coverage payload is replaced
+- **WHEN** a new full current payload commits for the same object
+- **THEN** the prior current revision SHALL become noncurrent and MAY enter the compressed archive through an explicit bounded owner
+- **AND** the new current payload SHALL remain fully and directly queryable without decompressing the object's history
+
+#### Scenario: A noncurrent history page is archived
+- **WHEN** the explicit coverage-history archive owner selects a bounded stable page
+- **THEN** it SHALL create and reread the compressed archive, verify record count, uncompressed byte count, canonical digest, object identity, revision order, and decompressed logical equality before deleting the original duplicated history rows
+- **AND** interruption before verification SHALL preserve the original rows and make the page safely retryable
+
+#### Scenario: Historical coverage is requested
+- **WHEN** an audit asks for current plus earlier revisions
+- **THEN** the store SHALL merge the full current payload with the exact verified archive in revision order and SHALL expose corruption or missing archive data rather than silently returning partial history
+
+### Requirement: Storage repair is explicit, ordered, bounded, and non-compacting
+Legacy evidence references SHALL be rebased to bounded C3 anchor-set pointers
+before dependent coverage history is archived. Both maintenance owners SHALL
+use stable continuation cursors, finite page limits, idempotent retries, and
+terminal receipts. Foreground startup SHALL run neither repair. Logical
+migration completion SHALL not imply physical file shrink, and the migration
+owner SHALL not run `VACUUM` or `VACUUM INTO`.
+
+#### Scenario: A large legacy database requires both repairs
+- **WHEN** explicit private maintenance begins after a verified restorable backup and all other writers are stopped
+- **THEN** it SHALL finish and validate bounded evidence-pointer rebase pages before bounded coverage-history archive pages
+- **AND** it SHALL run integrity, count, and sampled historical-equivalence checks before either migration is terminal
+
+#### Scenario: A migration page is interrupted
+- **WHEN** the process stops after any nonterminal pointer or archive page
+- **THEN** the next explicit run SHALL resume from the durable continuation, reverify the affected page, and SHALL NOT restart from the beginning or claim the whole database current
+
+#### Scenario: Logical migration completes
+- **WHEN** both explicit migrations and their verification receipts are terminal
+- **THEN** freed SQLite pages MAY remain available for reuse and the runtime SHALL NOT claim that the database file shrank
+- **AND** any later physical compaction SHALL be a separate offline operation with separate disk-capacity, backup, integrity, and activation evidence
+
+### Requirement: Matter hierarchy coverage is machine-auditable
+Every admitted Matter SHALL have current, independently queryable
+`hierarchy_decision`, `containment_current`, `child_state_current`,
+`ancestor_rollup_current`, `hierarchy_projection_current`, and `ui_reachable`
+stage dispositions for the exact semantic and hierarchy revision. Occurrence
+rows that cannot be Matters SHALL receive an explicit not-applicable hierarchy
+disposition.
+
+#### Scenario: Child hierarchy is stale
+- **WHEN** a child Matter, containment edge, role, outcome, source, or parent changes after an ancestor summary was produced
+- **THEN** the ledger SHALL name the first stale hierarchy stage for the child and every affected ancestor and SHALL NOT count those Matter projections as current
+
+#### Scenario: Browser transport fails
+- **WHEN** a coverage or object-browser request times out or cannot reach the current private projection
+- **THEN** the UI SHALL report unknown transport state and retry ownership and SHALL NOT replace current counts with zero or claim an honest empty catalog
+
+#### Scenario: A projection, source, or candidate has no exact admitted Matter id
+- **WHEN** coverage receives only a projection id, SourceVersion id, MatterCandidate id, or inferred source-overlap match
+- **THEN** it SHALL NOT create or update admitted-Matter hierarchy stages or admitted-Matter totals
+- **AND** it SHALL retain the source/candidate disposition until C6 supplies the exact current admitted `matter_id`
+
+### Requirement: Current coverage schema repair is tracked-only and resumable
+The coverage-stage schema rebase SHALL visit only active occurrences whose
+current disposition is `tracked`. It SHALL add missing current stages through
+a bounded stable continuation and SHALL preserve inactive, retired,
+`not_tracked`, and `hard_excluded` history without reopening work.
+
+#### Scenario: One active legacy tracked row lacks content selection
+- **WHEN** a bounded coverage-schema rebase page reaches that row
+- **THEN** the system SHALL add a pending `content_selection` stage, replace the required-stage inventory with the current tracked contract, and checkpoint the next stable continuation
+
+#### Scenario: One legacy row is already retired
+- **WHEN** the same coverage-schema rebase runs
+- **THEN** the row SHALL remain byte-for-byte historical, SHALL receive no new pending stage, and SHALL NOT re-enter aggregate active counts or runnable work
+
+### Requirement: Coverage orphans are retired explicitly
+An active source `ObjectCoverageLedger` row SHALL have one current inventory
+occurrence owner. A bounded orphan-reconciliation owner SHALL retire any row
+whose current inventory occurrence no longer exists, without deleting its
+history or touching admitted Matter coverage.
+
+#### Scenario: Active source coverage has no current inventory occurrence
+- **WHEN** the bounded orphan page selects that object id
+- **THEN** the system SHALL append an inactive `not_tracked` disposition, remove it from active counts and runnable work, preserve all prior stages, and return a resumable terminal reconciliation status
+
+#### Scenario: The orphan repair is retried
+- **WHEN** no additional active orphan row matches the same object id
+- **THEN** the retry SHALL write no duplicate retirement and SHALL report current

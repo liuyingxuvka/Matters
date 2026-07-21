@@ -60,3 +60,10 @@ coverage-receipt*.json
 guard-receipt*.json
 matter-depth-report*.json
 private-pilot-report*
+/.flowguard/evidence/ui/screenshots/
+/.flowguard/evidence/ui/**/screenshots/
+
+# Local visual-generation scratch. Approved product assets belong under
+# src/matters/assets rather than these repository-root working directories.
+/assets/
+/tmp/imagegen/

@@ -1,15 +1,20 @@
-Matters Private Local Candidate License
+Matters Private Repository License
 
 Copyright (c) 2026 Matters contributors. All rights reserved.
 
-This software is provided only for private local evaluation by its authorized
-owner. No permission is granted to publish, redistribute, sublicense, sell,
-host for third parties, or make the software or its private data publicly
-available.
+Permission is granted to the authorized owner and explicitly authorized
+collaborators to use, copy, modify, build, install, and store this software in
+private, access-controlled repositories and private release storage.
+
+No permission is granted to publish or redistribute the software publicly,
+sublicense or sell it, host it as a service for third parties, or make the
+software or any private user data publicly available.
 
 The software is provided "as is", without warranty of any kind, express or
 implied, including warranties of merchantability, fitness for a particular
 purpose, and noninfringement. In no event shall the contributors be liable for
 any claim, damages, or other liability arising from use of the software.
 
-A future public license, if any, requires a separate explicit authorization.
+A private source release under this license is not an open-source release.
+Any future public license or public repository requires separate explicit
+authorization.

@@ -1,13 +1,145 @@
 {
   "artifact_type": "matters.flowguard-model-receipt.v1",
-  "claim_boundary": "This model establishes abstract M0 orchestration, ObjectCoverageLedger terminality, automatic owner scheduling, object-isolated blocking, restart/no-delta liveness, ResearchGuard release gating, UI readiness, output consumption, and ownership hazards. It does not prove child refinement, real provider coverage, installed desktop behavior, or private-run usefulness.",
-  "evidence_id": "evidence:M0_matters_end_to_end_authority:96f9b1c9603a2ddc",
+  "claim_boundary": "This model establishes abstract M0 orchestration, ObjectCoverageLedger terminality, automatic owner scheduling, object-isolated blocking, restart/no-delta liveness, ResearchGuard release gating, ordered hierarchy-stage terminality, ancestor freshness, model-agnostic capability gaps, shared-path daily orchestration/delegation/no-delta/interruption/authority boundaries, foreground startup without hidden catalog migration, explicit bounded pointer-rebase-before-history-archive migration continuation with backup, stopped-writer, verification, and recovery gates, exact semantic-depth/hierarchy owner-result joins, aggregate Matter depth separated from occurrence-only not-applicable stages, with missing-owner pending preservation, material-clue atomic projection, generated-hero and exact eight-section UI readiness, output consumption, and ownership hazards. It does not prove child refinement, concrete model availability, real provider coverage, installed desktop behavior, automation installation, private-run usefulness, a real private migration, physical compaction, or VACUUM safety.",
+  "evidence_id": "evidence:M0_matters_end_to_end_authority:4abae21e2657e0bc",
   "evidence_tiers": [
     "abstract_green",
     "hazard_green"
   ],
-  "generated_at": "2026-07-19T05:48:36.889273+00:00",
+  "generated_at": "2026-07-21T07:54:35.839285+00:00",
   "known_bad_proofs": [
+    {
+      "evidence_id": "M0_matters_end_to_end_authority:known-bad:H-M0-043-ledger-current-without-first-gap-index",
+      "failure_id": "H-M0-043-ledger-current-without-first-gap-index",
+      "observed_status": "failed",
+      "protected_error_class": "coverage_diagnostic_index_missing"
+    },
+    {
+      "evidence_id": "M0_matters_end_to_end_authority:known-bad:H-M0-044-registered-or-excluded-counted-ui-ready",
+      "failure_id": "H-M0-044-registered-or-excluded-counted-ui-ready",
+      "observed_status": "failed",
+      "protected_error_class": "coverage_terminal_ui_readiness_conflation"
+    },
+    {
+      "evidence_id": "M0_matters_end_to_end_authority:known-bad:H-M0-045-codex-project-source-lane-missing",
+      "failure_id": "H-M0-045-codex-project-source-lane-missing",
+      "observed_status": "failed",
+      "protected_error_class": "codex_source_universe_omission"
+    },
+    {
+      "evidence_id": "M0_matters_end_to_end_authority:known-bad:H-M0-046-mixed-graph-or-duplicate-timeline-counted-ready",
+      "failure_id": "H-M0-046-mixed-graph-or-duplicate-timeline-counted-ready",
+      "observed_status": "failed",
+      "protected_error_class": "semantic_ui_stage_false_terminal"
+    },
+    {
+      "evidence_id": "M0_matters_end_to_end_authority:known-bad:H-M0-047-empty-people-or-supplemental-counted-depth-current",
+      "failure_id": "H-M0-047-empty-people-or-supplemental-counted-depth-current",
+      "observed_status": "failed",
+      "protected_error_class": "matter_depth_empty_lane_false_current"
+    },
+    {
+      "evidence_id": "M0_matters_end_to_end_authority:known-bad:H-M0-048-versioned-source-ref-false-stale",
+      "failure_id": "H-M0-048-versioned-source-ref-false-stale",
+      "observed_status": "failed",
+      "protected_error_class": "matter_semantic_depth_source_ref_mismatch"
+    },
+    {
+      "evidence_id": "M0_matters_end_to_end_authority:known-bad:H-M0-042-gmail-metadata-reconciliation-dispatches-semantics",
+      "failure_id": "H-M0-042-gmail-metadata-reconciliation-dispatches-semantics",
+      "observed_status": "failed",
+      "protected_error_class": "gmail_metadata_reconciliation_owner_expansion"
+    },
+    {
+      "evidence_id": "M0_matters_end_to_end_authority:known-bad:H-M0-043-gmail-receipt-or-scope-repair-false-current",
+      "failure_id": "H-M0-043-gmail-receipt-or-scope-repair-false-current",
+      "observed_status": "failed",
+      "protected_error_class": "gmail_receipt_scope_join_false_current"
+    },
+    {
+      "evidence_id": "M0_matters_end_to_end_authority:known-bad:H-M0-044-source-revision-repair-joins-wrong-matter",
+      "failure_id": "H-M0-044-source-revision-repair-joins-wrong-matter",
+      "observed_status": "failed",
+      "protected_error_class": "source_revision_target_join_false_current"
+    },
+    {
+      "evidence_id": "M0_matters_end_to_end_authority:known-bad:H-M0-040-gmail-continuation-invokes-semantic-owner",
+      "failure_id": "H-M0-040-gmail-continuation-invokes-semantic-owner",
+      "observed_status": "failed",
+      "protected_error_class": "gmail_continuation_owner_expansion"
+    },
+    {
+      "evidence_id": "M0_matters_end_to_end_authority:known-bad:H-M0-041-gmail-no-text-remains-open-or-fabricated",
+      "failure_id": "H-M0-041-gmail-no-text-remains-open-or-fabricated",
+      "observed_status": "failed",
+      "protected_error_class": "gmail_no_text_coverage_false_state"
+    },
+    {
+      "evidence_id": "M0_matters_end_to_end_authority:known-bad:H-M0-034-storage-migration-order-or-recovery-bypassed",
+      "failure_id": "H-M0-034-storage-migration-order-or-recovery-bypassed",
+      "observed_status": "failed",
+      "protected_error_class": "storage_migration_recovery_false_complete"
+    },
+    {
+      "evidence_id": "M0_matters_end_to_end_authority:known-bad:H-M0-035-migration-runs-vacuum-or-claims-shrink",
+      "failure_id": "H-M0-035-migration-runs-vacuum-or-claims-shrink",
+      "observed_status": "failed",
+      "protected_error_class": "storage_migration_physical_compaction_escape"
+    },
+    {
+      "evidence_id": "M0_matters_end_to_end_authority:known-bad:H-M0-033-parent-narrative-false-join",
+      "failure_id": "H-M0-033-parent-narrative-false-join",
+      "observed_status": "failed",
+      "protected_error_class": "parent_narrative_scope_false_complete"
+    },
+    {
+      "evidence_id": "M0_matters_end_to_end_authority:known-bad:H-M0-028-current-contract-repair-owner-missing",
+      "failure_id": "H-M0-028-current-contract-repair-owner-missing",
+      "observed_status": "failed",
+      "protected_error_class": "current_contract_reconciliation_false_join"
+    },
+    {
+      "evidence_id": "M0_matters_end_to_end_authority:known-bad:H-M0-029-bounded-payload-masks-unbounded-catalog-query",
+      "failure_id": "H-M0-029-bounded-payload-masks-unbounded-catalog-query",
+      "observed_status": "failed",
+      "protected_error_class": "catalog_query_shape_false_complete"
+    },
+    {
+      "evidence_id": "M0_matters_end_to_end_authority:known-bad:H-M0-031-service-startup-runs-catalog-migrations",
+      "failure_id": "H-M0-031-service-startup-runs-catalog-migrations",
+      "observed_status": "failed",
+      "protected_error_class": "foreground_startup_catalog_amplification"
+    },
+    {
+      "evidence_id": "M0_matters_end_to_end_authority:known-bad:H-M0-032-maintenance-rebase-loses-continuation",
+      "failure_id": "H-M0-032-maintenance-rebase-loses-continuation",
+      "observed_status": "failed",
+      "protected_error_class": "maintenance_rebase_continuation_loss"
+    },
+    {
+      "evidence_id": "M0_matters_end_to_end_authority:known-bad:H-M0-023-unclaimed-filesystem-workers-overlap",
+      "failure_id": "H-M0-023-unclaimed-filesystem-workers-overlap",
+      "observed_status": "failed",
+      "protected_error_class": "filesystem_batch_execution_overlap"
+    },
+    {
+      "evidence_id": "M0_matters_end_to_end_authority:known-bad:H-M0-024-expired-claim-loses-interrupted-stage",
+      "failure_id": "H-M0-024-expired-claim-loses-interrupted-stage",
+      "observed_status": "failed",
+      "protected_error_class": "filesystem_stage_resume_gap"
+    },
+    {
+      "evidence_id": "M0_matters_end_to_end_authority:known-bad:H-M0-025-unbounded-source-package-fanout",
+      "failure_id": "H-M0-025-unbounded-source-package-fanout",
+      "observed_status": "failed",
+      "protected_error_class": "source_analysis_derivative_unbounded"
+    },
+    {
+      "evidence_id": "M0_matters_end_to_end_authority:known-bad:H-M0-026-bounded-expansion-truncates-anchors",
+      "failure_id": "H-M0-026-bounded-expansion-truncates-anchors",
+      "observed_status": "failed",
+      "protected_error_class": "source_analysis_anchor_loss"
+    },
     {
       "evidence_id": "M0_matters_end_to_end_authority:known-bad:H-M0-001-incomplete-ledger-claimed-current",
       "failure_id": "H-M0-001-incomplete-ledger-claimed-current",
@@ -63,6 +195,18 @@
       "protected_error_class": "original_owner_join_bypass"
     },
     {
+      "evidence_id": "M0_matters_end_to_end_authority:known-bad:H-M0-030-owner-result-not-joined-to-coverage",
+      "failure_id": "H-M0-030-owner-result-not-joined-to-coverage",
+      "observed_status": "failed",
+      "protected_error_class": "owner_result_coverage_code_boundary_mismatch"
+    },
+    {
+      "evidence_id": "M0_matters_end_to_end_authority:known-bad:H-M0-036-matter-depth-borrows-occurrence-not-applicable",
+      "failure_id": "H-M0-036-matter-depth-borrows-occurrence-not-applicable",
+      "observed_status": "failed",
+      "protected_error_class": "matter_semantic_depth_false_complete"
+    },
+    {
       "evidence_id": "M0_matters_end_to_end_authority:known-bad:H-M0-010-blocked-object-stops-all-progress",
       "failure_id": "H-M0-010-blocked-object-stops-all-progress",
       "observed_status": "failed",
@@ -85,9 +229,87 @@
       "failure_id": "H-M0-013-ui-ready-gap-claimed-complete",
       "observed_status": "failed",
       "protected_error_class": "ui_reachability_false_complete"
+    },
+    {
+      "evidence_id": "M0_matters_end_to_end_authority:known-bad:H-M0-028-material-clue-projection-gap-claimed-complete",
+      "failure_id": "H-M0-028-material-clue-projection-gap-claimed-complete",
+      "observed_status": "failed",
+      "protected_error_class": "material_clue_end_to_end_false_complete"
+    },
+    {
+      "evidence_id": "M0_matters_end_to_end_authority:known-bad:H-M0-029-unjoined-delegated-result-claimed-complete",
+      "failure_id": "H-M0-029-unjoined-delegated-result-claimed-complete",
+      "observed_status": "failed",
+      "protected_error_class": "maintenance_orchestrator_join_false_complete"
+    },
+    {
+      "evidence_id": "M0_matters_end_to_end_authority:known-bad:H-M0-014-hierarchy-stage-gap-claimed-complete",
+      "failure_id": "H-M0-014-hierarchy-stage-gap-claimed-complete",
+      "observed_status": "failed",
+      "protected_error_class": "hierarchy_pipeline_false_complete"
+    },
+    {
+      "evidence_id": "M0_matters_end_to_end_authority:known-bad:H-M0-015-hierarchy-depth-pending-claimed-complete",
+      "failure_id": "H-M0-015-hierarchy-depth-pending-claimed-complete",
+      "observed_status": "failed",
+      "protected_error_class": "hierarchy_depth_false_complete"
+    },
+    {
+      "evidence_id": "M0_matters_end_to_end_authority:known-bad:H-M0-016-old-ancestor-chain-stays-current",
+      "failure_id": "H-M0-016-old-ancestor-chain-stays-current",
+      "observed_status": "failed",
+      "protected_error_class": "ancestor_invalidation_false_current"
+    },
+    {
+      "evidence_id": "M0_matters_end_to_end_authority:known-bad:H-M0-017-capability-gap-claimed-terminal",
+      "failure_id": "H-M0-017-capability-gap-claimed-terminal",
+      "observed_status": "failed",
+      "protected_error_class": "capability_route_false_complete"
+    },
+    {
+      "evidence_id": "M0_matters_end_to_end_authority:known-bad:H-M0-018-shared-no-delta-duplicates-work",
+      "failure_id": "H-M0-018-shared-no-delta-duplicates-work",
+      "observed_status": "failed",
+      "protected_error_class": "shared_invocation_no_delta_duplication"
+    },
+    {
+      "evidence_id": "M0_matters_end_to_end_authority:known-bad:H-M0-019-interrupted-shared-invocation-claimed-pass",
+      "failure_id": "H-M0-019-interrupted-shared-invocation-claimed-pass",
+      "observed_status": "failed",
+      "protected_error_class": "shared_invocation_false_success"
+    },
+    {
+      "evidence_id": "M0_matters_end_to_end_authority:known-bad:H-M0-022-no-runner-skips-owner-redispatch",
+      "failure_id": "H-M0-022-no-runner-skips-owner-redispatch",
+      "observed_status": "failed",
+      "protected_error_class": "owner_dispatch_recovery_lost"
+    },
+    {
+      "evidence_id": "M0_matters_end_to_end_authority:known-bad:H-M0-028-owner-recovery-fans-out-new-ai-work",
+      "failure_id": "H-M0-028-owner-recovery-fans-out-new-ai-work",
+      "observed_status": "failed",
+      "protected_error_class": "owner_dispatch_recovery_fanout"
+    },
+    {
+      "evidence_id": "M0_matters_end_to_end_authority:known-bad:H-M0-021-no-runner-busy-loop-starves-ui",
+      "failure_id": "H-M0-021-no-runner-busy-loop-starves-ui",
+      "observed_status": "failed",
+      "protected_error_class": "foreground_starvation"
+    },
+    {
+      "evidence_id": "M0_matters_end_to_end_authority:known-bad:H-M0-027-pending-package-history-query-starves-worker",
+      "failure_id": "H-M0-027-pending-package-history-query-starves-worker",
+      "observed_status": "failed",
+      "protected_error_class": "analysis_pending_page_unbounded"
+    },
+    {
+      "evidence_id": "M0_matters_end_to_end_authority:known-bad:H-M0-020-daily-task-owns-final-or-mutation",
+      "failure_id": "H-M0-020-daily-task-owns-final-or-mutation",
+      "observed_status": "failed",
+      "protected_error_class": "scheduled_scope_authority_escape"
     }
   ],
-  "model_fingerprint": "sha256:96f9b1c9603a2ddcfed348e7db113fe013c9abc03ad97117a466f9f5be818ee5",
+  "model_fingerprint": "sha256:4abae21e2657e0bc534d58e48e434c771cd5abed30bfdc084905197ffcad592d",
   "model_id": "M0_matters_end_to_end_authority",
   "model_title": "M0 Autonomous Matters End-to-End Authority",
   "overall_status": "pass_with_gaps",
@@ -112,7 +334,7 @@
     "model_mesh": "not_run_in_this_owner: cross-model topology belongs to the separate ModelMesh owner"
   },
   "toolchain": {
-    "flowguard_package_version": "0.58.4",
+    "flowguard_package_version": "0.58.5",
     "flowguard_schema_version": "1.0"
   }
 }

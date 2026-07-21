@@ -2,6 +2,7 @@
 
 from matters.bundled_skills.bundle import (
     REQUIRED_SKILL_IDS,
+    RETIRED_SKILL_IDS,
     build_bundle,
     load_projections,
     validate_bundle,
@@ -9,6 +10,7 @@ from matters.bundled_skills.bundle import (
 
 __all__ = [
     "REQUIRED_SKILL_IDS",
+    "RETIRED_SKILL_IDS",
     "build_bundle",
     "load_projections",
     "validate_bundle",

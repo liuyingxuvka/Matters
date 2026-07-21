@@ -2,13 +2,29 @@
 
 from __future__ import annotations
 
+import argparse
 import json
 from pathlib import Path
 
 from flowguard_models.delivery_flow import RECEIPT_PATH, build_receipt
 
 
+def _parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--require-gate",
+        choices=tuple(f"G{index}" for index in range(13)),
+        default="G8",
+        help=(
+            "Minimum consecutive current gate required for a zero exit. "
+            "Final release closure must pass --require-gate G12."
+        ),
+    )
+    return parser.parse_args()
+
+
 def main() -> int:
+    args = _parse_args()
     root = Path(".").resolve()
     receipt = build_receipt(root)
     path = root / RECEIPT_PATH
@@ -25,7 +41,12 @@ def main() -> int:
         and current_gate.removeprefix("G").isdigit()
         else -1
     )
-    return 0 if current_index >= 8 and receipt["native_report"]["ok"] else 1
+    required_index = int(args.require_gate.removeprefix("G"))
+    return (
+        0
+        if current_index >= required_index and receipt["native_report"]["ok"]
+        else 1
+    )
 
 
 if __name__ == "__main__":

@@ -7,13 +7,18 @@ from hashlib import sha256
 import importlib.metadata
 import json
 from pathlib import Path
+from typing import Any
 
 import flowguard
 
 from flowguard_design.architecture import run_review as run_architecture
 from flowguard_design.contract_exhaustion import run_review as run_contracts
 from flowguard_design.field_lifecycle import run_review as run_fields
-from flowguard_design.inventory import ALL_TEST_SUITES, MODEL_ORDER
+from flowguard_design.inventory import (
+    AGENT_OPERATION_ORDER,
+    ALL_TEST_SUITES,
+    MODEL_ORDER,
+)
 from flowguard_design.model_test_alignment import run_reviews as run_alignment
 from flowguard_design.synthetic_sources import (
     FIXTURE_PATH,
@@ -25,6 +30,8 @@ from flowguard_design.transition_coverage import build_matrices
 
 RECEIPT_ROOT = Path(".flowguard/evidence/design")
 SOURCE_PATHS = (
+    Path(".flowguard/behavior_commitment_ledger/ledger.json"),
+    Path("flowguard_models/agent_operation_models.py"),
     Path("flowguard_models/model_mesh.py"),
     *tuple(sorted(Path("flowguard_models/models").glob("*.py"))),
     Path("flowguard_design/architecture.py"),
@@ -37,6 +44,18 @@ SOURCE_PATHS = (
     Path("flowguard_design/synthetic_sources.py"),
     Path("flowguard_design/test_mesh.py"),
     Path("flowguard_design/transition_coverage.py"),
+    Path("flowguard_design/ui_flow_structure.py"),
+    Path("flowguard_design/run_ui_flow_structure.py"),
+    Path("flowguard_design/ui_runtime_contract.py"),
+    Path("flowguard_design/ui_runtime_required_checks.json"),
+    Path("scripts/verify_live_ui.js"),
+    *tuple(
+        sorted(
+            path
+            for path in Path("plugins/matters").rglob("*")
+            if path.is_file()
+        )
+    ),
     FIXTURE_PATH,
 )
 
@@ -87,20 +106,33 @@ def _write(name: str, payload: dict) -> str:
     return path.as_posix()
 
 
+def _canonical_fingerprint(value: Any) -> str:
+    canonical = json.dumps(
+        value,
+        separators=(",", ":"),
+        sort_keys=True,
+        ensure_ascii=False,
+    ).encode("utf-8")
+    return "sha256:" + sha256(canonical).hexdigest()
+
+
+def _sequence_summary(value: list[Any]) -> dict[str, Any]:
+    return {
+        "count": len(value),
+        "fingerprint": _canonical_fingerprint(value),
+    }
+
+
 def _compact_contract_exhaustion(plan, report) -> dict:
     """Persist review authority without copying every derived Cartesian row."""
 
     plan_payload = plan.to_dict()
     report_payload = report.to_dict()
-    canonical = json.dumps(
-        {"plan": plan_payload, "report": report_payload},
-        separators=(",", ":"),
-        sort_keys=True,
-        ensure_ascii=False,
-    ).encode("utf-8")
     return {
         "artifact_type": "matters.contract-exhaustion-design.v2",
-        "canonical_review_fingerprint": "sha256:" + sha256(canonical).hexdigest(),
+        "canonical_review_fingerprint": _canonical_fingerprint(
+            {"plan": plan_payload, "report": report_payload}
+        ),
         "plan": {
             key: plan_payload[key]
             for key in (
@@ -134,11 +166,15 @@ def _compact_contract_exhaustion(plan, report) -> dict:
             "composite_handoff_acceptance_count": len(
                 report_payload["composite_handoff_acceptances"]
             ),
-            "coverage_shards": report_payload["coverage_shards"],
-            "coverage_receipts": report_payload["coverage_receipts"],
-            "required_route_case_ids": report_payload[
-                "required_route_case_ids"
-            ],
+            "coverage_shards": _sequence_summary(
+                report_payload["coverage_shards"]
+            ),
+            "coverage_receipts": _sequence_summary(
+                report_payload["coverage_receipts"]
+            ),
+            "required_route_case_ids": _sequence_summary(
+                report_payload["required_route_case_ids"]
+            ),
             "missing_oracle_case_ids": report_payload[
                 "missing_oracle_case_ids"
             ],
@@ -150,6 +186,117 @@ def _compact_contract_exhaustion(plan, report) -> dict:
             "The canonical executable review produced every Cartesian case. "
             "This public receipt stores its fingerprint, authority, coverage, "
             "counts, and findings without duplicating thousands of derived rows."
+        ),
+    }
+
+
+def _compact_test_mesh(plan, report) -> dict:
+    """Persist exact TestMesh authority without repeated leaf/finding payloads."""
+
+    plan_payload = plan.to_dict()
+    report_payload = report.to_dict()
+    suite_scalar_keys = (
+        "suite_id",
+        "layer",
+        "command",
+        "diagnostic_boundary",
+        "planned_count",
+        "executed_count",
+        "failed_count",
+        "not_run_count",
+        "not_run_reason",
+        "result_status",
+        "terminal_status",
+        "evidence_tier",
+        "evidence_current",
+        "release_required",
+    )
+    suite_sequence_keys = (
+        "covered_obligation_ids",
+        "owned_coverage_shard_ids",
+        "owned_inventory_item_ids",
+        "owned_leaf_cell_ids",
+        "owns_side_effects",
+        "owns_state",
+    )
+    suites = []
+    for row in plan_payload["child_suites"]:
+        suites.append(
+            {
+                **{key: row[key] for key in suite_scalar_keys},
+                **{
+                    key: _sequence_summary(row[key])
+                    for key in suite_sequence_keys
+                },
+            }
+        )
+    finding_codes = sorted(
+        {item["code"] for item in report_payload["findings"]}
+    )
+    return {
+        "artifact_type": "matters.test-mesh-design.v2",
+        "canonical_review_fingerprint": _canonical_fingerprint(
+            {"plan": plan_payload, "report": report_payload}
+        ),
+        "plan": {
+            key: plan_payload[key]
+            for key in (
+                "parent_suite_id",
+                "decision_scope",
+                "inventory_revision",
+                "release_deferred_allowed",
+                "require_complete_inventory",
+                "require_final_receipts",
+                "require_proof_artifacts",
+                "required_evidence_tier",
+                "partition_items",
+                "target_split_derivation",
+            )
+        }
+        | {
+            "child_suites": suites,
+            "required_coverage_shard_ids": _sequence_summary(
+                plan_payload["required_coverage_shard_ids"]
+            ),
+            "required_inventory_item_ids": _sequence_summary(
+                plan_payload["required_inventory_item_ids"]
+            ),
+            "required_leaf_cell_ids": _sequence_summary(
+                plan_payload["required_leaf_cell_ids"]
+            ),
+        },
+        "native_report": {
+            key: report_payload[key]
+            for key in (
+                "ok",
+                "decision",
+                "decision_scope",
+                "inventory_revision",
+                "summary",
+                "release_obligations",
+            )
+        }
+        | {
+            "finding_count": len(report_payload["findings"]),
+            "finding_codes": finding_codes,
+            "findings_fingerprint": _canonical_fingerprint(
+                report_payload["findings"]
+            ),
+            "covered_inventory_item_ids": _sequence_summary(
+                report_payload["covered_inventory_item_ids"]
+            ),
+            "missing_inventory_item_ids": _sequence_summary(
+                report_payload["missing_inventory_item_ids"]
+            ),
+            "scoped_inventory_item_ids": _sequence_summary(
+                report_payload["scoped_inventory_item_ids"]
+            ),
+        },
+        "claim_boundary": (
+            "The native TestMesh review consumed the complete child-suite, "
+            "leaf-cell, inventory, and finding payloads. This public receipt "
+            "stores exact fingerprints, counts, suite authority, and findings "
+            "without repeating derived rows or embedding full owner payloads."
         ),
     }
 
@@ -228,7 +375,7 @@ def main() -> int:
         cell.cell_id for matrix in matrices for cell in matrix.required_cells()
     ]
     transition_structural_ok = (
-        len(matrices) == len(MODEL_ORDER)
+        len(matrices) == len(MODEL_ORDER) + len(AGENT_OPERATION_ORDER)
         and len(transition_ids) == len(set(transition_ids))
         and all(matrix.cells for matrix in matrices)
     )
@@ -279,11 +426,9 @@ def main() -> int:
     _write(
         "G4_test_mesh.json",
         {
-            "artifact_type": "matters.test-mesh-design.v1",
             "design_fingerprint": fingerprint,
             "generated_at": generated_at,
-            "plan": test_mesh_plan.to_dict(),
-            "native_report": test_mesh_report.to_dict(),
+            **_compact_test_mesh(test_mesh_plan, test_mesh_report),
             "structural_ok": test_mesh_structural_ok
             and all(
                 value

@@ -41,25 +41,29 @@ PROCESS_OWNER_ID = "DPF_matters_delivery_gate"
 SKILL_RUNTIME_OWNER_ID = "S0_matters_skill_runtime"
 SOURCE_ANALYSIS_OWNER_ID = "A0_matters_source_analysis_operation"
 RESEARCH_OWNER_ID = "A1_matters_research_operation"
-SCOPE_REVISION = "autonomous-object-browser-v2"
+MAINTENANCE_ORCHESTRATOR_OWNER_ID = "A2_matters_maintenance_orchestrator_operation"
+AI_GATEWAY_OWNER_ID = "A3_matters_ai_gateway_operation"
+SCOPE_REVISION = "v0.3.0-matter-browser-semantic-reset-v7"
 REUSE_MAP = {
-    "M0_matters_end_to_end_authority": "extend_with_object_coverage_ledger_worker_and_ui_readiness",
-    "C1_authorization_coverage": "replace_review_with_automatic_reversible_terminal_dispositions",
-    "C2_source_registry": "extend_with_safe_visual_derivatives_and_freshness",
-    "C3_evidence_qualification": "extend_with_visual_anchors_display_permission_and_eligibility",
+    "M0_matters_end_to_end_authority": "extend_with_source_in_place_migration_situation_graph_world_model_and_ui_reachability_join",
+    "C1_authorization_coverage": "extend_with_source_in_place_storage_cleanup_group_graph_world_model_and_ui_stage_coverage",
+    "C2_source_registry": "extend_with_external_original_locator_fingerprint_storage_class_transient_cleanup_and_source_group_projection",
+    "C3_evidence_qualification": "replace_visual_eligibility_with_gallery_display_eligibility",
     "C4_person_entity_resolution": "preserve_separate_uncertain_identities_without_confirmation",
-    "C5_event_temporal_trace": "preserve_conflict_and_publish_best_supported_human_readable_time",
-    "C6_matter_formation_admission": "replace_review_with_autonomous_terminal_admission_and_visual_relations",
-    "C7_lifecycle_board_state": "replace_review_with_uncertainty_preserved_lifecycle_projection",
+    "C5_event_temporal_trace": "extend_with_situation_event_nodes_primary_containment_secondary_typed_edges_and_source_group_time",
+    "C6_matter_formation_admission": "extend_with_root_catalog_bounded_situation_graph_and_single_layer_descendant_quick_view",
+    "C7_lifecycle_board_state": "extend_with_confirmed_reported_planned_and_ai_inferred_lifecycle_certainty",
     "C8_open_loop_waiting_blocking": "replace_review_with_gap_and_not_applicable_terminals",
     "C9_completion_cancellation_reopen": "replace_review_with_completion_gap_and_outcome_conflict_terminals",
-    "C10_correction_revocation": "extend_with_optional_visual_correction_and_original_owner_recompute",
-    "C11_guard_artifact_prediction": "replace_confirmation_with_workpackage_v2_input_accounting_and_auto_dispatch",
-    "C12_projection_bilingual_ui": "replace_review_workspace_with_bilingual_desktop_object_browser",
-    "DPF_matters_delivery_gate": "extend_progressive_autonomous_first_run_skill_pack_desktop_and_release_gates",
+    "C10_correction_revocation": "extend_with_locator_derived_group_graph_world_model_hero_and_projection_invalidation",
+    "C11_guard_artifact_prediction": "extend_with_persistent_advisory_world_model_and_root_only_photoreal_hero_disposition",
+    "C12_projection_bilingual_ui": "extend_with_summary_free_root_cards_situation_graph_single_layer_quick_view_grouped_sources_root_only_photoreal_hero_and_automatic_root_supplemental_queue",
+    "DPF_matters_delivery_gate": "extend_with_source_in_place_migration_order_coverage_scan_desktop_visual_qa_install_and_release_gates",
     "S0_matters_skill_runtime": "add_auxiliary_non_product_skill_runtime_boundary",
     "A0_matters_source_analysis_operation": "add_agent_operation_boundary",
     "A1_matters_research_operation": "add_abstract_researchoperation_boundary",
+    "A2_matters_maintenance_orchestrator_operation": "add_primary_codex_plan_delegate_join_boundary",
+    "A3_matters_ai_gateway_operation": "add_bounded_ai_information_map_and_feedback_gateway_boundary",
 }
 
 
@@ -250,6 +254,38 @@ def _optional_auxiliary_hits() -> tuple[ModelContextHit, ...]:
                 "agent_operation.research_terminal_receipt",
             ),
         ),
+        (
+            MAINTENANCE_ORCHESTRATOR_OWNER_ID,
+            (
+                "strongest-compatible primary Codex maintenance planning",
+                "bounded A0/A1 delegation and validated joins",
+                "finite retry and terminal maintenance receipt",
+            ),
+            (
+                "agent_operation.maintenance_plan",
+                "agent_operation.delegation_registry",
+                "agent_operation.join_status",
+                "agent_operation.maintenance_terminal_receipt",
+            ),
+        ),
+        (
+            AI_GATEWAY_OWNER_ID,
+            (
+                "bounded functional model-map and situation-context queries",
+                "privacy-minimized append-only AI feedback receipts",
+                "typed dispatch to existing correction, prediction, and model-miss owners",
+                "visible external ResearchGuard dependency gaps",
+            ),
+            (
+                "ai_gateway.contract_revision",
+                "ai_gateway.request_fingerprint",
+                "ai_gateway.query_receipt",
+                "ai_gateway.feedback_receipt",
+                "ai_gateway.owner_dispatch_disposition",
+                "ai_gateway.researchguard_status",
+                "ai_gateway.completion_status",
+            ),
+        ),
     ):
         source = _optional_owner_source(model_id)
         if not source:
@@ -427,6 +463,16 @@ def _spec_provider_context(
         "ResearchOperation",
         "ResearchGuard",
         "Skill Pack",
+        "model-agnostic",
+        "CodexExecutionProfile",
+        "low_cost_annotator",
+        "Files & information",
+        "external_original",
+        "durable_derived",
+        "SituationGraph",
+        "Situation/World Model",
+        "single-layer",
+        "photorealistic",
         "tracked",
         "freshness",
         "depth",
@@ -434,7 +480,7 @@ def _spec_provider_context(
     provider_current = bool(files) and all(marker in text for marker in required_markers)
     ledger = json.loads(LEDGER_PATH.read_text(encoding="utf-8"))["ledger"]
     reconciliation_current = bool(
-        ledger.get("current_revision") == "autonomous-object-browser-v2"
+        ledger.get("current_revision") == SCOPE_REVISION
         and all(
             commitment_id in set(ledger.get("expected_commitment_ids", ()))
             for commitment_id in (
@@ -446,6 +492,8 @@ def _spec_provider_context(
                 "BC-DP-009",
                 "BC-AO-001",
                 "BC-AO-002",
+                "BC-AO-003",
+                "BC-AO-004",
             )
         )
     )
@@ -453,13 +501,11 @@ def _spec_provider_context(
     reconciliation_fingerprint = _aggregate_hash(files + (LEDGER_PATH,))
     return {
         "context_id": (
-            "openspec:build-matters-model-driven-core:"
-            "autonomous-object-browser-v2"
+            "openspec:build-matters-model-driven-core:" + SCOPE_REVISION
         ),
         "provider_id": "openspec",
         "work_package_id": (
-            "openspec:build-matters-model-driven-core:"
-            "autonomous-object-browser-v2"
+            "openspec:build-matters-model-driven-core:" + SCOPE_REVISION
         ),
         "change_id": "build-matters-model-driven-core",
         "behavior_plane": "development_process",
@@ -480,6 +526,8 @@ def _spec_provider_context(
             "BC-DP-009",
             "BC-AO-001",
             "BC-AO-002",
+            "BC-AO-003",
+            "BC-AO-004",
             "BC-PR-001",
             "BC-PR-002",
             "BC-PR-010",
@@ -489,6 +537,8 @@ def _spec_provider_context(
         "typed_relation_ids": [
             "BC-DP-004:governs:BC-AO-001",
             "BC-DP-004:governs:BC-AO-002",
+            "BC-DP-004:governs:BC-AO-003",
+            "BC-DP-004:governs:BC-AO-004",
             "BC-DP-008:validates:BC-AO-002",
             "BC-DP-004:requires_evidence_from:BC-PR-001",
             "BC-DP-009:requires_evidence_from:BC-PR-010",
@@ -524,14 +574,28 @@ def build_preflight() -> ExistingModelPreflight:
             "matters-autonomous-object-browser-existing-model-preflight"
         ),
         task_summary=(
-            "Extend Matters for a frozen candidate source universe, automatic "
+            "Extend Matters v0.3.0 for a frozen candidate source universe, automatic "
             "reversible terminal dispositions, durable inventory and ObjectCoverageLedger "
-            "freshness/depth, WorkPackageV2 input accounting and automatic owner "
-            "dispatch, representative visuals, the Databank-authority bilingual "
-            "desktop object browser, one abstract ResearchOperation with the single "
-            "ResearchGuard provider, an exact eleven-skill app-local pack, managed "
-            "sync/rollback, autonomous progressive private first run, and bounded "
-            "Model Miss self-maintenance without Jira/Rovo or legacy Guard fallbacks."
+            "freshness/depth and exact per-object stage audit, context-aware root/child "
+            "reconciliation, source-in-place storage with durable pointer/fingerprint and "
+            "derived understanding, transient raw cleanup and grouped source locations, "
+            "a bounded multi-depth SituationGraph plus advisory Situation/World Model "
+            "inference with visible certainty, MaterialClue activity and atomic bilingual summaries, "
+            "model-agnostic capability-routed WorkPackageV2 execution with replaceable "
+            "private Codex profiles, strongest-compatible primary Codex maintenance "
+            "planning plus bounded low-cost delegation, generated presentation-only "
+            "root-only photorealistic heroes, summary-free standard and compact root cards, "
+            "the eight-section Databank-authority bilingual desktop object browser with "
+            "one reusable single-layer descendant quick view, "
+            "one abstract ResearchOperation with "
+            "the single ResearchGuard provider plus automatic idempotent root-only "
+            "supplemental queuing and descendant not-applicable disposition, an exact eleven-skill app-local "
+            "pack without machine-global overlays, one separate public Matters AI "
+            "gateway for bounded model-map/context/history access and typed feedback, "
+            "event-driven progressive private maintenance through one shared path "
+            "with daily scheduling opt-in only, and bounded Model Miss handoff "
+            "without app-owned API keys, Jira/Rovo, Guard vendoring, or legacy "
+            "Guard fallbacks."
         ),
         mode="full",
         existing_modeled_system=True,
@@ -614,6 +678,30 @@ def build_preflight() -> ExistingModelPreflight:
                 relation_type="governs",
                 relation_path=("BC-DP-004", "BC-AO-002"),
             ),
+            BehaviorCommitmentHit(
+                commitment_id="BC-AO-003",
+                behavior_plane="agent_operation",
+                primary_owner_model_id=MAINTENANCE_ORCHESTRATOR_OWNER_ID,
+                score=96,
+                match_reasons=(
+                    "governed primary Codex plan, bounded delegation, and receipt join",
+                ),
+                hit_role="validation_target",
+                relation_type="governs",
+                relation_path=("BC-DP-004", "BC-AO-003"),
+            ),
+            BehaviorCommitmentHit(
+                commitment_id="BC-AO-004",
+                behavior_plane="agent_operation",
+                primary_owner_model_id=AI_GATEWAY_OWNER_ID,
+                score=96,
+                match_reasons=(
+                    "governed bounded AI model-map/context query and typed feedback receipt",
+                ),
+                hit_role="validation_target",
+                relation_type="governs",
+                relation_path=("BC-DP-004", "BC-AO-004"),
+            ),
         ),
         ledger_fingerprint=ledger_fingerprint,
         behavior_lookup_reason=(
@@ -639,9 +727,10 @@ def build_preflight() -> ExistingModelPreflight:
         ),
         rationale=(
             "M0/C1-C12 retain product ownership and DPF retains process order. "
-            "S0 is an auxiliary non-product skill-runtime boundary, while A0/A1 "
-            "are agent-operation owners. No C13, Jira/Rovo gate, or three-Guard "
-            "parallel runtime authority is introduced."
+            "S0 is an auxiliary non-product skill-runtime boundary, while A0/A1/A2/A3 "
+            "are disjoint agent-operation owners. A3 owns gateway receipts only. No C13, "
+            "Jira/Rovo gate, Guard vendoring, or three-Guard parallel runtime authority "
+            "is introduced."
         ),
         proposed_new_boundaries=tuple(
             model_id
@@ -649,6 +738,8 @@ def build_preflight() -> ExistingModelPreflight:
                 SKILL_RUNTIME_OWNER_ID,
                 SOURCE_ANALYSIS_OWNER_ID,
                 RESEARCH_OWNER_ID,
+                MAINTENANCE_ORCHESTRATOR_OWNER_ID,
+                AI_GATEWAY_OWNER_ID,
             )
             if not _optional_owner_source(model_id)
         ),
@@ -666,6 +757,17 @@ def build_preflight() -> ExistingModelPreflight:
             "agent_operation.research_status",
             "agent_operation.source_analysis_terminal_receipt",
             "agent_operation.research_terminal_receipt",
+            "agent_operation.maintenance_plan",
+            "agent_operation.delegation_registry",
+            "agent_operation.join_status",
+            "agent_operation.maintenance_terminal_receipt",
+            "ai_gateway.contract_revision",
+            "ai_gateway.request_fingerprint",
+            "ai_gateway.query_receipt",
+            "ai_gateway.feedback_receipt",
+            "ai_gateway.owner_dispatch_disposition",
+            "ai_gateway.researchguard_status",
+            "ai_gateway.completion_status",
         ),
         field_lifecycle_required=True,
         field_lifecycle_model_ids=tuple(MODELS)
@@ -673,6 +775,8 @@ def build_preflight() -> ExistingModelPreflight:
             SKILL_RUNTIME_OWNER_ID,
             SOURCE_ANALYSIS_OWNER_ID,
             RESEARCH_OWNER_ID,
+            MAINTENANCE_ORCHESTRATOR_OWNER_ID,
+            AI_GATEWAY_OWNER_ID,
         ),
         model_angle_review_required=False,
         similarity_review_required=False,

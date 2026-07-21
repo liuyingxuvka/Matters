@@ -23,7 +23,7 @@ EXPECTED_SKILL_IDS = (
     "matters-research-orchestration",
     "matters-semantic-understanding",
     "matters-autonomous-maintenance",
-    "matters-card-visual-curation",
+    "matters-hero-image-generation",
 )
 
 
@@ -71,11 +71,16 @@ def test_every_bundled_manifest_binds_exact_projection_and_runtime_identity():
         assert manifest.content_hash == projection_content_hash(projection.files)
         assert str(manifest.version) == str(bundle.pack_version)
         assert manifest.runtime_identity == f"matters-runtime:{bundle.pack_version}"
-        assert manifest.validator_identity == "matters-bundled-skill-validator:v2"
-        assert manifest.permissions == (
+        assert manifest.validator_identity == "matters-bundled-skill-validator:v6"
+        assert manifest.permissions[:3] == (
             "matterservice_only",
             "declared_scope_only",
             "no_direct_canonical_writes",
+        )
+        assert len(manifest.permissions) == 9
+        assert all(
+            permission.startswith("contract.")
+            for permission in manifest.permissions[3:]
         )
         for capability in manifest.capabilities:
             assert capability not in capability_owners
@@ -83,8 +88,10 @@ def test_every_bundled_manifest_binds_exact_projection_and_runtime_identity():
     assert bundle.bundle_hash == bundle.calculated_hash
 
 
-def test_service_uses_bundle_without_global_install_and_reports_research_pending():
-    service = MatterService()
+def test_service_uses_bundle_without_global_install_and_reports_research_pending(
+    tmp_path,
+):
+    service = MatterService(private_root=tmp_path / "private")
     view = service.resolve_skill_view()
     report = service.capabilities()
     assert view.status == "partial"

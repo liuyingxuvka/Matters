@@ -1,4 +1,4 @@
-"""C2/C3/C12 representative-visual assets and card display decisions."""
+"""Private source-image derivatives for the Images evidence gallery."""
 
 from __future__ import annotations
 
@@ -15,9 +15,6 @@ from matters.presentation.localization import DEFAULT_LOCALE_REGISTRY
 
 
 ASSET_KINDS = frozenset({"photo", "existing_image", "document_preview"})
-SELECTION_MODES = frozenset(
-    {"user_override", "ai_recommendation", "deterministic_fallback", "placeholder"}
-)
 SAFE_IMAGE_MEDIA_TYPES = frozenset(
     {"image/jpeg", "image/png", "image/webp", "image/gif"}
 )
@@ -60,27 +57,8 @@ class VisualAsset:
             raise ValueError("visual dimensions must be positive")
 
 
-@dataclass(frozen=True)
-class CardVisualDecision:
-    matter_id: str
-    decision_revision: int
-    asset_id: str
-    preview_token: str
-    selection_mode: str
-    status: str
-    semantic_revision: str
-    localized_alt: Mapping[str, str]
-    localized_reason: Mapping[str, str]
-
-    def __post_init__(self) -> None:
-        if self.selection_mode not in SELECTION_MODES:
-            raise ValueError("unsupported visual selection mode")
-        if self.status not in {"current", "stale", "missing"}:
-            raise ValueError("unsupported visual decision status")
-
-
 class VisualAssetOwner:
-    """Persist private derivatives and publish path-free visual decisions."""
+    """Persist path-free derivatives of authorized source images."""
 
     def __init__(
         self,
@@ -131,7 +109,11 @@ class VisualAssetOwner:
                 thumbnail = self._encode(opened, size=(720, 450))
         except (OSError, UnidentifiedImageError) as exc:
             raise ValueError("image content is not decodable") from exc
-        original_ref = self.blobs.put(content)
+        # The authorized source image remains at its provider.  Only
+        # presentation derivatives are stored in MATTERS_HOME.
+        original_ref = (
+            "external-original:sha256:" + sha256(content).hexdigest()
+        )
         hero_ref = self.blobs.put(hero)
         thumbnail_ref = self.blobs.put(thumbnail)
         kind = "photo" if photo else "existing_image"
@@ -159,8 +141,8 @@ class VisualAssetOwner:
             display_allowed=True,
             evidence_ids=tuple(dict.fromkeys(str(item) for item in evidence_ids)),
             localized_alt=self._localized(
-                "Representative source image",
-                "来源中的代表图片",
+                "Related source image",
+                "相关来源图片",
             ),
             localized_reason=self._localized(
                 "Selected from an authorized image source",
@@ -180,7 +162,7 @@ class VisualAssetOwner:
         text: str,
         evidence_ids: Sequence[str] = (),
     ) -> VisualAsset:
-        """Render a bounded excerpt from real document evidence as a safe preview."""
+        """Render an internal document derivative without admitting it as a photo."""
 
         normalized_title = " ".join(title.split())[:80] or "Document"
         normalized_text = "\n".join(
@@ -242,7 +224,7 @@ class VisualAssetOwner:
             width=1200,
             height=750,
             current=True,
-            display_allowed=True,
+            display_allowed=False,
             evidence_ids=tuple(dict.fromkeys(str(item) for item in evidence_ids)),
             localized_alt=self._localized(
                 f"Preview of {normalized_title}",
@@ -279,6 +261,42 @@ class VisualAssetOwner:
             },
         )
 
+    def retire_document_previews_from_gallery(self) -> int:
+        """Remove legacy text/document screenshots from the Images projection."""
+
+        retired = 0
+        for payload in self.store.iter_current("visual_asset"):
+            if (
+                str(payload.get("kind", "")) != "document_preview"
+                or not bool(payload.get("display_allowed", False))
+            ):
+                continue
+            asset_id = str(payload.get("asset_id", ""))
+            token = str(payload.get("preview_token", ""))
+            if not asset_id:
+                continue
+            next_asset = dict(payload)
+            next_asset["display_allowed"] = False
+            self.store.append(
+                "visual_asset",
+                asset_id,
+                self.store.next_revision("visual_asset", asset_id),
+                next_asset,
+            )
+            if token:
+                token_payload = self.store.current("visual_preview_token", token)
+                if token_payload:
+                    next_token = dict(token_payload)
+                    next_token["display_allowed"] = False
+                    self.store.append(
+                        "visual_preview_token",
+                        token,
+                        self.store.next_revision("visual_preview_token", token),
+                        next_token,
+                    )
+            retired += 1
+        return retired
+
     def assets_for_occurrence(self, occurrence_id: str) -> tuple[VisualAsset, ...]:
         assets = []
         for payload in self.store.iter_current("visual_asset"):
@@ -289,116 +307,56 @@ class VisualAssetOwner:
                 assets.append(asset)
         return tuple(sorted(assets, key=lambda item: item.asset_id))
 
-    def decide(
-        self,
-        *,
-        matter_id: str,
-        semantic_revision: str,
-        occurrence_ids: Sequence[str] = (),
-        recommended_asset_id: str = "",
-    ) -> CardVisualDecision:
-        prior_override = self.store.current("card_visual_override", matter_id)
-        allowed = tuple(
-            asset
-            for occurrence_id in occurrence_ids
-            for asset in self.assets_for_occurrence(occurrence_id)
-        )
-        by_id = {asset.asset_id: asset for asset in allowed}
-        selected: VisualAsset | None = None
-        mode = "placeholder"
-        if prior_override and bool(prior_override.get("active", False)):
-            selected = by_id.get(str(prior_override.get("asset_id", "")))
-            mode = "user_override" if selected is not None else "placeholder"
-        if selected is None and recommended_asset_id:
-            selected = by_id.get(recommended_asset_id)
-            mode = "ai_recommendation" if selected is not None else "placeholder"
-        if selected is None and allowed:
-            priority = {"photo": 0, "existing_image": 1, "document_preview": 2}
-            selected = sorted(
-                allowed,
-                key=lambda asset: (priority[asset.kind], asset.asset_id),
-            )[0]
-            mode = "deterministic_fallback"
-        revision = self.store.next_revision("card_visual_decision", matter_id)
-        if selected is None:
-            decision = CardVisualDecision(
-                matter_id=matter_id,
-                decision_revision=revision,
-                asset_id="",
-                preview_token="",
-                selection_mode="placeholder",
-                status="missing",
-                semantic_revision=semantic_revision,
-                localized_alt=self._localized(
-                    "No representative image is available",
-                    "暂无可用的代表图片",
-                ),
-                localized_reason=self._localized(
-                    "No current authorized visual candidate was found",
-                    "没有找到当前且已授权的视觉候选",
-                ),
-            )
-        else:
-            decision = CardVisualDecision(
-                matter_id=matter_id,
-                decision_revision=revision,
-                asset_id=selected.asset_id,
-                preview_token=selected.preview_token,
-                selection_mode=mode,
-                status="current",
-                semantic_revision=semantic_revision,
-                localized_alt=dict(selected.localized_alt),
-                localized_reason=dict(selected.localized_reason),
-            )
-        self.store.append(
-            "card_visual_decision",
-            matter_id,
-            revision,
-            asdict(decision),
-        )
-        return decision
+    def retire_legacy_card_visual_authority(self) -> int:
+        """Deactivate legacy card-visual rows during direct replacement."""
 
-    def set_override(
-        self,
-        *,
-        matter_id: str,
-        asset_id: str,
-        active: bool,
-        rationale: str,
-    ) -> CardVisualDecision:
-        asset_payload = self.store.current("visual_asset", asset_id) if asset_id else None
-        if active and (
-            asset_payload is None
-            or not bool(asset_payload.get("current", False))
-            or not bool(asset_payload.get("display_allowed", False))
-        ):
-            raise ValueError("cover override requires a current allowed asset")
-        revision = self.store.next_revision("card_visual_override", matter_id)
-        self.store.append(
-            "card_visual_override",
-            matter_id,
-            revision,
-            {
-                "matter_id": matter_id,
-                "asset_id": asset_id,
-                "active": active,
-                "rationale": rationale,
-                "revision": revision,
-            },
-        )
-        projection = self.store.current("projection", matter_id) or {}
-        occurrence_ids = tuple(
-            row["object_id"]
-            for row in self.store.iter_current("object_coverage")
-            if matter_id in row.get("matter_ids", ())
-        )
-        return self.decide(
-            matter_id=matter_id,
-            semantic_revision=str(
-                projection.get("semantic_revision", f"matter:{matter_id}")
-            ),
-            occurrence_ids=occurrence_ids,
-        )
+        retired = 0
+        for payload in self.store.list_current("card_visual_override"):
+            if not bool(payload.get("active", False)):
+                continue
+            matter_id = str(payload.get("matter_id", ""))
+            if not matter_id:
+                continue
+            revision = self.store.next_revision(
+                "card_visual_override",
+                matter_id,
+            )
+            self.store.append(
+                "card_visual_override",
+                matter_id,
+                revision,
+                {
+                    "matter_id": matter_id,
+                    "asset_id": "",
+                    "active": False,
+                    "rationale": "ordinary_change_cover_path_retired",
+                    "revision": revision,
+                },
+            )
+            retired += 1
+        for payload in self.store.list_current("card_visual_decision"):
+            if str(payload.get("status", "")) == "retired":
+                continue
+            matter_id = str(payload.get("matter_id", ""))
+            if not matter_id:
+                continue
+            revision = self.store.next_revision(
+                "card_visual_decision",
+                matter_id,
+            )
+            self.store.append(
+                "card_visual_decision",
+                matter_id,
+                revision,
+                {
+                    "matter_id": matter_id,
+                    "status": "retired",
+                    "revision": revision,
+                    "rationale": "generated_hero_direct_replacement",
+                },
+            )
+            retired += 1
+        return retired
 
     def resolve(self, preview_token: str, *, hero: bool = False) -> tuple[bytes, str]:
         payload = self.store.current("visual_preview_token", preview_token)
@@ -414,9 +372,7 @@ class VisualAssetOwner:
 
 __all__ = [
     "ASSET_KINDS",
-    "CardVisualDecision",
     "SAFE_IMAGE_MEDIA_TYPES",
-    "SELECTION_MODES",
     "VisualAsset",
     "VisualAssetOwner",
 ]

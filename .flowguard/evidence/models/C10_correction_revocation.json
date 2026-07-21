@@ -1,13 +1,19 @@
 {
   "artifact_type": "matters.flowguard-model-receipt.v1",
-  "claim_boundary": "This model establishes bounded C10 append-only history, exact invalidation, original-owner terminal joins, retry, restart, and foreign-writer rejection. It does not prove the production dependency graph, durable execution, or C12 publication conformance.",
-  "evidence_id": "evidence:C10_correction_revocation:af05d44733387852",
+  "claim_boundary": "This model establishes bounded C10 append-only history, exact invalidation, old/new ancestor-chain propagation, split/merge disposition, original-owner terminal joins, retry, restart, and foreign-writer rejection. It does not prove the production dependency graph, durable execution, or C12 publication conformance.",
+  "evidence_id": "evidence:C10_correction_revocation:d20cec9a21b64ad7",
   "evidence_tiers": [
     "abstract_green",
     "hazard_green"
   ],
-  "generated_at": "2026-07-19T05:48:52.082602+00:00",
+  "generated_at": "2026-07-21T07:12:04.507198+00:00",
   "known_bad_proofs": [
+    {
+      "evidence_id": "C10_correction_revocation:known-bad:H-C10-017-observation-correction-leaves-canonical-stale",
+      "failure_id": "H-C10-017-observation-correction-leaves-canonical-stale",
+      "observed_status": "failed",
+      "protected_error_class": "observation_time_correction_propagation_gap"
+    },
     {
       "evidence_id": "C10_correction_revocation:known-bad:H-C10-001-correction-overwrites-history",
       "failure_id": "H-C10-001-correction-overwrites-history",
@@ -39,19 +45,49 @@
       "protected_error_class": "projection_only_correction"
     },
     {
-      "evidence_id": "C10_correction_revocation:known-bad:H-C10-007-cover-change-patches-ui-only",
-      "failure_id": "H-C10-007-cover-change-patches-ui-only",
+      "evidence_id": "C10_correction_revocation:known-bad:H-C10-007-material-clue-omits-ancestor-summary",
+      "failure_id": "H-C10-007-material-clue-omits-ancestor-summary",
       "observed_status": "failed",
-      "protected_error_class": "card_visual_correction_bypass"
+      "protected_error_class": "material_clue_ancestor_invalidation_gap"
     },
     {
       "evidence_id": "C10_correction_revocation:known-bad:H-C10-006-c10-writes-child-state",
       "failure_id": "H-C10-006-c10-writes-child-state",
       "observed_status": "failed",
       "protected_error_class": "foreign_writer_escape"
+    },
+    {
+      "evidence_id": "C10_correction_revocation:known-bad:H-C10-008-old-parent-chain-remains-current",
+      "failure_id": "H-C10-008-old-parent-chain-remains-current",
+      "observed_status": "failed",
+      "protected_error_class": "reparent_old_ancestor_invalidation_gap"
+    },
+    {
+      "evidence_id": "C10_correction_revocation:known-bad:H-C10-009-split-duplicates-membership-silently",
+      "failure_id": "H-C10-009-split-duplicates-membership-silently",
+      "observed_status": "failed",
+      "protected_error_class": "split_membership_duplication"
+    },
+    {
+      "evidence_id": "C10_correction_revocation:known-bad:H-C10-010-merge-erases-history",
+      "failure_id": "H-C10-010-merge-erases-history",
+      "observed_status": "failed",
+      "protected_error_class": "merge_identity_history_loss"
+    },
+    {
+      "evidence_id": "C10_correction_revocation:known-bad:H-C10-011-ordinary-clue-invalidates-generated-hero",
+      "failure_id": "H-C10-011-ordinary-clue-invalidates-generated-hero",
+      "observed_status": "failed",
+      "protected_error_class": "generated_hero_overinvalidation"
+    },
+    {
+      "evidence_id": "C10_correction_revocation:known-bad:H-C10-012-hero-dependency-change-retains-stale-artifact",
+      "failure_id": "H-C10-012-hero-dependency-change-retains-stale-artifact",
+      "observed_status": "failed",
+      "protected_error_class": "generated_hero_underinvalidation"
     }
   ],
-  "model_fingerprint": "sha256:af05d447333878523615be6e94a948c17e425a6a51934ca9aaecaead9e706aa9",
+  "model_fingerprint": "sha256:d20cec9a21b64ad71fa4d243966c571ded24cd23f8217e04779fe08936865ec1",
   "model_id": "C10_correction_revocation",
   "model_title": "C10 Correction, Invalidation & Recompute",
   "overall_status": "pass_with_gaps",
@@ -76,7 +112,7 @@
     "model_mesh": "not_run_in_this_owner: cross-model topology belongs to the separate ModelMesh owner"
   },
   "toolchain": {
-    "flowguard_package_version": "0.58.4",
+    "flowguard_package_version": "0.58.5",
     "flowguard_schema_version": "1.0"
   }
 }

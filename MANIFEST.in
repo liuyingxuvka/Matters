@@ -9,13 +9,17 @@ include sbom.json
 graft .agents
 graft .codex
 graft .flowguard
+prune .flowguard/evidence
+exclude .flowguard/adoption_log.jsonl
 graft docs
 graft flowguard_design
 graft flowguard_models
 graft openspec
 graft plugin
+graft plugins
 graft scripts
 graft src
+graft synthetic_fixtures
 graft tests
 graft ui
 

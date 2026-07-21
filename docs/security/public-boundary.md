@@ -3,12 +3,15 @@
 Matters uses three physically separate security domains:
 
 ```text
-matters/              public source Git repository
+matters/              generic public-safe source Git repository
 MATTERS_HOME/         private live user workspace outside the repository
 MATTERS_EVAL_VAULT/   private frozen evaluation workspace outside the repository
 ```
 
-The public repository may consume only synthetic fixtures during normal tests.
+The source repository may consume only synthetic fixtures during normal
+tests, even while repository access is private. Here, `public-safe` describes
+the data boundary; it does not imply public GitHub visibility or an
+open-source license.
 The private workspace may read explicitly authorized real sources but must
 never copy them automatically into Git or the evaluation vault. Transfer from
 the private workspace to the vault requires explicit user selection. Transfer
@@ -41,12 +44,16 @@ views: the physical workspace, Git-ignored files, the committed tree, an
 explicit clean clone, and supplied package artifacts. Before the first commit,
 the committed and clean-clone views report `not_available`; before packaging,
 the package view reports `not_run`. Those states are visible gaps, not passes.
+Package checks fail on both missing required projections and unexpected
+runtime or data payload, so a deleted source file cannot silently return from
+stale build output.
 All paths written to the report use `repo://`, `private://`, `clone://`, or
 `package://` identifiers rather than machine-local paths.
 
 The scanner decodes JSON and YAML strings and common percent, HTML, Unicode,
 and separator escape variants before looking for private roots, user-home
-paths, host/interpreter identity, and high-confidence secrets. Public
+paths, host/interpreter identity, non-synthetic email addresses, structured
+opaque Gmail message/thread identifiers, and high-confidence secrets. Public
 symlinks and Windows junctions fail closed.
 
 ## Private-root dispositions

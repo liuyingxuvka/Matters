@@ -1,12 +1,12 @@
 {
   "artifact_type": "matters.flowguard-model-receipt.v1",
-  "claim_boundary": "This receipt can establish C8 abstract wait, closure, and blocking-scope hazards. It does not establish real dependency criticality, notification delivery, or parent liveness.",
-  "evidence_id": "evidence:C8_open_loop_waiting_blocking:0ab663d7fe25bfed",
+  "claim_boundary": "This receipt can establish C8 abstract wait, closure, child-role, and blocking-scope rollup hazards. It does not establish real dependency criticality, notification delivery, hierarchy completeness, or parent liveness.",
+  "evidence_id": "evidence:C8_open_loop_waiting_blocking:87ab92d77bb88b87",
   "evidence_tiers": [
     "abstract_green",
     "hazard_green"
   ],
-  "generated_at": "2026-07-19T05:48:49.295692+00:00",
+  "generated_at": "2026-07-21T07:11:58.221040+00:00",
   "known_bad_proofs": [
     {
       "evidence_id": "C8_open_loop_waiting_blocking:known-bad:H-C8-001-wait-without-closure-condition",
@@ -31,9 +31,15 @@
       "failure_id": "H-C8-004-advisory-blocker-becomes-loop",
       "observed_status": "failed",
       "protected_error_class": "advisory_open_loop_authority_escape"
+    },
+    {
+      "evidence_id": "C8_open_loop_waiting_blocking:known-bad:H-C8-005-optional-child-fully-blocks-parent",
+      "failure_id": "H-C8-005-optional-child-fully-blocks-parent",
+      "observed_status": "failed",
+      "protected_error_class": "optional_child_blocking_scope_expansion"
     }
   ],
-  "model_fingerprint": "sha256:0ab663d7fe25bfed51bdcadc916a0b8466f2e017f340326587d58fcceb8fd283",
+  "model_fingerprint": "sha256:87ab92d77bb88b87bad1476e4fcf6456cb4a415beaba35ddb2f336ba7860431c",
   "model_id": "C8_open_loop_waiting_blocking",
   "model_title": "C8 Open Loop / Waiting / Blocking",
   "overall_status": "pass_with_gaps",
@@ -58,7 +64,7 @@
     "model_mesh": "not_run_in_this_owner: cross-model topology belongs to the separate ModelMesh owner"
   },
   "toolchain": {
-    "flowguard_package_version": "0.58.4",
+    "flowguard_package_version": "0.58.5",
     "flowguard_schema_version": "1.0"
   }
 }

@@ -1,0 +1,12 @@
+interface:
+  display_name: "Matters"
+  short_description: "Understand situations and preserve durable AI clues"
+  brand_color: "#597A72"
+  default_prompt: "Use $matters to explain the current situation, relevant history, predictions, and visible gaps."
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "matters"
+      description: "Local bounded Matters model-map, context, feedback, and maintenance tools"
+policy:
+  allow_implicit_invocation: true

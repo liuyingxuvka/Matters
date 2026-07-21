@@ -8,6 +8,7 @@ import json
 from typing import Any, Callable, Iterable, Mapping
 from urllib.parse import parse_qs, unquote
 
+from matters.application.maintenance_orchestration import MaintenanceRunRequest
 from matters.presentation.localization import UnsupportedLocale
 
 
@@ -128,6 +129,44 @@ def _read_json(environ: Mapping[str, object]) -> Mapping[str, object]:
     return payload
 
 
+def _planned_maintenance_request(
+    payload: Mapping[str, object],
+) -> MaintenanceRunRequest:
+    allowed = {
+        "run_id",
+        "authorization_identity",
+        "inventory_identity",
+        "coverage_identity",
+        "changed_object_ids",
+        "resource_budget",
+    }
+    if any(str(key) not in allowed for key in payload):
+        raise RequestError("maintenance_request_unknown_fields")
+    changed = payload.get("changed_object_ids", ())
+    budget = payload.get("resource_budget")
+    if not isinstance(changed, list) or (
+        budget is not None and not isinstance(budget, Mapping)
+    ):
+        raise RequestError("maintenance_request_schema_invalid")
+    try:
+        return MaintenanceRunRequest.create(
+            run_id=str(payload.get("run_id", "")),
+            authorization_identity=str(
+                payload.get("authorization_identity", "")
+            ),
+            inventory_identity=str(payload.get("inventory_identity", "")),
+            coverage_identity=str(payload.get("coverage_identity", "")),
+            changed_object_ids=tuple(str(item) for item in changed),
+            resource_budget=(
+                {str(key): int(value) for key, value in budget.items()}
+                if isinstance(budget, Mapping)
+                else None
+            ),
+        )
+    except (TypeError, ValueError) as exc:
+        raise RequestError("maintenance_request_schema_invalid") from exc
+
+
 def _query(environ: Mapping[str, object]) -> Mapping[str, list[str]]:
     return parse_qs(str(environ.get("QUERY_STRING", "")), keep_blank_values=True)
 
@@ -149,8 +188,56 @@ def _int_query(
     return value
 
 
+def _int_value(
+    raw: object,
+    default: int,
+    *,
+    minimum: int,
+    maximum: int,
+    error: str = "invalid_page_bounds",
+) -> int:
+    try:
+        value = int(default if raw is None else raw)
+    except (TypeError, ValueError) as exc:
+        raise RequestError(error) from exc
+    if value < minimum or value > maximum:
+        raise RequestError(error)
+    return value
+
+
 def _one(query: Mapping[str, list[str]], key: str, default: str) -> str:
     return str(query.get(key, [default])[0])
+
+
+def _many(
+    query: Mapping[str, list[str]],
+    key: str,
+    *,
+    maximum: int = 50,
+) -> tuple[str, ...]:
+    values = tuple(
+        value
+        for raw in query.get(key, ())
+        if (value := str(raw).strip())
+    )
+    if len(values) > maximum or any(len(value) > 200 for value in values):
+        raise RequestError("invalid_filter_values")
+    return tuple(dict.fromkeys(values))
+
+
+def _bool_query(
+    query: Mapping[str, list[str]],
+    key: str,
+    default: bool,
+) -> bool:
+    raw = str(
+        query.get(key, ["true" if default else "false"])[0]
+    ).strip().casefold()
+    if raw == "true":
+        return True
+    if raw == "false":
+        return False
+    raise RequestError("invalid_boolean_query")
 
 
 def _matter_path(path: str) -> tuple[str, str] | None:
@@ -165,6 +252,16 @@ def _matter_path(path: str) -> tuple[str, str] | None:
     else:
         matter_id, suffix = remainder, ""
     return unquote(matter_id), suffix
+
+
+def _source_group_path(path: str) -> str | None:
+    prefix = "/api/source-groups/"
+    if not path.startswith(prefix):
+        return None
+    group_id = unquote(path[len(prefix) :])
+    if not group_id or "/" in group_id:
+        return None
+    return group_id
 
 
 class MattersHTTP:
@@ -193,6 +290,115 @@ class MattersHTTP:
                 result = self._invoke("locale_registry")
             elif method == "GET" and path == "/api/coverage":
                 result = self._invoke("object_coverage_summary")
+            elif method == "GET" and path == "/api/coverage/audit":
+                query = _query(environ)
+                object_kind = _one(query, "object_kind", "")
+                if object_kind not in {"", "occurrence", "matter"}:
+                    raise RequestError("invalid_object_kind")
+                ui_ready = (
+                    _bool_query(query, "ui_ready", False)
+                    if "ui_ready" in query
+                    else None
+                )
+                audit_kwargs: dict[str, Any] = {
+                    "offset": _int_query(
+                        query,
+                        "offset",
+                        0,
+                        minimum=0,
+                        maximum=10_000_000,
+                    ),
+                    "limit": _int_query(
+                        query,
+                        "limit",
+                        100,
+                        minimum=1,
+                        maximum=200,
+                    ),
+                    "object_kind": object_kind,
+                }
+                if "surface_only" in query:
+                    audit_kwargs["surface_only"] = _bool_query(
+                        query,
+                        "surface_only",
+                        False,
+                    )
+                for key in (
+                    "surface_id",
+                    "surface_status",
+                    "owner_id",
+                    "failure_class",
+                    "freshness",
+                ):
+                    if value := _one(query, key, ""):
+                        audit_kwargs[key] = value
+                if ui_ready is not None:
+                    audit_kwargs["ui_ready"] = ui_ready
+                result = self._invoke(
+                    "object_stage_audit",
+                    **audit_kwargs,
+                )
+            elif method == "GET" and path == "/api/source-groups":
+                query = _query(environ)
+                result = self._invoke(
+                    "source_groups",
+                    offset=_int_query(
+                        query,
+                        "offset",
+                        0,
+                        minimum=0,
+                        maximum=10_000_000,
+                    ),
+                    limit=_int_query(
+                        query,
+                        "limit",
+                        50,
+                        minimum=1,
+                        maximum=200,
+                    ),
+                    query=_one(query, "query", ""),
+                )
+            elif method == "POST" and path == "/api/source-groups/rebase":
+                payload = _read_json(environ)
+                result = self._invoke(
+                    "rebase_source_group_index",
+                    after_object_id=str(
+                        payload.get("after_object_id", "")
+                    ),
+                    after_scope_id=str(
+                        payload.get("after_scope_id", "")
+                    ),
+                    limit=_int_value(
+                        payload.get("limit", 500),
+                        500,
+                        minimum=1,
+                        maximum=500,
+                        error="invalid_source_group_rebase_limit",
+                    ),
+                )
+            elif (
+                method == "GET"
+                and (source_group_id := _source_group_path(path)) is not None
+            ):
+                query = _query(environ)
+                result = self._invoke(
+                    "source_group_detail",
+                    group_id=source_group_id,
+                    member_offset=_int_query(
+                        query,
+                        "member_offset",
+                        0,
+                        minimum=0,
+                        maximum=10_000_000,
+                    ),
+                    member_limit=_int_query(
+                        query,
+                        "member_limit",
+                        100,
+                        minimum=1,
+                        maximum=200,
+                    ),
+                )
             elif method == "GET" and path in {"/api/browser", "/api/catalog"}:
                 query = _query(environ)
                 kwargs = {
@@ -200,7 +406,7 @@ class MattersHTTP:
                     "query": _one(query, "query", ""),
                     "status": _one(query, "status", "all"),
                     "time_filter": _one(query, "time", "all"),
-                    "sort": _one(query, "sort", "recent"),
+                    "sort": _one(query, "sort", "activity"),
                     "offset": _int_query(
                         query,
                         "offset",
@@ -215,6 +421,16 @@ class MattersHTTP:
                         minimum=1,
                         maximum=200,
                     ),
+                    "root_only": _bool_query(
+                        query,
+                        "root_only",
+                        True,
+                    ),
+                    "start_year": _one(query, "start_year", "all"),
+                    "people": _many(query, "people"),
+                    "relationships": _many(query, "relationships"),
+                    "topic_types": _many(query, "topic_type"),
+                    "source_types": _many(query, "source_type"),
                 }
                 result = self._invoke(
                     (
@@ -261,6 +477,22 @@ class MattersHTTP:
                     "run_maintenance_cycle",
                     limit=int(payload.get("limit", 20)),
                 )
+            elif (
+                method == "POST"
+                and path == "/api/maintenance/orchestration/run"
+            ):
+                payload = _read_json(environ)
+                try:
+                    result = self._invoke(
+                        "run_planned_maintenance",
+                        request=_planned_maintenance_request(payload),
+                    )
+                except RuntimeError as exc:
+                    if str(exc).startswith("capability_unavailable:"):
+                        raise CapabilityUnavailable(
+                            "run_planned_maintenance"
+                        ) from exc
+                    raise
             elif method == "GET" and path.startswith("/api/visuals/"):
                 token = unquote(path.removeprefix("/api/visuals/"))
                 query = _query(environ)
@@ -268,6 +500,13 @@ class MattersHTTP:
                     "resolve_visual_preview",
                     preview_token=token,
                     hero=_one(query, "size", "thumbnail") == "hero",
+                )
+                return _binary_response(start_response, content, media_type)
+            elif method == "GET" and path.startswith("/api/heroes/"):
+                token = unquote(path.removeprefix("/api/heroes/"))
+                content, media_type = self._invoke(
+                    "resolve_generated_hero",
+                    preview_token=token,
                 )
                 return _binary_response(start_response, content, media_type)
             elif (parsed := _matter_path(path)) is not None:
@@ -298,6 +537,109 @@ class MattersHTTP:
                             maximum=200,
                         ),
                     )
+                elif method == "GET" and suffix == "children":
+                    result = self._invoke(
+                        "matter_children",
+                        matter_id=matter_id,
+                        locale=_one(query, "locale", "en"),
+                        offset=_int_query(
+                            query,
+                            "offset",
+                            0,
+                            minimum=0,
+                            maximum=10_000_000,
+                        ),
+                        limit=_int_query(
+                            query,
+                            "limit",
+                            50,
+                            minimum=1,
+                            maximum=200,
+                        ),
+                    )
+                elif method == "GET" and suffix == "work-items":
+                    result = self._invoke(
+                        "matter_work_items",
+                        matter_id=matter_id,
+                        offset=_int_query(
+                            query,
+                            "offset",
+                            0,
+                            minimum=0,
+                            maximum=10_000_000,
+                        ),
+                        limit=_int_query(
+                            query,
+                            "limit",
+                            50,
+                            minimum=1,
+                            maximum=200,
+                        ),
+                    )
+                elif method == "GET" and suffix == "graph":
+                    result = self._invoke(
+                        "matter_situation_graph",
+                        matter_id=matter_id,
+                        locale=_one(query, "locale", "en"),
+                        continuation=_one(query, "continuation", ""),
+                        limit=_int_query(
+                            query,
+                            "limit",
+                            120,
+                            minimum=1,
+                            maximum=200,
+                        ),
+                    )
+                elif (
+                    method == "GET"
+                    and suffix.startswith("nodes/")
+                    and suffix.endswith("/quick-view")
+                ):
+                    node_id = unquote(
+                        suffix[
+                            len("nodes/") : -len("/quick-view")
+                        ]
+                    )
+                    if not node_id or "/" in node_id:
+                        raise RequestError("invalid_node_id")
+                    result = self._invoke(
+                        "matter_node_quick_view",
+                        matter_id=matter_id,
+                        node_id=node_id,
+                        locale=_one(query, "locale", "en"),
+                    )
+                elif method == "GET" and suffix == "world-model":
+                    result = self._invoke(
+                        "matter_world_model",
+                        matter_id=matter_id,
+                        locale=_one(query, "locale", "en"),
+                        continuation=_one(query, "continuation", ""),
+                        limit=_int_query(
+                            query,
+                            "limit",
+                            50,
+                            minimum=1,
+                            maximum=200,
+                        ),
+                    )
+                elif method == "POST" and suffix == "world-model/feedback":
+                    payload = _read_json(environ)
+                    evidence_ids = payload.get("observation_evidence_ids", ())
+                    if not isinstance(evidence_ids, list):
+                        raise RequestError("invalid_observation_evidence_ids")
+                    result = self._invoke(
+                        "record_world_model_feedback",
+                        matter_id=matter_id,
+                        advisory_id=str(payload.get("advisory_id", "")),
+                        disposition=str(payload.get("disposition", "")),
+                        observed_at=str(payload.get("observed_at", "")),
+                        observation_statement=str(
+                            payload.get("observation_statement", "")
+                        ),
+                        observation_evidence_ids=tuple(
+                            str(item) for item in evidence_ids
+                        ),
+                    )
                 elif method == "POST" and suffix == "corrections":
                     payload = _read_json(environ)
                     result = self._invoke(
@@ -307,15 +649,6 @@ class MattersHTTP:
                         field_name=str(payload.get("field_name", "")),
                         corrected_value=str(payload.get("corrected_value", "")),
                     )
-                elif method == "POST" and suffix == "cover":
-                    payload = _read_json(environ)
-                    result = self._invoke(
-                        "set_matter_cover",
-                        matter_id=matter_id,
-                        asset_id=str(payload.get("asset_id", "")),
-                        active=bool(payload.get("active", True)),
-                        rationale=str(payload.get("rationale", "")),
-                    )
                 else:
                     return _error(start_response, "404 Not Found", "not_found")
             elif path in {
@@ -323,15 +656,25 @@ class MattersHTTP:
                 "/api/capabilities",
                 "/api/locales",
                 "/api/coverage",
+                "/api/coverage/audit",
+                "/api/source-groups",
+                "/api/source-groups/rebase",
                 "/api/browser",
                 "/api/catalog",
                 "/api/analysis/packages",
                 "/api/analysis/results",
                 "/api/maintenance/run",
+                "/api/maintenance/orchestration/run",
             }:
                 allowed = (
                     "POST"
-                    if path in {"/api/analysis/results", "/api/maintenance/run"}
+                    if path
+                    in {
+                        "/api/analysis/results",
+                        "/api/maintenance/run",
+                        "/api/maintenance/orchestration/run",
+                        "/api/source-groups/rebase",
+                    }
                     else "GET"
                 )
                 return _error(

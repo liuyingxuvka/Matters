@@ -6,21 +6,37 @@ from flowguard_models.harness import CaseRule, FiniteModelSpec, HazardSpec
 SPEC = FiniteModelSpec(
     model_id="C8_open_loop_waiting_blocking",
     title="C8 Open Loop / Waiting / Blocking",
-    modeled_boundary="requests, wait targets, closure conditions, and partial/full blocking",
+    modeled_boundary=(
+        "requests, wait targets, closure conditions, partial/full blocking, and "
+        "required/optional/critical child blocking rollup"
+    ),
     state_fields=(
         "open_loop.identity",
         "open_loop.wait_target",
         "open_loop.closure_condition",
         "matter.blocking_axis",
+        "matter.child_blocking_summary",
+        "matter.ancestor_blocking_rollup",
     ),
     owned_write_fields=(
         "open_loop.identity",
         "open_loop.wait_target",
         "open_loop.closure_condition",
         "matter.blocking_axis",
+        "matter.child_blocking_summary",
+        "matter.ancestor_blocking_rollup",
     ),
     side_effect_classes=("open_loop_registry_write",),
-    completion_evidence=("OpenLoop", "Waiting", "PartialBlock", "FullBlock", "LoopClosed", "OpenLoopGap"),
+    completion_evidence=(
+        "OpenLoop",
+        "Waiting",
+        "PartialBlock",
+        "FullBlock",
+        "LoopClosed",
+        "OpenLoopGap",
+        "ChildBlockingCurrent",
+        "AncestorBlockingRollupCurrent",
+    ),
     rules=(
         CaseRule(
             case_id="request_with_target_and_condition",
@@ -53,19 +69,56 @@ SPEC = FiniteModelSpec(
             case_id="noncritical_subtask_failure",
             decision="partial_block",
             label="partial_block",
-            writes=("matter.blocking_axis",),
+            writes=(
+                "matter.blocking_axis",
+                "matter.child_blocking_summary",
+                "matter.ancestor_blocking_rollup",
+            ),
             side_effects=("open_loop_registry_write",),
-            emitted_tokens=("PartialBlock",),
-            reason="the affected branch is blocked while the primary path can continue",
+            emitted_tokens=(
+                "PartialBlock",
+                "ChildBlockingCurrent",
+                "AncestorBlockingRollupCurrent",
+            ),
+            reason=(
+                "a required but noncritical child blocks only the affected branch "
+                "while another licensed parent progress path remains"
+            ),
         ),
         CaseRule(
             case_id="critical_dependency_failure",
             decision="full_block",
             label="full_block",
-            writes=("matter.blocking_axis",),
+            writes=(
+                "matter.blocking_axis",
+                "matter.child_blocking_summary",
+                "matter.ancestor_blocking_rollup",
+            ),
             side_effects=("open_loop_registry_write",),
-            emitted_tokens=("FullBlock",),
-            reason="all valid progress paths depend on the failed dependency",
+            emitted_tokens=(
+                "FullBlock",
+                "ChildBlockingCurrent",
+                "AncestorBlockingRollupCurrent",
+            ),
+            reason=(
+                "a critical child fully blocks the parent only when current "
+                "evidence shows every valid parent progress path depends on it"
+            ),
+        ),
+        CaseRule(
+            case_id="optional_child_blocked",
+            decision="optional_child_block_visible_parent_unblocked",
+            label="optional_child_block_visible_parent_unblocked",
+            writes=(
+                "matter.child_blocking_summary",
+                "matter.ancestor_blocking_rollup",
+            ),
+            side_effects=("open_loop_registry_write",),
+            emitted_tokens=("ChildBlockingCurrent", "AncestorBlockingRollupCurrent"),
+            reason=(
+                "an optional child remains visibly blocked without changing the "
+                "parent blocking axis"
+            ),
         ),
         CaseRule(
             case_id="matter_complete_loop_unmet",
@@ -147,18 +200,29 @@ SPEC = FiniteModelSpec(
             broken_side_effects=("open_loop_registry_write",),
             broken_tokens=("OpenLoop", "Waiting"),
         ),
+        HazardSpec(
+            failure_id="H-C8-005-optional-child-fully-blocks-parent",
+            protected_error_class="optional_child_blocking_scope_expansion",
+            description="an optional child marks the whole parent Matter fully blocked",
+            protected_harm="nonessential work hides valid progress on the parent",
+            case_id="optional_child_blocked",
+            broken_decision="full_block",
+            broken_writes=("matter.blocking_axis", "matter.ancestor_blocking_rollup"),
+            broken_side_effects=("open_loop_registry_write",),
+            broken_tokens=("FullBlock",),
+        ),
     ),
     risk_classes=("state_transition", "liveness", "ownership", "side_effect"),
     template_no_match_reason=(
         "The Phase A template search returned no wait-target and partial/full blocking template."
     ),
     blindspots=(
-        "criticality policy and valid progress-path calculation require later design evidence",
+        "child-role criticality policy and valid parent progress-path calculation require later design evidence",
         "human follow-up timing and notification behavior are outside this child",
     ),
     claim_boundary=(
-        "This receipt can establish C8 abstract wait, closure, and blocking-scope "
-        "hazards. It does not establish real dependency criticality, notification "
-        "delivery, or parent liveness."
+        "This receipt can establish C8 abstract wait, closure, child-role, and "
+        "blocking-scope rollup hazards. It does not establish real dependency "
+        "criticality, notification delivery, hierarchy completeness, or parent liveness."
     ),
 )

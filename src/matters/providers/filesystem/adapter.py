@@ -75,10 +75,23 @@ TEXT_SUFFIXES = frozenset(
         ".css",
     }
 )
+HUMAN_TEXT_SUFFIXES = frozenset(
+    {
+        ".csv",
+        ".md",
+        ".markdown",
+        ".rst",
+        ".rtf",
+        ".tsv",
+        ".txt",
+    }
+)
 IMAGE_SUFFIXES = frozenset(
     {
         ".bmp",
         ".gif",
+        ".heic",
+        ".heif",
         ".jpeg",
         ".jpg",
         ".png",
@@ -87,7 +100,7 @@ IMAGE_SUFFIXES = frozenset(
         ".webp",
     }
 )
-DOCUMENT_SUFFIXES = frozenset(
+OFFICE_DOCUMENT_SUFFIXES = frozenset(
     {
         ".doc",
         ".docx",
@@ -96,11 +109,50 @@ DOCUMENT_SUFFIXES = frozenset(
         ".pdf",
         ".ppt",
         ".pptx",
-        ".rtf",
         ".tex",
         ".xls",
         ".xlsx",
+    }
+)
+DOCUMENT_SUFFIXES = frozenset(
+    {
+        *OFFICE_DOCUMENT_SUFFIXES,
         *TEXT_SUFFIXES,
+    }
+)
+KNOWN_MEDIA_SUFFIXES = frozenset(
+    {
+        ".3gp",
+        ".aac",
+        ".avi",
+        ".flac",
+        ".m4a",
+        ".m4v",
+        ".mkv",
+        ".mov",
+        ".mp3",
+        ".mp4",
+        ".mpeg",
+        ".mpg",
+        ".ogg",
+        ".wav",
+        ".webm",
+        ".wma",
+        ".wmv",
+    }
+)
+ARCHIVE_SUFFIXES = frozenset(
+    {
+        ".7z",
+        ".bz2",
+        ".cab",
+        ".gz",
+        ".iso",
+        ".rar",
+        ".tar",
+        ".tgz",
+        ".xz",
+        ".zip",
     }
 )
 
@@ -137,6 +189,8 @@ class HardExclusionPolicy:
             ".flowguard",
             ".flowpilot",
             ".skillguard",
+            ".codex",
+            ".local",
             ".playwright-mcp",
             ".pytest_cache",
             ".mypy_cache",
@@ -172,8 +226,44 @@ class HardExclusionPolicy:
             "matters_home_dev",
             "session storage",
             "local storage",
+            "code cache",
+            "gpu cache",
+            "service worker",
+            "crashdumps",
+            "crash reports",
+            "databases",
+            "leveldb",
+            "logs",
             "venv",
         }
+    )
+    excluded_path_sequences: tuple[tuple[str, ...], ...] = (
+        ("kb", "history", "cold"),
+        ("history", "cold", "objects"),
+    )
+    software_tree_marker_names: frozenset[str] = frozenset(
+        {
+            ".agents",
+            ".flowguard",
+            ".flowpilot",
+            ".git",
+            ".hg",
+            ".skillguard",
+            ".svn",
+        }
+    )
+    software_generated_directory_names: frozenset[str] = frozenset(
+        {
+            "backups",
+            "release-worktrees",
+            "reports",
+            "simulations",
+        }
+    )
+    software_generated_path_sequences: tuple[tuple[str, ...], ...] = (
+        ("data", "exports"),
+        ("data", "processed"),
+        ("outputs", "models"),
     )
     sensitive_file_names: frozenset[str] = frozenset(
         {
@@ -209,26 +299,186 @@ class HardExclusionPolicy:
             ".pth",
         }
     )
+    software_source_suffixes: frozenset[str] = frozenset(
+        {
+            ".asm",
+            ".c",
+            ".cc",
+            ".clj",
+            ".coffee",
+            ".cpp",
+            ".cs",
+            ".dart",
+            ".go",
+            ".gradle",
+            ".h",
+            ".hpp",
+            ".java",
+            ".js",
+            ".jsx",
+            ".kt",
+            ".kts",
+            ".lua",
+            ".m",
+            ".mm",
+            ".php",
+            ".pl",
+            ".py",
+            ".r",
+            ".rb",
+            ".rs",
+            ".scala",
+            ".sh",
+            ".sql",
+            ".swift",
+            ".ts",
+            ".tsx",
+            ".vue",
+        }
+    )
+    software_internal_suffixes: frozenset[str] = frozenset(
+        {
+            ".db",
+            ".db-shm",
+            ".db-wal",
+            ".ldb",
+            ".log",
+            ".sqlite",
+            ".sqlite3",
+            ".sqlite-shm",
+            ".sqlite-wal",
+            ".tmp",
+        }
+    )
+    software_config_suffixes: frozenset[str] = frozenset(
+        {
+            ".cfg",
+            ".conf",
+            ".css",
+            ".graphql",
+            ".html",
+            ".ini",
+            ".json",
+            ".jsonl",
+            ".lock",
+            ".toml",
+            ".xml",
+            ".yaml",
+            ".yml",
+        }
+    )
+    software_manifest_names: frozenset[str] = frozenset(
+        {
+            "cargo.lock",
+            "cargo.toml",
+            "composer.json",
+            "composer.lock",
+            "gemfile",
+            "gemfile.lock",
+            "go.mod",
+            "go.sum",
+            "package-lock.json",
+            "package.json",
+            "pnpm-lock.yaml",
+            "poetry.lock",
+            "pyproject.toml",
+            "requirements.txt",
+            "uv.lock",
+            "yarn.lock",
+        }
+    )
+    human_document_names: frozenset[str] = frozenset(
+        {
+            "authors",
+            "changelog",
+            "copying",
+            "license",
+            "notice",
+            "readme",
+        }
+    )
 
     def classify(
         self,
         relative_path: str,
         *,
         is_directory: bool,
+        software_tree: bool = False,
     ) -> tuple[str, str] | None:
         parts = tuple(part.casefold() for part in PurePosixPath(relative_path).parts)
         name = parts[-1] if parts else ""
         if any(part in self.excluded_directory_names for part in parts):
             return "hard_excluded", "policy_excluded_software_or_cache_path"
+        if (
+            (is_directory and name.startswith("."))
+            or any(part.startswith(".") for part in parts[:-1])
+        ):
+            return "hard_excluded", "hidden_application_state_not_user_content"
+        for sequence in self.excluded_path_sequences:
+            width = len(sequence)
+            if any(
+                parts[index : index + width] == sequence
+                for index in range(0, len(parts) - width + 1)
+            ):
+                return "hard_excluded", "policy_excluded_internal_history_path"
+        if software_tree and any(
+            part in self.software_generated_directory_names for part in parts
+        ):
+            return "hard_excluded", "generated_software_state_not_user_content"
+        if software_tree:
+            for sequence in self.software_generated_path_sequences:
+                width = len(sequence)
+                if any(
+                    parts[index : index + width] == sequence
+                    for index in range(0, len(parts) - width + 1)
+                ):
+                    return (
+                        "hard_excluded",
+                        "generated_software_state_not_user_content",
+                    )
         if name in self.sensitive_file_names or name.endswith(
             (".pem", ".key", ".pfx", ".p12")
         ):
             return "excluded_sensitive", "credential_or_secret_material"
         suffix = PurePosixPath(relative_path).suffix.casefold()
+        if not is_directory and name in self.software_manifest_names:
+            return "hard_excluded", "software_manifest_not_user_content"
+        if not is_directory and suffix in self.software_source_suffixes:
+            return "hard_excluded", "software_source_not_user_content"
+        if not is_directory and suffix in self.software_internal_suffixes:
+            return "hard_excluded", "software_internal_record_not_user_content"
+        if (
+            not is_directory
+            and software_tree
+            and suffix in self.software_config_suffixes
+        ):
+            return "hard_excluded", "software_config_not_user_content"
         if not is_directory and suffix in self.executable_suffixes:
             return "quarantined", "executable_content_not_read"
         if not is_directory and suffix in self.unsafe_model_suffixes:
             return "quarantined", "unsafe_serialized_model_not_loaded"
+        if not is_directory and suffix in KNOWN_MEDIA_SUFFIXES:
+            return "unsupported", "media_registered_without_semantic_content_read"
+        if not is_directory and suffix in ARCHIVE_SUFFIXES:
+            return "unsupported", "archive_registered_without_recursive_content_read"
+        if (
+            not is_directory
+            and not suffix
+            and name not in self.human_document_names
+        ):
+            return "hard_excluded", "extensionless_machine_or_unknown_file_not_read"
+        if (
+            not is_directory
+            and suffix
+            and suffix
+            not in (
+                DOCUMENT_SUFFIXES
+                | IMAGE_SUFFIXES
+                | KNOWN_MEDIA_SUFFIXES
+                | ARCHIVE_SUFFIXES
+            )
+        ):
+            return "hard_excluded", "unknown_or_machine_file_format_not_read"
         return None
 
 
@@ -331,7 +581,7 @@ class FilesystemReadOnlyAdapter:
         self._max_entries = max_entries
         self._max_depth = max_depth
         self.policy_path_prefix = tuple(
-            str(part).casefold()
+            str(part)
             for part in policy_path_prefix
             if str(part) not in {"", "."}
         )
@@ -346,6 +596,7 @@ class FilesystemReadOnlyAdapter:
         self._cloud_placeholder_detector = (
             cloud_placeholder_detector or (lambda _path, _stat: False)
         )
+        self._software_tree = self._detect_software_tree()
         self._scope_fingerprint = _stable_digest(
             {
                 "provider": self.provider_id,
@@ -357,9 +608,90 @@ class FilesystemReadOnlyAdapter:
                     "sensitive": sorted(self._policy.sensitive_file_names),
                     "executables": sorted(self._policy.executable_suffixes),
                     "unsafe_models": sorted(self._policy.unsafe_model_suffixes),
+                    "software_sources": sorted(
+                        self._policy.software_source_suffixes
+                    ),
+                    "software_internal": sorted(
+                        self._policy.software_internal_suffixes
+                    ),
+                    "software_config": sorted(
+                        self._policy.software_config_suffixes
+                    ),
+                    "software_manifests": sorted(
+                        self._policy.software_manifest_names
+                    ),
+                    "software_tree_markers": sorted(
+                        self._policy.software_tree_marker_names
+                    ),
+                    "software_generated_directories": sorted(
+                        self._policy.software_generated_directory_names
+                    ),
+                    "software_generated_path_sequences": (
+                        self._policy.software_generated_path_sequences
+                    ),
+                    "excluded_path_sequences": self._policy.excluded_path_sequences,
                 },
+                "software_tree": self._software_tree,
             }
         )
+
+    def _software_marker_names(self) -> set[str]:
+        marker_names = set(self._policy.software_manifest_names)
+        marker_names.update(self._policy.software_tree_marker_names)
+        return marker_names
+
+    def _detect_software_tree(self) -> bool:
+        """Detect a software tree from names only, without reading content."""
+
+        current = self.root
+        candidates = [current]
+        for _ in self.policy_path_prefix:
+            current = current.parent
+            candidates.append(current)
+        marker_names = self._software_marker_names()
+        for directory in candidates:
+            try:
+                names = {
+                    entry.name.casefold()
+                    for entry in self._scandir(directory)
+                }
+            except OSError:
+                continue
+            if names.intersection(marker_names):
+                return True
+        return False
+
+    def _software_tree_for(self, relative_id: str) -> bool:
+        """Resolve nested software-tree context from directory names only."""
+
+        software_tree = self._software_tree
+        current = self.root
+        marker_names = self._software_marker_names()
+        for part in PurePosixPath(relative_id).parts[:-1]:
+            current = current / part
+            try:
+                names = {
+                    entry.name.casefold()
+                    for entry in self._scandir(current)
+                }
+            except OSError:
+                continue
+            if names.intersection(marker_names):
+                software_tree = True
+        return software_tree
+
+    @staticmethod
+    def _with_software_tree(
+        metadata: Mapping[str, Any],
+        software_tree: bool,
+    ) -> dict[str, Any]:
+        """Bind the admission context into the stable metadata identity."""
+
+        bound = dict(metadata)
+        bound.pop("metadata_identity", None)
+        bound["software_tree"] = bool(software_tree)
+        bound["metadata_identity"] = _stable_digest(bound)
+        return bound
 
     @staticmethod
     def _is_reparse(metadata: os.stat_result) -> bool:
@@ -384,17 +716,65 @@ class FilesystemReadOnlyAdapter:
             raise PermissionError("filesystem_root_is_not_a_file")
         return relative
 
+    def _policy_relative_id(self, relative_id: str) -> str:
+        return PurePosixPath(
+            *self.policy_path_prefix,
+            *PurePosixPath(relative_id).parts,
+        ).as_posix()
+
+    def _authorized_top(self) -> Path:
+        top = self.root
+        for _ in self.policy_path_prefix:
+            top = top.parent
+        return top
+
     def _metadata(
         self,
         relative_id: str,
         raw: os.stat_result,
     ) -> dict[str, Any]:
+        relative = PurePosixPath(relative_id)
+        parent = relative.parent
+        logical_parts = (
+            *self.policy_path_prefix,
+            *relative.parts,
+        )
+        logical_parent_parts = logical_parts[:-1]
+        physical_parent = self.root.joinpath(*relative.parts).parent
+        authorized_top = self._authorized_top()
         identity = {
             "device": int(getattr(raw, "st_dev", 0)),
             "inode": int(getattr(raw, "st_ino", 0)),
         }
         metadata = {
             "relative_path": relative_id,
+            "parent_relative_path": (
+                "" if str(parent) == "." else parent.as_posix()
+            ),
+            "path_depth": max(0, len(relative.parts) - 1),
+            "source_neighborhood_id": (
+                "filesystem-neighborhood:"
+                + sha256(
+                    str(physical_parent)
+                    .casefold()
+                    .encode("utf-8")
+                ).hexdigest()[:24]
+            ),
+            "source_group_chain": tuple(
+                "filesystem-group:"
+                + sha256(
+                    str(authorized_top.joinpath(*logical_parent_parts[:index]))
+                    .casefold()
+                    .encode("utf-8")
+                ).hexdigest()[:24]
+                for index in range(1, len(logical_parent_parts) + 1)
+            ),
+            "source_group_labels": tuple(logical_parent_parts),
+            "source_spatial_context_revision": "filesystem-spatial:v2",
+            "file_kind": (
+                PurePosixPath(relative_id).suffix.casefold().lstrip(".")
+                or "extensionless"
+            ),
             "size": int(raw.st_size),
             "modified_ns": int(raw.st_mtime_ns),
             "mode": int(raw.st_mode),
@@ -404,11 +784,11 @@ class FilesystemReadOnlyAdapter:
         return metadata
 
     def _scan(self) -> tuple[FilesystemOccurrence, ...]:
-        pending = [(self.root, 0)]
+        pending = [(self.root, 0, self._software_tree)]
         results: list[FilesystemOccurrence] = []
         seen_directories: set[tuple[int, int]] = set()
         while pending:
-            directory, depth = pending.pop()
+            directory, depth, inherited_software_tree = pending.pop()
             try:
                 raw_directory = self._lstat(directory)
                 directory_identity = (
@@ -421,6 +801,14 @@ class FilesystemReadOnlyAdapter:
                 entries = sorted(
                     self._scandir(directory),
                     key=lambda item: item.name.casefold(),
+                )
+                marker_names = self._software_marker_names()
+                directory_software_tree = (
+                    inherited_software_tree
+                    or any(
+                        entry.name.casefold() in marker_names
+                        for entry in entries
+                    )
                 )
             except OSError:
                 if directory == self.root:
@@ -474,8 +862,9 @@ class FilesystemReadOnlyAdapter:
                     continue
 
                 policy_result = self._policy.classify(
-                    relative_id,
+                    self._policy_relative_id(relative_id),
                     is_directory=is_directory,
+                    software_tree=directory_software_tree,
                 )
                 if policy_result is not None:
                     outcome, reason = policy_result
@@ -504,7 +893,9 @@ class FilesystemReadOnlyAdapter:
                             )
                         )
                     else:
-                        pending.append((path, depth + 1))
+                        pending.append(
+                            (path, depth + 1, directory_software_tree)
+                        )
                     continue
                 if not stat_module.S_ISREG(raw.st_mode):
                     results.append(
@@ -518,7 +909,10 @@ class FilesystemReadOnlyAdapter:
                         )
                     )
                     continue
-                metadata = self._metadata(relative_id, raw)
+                metadata = self._with_software_tree(
+                    self._metadata(relative_id, raw),
+                    directory_software_tree,
+                )
                 if self._cloud_placeholder_detector(path, raw):
                     metadata["hydrated"] = False
                     results.append(
@@ -568,7 +962,14 @@ class FilesystemReadOnlyAdapter:
                 continue
             if not stat_module.S_ISDIR(raw.st_mode):
                 continue
-            if self._policy.classify(relative_id, is_directory=True) is not None:
+            if (
+                self._policy.classify(
+                    self._policy_relative_id(relative_id),
+                    is_directory=True,
+                    software_tree=self._software_tree,
+                )
+                is not None
+            ):
                 continue
             children.append(path)
         return tuple(children)
@@ -709,9 +1110,11 @@ class FilesystemReadOnlyAdapter:
                     )
                 )
                 continue
+            software_tree = self._software_tree_for(external_id)
             policy_result = self._policy.classify(
-                external_id,
+                self._policy_relative_id(external_id),
                 is_directory=False,
+                software_tree=software_tree,
             )
             if policy_result is not None:
                 outcome, reason = policy_result
@@ -719,7 +1122,11 @@ class FilesystemReadOnlyAdapter:
                     FilesystemReadResult(external_id, outcome, reason=reason)
                 )
                 continue
-            if PurePosixPath(external_id).suffix.casefold() not in TEXT_SUFFIXES:
+            external_name = PurePosixPath(external_id).name.casefold()
+            if (
+                PurePosixPath(external_id).suffix.casefold() not in TEXT_SUFFIXES
+                and external_name not in self._policy.human_document_names
+            ):
                 results.append(
                     FilesystemReadResult(
                         external_id,
@@ -797,7 +1204,10 @@ class FilesystemReadOnlyAdapter:
                     ),
                 ),
                 metadata={
-                    **self._metadata(external_id, after),
+                    **self._with_software_tree(
+                        self._metadata(external_id, after),
+                        software_tree,
+                    ),
                     "disposition": "ingested",
                     "tracking_disposition": "tracked",
                 },
@@ -849,9 +1259,11 @@ class FilesystemReadOnlyAdapter:
                     )
                 )
                 continue
+            software_tree = self._software_tree_for(external_id)
             policy_result = self._policy.classify(
-                external_id,
+                self._policy_relative_id(external_id),
                 is_directory=False,
+                software_tree=software_tree,
             )
             if policy_result is not None:
                 outcome, reason = policy_result
@@ -931,7 +1343,10 @@ class FilesystemReadOnlyAdapter:
                     "ingested",
                     content=content,
                     media_type=media_type,
-                    metadata=self._metadata(external_id, after),
+                    metadata=self._with_software_tree(
+                        self._metadata(external_id, after),
+                        software_tree,
+                    ),
                 )
             )
         return tuple(results)

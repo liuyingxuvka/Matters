@@ -9,10 +9,12 @@ from flowguard_models.model_mesh import (
     DEPENDENCIES,
     PARENT_ID,
 )
+from flowguard_models.agent_operation_models import AGENT_OPERATION_MODELS
 from flowguard_models.run_model import MODELS
 
 
 MODEL_ORDER = (PARENT_ID,) + CHILD_IDS
+AGENT_OPERATION_ORDER = tuple(AGENT_OPERATION_MODELS)
 
 MODEL_MODULES = {
     PARENT_ID: "application.orchestrator",
@@ -30,6 +32,13 @@ MODEL_MODULES = {
     CHILD_IDS[11]: "presentation.projections",
 }
 
+AGENT_OPERATION_MODULES = {
+    "A0_matters_source_analysis_operation": "analysis.operations",
+    "A1_matters_research_operation": "analysis.research",
+    "A2_matters_maintenance_orchestrator_operation": "application.maintenance_orchestration",
+    "A3_matters_ai_gateway_operation": "application.ai_gateway",
+}
+
 MODULE_PATHS = {
     "application.orchestrator": "src/matters/application/orchestrator.py",
     "application.partitioned_filesystem": "src/matters/application/partitioned_filesystem.py",
@@ -42,8 +51,20 @@ MODULE_PATHS = {
     "identity.roles": "src/matters/identity/roles.py",
     "timeline.events": "src/matters/timeline/events.py",
     "timeline.traces": "src/matters/timeline/traces.py",
+    "domain.activity": "src/matters/domain/activity.py",
+    "domain.context": "src/matters/domain/context.py",
     "domain.matters": "src/matters/domain/matters.py",
     "domain.admission": "src/matters/domain/admission.py",
+    "application.reconciliation": "src/matters/application/reconciliation.py",
+    "application.activity": "src/matters/application/activity.py",
+    "application.maintenance_orchestration": "src/matters/application/maintenance_orchestration.py",
+    "application.ai_gateway": "src/matters/application/ai_gateway.py",
+    "application.coverage_audit": "src/matters/application/coverage_audit.py",
+    "application.coverage_ledger": "src/matters/application/coverage_ledger.py",
+    "application.content_selection": "src/matters/application/content_selection.py",
+    "application.gmail_body_continuation": "src/matters/application/gmail_body_continuation.py",
+    "application.source_workflows": "src/matters/application/source_workflows.py",
+    "application.hierarchy": "src/matters/application/hierarchy.py",
     "domain.relations": "src/matters/domain/relations.py",
     "state.lifecycle": "src/matters/state/lifecycle.py",
     "state.open_loops": "src/matters/state/open_loops.py",
@@ -61,6 +82,9 @@ MODULE_PATHS = {
     "presentation.narratives": "src/matters/presentation/narratives.py",
     "presentation.localization": "src/matters/presentation/localization.py",
     "presentation.projections": "src/matters/presentation/projections.py",
+    "presentation.browser": "src/matters/presentation/browser.py",
+    "presentation.heroes": "src/matters/presentation/heroes.py",
+    "presentation.visuals": "src/matters/presentation/visuals.py",
     "providers.base": "src/matters/providers/base.py",
     "providers.jira": "src/matters/providers/jira/adapter.py",
     "providers.jira.contracts": "src/matters/providers/jira/contracts.py",
@@ -96,7 +120,9 @@ HELPER_MODULES = {
         "pure extraction helpers; C3 owns evidence qualification writes"
     ),
     "identity.roles": "role value objects; C4 owns identity and role writes",
-    "timeline.traces": "trace assembly helpers; C5 owns temporal writes",
+    "timeline.traces": "trace assembly helpers; C5 owns Event and MaterialClue temporal writes",
+    "domain.activity": "MaterialClue and activity values; C5 owns writes and C12 owns projection",
+    "domain.context": "context and placement values; C6 owns reconciliation admission writes",
     "domain.matters": "Matter entities; C6 owns admission and membership writes",
     "domain.relations": "relationship values; no automatic causal inference",
     "state.blocking": "blocking value helpers; C8 remains the only writer",
@@ -118,11 +144,48 @@ HELPER_MODULES = {
     "inventory.owners": (
         "paged occurrence/change-set values; C1 owns tracking and C2 owns freshness writes"
     ),
+    "application.coverage_ledger": (
+        "indexed ObjectCoverageLedger projection and bounded orphan/reference "
+        "repair plus exact compressed noncurrent history storage; C1 remains "
+        "the coverage-policy owner and logical migration never owns VACUUM"
+    ),
+    "application.content_selection": (
+        "deterministic value/neighborhood selection-plan values whose semantic "
+        "identity excludes scan-only inventory revision; C2 remains the current "
+        "content-selection writer"
+    ),
+    "application.gmail_body_continuation": (
+        "strict already-read Gmail body continuation leaf; C1 owns exact "
+        "manifest/batch/status-specific admission, C2 owns SourceVersion/body "
+        "receipts or the explicit no-text disposition, C3 owns anchors or no-text "
+        "evidence not-applicable, and M0 owns coverage pointers; the leaf has no "
+        "semantic or model writer"
+    ),
+    "application.source_workflows": (
+        "provider workflow coordinator; Gmail metadata-owner reconciliation "
+        "requires C1 exact current inventory/coverage admission, delegates the "
+        "minimal SourceVersion to C2, preserves deeper bodies, and never becomes "
+        "an evidence, semantic, Matter, or projection owner"
+    ),
+    "application.hierarchy": (
+        "single-parent containment and atomic batch values that require the "
+        "exact C6-admitted matter_id; C6 remains the canonical Matter/hierarchy writer"
+    ),
     "presentation.narratives": (
         "narrative formatting; C12 owns projection revision"
     ),
     "presentation.localization": (
         "language rendering; C12 owns semantic equivalence status"
+    ),
+    "presentation.browser": (
+        "indexed page selection and visible-card hydration; C12 owns catalog "
+        "and detail projection behavior"
+    ),
+    "presentation.heroes": (
+        "generated-hero values and private asset access; C12 owns current hero projection"
+    ),
+    "presentation.visuals": (
+        "real image and document derivatives for the Images evidence gallery only"
     ),
 }
 
@@ -147,6 +210,13 @@ MODEL_SYMBOLS = {
     CHILD_IDS[11]: "ProjectionOwner",
 }
 
+AGENT_OPERATION_SYMBOLS = {
+    "A0_matters_source_analysis_operation": "AgentOperationOwner",
+    "A1_matters_research_operation": "ResearchOperationRunner",
+    "A2_matters_maintenance_orchestrator_operation": "MaintenanceOrchestrationOwner",
+    "A3_matters_ai_gateway_operation": "MattersAIGateway",
+}
+
 MODEL_TEST_SUITES = {
     CHILD_IDS[0]: "TM01_authorization_coverage",
     CHILD_IDS[1]: "TM02_source_registry",
@@ -162,6 +232,13 @@ MODEL_TEST_SUITES = {
     CHILD_IDS[11]: "TM12_projection_bilingual_ui",
 }
 
+AGENT_OPERATION_TEST_SUITES = {
+    "A0_matters_source_analysis_operation": "TM20_autonomous_owner_dispatch",
+    "A1_matters_research_operation": "TM24_research_operation",
+    "A2_matters_maintenance_orchestrator_operation": "TM26_maintenance_orchestrator",
+    "A3_matters_ai_gateway_operation": "TM27_ai_gateway",
+}
+
 ALL_TEST_SUITES = tuple(MODEL_TEST_SUITES.values()) + (
     "TM13_model_mesh_closure",
     "TM14_end_to_end_conformance",
@@ -172,13 +249,22 @@ ALL_TEST_SUITES = tuple(MODEL_TEST_SUITES.values()) + (
     "TM19_clean_install_release",
     "TM20_autonomous_owner_dispatch",
     "TM21_object_coverage_worker",
-    "TM22_representative_visual",
+    "TM22_generated_hero",
     "TM23_desktop_object_browser",
+    "TM24_research_operation",
+    "TM25_daily_codex_maintenance",
+    "TM26_maintenance_orchestrator",
+    "TM27_ai_gateway",
 )
 
 __all__ = [
     "ACCEPTED_INPUTS",
     "AFFECTED_SIBLINGS",
+    "AGENT_OPERATION_MODELS",
+    "AGENT_OPERATION_MODULES",
+    "AGENT_OPERATION_ORDER",
+    "AGENT_OPERATION_SYMBOLS",
+    "AGENT_OPERATION_TEST_SUITES",
     "ALL_TEST_SUITES",
     "CHILD_IDS",
     "DEPENDENCIES",

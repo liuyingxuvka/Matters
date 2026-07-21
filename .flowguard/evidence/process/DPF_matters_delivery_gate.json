@@ -1,9 +1,9 @@
 {
   "artifact_type": "matters.development-process-flow-receipt.v1",
-  "claim_boundary": "The receipt proves only consecutive current gates through G10. A G12 result is a frozen local-release claim covering the bounded private aggregate, installed UI, clean clone/packages, Git/tag/version, model, TestMesh, skill, install, and ResearchGuard identities. It never claims complete private semantic coverage, Figma evidence, Linux CI, licensing approval, GitHub push, or public publication.",
-  "current_gate": "G10",
-  "evidence_id": "evidence:DPF_matters_delivery_gate:9505a93d5c2c1aac",
-  "generated_at": "2026-07-19T06:17:15.130670+00:00",
+  "claim_boundary": "The receipt proves only consecutive current gates through none. A G12 result is a frozen local-release claim covering the bounded private aggregate, installed UI, clean clone/packages, Git/tag/version, model, TestMesh, skill, install, ResearchGuard identities, and exact terminal pointer/archive migration receipts. It never treats startup, a partial page, or logical migration as VACUUM or physical-shrink evidence. It never claims complete private semantic coverage, Figma evidence, Linux CI, licensing approval, GitHub push, or public publication.",
+  "current_gate": "none",
+  "evidence_id": "evidence:DPF_matters_delivery_gate:246932b523881caf",
+  "generated_at": "2026-07-20T03:13:21.559993+00:00",
   "native_report": {
     "decision": "development_process_flow_green_can_continue",
     "decision_scope": "routine",
@@ -16,38 +16,32 @@
     "revalidation_recommendations": [],
     "summary": "OK: process=DPF_matters_delivery_gate scope=routine decision=development_process_flow_green_can_continue findings=0"
   },
-  "next_gate": "G11",
+  "next_gate": "G0",
   "plan": {
     "actions": [
       {
         "action_id": "action:G0",
-        "action_type": "validation",
+        "action_type": "work",
         "actor": "primary_agent",
         "behavior_plane": "",
         "decision_scope": "routine",
-        "description": "G0 executed and current",
+        "description": "G0 is explicitly not_run",
         "effects": [],
         "invalidates_artifacts": [],
         "invalidates_evidence": [],
         "order_after": [],
-        "produced_evidence_ids": [
-          "evidence:DPF_matters_delivery_gate:G0"
-        ],
+        "produced_evidence_ids": [],
         "reads_artifacts": [],
         "required_evidence_ids": [],
-        "required_validation_ids": [
-          "VR-G0"
-        ],
+        "required_validation_ids": [],
         "spec_context_artifact_ids": [],
         "spec_context_id": "",
         "spec_context_read_only": true,
-        "status": "done",
+        "status": "planned",
         "target_behavior_planes": [],
         "target_commitment_ids": [],
         "typed_commitment_relation_refs": [],
-        "writes_artifacts": [
-          "artifact.g0.boundary"
-        ]
+        "writes_artifacts": []
       },
       {
         "action_id": "action:G1",
@@ -179,195 +173,159 @@
       },
       {
         "action_id": "action:G5",
-        "action_type": "validation",
+        "action_type": "work",
         "actor": "primary_agent",
         "behavior_plane": "",
         "decision_scope": "routine",
-        "description": "G5 executed and current",
+        "description": "G5 is explicitly not_run",
         "effects": [],
         "invalidates_artifacts": [],
         "invalidates_evidence": [],
         "order_after": [
           "action:G4"
         ],
-        "produced_evidence_ids": [
-          "evidence:DPF_matters_delivery_gate:G5"
-        ],
+        "produced_evidence_ids": [],
         "reads_artifacts": [],
         "required_evidence_ids": [],
-        "required_validation_ids": [
-          "VR-G5"
-        ],
+        "required_validation_ids": [],
         "spec_context_artifact_ids": [],
         "spec_context_id": "",
         "spec_context_read_only": true,
-        "status": "done",
+        "status": "planned",
         "target_behavior_planes": [],
         "target_commitment_ids": [],
         "typed_commitment_relation_refs": [],
-        "writes_artifacts": [
-          "artifact.g5.skeleton"
-        ]
+        "writes_artifacts": []
       },
       {
         "action_id": "action:G6",
-        "action_type": "validation",
+        "action_type": "work",
         "actor": "primary_agent",
         "behavior_plane": "",
         "decision_scope": "routine",
-        "description": "G6 executed and current",
+        "description": "G6 is explicitly not_run",
         "effects": [],
         "invalidates_artifacts": [],
         "invalidates_evidence": [],
         "order_after": [
           "action:G5"
         ],
-        "produced_evidence_ids": [
-          "evidence:DPF_matters_delivery_gate:G6"
-        ],
+        "produced_evidence_ids": [],
         "reads_artifacts": [],
         "required_evidence_ids": [],
-        "required_validation_ids": [
-          "VR-G6"
-        ],
+        "required_validation_ids": [],
         "spec_context_artifact_ids": [],
         "spec_context_id": "",
         "spec_context_read_only": true,
-        "status": "done",
+        "status": "planned",
         "target_behavior_planes": [],
         "target_commitment_ids": [],
         "typed_commitment_relation_refs": [],
-        "writes_artifacts": [
-          "artifact.g6.implementation"
-        ]
+        "writes_artifacts": []
       },
       {
         "action_id": "action:G7",
-        "action_type": "validation",
+        "action_type": "work",
         "actor": "primary_agent",
         "behavior_plane": "",
         "decision_scope": "routine",
-        "description": "G7 executed and current",
+        "description": "G7 is explicitly not_run",
         "effects": [],
         "invalidates_artifacts": [],
         "invalidates_evidence": [],
         "order_after": [
           "action:G6"
         ],
-        "produced_evidence_ids": [
-          "evidence:DPF_matters_delivery_gate:G7"
-        ],
+        "produced_evidence_ids": [],
         "reads_artifacts": [],
         "required_evidence_ids": [],
-        "required_validation_ids": [
-          "VR-G7"
-        ],
+        "required_validation_ids": [],
         "spec_context_artifact_ids": [],
         "spec_context_id": "",
         "spec_context_read_only": true,
-        "status": "done",
+        "status": "planned",
         "target_behavior_planes": [],
         "target_commitment_ids": [],
         "typed_commitment_relation_refs": [],
-        "writes_artifacts": [
-          "artifact.g7.validation"
-        ]
+        "writes_artifacts": []
       },
       {
         "action_id": "action:G8",
-        "action_type": "validation",
+        "action_type": "work",
         "actor": "primary_agent",
         "behavior_plane": "",
         "decision_scope": "routine",
-        "description": "G8 executed and current",
+        "description": "G8 is explicitly not_run",
         "effects": [],
         "invalidates_artifacts": [],
         "invalidates_evidence": [],
         "order_after": [
           "action:G7"
         ],
-        "produced_evidence_ids": [
-          "evidence:DPF_matters_delivery_gate:G8"
-        ],
+        "produced_evidence_ids": [],
         "reads_artifacts": [],
         "required_evidence_ids": [],
-        "required_validation_ids": [
-          "VR-G8"
-        ],
+        "required_validation_ids": [],
         "spec_context_artifact_ids": [],
         "spec_context_id": "",
         "spec_context_read_only": true,
-        "status": "done",
+        "status": "planned",
         "target_behavior_planes": [],
         "target_commitment_ids": [],
         "typed_commitment_relation_refs": [],
-        "writes_artifacts": [
-          "artifact.g8.synthetic"
-        ]
+        "writes_artifacts": []
       },
       {
         "action_id": "action:G9",
-        "action_type": "validation",
+        "action_type": "work",
         "actor": "primary_agent",
         "behavior_plane": "",
         "decision_scope": "routine",
-        "description": "G9 executed and current",
+        "description": "G9 is explicitly not_run",
         "effects": [],
         "invalidates_artifacts": [],
         "invalidates_evidence": [],
         "order_after": [
           "action:G8"
         ],
-        "produced_evidence_ids": [
-          "evidence:DPF_matters_delivery_gate:G9"
-        ],
+        "produced_evidence_ids": [],
         "reads_artifacts": [],
         "required_evidence_ids": [],
-        "required_validation_ids": [
-          "VR-G9"
-        ],
+        "required_validation_ids": [],
         "spec_context_artifact_ids": [],
         "spec_context_id": "",
         "spec_context_read_only": true,
-        "status": "done",
+        "status": "planned",
         "target_behavior_planes": [],
         "target_commitment_ids": [],
         "typed_commitment_relation_refs": [],
-        "writes_artifacts": [
-          "artifact.g9.private_first_run"
-        ]
+        "writes_artifacts": []
       },
       {
         "action_id": "action:G10",
-        "action_type": "validation",
+        "action_type": "work",
         "actor": "primary_agent",
         "behavior_plane": "",
         "decision_scope": "routine",
-        "description": "G10 executed and current",
+        "description": "G10 is explicitly not_run",
         "effects": [],
         "invalidates_artifacts": [],
         "invalidates_evidence": [],
         "order_after": [
           "action:G9"
         ],
-        "produced_evidence_ids": [
-          "evidence:DPF_matters_delivery_gate:G10"
-        ],
+        "produced_evidence_ids": [],
         "reads_artifacts": [],
         "required_evidence_ids": [],
-        "required_validation_ids": [
-          "VR-G10"
-        ],
+        "required_validation_ids": [],
         "spec_context_artifact_ids": [],
         "spec_context_id": "",
         "spec_context_read_only": true,
-        "status": "done",
+        "status": "planned",
         "target_behavior_planes": [],
         "target_commitment_ids": [],
         "typed_commitment_relation_refs": [],
-        "writes_artifacts": [
-          "artifact.g10.installed_ui"
-        ]
+        "writes_artifacts": []
       },
       {
         "action_id": "action:G11",
@@ -426,7 +384,7 @@
       {
         "artifact_id": "artifact.g0.boundary",
         "artifact_type": "requirement",
-        "current_version": "sha256:70b5c5d99f6af4ecbcfbdb13246e11c5a5e8278f5ad1df65df271540e98fdc1b",
+        "current_version": "sha256:b29b55124612045629e8e7d49c86b106e7b1268084c199a271c914fb946f3aba",
         "description": "scope, privacy, and public candidate boundary",
         "owner": "DPF_matters_delivery_gate",
         "path": "docs/security",
@@ -437,7 +395,7 @@
       {
         "artifact_id": "artifact.g1.requirements",
         "artifact_type": "requirement",
-        "current_version": "sha256:4a7df86562dabb28add738fcfb1e2181cf2c26c1dc2d724a20a1457024952528",
+        "current_version": "sha256:42b8f1a455f9aa72ff05e4d4c8fcf3304a7e6510cab401b75bbbad4f61c16d90",
         "description": "OpenSpec change and Behavior Commitment Ledger",
         "owner": "DPF_matters_delivery_gate",
         "path": "openspec",
@@ -450,8 +408,8 @@
       {
         "artifact_id": "artifact.g2.models",
         "artifact_type": "model",
-        "current_version": "sha256:a0797ceea41dd87e6d8fd6cd2d872f00b03c781e5cdf6252876d6e075ba84fe2",
-        "description": "M0 and C1-C12 executable finite models",
+        "current_version": "sha256:9ae55e24833a38123bd09ce9e31dfb33af3d991e97c635cd274bb8c4234a6019",
+        "description": "M0 and C1-C12 executable finite models, including coverage/source repair, atomic parent composition, same-Matter canonicalization, exact observation-time correction, complete-scope parent narrative, and catalog query-shape obligations; scan-independent selection identity, bounded anchor-set pointers, exact compressed history, and exact C6-admitted Matter identity are current model boundaries",
         "owner": "DPF_matters_delivery_gate",
         "path": "flowguard_models",
         "read_only_external": false,
@@ -463,7 +421,7 @@
       {
         "artifact_id": "artifact.g3.mesh",
         "artifact_type": "model",
-        "current_version": "sha256:27a3b2defb578bee072c937c5f3fa375eb12608013dcde89a134cbbb16c09f69",
+        "current_version": "sha256:cbd0165fbe919c0af1c1cf9429dfcbc228bb60695f08b7725f4a64063b1451b2",
         "description": "current M0/C1-C12 ModelMesh receipt",
         "owner": "DPF_matters_delivery_gate",
         "path": ".flowguard/evidence/model_mesh",
@@ -476,8 +434,8 @@
       {
         "artifact_id": "artifact.g4.design",
         "artifact_type": "model",
-        "current_version": "sha256:d72c1c167162bb1af77f16ca4ea8b107f8a4c0f1a0481e8e1aa616f9782162a8",
-        "description": "model-derived module, field, contract, coverage, and TestMesh design",
+        "current_version": "sha256:f130e70c5ed83ef62c94cbdda8dab09664200338f546e2da7a7192ed17fcd34e",
+        "description": "model-derived module, field, contract, coverage, and TestMesh design; indexed catalog page selection before visible-card hydration plus storage/identity Model-Miss coverage remain hard G4 gates",
         "owner": "DPF_matters_delivery_gate",
         "path": "flowguard_design",
         "read_only_external": false,
@@ -489,7 +447,7 @@
       {
         "artifact_id": "artifact.g5.skeleton",
         "artifact_type": "model",
-        "current_version": "sha256:918e24d027d3515be23d6e8aef870bb6c65214ab3d3c52a958cecd4d93a81ef4",
+        "current_version": "sha256:805a56e64a61c8ce0cc9113f245cddebfa110c5451ff62af7c527d975c274225",
         "description": "model-derived package, UI, plugin, and test skeleton",
         "owner": "DPF_matters_delivery_gate",
         "path": "src/matters",
@@ -502,7 +460,7 @@
       {
         "artifact_id": "artifact.g6.implementation",
         "artifact_type": "model",
-        "current_version": "sha256:b7efad40abe8037137377f4725213107267d06197173e5078dfcfe98cac78949",
+        "current_version": "sha256:49ee8d0d21ca9bb6e55f4f5f56ba8b3f2e5d3607f5ce4c0093aef5ffc3980f87",
         "description": "C1-C12 owner implementations and MatterService facade",
         "owner": "DPF_matters_delivery_gate",
         "path": "src/matters",
@@ -515,7 +473,7 @@
       {
         "artifact_id": "artifact.g7.validation",
         "artifact_type": "model",
-        "current_version": "sha256:724f64c11861cd4d9f3808a09b26944656e5d2a3f8d7d94e9dfaa4c96a9fd68f",
+        "current_version": "sha256:c7dc645a75c729b5e153da2c3543ba86e4677e83fbf69d843a28a9dd33bb9d66",
         "description": "current TestMesh and model-code-test alignment receipts",
         "owner": "DPF_matters_delivery_gate",
         "path": ".flowguard/evidence/tests",
@@ -541,8 +499,8 @@
       {
         "artifact_id": "artifact.g9.private_first_run",
         "artifact_type": "model",
-        "current_version": "sha256:8928ef2eb2b6e8e2159013584448d628b02509dc5fc0c21281fd0e7620d14842",
-        "description": "privacy-minimized real-private first-run aggregate",
+        "current_version": "sha256:b6fa128fb5d3f1da8639524db33459bc1d3d4ac73ff7da89b464f35456e0fc54",
+        "description": "privacy-minimized real-private first-run, ordered bounded storage-migration, and Codex daily-maintenance aggregate",
         "owner": "DPF_matters_delivery_gate",
         "path": "private://first-run-aggregate",
         "read_only_external": false,
@@ -554,7 +512,7 @@
       {
         "artifact_id": "artifact.g10.installed_ui",
         "artifact_type": "model",
-        "current_version": "sha256:567c9faec67c7353d5593eff7a0755b4893a03c2b63bb4d7a449e3e62425af54",
+        "current_version": "sha256:8561cb1c00bb7bf49c7161cdfef357ba143cbfdd407e5ac82f3744283988a586",
         "description": "current installed object-browser interaction evidence",
         "owner": "DPF_matters_delivery_gate",
         "path": ".flowguard/evidence/ui",
@@ -567,7 +525,7 @@
       {
         "artifact_id": "artifact.g11.public_release",
         "artifact_type": "model",
-        "current_version": "sha256:1304b17f1f03d473f995354e82c55c3705585c4690ffa2f88d6f0d05e84efced",
+        "current_version": "sha256:3bdd9febdea974ff9d11444f3bdeb2897f3a6ba99baae8284e5ee913faaeb4fb",
         "description": "tracked, clean-clone, package, link, path, and privacy evidence",
         "owner": "DPF_matters_delivery_gate",
         "path": "package://release-boundary",
@@ -580,7 +538,7 @@
       {
         "artifact_id": "artifact.g12.frozen_release",
         "artifact_type": "model",
-        "current_version": "sha256:fad2a4758b2369eb8e2520ce03fa580368d8a94a56bb0caf4d527fc01d1048b9",
+        "current_version": "sha256:c790d8c438126b498a11eda6ed0189cf05c29945381e57f73bd9a3be93c6183f",
         "description": "frozen local Git, tag, package, install, model, and test identities",
         "owner": "DPF_matters_delivery_gate",
         "path": "release://local-v0.2.0",
@@ -598,7 +556,7 @@
         "background": false,
         "command": "python scripts/check_public_boundary.py --root .",
         "covered_versions": {
-          "artifact.g0.boundary": "sha256:70b5c5d99f6af4ecbcfbdb13246e11c5a5e8278f5ad1df65df271540e98fdc1b"
+          "artifact.g0.boundary": "sha256:b29b55124612045629e8e7d49c86b106e7b1268084c199a271c914fb946f3aba"
         },
         "covers_artifacts": [
           "artifact.g0.boundary"
@@ -612,7 +570,7 @@
         "progress_only": false,
         "proof_artifact": {
           "artifact_fingerprints": {
-            ".flowguard/evidence/process/g0_g4_snapshot.json": "sha256:02211d224af0fc093574af1c6b9af87c99fc457938561b1989b0d2623be59205"
+            ".flowguard/evidence/process/g0_g4_snapshot.json": "sha256:342378fdf4dc0ce028292367e5ecead755b0b9515e6470b3b110157c2dde7219"
           },
           "artifact_id": "artifact:DPF_matters_delivery_gate:G0",
           "assertion_scope": "external_contract",
@@ -650,7 +608,7 @@
         "background": false,
         "command": "openspec validate build-matters-model-driven-core --type change --strict --json --no-interactive",
         "covered_versions": {
-          "artifact.g1.requirements": "sha256:4a7df86562dabb28add738fcfb1e2181cf2c26c1dc2d724a20a1457024952528"
+          "artifact.g1.requirements": "sha256:42b8f1a455f9aa72ff05e4d4c8fcf3304a7e6510cab401b75bbbad4f61c16d90"
         },
         "covers_artifacts": [
           "artifact.g1.requirements"
@@ -664,7 +622,7 @@
         "progress_only": false,
         "proof_artifact": {
           "artifact_fingerprints": {
-            ".flowguard/evidence/process/g0_g4_snapshot.json": "sha256:02211d224af0fc093574af1c6b9af87c99fc457938561b1989b0d2623be59205"
+            ".flowguard/evidence/process/g0_g4_snapshot.json": "sha256:342378fdf4dc0ce028292367e5ecead755b0b9515e6470b3b110157c2dde7219"
           },
           "artifact_id": "artifact:DPF_matters_delivery_gate:G1",
           "assertion_scope": "external_contract",
@@ -702,7 +660,7 @@
         "background": false,
         "command": "python -m flowguard_models.run_model <model_id>",
         "covered_versions": {
-          "artifact.g2.models": "sha256:a0797ceea41dd87e6d8fd6cd2d872f00b03c781e5cdf6252876d6e075ba84fe2"
+          "artifact.g2.models": "sha256:9ae55e24833a38123bd09ce9e31dfb33af3d991e97c635cd274bb8c4234a6019"
         },
         "covers_artifacts": [
           "artifact.g2.models"
@@ -716,7 +674,7 @@
         "progress_only": false,
         "proof_artifact": {
           "artifact_fingerprints": {
-            ".flowguard/evidence/process/g0_g4_snapshot.json": "sha256:02211d224af0fc093574af1c6b9af87c99fc457938561b1989b0d2623be59205"
+            ".flowguard/evidence/process/g0_g4_snapshot.json": "sha256:342378fdf4dc0ce028292367e5ecead755b0b9515e6470b3b110157c2dde7219"
           },
           "artifact_id": "artifact:DPF_matters_delivery_gate:G2",
           "assertion_scope": "external_contract",
@@ -754,7 +712,7 @@
         "background": false,
         "command": "python -m flowguard_models.run_mesh",
         "covered_versions": {
-          "artifact.g3.mesh": "sha256:27a3b2defb578bee072c937c5f3fa375eb12608013dcde89a134cbbb16c09f69"
+          "artifact.g3.mesh": "sha256:cbd0165fbe919c0af1c1cf9429dfcbc228bb60695f08b7725f4a64063b1451b2"
         },
         "covers_artifacts": [
           "artifact.g3.mesh"
@@ -768,7 +726,7 @@
         "progress_only": false,
         "proof_artifact": {
           "artifact_fingerprints": {
-            ".flowguard/evidence/process/g0_g4_snapshot.json": "sha256:02211d224af0fc093574af1c6b9af87c99fc457938561b1989b0d2623be59205"
+            ".flowguard/evidence/process/g0_g4_snapshot.json": "sha256:342378fdf4dc0ce028292367e5ecead755b0b9515e6470b3b110157c2dde7219"
           },
           "artifact_id": "artifact:DPF_matters_delivery_gate:G3",
           "assertion_scope": "external_contract",
@@ -806,7 +764,7 @@
         "background": false,
         "command": "python -m flowguard_design.run_g4_review",
         "covered_versions": {
-          "artifact.g4.design": "sha256:d72c1c167162bb1af77f16ca4ea8b107f8a4c0f1a0481e8e1aa616f9782162a8"
+          "artifact.g4.design": "sha256:f130e70c5ed83ef62c94cbdda8dab09664200338f546e2da7a7192ed17fcd34e"
         },
         "covers_artifacts": [
           "artifact.g4.design"
@@ -820,7 +778,7 @@
         "progress_only": false,
         "proof_artifact": {
           "artifact_fingerprints": {
-            ".flowguard/evidence/process/g0_g4_snapshot.json": "sha256:02211d224af0fc093574af1c6b9af87c99fc457938561b1989b0d2623be59205"
+            ".flowguard/evidence/process/g0_g4_snapshot.json": "sha256:342378fdf4dc0ce028292367e5ecead755b0b9515e6470b3b110157c2dde7219"
           },
           "artifact_id": "artifact:DPF_matters_delivery_gate:G4",
           "assertion_scope": "external_contract",
@@ -858,7 +816,7 @@
         "background": false,
         "command": "python -m flowguard_design.run_g8_review",
         "covered_versions": {
-          "artifact.g5.skeleton": "sha256:918e24d027d3515be23d6e8aef870bb6c65214ab3d3c52a958cecd4d93a81ef4"
+          "artifact.g5.skeleton": "sha256:805a56e64a61c8ce0cc9113f245cddebfa110c5451ff62af7c527d975c274225"
         },
         "covers_artifacts": [
           "artifact.g5.skeleton"
@@ -872,7 +830,7 @@
         "progress_only": false,
         "proof_artifact": {
           "artifact_fingerprints": {
-            ".flowguard/evidence/process/g0_g4_snapshot.json": "sha256:02211d224af0fc093574af1c6b9af87c99fc457938561b1989b0d2623be59205"
+            ".flowguard/evidence/process/g0_g4_snapshot.json": "sha256:342378fdf4dc0ce028292367e5ecead755b0b9515e6470b3b110157c2dde7219"
           },
           "artifact_id": "artifact:DPF_matters_delivery_gate:G5",
           "assertion_scope": "external_contract",
@@ -910,7 +868,7 @@
         "background": false,
         "command": "python -m flowguard_design.run_test_mesh",
         "covered_versions": {
-          "artifact.g6.implementation": "sha256:b7efad40abe8037137377f4725213107267d06197173e5078dfcfe98cac78949"
+          "artifact.g6.implementation": "sha256:49ee8d0d21ca9bb6e55f4f5f56ba8b3f2e5d3607f5ce4c0093aef5ffc3980f87"
         },
         "covers_artifacts": [
           "artifact.g6.implementation"
@@ -924,7 +882,7 @@
         "progress_only": false,
         "proof_artifact": {
           "artifact_fingerprints": {
-            ".flowguard/evidence/process/g0_g4_snapshot.json": "sha256:02211d224af0fc093574af1c6b9af87c99fc457938561b1989b0d2623be59205"
+            ".flowguard/evidence/process/g0_g4_snapshot.json": "sha256:342378fdf4dc0ce028292367e5ecead755b0b9515e6470b3b110157c2dde7219"
           },
           "artifact_id": "artifact:DPF_matters_delivery_gate:G6",
           "assertion_scope": "external_contract",
@@ -962,7 +920,7 @@
         "background": false,
         "command": "python -m flowguard_design.run_alignment",
         "covered_versions": {
-          "artifact.g7.validation": "sha256:724f64c11861cd4d9f3808a09b26944656e5d2a3f8d7d94e9dfaa4c96a9fd68f"
+          "artifact.g7.validation": "sha256:c7dc645a75c729b5e153da2c3543ba86e4677e83fbf69d843a28a9dd33bb9d66"
         },
         "covers_artifacts": [
           "artifact.g7.validation"
@@ -976,7 +934,7 @@
         "progress_only": false,
         "proof_artifact": {
           "artifact_fingerprints": {
-            ".flowguard/evidence/process/g0_g4_snapshot.json": "sha256:02211d224af0fc093574af1c6b9af87c99fc457938561b1989b0d2623be59205"
+            ".flowguard/evidence/process/g0_g4_snapshot.json": "sha256:342378fdf4dc0ce028292367e5ecead755b0b9515e6470b3b110157c2dde7219"
           },
           "artifact_id": "artifact:DPF_matters_delivery_gate:G7",
           "assertion_scope": "external_contract",
@@ -1028,7 +986,7 @@
         "progress_only": false,
         "proof_artifact": {
           "artifact_fingerprints": {
-            ".flowguard/evidence/process/g0_g4_snapshot.json": "sha256:02211d224af0fc093574af1c6b9af87c99fc457938561b1989b0d2623be59205"
+            ".flowguard/evidence/process/g0_g4_snapshot.json": "sha256:342378fdf4dc0ce028292367e5ecead755b0b9515e6470b3b110157c2dde7219"
           },
           "artifact_id": "artifact:DPF_matters_delivery_gate:G8",
           "assertion_scope": "external_contract",
@@ -1059,110 +1017,6 @@
         "status": "passed",
         "validation_requirement_ids": [
           "VR-G8"
-        ],
-        "verifier_artifacts": []
-      },
-      {
-        "background": false,
-        "command": "python scripts/build_private_aggregate.py --database <private> --evidence-handle <opaque>",
-        "covered_versions": {
-          "artifact.g9.private_first_run": "sha256:8928ef2eb2b6e8e2159013584448d628b02509dc5fc0c21281fd0e7620d14842"
-        },
-        "covers_artifacts": [
-          "artifact.g9.private_first_run"
-        ],
-        "evidence_id": "evidence:DPF_matters_delivery_gate:G9",
-        "evidence_kind": "private_first_run",
-        "has_exit_artifact": true,
-        "has_result_artifact": true,
-        "produced_by_action_id": "action:G9",
-        "producer_route": "private_first_run",
-        "progress_only": false,
-        "proof_artifact": {
-          "artifact_fingerprints": {
-            ".flowguard/evidence/process/g0_g4_snapshot.json": "sha256:02211d224af0fc093574af1c6b9af87c99fc457938561b1989b0d2623be59205"
-          },
-          "artifact_id": "artifact:DPF_matters_delivery_gate:G9",
-          "assertion_scope": "external_contract",
-          "command": "python -m flowguard_models.run_delivery_flow",
-          "covered_obligation_ids": [
-            "VR-G9"
-          ],
-          "current": true,
-          "exit_code": 0,
-          "finished_at": "",
-          "metadata": {},
-          "producer_route": "development_process_flow",
-          "progress_only": false,
-          "result_path": ".flowguard/evidence/process/g0_g4_snapshot.json",
-          "result_status": "passed",
-          "route_evidence_current": true,
-          "route_gap_codes": [],
-          "stale_reasons": [],
-          "started_at": ""
-        },
-        "release_required": false,
-        "result_path": ".flowguard/evidence/process/g0_g4_snapshot.json",
-        "revalidation_cost": 1.0,
-        "revalidation_cost_basis": "estimated",
-        "skipped_count": 0,
-        "skipped_visible": true,
-        "stale_reasons": [],
-        "status": "passed",
-        "validation_requirement_ids": [
-          "VR-G9"
-        ],
-        "verifier_artifacts": []
-      },
-      {
-        "background": false,
-        "command": "node scripts/verify_live_ui.js --url <loopback> --ui-revision <current>",
-        "covered_versions": {
-          "artifact.g10.installed_ui": "sha256:567c9faec67c7353d5593eff7a0755b4893a03c2b63bb4d7a449e3e62425af54"
-        },
-        "covers_artifacts": [
-          "artifact.g10.installed_ui"
-        ],
-        "evidence_id": "evidence:DPF_matters_delivery_gate:G10",
-        "evidence_kind": "installed_ui",
-        "has_exit_artifact": true,
-        "has_result_artifact": true,
-        "produced_by_action_id": "action:G10",
-        "producer_route": "ui_flow_structure",
-        "progress_only": false,
-        "proof_artifact": {
-          "artifact_fingerprints": {
-            ".flowguard/evidence/process/g0_g4_snapshot.json": "sha256:02211d224af0fc093574af1c6b9af87c99fc457938561b1989b0d2623be59205"
-          },
-          "artifact_id": "artifact:DPF_matters_delivery_gate:G10",
-          "assertion_scope": "external_contract",
-          "command": "python -m flowguard_models.run_delivery_flow",
-          "covered_obligation_ids": [
-            "VR-G10"
-          ],
-          "current": true,
-          "exit_code": 0,
-          "finished_at": "",
-          "metadata": {},
-          "producer_route": "development_process_flow",
-          "progress_only": false,
-          "result_path": ".flowguard/evidence/process/g0_g4_snapshot.json",
-          "result_status": "passed",
-          "route_evidence_current": true,
-          "route_gap_codes": [],
-          "stale_reasons": [],
-          "started_at": ""
-        },
-        "release_required": false,
-        "result_path": ".flowguard/evidence/process/g0_g4_snapshot.json",
-        "revalidation_cost": 1.0,
-        "revalidation_cost_basis": "estimated",
-        "skipped_count": 0,
-        "skipped_visible": true,
-        "stale_reasons": [],
-        "status": "passed",
-        "validation_requirement_ids": [
-          "VR-G10"
         ],
         "verifier_artifacts": []
       }
@@ -1522,55 +1376,67 @@
         "requirement_id": "VR-G8",
         "scope": "routine",
         "v_model_pair": false
-      },
-      {
-        "command": "python scripts/build_private_aggregate.py --database <private> --evidence-handle <opaque>",
-        "description": "G9 current release-gate evidence",
-        "evidence_ids": [
-          "evidence:DPF_matters_delivery_gate:G9"
-        ],
-        "release_required": true,
-        "required_artifact_ids": [
-          "artifact.g9.private_first_run"
-        ],
-        "required_evidence_kinds": [
-          "private_first_run"
-        ],
-        "requirement_id": "VR-G9",
-        "scope": "release",
-        "v_model_pair": false
-      },
-      {
-        "command": "node scripts/verify_live_ui.js --url <loopback> --ui-revision <current>",
-        "description": "G10 current release-gate evidence",
-        "evidence_ids": [
-          "evidence:DPF_matters_delivery_gate:G10"
-        ],
-        "release_required": true,
-        "required_artifact_ids": [
-          "artifact.g10.installed_ui"
-        ],
-        "required_evidence_kinds": [
-          "installed_ui"
-        ],
-        "requirement_id": "VR-G10",
-        "scope": "release",
-        "v_model_pair": false
       }
     ]
   },
-  "plan_fingerprint": "sha256:9505a93d5c2c1aacfdd8469268b62c4978ac6c8172390a600c60b5013f533bc4",
+  "plan_fingerprint": "sha256:246932b523881caf247123b998c23a3927e60b657ec8320c7a62f607362b1394",
   "process_id": "DPF_matters_delivery_gate",
   "snapshot": {
     "artifact_type": "matters.delivery-snapshot.v1",
-    "claim_boundary": "This snapshot advances only through consecutive current gates. G9 consumes a minimized real-private aggregate, G10 current installed-browser evidence, G11 clean-clone/package privacy evidence, and G12 frozen local-release identities. Open private semantic coverage, Linux CI, Figma, GitHub publication, and licensing authorization remain outside any passed claim.",
-    "current_gate": "G10",
+    "claim_boundary": "This snapshot advances only through consecutive current gates. G9 consumes a minimized real-private aggregate including the manually rehearsed model-agnostic Codex daily-maintenance boundary and exact terminal receipts for evidence-pointer rebase followed by coverage-history archive. Missing, partial, out-of-order, startup-owned, or VACUUM-owning migration evidence keeps G9 not run or blocked. G10 current installed-browser evidence, G11 clean-clone/package privacy evidence, and G12 frozen local-release identities. Open private semantic coverage, Linux CI, Figma, GitHub publication, and licensing authorization remain outside any passed claim.",
+    "current_gate": "none",
     "gates": {
       "G0": {
         "evidence": {
           "artifact_type": "matters.public-boundary-check.v2",
-          "claim_boundary": "This check enforces authoritative required-public inventory reconciliation, ignored/tracked/package/clean-clone accounting, external private-root placement, link and junction rejection, portable evidence paths, decoded JSON/YAML and encoded-path scanning, size limits, and high-confidence secret patterns. No-commit, clean-clone-not-supplied, package-not-supplied, and unreviewed ACL/encryption/cloud-sync dispositions remain visible and are not claimed as passed release evidence.",
-          "findings": [],
+          "claim_boundary": "This check enforces authoritative required-public inventory reconciliation, ignored/tracked/package/clean-clone accounting, missing and unexpected package payload rejection, external private-root placement, link and junction rejection, portable evidence paths, decoded JSON/YAML and encoded-path scanning, size limits, non-synthetic email and structured opaque Gmail identifier rejection, and high-confidence secret patterns. No-commit, clean-clone-not-supplied, package-not-supplied, and unreviewed ACL/encryption/cloud-sync dispositions remain visible and are not claimed as passed release evidence.",
+          "findings": [
+            {
+              "code": "candidate_missing",
+              "message": "Git candidate no longer exists",
+              "path": "src/matters/bundled_skills/matters-card-visual-curation/SKILL.md"
+            },
+            {
+              "code": "candidate_missing",
+              "message": "Git candidate no longer exists",
+              "path": "src/matters/bundled_skills/matters-card-visual-curation/agents/openai.yaml"
+            },
+            {
+              "code": "candidate_missing",
+              "message": "Git candidate no longer exists",
+              "path": "src/matters/bundled_skills/matters-card-visual-curation/references/service-contract.md"
+            },
+            {
+              "code": "candidate_missing",
+              "message": "Git candidate no longer exists",
+              "path": "src/matters/bundled_skills/matters-card-visual-curation/scripts/invoke.py"
+            },
+            {
+              "code": "public_candidate_not_in_required_inventory",
+              "message": "public candidate is absent from the authoritative inventory",
+              "path": "src/matters/bundled_skills/matters-card-visual-curation/SKILL.md"
+            },
+            {
+              "code": "public_candidate_not_in_required_inventory",
+              "message": "public candidate is absent from the authoritative inventory",
+              "path": "src/matters/bundled_skills/matters-card-visual-curation/agents/openai.yaml"
+            },
+            {
+              "code": "public_candidate_not_in_required_inventory",
+              "message": "public candidate is absent from the authoritative inventory",
+              "path": "src/matters/bundled_skills/matters-card-visual-curation/references/service-contract.md"
+            },
+            {
+              "code": "public_candidate_not_in_required_inventory",
+              "message": "public candidate is absent from the authoritative inventory",
+              "path": "src/matters/bundled_skills/matters-card-visual-curation/scripts/invoke.py"
+            },
+            {
+              "code": "tracked_inventory_missing_required",
+              "message": "committed inventory omits required public files",
+              "path": "git://HEAD"
+            }
+          ],
           "inventories": {
             "clean_clone": {
               "missing_required": [],
@@ -1587,19 +1453,80 @@
               "status": "not_run"
             },
             "tracked": {
-              "missing_required": [],
+              "missing_required": [
+                ".flowguard/evidence/agent_operations/models/A2_matters_maintenance_orchestrator_operation.json",
+                ".flowguard/evidence/tests/TM22_generated_hero.json",
+                ".flowguard/evidence/tests/TM24_research_operation.json",
+                ".flowguard/evidence/tests/TM25_daily_codex_maintenance.json",
+                ".flowguard/evidence/tests/TM26_maintenance_orchestrator.json",
+                ".flowguard/evidence/ui/screenshots/matters-compact-en-1440.png",
+                ".flowguard/evidence/ui/screenshots/matters-compact-en-1880.png",
+                ".flowguard/evidence/ui/screenshots/matters-compact-zh-1440.png",
+                ".flowguard/evidence/ui/screenshots/matters-compact-zh-1880.png",
+                ".flowguard/evidence/ui/screenshots/matters-detail-zh-1880.png",
+                ".flowguard/evidence/ui/screenshots/matters-standard-en-1440.png",
+                ".flowguard/evidence/ui/screenshots/matters-standard-en-1880.png",
+                ".flowguard/evidence/ui/screenshots/matters-standard-zh-1440.png",
+                ".flowguard/evidence/ui/screenshots/matters-standard-zh-1880.png",
+                "docs/task-evidence-audit-2026-07-20.md",
+                "flowguard_design/ui_runtime_contract.py",
+                "flowguard_design/ui_runtime_required_checks.json",
+                "scripts/audit_gmail_page_chain.py",
+                "scripts/audit_gmail_runtime.py",
+                "scripts/capture_gmail_search_chain.js",
+                "scripts/ingest_gmail_pages.py",
+                "scripts/retire_gmail_pseudo_thread.py",
+                "scripts/summarize_gmail_verified_coverage.py",
+                "src/matters/analysis/execution_profiles.py",
+                "src/matters/application/activity.py",
+                "src/matters/application/content_selection.py",
+                "src/matters/application/coverage_audit.py",
+                "src/matters/application/hierarchy.py",
+                "src/matters/application/maintenance_orchestration.py",
+                "src/matters/application/reconciliation.py",
+                "src/matters/assets/__init__.py",
+                "src/matters/assets/matters-icon.png",
+                "src/matters/assets/matters.ico",
+                "src/matters/bundled_skills/matters-generated-hero/SKILL.md",
+                "src/matters/bundled_skills/matters-generated-hero/agents/openai.yaml",
+                "src/matters/bundled_skills/matters-generated-hero/references/service-contract.md",
+                "src/matters/bundled_skills/matters-generated-hero/scripts/invoke.py",
+                "src/matters/domain/activity.py",
+                "src/matters/domain/context.py",
+                "src/matters/domain/hierarchy.py",
+                "src/matters/presentation/heroes.py",
+                "tests/test_autonomous_maintenance.py",
+                "tests/test_contract_rebase_and_global_recall.py",
+                "tests/test_coverage_audit.py",
+                "tests/test_execution_profiles.py",
+                "tests/test_generated_hero.py",
+                "tests/test_gmail_ingest_safety.py",
+                "tests/test_install_local_transaction.py",
+                "tests/test_maintenance_orchestration.py",
+                "tests/test_matter_activity.py",
+                "tests/test_matter_hierarchy.py",
+                "tests/test_matter_hierarchy_stress.py",
+                "tests/test_matter_reconciliation.py",
+                "tests/test_object_browser_catalog_query.py",
+                "tests/test_sqlite_store_scale_kernel.py"
+              ],
               "reason": "",
-              "status": "pass",
+              "status": "fail",
               "tracked_count": 476,
-              "unexpected_public": []
+              "unexpected_public": [
+                "src/matters/bundled_skills/matters-card-visual-curation/SKILL.md",
+                "src/matters/bundled_skills/matters-card-visual-curation/agents/openai.yaml",
+                "src/matters/bundled_skills/matters-card-visual-curation/references/service-contract.md",
+                "src/matters/bundled_skills/matters-card-visual-curation/scripts/invoke.py"
+              ]
             },
             "workspace": {
-              "candidate_count": 476,
+              "candidate_count": 531,
               "missing_required": [],
               "status": "pass"
             }
           },
-          "ok": true,
+          "ok": false,
           "policy": "repo://docs/security/public-file-policy.json",
           "private_root_dispositions": [
             {
@@ -1621,14 +1548,14 @@
           ],
           "required_public_inventory": {
             "authority": "repo://docs/security/required-public-inventory.json",
-            "fingerprint_excluded_count": 62,
-            "inventory_excluded_count": 196,
-            "required_count": 476,
-            "required_fingerprint": "sha256:4eeb0a77ff950d008eff8d3feb7e957619577a8421731305471eccdcce7a7082"
+            "fingerprint_excluded_count": 76,
+            "inventory_excluded_count": 373,
+            "required_count": 527,
+            "required_fingerprint": "sha256:59ce78dec680452231eb3618b803f6d6fe9707a6c910c04effc24edf68396e48"
           },
           "root": "repo://"
         },
-        "status": "passed"
+        "status": "blocked"
       },
       "G1": {
         "evidence": {
@@ -1648,7 +1575,7 @@
               "commitment_primary_path_material_evidence_missing",
               "commitment_primary_path_risk_gate_missing"
             ],
-            "finding_count": 30,
+            "finding_count": 61,
             "native_decision": "behavior_commitment_coverage_blocked",
             "native_ok": false,
             "structural_inventory_ok": true,
@@ -1675,160 +1602,228 @@
       "G10": {
         "evidence": {
           "browser_error_count": 0,
-          "check_count": 23,
-          "claim_boundary": "Public synthetic installed-runtime evidence proves UI behavior and geometry only; it does not substitute for the separate real-private first run.",
-          "evidence_current": true,
-          "evidence_id": "evidence:ui:a096194d75463462",
-          "ok": true,
-          "status": "passed",
-          "ui_revision": "sha256:a096194d754634629c28c4b08d7b7f19bc2e3bd3d19e4fab240e9c4e34d4442f"
+          "check_count": 70,
+          "claim_boundary": "Synthetic installed-runtime evidence proves only the exact declared read-only object-browser behaviors observed against an isolated service. The ordinary first-version browser exposes no correction or other canonical-write control. This receipt does not prove private-run usefulness, installation parity, or release readiness.",
+          "evidence_current": false,
+          "evidence_id": "evidence:ui:2694ada717b149b6",
+          "exact_check_inventory": true,
+          "ok": false,
+          "required_check_count": 70,
+          "status": "blocked",
+          "ui_revision": "sha256:a211b6b40b672fe8160d41eccd073217b8242fc50f83ba09f62a650781d3e7ab"
         },
-        "status": "passed"
+        "status": "blocked"
       },
       "G11": {
         "evidence": {
-          "artifact_count": 0,
+          "artifact_hashes": {
+            "matters-0.2.0-py3-none-any.whl": "sha256:c93a71990a2fd3339250aca9192aa1d3f091909cf22f4ea9fcdca667a4ef58cc",
+            "matters-0.2.0.tar.gz": "sha256:cace1db69023f5cd3e1a74a815ad3c05a8b6d62fdbd63457d98eb92f83aba0da"
+          },
+          "boundary_fingerprint": "sha256:d674dc8cdf8f0666232f25ed0f722efb70ce79c46d46705471f7423b3f1121ad",
+          "claim_boundary": "This check enforces authoritative required-public inventory reconciliation, ignored/tracked/package/clean-clone accounting, missing and unexpected package payload rejection, external private-root placement, link and junction rejection, portable evidence paths, decoded JSON/YAML and encoded-path scanning, size limits, non-synthetic email and structured opaque Gmail identifier rejection, and high-confidence secret patterns. No-commit, clean-clone-not-supplied, package-not-supplied, and unreviewed ACL/encryption/cloud-sync dispositions remain visible and are not claimed as passed release evidence.",
+          "clean_clone_status": "pass",
+          "finding_codes": [
+            "candidate_missing",
+            "package_inventory_mismatch",
+            "public_candidate_not_in_required_inventory",
+            "tracked_inventory_missing_required"
+          ],
           "ok": false,
-          "reason": "frozen_package_pair_not_supplied",
-          "status": "not_run"
+          "package_statuses": [
+            "fail",
+            "fail"
+          ],
+          "status": "blocked",
+          "tracked_status": "fail"
         },
-        "status": "not_run"
+        "status": "blocked"
       },
       "G12": {
         "evidence": {
           "checks": {
-            "exact_release_tag": false,
+            "agent_operation_models": true,
+            "exact_release_tag": true,
             "git_commit": true,
             "install_receipt": false,
-            "installed_ui": true,
+            "installed_ui": false,
             "installed_version": true,
-            "private_first_run": true,
+            "private_first_run": false,
             "product_models": true,
             "public_release_boundary": false,
-            "researchguard": true,
+            "researchguard": false,
             "skill_mesh": true,
             "skill_models": true,
-            "source_version": true,
-            "test_mesh": true,
+            "source_version": false,
+            "test_mesh": false,
             "tm19": true
           },
-          "claim_boundary": "This frozen local-release gate binds exact Git/tag/version, wheel/install, M0/C1-C12 and S0-S5 model evidence, complete TestMesh including TM19, current installed UI, public package boundary, bounded private-first-run aggregate, and the frozen ResearchGuard currentness identity. It does not claim GitHub publication, Linux CI, Figma evidence, or complete private semantic coverage.",
-          "commit": "1e774c8ea16beed7382ebb6fd4c2d879a5a2a8f4",
+          "claim_boundary": "This frozen local-release gate binds exact Git/tag/version, wheel/install, M0/C1-C12 product, A0/A1/A2 agent-operation, and S0-S5 skill-runtime model evidence from separate roots, complete TestMesh including TM19, current installed UI, public package boundary, bounded private-first-run aggregate, and the frozen ResearchGuard currentness identity. It does not claim GitHub publication, Linux CI, Figma evidence, or complete private semantic coverage.",
+          "commit": "e38bfb58a8c31c0c97702f781f5bc3316140cea9",
           "installed_version": "0.2.0",
           "ok": false,
-          "researchguard_status": "current",
+          "researchguard_status": "researchguard_blocked",
+          "source_version_identity": {
+            "checks": {
+              "identity_files_readable": true,
+              "plugin_projection": false,
+              "project_uses_dynamic_version": true,
+              "runtime_authority": true,
+              "sbom_projection": false,
+              "setuptools_reads_runtime_authority": true
+            },
+            "ok": false,
+            "version": "0.2.0"
+          },
           "status": "not_run",
-          "tag": "",
+          "tag": "v0.2.0",
           "version": "0.2.0",
-          "wheel_sha256": ""
+          "wheel_sha256": "c93a71990a2fd3339250aca9192aa1d3f091909cf22f4ea9fcdca667a4ef58cc"
         },
         "status": "not_run"
       },
       "G2": {
         "evidence": {
+          "agent_operation_model_count": 3,
+          "claim_boundary": "G2 validates M0/C1-C12 product receipts and A0/A1/A2 operation receipts from separate evidence roots. A pass in one plane never substitutes for the other.",
           "models": [
             {
+              "behavior_plane": "product_runtime",
               "current": true,
-              "evidence_id": "evidence:M0_matters_end_to_end_authority:96f9b1c9603a2ddc",
-              "model_fingerprint": "sha256:96f9b1c9603a2ddcfed348e7db113fe013c9abc03ad97117a466f9f5be818ee5",
+              "evidence_id": "evidence:M0_matters_end_to_end_authority:0082ef48a2de2c81",
+              "model_fingerprint": "sha256:0082ef48a2de2c810e477544eb58c4d2ca374781513bb00cc1643f09a0fc7bea",
               "model_id": "M0_matters_end_to_end_authority"
             },
             {
+              "behavior_plane": "product_runtime",
               "current": true,
-              "evidence_id": "evidence:C1_authorization_coverage:68f1f53f4b9e29af",
-              "model_fingerprint": "sha256:68f1f53f4b9e29afe4ca6ca121a5469c3529e6c9c274c12139e032d38d50cdfc",
+              "evidence_id": "evidence:C1_authorization_coverage:e468939a47eedfc3",
+              "model_fingerprint": "sha256:e468939a47eedfc3d1fa9b868375975fd136e5e56807ebb1993326693cb10999",
               "model_id": "C1_authorization_coverage"
             },
             {
+              "behavior_plane": "product_runtime",
               "current": true,
-              "evidence_id": "evidence:C2_source_registry:9197d59c0887a460",
-              "model_fingerprint": "sha256:9197d59c0887a4601a69541bdcf94b420f5199d3c9417a56f6241920ea46b534",
+              "evidence_id": "evidence:C2_source_registry:99640f1fbfb6e391",
+              "model_fingerprint": "sha256:99640f1fbfb6e391e6197bb9ecb0e6eea2b414735e21f1ee3812fc494c2e423b",
               "model_id": "C2_source_registry"
             },
             {
+              "behavior_plane": "product_runtime",
               "current": true,
-              "evidence_id": "evidence:C3_evidence_qualification:c4772b78e1a3dfeb",
-              "model_fingerprint": "sha256:c4772b78e1a3dfebb8f24425239cda26dfb7c9f2686796c6bde0a415ef153d3f",
+              "evidence_id": "evidence:C3_evidence_qualification:4c99b280605322ee",
+              "model_fingerprint": "sha256:4c99b280605322ee46a254167f4152e865f2e7ba13153b9e9991d9028c93368e",
               "model_id": "C3_evidence_qualification"
             },
             {
+              "behavior_plane": "product_runtime",
               "current": true,
               "evidence_id": "evidence:C4_person_entity_resolution:603526a339d987e3",
               "model_fingerprint": "sha256:603526a339d987e33c3931b6ef405a6cef2bcbffcbedf9c44de9bc6894edfbe4",
               "model_id": "C4_person_entity_resolution"
             },
             {
+              "behavior_plane": "product_runtime",
               "current": true,
-              "evidence_id": "evidence:C5_event_temporal_trace:72d80a24bcaecef0",
-              "model_fingerprint": "sha256:72d80a24bcaecef0f9ab6c2565ec5c334d44bb2017ae959e6859b6cede9e0cd2",
+              "evidence_id": "evidence:C5_event_temporal_trace:66a0158b658f2775",
+              "model_fingerprint": "sha256:66a0158b658f27758f3af9c1c1a20234dd9558b0e6c5b9fbefa278c27a983bb1",
               "model_id": "C5_event_temporal_trace"
             },
             {
+              "behavior_plane": "product_runtime",
               "current": true,
-              "evidence_id": "evidence:C6_matter_formation_admission:5952495975d42700",
-              "model_fingerprint": "sha256:5952495975d4270066f457c73a97a4ef66d87a67fa24f61554a740cfcd35f056",
+              "evidence_id": "evidence:C6_matter_formation_admission:4c767a291ad590bb",
+              "model_fingerprint": "sha256:4c767a291ad590bbdeaa1502a44a823bc90f2af32065ebe8a61afb247c020074",
               "model_id": "C6_matter_formation_admission"
             },
             {
+              "behavior_plane": "product_runtime",
               "current": true,
-              "evidence_id": "evidence:C7_lifecycle_board_state:951befd66451fa09",
-              "model_fingerprint": "sha256:951befd66451fa09fd78877399365501db90a42b6cf2bcabdb560a71b2f68a54",
+              "evidence_id": "evidence:C7_lifecycle_board_state:3e417e15c4276d31",
+              "model_fingerprint": "sha256:3e417e15c4276d319428802e26e146cc0866c484b3e52ce3673a7555eefb33f4",
               "model_id": "C7_lifecycle_board_state"
             },
             {
+              "behavior_plane": "product_runtime",
               "current": true,
-              "evidence_id": "evidence:C8_open_loop_waiting_blocking:0ab663d7fe25bfed",
-              "model_fingerprint": "sha256:0ab663d7fe25bfed51bdcadc916a0b8466f2e017f340326587d58fcceb8fd283",
+              "evidence_id": "evidence:C8_open_loop_waiting_blocking:87ab92d77bb88b87",
+              "model_fingerprint": "sha256:87ab92d77bb88b87bad1476e4fcf6456cb4a415beaba35ddb2f336ba7860431c",
               "model_id": "C8_open_loop_waiting_blocking"
             },
             {
+              "behavior_plane": "product_runtime",
               "current": true,
-              "evidence_id": "evidence:C9_completion_cancellation_reopen:fd9fe90d10d99d57",
-              "model_fingerprint": "sha256:fd9fe90d10d99d576eeaf6b7cb8686d0425979a6603fddf0c8a3b2bcdfd8c95b",
+              "evidence_id": "evidence:C9_completion_cancellation_reopen:7e567c24f8a5704a",
+              "model_fingerprint": "sha256:7e567c24f8a5704a831cf00478b06ce1b8e3d07c49698512017773db8ef96714",
               "model_id": "C9_completion_cancellation_reopen"
             },
             {
+              "behavior_plane": "product_runtime",
               "current": true,
-              "evidence_id": "evidence:C10_correction_revocation:af05d44733387852",
-              "model_fingerprint": "sha256:af05d447333878523615be6e94a948c17e425a6a51934ca9aaecaead9e706aa9",
+              "evidence_id": "evidence:C10_correction_revocation:cf48434e38a13de4",
+              "model_fingerprint": "sha256:cf48434e38a13de4874e757ea4668c5c855fb4f8c8dacb6f2d22935920f940b3",
               "model_id": "C10_correction_revocation"
             },
             {
+              "behavior_plane": "product_runtime",
               "current": true,
-              "evidence_id": "evidence:C11_guard_artifact_prediction:bdb7bc7a407ec5ec",
-              "model_fingerprint": "sha256:bdb7bc7a407ec5ec62dd03f10e08a62d0e4a54fe251503b84987892398505a8c",
+              "evidence_id": "evidence:C11_guard_artifact_prediction:503955f1e0176a19",
+              "model_fingerprint": "sha256:503955f1e0176a1944172eada89381e6240187a2abdc52e3f5d6967bd395e302",
               "model_id": "C11_guard_artifact_prediction"
             },
             {
+              "behavior_plane": "product_runtime",
               "current": true,
-              "evidence_id": "evidence:C12_projection_bilingual_ui:0f7891134bc61010",
-              "model_fingerprint": "sha256:0f7891134bc610109d3c39af21c93478f2eecd87c9b6a9178f511db920b1ddd6",
+              "evidence_id": "evidence:C12_projection_bilingual_ui:15891997d26e1534",
+              "model_fingerprint": "sha256:15891997d26e1534e1a029703e3c64f1af7ef3f633ba3a016664b87bc700c971",
               "model_id": "C12_projection_bilingual_ui"
+            },
+            {
+              "behavior_plane": "agent_operation",
+              "current": true,
+              "evidence_id": "evidence:A0_matters_source_analysis_operation:7e416d2b1972c524",
+              "model_fingerprint": "sha256:7e416d2b1972c52407adb6d0ba3b692f6d9f45040cf81085ef9c32a6b47fbe55",
+              "model_id": "A0_matters_source_analysis_operation"
+            },
+            {
+              "behavior_plane": "agent_operation",
+              "current": true,
+              "evidence_id": "evidence:A1_matters_research_operation:b3bb1836a6200d96",
+              "model_fingerprint": "sha256:b3bb1836a6200d967e5aa974e2f10534a47584a6dafde8e7e9c04082de644cb4",
+              "model_id": "A1_matters_research_operation"
+            },
+            {
+              "behavior_plane": "agent_operation",
+              "current": true,
+              "evidence_id": "evidence:A2_matters_maintenance_orchestrator_operation:e148ecb8257cd932",
+              "model_fingerprint": "sha256:e148ecb8257cd93220a1a4558a308ada67a7f6e8a653d603f2a9465c6e2f7ad0",
+              "model_id": "A2_matters_maintenance_orchestrator_operation"
             }
           ],
-          "ok": true
+          "ok": true,
+          "product_model_count": 13
         },
         "status": "passed"
       },
       "G3": {
         "evidence": {
           "closure_decision": "mesh_closure_green",
-          "current_mesh_fingerprint": "sha256:8f4429ac40d3319c9d01ae8438daee9c333319a61cbb58f769669b183068a372",
+          "current_mesh_fingerprint": "sha256:647cbbdc9870c932cab48a6d5df9b115aee8e6854ed38e71a55cde1009a76122",
           "layered_decision": "layered_boundary_proof_green",
           "native_decision": "mesh_green_can_continue",
           "ok": true,
-          "persisted_mesh_fingerprint": "sha256:8f4429ac40d3319c9d01ae8438daee9c333319a61cbb58f769669b183068a372"
+          "persisted_mesh_fingerprint": "sha256:647cbbdc9870c932cab48a6d5df9b115aee8e6854ed38e71a55cde1009a76122"
         },
         "status": "passed"
       },
       "G4": {
         "evidence": {
           "claim_boundary": "G4 proves design inventory, unique ownership, finite universes, and exact planned evidence ownership. It does not prove code, tests, provider conformance, synthetic E2E, live private sources, UI, or release.",
-          "current_design_fingerprint": "sha256:f9d84e599b99c3b436951e559b92d52a8cf6282d0134abd54a00c32cd06d7292",
-          "evidence_id": "evidence:G4-model-derived-design:f9d84e599b99c3b4",
+          "current_design_fingerprint": "sha256:d6f0b14f95c2d93b390803537391a30887cbe727c7f4478d5c54db4f36affa74",
+          "evidence_id": "evidence:G4-model-derived-design:d6f0b14f95c2d93b",
           "execution_status": "not_run",
           "ok": true,
-          "persisted_design_fingerprint": "sha256:f9d84e599b99c3b436951e559b92d52a8cf6282d0134abd54a00c32cd06d7292",
+          "persisted_design_fingerprint": "sha256:d6f0b14f95c2d93b390803537391a30887cbe727c7f4478d5c54db4f36affa74",
           "structural_status": "g4_design_green"
         },
         "status": "passed"
@@ -1836,9 +1831,9 @@
       "G5": {
         "evidence": {
           "g8_receipt": {
-            "current_sources": true,
+            "current_sources": false,
             "evidence_id": "evidence:G8-fully-synthetic:ffe0563f16dabefc",
-            "ok": true,
+            "ok": false,
             "source_fingerprint": "sha256:ffe0563f16dabefc5a58c6dc617e67f73cb4d3905a8054d500c70e7ccc0d22f6"
           },
           "gate": {
@@ -1851,14 +1846,14 @@
             "status": "passed"
           }
         },
-        "status": "passed"
+        "status": "blocked"
       },
       "G6": {
         "evidence": {
           "g8_receipt": {
-            "current_sources": true,
+            "current_sources": false,
             "evidence_id": "evidence:G8-fully-synthetic:ffe0563f16dabefc",
-            "ok": true,
+            "ok": false,
             "source_fingerprint": "sha256:ffe0563f16dabefc5a58c6dc617e67f73cb4d3905a8054d500c70e7ccc0d22f6"
           },
           "gate": {
@@ -2087,14 +2082,14 @@
             "status": "passed"
           }
         },
-        "status": "passed"
+        "status": "blocked"
       },
       "G7": {
         "evidence": {
           "g8_receipt": {
-            "current_sources": true,
+            "current_sources": false,
             "evidence_id": "evidence:G8-fully-synthetic:ffe0563f16dabefc",
-            "ok": true,
+            "ok": false,
             "source_fingerprint": "sha256:ffe0563f16dabefc5a58c6dc617e67f73cb4d3905a8054d500c70e7ccc0d22f6"
           },
           "gate": {
@@ -2118,14 +2113,14 @@
             "status": "passed"
           }
         },
-        "status": "passed"
+        "status": "blocked"
       },
       "G8": {
         "evidence": {
           "g8_receipt": {
-            "current_sources": true,
+            "current_sources": false,
             "evidence_id": "evidence:G8-fully-synthetic:ffe0563f16dabefc",
-            "ok": true,
+            "ok": false,
             "source_fingerprint": "sha256:ffe0563f16dabefc5a58c6dc617e67f73cb4d3905a8054d500c70e7ccc0d22f6"
           },
           "gate": {
@@ -2224,32 +2219,22 @@
             "status": "passed"
           }
         },
-        "status": "passed"
+        "status": "blocked"
       },
       "G9": {
         "evidence": {
-          "aggregate_fingerprint": "sha256:01176962cfb81a2a57b404e507d31bd0d09147d45a167851937bd9f33a0781d8",
-          "catalog_reconciled": true,
-          "claim_boundary": "This gate consumes only a privacy-minimized aggregate and opaque handle. It proves a bounded real-private first run with exact inventory/depth/localization accounting; coverage_complete=false remains open work and no private payload is serialized.",
-          "coverage_complete": false,
-          "failed_partition_count": 0,
-          "inventory_reconciled": true,
-          "localization_current": true,
-          "ok": true,
-          "partition_status": "complete",
-          "private_evidence_handle": "private-evidence:matters-v0.2-first-run",
-          "runtime_status": "current_with_open_work",
-          "semantic_depth_accounted": true,
-          "status": "passed"
+          "ok": false,
+          "reason": "private_aggregate_not_supplied",
+          "status": "not_run"
         },
-        "status": "passed"
+        "status": "not_run"
       }
     },
-    "generated_at": "2026-07-19T06:17:14.920622+00:00",
-    "next_gate": "G11",
+    "generated_at": "2026-07-20T03:13:21.226645+00:00",
+    "next_gate": "G0",
     "ok": false
   },
-  "snapshot_hash": "sha256:02211d224af0fc093574af1c6b9af87c99fc457938561b1989b0d2623be59205",
+  "snapshot_hash": "sha256:342378fdf4dc0ce028292367e5ecead755b0b9515e6470b3b110157c2dde7219",
   "snapshot_path": ".flowguard/evidence/process/g0_g4_snapshot.json",
-  "status": "g10_current"
+  "status": "blocked"
 }

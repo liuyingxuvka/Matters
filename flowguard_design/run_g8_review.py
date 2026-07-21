@@ -8,8 +8,12 @@ from hashlib import sha256
 import json
 from pathlib import Path
 
-from flowguard_design.inventory import MODULE_PATHS
-from flowguard_design.inventory import ALL_TEST_SUITES
+from flowguard_design.inventory import (
+    AGENT_OPERATION_ORDER,
+    ALL_TEST_SUITES,
+    MODEL_ORDER,
+    MODULE_PATHS,
+)
 from flowguard_design.run_g4_review import _fingerprint as g4_fingerprint
 from flowguard_design.synthetic_sources import review_fixture_inventory
 from flowguard_models.delivery_flow import _mesh_gate, _model_gate
@@ -108,7 +112,8 @@ def _alignment_current() -> dict:
             payload.get("status") == "alignment_green"
             and current_inputs
             and models_ok
-            and len(payload.get("models", ())) == 13
+            and len(payload.get("models", ()))
+            == len(MODEL_ORDER) + len(AGENT_OPERATION_ORDER)
         ),
         "evidence_id": payload.get("evidence_id", ""),
         "alignment_fingerprint": payload.get("alignment_fingerprint", ""),
@@ -222,7 +227,7 @@ def main() -> int:
             (
                 *(
                     path
-                    for base in ("src", "tests", "ui", "plugin")
+                    for base in ("src", "tests", "ui", "plugin", "plugins")
                     for path in Path(base).rglob("*")
                     if (
                         path.is_file()

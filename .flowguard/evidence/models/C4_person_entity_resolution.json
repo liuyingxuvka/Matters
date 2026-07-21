@@ -6,7 +6,7 @@
     "abstract_green",
     "hazard_green"
   ],
-  "generated_at": "2026-07-19T05:48:43.895330+00:00",
+  "generated_at": "2026-07-21T07:11:31.333520+00:00",
   "known_bad_proofs": [
     {
       "evidence_id": "C4_person_entity_resolution:known-bad:H-C4-001-same-name-auto-merge",
@@ -58,7 +58,7 @@
     "model_mesh": "not_run_in_this_owner: cross-model topology belongs to the separate ModelMesh owner"
   },
   "toolchain": {
-    "flowguard_package_version": "0.58.4",
+    "flowguard_package_version": "0.58.5",
     "flowguard_schema_version": "1.0"
   }
 }

@@ -1,13 +1,25 @@
 {
   "artifact_type": "matters.flowguard-model-receipt.v1",
-  "claim_boundary": "This model establishes bounded A0 WorkPackageV2 execution, complete input accounting, terminal receipts, scope rejection, and zero product writes. It does not prove model quality or provider privacy.",
-  "evidence_id": "evidence:A0_matters_source_analysis_operation:f3fde9e2194cca3d",
+  "claim_boundary": "This model establishes bounded model-agnostic A0 WorkPackageV2 capability routing, exact background-worker assignment selection, hero-generation isolation, replaceable private Codex profiles, escalation, unavailability, complete input accounting, terminal receipts, scope rejection, no direct-API fallback, and zero product writes. It does not prove model quality, concrete model availability, or provider privacy.",
+  "evidence_id": "evidence:A0_matters_source_analysis_operation:2a6cea6c453f2837",
   "evidence_tiers": [
     "abstract_green",
     "hazard_green"
   ],
-  "generated_at": "2026-07-19T05:41:20.166640+00:00",
+  "generated_at": "2026-07-21T07:11:40.356661+00:00",
   "known_bad_proofs": [
+    {
+      "evidence_id": "A0_matters_source_analysis_operation:known-bad:H-A0-007-profile-identity-not-published",
+      "failure_id": "H-A0-007-profile-identity-not-published",
+      "observed_status": "failed",
+      "protected_error_class": "analysis_runtime_identity_projection_gap"
+    },
+    {
+      "evidence_id": "A0_matters_source_analysis_operation:known-bad:H-A0-011-worker-selector-scope-escape",
+      "failure_id": "H-A0-011-worker-selector-scope-escape",
+      "observed_status": "failed",
+      "protected_error_class": "background_worker_assignment_scope_escape"
+    },
     {
       "evidence_id": "A0_matters_source_analysis_operation:known-bad:H-A0-001-missing-input-accounting",
       "failure_id": "H-A0-001-missing-input-accounting",
@@ -25,9 +37,33 @@
       "failure_id": "H-A0-003-product-write",
       "observed_status": "failed",
       "protected_error_class": "agent_operation_plane_escape"
+    },
+    {
+      "evidence_id": "A0_matters_source_analysis_operation:known-bad:H-A0-004-named-model-becomes-contract",
+      "failure_id": "H-A0-004-named-model-becomes-contract",
+      "observed_status": "failed",
+      "protected_error_class": "deployment_model_product_dependency"
+    },
+    {
+      "evidence_id": "A0_matters_source_analysis_operation:known-bad:H-A0-005-cheap-model-satisfies-complex-role",
+      "failure_id": "H-A0-005-cheap-model-satisfies-complex-role",
+      "observed_status": "failed",
+      "protected_error_class": "capability_underprovisioning"
+    },
+    {
+      "evidence_id": "A0_matters_source_analysis_operation:known-bad:H-A0-006-direct-api-fallback",
+      "failure_id": "H-A0-006-direct-api-fallback",
+      "observed_status": "failed",
+      "protected_error_class": "undeclared_provider_success_path"
+    },
+    {
+      "evidence_id": "A0_matters_source_analysis_operation:known-bad:H-A0-010-generated-hero-result-enters-analysis-evidence",
+      "failure_id": "H-A0-010-generated-hero-result-enters-analysis-evidence",
+      "observed_status": "failed",
+      "protected_error_class": "hero_generation_evidence_join_escape"
     }
   ],
-  "model_fingerprint": "sha256:f3fde9e2194cca3d7287c5fa10782bbb42e3fd52c0ffed17281011aaab7ec623",
+  "model_fingerprint": "sha256:2a6cea6c453f2837f64f8d1ce116fc9b9ffe756988faaec4d5ac08256da91c33",
   "model_id": "A0_matters_source_analysis_operation",
   "model_title": "A0 Bounded Source Analysis Operation",
   "overall_status": "pass_with_gaps",
@@ -52,7 +88,7 @@
     "model_mesh": "not_run_in_this_owner: cross-model topology belongs to the separate ModelMesh owner"
   },
   "toolchain": {
-    "flowguard_package_version": "0.58.4",
+    "flowguard_package_version": "0.58.5",
     "flowguard_schema_version": "1.0"
   }
 }

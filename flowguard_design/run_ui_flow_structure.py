@@ -37,6 +37,7 @@ from flowguard_design.ui_flow_structure import (
     visibility_plan,
     visible_surface,
 )
+from flowguard_design.ui_runtime_contract import REQUIRED_UI_CHECKS
 
 
 RUNTIME_EVIDENCE = Path(".flowguard/evidence/ui/G10_live_ui.json")
@@ -61,41 +62,19 @@ def _runtime_gate(revision: str) -> dict:
             "blockers": ["installed_runtime_evidence_unreadable"],
         }
     checks = payload.get("checks", {})
-    required = {
-        "installed_runtime",
-        "english_default",
-        "zh_cn_selectable",
-        "same_revision_locale_reload",
-        "standard_density_default",
-        "compact_density_selectable",
-        "density_semantics_preserved",
-        "large_catalog_window",
-        "search_filter_state_preserved",
-        "matter_detail_open_return",
-        "human_readable_timeline",
-        "representative_visual",
-        "honest_visual_placeholder",
-        "background_blocked_catalog_usable",
-        "catalog_error_focus_and_recovery",
-        "evidence_reveal_and_return",
-        "optional_correction_recovery",
-        "optional_cover_correction",
-        "geometry_1880",
-        "geometry_1440",
-        "geometry_1180",
-        "narrow_geometry",
-        "private_internal_absent",
-    }
+    required = set(REQUIRED_UI_CHECKS)
     missing = sorted(
         check_id
         for check_id in required
         if not isinstance(checks, dict) or checks.get(check_id) is not True
     )
     current = payload.get("ui_revision") == revision
+    exact_inventory = isinstance(checks, dict) and set(checks) == required
     ok = (
         payload.get("artifact_type") == "matters.live-ui-evidence.v1"
         and payload.get("status") == "passed"
         and current
+        and exact_inventory
         and not missing
         and str(payload.get("evidence_id", "")).startswith("evidence:ui:")
     )
@@ -105,6 +84,7 @@ def _runtime_gate(revision: str) -> dict:
         "evidence_id": str(payload.get("evidence_id", "")),
         "ui_revision_current": current,
         "missing_checks": missing,
+        "exact_check_inventory": exact_inventory,
         "blockers": ([] if ok else ["installed_runtime_evidence_not_current"]),
     }
 
@@ -254,16 +234,31 @@ def build_receipt(root: Path = Path(".")) -> dict:
             []
         ),
         "claim_boundary": (
-            "Native FlowGuard reviews cover admitted content, UI event/state behavior, "
+            "Native FlowGuard reviews admitted content, UI event/state behavior, "
             "journeys, capabilities, click-to-output chains, installed desktop runtime, "
-            "English/zh-CN behavior, Standard/Compact cards, object detail, representative "
-            "visuals, optional correction, recovery, disclosure, and desktop geometry. "
+            "English/zh-CN behavior, Standard/Compact cards, exactly eight detail "
+            "sections, Files & information, AI supplemental information, a read-only "
+            "evidence image gallery, truthful transport recovery, generated presentation-only "
+            "heroes, latest-meaningful-clue catalog ordering, root-only catalog, "
+            "Matter-only hierarchy graph, one reusable node quick view, "
+            "logical-event timeline deduplication, no ordinary "
+            "correction or canonical-write control, recovery, disclosure, approved font tokens, sidebar "
+            "spacing, non-overlap, and desktop geometry. "
+            "The separate C10 correction capability remains outside this object browser. "
             "Figma design evidence does not substitute for runtime proof."
         ),
         "typed_next_actions": (
             []
             if structural_ok and runtime_ok
-            else ["produce current installed-browser evidence and rerun this owner"]
+            else [
+                "implement the modeled eight-section root UI, Matter-only hierarchy "
+                "and one reusable node quick view, generated hero, "
+                "latest-meaningful-clue activity order, Files & information table, "
+                "AI supplemental information, read-only evidence Images gallery, and "
+                "truthful transport recovery; then "
+                "produce current installed-browser evidence for every required check and "
+                "rerun this owner"
+            ]
         ),
     }
 

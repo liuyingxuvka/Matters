@@ -4,23 +4,27 @@
   "version": 1,
   "metadata": {
     "component": {
-      "bom-ref": "pkg:pypi/matters@0.2.0",
+      "bom-ref": "pkg:pypi/matters@0.3.0",
       "name": "matters",
-      "purl": "pkg:pypi/matters@0.2.0",
+      "purl": "pkg:pypi/matters@0.3.0",
       "type": "application",
-      "version": "0.2.0"
+      "version": "0.3.0"
     },
     "properties": [
       {
         "name": "matters:release-scope",
-        "value": "private-local-candidate"
+        "value": "private-github-generic-release"
       },
       {
         "name": "matters:generated-from",
         "value": "pyproject.toml"
+      },
+      {
+        "name": "matters:version-authority",
+        "value": "src/matters/_version.py"
       }
     ],
-    "timestamp": "2026-07-19T00:00:00Z"
+    "timestamp": "2026-07-20T00:00:00Z"
   },
   "components": [
     {
@@ -70,6 +74,19 @@
       "scope": "required",
       "type": "library",
       "version": ">=1.0"
+    },
+    {
+      "bom-ref": "urn:matters:dependency:pywebview:gte-6.2-lt-7-win32",
+      "name": "pywebview",
+      "scope": "required",
+      "type": "library",
+      "version": "<7,>=6.2",
+      "properties": [
+        {
+          "name": "matters:platform-marker",
+          "value": "sys_platform == 'win32'"
+        }
+      ]
     }
   ],
   "dependencies": [
@@ -80,9 +97,10 @@
         "urn:matters:dependency:pymupdf:gte-1.24",
         "urn:matters:dependency:openpyxl:gte-3.1",
         "urn:matters:dependency:python-docx:gte-1.1",
-        "urn:matters:dependency:python-pptx:gte-1.0"
+        "urn:matters:dependency:python-pptx:gte-1.0",
+        "urn:matters:dependency:pywebview:gte-6.2-lt-7-win32"
       ],
-      "ref": "pkg:pypi/matters@0.2.0"
+      "ref": "pkg:pypi/matters@0.3.0"
     },
     {
       "dependsOn": [],
@@ -107,6 +125,10 @@
     {
       "dependsOn": [],
       "ref": "urn:matters:dependency:python-pptx:gte-1.0"
+    },
+    {
+      "dependsOn": [],
+      "ref": "urn:matters:dependency:pywebview:gte-6.2-lt-7-win32"
     }
   ]
 }

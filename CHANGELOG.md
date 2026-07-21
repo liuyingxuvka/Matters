@@ -2,6 +2,42 @@
 
 All notable changes to Matters are recorded in this file.
 
+## 0.3.0 — 2026-07-20
+
+First generic private GitHub release. The owner's private Gmail, local-file,
+and Codex first run remains a separate post-release acceptance domain.
+
+- Established `matters._version.VERSION` as the single editable version
+  authority for packaging, runtime reports, plugin metadata, installer wheel
+  selection, bundled skills, the SBOM, and the local release gate.
+- Advanced the immutable eleven-skill consumer pack and its Matters
+  compatibility interval to the 0.3 release line without installing global
+  skills.
+- Bound the portable ResearchGuard receipt identity to its declared Matters
+  and ResearchGuard compatibility fields, advanced it to the verified 0.1.2
+  installation, and required those specifiers to accept the current runtime
+  versions.
+- Made the frozen local-release model derive its expected tag and release
+  artifact identity from the current version and exact agent-operation model
+  inventory instead of a retired release literal.
+- Added source-in-place registration, SourceGroup projection, Codex project
+  discovery, fixed-boundary Gmail page-chain safety, and append-only source
+  revision supersession without copying or mutating original sources.
+- Added model-agnostic World Model and situation graph contracts for broad
+  Matter hierarchy, evidence-scoped people and roles, typed relationships,
+  logical timeline deduplication, start-boundary inference, human bilingual
+  summaries, historical-gap inference, correction, and prediction feedback.
+- Added the desktop-first bilingual object browser with Standard and Compact
+  density, root-only photorealistic Hero contracts, hierarchy graph and bounded
+  quick views, day-only dates, files, timeline, people, related Matters, AI
+  supplemental information, and one-click coverage diagnostics.
+- Added the public `matters-mcp` AI gateway and standard Codex plugin while
+  keeping the exactly eleven app-local maintenance skills separate from the
+  external ResearchGuard provider.
+- Split the generic release gate from private first-run coverage so package,
+  model, UI, privacy, clean-install, and desktop evidence can close without
+  exporting or claiming completion of private user data.
+
 ## 0.2.0 — 2026-07-19
 
 Private local desktop candidate.
@@ -59,6 +95,8 @@ Private local desktop candidate.
 - Canonicalize text line endings in the UI authority fingerprint so source,
   clean-clone, packaged, and installed Windows identities do not disagree only
   because Git projected LF as CRLF.
+- Write the Windows installation receipt as strict UTF-8 without a byte-order
+  mark so PowerShell and Python consume the same wheel/version identity at G12.
 
 ## 0.1.0 — 2026-07-18
 

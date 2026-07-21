@@ -11,6 +11,19 @@ import sqlite3
 from typing import Any, Iterable
 
 
+MAINTENANCE_MUTATION_KEYS = (
+    "source",
+    "mailbox",
+    "outbound",
+    "grant",
+    "code",
+    "model",
+    "install",
+    "git",
+    "tag",
+    "release",
+)
+
 TERMINAL_NONTRACKED_DISPOSITIONS = frozenset(
     {
         "not_tracked",
@@ -25,6 +38,161 @@ TERMINAL_NONTRACKED_DISPOSITIONS = frozenset(
         "deleted",
     }
 )
+
+
+def _opaque(value: object, *, prefix: str) -> bool:
+    text = str(value or "")
+    return (
+        text.startswith(prefix)
+        and len(text) > len(prefix)
+        and "/" not in text
+        and "\\" not in text
+        and "\n" not in text
+        and "\r" not in text
+    )
+
+
+def _fingerprint(value: object) -> bool:
+    text = str(value or "")
+    if not text.startswith("sha256:") or len(text) != 71:
+        return False
+    return all(character in "0123456789abcdef" for character in text[7:])
+
+
+def _maintenance_projection(path: Path | None) -> dict[str, Any]:
+    if path is None:
+        return {
+            "status": "not_supplied",
+            "current": False,
+            "model_agnostic": False,
+            "shared_service_path": False,
+            "app_api_key_required": False,
+            "installed": False,
+            "manual_rehearsal_current": False,
+            "mutation_attempt_counts": {
+                key: 0 for key in MAINTENANCE_MUTATION_KEYS
+            },
+            "unattended_final_verification": False,
+        }
+    try:
+        payload = json.loads(path.resolve().read_text(encoding="utf-8"))
+    except (OSError, TypeError, ValueError, json.JSONDecodeError):
+        return {
+            "status": "unreadable",
+            "current": False,
+            "model_agnostic": False,
+            "shared_service_path": False,
+            "app_api_key_required": False,
+            "installed": False,
+            "manual_rehearsal_current": False,
+            "mutation_attempt_counts": {
+                key: 0 for key in MAINTENANCE_MUTATION_KEYS
+            },
+            "unattended_final_verification": False,
+        }
+    mutation_counts = payload.get("mutation_attempt_counts", {})
+    counts = {
+        key: int(mutation_counts.get(key, -1))
+        if isinstance(mutation_counts, dict)
+        else -1
+        for key in MAINTENANCE_MUTATION_KEYS
+    }
+    run_receipt_ids = payload.get("run_receipt_ids", ())
+    run_ids_current = (
+        isinstance(run_receipt_ids, list)
+        and bool(run_receipt_ids)
+        and all(_opaque(value, prefix="maintenance-run:") for value in run_receipt_ids)
+    )
+    current = (
+        payload.get("artifact_type")
+        == "matters.codex-daily-maintenance-evidence.v1"
+        and payload.get("status") == "current"
+        and _opaque(payload.get("schedule_identity"), prefix="codex-automation:")
+        and _opaque(
+            payload.get("execution_profile_identity"),
+            prefix="execution-profile:",
+        )
+        and _opaque(
+            payload.get("manual_rehearsal_receipt_id"),
+            prefix="maintenance-rehearsal:",
+        )
+        and _fingerprint(payload.get("manual_rehearsal_fingerprint"))
+        and _opaque(
+            payload.get("install_currentness_receipt_id"),
+            prefix="maintenance-install:",
+        )
+        and _fingerprint(payload.get("install_currentness_fingerprint"))
+        and _fingerprint(payload.get("shared_service_entrypoint_fingerprint"))
+        and run_ids_current
+        and payload.get("last_delta_status")
+        in {"no_delta", "delta_processed", "open_work_remains"}
+        and payload.get("model_agnostic") is True
+        and payload.get("shared_service_path") is True
+        and payload.get("app_api_key_required") is False
+        and payload.get("unattended_final_verification") is False
+        and all(value == 0 for value in counts.values())
+    )
+    return {
+        "status": "current" if current else "blocked",
+        "current": current,
+        "schedule_identity": (
+            str(payload.get("schedule_identity", ""))
+            if _opaque(payload.get("schedule_identity"), prefix="codex-automation:")
+            else ""
+        ),
+        "execution_profile_identity": (
+            str(payload.get("execution_profile_identity", ""))
+            if _opaque(
+                payload.get("execution_profile_identity"),
+                prefix="execution-profile:",
+            )
+            else ""
+        ),
+        "manual_rehearsal_receipt_id": (
+            str(payload.get("manual_rehearsal_receipt_id", ""))
+            if _opaque(
+                payload.get("manual_rehearsal_receipt_id"),
+                prefix="maintenance-rehearsal:",
+            )
+            else ""
+        ),
+        "manual_rehearsal_fingerprint": (
+            str(payload.get("manual_rehearsal_fingerprint", ""))
+            if _fingerprint(payload.get("manual_rehearsal_fingerprint"))
+            else ""
+        ),
+        "install_currentness_receipt_id": (
+            str(payload.get("install_currentness_receipt_id", ""))
+            if _opaque(
+                payload.get("install_currentness_receipt_id"),
+                prefix="maintenance-install:",
+            )
+            else ""
+        ),
+        "install_currentness_fingerprint": (
+            str(payload.get("install_currentness_fingerprint", ""))
+            if _fingerprint(payload.get("install_currentness_fingerprint"))
+            else ""
+        ),
+        "shared_service_entrypoint_fingerprint": (
+            str(payload.get("shared_service_entrypoint_fingerprint", ""))
+            if _fingerprint(payload.get("shared_service_entrypoint_fingerprint"))
+            else ""
+        ),
+        "run_receipt_ids": (
+            list(run_receipt_ids) if run_ids_current else []
+        ),
+        "last_delta_status": str(payload.get("last_delta_status", "")),
+        "model_agnostic": payload.get("model_agnostic") is True,
+        "shared_service_path": payload.get("shared_service_path") is True,
+        "app_api_key_required": payload.get("app_api_key_required") is True,
+        "installed": current,
+        "manual_rehearsal_current": current,
+        "mutation_attempt_counts": counts,
+        "unattended_final_verification": (
+            payload.get("unattended_final_verification") is True
+        ),
+    }
 
 
 def _partition_stats(database: Path) -> dict[str, Any]:
@@ -92,6 +260,33 @@ def _current_payloads(
         yield json.loads(raw)
 
 
+def _current_inventory_rows(
+    connection: sqlite3.Connection,
+) -> tuple[dict[str, Any], ...]:
+    """Read the direct-current inventory projection, not superseded snapshots."""
+
+    rows: list[dict[str, Any]] = []
+    for scope_id, object_id, disposition, raw in connection.execute(
+        """
+        SELECT scope_id, object_id, disposition, occurrence_payload
+          FROM inventory_occurrence_current
+         ORDER BY scope_id, object_id
+        """
+    ):
+        occurrence = json.loads(raw)
+        if not isinstance(occurrence, dict):
+            raise ValueError("current inventory occurrence payload is invalid")
+        rows.append(
+            {
+                "scope_id": str(scope_id),
+                "object_id": str(object_id),
+                "disposition": str(disposition),
+                "occurrence": occurrence,
+            }
+        )
+    return tuple(rows)
+
+
 def _localized_map_stats(value: object) -> tuple[int, int, int]:
     complete = 0
     missing = 0
@@ -128,7 +323,12 @@ def _localized_map_stats(value: object) -> tuple[int, int, int]:
     return complete, missing, revision_mismatch
 
 
-def build_aggregate(database: Path, *, evidence_handle: str) -> dict[str, Any]:
+def build_aggregate(
+    database: Path,
+    *,
+    evidence_handle: str,
+    maintenance_evidence: Path | None = None,
+) -> dict[str, Any]:
     if not evidence_handle.startswith("private-evidence:"):
         raise ValueError("evidence handle must be opaque and private-evidence namespaced")
     connection = sqlite3.connect(
@@ -138,20 +338,15 @@ def build_aggregate(database: Path, *, evidence_handle: str) -> dict[str, Any]:
     try:
         scopes = tuple(_current_payloads(connection, "candidate_scope"))
         snapshots = tuple(_current_payloads(connection, "inventory_snapshot"))
+        inventory_rows = _current_inventory_rows(connection)
         depth_rows = tuple(_current_payloads(connection, "semantic_depth"))
         source_rows = tuple(_current_payloads(connection, "source_version"))
         projection_rows = tuple(_current_payloads(connection, "projection"))
         provider_counts = Counter(str(item.get("provider", "")) for item in scopes)
-        disposition_counts: Counter[str] = Counter()
-        occurrence_count = 0
-        for snapshot in snapshots:
-            occurrences = tuple(snapshot.get("occurrences", ()))
-            dispositions = tuple(snapshot.get("dispositions", ()))
-            occurrence_count += len(occurrences)
-            disposition_counts.update(
-                str(item.get("status", "")) for item in dispositions
-            )
-        depth_counts = Counter(str(item.get("state", "")) for item in depth_rows)
+        disposition_counts: Counter[str] = Counter(
+            str(item["disposition"]) for item in inventory_rows
+        )
+        occurrence_count = len(inventory_rows)
         complete_maps = missing_maps = revision_mismatches = 0
         legacy_projection_rows = 0
         for projection in projection_rows:
@@ -172,7 +367,7 @@ def build_aggregate(database: Path, *, evidence_handle: str) -> dict[str, Any]:
                 """
             )
         }
-        active_catalog_count = int(
+        active_catalog_occurrence_count = int(
             connection.execute(
                 """
                 SELECT COUNT(*)
@@ -181,6 +376,11 @@ def build_aggregate(database: Path, *, evidence_handle: str) -> dict[str, Any]:
                     ON s.owner = c.owner
                    AND s.object_id = c.object_id
                    AND s.revision = c.revision
+                  JOIN (
+                       SELECT DISTINCT object_id
+                         FROM inventory_occurrence_current
+                  ) inventory
+                    ON inventory.object_id = c.object_id
                  WHERE c.owner = 'source_catalog'
                    AND COALESCE(
                        json_extract(s.payload, '$.active'),
@@ -189,19 +389,42 @@ def build_aggregate(database: Path, *, evidence_handle: str) -> dict[str, Any]:
                 """
             ).fetchone()[0]
         )
+        active_catalog_nonoccurrence_count = int(
+            connection.execute(
+                """
+                SELECT COUNT(*)
+                  FROM current_objects c
+                  JOIN snapshots s
+                    ON s.owner = c.owner
+                   AND s.object_id = c.object_id
+                   AND s.revision = c.revision
+                  LEFT JOIN (
+                       SELECT DISTINCT object_id
+                         FROM inventory_occurrence_current
+                  ) inventory
+                    ON inventory.object_id = c.object_id
+                 WHERE c.owner = 'source_catalog'
+                   AND COALESCE(
+                       json_extract(s.payload, '$.active'),
+                       0
+                   ) = 1
+                   AND inventory.object_id IS NULL
+                """
+            ).fetchone()[0]
+        )
     finally:
         connection.close()
 
     disposition_count = sum(disposition_counts.values())
     occurrence_ids = {
-        str(item.get("occurrence_id", ""))
-        for snapshot in snapshots
-        for item in snapshot.get("occurrences", ())
+        str(item["object_id"])
+        for item in inventory_rows
+        if str(item["object_id"])
     }
     disposition_by_occurrence = {
-        str(item.get("occurrence_id", "")): str(item.get("status", ""))
-        for snapshot in snapshots
-        for item in snapshot.get("dispositions", ())
+        str(item["object_id"]): str(item["disposition"])
+        for item in inventory_rows
+        if str(item["object_id"])
     }
     source_occurrence_ids = {
         str(item.get("external_reference", {}).get("external_id", ""))
@@ -211,7 +434,9 @@ def build_aggregate(database: Path, *, evidence_handle: str) -> dict[str, Any]:
     depth_by_occurrence = {
         str(item.get("occurrence_id", "")): str(item.get("state", ""))
         for item in depth_rows
+        if str(item.get("occurrence_id", "")) in occurrence_ids
     }
+    depth_counts = Counter(depth_by_occurrence.values())
     tracked_ids = {
         occurrence_id
         for occurrence_id, status in disposition_by_occurrence.items()
@@ -240,8 +465,11 @@ def build_aggregate(database: Path, *, evidence_handle: str) -> dict[str, Any]:
         len(scopes) == len(snapshots)
         and occurrence_count == disposition_count
         and occurrence_count > 0
+        and len(occurrence_ids) == len(disposition_by_occurrence)
     )
-    catalog_reconciled = active_catalog_count == len(occurrence_ids)
+    catalog_reconciled = (
+        active_catalog_occurrence_count == len(occurrence_ids)
+    )
     locale_current = (
         len(projection_rows) == complete_maps
         and missing_maps == 0
@@ -259,10 +487,10 @@ def build_aggregate(database: Path, *, evidence_handle: str) -> dict[str, Any]:
         report_current
         and partition_inventory["status"] in {"complete", "not_started"}
         and nonterminal_count == 0
-        and set(depth_by_occurrence) == occurrence_ids
+        and occurrence_ids <= set(depth_by_occurrence)
     )
     return {
-        "artifact_type": "matters.private-first-run-aggregate.v1",
+        "artifact_type": "matters.private-first-run-aggregate.v2",
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "status": (
             "coverage_complete"
@@ -277,6 +505,8 @@ def build_aggregate(database: Path, *, evidence_handle: str) -> dict[str, Any]:
             "provider_counts": dict(sorted(provider_counts.items())),
             "snapshot_count": len(snapshots),
             "occurrence_count": occurrence_count,
+            "distinct_occurrence_count": len(occurrence_ids),
+            "cross_scope_duplicate_count": occurrence_count - len(occurrence_ids),
             "disposition_count": disposition_count,
             "disposition_counts": dict(sorted(disposition_counts.items())),
             "human_review_or_deferred_count": human_review_count,
@@ -287,7 +517,12 @@ def build_aggregate(database: Path, *, evidence_handle: str) -> dict[str, Any]:
             "other_open_count": other_open_count,
             "nonterminal_count": nonterminal_count,
             "reconciled": inventory_reconciled,
-            "active_catalog_count": active_catalog_count,
+            "active_catalog_occurrence_count": (
+                active_catalog_occurrence_count
+            ),
+            "active_catalog_nonoccurrence_count": (
+                active_catalog_nonoccurrence_count
+            ),
             "catalog_reconciled": catalog_reconciled,
         },
         "partition_inventory": partition_inventory,
@@ -299,7 +534,7 @@ def build_aggregate(database: Path, *, evidence_handle: str) -> dict[str, Any]:
         },
         "semantic_depth": {
             "counts": dict(sorted(depth_counts.items())),
-            "all_accounted": set(depth_by_occurrence) == occurrence_ids,
+            "all_accounted": occurrence_ids <= set(depth_by_occurrence),
         },
         "localization": {
             "required_locales": ["en", "zh-CN"],
@@ -310,6 +545,9 @@ def build_aggregate(database: Path, *, evidence_handle: str) -> dict[str, Any]:
             "legacy_pair_rows": legacy_projection_rows,
             "current": locale_current,
         },
+        "codex_daily_maintenance": _maintenance_projection(
+            maintenance_evidence
+        ),
         "claim_boundary": (
             "This public aggregate proves only count reconciliation, bounded "
             "partition traversal state, explicit disposition accounting, "
@@ -328,11 +566,13 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--database", type=Path, required=True)
     parser.add_argument("--evidence-handle", required=True)
+    parser.add_argument("--maintenance-evidence", type=Path, required=True)
     parser.add_argument("--output", type=Path)
     args = parser.parse_args()
     report = build_aggregate(
         args.database,
         evidence_handle=args.evidence_handle,
+        maintenance_evidence=args.maintenance_evidence,
     )
     if args.output is not None:
         args.output.parent.mkdir(parents=True, exist_ok=True)

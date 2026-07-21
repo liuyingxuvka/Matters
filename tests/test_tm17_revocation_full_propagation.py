@@ -1,3 +1,5 @@
+from copy import deepcopy
+
 from conftest import process_source
 
 
@@ -5,8 +7,16 @@ def test_correction_disposes_all_declared_dependents_and_refreshes_projection(
     synthetic_rows,
     service,
 ):
-    original = process_source(service, synthetic_rows["J3"])
-    matter_id = original.admission.candidate.candidate_id
+    admitted_row = deepcopy(synthetic_rows["J3"])
+    envelope = admitted_row["provider_envelope"]
+    envelope["explicit_goal_or_obligation"] = True
+    envelope["status"] = "To Do"
+    envelope.pop("change_items", None)
+    envelope.pop("worklog", None)
+    envelope.pop("comments", None)
+    original = process_source(service, admitted_row)
+    assert original.admission.matter is not None
+    matter_id = original.admission.matter.matter_id
     prior_revision = original.projections[0].semantic_revision
 
     corrected = service.submit_matter_correction(

@@ -9,6 +9,10 @@ import json
 from pathlib import Path
 from typing import Any, Mapping
 
+from packaging.specifiers import InvalidSpecifier, SpecifierSet
+from packaging.version import InvalidVersion, Version
+
+from matters._version import VERSION
 from matters.analysis.operations import ResearchProviderStatus
 
 
@@ -48,6 +52,7 @@ def _inventory(root: Path) -> dict[str, str]:
 
 
 def _receipt_identity(receipt: Mapping[str, Any]) -> str:
+    compatibility = receipt.get("compatibility", {})
     return _json_digest(
         {
             "schema_version": receipt.get("schema_version"),
@@ -58,6 +63,12 @@ def _receipt_identity(receipt: Mapping[str, Any]) -> str:
                 "console_entrypoint"
             ),
             "manifest_fingerprint": receipt.get("manifest", {}).get("fingerprint"),
+            "matters_specifier": compatibility.get("matters_specifier"),
+            "researchguard_specifier": compatibility.get(
+                "researchguard_specifier"
+            ),
+            "researchguard_version": compatibility.get("researchguard_version"),
+            "compatibility_status": compatibility.get("status"),
             "native_checks_fingerprint": receipt.get("native_validation", {}).get(
                 "checks_fingerprint"
             ),
@@ -86,6 +97,7 @@ def validate_researchguard_state(
     """Compare exact installed identities with one portable frozen receipt."""
 
     findings: list[str] = []
+    compatibility = receipt.get("compatibility", {})
     if receipt.get("schema_version") != (
         "matters.researchguard-currentness-receipt.v1"
     ):
@@ -96,7 +108,7 @@ def validate_researchguard_state(
         findings.append("receipt_not_current")
     if receipt.get("source", {}).get("clean") is not True:
         findings.append("source_not_clean")
-    if receipt.get("compatibility", {}).get("status") != "compatible":
+    if compatibility.get("status") != "compatible":
         findings.append("compatibility_not_current")
     if receipt.get("native_validation", {}).get("status") != "pass":
         findings.append("native_validation_not_current")
@@ -104,6 +116,24 @@ def validate_researchguard_state(
         findings.append("installed_currentness_not_current")
 
     expected_version = str(receipt.get("distribution", {}).get("version", ""))
+    if compatibility.get("researchguard_version") != expected_version:
+        findings.append("researchguard_compatibility_version_mismatch")
+    try:
+        matters_specifier = SpecifierSet(
+            str(compatibility.get("matters_specifier", ""))
+        )
+        if not matters_specifier.contains(Version(VERSION), prereleases=True):
+            findings.append("matters_version_incompatible")
+        researchguard_specifier = SpecifierSet(
+            str(compatibility.get("researchguard_specifier", ""))
+        )
+        if not researchguard_specifier.contains(
+            Version(expected_version),
+            prereleases=True,
+        ):
+            findings.append("researchguard_version_incompatible")
+    except (InvalidSpecifier, InvalidVersion):
+        findings.append("compatibility_specifier_invalid")
     if distribution_version != expected_version:
         findings.append("distribution_version_mismatch")
     expected_entrypoint = str(

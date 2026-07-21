@@ -1,6 +1,6 @@
 {
   "artifact_type": "matters.test-suite-receipt.v1",
-  "generated_at": "2026-07-19T06:11:36.852733+00:00",
+  "generated_at": "2026-07-21T04:54:07.072895+00:00",
   "pytest_observation": {
     "errors": 0,
     "failed": 0,
@@ -10,28 +10,29 @@
     "xfailed": 0,
     "xpassed": 0
   },
-  "source_fingerprint": "sha256:a89f145bc53f28e235a9dbf4e20daf85e67555536bf4a267e6ae9eda26c56abd",
+  "source_fingerprint": "sha256:7e2b7fc38359b6f30a4eb984ebba45642dd19f33fe07a45bfc9d56e9041efd7b",
   "source_fingerprints": {
-    "src/matters/application/orchestrator.py": "sha256:7a9d9db9c60feed7bf002be410b1cfef0d540d751efdbdbf65a34b574b309598",
-    "src/matters/revisions/__init__.py": "sha256:9037d1f52372627f6a10980b92e694f537c4d4e490d302a591750693c26e1061",
-    "src/matters/revisions/corrections.py": "sha256:b0e3cb02ae26401c8d7db00df335df2429f349e6c5704b995d7cb80269d6342d",
-    "src/matters/revisions/deletion.py": "sha256:8f585e955af6fa172d7560742eac985a44146f17a46c4eb663d770e9e24add90",
-    "src/matters/revisions/invalidation.py": "sha256:5a9a011114ed15cb1f7f5ab86fa93de81c7718963c8c7169f454b9d5e255b6ba",
-    "src/matters/revisions/recompute.py": "sha256:961062743f2bec5d44375b6b02a623d50b15e61ad2725fd6391d0592721db470",
-    "tests/test_tm17_revocation_full_propagation.py": "sha256:a789d7fdbb59b3430d329620ce771a613c89ff47fc6698b29a26ce76ed9b5884"
+    "src/matters/application/orchestrator.py": "sha256:7eb7998a342588a24ca256f35b15f4079aaf87f147d15180b6c41d2c77b1c7da",
+    "src/matters/revisions/__init__.py": "sha256:e892b7753f5ade76b734e87b2f80ef91b97ca262371d613e869cff0fcabd42ee",
+    "src/matters/revisions/corrections.py": "sha256:b248d33dd9d2d8d12dab18fa81107656a032ac6d06b7385ce9494236418a9c05",
+    "src/matters/revisions/deletion.py": "sha256:7d829f1e26167911a25937a7629f492d6bbcac86e185d3a7bf4403163a26cb4e",
+    "src/matters/revisions/invalidation.py": "sha256:e6cb67dd101148c777b783551123866f1d9b59122e780791d9f9b8e1d0d9b94a",
+    "src/matters/revisions/recompute.py": "sha256:a695d0258b7db5ac47d1bce7f0040edebad4ee1ff8f549067e6c2af35f41b918",
+    "tests/test_tm17_revocation_full_propagation.py": "sha256:df22ac9bf9a3b1ea20f1bad39077ace71a173d99c45b04f441d14308f11d6b17"
   },
   "source_paths": [
     "tests/test_tm17_revocation_full_propagation.py"
   ],
   "stderr_tail": "",
-  "stdout_tail": ".                                                                        [100%]\n1 passed in 0.43s\n",
+  "stdout_tail": ".                                                                        [100%]\n1 passed in 0.83s\n",
   "suite_id": "TM17_revocation_full_propagation",
   "test_suite_evidence": {
     "artifact_version": "matters.test-suite-receipt.v1",
     "background": false,
     "command": "python -m pytest -q -o addopts= tests/test_tm17_revocation_full_propagation.py",
     "covered_obligation_ids": [
-      "TI-TM17_revocation_full_propagation"
+      "TI-TM17_revocation_full_propagation",
+      "TI-FILE-test-tm17-revocation-full-propagation"
     ],
     "diagnostic_boundary": "declared_complete",
     "diagnostic_campaign_id": "G5-G8-TM17_revocation_full_propagation",
@@ -44,14 +45,15 @@
     "finding_ids": [],
     "has_exit_artifact": true,
     "has_result_artifact": true,
-    "inventory_revision": "g4-testmesh-v3-autonomous-object-browser",
+    "inventory_revision": "g4-testmesh-v15-exact-source-and-install-closure",
     "layer": "child",
     "log_root": "",
     "not_run_count": 0,
     "not_run_reason": "",
     "owned_coverage_shard_ids": [],
     "owned_inventory_item_ids": [
-      "TI-TM17_revocation_full_propagation"
+      "TI-TM17_revocation_full_propagation",
+      "TI-FILE-test-tm17-revocation-full-propagation"
     ],
     "owned_leaf_cell_ids": [],
     "owns_side_effects": [],
@@ -60,23 +62,24 @@
     "progress_only": false,
     "proof_artifact": {
       "artifact_fingerprints": {
-        "src/matters/application/orchestrator.py": "sha256:7a9d9db9c60feed7bf002be410b1cfef0d540d751efdbdbf65a34b574b309598",
-        "src/matters/revisions/__init__.py": "sha256:9037d1f52372627f6a10980b92e694f537c4d4e490d302a591750693c26e1061",
-        "src/matters/revisions/corrections.py": "sha256:b0e3cb02ae26401c8d7db00df335df2429f349e6c5704b995d7cb80269d6342d",
-        "src/matters/revisions/deletion.py": "sha256:8f585e955af6fa172d7560742eac985a44146f17a46c4eb663d770e9e24add90",
-        "src/matters/revisions/invalidation.py": "sha256:5a9a011114ed15cb1f7f5ab86fa93de81c7718963c8c7169f454b9d5e255b6ba",
-        "src/matters/revisions/recompute.py": "sha256:961062743f2bec5d44375b6b02a623d50b15e61ad2725fd6391d0592721db470",
-        "tests/test_tm17_revocation_full_propagation.py": "sha256:a789d7fdbb59b3430d329620ce771a613c89ff47fc6698b29a26ce76ed9b5884"
+        "src/matters/application/orchestrator.py": "sha256:7eb7998a342588a24ca256f35b15f4079aaf87f147d15180b6c41d2c77b1c7da",
+        "src/matters/revisions/__init__.py": "sha256:e892b7753f5ade76b734e87b2f80ef91b97ca262371d613e869cff0fcabd42ee",
+        "src/matters/revisions/corrections.py": "sha256:b248d33dd9d2d8d12dab18fa81107656a032ac6d06b7385ce9494236418a9c05",
+        "src/matters/revisions/deletion.py": "sha256:7d829f1e26167911a25937a7629f492d6bbcac86e185d3a7bf4403163a26cb4e",
+        "src/matters/revisions/invalidation.py": "sha256:e6cb67dd101148c777b783551123866f1d9b59122e780791d9f9b8e1d0d9b94a",
+        "src/matters/revisions/recompute.py": "sha256:a695d0258b7db5ac47d1bce7f0040edebad4ee1ff8f549067e6c2af35f41b918",
+        "tests/test_tm17_revocation_full_propagation.py": "sha256:df22ac9bf9a3b1ea20f1bad39077ace71a173d99c45b04f441d14308f11d6b17"
       },
-      "artifact_id": "artifact:run:TM17_revocation_full_propagation:eadacdc794a305aa",
+      "artifact_id": "artifact:run:TM17_revocation_full_propagation:98752ccd422fa8d4",
       "assertion_scope": "external_contract",
       "command": "python -m pytest -q -o addopts= tests/test_tm17_revocation_full_propagation.py",
       "covered_obligation_ids": [
-        "TI-TM17_revocation_full_propagation"
+        "TI-TM17_revocation_full_propagation",
+        "TI-FILE-test-tm17-revocation-full-propagation"
       ],
       "current": true,
       "exit_code": 0,
-      "finished_at": "2026-07-19T06:11:36.852733+00:00",
+      "finished_at": "2026-07-21T04:54:07.072895+00:00",
       "metadata": {},
       "producer_route": "test_mesh",
       "progress_only": false,
@@ -85,15 +88,15 @@
       "route_evidence_current": true,
       "route_gap_codes": [],
       "stale_reasons": [],
-      "started_at": "2026-07-19T06:11:35.525396+00:00"
+      "started_at": "2026-07-21T04:54:04.954770+00:00"
     },
     "release_required": false,
-    "result_fingerprint": "sha256:a89f145bc53f28e235a9dbf4e20daf85e67555536bf4a267e6ae9eda26c56abd",
+    "result_fingerprint": "sha256:7e2b7fc38359b6f30a4eb984ebba45642dd19f33fe07a45bfc9d56e9041efd7b",
     "result_path": ".flowguard/evidence/tests/TM17_revocation_full_propagation.json",
     "result_reused": false,
     "result_status": "passed",
     "reuse_ticket": null,
-    "run_id": "run:TM17_revocation_full_propagation:eadacdc794a305aa",
+    "run_id": "run:TM17_revocation_full_propagation:98752ccd422fa8d4",
     "selected_count": 1,
     "skipped_count": 0,
     "skipped_visible": true,

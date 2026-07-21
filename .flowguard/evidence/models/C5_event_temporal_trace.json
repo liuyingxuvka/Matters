@@ -1,13 +1,67 @@
 {
   "artifact_type": "matters.flowguard-model-receipt.v1",
-  "claim_boundary": "This receipt can establish C5 abstract modality, record/reality, and supersession hazards. It does not establish factual occurrence, clock accuracy, ResearchGuard coverage, or production replay.",
-  "evidence_id": "evidence:C5_event_temporal_trace:72d80a24bcaecef0",
+  "claim_boundary": "This receipt can establish C5 abstract modality, record/reality, Start/clue/processing separation, material-clue admission, supersession, and Event/Matter separation hazards. It does not establish factual occurrence, clock accuracy, canonical Matter hierarchy, ResearchGuard coverage, or production replay.",
+  "evidence_id": "evidence:C5_event_temporal_trace:a9636cba74a284fc",
   "evidence_tiers": [
     "abstract_green",
     "hazard_green"
   ],
-  "generated_at": "2026-07-19T05:48:45.114759+00:00",
+  "generated_at": "2026-07-21T07:11:37.017088+00:00",
   "known_bad_proofs": [
+    {
+      "evidence_id": "C5_event_temporal_trace:known-bad:H-C5-016-restart-revives-superseded-event",
+      "failure_id": "H-C5-016-restart-revives-superseded-event",
+      "observed_status": "failed",
+      "protected_error_class": "durable_event_registry_not_restored"
+    },
+    {
+      "evidence_id": "C5_event_temporal_trace:known-bad:H-C5-015-logical-event-revisions-duplicate-timeline",
+      "failure_id": "H-C5-015-logical-event-revisions-duplicate-timeline",
+      "observed_status": "failed",
+      "protected_error_class": "logical_event_revision_duplication"
+    },
+    {
+      "evidence_id": "C5_event_temporal_trace:known-bad:H-C5-014-rebased-output-remains-current",
+      "failure_id": "H-C5-014-rebased-output-remains-current",
+      "observed_status": "failed",
+      "protected_error_class": "stale_analysis_output_projection"
+    },
+    {
+      "evidence_id": "C5_event_temporal_trace:known-bad:H-C5-011-first-nonempty-time-hides-earlier-start",
+      "failure_id": "H-C5-011-first-nonempty-time-hides-earlier-start",
+      "observed_status": "failed",
+      "protected_error_class": "start_boundary_candidate_loss"
+    },
+    {
+      "evidence_id": "C5_event_temporal_trace:known-bad:H-C5-012-processing-time-fills-missing-start",
+      "failure_id": "H-C5-012-processing-time-fills-missing-start",
+      "observed_status": "failed",
+      "protected_error_class": "start_processing_time_substitution"
+    },
+    {
+      "evidence_id": "C5_event_temporal_trace:known-bad:H-C5-008-parent-narrative-generation-bubbles-activity",
+      "failure_id": "H-C5-008-parent-narrative-generation-bubbles-activity",
+      "observed_status": "failed",
+      "protected_error_class": "narrative_processing_activity_conflation"
+    },
+    {
+      "evidence_id": "C5_event_temporal_trace:known-bad:H-C5-006-future-due-used-as-activity-observation",
+      "failure_id": "H-C5-006-future-due-used-as-activity-observation",
+      "observed_status": "failed",
+      "protected_error_class": "activity_observation_due_time_conflation"
+    },
+    {
+      "evidence_id": "C5_event_temporal_trace:known-bad:H-C5-017-source-time-eligible-activity-remains-missing",
+      "failure_id": "H-C5-017-source-time-eligible-activity-remains-missing",
+      "observed_status": "failed",
+      "protected_error_class": "matter_activity_backfill_omission"
+    },
+    {
+      "evidence_id": "C5_event_temporal_trace:known-bad:H-C5-007-observation-gap-uses-processing-time",
+      "failure_id": "H-C5-007-observation-gap-uses-processing-time",
+      "observed_status": "failed",
+      "protected_error_class": "processing_time_evidence_substitution"
+    },
     {
       "evidence_id": "C5_event_temporal_trace:known-bad:H-C5-001-future-event-marked-occurred",
       "failure_id": "H-C5-001-future-event-marked-occurred",
@@ -31,9 +85,39 @@
       "failure_id": "H-C5-004-metadata-time-becomes-event",
       "observed_status": "failed",
       "protected_error_class": "metadata_event_time_conflation"
+    },
+    {
+      "evidence_id": "C5_event_temporal_trace:known-bad:H-C5-005-event-mechanically-promoted-to-matter",
+      "failure_id": "H-C5-005-event-mechanically-promoted-to-matter",
+      "observed_status": "failed",
+      "protected_error_class": "event_matter_identity_conflation"
+    },
+    {
+      "evidence_id": "C5_event_temporal_trace:known-bad:H-C5-006-processing-time-becomes-clue-time",
+      "failure_id": "H-C5-006-processing-time-becomes-clue-time",
+      "observed_status": "failed",
+      "protected_error_class": "processing_activity_time_conflation"
+    },
+    {
+      "evidence_id": "C5_event_temporal_trace:known-bad:H-C5-007-start-time-becomes-clue-time",
+      "failure_id": "H-C5-007-start-time-becomes-clue-time",
+      "observed_status": "failed",
+      "protected_error_class": "start_activity_time_conflation"
+    },
+    {
+      "evidence_id": "C5_event_temporal_trace:known-bad:H-C5-009-explicit-source-modality-relabeled-inferred",
+      "failure_id": "H-C5-009-explicit-source-modality-relabeled-inferred",
+      "observed_status": "failed",
+      "protected_error_class": "source_modality_authority_loss"
+    },
+    {
+      "evidence_id": "C5_event_temporal_trace:known-bad:H-C5-010-future-ai-inference-enters-occurred-trace",
+      "failure_id": "H-C5-010-future-ai-inference-enters-occurred-trace",
+      "observed_status": "failed",
+      "protected_error_class": "future_prediction_temporal_backwrite"
     }
   ],
-  "model_fingerprint": "sha256:72d80a24bcaecef0f9ab6c2565ec5c334d44bb2017ae959e6859b6cede9e0cd2",
+  "model_fingerprint": "sha256:a9636cba74a284fc3a2512b5bcfadbc004405f6a306bff3b918ddb56c55cfdf4",
   "model_id": "C5_event_temporal_trace",
   "model_title": "C5 Event & Temporal Trace",
   "overall_status": "pass_with_gaps",
@@ -58,7 +142,7 @@
     "model_mesh": "not_run_in_this_owner: cross-model topology belongs to the separate ModelMesh owner"
   },
   "toolchain": {
-    "flowguard_package_version": "0.58.4",
+    "flowguard_package_version": "0.58.5",
     "flowguard_schema_version": "1.0"
   }
 }

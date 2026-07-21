@@ -1,18 +1,24 @@
 {
   "artifact_type": "matters.flowguard-model-receipt.v1",
   "claim_boundary": "This model establishes A1 single-provider currentness, visible pending, legacy-fallback rejection, terminal receipt, and zero product writes. It does not prove ResearchGuard installation or research truth.",
-  "evidence_id": "evidence:A1_matters_research_operation:b3bb1836a6200d96",
+  "evidence_id": "evidence:A1_matters_research_operation:7c5bb138057fa9fb",
   "evidence_tiers": [
     "abstract_green",
     "hazard_green"
   ],
-  "generated_at": "2026-07-19T05:41:21.810437+00:00",
+  "generated_at": "2026-07-21T07:11:42.953560+00:00",
   "known_bad_proofs": [
     {
       "evidence_id": "A1_matters_research_operation:known-bad:H-A1-001-pending-claimed-current",
       "failure_id": "H-A1-001-pending-claimed-current",
       "observed_status": "failed",
       "protected_error_class": "researchguard_currentness_overclaim"
+    },
+    {
+      "evidence_id": "A1_matters_research_operation:known-bad:H-A1-005-current-import-loses-researchguard-identity",
+      "failure_id": "H-A1-005-current-import-loses-researchguard-identity",
+      "observed_status": "failed",
+      "protected_error_class": "researchguard_import_identity_lost"
     },
     {
       "evidence_id": "A1_matters_research_operation:known-bad:H-A1-002-legacy-fallback",
@@ -27,7 +33,7 @@
       "protected_error_class": "research_operation_plane_escape"
     }
   ],
-  "model_fingerprint": "sha256:b3bb1836a6200d967e5aa974e2f10534a47584a6dafde8e7e9c04082de644cb4",
+  "model_fingerprint": "sha256:7c5bb138057fa9fb2b6f81ad1e726c7639556788a3af8102cc7b99b93479fb55",
   "model_id": "A1_matters_research_operation",
   "model_title": "A1 Abstract ResearchOperation",
   "overall_status": "pass_with_gaps",
@@ -52,7 +58,7 @@
     "model_mesh": "not_run_in_this_owner: cross-model topology belongs to the separate ModelMesh owner"
   },
   "toolchain": {
-    "flowguard_package_version": "0.58.4",
+    "flowguard_package_version": "0.58.5",
     "flowguard_schema_version": "1.0"
   }
 }

@@ -1,14 +1,15 @@
 {
   "artifact_type": "matters.flowguard-ui-flow-structure.v1",
   "blockers": [],
-  "claim_boundary": "Native FlowGuard reviews cover admitted content, UI event/state behavior, journeys, capabilities, click-to-output chains, installed desktop runtime, English/zh-CN behavior, Standard/Compact cards, object detail, representative visuals, optional correction, recovery, disclosure, and desktop geometry. Figma design evidence does not substitute for runtime proof.",
+  "claim_boundary": "Native FlowGuard reviews admitted content, UI event/state behavior, journeys, capabilities, click-to-output chains, installed desktop runtime, English/zh-CN behavior, Standard/Compact cards, exactly eight detail sections, Files & information, AI supplemental information, a read-only evidence image gallery, truthful transport recovery, generated presentation-only heroes, latest-meaningful-clue catalog ordering, root-only catalog, Matter-only hierarchy graph, one reusable node quick view, logical-event timeline deduplication, no ordinary correction or canonical-write control, recovery, disclosure, approved font tokens, sidebar spacing, non-overlap, and desktop geometry. The separate C10 correction capability remains outside this object browser. Figma design evidence does not substitute for runtime proof.",
   "failures": [],
-  "generated_at": "2026-07-19T06:17:07.094724+00:00",
+  "generated_at": "2026-07-21T08:10:57.596610+00:00",
   "ok": true,
   "residual_risk": [],
   "runtime_evidence": {
     "blockers": [],
-    "evidence_id": "evidence:ui:a096194d75463462",
+    "evidence_id": "evidence:ui:5610af16facfba72",
+    "exact_check_inventory": true,
     "missing_checks": [],
     "ok": true,
     "status": "passed",
@@ -87,6 +88,6 @@
     }
   },
   "typed_next_actions": [],
-  "ui_revision": "sha256:a096194d754634629c28c4b08d7b7f19bc2e3bd3d19e4fab240e9c4e34d4442f",
+  "ui_revision": "sha256:5610af16facfba7251e8423ee70f395982ffe87f7aa55f4dd2818f2866dfe14e",
   "work_mode": "mixed"
 }

@@ -34,9 +34,20 @@ from flowguard import (
 )
 
 from flowguard_models.run_model import MODELS
+from flowguard_models.agent_operation_models import AGENT_OPERATION_MODELS
 
 
 PARENT_ID = "M0_matters_end_to_end_authority"
+ANALYSIS_OPERATION_ID = "A0_matters_source_analysis_operation"
+RESEARCH_OPERATION_ID = "A1_matters_research_operation"
+MAINTENANCE_OPERATION_ID = "A2_matters_maintenance_orchestrator_operation"
+AI_GATEWAY_OPERATION_ID = "A3_matters_ai_gateway_operation"
+OPERATION_IDS = (
+    ANALYSIS_OPERATION_ID,
+    RESEARCH_OPERATION_ID,
+    MAINTENANCE_OPERATION_ID,
+    AI_GATEWAY_OPERATION_ID,
+)
 CHILD_IDS = (
     "C1_authorization_coverage",
     "C2_source_registry",
@@ -51,6 +62,12 @@ CHILD_IDS = (
     "C11_guard_artifact_prediction",
     "C12_projection_bilingual_ui",
 )
+MESH_CHILD_IDS = OPERATION_IDS + CHILD_IDS
+C11_ID = CHILD_IDS[10]
+
+
+def _spec(model_id: str):
+    return MODELS.get(model_id) or AGENT_OPERATION_MODELS[model_id]
 
 
 def _q(model_id: str, token: str) -> str:
@@ -58,18 +75,47 @@ def _q(model_id: str, token: str) -> str:
 
 
 def _outputs(model_id: str) -> tuple[str, ...]:
-    return tuple(_q(model_id, token) for token in MODELS[model_id].completion_evidence)
+    return tuple(_q(model_id, token) for token in _spec(model_id).completion_evidence)
+
+
+def _operation_outputs(model_id: str) -> tuple[str, ...]:
+    spec = AGENT_OPERATION_MODELS[model_id]
+    return tuple(_q(model_id, token) for token in spec.completion_evidence)
 
 
 ACCEPTED_INPUTS: Mapping[str, tuple[str, ...]] = {
+    ANALYSIS_OPERATION_ID: (
+        _q(C11_ID, "AnalysisWorkPackageV2"),
+        _q(C11_ID, "CapabilityRole"),
+        _q(MAINTENANCE_OPERATION_ID, "DelegatedWorkPackage"),
+    ),
+    RESEARCH_OPERATION_ID: (
+        _q(MAINTENANCE_OPERATION_ID, "DelegatedWorkPackage"),
+        _q(C11_ID, "AnalysisWorkPackageV2"),
+        _q(C11_ID, "CapabilityRole"),
+    ),
+    MAINTENANCE_OPERATION_ID: (
+        "M0:MaintenanceRunRequest",
+        *_operation_outputs(ANALYSIS_OPERATION_ID),
+        *_operation_outputs(RESEARCH_OPERATION_ID),
+        _q(AI_GATEWAY_OPERATION_ID, "AIFeedbackRecorded"),
+        _q(AI_GATEWAY_OPERATION_ID, "ExistingOwnerDispatchPending"),
+        *_outputs(C11_ID),
+    ),
+    AI_GATEWAY_OPERATION_ID: ("M0:AIGatewayRequest",),
     CHILD_IDS[0]: ("M0:AuthorizedSourceUniverseRequest",),
     CHILD_IDS[1]: (
         _q(CHILD_IDS[0], "CandidateScopeFrozen"),
         _q(CHILD_IDS[0], "Tracked"),
+        _q(CHILD_IDS[0], "TrackedOnlyCoverageRebase"),
+        _q(CHILD_IDS[0], "CoverageOrphanReconciled"),
+        _q(CHILD_IDS[0], "GmailMetadataOwnerReconciliationAuthorized"),
+        _q(CHILD_IDS[0], "GmailNoTextBodyAuthorized"),
     ),
     CHILD_IDS[2]: (
         _q(CHILD_IDS[1], "SourceVersion"),
-        _q(CHILD_IDS[1], "VisualDerivative"),
+        _q(CHILD_IDS[1], "GalleryDerivative"),
+        _q(CHILD_IDS[1], "GmailNoTextContentDisposition"),
         _q(CHILD_IDS[10], "Proposal"),
     ),
     CHILD_IDS[3]: (
@@ -88,33 +134,67 @@ ACCEPTED_INPUTS: Mapping[str, tuple[str, ...]] = {
         _q(CHILD_IDS[3], "MatterRole"),
         _q(CHILD_IDS[4], "TypedEvent"),
         _q(CHILD_IDS[4], "TimelineCandidate"),
+        _q(CHILD_IDS[4], "MatterEventLinkCandidate"),
         _q(CHILD_IDS[10], "BilingualFinding"),
+        _q(CHILD_IDS[10], "HierarchyProposal"),
     ),
     CHILD_IDS[6]: (
         _q(CHILD_IDS[5], "AdmittedMatter"),
+        _q(CHILD_IDS[5], "RootMatter"),
+        _q(CHILD_IDS[5], "ChildMatter"),
+        _q(CHILD_IDS[5], "ContainmentCurrent"),
+        _q(CHILD_IDS[5], "HierarchyDepthPending"),
         _q(CHILD_IDS[4], "TypedEvent"),
         _q(CHILD_IDS[10], "BilingualFinding"),
     ),
     CHILD_IDS[7]: (
         _q(CHILD_IDS[5], "AdmittedMatter"),
+        _q(CHILD_IDS[5], "ChildMatter"),
+        _q(CHILD_IDS[5], "ContainmentCurrent"),
+        _q(CHILD_IDS[5], "HierarchyDepthPending"),
+        _q(CHILD_IDS[6], "ChildStateCurrent"),
         _q(CHILD_IDS[10], "BilingualFinding"),
     ),
     CHILD_IDS[8]: (
+        _q(CHILD_IDS[5], "ContainmentCurrent"),
+        _q(CHILD_IDS[5], "HierarchyDepthPending"),
         _q(CHILD_IDS[6], "LifecycleState"),
+        _q(CHILD_IDS[6], "ChildStateCurrent"),
+        _q(CHILD_IDS[6], "AncestorRollupCurrent"),
+        _q(CHILD_IDS[6], "RollupUncertainty"),
         _q(CHILD_IDS[7], "OpenLoop"),
         _q(CHILD_IDS[7], "Waiting"),
         _q(CHILD_IDS[7], "PartialBlock"),
         _q(CHILD_IDS[7], "FullBlock"),
+        _q(CHILD_IDS[7], "ChildBlockingCurrent"),
+        _q(CHILD_IDS[7], "AncestorBlockingRollupCurrent"),
         _q(CHILD_IDS[10], "BilingualFinding"),
     ),
-    CHILD_IDS[9]: ("M0:CorrectionOrRevocation",),
+    CHILD_IDS[9]: (
+        "M0:CorrectionOrRevocation",
+        _q(CHILD_IDS[4], "ObservationTimeCorrected"),
+        _q(CHILD_IDS[4], "ParentNarrativeRefreshRequired"),
+        _q(CHILD_IDS[4], "ObservationTimeGap"),
+        _q(CHILD_IDS[5], "HierarchyRevision"),
+        _q(CHILD_IDS[5], "SplitMergeDisposition"),
+        _q(CHILD_IDS[6], "ChildStateCurrent"),
+        _q(CHILD_IDS[6], "AncestorRollupCurrent"),
+        _q(CHILD_IDS[7], "ChildBlockingCurrent"),
+        _q(CHILD_IDS[7], "AncestorBlockingRollupCurrent"),
+        _q(CHILD_IDS[8], "ChildOutcomeCurrent"),
+        _q(CHILD_IDS[8], "AncestorOutcomeRollupCurrent"),
+    ),
     CHILD_IDS[10]: (
         "M0:AgentOperationRequest",
+        "M0:CapabilityRouteRequest",
+        *_operation_outputs(ANALYSIS_OPERATION_ID),
+        *_operation_outputs(RESEARCH_OPERATION_ID),
+        _q(MAINTENANCE_OPERATION_ID, "DelegatedWorkPackage"),
         _q(CHILD_IDS[0], "CandidateScopeFrozen"),
         _q(CHILD_IDS[0], "TrackingDisposition"),
         _q(CHILD_IDS[1], "SourceVersion"),
         _q(CHILD_IDS[1], "ChangeSet"),
-        _q(CHILD_IDS[1], "VisualDerivative"),
+        _q(CHILD_IDS[1], "GalleryDerivative"),
     ),
     CHILD_IDS[11]: (
         _q(CHILD_IDS[0], "TrackingDisposition"),
@@ -122,46 +202,86 @@ ACCEPTED_INPUTS: Mapping[str, tuple[str, ...]] = {
         _q(CHILD_IDS[0], "CoveragePartial"),
         _q(CHILD_IDS[1], "InventorySnapshot"),
         _q(CHILD_IDS[1], "ChangeSet"),
-        _q(CHILD_IDS[1], "VisualDerivative"),
+        _q(CHILD_IDS[1], "GalleryDerivative"),
+        _q(CHILD_IDS[4], "TypedEvent"),
+        _q(CHILD_IDS[4], "TimelineCandidate"),
+        _q(CHILD_IDS[4], "MaterialClue"),
+        _q(CHILD_IDS[4], "ObservationTimeCorrected"),
+        _q(CHILD_IDS[4], "ParentNarrativeRefreshRequired"),
         _q(CHILD_IDS[2], "DisplayPermission"),
         _q(CHILD_IDS[5], "MatterSourceRelation"),
+        _q(CHILD_IDS[5], "RootMatter"),
+        _q(CHILD_IDS[5], "ChildMatter"),
+        _q(CHILD_IDS[5], "WorkItem"),
+        _q(CHILD_IDS[5], "ContainmentCurrent"),
+        _q(CHILD_IDS[5], "HierarchyConflict"),
+        _q(CHILD_IDS[5], "HierarchyDepthPending"),
+        _q(CHILD_IDS[5], "HierarchyRevision"),
+        _q(CHILD_IDS[5], "ParentCompositionAtomic"),
+        _q(CHILD_IDS[5], "ParentNarrativeScopeCurrent"),
+        _q(CHILD_IDS[5], "MatterCanonicalization"),
+        _q(CHILD_IDS[5], "CanonicalMatterProjectionOnly"),
+        _q(CHILD_IDS[5], "CanonicalMatterIdentityCurrent"),
+        _q(CHILD_IDS[5], "CanonicalMatterIdentityRejected"),
         _q(CHILD_IDS[6], "LifecycleState"),
         _q(CHILD_IDS[6], "BoardPlacement"),
         _q(CHILD_IDS[6], "StateRationale"),
+        _q(CHILD_IDS[6], "ChildStateCurrent"),
+        _q(CHILD_IDS[6], "AncestorRollupCurrent"),
+        _q(CHILD_IDS[6], "HierarchyProgressSummary"),
+        _q(CHILD_IDS[6], "RollupUncertainty"),
         _q(CHILD_IDS[7], "OpenLoop"),
         _q(CHILD_IDS[7], "Waiting"),
         _q(CHILD_IDS[7], "PartialBlock"),
         _q(CHILD_IDS[7], "FullBlock"),
         _q(CHILD_IDS[7], "LoopClosed"),
+        _q(CHILD_IDS[7], "ChildBlockingCurrent"),
+        _q(CHILD_IDS[7], "AncestorBlockingRollupCurrent"),
         _q(CHILD_IDS[8], "Completed"),
         _q(CHILD_IDS[8], "Cancelled"),
         _q(CHILD_IDS[8], "Abandoned"),
         _q(CHILD_IDS[8], "Reopened"),
         _q(CHILD_IDS[8], "OutcomeConflict"),
+        _q(CHILD_IDS[8], "ChildOutcomeCurrent"),
+        _q(CHILD_IDS[8], "AncestorOutcomeRollupCurrent"),
+        _q(CHILD_IDS[8], "ParentCompletionUnproven"),
         _q(CHILD_IDS[9], "RecomputeJoinCurrent"),
         _q(CHILD_IDS[9], "RecomputeBlocked"),
+        _q(CHILD_IDS[9], "OldAncestorChainInvalidated"),
+        _q(CHILD_IDS[9], "NewAncestorChainInvalidated"),
+        _q(CHILD_IDS[9], "HierarchyRevisionDisposition"),
+        _q(CHILD_IDS[9], "ObservationTimeCorrectionPlan"),
         _q(CHILD_IDS[10], "DepthAssessment"),
-        _q(CHILD_IDS[10], "VisualRecommendation"),
+        _q(CHILD_IDS[10], "GeneratedHero"),
+        _q(CHILD_IDS[10], "HeroGenerationPending"),
+        _q(CHILD_IDS[10], "AISupplementalInformation"),
+        _q(CHILD_IDS[10], "SupplementalInformationUnavailable"),
         _q(CHILD_IDS[10], "OriginalOwnerDispatch"),
         _q(CHILD_IDS[10], "ResearchGuardPending"),
     ),
 }
 
 DEPENDENCIES: Mapping[str, tuple[str, ...]] = {
+    ANALYSIS_OPERATION_ID: (MAINTENANCE_OPERATION_ID, C11_ID),
+    RESEARCH_OPERATION_ID: (MAINTENANCE_OPERATION_ID, C11_ID),
+    MAINTENANCE_OPERATION_ID: (AI_GATEWAY_OPERATION_ID,),
+    AI_GATEWAY_OPERATION_ID: (),
     CHILD_IDS[0]: (),
     CHILD_IDS[1]: (CHILD_IDS[0],),
     CHILD_IDS[2]: (CHILD_IDS[1], CHILD_IDS[10]),
     CHILD_IDS[3]: (CHILD_IDS[2],),
     CHILD_IDS[4]: (CHILD_IDS[2], CHILD_IDS[10]),
-    CHILD_IDS[5]: (CHILD_IDS[3], CHILD_IDS[4]),
+    CHILD_IDS[5]: (CHILD_IDS[3], CHILD_IDS[4], CHILD_IDS[10]),
     CHILD_IDS[6]: (CHILD_IDS[4], CHILD_IDS[5], CHILD_IDS[10]),
-    CHILD_IDS[7]: (CHILD_IDS[5],),
-    CHILD_IDS[8]: (CHILD_IDS[6], CHILD_IDS[7]),
-    CHILD_IDS[9]: (),
+    CHILD_IDS[7]: (CHILD_IDS[5], CHILD_IDS[6]),
+    CHILD_IDS[8]: (CHILD_IDS[5], CHILD_IDS[6], CHILD_IDS[7]),
+    CHILD_IDS[9]: (CHILD_IDS[5], CHILD_IDS[6], CHILD_IDS[7], CHILD_IDS[8]),
     CHILD_IDS[10]: (CHILD_IDS[0], CHILD_IDS[1]),
     CHILD_IDS[11]: (
         CHILD_IDS[0],
         CHILD_IDS[1],
+        CHILD_IDS[4],
+        CHILD_IDS[5],
         CHILD_IDS[6],
         CHILD_IDS[7],
         CHILD_IDS[8],
@@ -171,17 +291,54 @@ DEPENDENCIES: Mapping[str, tuple[str, ...]] = {
 }
 
 AFFECTED_SIBLINGS: Mapping[str, tuple[str, ...]] = {
+    ANALYSIS_OPERATION_ID: (C11_ID, MAINTENANCE_OPERATION_ID),
+    RESEARCH_OPERATION_ID: (C11_ID, MAINTENANCE_OPERATION_ID),
+    MAINTENANCE_OPERATION_ID: (
+        ANALYSIS_OPERATION_ID,
+        RESEARCH_OPERATION_ID,
+        AI_GATEWAY_OPERATION_ID,
+        C11_ID,
+        PARENT_ID,
+    ),
+    AI_GATEWAY_OPERATION_ID: (
+        MAINTENANCE_OPERATION_ID,
+        CHILD_IDS[9],
+        CHILD_IDS[10],
+        CHILD_IDS[11],
+        PARENT_ID,
+    ),
     CHILD_IDS[0]: (CHILD_IDS[1], CHILD_IDS[10], CHILD_IDS[11]),
     CHILD_IDS[1]: (CHILD_IDS[2], CHILD_IDS[10], CHILD_IDS[11]),
-    CHILD_IDS[2]: (CHILD_IDS[3], CHILD_IDS[4]),
+    CHILD_IDS[2]: (
+        CHILD_IDS[0],
+        CHILD_IDS[3],
+        CHILD_IDS[4],
+        CHILD_IDS[10],
+        CHILD_IDS[11],
+    ),
     CHILD_IDS[3]: (CHILD_IDS[5],),
-    CHILD_IDS[4]: (CHILD_IDS[5], CHILD_IDS[6]),
-    CHILD_IDS[5]: (CHILD_IDS[6], CHILD_IDS[7]),
-    CHILD_IDS[6]: (CHILD_IDS[8], CHILD_IDS[11]),
-    CHILD_IDS[7]: (CHILD_IDS[8], CHILD_IDS[11]),
-    CHILD_IDS[8]: (CHILD_IDS[11],),
+    CHILD_IDS[4]: (CHILD_IDS[5], CHILD_IDS[6], CHILD_IDS[11]),
+    CHILD_IDS[5]: (
+        CHILD_IDS[6],
+        CHILD_IDS[7],
+        CHILD_IDS[8],
+        CHILD_IDS[9],
+        CHILD_IDS[11],
+    ),
+    CHILD_IDS[6]: (CHILD_IDS[7], CHILD_IDS[8], CHILD_IDS[9], CHILD_IDS[11]),
+    CHILD_IDS[7]: (CHILD_IDS[8], CHILD_IDS[9], CHILD_IDS[11]),
+    CHILD_IDS[8]: (CHILD_IDS[9], CHILD_IDS[11]),
     CHILD_IDS[9]: CHILD_IDS[1:9] + (CHILD_IDS[11],),
-    CHILD_IDS[10]: (CHILD_IDS[2], CHILD_IDS[4], CHILD_IDS[6], CHILD_IDS[11]),
+    CHILD_IDS[10]: (
+        ANALYSIS_OPERATION_ID,
+        RESEARCH_OPERATION_ID,
+        MAINTENANCE_OPERATION_ID,
+        CHILD_IDS[2],
+        CHILD_IDS[4],
+        CHILD_IDS[5],
+        CHILD_IDS[6],
+        CHILD_IDS[11],
+    ),
     CHILD_IDS[11]: (),
 }
 
@@ -223,7 +380,7 @@ class MattersChildReattachment:
 def _load_current_model_receipt(receipt_root: Path, model_id: str) -> dict:
     path = receipt_root / f"{model_id}.json"
     receipt = json.loads(path.read_text(encoding="utf-8"))
-    spec = MODELS[model_id]
+    spec = _spec(model_id)
     if receipt.get("model_id") != model_id:
         raise ValueError(f"{path} names a foreign model")
     if receipt.get("model_fingerprint") != spec.fingerprint():
@@ -242,8 +399,8 @@ def _load_current_model_receipt(receipt_root: Path, model_id: str) -> dict:
 
 def _coverage_items() -> tuple[HierarchyCoverageItem, ...]:
     items: list[HierarchyCoverageItem] = []
-    for model_id in (PARENT_ID,) + CHILD_IDS:
-        spec = MODELS[model_id]
+    for model_id in (PARENT_ID,) + MESH_CHILD_IDS:
+        spec = _spec(model_id)
         ownership = "parent" if model_id == PARENT_ID else "child"
         function_id = f"function:{model_id}:finite_transition"
         items.append(
@@ -297,8 +454,8 @@ def _child_evidence(
     receipts: Mapping[str, dict],
 ) -> tuple[ChildModelEvidence, ...]:
     result: list[ChildModelEvidence] = []
-    for model_id in CHILD_IDS:
-        spec = MODELS[model_id]
+    for model_id in MESH_CHILD_IDS:
+        spec = _spec(model_id)
         receipt = receipts[model_id]
         evidence_ids = [receipt["evidence_id"]]
         evidence_ids.extend(
@@ -385,18 +542,198 @@ def _execution_transition(model_id: str) -> MeshClosureTransition:
     )
 
 
+def _analysis_operation_transition() -> MeshClosureTransition:
+    return MeshClosureTransition(
+        transition_id=f"execute:{ANALYSIS_OPERATION_ID}",
+        consumes=ACCEPTED_INPUTS[ANALYSIS_OPERATION_ID],
+        emits=_operation_outputs(ANALYSIS_OPERATION_ID),
+        consumer_model_id=ANALYSIS_OPERATION_ID,
+        rationale=(
+            "A0 resolves one model-agnostic capability role through the private "
+            "Codex execution profile and emits a terminal, input-accounted receipt "
+            "before C11 may consume advisory findings."
+        ),
+    )
+
+
+def _research_operation_transition() -> MeshClosureTransition:
+    return MeshClosureTransition(
+        transition_id=f"execute:{RESEARCH_OPERATION_ID}",
+        consumes=ACCEPTED_INPUTS[RESEARCH_OPERATION_ID],
+        emits=_operation_outputs(RESEARCH_OPERATION_ID),
+        consumer_model_id=RESEARCH_OPERATION_ID,
+        rationale=(
+            "A1 executes one frozen compatible ResearchGuard operation or emits "
+            "a visible terminal pending result; it never writes product state."
+        ),
+    )
+
+
+def _ai_gateway_operation_transition() -> MeshClosureTransition:
+    return MeshClosureTransition(
+        transition_id=f"execute:{AI_GATEWAY_OPERATION_ID}",
+        consumes=ACCEPTED_INPUTS[AI_GATEWAY_OPERATION_ID],
+        emits=_operation_outputs(AI_GATEWAY_OPERATION_ID),
+        consumer_model_id=AI_GATEWAY_OPERATION_ID,
+        rationale=(
+            "A3 serves bounded information-map queries or appends one minimized "
+            "feedback request. Query receipts remain read-only; pending feedback "
+            "is dispatched to A2 without granting A3 product-write authority."
+        ),
+    )
+
+
+def _ai_feedback_dispatch_transition() -> MeshClosureTransition:
+    return MeshClosureTransition(
+        transition_id="dispatch:A3_pending_feedback_to_A2",
+        consumes=(
+            _q(AI_GATEWAY_OPERATION_ID, "AIFeedbackRecorded"),
+            _q(AI_GATEWAY_OPERATION_ID, "ExistingOwnerDispatchPending"),
+        ),
+        emits=("M0:MaintenanceRunRequest",),
+        consumer_model_id=PARENT_ID,
+        rationale=(
+            "Only an append-only A3 feedback request enters the existing A2 "
+            "maintenance path; bounded A3 query receipts do not become writes."
+        ),
+    )
+
+
+def _maintenance_prepare_transition() -> MeshClosureTransition:
+    return MeshClosureTransition(
+        transition_id=f"prepare:{MAINTENANCE_OPERATION_ID}",
+        consumes=("M0:MaintenanceRunRequest",),
+        emits=(
+            _q(MAINTENANCE_OPERATION_ID, "MaintenanceOrchestratorCurrent"),
+            _q(MAINTENANCE_OPERATION_ID, "MaintenancePlanCurrent"),
+            _q(MAINTENANCE_OPERATION_ID, "DelegatedWorkPackage"),
+        ),
+        consumer_model_id=MAINTENANCE_OPERATION_ID,
+        rationale=(
+            "A2 uses the strongest compatible private profile to freeze one "
+            "bounded model-agnostic maintenance plan and typed A0/A1 delegations."
+        ),
+    )
+
+
+def _c11_prepare_transition() -> MeshClosureTransition:
+    return MeshClosureTransition(
+        transition_id=f"prepare:{C11_ID}",
+        consumes=(
+            _q(MAINTENANCE_OPERATION_ID, "DelegatedWorkPackage"),
+            _q(CHILD_IDS[0], "CandidateScopeFrozen"),
+            _q(CHILD_IDS[0], "TrackingDisposition"),
+            _q(CHILD_IDS[1], "SourceVersion"),
+            _q(CHILD_IDS[1], "ChangeSet"),
+            _q(CHILD_IDS[1], "GalleryDerivative"),
+        ),
+        emits=(
+            _q(C11_ID, "AnalysisWorkPackageV2"),
+            _q(C11_ID, "CapabilityRole"),
+        ),
+        consumer_model_id=C11_ID,
+        rationale=(
+            "C11 prepares one bounded, model-agnostic WorkPackageV2 and capability "
+            "role from current tracked-source inputs before any private AI execution."
+        ),
+    )
+
+
+def _c11_finalize_transition() -> MeshClosureTransition:
+    prepared = {
+        _q(C11_ID, "AnalysisWorkPackageV2"),
+        _q(C11_ID, "CapabilityRole"),
+    }
+    return MeshClosureTransition(
+        transition_id=f"finalize:{C11_ID}",
+        consumes=(
+            *_operation_outputs(ANALYSIS_OPERATION_ID),
+            *_operation_outputs(RESEARCH_OPERATION_ID),
+        ),
+        emits=tuple(token for token in _outputs(C11_ID) if token not in prepared),
+        consumer_model_id=C11_ID,
+        rationale=(
+            "C11 admits or rejects only qualified A0/A1 terminal receipts, then "
+            "dispatches advisory results to the original C1-C12 owner; neither "
+            "operation writes product state."
+        ),
+    )
+
+
+def _maintenance_finalize_transition() -> MeshClosureTransition:
+    prepared = {
+        _q(MAINTENANCE_OPERATION_ID, "MaintenanceOrchestratorCurrent"),
+        _q(MAINTENANCE_OPERATION_ID, "MaintenancePlanCurrent"),
+        _q(MAINTENANCE_OPERATION_ID, "DelegatedWorkPackage"),
+    }
+    return MeshClosureTransition(
+        transition_id=f"finalize:{MAINTENANCE_OPERATION_ID}",
+        consumes=(
+            *_operation_outputs(ANALYSIS_OPERATION_ID),
+            *_operation_outputs(RESEARCH_OPERATION_ID),
+            _q(AI_GATEWAY_OPERATION_ID, "AIFeedbackRecorded"),
+            _q(AI_GATEWAY_OPERATION_ID, "ExistingOwnerDispatchPending"),
+            *_outputs(C11_ID),
+        ),
+        emits=tuple(
+            token
+            for token in _operation_outputs(MAINTENANCE_OPERATION_ID)
+            if token not in prepared
+        ),
+        consumer_model_id=MAINTENANCE_OPERATION_ID,
+        rationale=(
+            "A2 validates and joins every A0/A1/C11 terminal result, consumes "
+            "pending A3 feedback through its declared original owner, applies "
+            "finite retry/escalation, and alone emits terminal maintenance and "
+            "feedback receipts without taking product or release authority."
+        ),
+    )
+
+
 def _closure_model() -> MeshClosureModel:
     transitions: list[MeshClosureTransition] = [
-        _execution_transition(model_id) for model_id in CHILD_IDS
+        MeshClosureTransition(
+            transition_id="normalize:interactive_codex_invocation",
+            consumes=("M0:InteractiveInvocation",),
+            emits=("M0:MaintenanceRunRequest",),
+            consumer_model_id=PARENT_ID,
+            rationale=(
+                "An interactive Codex invocation enters the shared bounded "
+                "A2 maintenance-orchestration path."
+            ),
+        ),
+        MeshClosureTransition(
+            transition_id="normalize:daily_codex_maintenance",
+            consumes=("M0:DailyMaintenanceInvocation",),
+            emits=("M0:MaintenanceRunRequest",),
+            consumer_model_id=PARENT_ID,
+            rationale=(
+                "The daily Codex task enters the same A2 plan/delegate/join path "
+                "as an interactive invocation and owns no separate product path."
+            ),
+        ),
+        _ai_gateway_operation_transition(),
+        _ai_feedback_dispatch_transition(),
+        _maintenance_prepare_transition(),
+        _c11_prepare_transition(),
+        _analysis_operation_transition(),
+        _research_operation_transition(),
+        _c11_finalize_transition(),
+        _maintenance_finalize_transition(),
+        *(
+            _execution_transition(model_id)
+            for model_id in CHILD_IDS
+            if model_id != C11_ID
+        ),
     ]
     all_child_outputs = tuple(
-        token for model_id in CHILD_IDS for token in _outputs(model_id)
+        token for model_id in MESH_CHILD_IDS for token in _outputs(model_id)
     )
     transitions.append(
         MeshClosureTransition(
             transition_id="reattach:all_current_children",
             consumes=all_child_outputs,
-            emits=tuple(f"Attached:{model_id}" for model_id in CHILD_IDS)
+            emits=tuple(f"Attached:{model_id}" for model_id in MESH_CHILD_IDS)
             + (
                 "AutonomousDispositionClosed",
                 "BlockedClosed",
@@ -418,14 +755,16 @@ def _closure_model() -> MeshClosureModel:
         root_entries=(
             "M0:AuthorizedSourceUniverseRequest",
             "M0:CorrectionOrRevocation",
-            "M0:AgentOperationRequest",
+            "M0:InteractiveInvocation",
+            "M0:DailyMaintenanceInvocation",
+            "M0:AIGatewayRequest",
         ),
         transitions=tuple(transitions),
         joins=(
             MeshClosureJoin(
                 join_id="join:all_current_children",
                 required_inputs=tuple(
-                    f"Attached:{model_id}" for model_id in CHILD_IDS
+                    f"Attached:{model_id}" for model_id in MESH_CHILD_IDS
                 )
                 + (
                     "AutonomousDispositionClosed",
@@ -435,7 +774,8 @@ def _closure_model() -> MeshClosureModel:
                 ),
                 emits=("M0:MeshReady",),
                 rationale=(
-                    "all twelve current child boundaries and the autonomous, "
+                    "the current A0/A1/A2/A3 operation-plane boundaries, all twelve product "
+                    "child boundaries, and the autonomous, "
                     "blocked, no-delta, and recompute dispositions must close"
                 ),
             ),
@@ -469,8 +809,11 @@ def _closure_model() -> MeshClosureModel:
         required_outputs=("M0:MeshReady",),
         require_normal_exit=True,
         rationale=(
-            "Executable token-closure meta-model for M0 over all current C1-C12 "
-            "boundaries; qualified output tokens prevent sibling producer aliasing."
+            "Executable token-closure meta-model for interactive/daily adapters "
+            "and A3 feedback entering one shared A2 plan -> C11 package -> private "
+            "A0/A1 execution -> C11 admission -> A2 join bridge before the current "
+            "C1-C12 product boundaries; A3 queries stay read-only and qualified "
+            "output tokens prevent cross-plane writer aliasing."
         ),
     )
 
@@ -485,7 +828,7 @@ def _project_reattachments(
     return tuple(
         MattersChildReattachment(
             child_model_id=child.model_id,
-            child_fingerprint=MODELS[child.model_id].fingerprint(),
+            child_fingerprint=_spec(child.model_id).fingerprint(),
             parent_partition_items=tuple(
                 sorted(coverage_by_owner.get(child.model_id, ()))
             ),
@@ -509,17 +852,17 @@ def _consumer_bindings(
     bindings: dict[str, set[str]] = {}
     for transition in closure.transitions:
         for token in transition.consumes:
-            if token.startswith("C") and ":" in token:
+            if token.startswith(("A", "C")) and ":" in token:
                 bindings.setdefault(token, set()).add(
                     transition.consumer_model_id or PARENT_ID
                 )
     for join in closure.joins:
         for token in join.required_inputs:
-            if token.startswith("C") and ":" in token:
+            if token.startswith(("A", "C")) and ":" in token:
                 bindings.setdefault(token, set()).add(PARENT_ID)
     for terminal in closure.terminals:
         for token in terminal.consumes:
-            if token.startswith("C") and ":" in token:
+            if token.startswith(("A", "C")) and ":" in token:
                 bindings.setdefault(token, set()).add(
                     f"terminal:{terminal.terminal_id}"
                 )
@@ -532,6 +875,7 @@ def _consumer_bindings(
 def _layered_boundary_report(
     *,
     receipt_root: Path,
+    operation_receipt_root: Path,
     children: tuple[ChildModelEvidence, ...],
     coverage_items: tuple[HierarchyCoverageItem, ...],
 ):
@@ -543,7 +887,7 @@ def _layered_boundary_report(
             owner_kind=item.ownership,
             description=item.description,
             allowed_shared_with=item.allowed_shared_with,
-            rationale="Derived from the current checked M0/C1-C12 partition.",
+            rationale="Derived from the current checked A0/A1/A2/A3 operation-plane plus M0/C1-C12 product partition.",
         )
         for item in coverage_items
     )
@@ -558,7 +902,12 @@ def _layered_boundary_report(
     child_contracts: list[ChildProofContract] = []
     reattachment_proofs: list[ChildReattachmentProof] = []
     for child in children:
-        receipt_path = receipt_root / f"{child.model_id}.json"
+        child_receipt_root = (
+            operation_receipt_root
+            if child.model_id in OPERATION_IDS
+            else receipt_root
+        )
+        receipt_path = child_receipt_root / f"{child.model_id}.json"
         receipt_bytes = receipt_path.read_bytes()
         receipt_hash = "sha256:" + sha256(receipt_bytes).hexdigest()
         covered = responsibilities[child.model_id]
@@ -572,7 +921,10 @@ def _layered_boundary_report(
                     artifact_id=f"artifact:{child.model_id}:g2",
                     producer_route="model_first_function_flow",
                     command=(
-                        f"python -m flowguard_models.run_model {child.model_id}"
+                        "python -m flowguard_models.run_agent_operation_model "
+                        f"{child.model_id}"
+                        if child.model_id in OPERATION_IDS
+                        else f"python -m flowguard_models.run_model {child.model_id}"
                     ),
                     result_path=receipt_path.as_posix(),
                     result_status="passed",
@@ -642,11 +994,23 @@ def _layered_boundary_report(
 def run_mesh(
     *,
     receipt_root: Path = Path(".flowguard/evidence/models"),
+    operation_receipt_root: Path | None = None,
 ) -> dict:
     receipts = {
         model_id: _load_current_model_receipt(receipt_root, model_id)
         for model_id in (PARENT_ID,) + CHILD_IDS
     }
+    operation_receipt_root = operation_receipt_root or (
+        receipt_root.parent / "agent_operations" / "models"
+    )
+    operation_receipts = {
+        model_id: _load_current_model_receipt(
+            operation_receipt_root,
+            model_id,
+        )
+        for model_id in OPERATION_IDS
+    }
+    receipts.update(operation_receipts)
     parent_receipt = receipts[PARENT_ID]
     children = _child_evidence(receipts)
     coverage_items = _coverage_items()
@@ -655,7 +1019,7 @@ def run_mesh(
     project_contracts = _project_reattachments(children, coverage_items)
     consumer_bindings = _consumer_bindings(closure)
     declared_outputs = {
-        token for model_id in CHILD_IDS for token in _outputs(model_id)
+        token for model_id in MESH_CHILD_IDS for token in _outputs(model_id)
     }
     unbound_outputs = tuple(sorted(declared_outputs - set(consumer_bindings)))
 
@@ -665,26 +1029,29 @@ def run_mesh(
         child_models=children,
         target_split_derivation=ModelTargetSplitDerivation(
             source_model_id=PARENT_ID,
-            target_child_model_ids=CHILD_IDS,
+            target_child_model_ids=MESH_CHILD_IDS,
             covered_partition_item_ids=tuple(
                 item.item_id for item in coverage_items
             ),
             state_owner_fields=tuple(
                 field
                 for model_id in CHILD_IDS
-                for field in MODELS[model_id].owned_write_fields
+                for field in _spec(model_id).owned_write_fields
             ),
             side_effect_owner_fields=tuple(
                 effect
                 for model_id in CHILD_IDS
-                for effect in MODELS[model_id].side_effect_classes
+                for effect in _spec(model_id).side_effect_classes
             ),
             source_model_path=(
                 "flowguard_models/models/m00_end_to_end_authority.py"
             ),
             rationale=(
-                "M0 delegates canonical ownership by unique state and "
-                "side-effect writer to the twelve behavior children."
+                "M0 delegates product canonical ownership by unique state and "
+                "side-effect writer to C1-C12 only. A0/A1/A2/A3 are registered with "
+                "the native mesh as typed external operation attachments so their "
+                "qualified terminal receipts can cross the bridge, but private "
+                "operation fields and side effects are excluded from this product split."
             ),
             derived_from_flowguard_model=True,
         ),
@@ -694,9 +1061,10 @@ def run_mesh(
         boundary_changes=(),
         closure_model=closure,
     )
-    report = review_hierarchical_mesh(partition, model_count=len(CHILD_IDS))
+    report = review_hierarchical_mesh(partition, model_count=len(MESH_CHILD_IDS))
     layered_plan, layered_report = _layered_boundary_report(
         receipt_root=receipt_root,
+        operation_receipt_root=operation_receipt_root,
         children=children,
         coverage_items=coverage_items,
     )
@@ -705,23 +1073,47 @@ def run_mesh(
         and parent_receipt.get("pass_for_g2") is True
         and "hazard_green" in parent_receipt.get("evidence_tiers", ())
     )
+    operation_specs = {
+        model_id: AGENT_OPERATION_MODELS[model_id]
+        for model_id in OPERATION_IDS
+    }
+    operation_current_by_id = {
+        model_id: (
+            operation_receipts[model_id]["model_fingerprint"]
+            == operation_specs[model_id].fingerprint()
+            and operation_receipts[model_id].get("pass_for_g2") is True
+            and "hazard_green"
+            in operation_receipts[model_id].get("evidence_tiers", ())
+        )
+        for model_id in OPERATION_IDS
+    }
+    operation_current = all(operation_current_by_id.values())
     status = (
         "mesh_green"
         if (
             report.ok
             and layered_report.ok
             and parent_current
+            and operation_current
             and not unbound_outputs
         )
         else "blocked"
     )
     fingerprint_input = {
         "parent_fingerprint": MODELS[PARENT_ID].fingerprint(),
+        "operation_fingerprints": {
+            model_id: operation_specs[model_id].fingerprint()
+            for model_id in OPERATION_IDS
+        },
+        "operation_evidence_ids": {
+            model_id: operation_receipts[model_id]["evidence_id"]
+            for model_id in OPERATION_IDS
+        },
         "child_fingerprints": {
-            model_id: MODELS[model_id].fingerprint() for model_id in CHILD_IDS
+            model_id: _spec(model_id).fingerprint() for model_id in MESH_CHILD_IDS
         },
         "child_evidence_ids": {
-            model_id: receipts[model_id]["evidence_id"] for model_id in CHILD_IDS
+            model_id: receipts[model_id]["evidence_id"] for model_id in MESH_CHILD_IDS
         },
         "partition": partition.to_dict(),
         "consumer_bindings": consumer_bindings,
@@ -745,6 +1137,24 @@ def run_mesh(
         "parent_model_fingerprint": MODELS[PARENT_ID].fingerprint(),
         "parent_evidence_id": parent_receipt["evidence_id"],
         "parent_current": parent_current,
+        "analysis_operation_model_id": ANALYSIS_OPERATION_ID,
+        "analysis_operation_model_fingerprint": operation_specs[
+            ANALYSIS_OPERATION_ID
+        ].fingerprint(),
+        "analysis_operation_evidence_id": operation_receipts[
+            ANALYSIS_OPERATION_ID
+        ]["evidence_id"],
+        "analysis_operation_current": operation_current_by_id[
+            ANALYSIS_OPERATION_ID
+        ],
+        "operation_models": {
+            model_id: {
+                "model_fingerprint": operation_specs[model_id].fingerprint(),
+                "evidence_id": operation_receipts[model_id]["evidence_id"],
+                "current": operation_current_by_id[model_id],
+            }
+            for model_id in OPERATION_IDS
+        },
         "required_child_evidence_tier": "hazard_green",
         "native_report": report.to_dict(),
         "layered_boundary_plan": layered_plan.to_dict(),
@@ -759,7 +1169,10 @@ def run_mesh(
         },
         "unbound_outputs": list(unbound_outputs),
         "claim_boundary": (
-            "mesh_green proves the bounded M0/C1-C12 abstract-hazard partition, "
+            "mesh_green proves the bounded A2 plan -> C11 package -> A0/A1 "
+            "execution -> C11 admission -> A2 join binding, A3 query isolation and "
+            "feedback dispatch into A2, daily Codex invocation re-entry, "
+            "M0/C1-C12 abstract-hazard partition, "
             "unique child writer declarations, current receipt reattachment, "
             "qualified output consumption, reachable join, and leak-free "
             "terminal dispositions. Production code, runtime paths, provider "

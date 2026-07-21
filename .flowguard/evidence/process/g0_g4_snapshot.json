@@ -1,13 +1,59 @@
 {
   "artifact_type": "matters.delivery-snapshot.v1",
-  "claim_boundary": "This snapshot advances only through consecutive current gates. G9 consumes a minimized real-private aggregate, G10 current installed-browser evidence, G11 clean-clone/package privacy evidence, and G12 frozen local-release identities. Open private semantic coverage, Linux CI, Figma, GitHub publication, and licensing authorization remain outside any passed claim.",
-  "current_gate": "G10",
+  "claim_boundary": "This snapshot advances only through consecutive current gates. G9 consumes a minimized real-private aggregate including the manually rehearsed model-agnostic Codex daily-maintenance boundary and exact terminal receipts for evidence-pointer rebase followed by coverage-history archive. Missing, partial, out-of-order, startup-owned, or VACUUM-owning migration evidence keeps G9 not run or blocked. G10 current installed-browser evidence, G11 clean-clone/package privacy evidence, and G12 frozen local-release identities. Open private semantic coverage, Linux CI, Figma, GitHub publication, and licensing authorization remain outside any passed claim.",
+  "current_gate": "none",
   "gates": {
     "G0": {
       "evidence": {
         "artifact_type": "matters.public-boundary-check.v2",
-        "claim_boundary": "This check enforces authoritative required-public inventory reconciliation, ignored/tracked/package/clean-clone accounting, external private-root placement, link and junction rejection, portable evidence paths, decoded JSON/YAML and encoded-path scanning, size limits, and high-confidence secret patterns. No-commit, clean-clone-not-supplied, package-not-supplied, and unreviewed ACL/encryption/cloud-sync dispositions remain visible and are not claimed as passed release evidence.",
-        "findings": [],
+        "claim_boundary": "This check enforces authoritative required-public inventory reconciliation, ignored/tracked/package/clean-clone accounting, missing and unexpected package payload rejection, external private-root placement, link and junction rejection, portable evidence paths, decoded JSON/YAML and encoded-path scanning, size limits, non-synthetic email and structured opaque Gmail identifier rejection, and high-confidence secret patterns. No-commit, clean-clone-not-supplied, package-not-supplied, and unreviewed ACL/encryption/cloud-sync dispositions remain visible and are not claimed as passed release evidence.",
+        "findings": [
+          {
+            "code": "candidate_missing",
+            "message": "Git candidate no longer exists",
+            "path": "src/matters/bundled_skills/matters-card-visual-curation/SKILL.md"
+          },
+          {
+            "code": "candidate_missing",
+            "message": "Git candidate no longer exists",
+            "path": "src/matters/bundled_skills/matters-card-visual-curation/agents/openai.yaml"
+          },
+          {
+            "code": "candidate_missing",
+            "message": "Git candidate no longer exists",
+            "path": "src/matters/bundled_skills/matters-card-visual-curation/references/service-contract.md"
+          },
+          {
+            "code": "candidate_missing",
+            "message": "Git candidate no longer exists",
+            "path": "src/matters/bundled_skills/matters-card-visual-curation/scripts/invoke.py"
+          },
+          {
+            "code": "public_candidate_not_in_required_inventory",
+            "message": "public candidate is absent from the authoritative inventory",
+            "path": "src/matters/bundled_skills/matters-card-visual-curation/SKILL.md"
+          },
+          {
+            "code": "public_candidate_not_in_required_inventory",
+            "message": "public candidate is absent from the authoritative inventory",
+            "path": "src/matters/bundled_skills/matters-card-visual-curation/agents/openai.yaml"
+          },
+          {
+            "code": "public_candidate_not_in_required_inventory",
+            "message": "public candidate is absent from the authoritative inventory",
+            "path": "src/matters/bundled_skills/matters-card-visual-curation/references/service-contract.md"
+          },
+          {
+            "code": "public_candidate_not_in_required_inventory",
+            "message": "public candidate is absent from the authoritative inventory",
+            "path": "src/matters/bundled_skills/matters-card-visual-curation/scripts/invoke.py"
+          },
+          {
+            "code": "tracked_inventory_missing_required",
+            "message": "committed inventory omits required public files",
+            "path": "git://HEAD"
+          }
+        ],
         "inventories": {
           "clean_clone": {
             "missing_required": [],
@@ -24,19 +70,80 @@
             "status": "not_run"
           },
           "tracked": {
-            "missing_required": [],
+            "missing_required": [
+              ".flowguard/evidence/agent_operations/models/A2_matters_maintenance_orchestrator_operation.json",
+              ".flowguard/evidence/tests/TM22_generated_hero.json",
+              ".flowguard/evidence/tests/TM24_research_operation.json",
+              ".flowguard/evidence/tests/TM25_daily_codex_maintenance.json",
+              ".flowguard/evidence/tests/TM26_maintenance_orchestrator.json",
+              ".flowguard/evidence/ui/screenshots/matters-compact-en-1440.png",
+              ".flowguard/evidence/ui/screenshots/matters-compact-en-1880.png",
+              ".flowguard/evidence/ui/screenshots/matters-compact-zh-1440.png",
+              ".flowguard/evidence/ui/screenshots/matters-compact-zh-1880.png",
+              ".flowguard/evidence/ui/screenshots/matters-detail-zh-1880.png",
+              ".flowguard/evidence/ui/screenshots/matters-standard-en-1440.png",
+              ".flowguard/evidence/ui/screenshots/matters-standard-en-1880.png",
+              ".flowguard/evidence/ui/screenshots/matters-standard-zh-1440.png",
+              ".flowguard/evidence/ui/screenshots/matters-standard-zh-1880.png",
+              "docs/task-evidence-audit-2026-07-20.md",
+              "flowguard_design/ui_runtime_contract.py",
+              "flowguard_design/ui_runtime_required_checks.json",
+              "scripts/audit_gmail_page_chain.py",
+              "scripts/audit_gmail_runtime.py",
+              "scripts/capture_gmail_search_chain.js",
+              "scripts/ingest_gmail_pages.py",
+              "scripts/retire_gmail_pseudo_thread.py",
+              "scripts/summarize_gmail_verified_coverage.py",
+              "src/matters/analysis/execution_profiles.py",
+              "src/matters/application/activity.py",
+              "src/matters/application/content_selection.py",
+              "src/matters/application/coverage_audit.py",
+              "src/matters/application/hierarchy.py",
+              "src/matters/application/maintenance_orchestration.py",
+              "src/matters/application/reconciliation.py",
+              "src/matters/assets/__init__.py",
+              "src/matters/assets/matters-icon.png",
+              "src/matters/assets/matters.ico",
+              "src/matters/bundled_skills/matters-generated-hero/SKILL.md",
+              "src/matters/bundled_skills/matters-generated-hero/agents/openai.yaml",
+              "src/matters/bundled_skills/matters-generated-hero/references/service-contract.md",
+              "src/matters/bundled_skills/matters-generated-hero/scripts/invoke.py",
+              "src/matters/domain/activity.py",
+              "src/matters/domain/context.py",
+              "src/matters/domain/hierarchy.py",
+              "src/matters/presentation/heroes.py",
+              "tests/test_autonomous_maintenance.py",
+              "tests/test_contract_rebase_and_global_recall.py",
+              "tests/test_coverage_audit.py",
+              "tests/test_execution_profiles.py",
+              "tests/test_generated_hero.py",
+              "tests/test_gmail_ingest_safety.py",
+              "tests/test_install_local_transaction.py",
+              "tests/test_maintenance_orchestration.py",
+              "tests/test_matter_activity.py",
+              "tests/test_matter_hierarchy.py",
+              "tests/test_matter_hierarchy_stress.py",
+              "tests/test_matter_reconciliation.py",
+              "tests/test_object_browser_catalog_query.py",
+              "tests/test_sqlite_store_scale_kernel.py"
+            ],
             "reason": "",
-            "status": "pass",
+            "status": "fail",
             "tracked_count": 476,
-            "unexpected_public": []
+            "unexpected_public": [
+              "src/matters/bundled_skills/matters-card-visual-curation/SKILL.md",
+              "src/matters/bundled_skills/matters-card-visual-curation/agents/openai.yaml",
+              "src/matters/bundled_skills/matters-card-visual-curation/references/service-contract.md",
+              "src/matters/bundled_skills/matters-card-visual-curation/scripts/invoke.py"
+            ]
           },
           "workspace": {
-            "candidate_count": 476,
+            "candidate_count": 531,
             "missing_required": [],
             "status": "pass"
           }
         },
-        "ok": true,
+        "ok": false,
         "policy": "repo://docs/security/public-file-policy.json",
         "private_root_dispositions": [
           {
@@ -58,14 +165,14 @@
         ],
         "required_public_inventory": {
           "authority": "repo://docs/security/required-public-inventory.json",
-          "fingerprint_excluded_count": 62,
-          "inventory_excluded_count": 196,
-          "required_count": 476,
-          "required_fingerprint": "sha256:4eeb0a77ff950d008eff8d3feb7e957619577a8421731305471eccdcce7a7082"
+          "fingerprint_excluded_count": 76,
+          "inventory_excluded_count": 373,
+          "required_count": 527,
+          "required_fingerprint": "sha256:59ce78dec680452231eb3618b803f6d6fe9707a6c910c04effc24edf68396e48"
         },
         "root": "repo://"
       },
-      "status": "passed"
+      "status": "blocked"
     },
     "G1": {
       "evidence": {
@@ -85,7 +192,7 @@
             "commitment_primary_path_material_evidence_missing",
             "commitment_primary_path_risk_gate_missing"
           ],
-          "finding_count": 30,
+          "finding_count": 61,
           "native_decision": "behavior_commitment_coverage_blocked",
           "native_ok": false,
           "structural_inventory_ok": true,
@@ -112,160 +219,228 @@
     "G10": {
       "evidence": {
         "browser_error_count": 0,
-        "check_count": 23,
-        "claim_boundary": "Public synthetic installed-runtime evidence proves UI behavior and geometry only; it does not substitute for the separate real-private first run.",
-        "evidence_current": true,
-        "evidence_id": "evidence:ui:a096194d75463462",
-        "ok": true,
-        "status": "passed",
-        "ui_revision": "sha256:a096194d754634629c28c4b08d7b7f19bc2e3bd3d19e4fab240e9c4e34d4442f"
+        "check_count": 70,
+        "claim_boundary": "Synthetic installed-runtime evidence proves only the exact declared read-only object-browser behaviors observed against an isolated service. The ordinary first-version browser exposes no correction or other canonical-write control. This receipt does not prove private-run usefulness, installation parity, or release readiness.",
+        "evidence_current": false,
+        "evidence_id": "evidence:ui:2694ada717b149b6",
+        "exact_check_inventory": true,
+        "ok": false,
+        "required_check_count": 70,
+        "status": "blocked",
+        "ui_revision": "sha256:a211b6b40b672fe8160d41eccd073217b8242fc50f83ba09f62a650781d3e7ab"
       },
-      "status": "passed"
+      "status": "blocked"
     },
     "G11": {
       "evidence": {
-        "artifact_count": 0,
+        "artifact_hashes": {
+          "matters-0.2.0-py3-none-any.whl": "sha256:c93a71990a2fd3339250aca9192aa1d3f091909cf22f4ea9fcdca667a4ef58cc",
+          "matters-0.2.0.tar.gz": "sha256:cace1db69023f5cd3e1a74a815ad3c05a8b6d62fdbd63457d98eb92f83aba0da"
+        },
+        "boundary_fingerprint": "sha256:d674dc8cdf8f0666232f25ed0f722efb70ce79c46d46705471f7423b3f1121ad",
+        "claim_boundary": "This check enforces authoritative required-public inventory reconciliation, ignored/tracked/package/clean-clone accounting, missing and unexpected package payload rejection, external private-root placement, link and junction rejection, portable evidence paths, decoded JSON/YAML and encoded-path scanning, size limits, non-synthetic email and structured opaque Gmail identifier rejection, and high-confidence secret patterns. No-commit, clean-clone-not-supplied, package-not-supplied, and unreviewed ACL/encryption/cloud-sync dispositions remain visible and are not claimed as passed release evidence.",
+        "clean_clone_status": "pass",
+        "finding_codes": [
+          "candidate_missing",
+          "package_inventory_mismatch",
+          "public_candidate_not_in_required_inventory",
+          "tracked_inventory_missing_required"
+        ],
         "ok": false,
-        "reason": "frozen_package_pair_not_supplied",
-        "status": "not_run"
+        "package_statuses": [
+          "fail",
+          "fail"
+        ],
+        "status": "blocked",
+        "tracked_status": "fail"
       },
-      "status": "not_run"
+      "status": "blocked"
     },
     "G12": {
       "evidence": {
         "checks": {
-          "exact_release_tag": false,
+          "agent_operation_models": true,
+          "exact_release_tag": true,
           "git_commit": true,
           "install_receipt": false,
-          "installed_ui": true,
+          "installed_ui": false,
           "installed_version": true,
-          "private_first_run": true,
+          "private_first_run": false,
           "product_models": true,
           "public_release_boundary": false,
-          "researchguard": true,
+          "researchguard": false,
           "skill_mesh": true,
           "skill_models": true,
-          "source_version": true,
-          "test_mesh": true,
+          "source_version": false,
+          "test_mesh": false,
           "tm19": true
         },
-        "claim_boundary": "This frozen local-release gate binds exact Git/tag/version, wheel/install, M0/C1-C12 and S0-S5 model evidence, complete TestMesh including TM19, current installed UI, public package boundary, bounded private-first-run aggregate, and the frozen ResearchGuard currentness identity. It does not claim GitHub publication, Linux CI, Figma evidence, or complete private semantic coverage.",
-        "commit": "1e774c8ea16beed7382ebb6fd4c2d879a5a2a8f4",
+        "claim_boundary": "This frozen local-release gate binds exact Git/tag/version, wheel/install, M0/C1-C12 product, A0/A1/A2 agent-operation, and S0-S5 skill-runtime model evidence from separate roots, complete TestMesh including TM19, current installed UI, public package boundary, bounded private-first-run aggregate, and the frozen ResearchGuard currentness identity. It does not claim GitHub publication, Linux CI, Figma evidence, or complete private semantic coverage.",
+        "commit": "e38bfb58a8c31c0c97702f781f5bc3316140cea9",
         "installed_version": "0.2.0",
         "ok": false,
-        "researchguard_status": "current",
+        "researchguard_status": "researchguard_blocked",
+        "source_version_identity": {
+          "checks": {
+            "identity_files_readable": true,
+            "plugin_projection": false,
+            "project_uses_dynamic_version": true,
+            "runtime_authority": true,
+            "sbom_projection": false,
+            "setuptools_reads_runtime_authority": true
+          },
+          "ok": false,
+          "version": "0.2.0"
+        },
         "status": "not_run",
-        "tag": "",
+        "tag": "v0.2.0",
         "version": "0.2.0",
-        "wheel_sha256": ""
+        "wheel_sha256": "c93a71990a2fd3339250aca9192aa1d3f091909cf22f4ea9fcdca667a4ef58cc"
       },
       "status": "not_run"
     },
     "G2": {
       "evidence": {
+        "agent_operation_model_count": 3,
+        "claim_boundary": "G2 validates M0/C1-C12 product receipts and A0/A1/A2 operation receipts from separate evidence roots. A pass in one plane never substitutes for the other.",
         "models": [
           {
+            "behavior_plane": "product_runtime",
             "current": true,
-            "evidence_id": "evidence:M0_matters_end_to_end_authority:96f9b1c9603a2ddc",
-            "model_fingerprint": "sha256:96f9b1c9603a2ddcfed348e7db113fe013c9abc03ad97117a466f9f5be818ee5",
+            "evidence_id": "evidence:M0_matters_end_to_end_authority:0082ef48a2de2c81",
+            "model_fingerprint": "sha256:0082ef48a2de2c810e477544eb58c4d2ca374781513bb00cc1643f09a0fc7bea",
             "model_id": "M0_matters_end_to_end_authority"
           },
           {
+            "behavior_plane": "product_runtime",
             "current": true,
-            "evidence_id": "evidence:C1_authorization_coverage:68f1f53f4b9e29af",
-            "model_fingerprint": "sha256:68f1f53f4b9e29afe4ca6ca121a5469c3529e6c9c274c12139e032d38d50cdfc",
+            "evidence_id": "evidence:C1_authorization_coverage:e468939a47eedfc3",
+            "model_fingerprint": "sha256:e468939a47eedfc3d1fa9b868375975fd136e5e56807ebb1993326693cb10999",
             "model_id": "C1_authorization_coverage"
           },
           {
+            "behavior_plane": "product_runtime",
             "current": true,
-            "evidence_id": "evidence:C2_source_registry:9197d59c0887a460",
-            "model_fingerprint": "sha256:9197d59c0887a4601a69541bdcf94b420f5199d3c9417a56f6241920ea46b534",
+            "evidence_id": "evidence:C2_source_registry:99640f1fbfb6e391",
+            "model_fingerprint": "sha256:99640f1fbfb6e391e6197bb9ecb0e6eea2b414735e21f1ee3812fc494c2e423b",
             "model_id": "C2_source_registry"
           },
           {
+            "behavior_plane": "product_runtime",
             "current": true,
-            "evidence_id": "evidence:C3_evidence_qualification:c4772b78e1a3dfeb",
-            "model_fingerprint": "sha256:c4772b78e1a3dfebb8f24425239cda26dfb7c9f2686796c6bde0a415ef153d3f",
+            "evidence_id": "evidence:C3_evidence_qualification:4c99b280605322ee",
+            "model_fingerprint": "sha256:4c99b280605322ee46a254167f4152e865f2e7ba13153b9e9991d9028c93368e",
             "model_id": "C3_evidence_qualification"
           },
           {
+            "behavior_plane": "product_runtime",
             "current": true,
             "evidence_id": "evidence:C4_person_entity_resolution:603526a339d987e3",
             "model_fingerprint": "sha256:603526a339d987e33c3931b6ef405a6cef2bcbffcbedf9c44de9bc6894edfbe4",
             "model_id": "C4_person_entity_resolution"
           },
           {
+            "behavior_plane": "product_runtime",
             "current": true,
-            "evidence_id": "evidence:C5_event_temporal_trace:72d80a24bcaecef0",
-            "model_fingerprint": "sha256:72d80a24bcaecef0f9ab6c2565ec5c334d44bb2017ae959e6859b6cede9e0cd2",
+            "evidence_id": "evidence:C5_event_temporal_trace:66a0158b658f2775",
+            "model_fingerprint": "sha256:66a0158b658f27758f3af9c1c1a20234dd9558b0e6c5b9fbefa278c27a983bb1",
             "model_id": "C5_event_temporal_trace"
           },
           {
+            "behavior_plane": "product_runtime",
             "current": true,
-            "evidence_id": "evidence:C6_matter_formation_admission:5952495975d42700",
-            "model_fingerprint": "sha256:5952495975d4270066f457c73a97a4ef66d87a67fa24f61554a740cfcd35f056",
+            "evidence_id": "evidence:C6_matter_formation_admission:4c767a291ad590bb",
+            "model_fingerprint": "sha256:4c767a291ad590bbdeaa1502a44a823bc90f2af32065ebe8a61afb247c020074",
             "model_id": "C6_matter_formation_admission"
           },
           {
+            "behavior_plane": "product_runtime",
             "current": true,
-            "evidence_id": "evidence:C7_lifecycle_board_state:951befd66451fa09",
-            "model_fingerprint": "sha256:951befd66451fa09fd78877399365501db90a42b6cf2bcabdb560a71b2f68a54",
+            "evidence_id": "evidence:C7_lifecycle_board_state:3e417e15c4276d31",
+            "model_fingerprint": "sha256:3e417e15c4276d319428802e26e146cc0866c484b3e52ce3673a7555eefb33f4",
             "model_id": "C7_lifecycle_board_state"
           },
           {
+            "behavior_plane": "product_runtime",
             "current": true,
-            "evidence_id": "evidence:C8_open_loop_waiting_blocking:0ab663d7fe25bfed",
-            "model_fingerprint": "sha256:0ab663d7fe25bfed51bdcadc916a0b8466f2e017f340326587d58fcceb8fd283",
+            "evidence_id": "evidence:C8_open_loop_waiting_blocking:87ab92d77bb88b87",
+            "model_fingerprint": "sha256:87ab92d77bb88b87bad1476e4fcf6456cb4a415beaba35ddb2f336ba7860431c",
             "model_id": "C8_open_loop_waiting_blocking"
           },
           {
+            "behavior_plane": "product_runtime",
             "current": true,
-            "evidence_id": "evidence:C9_completion_cancellation_reopen:fd9fe90d10d99d57",
-            "model_fingerprint": "sha256:fd9fe90d10d99d576eeaf6b7cb8686d0425979a6603fddf0c8a3b2bcdfd8c95b",
+            "evidence_id": "evidence:C9_completion_cancellation_reopen:7e567c24f8a5704a",
+            "model_fingerprint": "sha256:7e567c24f8a5704a831cf00478b06ce1b8e3d07c49698512017773db8ef96714",
             "model_id": "C9_completion_cancellation_reopen"
           },
           {
+            "behavior_plane": "product_runtime",
             "current": true,
-            "evidence_id": "evidence:C10_correction_revocation:af05d44733387852",
-            "model_fingerprint": "sha256:af05d447333878523615be6e94a948c17e425a6a51934ca9aaecaead9e706aa9",
+            "evidence_id": "evidence:C10_correction_revocation:cf48434e38a13de4",
+            "model_fingerprint": "sha256:cf48434e38a13de4874e757ea4668c5c855fb4f8c8dacb6f2d22935920f940b3",
             "model_id": "C10_correction_revocation"
           },
           {
+            "behavior_plane": "product_runtime",
             "current": true,
-            "evidence_id": "evidence:C11_guard_artifact_prediction:bdb7bc7a407ec5ec",
-            "model_fingerprint": "sha256:bdb7bc7a407ec5ec62dd03f10e08a62d0e4a54fe251503b84987892398505a8c",
+            "evidence_id": "evidence:C11_guard_artifact_prediction:503955f1e0176a19",
+            "model_fingerprint": "sha256:503955f1e0176a1944172eada89381e6240187a2abdc52e3f5d6967bd395e302",
             "model_id": "C11_guard_artifact_prediction"
           },
           {
+            "behavior_plane": "product_runtime",
             "current": true,
-            "evidence_id": "evidence:C12_projection_bilingual_ui:0f7891134bc61010",
-            "model_fingerprint": "sha256:0f7891134bc610109d3c39af21c93478f2eecd87c9b6a9178f511db920b1ddd6",
+            "evidence_id": "evidence:C12_projection_bilingual_ui:15891997d26e1534",
+            "model_fingerprint": "sha256:15891997d26e1534e1a029703e3c64f1af7ef3f633ba3a016664b87bc700c971",
             "model_id": "C12_projection_bilingual_ui"
+          },
+          {
+            "behavior_plane": "agent_operation",
+            "current": true,
+            "evidence_id": "evidence:A0_matters_source_analysis_operation:7e416d2b1972c524",
+            "model_fingerprint": "sha256:7e416d2b1972c52407adb6d0ba3b692f6d9f45040cf81085ef9c32a6b47fbe55",
+            "model_id": "A0_matters_source_analysis_operation"
+          },
+          {
+            "behavior_plane": "agent_operation",
+            "current": true,
+            "evidence_id": "evidence:A1_matters_research_operation:b3bb1836a6200d96",
+            "model_fingerprint": "sha256:b3bb1836a6200d967e5aa974e2f10534a47584a6dafde8e7e9c04082de644cb4",
+            "model_id": "A1_matters_research_operation"
+          },
+          {
+            "behavior_plane": "agent_operation",
+            "current": true,
+            "evidence_id": "evidence:A2_matters_maintenance_orchestrator_operation:e148ecb8257cd932",
+            "model_fingerprint": "sha256:e148ecb8257cd93220a1a4558a308ada67a7f6e8a653d603f2a9465c6e2f7ad0",
+            "model_id": "A2_matters_maintenance_orchestrator_operation"
           }
         ],
-        "ok": true
+        "ok": true,
+        "product_model_count": 13
       },
       "status": "passed"
     },
     "G3": {
       "evidence": {
         "closure_decision": "mesh_closure_green",
-        "current_mesh_fingerprint": "sha256:8f4429ac40d3319c9d01ae8438daee9c333319a61cbb58f769669b183068a372",
+        "current_mesh_fingerprint": "sha256:647cbbdc9870c932cab48a6d5df9b115aee8e6854ed38e71a55cde1009a76122",
         "layered_decision": "layered_boundary_proof_green",
         "native_decision": "mesh_green_can_continue",
         "ok": true,
-        "persisted_mesh_fingerprint": "sha256:8f4429ac40d3319c9d01ae8438daee9c333319a61cbb58f769669b183068a372"
+        "persisted_mesh_fingerprint": "sha256:647cbbdc9870c932cab48a6d5df9b115aee8e6854ed38e71a55cde1009a76122"
       },
       "status": "passed"
     },
     "G4": {
       "evidence": {
         "claim_boundary": "G4 proves design inventory, unique ownership, finite universes, and exact planned evidence ownership. It does not prove code, tests, provider conformance, synthetic E2E, live private sources, UI, or release.",
-        "current_design_fingerprint": "sha256:f9d84e599b99c3b436951e559b92d52a8cf6282d0134abd54a00c32cd06d7292",
-        "evidence_id": "evidence:G4-model-derived-design:f9d84e599b99c3b4",
+        "current_design_fingerprint": "sha256:d6f0b14f95c2d93b390803537391a30887cbe727c7f4478d5c54db4f36affa74",
+        "evidence_id": "evidence:G4-model-derived-design:d6f0b14f95c2d93b",
         "execution_status": "not_run",
         "ok": true,
-        "persisted_design_fingerprint": "sha256:f9d84e599b99c3b436951e559b92d52a8cf6282d0134abd54a00c32cd06d7292",
+        "persisted_design_fingerprint": "sha256:d6f0b14f95c2d93b390803537391a30887cbe727c7f4478d5c54db4f36affa74",
         "structural_status": "g4_design_green"
       },
       "status": "passed"
@@ -273,9 +448,9 @@
     "G5": {
       "evidence": {
         "g8_receipt": {
-          "current_sources": true,
+          "current_sources": false,
           "evidence_id": "evidence:G8-fully-synthetic:ffe0563f16dabefc",
-          "ok": true,
+          "ok": false,
           "source_fingerprint": "sha256:ffe0563f16dabefc5a58c6dc617e67f73cb4d3905a8054d500c70e7ccc0d22f6"
         },
         "gate": {
@@ -288,14 +463,14 @@
           "status": "passed"
         }
       },
-      "status": "passed"
+      "status": "blocked"
     },
     "G6": {
       "evidence": {
         "g8_receipt": {
-          "current_sources": true,
+          "current_sources": false,
           "evidence_id": "evidence:G8-fully-synthetic:ffe0563f16dabefc",
-          "ok": true,
+          "ok": false,
           "source_fingerprint": "sha256:ffe0563f16dabefc5a58c6dc617e67f73cb4d3905a8054d500c70e7ccc0d22f6"
         },
         "gate": {
@@ -524,14 +699,14 @@
           "status": "passed"
         }
       },
-      "status": "passed"
+      "status": "blocked"
     },
     "G7": {
       "evidence": {
         "g8_receipt": {
-          "current_sources": true,
+          "current_sources": false,
           "evidence_id": "evidence:G8-fully-synthetic:ffe0563f16dabefc",
-          "ok": true,
+          "ok": false,
           "source_fingerprint": "sha256:ffe0563f16dabefc5a58c6dc617e67f73cb4d3905a8054d500c70e7ccc0d22f6"
         },
         "gate": {
@@ -555,14 +730,14 @@
           "status": "passed"
         }
       },
-      "status": "passed"
+      "status": "blocked"
     },
     "G8": {
       "evidence": {
         "g8_receipt": {
-          "current_sources": true,
+          "current_sources": false,
           "evidence_id": "evidence:G8-fully-synthetic:ffe0563f16dabefc",
-          "ok": true,
+          "ok": false,
           "source_fingerprint": "sha256:ffe0563f16dabefc5a58c6dc617e67f73cb4d3905a8054d500c70e7ccc0d22f6"
         },
         "gate": {
@@ -661,28 +836,18 @@
           "status": "passed"
         }
       },
-      "status": "passed"
+      "status": "blocked"
     },
     "G9": {
       "evidence": {
-        "aggregate_fingerprint": "sha256:01176962cfb81a2a57b404e507d31bd0d09147d45a167851937bd9f33a0781d8",
-        "catalog_reconciled": true,
-        "claim_boundary": "This gate consumes only a privacy-minimized aggregate and opaque handle. It proves a bounded real-private first run with exact inventory/depth/localization accounting; coverage_complete=false remains open work and no private payload is serialized.",
-        "coverage_complete": false,
-        "failed_partition_count": 0,
-        "inventory_reconciled": true,
-        "localization_current": true,
-        "ok": true,
-        "partition_status": "complete",
-        "private_evidence_handle": "private-evidence:matters-v0.2-first-run",
-        "runtime_status": "current_with_open_work",
-        "semantic_depth_accounted": true,
-        "status": "passed"
+        "ok": false,
+        "reason": "private_aggregate_not_supplied",
+        "status": "not_run"
       },
-      "status": "passed"
+      "status": "not_run"
     }
   },
-  "generated_at": "2026-07-19T06:17:14.920622+00:00",
-  "next_gate": "G11",
+  "generated_at": "2026-07-20T03:13:21.226645+00:00",
+  "next_gate": "G0",
   "ok": false
 }

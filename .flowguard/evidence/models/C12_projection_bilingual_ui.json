@@ -1,13 +1,43 @@
 {
   "artifact_type": "matters.flowguard-model-receipt.v1",
-  "claim_boundary": "This model establishes bounded C12 localization, Matter catalog/detail, timeline, density, search-state, representative-visual, stale-response, optional-correction, projection-only, and privacy transitions. It does not prove pixel parity, factual truth, desktop installation, or private-run usefulness.",
-  "evidence_id": "evidence:C12_projection_bilingual_ui:0f7891134bc61010",
+  "claim_boundary": "This model establishes bounded C12 localization, root catalog, child table, single-shell hierarchy navigation, descendant-aware timeline, exactly eight ordinary detail sections, bounded Files and information, operable Images evidence gallery, labeled AI supplemental information, density, search-state, latest-material-clue order, generated hero, explicit loading/processing/ready/honest-empty/no-filter-results/ready-stale/transport-error states, automatic reconnect recovery, on-demand correction, projection-only rendering that preserves the exact C6-admitted matter_id and excludes noncanonical source/candidate rows, and privacy transitions. It does not prove pixel parity, factual truth, hierarchy completeness, desktop installation, or private-run usefulness.",
+  "evidence_id": "evidence:C12_projection_bilingual_ui:c28a74c07f26dc67",
   "evidence_tiers": [
     "abstract_green",
     "hazard_green"
   ],
-  "generated_at": "2026-07-19T05:48:56.048231+00:00",
+  "generated_at": "2026-07-21T07:30:24.402603+00:00",
   "known_bad_proofs": [
+    {
+      "evidence_id": "C12_projection_bilingual_ui:known-bad:H-C12-042-projection-id-becomes-canonical-matter",
+      "failure_id": "H-C12-042-projection-id-becomes-canonical-matter",
+      "observed_status": "failed",
+      "protected_error_class": "projection_identity_canonicalization_escape"
+    },
+    {
+      "evidence_id": "C12_projection_bilingual_ui:known-bad:H-C12-048-superseded-analysis-projection-stays-visible",
+      "failure_id": "H-C12-048-superseded-analysis-projection-stays-visible",
+      "observed_status": "failed",
+      "protected_error_class": "stale_analysis_projection_publication"
+    },
+    {
+      "evidence_id": "C12_projection_bilingual_ui:known-bad:H-C12-040-latest-child-summary-becomes-parent-overview",
+      "failure_id": "H-C12-040-latest-child-summary-becomes-parent-overview",
+      "observed_status": "failed",
+      "protected_error_class": "parent_narrative_latest_child_substitution"
+    },
+    {
+      "evidence_id": "C12_projection_bilingual_ui:known-bad:H-C12-041-parent-narrative-mutates-foreign-authority",
+      "failure_id": "H-C12-041-parent-narrative-mutates-foreign-authority",
+      "observed_status": "failed",
+      "protected_error_class": "parent_narrative_write_scope_escape"
+    },
+    {
+      "evidence_id": "C12_projection_bilingual_ui:known-bad:H-C12-039-full-catalog-card-materialization-before-page",
+      "failure_id": "H-C12-039-full-catalog-card-materialization-before-page",
+      "observed_status": "failed",
+      "protected_error_class": "catalog_query_shape_unbounded_hydration"
+    },
     {
       "evidence_id": "C12_projection_bilingual_ui:known-bad:H-C12-001-missing-locale-fallback",
       "failure_id": "H-C12-001-missing-locale-fallback",
@@ -57,10 +87,10 @@
       "protected_error_class": "projection_writer_escape"
     },
     {
-      "evidence_id": "C12_projection_bilingual_ui:known-bad:H-C12-009-unsafe-visual-selected",
-      "failure_id": "H-C12-009-unsafe-visual-selected",
+      "evidence_id": "C12_projection_bilingual_ui:known-bad:H-C12-009-real-source-promoted-as-generated-hero",
+      "failure_id": "H-C12-009-real-source-promoted-as-generated-hero",
       "observed_status": "failed",
-      "protected_error_class": "representative_visual_authority_escape"
+      "protected_error_class": "generated_hero_source_boundary_escape"
     },
     {
       "evidence_id": "C12_projection_bilingual_ui:known-bad:H-C12-010-correction-writes-directly",
@@ -79,9 +109,273 @@
       "failure_id": "H-C12-012-card-repeats-full-coverage-ledger-scan",
       "observed_status": "failed",
       "protected_error_class": "object_browser_coverage_relation_amplification"
+    },
+    {
+      "evidence_id": "C12_projection_bilingual_ui:known-bad:H-C12-013-child-duplicated-as-root-card",
+      "failure_id": "H-C12-013-child-duplicated-as-root-card",
+      "observed_status": "failed",
+      "protected_error_class": "root_catalog_hierarchy_duplication"
+    },
+    {
+      "evidence_id": "C12_projection_bilingual_ui:known-bad:H-C12-014-child-opens-nested-modal",
+      "failure_id": "H-C12-014-child-opens-nested-modal",
+      "observed_status": "failed",
+      "protected_error_class": "descendant_recursive_detail_stack"
+    },
+    {
+      "evidence_id": "C12_projection_bilingual_ui:known-bad:H-C12-015-reparent-keeps-stale-path",
+      "failure_id": "H-C12-015-reparent-keeps-stale-path",
+      "observed_status": "failed",
+      "protected_error_class": "hierarchy_navigation_stale_revision"
+    },
+    {
+      "evidence_id": "C12_projection_bilingual_ui:known-bad:H-C12-016-depth-pending-shown-complete",
+      "failure_id": "H-C12-016-depth-pending-shown-complete",
+      "observed_status": "failed",
+      "protected_error_class": "hierarchy_depth_projection_false_complete"
+    },
+    {
+      "evidence_id": "C12_projection_bilingual_ui:known-bad:H-C12-017-density-changes-hierarchy-revision",
+      "failure_id": "H-C12-017-density-changes-hierarchy-revision",
+      "observed_status": "failed",
+      "protected_error_class": "density_hierarchy_semantic_drift"
+    },
+    {
+      "evidence_id": "C12_projection_bilingual_ui:known-bad:H-C12-018-child-not-ui-reachable",
+      "failure_id": "H-C12-018-child-not-ui-reachable",
+      "observed_status": "failed",
+      "protected_error_class": "modeled_child_ui_orphan"
+    },
+    {
+      "evidence_id": "C12_projection_bilingual_ui:known-bad:H-C12-019-descendant-event-duplicated",
+      "failure_id": "H-C12-019-descendant-event-duplicated",
+      "observed_status": "failed",
+      "protected_error_class": "hierarchy_timeline_event_duplication"
+    },
+    {
+      "evidence_id": "C12_projection_bilingual_ui:known-bad:H-C12-020-child-search-hit-looks-like-root",
+      "failure_id": "H-C12-020-child-search-hit-looks-like-root",
+      "observed_status": "failed",
+      "protected_error_class": "hierarchy_search_context_loss"
+    },
+    {
+      "evidence_id": "C12_projection_bilingual_ui:known-bad:H-C12-021-detail-navigation-not-eight",
+      "failure_id": "H-C12-021-detail-navigation-not-eight",
+      "observed_status": "failed",
+      "protected_error_class": "detail_primary_section_sprawl"
+    },
+    {
+      "evidence_id": "C12_projection_bilingual_ui:known-bad:H-C12-022-gallery-behavior-missing",
+      "failure_id": "H-C12-022-gallery-behavior-missing",
+      "observed_status": "failed",
+      "protected_error_class": "related_image_inoperable"
+    },
+    {
+      "evidence_id": "C12_projection_bilingual_ui:known-bad:H-C12-023-files-information-unbounded-or-internal",
+      "failure_id": "H-C12-023-files-information-unbounded-or-internal",
+      "observed_status": "failed",
+      "protected_error_class": "files_information_projection_leak"
+    },
+    {
+      "evidence_id": "C12_projection_bilingual_ui:known-bad:H-C12-024-transport-error-becomes-empty",
+      "failure_id": "H-C12-024-transport-error-becomes-empty",
+      "observed_status": "failed",
+      "protected_error_class": "fetch_failure_false_empty"
+    },
+    {
+      "evidence_id": "C12_projection_bilingual_ui:known-bad:H-C12-025-timeout-erases-prior-catalog",
+      "failure_id": "H-C12-025-timeout-erases-prior-catalog",
+      "observed_status": "failed",
+      "protected_error_class": "timeout_stale_catalog_erasure"
+    },
+    {
+      "evidence_id": "C12_projection_bilingual_ui:known-bad:H-C12-026-filter-zero-becomes-global-empty",
+      "failure_id": "H-C12-026-filter-zero-becomes-global-empty",
+      "observed_status": "failed",
+      "protected_error_class": "filter_zero_global_empty_conflation"
+    },
+    {
+      "evidence_id": "C12_projection_bilingual_ui:known-bad:H-C12-027-auto-reconnect-stuck",
+      "failure_id": "H-C12-027-auto-reconnect-stuck",
+      "observed_status": "failed",
+      "protected_error_class": "transport_reconnect_liveness_failure"
+    },
+    {
+      "evidence_id": "C12_projection_bilingual_ui:known-bad:H-C12-028-summary-promoted-to-card-title",
+      "failure_id": "H-C12-028-summary-promoted-to-card-title",
+      "observed_status": "failed",
+      "protected_error_class": "matter_card_summary_leak"
+    },
+    {
+      "evidence_id": "C12_projection_bilingual_ui:known-bad:H-C12-029-summary-bound-to-foreign-matter",
+      "failure_id": "H-C12-029-summary-bound-to-foreign-matter",
+      "observed_status": "failed",
+      "protected_error_class": "cross_matter_projection_owner_mismatch"
+    },
+    {
+      "evidence_id": "C12_projection_bilingual_ui:known-bad:H-C12-030-catalog-not-sorted-by-latest-material-clue",
+      "failure_id": "H-C12-030-catalog-not-sorted-by-latest-material-clue",
+      "observed_status": "failed",
+      "protected_error_class": "activity_order_wrong_authority"
+    },
+    {
+      "evidence_id": "C12_projection_bilingual_ui:known-bad:H-C12-031-nonmaterial-processing-bubbles-matter",
+      "failure_id": "H-C12-031-nonmaterial-processing-bubbles-matter",
+      "observed_status": "failed",
+      "protected_error_class": "processing_activity_false_signal"
+    },
+    {
+      "evidence_id": "C12_projection_bilingual_ui:known-bad:H-C12-032-material-child-clue-does-not-refresh-ancestor",
+      "failure_id": "H-C12-032-material-child-clue-does-not-refresh-ancestor",
+      "observed_status": "failed",
+      "protected_error_class": "ancestor_activity_propagation_gap"
+    },
+    {
+      "evidence_id": "C12_projection_bilingual_ui:known-bad:H-C12-033-summary-clue-order-partial-publication",
+      "failure_id": "H-C12-033-summary-clue-order-partial-publication",
+      "observed_status": "failed",
+      "protected_error_class": "activity_projection_torn_revision"
+    },
+    {
+      "evidence_id": "C12_projection_bilingual_ui:known-bad:H-C12-034-generated-hero-entered-images-evidence",
+      "failure_id": "H-C12-034-generated-hero-entered-images-evidence",
+      "observed_status": "failed",
+      "protected_error_class": "generated_hero_evidence_gallery_pollution"
+    },
+    {
+      "evidence_id": "C12_projection_bilingual_ui:known-bad:H-C12-035-generated-hero-regenerated-on-every-clue",
+      "failure_id": "H-C12-035-generated-hero-regenerated-on-every-clue",
+      "observed_status": "failed",
+      "protected_error_class": "generated_hero_identity_churn"
+    },
+    {
+      "evidence_id": "C12_projection_bilingual_ui:known-bad:H-C12-047-unrepresentative-hero-published-current",
+      "failure_id": "H-C12-047-unrepresentative-hero-published-current",
+      "observed_status": "failed",
+      "protected_error_class": "generated_hero_visual_specificity_gap"
+    },
+    {
+      "evidence_id": "C12_projection_bilingual_ui:known-bad:H-C12-049-inferred-completion-labeled-reported",
+      "failure_id": "H-C12-049-inferred-completion-labeled-reported",
+      "observed_status": "failed",
+      "protected_error_class": "matter_state_basis_misrepresentation"
+    },
+    {
+      "evidence_id": "C12_projection_bilingual_ui:known-bad:H-C12-050-source-history-duplicated-in-flat-view",
+      "failure_id": "H-C12-050-source-history-duplicated-in-flat-view",
+      "observed_status": "failed",
+      "protected_error_class": "files_information_logical_source_duplication"
+    },
+    {
+      "evidence_id": "C12_projection_bilingual_ui:known-bad:H-C12-051-raw-source-timestamp-shown-in-ordinary-view",
+      "failure_id": "H-C12-051-raw-source-timestamp-shown-in-ordinary-view",
+      "observed_status": "failed",
+      "protected_error_class": "ordinary_source_time_precision_noise"
+    },
+    {
+      "evidence_id": "C12_projection_bilingual_ui:known-bad:H-C12-052-detail-loading-opens-empty-background-modal",
+      "failure_id": "H-C12-052-detail-loading-opens-empty-background-modal",
+      "observed_status": "failed",
+      "protected_error_class": "detail_request_background_modal_interruption"
+    },
+    {
+      "evidence_id": "C12_projection_bilingual_ui:known-bad:H-C12-053-technical-currentness-rendered-as-node-state",
+      "failure_id": "H-C12-053-technical-currentness-rendered-as-node-state",
+      "observed_status": "failed",
+      "protected_error_class": "graph_node_technical_state_leak"
+    },
+    {
+      "evidence_id": "C12_projection_bilingual_ui:known-bad:H-C12-054-overview-exposes-internal-review-panels",
+      "failure_id": "H-C12-054-overview-exposes-internal-review-panels",
+      "observed_status": "failed",
+      "protected_error_class": "overview_internal_console_density"
+    },
+    {
+      "evidence_id": "C12_projection_bilingual_ui:known-bad:H-C12-055-nonmatter-node-enters-hierarchy-graph",
+      "failure_id": "H-C12-055-nonmatter-node-enters-hierarchy-graph",
+      "observed_status": "failed",
+      "protected_error_class": "hierarchy_graph_node_type_pollution"
+    },
+    {
+      "evidence_id": "C12_projection_bilingual_ui:known-bad:H-C12-056-logical-event-revisions-duplicate-timeline",
+      "failure_id": "H-C12-056-logical-event-revisions-duplicate-timeline",
+      "observed_status": "failed",
+      "protected_error_class": "timeline_revision_duplication"
+    },
+    {
+      "evidence_id": "C12_projection_bilingual_ui:known-bad:H-C12-057-empty-supplemental-marked-current",
+      "failure_id": "H-C12-057-empty-supplemental-marked-current",
+      "observed_status": "failed",
+      "protected_error_class": "supplemental_false_current"
+    },
+    {
+      "evidence_id": "C12_projection_bilingual_ui:known-bad:H-C12-061-eligible-root-never-queues-supplemental-research",
+      "failure_id": "H-C12-061-eligible-root-never-queues-supplemental-research",
+      "observed_status": "failed",
+      "protected_error_class": "supplemental_queue_omission"
+    },
+    {
+      "evidence_id": "C12_projection_bilingual_ui:known-bad:H-C12-062-descendant-duplicates-root-research",
+      "failure_id": "H-C12-062-descendant-duplicates-root-research",
+      "observed_status": "failed",
+      "protected_error_class": "supplemental_descendant_duplicate_queue"
+    },
+    {
+      "evidence_id": "C12_projection_bilingual_ui:known-bad:H-C12-058-coverage-green-with-unprocessed-ui-gap",
+      "failure_id": "H-C12-058-coverage-green-with-unprocessed-ui-gap",
+      "observed_status": "failed",
+      "protected_error_class": "coverage_false_green"
+    },
+    {
+      "evidence_id": "C12_projection_bilingual_ui:known-bad:H-C12-059-coverage-drilldown-full-ledger-scan",
+      "failure_id": "H-C12-059-coverage-drilldown-full-ledger-scan",
+      "observed_status": "failed",
+      "protected_error_class": "coverage_drilldown_unbounded_scan"
+    },
+    {
+      "evidence_id": "C12_projection_bilingual_ui:known-bad:H-C12-060-lifecycle-and-modality-conflated",
+      "failure_id": "H-C12-060-lifecycle-and-modality-conflated",
+      "observed_status": "failed",
+      "protected_error_class": "lifecycle_visual_semantic_conflation"
+    },
+    {
+      "evidence_id": "C12_projection_bilingual_ui:known-bad:H-C12-036-ai-supplemental-information-shown-as-local-evidence",
+      "failure_id": "H-C12-036-ai-supplemental-information-shown-as-local-evidence",
+      "observed_status": "failed",
+      "protected_error_class": "supplemental_information_evidence_conflation"
+    },
+    {
+      "evidence_id": "C12_projection_bilingual_ui:known-bad:H-C12-037-surface-evidence-misses-overlap-or-repetition",
+      "failure_id": "H-C12-037-surface-evidence-misses-overlap-or-repetition",
+      "observed_status": "failed",
+      "protected_error_class": "ui_runtime_evidence_false_green"
+    },
+    {
+      "evidence_id": "C12_projection_bilingual_ui:known-bad:H-C12-043-compact-retains-secondary-metrics",
+      "failure_id": "H-C12-043-compact-retains-secondary-metrics",
+      "observed_status": "failed",
+      "protected_error_class": "compact_card_image_space_stolen"
+    },
+    {
+      "evidence_id": "C12_projection_bilingual_ui:known-bad:H-C12-044-document-preview-enters-images",
+      "failure_id": "H-C12-044-document-preview-enters-images",
+      "observed_status": "failed",
+      "protected_error_class": "text_screenshot_gallery_pollution"
+    },
+    {
+      "evidence_id": "C12_projection_bilingual_ui:known-bad:H-C12-045-source-groups-rendered-as-repeated-table-headings",
+      "failure_id": "H-C12-045-source-groups-rendered-as-repeated-table-headings",
+      "observed_status": "failed",
+      "protected_error_class": "files_table_duplicate_group_metadata"
+    },
+    {
+      "evidence_id": "C12_projection_bilingual_ui:known-bad:H-C12-046-future-prediction-rendered-as-occurred",
+      "failure_id": "H-C12-046-future-prediction-rendered-as-occurred",
+      "observed_status": "failed",
+      "protected_error_class": "world_model_prediction_fact_projection"
     }
   ],
-  "model_fingerprint": "sha256:0f7891134bc610109d3c39af21c93478f2eecd87c9b6a9178f511db920b1ddd6",
+  "model_fingerprint": "sha256:c28a74c07f26dc6757b115e00657da8f703dfc825df8228f7d569210248acbd3",
   "model_id": "C12_projection_bilingual_ui",
   "model_title": "C12 Bilingual Desktop Matter Object Browser",
   "overall_status": "pass_with_gaps",
@@ -106,7 +400,7 @@
     "model_mesh": "not_run_in_this_owner: cross-model topology belongs to the separate ModelMesh owner"
   },
   "toolchain": {
-    "flowguard_package_version": "0.58.4",
+    "flowguard_package_version": "0.58.5",
     "flowguard_schema_version": "1.0"
   }
 }

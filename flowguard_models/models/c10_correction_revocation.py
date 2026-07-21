@@ -9,7 +9,12 @@ SPEC = FiniteModelSpec(
     modeled_boundary=(
         "append-only correction/revocation/deletion, dependency-graph "
         "invalidation, original-owner dispatch, terminal join, retry, restart, "
-        "and optional representative-visual pin/unpin/change-cover correction"
+        "material-clue/summary/activity/supplemental-information invalidation, "
+        "source-locator and derived-understanding repair, SourceGroup, "
+        "SituationGraph, Situation/World Model and generated-hero invalidation, "
+        "and old and new ancestor-"
+        "chain invalidation for containment, child-state, split, merge, and "
+        "reparent revisions"
     ),
     state_fields=(
         "revision_graph",
@@ -18,7 +23,18 @@ SPEC = FiniteModelSpec(
         "recompute.owner_dispositions",
         "recompute.join_status",
         "recompute.checkpoint",
-        "correction.card_visual_intent",
+        "invalidation.ancestor_chain_dispositions",
+        "revision.hierarchy_dispositions",
+        "invalidation.material_clue_dispositions",
+        "invalidation.observation_time_dispositions",
+        "invalidation.hero_disposition",
+        "invalidation.supplemental_information_disposition",
+        "correction.source_locator_invalidation",
+        "correction.derived_understanding_invalidation",
+        "correction.source_group_invalidation",
+        "correction.situation_graph_invalidation",
+        "correction.world_model_invalidation",
+        "correction.generated_hero_invalidation",
     ),
     owned_write_fields=(
         "revision_graph",
@@ -27,7 +43,18 @@ SPEC = FiniteModelSpec(
         "recompute.owner_dispositions",
         "recompute.join_status",
         "recompute.checkpoint",
-        "correction.card_visual_intent",
+        "invalidation.ancestor_chain_dispositions",
+        "revision.hierarchy_dispositions",
+        "invalidation.material_clue_dispositions",
+        "invalidation.observation_time_dispositions",
+        "invalidation.hero_disposition",
+        "invalidation.supplemental_information_disposition",
+        "correction.source_locator_invalidation",
+        "correction.derived_understanding_invalidation",
+        "correction.source_group_invalidation",
+        "correction.situation_graph_invalidation",
+        "correction.world_model_invalidation",
+        "correction.generated_hero_invalidation",
     ),
     side_effect_classes=(
         "append_revision",
@@ -44,9 +71,87 @@ SPEC = FiniteModelSpec(
         "RecomputeJoinCurrent",
         "RecomputeBlocked",
         "RecoveryCheckpoint",
-        "CardVisualCorrection",
+        "AncestorInvalidationPlan",
+        "OldAncestorChainInvalidated",
+        "NewAncestorChainInvalidated",
+        "HierarchyRecomputeRequest",
+        "HierarchyRevisionDisposition",
+        "MaterialClueInvalidationPlan",
+        "ObservationTimeCorrectionPlan",
+        "HeroRetained",
+        "HeroInvalidated",
+        "SupplementalInformationInvalidated",
+        "SourceLocatorRevalidated",
+        "DerivedUnderstandingInvalidated",
+        "SourceGroupInvalidated",
+        "SituationGraphInvalidated",
+        "WorldModelInvalidated",
     ),
     rules=(
+        CaseRule(
+            case_id="source_locator_or_fingerprint_changed",
+            decision="source_derived_graph_and_world_dependents_invalidated",
+            label="source_derived_graph_and_world_dependents_invalidated",
+            writes=(
+                "revision_graph",
+                "invalidation_plan",
+                "recompute_request",
+                "correction.source_locator_invalidation",
+                "correction.derived_understanding_invalidation",
+                "correction.source_group_invalidation",
+                "correction.situation_graph_invalidation",
+                "correction.world_model_invalidation",
+                "correction.generated_hero_invalidation",
+            ),
+            side_effects=("append_revision", "dispatch_recompute_request"),
+            emitted_tokens=(
+                "SourceLocatorRevalidated",
+                "DerivedUnderstandingInvalidated",
+                "SourceGroupInvalidated",
+                "SituationGraphInvalidated",
+                "WorldModelInvalidated",
+            ),
+            reason=(
+                "a moved, modified, deleted, revoked, or reauthorized original "
+                "invalidates only the exact dependent derived understanding, "
+                "group membership, graph nodes and edges, advisory inference, "
+                "and root Hero brief before original owners recompute them"
+            ),
+        ),
+        CaseRule(
+            case_id="future_due_activity_observation_corrected",
+            decision="exact_activity_dependents_invalidated_and_recomputed",
+            label="exact_activity_dependents_invalidated_and_recomputed",
+            writes=(
+                "revision_graph",
+                "invalidation_plan",
+                "recompute_request",
+                "recompute.checkpoint",
+                "invalidation.ancestor_chain_dispositions",
+                "invalidation.material_clue_dispositions",
+                "invalidation.observation_time_dispositions",
+            ),
+            side_effects=(
+                "append_revision",
+                "dispatch_recompute_request",
+                "append_owner_disposition",
+                "append_recompute_checkpoint",
+            ),
+            emitted_tokens=(
+                "RevisionGraph",
+                "ObservationTimeCorrectionPlan",
+                "MaterialClueInvalidationPlan",
+                "OldAncestorChainInvalidated",
+                "NewAncestorChainInvalidated",
+                "RecoveryCheckpoint",
+            ),
+            reason=(
+                "C5's exact historical observation-time correction supersedes "
+                "only the erroneous activity clue, invalidates its Matter, old "
+                "and current ancestor activity projections, and any late-bound "
+                "canonical Matter before original-owner recompute"
+            ),
+        ),
         CaseRule(
             case_id="user_correction",
             decision="correction_appended_and_recompute_requested",
@@ -55,34 +160,6 @@ SPEC = FiniteModelSpec(
             side_effects=("append_revision", "dispatch_recompute_request", "append_recompute_checkpoint"),
             emitted_tokens=("RevisionGraph", "InvalidationPlan", "RecomputeRequest", "RecoveryCheckpoint"),
             reason="correction preserves history and dispatches affected original owners",
-        ),
-        CaseRule(
-            case_id="card_visual_pin_unpin_or_change",
-            decision="card_visual_correction_appended",
-            label="card_visual_correction_appended",
-            writes=(
-                "revision_graph",
-                "invalidation_plan",
-                "recompute_request",
-                "recompute.checkpoint",
-                "correction.card_visual_intent",
-            ),
-            side_effects=(
-                "append_revision",
-                "dispatch_recompute_request",
-                "append_recompute_checkpoint",
-            ),
-            emitted_tokens=(
-                "RevisionGraph",
-                "InvalidationPlan",
-                "RecomputeRequest",
-                "RecoveryCheckpoint",
-                "CardVisualCorrection",
-            ),
-            reason=(
-                "pin, unpin, hide, or change-cover is an optional append-only "
-                "correction that re-enters C12 after visual invalidation"
-            ),
         ),
         CaseRule(
             case_id="source_or_tracking_stale",
@@ -143,8 +220,164 @@ SPEC = FiniteModelSpec(
             emitted_tokens=("OwnerWriteRejected",),
             reason="C10 requests recompute and never writes another owner field",
         ),
+        CaseRule(
+            case_id="child_state_or_containment_changed",
+            decision="both_ancestor_chains_invalidated",
+            label="both_ancestor_chains_invalidated",
+            writes=(
+                "invalidation_plan",
+                "recompute_request",
+                "recompute.checkpoint",
+                "invalidation.ancestor_chain_dispositions",
+            ),
+            side_effects=(
+                "dispatch_recompute_request",
+                "append_owner_disposition",
+                "append_recompute_checkpoint",
+            ),
+            emitted_tokens=(
+                "InvalidationPlan",
+                "AncestorInvalidationPlan",
+                "OldAncestorChainInvalidated",
+                "NewAncestorChainInvalidated",
+                "HierarchyRecomputeRequest",
+                "RecoveryCheckpoint",
+            ),
+            reason=(
+                "a child state, outcome, blocker, role, or containment revision "
+                "invalidates the child, every old ancestor, every new ancestor, "
+                "their rollups, and C12 hierarchy projections before owner recompute"
+            ),
+        ),
+        CaseRule(
+            case_id="material_clue_or_nonmaterial_processing_changed",
+            decision="clue_summary_activity_dependents_disposed",
+            label="clue_summary_activity_dependents_disposed",
+            writes=(
+                "invalidation_plan",
+                "recompute_request",
+                "recompute.checkpoint",
+                "invalidation.ancestor_chain_dispositions",
+                "invalidation.material_clue_dispositions",
+                "invalidation.hero_disposition",
+                "invalidation.supplemental_information_disposition",
+            ),
+            side_effects=(
+                "dispatch_recompute_request",
+                "append_owner_disposition",
+                "append_recompute_checkpoint",
+            ),
+            emitted_tokens=(
+                "InvalidationPlan",
+                "MaterialClueInvalidationPlan",
+                "HierarchyRecomputeRequest",
+                "HeroRetained",
+                "SupplementalInformationInvalidated",
+                "RecoveryCheckpoint",
+            ),
+            reason=(
+                "material clues invalidate bilingual summary and activity order "
+                "for the Matter and ancestors plus dependent AI supplemental "
+                "information; nonmaterial processing does not; "
+                "a stable hero remains current unless identity, theme, merge/"
+                "split/reparent, permission, safety, or explicit correction changes"
+            ),
+        ),
+        CaseRule(
+            case_id="hero_identity_theme_or_policy_dependency_changed",
+            decision="generated_hero_invalidated_for_exact_dependency",
+            label="generated_hero_invalidated_for_exact_dependency",
+            writes=(
+                "invalidation_plan",
+                "recompute_request",
+                "recompute.checkpoint",
+                "invalidation.hero_disposition",
+            ),
+            side_effects=(
+                "dispatch_recompute_request",
+                "append_owner_disposition",
+                "append_recompute_checkpoint",
+            ),
+            emitted_tokens=(
+                "InvalidationPlan",
+                "HeroInvalidated",
+                "RecomputeRequest",
+                "RecoveryCheckpoint",
+            ),
+            reason=(
+                "only Matter identity, topic/theme, merge, split, reparent, "
+                "permission, safety, policy, or explicit correction invalidates "
+                "the current generated hero and schedules one replacement; an "
+                "ordinary clue, summary, locale, density, scan, or retry does not"
+            ),
+        ),
+        CaseRule(
+            case_id="hierarchy_split_revision",
+            decision="split_dispositions_appended",
+            label="split_dispositions_appended",
+            writes=(
+                "revision_graph",
+                "invalidation_plan",
+                "recompute_request",
+                "revision.hierarchy_dispositions",
+            ),
+            side_effects=("append_revision", "dispatch_recompute_request"),
+            emitted_tokens=(
+                "RevisionGraph",
+                "InvalidationPlan",
+                "HierarchyRecomputeRequest",
+                "HierarchyRevisionDisposition",
+            ),
+            reason=(
+                "a split preserves original identity and records one explicit "
+                "retain/move/copy-with-provenance/review disposition for every "
+                "source, Event, WorkItem, child, and open loop"
+            ),
+        ),
+        CaseRule(
+            case_id="hierarchy_merge_revision",
+            decision="merge_dispositions_appended",
+            label="merge_dispositions_appended",
+            writes=(
+                "revision_graph",
+                "invalidation_plan",
+                "recompute_request",
+                "revision.hierarchy_dispositions",
+            ),
+            side_effects=("append_revision", "dispatch_recompute_request"),
+            emitted_tokens=(
+                "RevisionGraph",
+                "InvalidationPlan",
+                "HierarchyRecomputeRequest",
+                "HierarchyRevisionDisposition",
+            ),
+            reason=(
+                "a merge preserves both prior Matter identities, evidence, and "
+                "history while appending a current canonical disposition and redirects"
+            ),
+        ),
     ),
     hazards=(
+        HazardSpec(
+            failure_id="H-C10-017-observation-correction-leaves-canonical-stale",
+            protected_error_class="observation_time_correction_propagation_gap",
+            description=(
+                "the source Matter is corrected but one ancestor or late-bound "
+                "canonical Matter retains the superseded future due activity"
+            ),
+            protected_harm=(
+                "catalog ordering remains contradictory after a successful "
+                "correction"
+            ),
+            case_id="future_due_activity_observation_corrected",
+            broken_decision="source_activity_only_recomputed",
+            broken_writes=(
+                "invalidation.ancestor_chain_dispositions",
+                "invalidation.observation_time_dispositions",
+            ),
+            broken_side_effects=("append_owner_disposition",),
+            broken_tokens=("ObservationTimeCorrectionPlan",),
+        ),
         HazardSpec(
             failure_id="H-C10-001-correction-overwrites-history",
             protected_error_class="revision_history_loss",
@@ -199,14 +432,18 @@ SPEC = FiniteModelSpec(
             broken_tokens=("ProjectionUpdated",),
         ),
         HazardSpec(
-            failure_id="H-C10-007-cover-change-patches-ui-only",
-            protected_error_class="card_visual_correction_bypass",
-            description="a cover change patches the browser without revision and invalidation",
-            protected_harm="restart or rescan silently restores a stale representative image",
-            case_id="card_visual_pin_unpin_or_change",
-            broken_decision="ui_projection_patched",
-            broken_writes=("correction.card_visual_intent",),
-            broken_tokens=("CardVisualCorrection",),
+            failure_id="H-C10-007-material-clue-omits-ancestor-summary",
+            protected_error_class="material_clue_ancestor_invalidation_gap",
+            description="a material child clue updates only the child projection",
+            protected_harm="parent summaries and activity order stay stale despite real progress",
+            case_id="material_clue_or_nonmaterial_processing_changed",
+            broken_decision="child_only_clue_invalidated",
+            broken_writes=(
+                "invalidation.material_clue_dispositions",
+                "invalidation.ancestor_chain_dispositions",
+            ),
+            broken_side_effects=("dispatch_recompute_request",),
+            broken_tokens=("MaterialClueInvalidationPlan",),
         ),
         HazardSpec(
             failure_id="H-C10-006-c10-writes-child-state",
@@ -217,6 +454,63 @@ SPEC = FiniteModelSpec(
             broken_decision="lifecycle_state_written",
             broken_writes=("matter.lifecycle_axes",),
             broken_tokens=("LifecycleState",),
+        ),
+        HazardSpec(
+            failure_id="H-C10-008-old-parent-chain-remains-current",
+            protected_error_class="reparent_old_ancestor_invalidation_gap",
+            description="reparent invalidates the new chain but leaves the old parent chain current",
+            protected_harm="the child continues to affect two ancestor projections after reparenting",
+            case_id="child_state_or_containment_changed",
+            broken_decision="new_ancestor_chain_only_invalidated",
+            broken_writes=(
+                "invalidation_plan",
+                "invalidation.ancestor_chain_dispositions",
+            ),
+            broken_side_effects=("dispatch_recompute_request",),
+            broken_tokens=("NewAncestorChainInvalidated",),
+        ),
+        HazardSpec(
+            failure_id="H-C10-009-split-duplicates-membership-silently",
+            protected_error_class="split_membership_duplication",
+            description="split duplicates source, Event, or WorkItem membership without dispositions",
+            protected_harm="evidence and activity appear twice without auditable provenance",
+            case_id="hierarchy_split_revision",
+            broken_decision="split_membership_copied",
+            broken_writes=("revision_graph", "revision.hierarchy_dispositions"),
+            broken_side_effects=("append_revision",),
+            broken_tokens=("HierarchyRevisionDisposition",),
+        ),
+        HazardSpec(
+            failure_id="H-C10-010-merge-erases-history",
+            protected_error_class="merge_identity_history_loss",
+            description="merge deletes prior Matter identities, evidence, or revision history",
+            protected_harm="the user cannot reconstruct earlier cards or why they were merged",
+            case_id="hierarchy_merge_revision",
+            broken_decision="merged_history_overwritten",
+            broken_writes=("revision_graph", "revision.hierarchy_dispositions"),
+            broken_side_effects=("append_revision",),
+            broken_tokens=("CurrentRevisionOnly",),
+        ),
+        HazardSpec(
+            failure_id="H-C10-011-ordinary-clue-invalidates-generated-hero",
+            protected_error_class="generated_hero_overinvalidation",
+            description="an ordinary material clue, summary, locale, density, scan, or retry invalidates the hero",
+            protected_harm="stable Matter recognition churns and unnecessary image generation repeats",
+            case_id="material_clue_or_nonmaterial_processing_changed",
+            broken_decision="generated_hero_invalidated_for_exact_dependency",
+            broken_writes=("invalidation.hero_disposition",),
+            broken_side_effects=("dispatch_recompute_request",),
+            broken_tokens=("HeroInvalidated",),
+        ),
+        HazardSpec(
+            failure_id="H-C10-012-hero-dependency-change-retains-stale-artifact",
+            protected_error_class="generated_hero_underinvalidation",
+            description="identity, theme, hierarchy, permission, safety, policy, or correction changes but the hero remains current",
+            protected_harm="the card keeps art for the wrong or no-longer-authorized Matter meaning",
+            case_id="hero_identity_theme_or_policy_dependency_changed",
+            broken_decision="hero_retained",
+            broken_writes=("invalidation.hero_disposition",),
+            broken_tokens=("HeroRetained",),
         ),
     ),
     risk_classes=(
@@ -229,14 +523,15 @@ SPEC = FiniteModelSpec(
     ),
     template_ids=("side_effect_at_most_once",),
     blindspots=(
-        "dependency graph construction requires implementation conformance",
+        "dependency and ancestor-chain graph construction requires implementation conformance",
         "real owner executors and durable restart require runtime evidence",
         "physical deletion and retention policy remain separate",
     ),
     claim_boundary=(
         "This model establishes bounded C10 append-only history, exact "
-        "invalidation, original-owner terminal joins, retry, restart, and "
-        "foreign-writer rejection. It does not prove the production dependency "
-        "graph, durable execution, or C12 publication conformance."
+        "invalidation, old/new ancestor-chain propagation, split/merge disposition, "
+        "original-owner terminal joins, retry, restart, and foreign-writer "
+        "rejection. It does not prove the production dependency graph, durable "
+        "execution, or C12 publication conformance."
     ),
 )

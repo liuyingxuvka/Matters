@@ -1,40 +1,45 @@
 {
   "artifact_type": "matters.test-suite-receipt.v1",
-  "generated_at": "2026-07-19T06:11:35.508010+00:00",
+  "generated_at": "2026-07-21T04:44:04.821151+00:00",
   "pytest_observation": {
     "errors": 0,
     "failed": 0,
-    "observed_total": 1,
-    "passed": 1,
+    "observed_total": 4,
+    "passed": 4,
     "skipped": 0,
     "xfailed": 0,
     "xpassed": 0
   },
-  "source_fingerprint": "sha256:8cca3cabdfaa282bcac5e81a168ff0ee90e9de6b15ef8faf12e4ab267270ba59",
+  "source_fingerprint": "sha256:2536a22856ad81e885e948909a8eee34302412c28224d9fe03bdd9845702636d",
   "source_fingerprints": {
-    "src/matters/presentation/__init__.py": "sha256:ed25ff02977aebb09d8148fa16e25a5a88cdf7e9cf2599dca0658e2b891c677b",
-    "src/matters/presentation/browser.py": "sha256:bf2162644806659fca1252af91bde725244d6e1c43eb9bbf755793203191912b",
-    "src/matters/presentation/localization.py": "sha256:8c54b7154b3714ec7b9b16b1f5a1fc8f9f6a292622d7c7c44ef5a727a77c6a43",
-    "src/matters/presentation/narratives.py": "sha256:e53ce086cd988c3af327265d02c30bcbf07a01e520b153ec75a60f96135311f3",
-    "src/matters/presentation/projections.py": "sha256:d58ece94cde9ef5e32aa2fb194c8e03553df56e1766d5a72997ce624aed5fcba",
-    "src/matters/presentation/visuals.py": "sha256:90985c84bd6c86795f44d5633b8f0f19625469b01dddf3a30c0662057e722d62",
-    "tests/test_tm16_bilingual_semantic_equivalence.py": "sha256:2074b5a7661d68edac49d4fd94a950bd16d669ba28a781973bd2db128553f069",
-    "ui/app.js": "sha256:130cabb0067a99d59c8f1ddbd8ddaa8996e857658aab3d0df77c60826f5a60c7",
-    "ui/index.html": "sha256:aaecb17f965311a6cf38a1617a059e720812b58cd8f13ce87d33448c0ca43cc0",
-    "ui/styles.css": "sha256:f79567649d6558f8d9cb8fb9f0cdd3ee6e1c1e341590515d600570791b10fa4a"
+    "src/matters/presentation/__init__.py": "sha256:73d671b58100e2e04b57cf0f2022b38d0bff19aa3167d765c8bcf7e055d29b12",
+    "src/matters/presentation/browser.py": "sha256:f7dbee1674ba7945df77b47954bae23396ff0d80821217d69bc02a2248ba9856",
+    "src/matters/presentation/heroes.py": "sha256:2c25a7e162365c2cf4f055ec6f5208217f2f6def5a0978c438d2d59e938d38d6",
+    "src/matters/presentation/localization.py": "sha256:9546c42cd535f26efcf9851380522fc84127e690d5fcbdbcd536e31167e1c154",
+    "src/matters/presentation/narratives.py": "sha256:5d6439c7f8b2a4d0f089762b530c46b5355d1d28c67d5ab914aaa415fea74f6a",
+    "src/matters/presentation/projections.py": "sha256:88974562131526ee536942fb032cfa6e92b97e78382cfc29810c5b35fb9efe63",
+    "src/matters/presentation/visuals.py": "sha256:fdd53ed33bea162f78ef0554cf66b0b5d459302c8ce7be721921df6d3b38d4ad",
+    "tests/test_localization_registry.py": "sha256:120667025b70395d08e5b42a387d021da6d378a827079f7d0f088b54d47acdbc",
+    "tests/test_tm16_bilingual_semantic_equivalence.py": "sha256:75e4b61aad9d2842247596a9b6c348ac518db3dc3e133c3ccd58c986f1f9270e",
+    "ui/app.js": "sha256:a8393dc0a908a3096f52845cb4494611557e77f548105a3c4af47c80a5259fe4",
+    "ui/index.html": "sha256:5125b7f80c72b6569e3004aab029717dd909c7360c61d30623e6b912db161e07",
+    "ui/styles.css": "sha256:0ee61921142541b3f7a98a2c0ee81b2a53a7dff2e60addd7a64436fa3a68ec8f"
   },
   "source_paths": [
-    "tests/test_tm16_bilingual_semantic_equivalence.py"
+    "tests/test_tm16_bilingual_semantic_equivalence.py",
+    "tests/test_localization_registry.py"
   ],
   "stderr_tail": "",
-  "stdout_tail": ".                                                                        [100%]\n1 passed in 0.07s\n",
+  "stdout_tail": "....                                                                     [100%]\n4 passed in 0.28s\n",
   "suite_id": "TM16_bilingual_semantic_equivalence",
   "test_suite_evidence": {
     "artifact_version": "matters.test-suite-receipt.v1",
     "background": false,
-    "command": "python -m pytest -q -o addopts= tests/test_tm16_bilingual_semantic_equivalence.py",
+    "command": "python -m pytest -q -o addopts= tests/test_tm16_bilingual_semantic_equivalence.py tests/test_localization_registry.py",
     "covered_obligation_ids": [
-      "TI-TM16_bilingual_semantic_equivalence"
+      "TI-TM16_bilingual_semantic_equivalence",
+      "TI-FILE-test-tm16-bilingual-semantic-equivalence",
+      "TI-FILE-test-localization-registry"
     ],
     "diagnostic_boundary": "declared_complete",
     "diagnostic_campaign_id": "G5-G8-TM16_bilingual_semantic_equivalence",
@@ -47,14 +52,16 @@
     "finding_ids": [],
     "has_exit_artifact": true,
     "has_result_artifact": true,
-    "inventory_revision": "g4-testmesh-v3-autonomous-object-browser",
+    "inventory_revision": "g4-testmesh-v15-exact-source-and-install-closure",
     "layer": "child",
     "log_root": "",
     "not_run_count": 0,
     "not_run_reason": "",
     "owned_coverage_shard_ids": [],
     "owned_inventory_item_ids": [
-      "TI-TM16_bilingual_semantic_equivalence"
+      "TI-TM16_bilingual_semantic_equivalence",
+      "TI-FILE-test-tm16-bilingual-semantic-equivalence",
+      "TI-FILE-test-localization-registry"
     ],
     "owned_leaf_cell_ids": [],
     "owns_side_effects": [],
@@ -63,26 +70,30 @@
     "progress_only": false,
     "proof_artifact": {
       "artifact_fingerprints": {
-        "src/matters/presentation/__init__.py": "sha256:ed25ff02977aebb09d8148fa16e25a5a88cdf7e9cf2599dca0658e2b891c677b",
-        "src/matters/presentation/browser.py": "sha256:bf2162644806659fca1252af91bde725244d6e1c43eb9bbf755793203191912b",
-        "src/matters/presentation/localization.py": "sha256:8c54b7154b3714ec7b9b16b1f5a1fc8f9f6a292622d7c7c44ef5a727a77c6a43",
-        "src/matters/presentation/narratives.py": "sha256:e53ce086cd988c3af327265d02c30bcbf07a01e520b153ec75a60f96135311f3",
-        "src/matters/presentation/projections.py": "sha256:d58ece94cde9ef5e32aa2fb194c8e03553df56e1766d5a72997ce624aed5fcba",
-        "src/matters/presentation/visuals.py": "sha256:90985c84bd6c86795f44d5633b8f0f19625469b01dddf3a30c0662057e722d62",
-        "tests/test_tm16_bilingual_semantic_equivalence.py": "sha256:2074b5a7661d68edac49d4fd94a950bd16d669ba28a781973bd2db128553f069",
-        "ui/app.js": "sha256:130cabb0067a99d59c8f1ddbd8ddaa8996e857658aab3d0df77c60826f5a60c7",
-        "ui/index.html": "sha256:aaecb17f965311a6cf38a1617a059e720812b58cd8f13ce87d33448c0ca43cc0",
-        "ui/styles.css": "sha256:f79567649d6558f8d9cb8fb9f0cdd3ee6e1c1e341590515d600570791b10fa4a"
+        "src/matters/presentation/__init__.py": "sha256:73d671b58100e2e04b57cf0f2022b38d0bff19aa3167d765c8bcf7e055d29b12",
+        "src/matters/presentation/browser.py": "sha256:f7dbee1674ba7945df77b47954bae23396ff0d80821217d69bc02a2248ba9856",
+        "src/matters/presentation/heroes.py": "sha256:2c25a7e162365c2cf4f055ec6f5208217f2f6def5a0978c438d2d59e938d38d6",
+        "src/matters/presentation/localization.py": "sha256:9546c42cd535f26efcf9851380522fc84127e690d5fcbdbcd536e31167e1c154",
+        "src/matters/presentation/narratives.py": "sha256:5d6439c7f8b2a4d0f089762b530c46b5355d1d28c67d5ab914aaa415fea74f6a",
+        "src/matters/presentation/projections.py": "sha256:88974562131526ee536942fb032cfa6e92b97e78382cfc29810c5b35fb9efe63",
+        "src/matters/presentation/visuals.py": "sha256:fdd53ed33bea162f78ef0554cf66b0b5d459302c8ce7be721921df6d3b38d4ad",
+        "tests/test_localization_registry.py": "sha256:120667025b70395d08e5b42a387d021da6d378a827079f7d0f088b54d47acdbc",
+        "tests/test_tm16_bilingual_semantic_equivalence.py": "sha256:75e4b61aad9d2842247596a9b6c348ac518db3dc3e133c3ccd58c986f1f9270e",
+        "ui/app.js": "sha256:a8393dc0a908a3096f52845cb4494611557e77f548105a3c4af47c80a5259fe4",
+        "ui/index.html": "sha256:5125b7f80c72b6569e3004aab029717dd909c7360c61d30623e6b912db161e07",
+        "ui/styles.css": "sha256:0ee61921142541b3f7a98a2c0ee81b2a53a7dff2e60addd7a64436fa3a68ec8f"
       },
-      "artifact_id": "artifact:run:TM16_bilingual_semantic_equivalence:33edfbe326269121",
+      "artifact_id": "artifact:run:TM16_bilingual_semantic_equivalence:c1ea1d08662e4325",
       "assertion_scope": "external_contract",
-      "command": "python -m pytest -q -o addopts= tests/test_tm16_bilingual_semantic_equivalence.py",
+      "command": "python -m pytest -q -o addopts= tests/test_tm16_bilingual_semantic_equivalence.py tests/test_localization_registry.py",
       "covered_obligation_ids": [
-        "TI-TM16_bilingual_semantic_equivalence"
+        "TI-TM16_bilingual_semantic_equivalence",
+        "TI-FILE-test-tm16-bilingual-semantic-equivalence",
+        "TI-FILE-test-localization-registry"
       ],
       "current": true,
       "exit_code": 0,
-      "finished_at": "2026-07-19T06:11:35.508010+00:00",
+      "finished_at": "2026-07-21T04:44:04.821151+00:00",
       "metadata": {},
       "producer_route": "test_mesh",
       "progress_only": false,
@@ -91,22 +102,22 @@
       "route_evidence_current": true,
       "route_gap_codes": [],
       "stale_reasons": [],
-      "started_at": "2026-07-19T06:11:34.475158+00:00"
+      "started_at": "2026-07-21T04:44:03.213841+00:00"
     },
     "release_required": false,
-    "result_fingerprint": "sha256:8cca3cabdfaa282bcac5e81a168ff0ee90e9de6b15ef8faf12e4ab267270ba59",
+    "result_fingerprint": "sha256:2536a22856ad81e885e948909a8eee34302412c28224d9fe03bdd9845702636d",
     "result_path": ".flowguard/evidence/tests/TM16_bilingual_semantic_equivalence.json",
     "result_reused": false,
     "result_status": "passed",
     "reuse_ticket": null,
-    "run_id": "run:TM16_bilingual_semantic_equivalence:33edfbe326269121",
-    "selected_count": 1,
+    "run_id": "run:TM16_bilingual_semantic_equivalence:c1ea1d08662e4325",
+    "selected_count": 4,
     "skipped_count": 0,
     "skipped_visible": true,
     "stale_reasons": [],
     "suite_id": "TM16_bilingual_semantic_equivalence",
     "terminal_status": "passed",
-    "test_count": 1,
+    "test_count": 4,
     "timeout_seconds": null,
     "verifier_version": "9.0.3"
   }

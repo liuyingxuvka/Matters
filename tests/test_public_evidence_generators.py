@@ -3,14 +3,24 @@ from pathlib import Path
 import sys
 
 from flowguard_design.run_test_mesh import (
+    _deferred_suite_ids,
     _execution_test_command,
     _parent_claim_boundary,
     _parent_receipt_status,
     _portable_output_tail,
     _public_test_command,
 )
+from flowguard_design.run_alignment import (
+    MAX_PUBLIC_ALIGNMENT_BYTES,
+    _compact_model_row,
+)
+from flowguard_design.run_g4_review import (
+    _compact_contract_exhaustion,
+    _compact_test_mesh,
+)
 from flowguard_models.delivery_flow import _portable_openspec_projection
 from flowguard_models.delivery_flow import (
+    REQUIRED_UI_CHECKS,
     _installed_ui_gate,
     _private_first_run_gate,
 )
@@ -68,6 +78,8 @@ def test_test_mesh_parent_receipt_distinguishes_routine_and_release():
         == "routine_green"
     )
     assert "TM19 remains release-only" in _parent_claim_boundary(deferred)
+    assert "TM20-TM27" in _parent_claim_boundary(deferred)
+    assert _deferred_suite_ids(("TM01_authorization_coverage",)) == deferred
 
     assert (
         _parent_receipt_status(
@@ -77,8 +89,9 @@ def test_test_mesh_parent_receipt_distinguishes_routine_and_release():
         == "release_green"
     )
     release_boundary = _parent_claim_boundary([])
-    assert "TM01-TM23" in release_boundary
+    assert "TM01-TM27" in release_boundary
     assert "does not claim complete private semantic coverage" in release_boundary
+    assert _deferred_suite_ids(("TM19_clean_install_release",)) == []
 
     assert (
         _parent_receipt_status(
@@ -145,7 +158,7 @@ def test_private_first_run_gate_consumes_only_safe_aggregate(
     aggregate.write_text(
         json.dumps(
             {
-                "artifact_type": "matters.private-first-run-aggregate.v1",
+                "artifact_type": "matters.private-first-run-aggregate.v2",
                 "ok": True,
                 "status": "current_with_open_work",
                 "coverage_complete": False,
@@ -158,8 +171,61 @@ def test_private_first_run_gate_consumes_only_safe_aggregate(
                     "status": "complete",
                     "failed_partition_count": 0,
                 },
-                "semantic_depth": {"all_accounted": True},
-                "localization": {"current": True},
+                    "semantic_depth": {"all_accounted": True},
+                    "localization": {"current": True},
+                    "storage_migrations": {
+                        "status": "current",
+                        "migration_order": [
+                            "evidence_pointer_rebase",
+                            "coverage_history_archive",
+                        ],
+                        "verified_restorable_copy": True,
+                        "all_other_writers_stopped": True,
+                        "evidence_pointer_rebase_terminal": True,
+                        "coverage_history_archive_terminal": True,
+                        "archive_verified_before_original_retirement": True,
+                        "integrity_check_current": True,
+                        "count_check_current": True,
+                        "sampled_history_equivalence_current": True,
+                        "startup_migration_attempt_count": 0,
+                        "vacuum_attempt_count": 0,
+                        "evidence_pointer_rebase_terminal_receipt_id": (
+                            "storage-migration:evidence-pointer:synthetic"
+                        ),
+                        "coverage_history_archive_terminal_receipt_id": (
+                            "storage-migration:coverage-history:synthetic"
+                        ),
+                    },
+                    "codex_daily_maintenance": {
+                    "status": "current",
+                    "current": True,
+                    "schedule_identity": "codex-automation:synthetic-daily",
+                    "execution_profile_identity": "execution-profile:synthetic",
+                    "manual_rehearsal_receipt_id": "maintenance-rehearsal:synthetic",
+                    "manual_rehearsal_fingerprint": "sha256:synthetic-rehearsal",
+                    "install_currentness_receipt_id": "maintenance-install:synthetic",
+                    "install_currentness_fingerprint": "sha256:synthetic-install",
+                    "shared_service_entrypoint_fingerprint": "sha256:synthetic-service",
+                    "run_receipt_ids": ["maintenance-run:synthetic"],
+                    "installed": True,
+                    "manual_rehearsal_current": True,
+                    "shared_service_path": True,
+                    "model_agnostic": True,
+                    "app_api_key_required": False,
+                    "mutation_attempt_counts": {
+                        "source": 0,
+                        "mailbox": 0,
+                        "outbound": 0,
+                        "grant": 0,
+                        "code": 0,
+                        "model": 0,
+                        "install": 0,
+                        "git": 0,
+                        "tag": 0,
+                        "release": 0,
+                    },
+                    "unattended_final_verification": False,
+                },
             }
         ),
         encoding="utf-8",
@@ -172,6 +238,11 @@ def test_private_first_run_gate_consumes_only_safe_aggregate(
     assert gate["status"] == "passed"
     assert gate["coverage_complete"] is False
     assert gate["private_evidence_handle"] == "private-evidence:bounded-v1"
+    assert gate["storage_migrations_current"] is True
+    assert gate["storage_migration_order_current"] is True
+    assert gate["storage_restorable_copy_verified"] is True
+    assert gate["storage_startup_migration_attempt_count"] == 0
+    assert gate["storage_vacuum_attempt_count"] == 0
     assert str(tmp_path) not in json.dumps(gate)
 
 
@@ -192,7 +263,9 @@ def test_installed_ui_gate_requires_exact_current_revision(tmp_path: Path):
                 "status": "passed",
                 "evidence_id": "evidence:ui:synthetic",
                 "ui_revision": revision,
-                "checks": {"installed_runtime": True},
+                "checks": {
+                    check_name: True for check_name in REQUIRED_UI_CHECKS
+                },
                 "browser_errors": [],
                 "missing_checks": [],
                 "claim_boundary": "synthetic installed UI only",
@@ -221,3 +294,260 @@ def test_ui_revision_is_stable_across_text_line_endings(tmp_path: Path):
     crlf_revision = current_revision(tmp_path)
 
     assert crlf_revision == lf_revision
+
+
+def test_live_ui_verifier_uses_the_exact_current_inventory_and_guards_mutation():
+    contract = json.loads(
+        Path("flowguard_design/ui_runtime_required_checks.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    verifier = Path("scripts/verify_live_ui.js").read_text(encoding="utf-8")
+
+    assert len(contract["required_checks"]) == 72
+    assert "const checks = checkMap();" in verifier
+    assert "REQUIRED_CHECKS.filter" in verifier
+    assert "required_check_count: REQUIRED_CHECKS.length" in verifier
+    assert "evidence_reveal_and_return" not in verifier
+    assert "optional_cover_correction" not in verifier
+    assert "ordinary_correction_absent" in contract["required_checks"]
+    assert "data-correction-form" in verifier
+    assert "data-open-correction" in verifier
+    assert "data-save-correction" in verifier
+    assert "correction-scope" not in verifier
+    assert ".matters-synthetic-fixture.json" not in verifier
+    assert "child_node_count: graph.nodes.length" in verifier
+    assert "child_row_count: childRows" not in verifier
+
+
+class _PublicEvidencePayload:
+    def __init__(self, payload, *, model_id="synthetic-model"):
+        self.payload = payload
+        self.model_id = model_id
+
+    def to_dict(self):
+        return self.payload
+
+
+def test_g4_public_receipts_fingerprint_instead_of_copying_derived_rows():
+    repeated_ids = [f"case:{index}" for index in range(10_000)]
+    contract = _compact_contract_exhaustion(
+        _PublicEvidencePayload(
+            {
+                "plan_id": "plan",
+                "model_id": "model",
+                "model_level": "parent",
+                "source_model_ids": [],
+                "generation_policy": "cartesian",
+                "required_route_ids": [],
+                "cartesian_case_limit": 20_000,
+                "axes": [],
+                "interaction_groups": [],
+                "oracles": [],
+                "coverage_universe": {},
+                "inventory_revision": "inventory",
+                "inventory_current": True,
+            }
+        ),
+        _PublicEvidencePayload(
+            {
+                "ok": True,
+                "decision": "accept",
+                "confidence": "high",
+                "summary": "synthetic",
+                "inventory_revision": "inventory",
+                "findings": [],
+                "generated_cases": repeated_ids,
+                "combination_cases": repeated_ids,
+                "contract_fault_profiles": [],
+                "composite_handoff_acceptances": [],
+                "coverage_shards": repeated_ids,
+                "coverage_receipts": repeated_ids,
+                "required_route_case_ids": repeated_ids,
+                "missing_oracle_case_ids": [],
+                "model_gap_dimension_ids": [],
+            }
+        ),
+    )
+    suite = {
+        "suite_id": "TM01",
+        "layer": "unit",
+        "command": "python -m pytest -q tests/test_synthetic.py",
+        "diagnostic_boundary": "targeted",
+        "planned_count": 0,
+        "executed_count": 0,
+        "failed_count": 0,
+        "not_run_count": 0,
+        "not_run_reason": "",
+        "result_status": "not_run",
+        "terminal_status": "not_run",
+        "evidence_tier": "candidate_only",
+        "evidence_current": True,
+        "release_required": False,
+        "covered_obligation_ids": repeated_ids,
+        "owned_coverage_shard_ids": [],
+        "owned_inventory_item_ids": [],
+        "owned_leaf_cell_ids": repeated_ids,
+        "owns_side_effects": [],
+        "owns_state": [],
+    }
+    mesh = _compact_test_mesh(
+        _PublicEvidencePayload(
+            {
+                "parent_suite_id": "parent",
+                "decision_scope": "routine",
+                "inventory_revision": "inventory",
+                "release_deferred_allowed": True,
+                "require_complete_inventory": True,
+                "require_final_receipts": False,
+                "require_proof_artifacts": False,
+                "required_evidence_tier": "candidate_only",
+                "partition_items": [],
+                "target_split_derivation": {},
+                "child_suites": [suite],
+                "required_coverage_shard_ids": [],
+                "required_inventory_item_ids": [],
+                "required_leaf_cell_ids": repeated_ids,
+            }
+        ),
+        _PublicEvidencePayload(
+            {
+                "ok": False,
+                "decision": "blocked",
+                "decision_scope": "routine",
+                "inventory_revision": "inventory",
+                "summary": "synthetic",
+                "release_obligations": [],
+                "findings": [
+                    {"code": "not_run", "payload": repeated_ids}
+                ],
+                "covered_inventory_item_ids": [],
+                "missing_inventory_item_ids": [],
+                "scoped_inventory_item_ids": [],
+            }
+        ),
+    )
+
+    assert contract["report"]["required_route_case_ids"]["count"] == 10_000
+    assert mesh["plan"]["required_leaf_cell_ids"]["count"] == 10_000
+    serialized = json.dumps(
+        {"contract": contract, "mesh": mesh},
+        separators=(",", ":"),
+        sort_keys=True,
+    )
+    assert "case:9999" not in serialized
+    assert len(serialized) < 100_000
+
+
+def test_alignment_receipt_deduplicates_proof_payload_without_losing_failures():
+    repeated_ids = [f"obligation:{index}" for index in range(10_000)]
+    proof_artifact = {
+        "artifact_id": "artifact:synthetic-test-run",
+        "producer_route": "test_mesh",
+        "command": "python -m pytest -q tests/test_synthetic.py",
+        "result_path": ".flowguard/evidence/tests/TM-synthetic.json",
+        "result_status": "passed",
+        "exit_code": 0,
+        "started_at": "2026-07-20T00:00:00+00:00",
+        "finished_at": "2026-07-20T00:00:01+00:00",
+        "artifact_fingerprints": {
+            f"artifact:{index}": f"sha256:{index:064x}"
+            for index in range(1_000)
+        },
+        "covered_obligation_ids": repeated_ids,
+        "assertion_scope": "external_contract",
+        "current": True,
+        "route_evidence_current": True,
+        "progress_only": False,
+        "stale_reasons": [],
+        "route_gap_codes": [],
+        "metadata": {},
+    }
+    findings = [
+        {
+            "code": "test_proof_artifact_missing_obligation",
+            "severity": "error",
+            "message": "synthetic missing obligation",
+            "obligation_id": f"required:{index}",
+            "code_contract_id": "CC-synthetic",
+            "evidence_id": f"TE-synthetic-{index}",
+            "metadata": {
+                "proof_artifact": proof_artifact,
+                "test_name": f"test:{index}",
+                "covered_obligations": [f"required:{index}"],
+            },
+        }
+        for index in range(100)
+    ]
+    plan = _PublicEvidencePayload(
+        {
+            "model_id": "synthetic-model",
+            "boundary_observations": [],
+            "obligations": [
+                {"obligation_id": "required:0"},
+            ],
+            "code_contracts": [
+                {"code_contract_id": "CC-synthetic"},
+            ],
+            "test_evidence": [
+                {"evidence_id": "TE-synthetic-0"},
+            ],
+        }
+    )
+    report = _PublicEvidencePayload(
+        {
+            "model_id": "synthetic-model",
+            "ok": False,
+            "decision": "model_test_alignment_blocked",
+            "summary": "blocked",
+            "findings": findings,
+            "binding_rows": [],
+        }
+    )
+
+    compact = _compact_model_row(plan, report)
+    serialized = json.dumps(compact, separators=(",", ":"), sort_keys=True)
+
+    assert compact["report"]["finding_count"] == 100
+    assert len(compact["report"]["proof_artifacts"]) == 1
+    assert {
+        finding["obligation_id"]
+        for finding in compact["report"]["findings"]
+    } == {f"required:{index}" for index in range(100)}
+    proof = compact["report"]["proof_artifacts"][0]
+    assert proof["artifact_id"] == "artifact:synthetic-test-run"
+    assert proof["result_status"] == "passed"
+    assert proof["covered_obligation_ids"]["count"] == 10_000
+    assert proof["artifact_fingerprints"]["count"] == 1_000
+    assert all(
+        "proof_artifact_ref" in finding["metadata"]
+        and "proof_artifact" not in finding["metadata"]
+        for finding in compact["report"]["findings"]
+    )
+    assert len(serialized) < 100_000
+    assert len(serialized.encode("utf-8")) < MAX_PUBLIC_ALIGNMENT_BYTES
+
+
+def test_current_alignment_receipt_is_bounded_and_semantically_accounted():
+    path = Path(".flowguard/evidence/alignment/model_code_test.json")
+    payload = json.loads(path.read_text(encoding="utf-8"))
+
+    assert path.stat().st_size < MAX_PUBLIC_ALIGNMENT_BYTES
+    assert payload["artifact_type"] == (
+        "matters.model-code-test-alignment-receipt.v2"
+    )
+    assert payload["models"]
+    for model in payload["models"]:
+        report = model["report"]
+        assert model["plan_fingerprint"].startswith("sha256:")
+        assert report["findings_fingerprint"].startswith("sha256:")
+        assert report["finding_count"] == len(report["findings"])
+        proof_refs = {
+            proof["artifact_ref"] for proof in report["proof_artifacts"]
+        }
+        referenced = {
+            finding["metadata"]["proof_artifact_ref"]
+            for finding in report["findings"]
+            if "proof_artifact_ref" in finding["metadata"]
+        }
+        assert referenced <= proof_refs

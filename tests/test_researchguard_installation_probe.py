@@ -29,7 +29,7 @@ def test_frozen_researchguard_receipt_accepts_only_exact_installed_identity():
     assert validate_researchguard_state(
         receipt=receipt,
         manifest=manifest,
-        distribution_version="0.1.1",
+        distribution_version=receipt["distribution"]["version"],
         console_entrypoints=("researchguard.cli:main",),
         package_fingerprint=receipt["distribution"]["package_fingerprint"],
         skill_fingerprints=receipt["skills"]["skill_fingerprints"],
@@ -41,7 +41,7 @@ def test_frozen_researchguard_receipt_accepts_only_exact_installed_identity():
     findings = validate_researchguard_state(
         receipt=receipt,
         manifest=manifest,
-        distribution_version="0.1.0",
+        distribution_version="0.0.0",
         console_entrypoints=("researchguard.cli:main",),
         package_fingerprint=receipt["distribution"]["package_fingerprint"],
         skill_fingerprints=drifted,

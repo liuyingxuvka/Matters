@@ -2,6 +2,7 @@ import json
 from pathlib import Path
 import shutil
 import subprocess
+import tarfile
 import zipfile
 
 import pytest
@@ -134,6 +135,40 @@ def test_decoded_json_yaml_and_encoded_home_paths_are_rejected(tmp_path):
     assert {row["code"] for row in yaml_findings} == {"absolute_home_path_leak"}
 
 
+def test_private_email_and_opaque_gmail_identifiers_are_rejected(tmp_path):
+    private_roots = (("PRIVATE_TEST_ROOT", tmp_path / "private-test-root"),)
+    nonreserved_address = "private-person@" + "nonreserved" + "." + "synthetic"
+    private_payload = json.dumps(
+        {
+            "from": nonreserved_address,
+            "message_id": "18f4abcde1234567",
+        }
+    )
+    findings = _scan_text(
+        "private-mail.json",
+        private_payload,
+        ".json",
+        private_roots,
+    )
+    assert {row["code"] for row in findings} >= {
+        "personal_email_identifier_leak",
+        "gmail_identifier_leak",
+    }
+
+    synthetic_payload = json.dumps(
+        {
+            "from": "synthetic@example.invalid",
+            "message_id": "synthetic-message-001",
+        }
+    )
+    assert not _scan_text(
+        "synthetic-mail.json",
+        synthetic_payload,
+        ".json",
+        private_roots,
+    )
+
+
 def test_required_ignored_source_fails_and_cache_does_not_change_fingerprint(tmp_path):
     _write_boundary_fixture(tmp_path, ignore_required=True)
     policy = tmp_path / "policy.json"
@@ -241,3 +276,157 @@ def test_link_clean_clone_and_package_inventory_mismatches_fail_closed(
     assert {
         row["code"] for row in mismatch["findings"]
     } >= {"clean_clone_inventory_mismatch", "package_inventory_mismatch"}
+
+
+def test_package_inventory_rejects_stale_or_unexpected_runtime_payload(tmp_path):
+    _write_boundary_fixture(tmp_path, ignore_required=False)
+    inventory_path = tmp_path / "inventory.json"
+    inventory = json.loads(inventory_path.read_text(encoding="utf-8"))
+    inventory["wheel_data_projection"] = []
+    inventory_path.write_text(json.dumps(inventory), encoding="utf-8")
+
+    wheel = tmp_path / "matters-0.0.0-py3-none-any.whl"
+    with zipfile.ZipFile(wheel, "w") as archive:
+        archive.writestr("app.py", "VALUE = 1\n")
+        archive.writestr("required.py", "REQUIRED = True\n")
+        archive.writestr("stale/private-copy.py", "SHOULD_NOT_SHIP = True\n")
+        archive.writestr(
+            "matters-0.0.0.dist-info/METADATA",
+            "Metadata-Version: 2.1\nName: matters\nVersion: 0.0.0\n",
+        )
+
+    report = check(
+        tmp_path,
+        tmp_path / "policy.json",
+        package_artifacts=(wheel,),
+    )
+
+    package = report["inventories"]["package"]
+    assert package["status"] == "fail"
+    assert package["artifacts"][0]["unexpected_public"] == [
+        "stale/private-copy.py"
+    ]
+    assert {
+        row["code"] for row in report["findings"]
+    } >= {"package_inventory_mismatch"}
+
+
+def test_sdist_excludes_control_receipts_and_rejects_their_return(tmp_path):
+    _write_boundary_fixture(tmp_path, ignore_required=False)
+    inventory_path = tmp_path / "inventory.json"
+    inventory = json.loads(inventory_path.read_text(encoding="utf-8"))
+    inventory["sdist_excluded_patterns"] = ["evidence/**"]
+    inventory["package_forbidden_patterns"] = ["evidence/**"]
+    inventory_path.write_text(json.dumps(inventory), encoding="utf-8")
+
+    clean_sdist = tmp_path / "matters-0.0.0.tar.gz"
+    with tarfile.open(clean_sdist, "w:gz") as archive:
+        for relative in (
+            ".gitignore",
+            "inventory.json",
+            "policy.json",
+            "src/app.py",
+            "src/required.py",
+        ):
+            archive.add(
+                tmp_path / relative,
+                arcname=f"matters-0.0.0/{relative}",
+            )
+
+    clean = check(
+        tmp_path,
+        tmp_path / "policy.json",
+        package_artifacts=(clean_sdist,),
+    )
+    assert clean["inventories"]["package"]["status"] == "pass"
+
+    leaky_sdist = tmp_path / "matters-0.0.0-leaky.tar.gz"
+    with tarfile.open(leaky_sdist, "w:gz") as archive:
+        for relative in (
+            ".gitignore",
+            "evidence/receipt.json",
+            "inventory.json",
+            "policy.json",
+            "src/app.py",
+            "src/required.py",
+        ):
+            archive.add(
+                tmp_path / relative,
+                arcname=f"matters-0.0.0/{relative}",
+            )
+
+    leaky = check(
+        tmp_path,
+        tmp_path / "policy.json",
+        package_artifacts=(leaky_sdist,),
+    )
+    artifact = leaky["inventories"]["package"]["artifacts"][0]
+    assert artifact["status"] == "fail"
+    assert artifact["forbidden_payload"] == ["evidence/receipt.json"]
+
+
+def test_generated_package_text_is_scanned_for_private_home_paths(tmp_path):
+    _write_boundary_fixture(tmp_path, ignore_required=False)
+    inventory_path = tmp_path / "inventory.json"
+    inventory = json.loads(inventory_path.read_text(encoding="utf-8"))
+    inventory["wheel_data_projection"] = []
+    inventory_path.write_text(json.dumps(inventory), encoding="utf-8")
+
+    wheel = tmp_path / "matters-0.0.0-py3-none-any.whl"
+    private_path = (
+        "C:" + "\\\\" + "Users" + "\\\\private-user\\\\record.txt"
+    )
+    with zipfile.ZipFile(wheel, "w") as archive:
+        archive.writestr(
+            "app.py",
+            f"PRIVATE_PATH = {private_path!r}\n",
+        )
+        archive.writestr("required.py", "REQUIRED = True\n")
+        archive.writestr(
+            "matters-0.0.0.dist-info/METADATA",
+            "Metadata-Version: 2.1\nName: matters\nVersion: 0.0.0\n",
+        )
+
+    report = check(
+        tmp_path,
+        tmp_path / "policy.json",
+        package_artifacts=(wheel,),
+    )
+
+    assert report["inventories"]["package"]["status"] == "fail"
+    assert any(
+        row["code"] == "absolute_home_path_leak"
+        and row["path"].startswith("package://matters-0.0.0")
+        for row in report["findings"]
+    )
+
+
+def test_release_manifest_prunes_receipts_and_wheel_carries_standard_plugin():
+    manifest = Path("MANIFEST.in").read_text(encoding="utf-8")
+    inventory = json.loads(
+        Path("docs/security/required-public-inventory.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    projected = {
+        row["source_path"]: row["wheel_data_path"]
+        for row in inventory["wheel_data_projection"]
+    }
+
+    assert "prune .flowguard/evidence" in manifest
+    assert "exclude .flowguard/adoption_log.jsonl" in manifest
+    assert "graft synthetic_fixtures" in manifest
+    assert projected["plugins/matters/.mcp.json"] == (
+        "share/matters/plugins/matters/.mcp.json"
+    )
+    assert projected["plugins/matters/.codex-plugin/plugin.json"] == (
+        "share/matters/plugins/matters/.codex-plugin/plugin.json"
+    )
+    assert {
+        ".flowguard/adoption_log.jsonl",
+        ".flowguard/evidence/**",
+    } <= set(inventory["sdist_excluded_patterns"])
+    assert {
+        ".flowguard/evidence/ui/screenshots/**",
+        ".flowguard/evidence/ui/**/screenshots/**",
+    } <= set(inventory["excluded_patterns"])

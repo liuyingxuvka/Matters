@@ -57,7 +57,7 @@ gaps, and evidence references.
 - **THEN** every finding SHALL contain non-empty semantically equivalent `en` and `zh-CN` statements, cite only allowed evidence ids, and bind the exact package source revision or the result SHALL fail without creating a candidate
 
 #### Scenario: Valid understanding output is imported
-- **WHEN** a current evidence-bound Matter, person, event, deadline, open-loop, outcome-gap, summary, or card-visual finding passes the frozen package contract
+- **WHEN** a current evidence-bound Matter, person, event, deadline, open-loop, outcome-gap, material-clue, summary, supplemental-information, or hero-generation-brief finding passes the frozen package contract
 - **THEN** the deterministic dispatcher SHALL route it exactly once to the declared original C4-C9/C12 owner without a confirmation token, and the operation owner SHALL NOT write canonical product state itself
 
 #### Scenario: Ordinary uncertainty remains
@@ -71,6 +71,83 @@ gaps, and evidence references.
 #### Scenario: ResearchGuard merger is not current
 - **WHEN** the requested research operation has no frozen compatible ResearchGuard package, consumer pack, and validation identity
 - **THEN** the operation SHALL terminate as `researchguard_pending_integration` and SHALL NOT execute separate legacy Guard bindings
+
+### Requirement: Product execution is model-agnostic and capability-routed
+Every AI work package SHALL request a declared capability role rather than a
+required named model. The product SHALL support
+`maintenance_orchestrator`, `deterministic_preprocessor`,
+`low_cost_annotator`, `ambiguity_resolver`, `matter_modeler`,
+`hero_image_generator`, and `consistency_reviewer`. Concrete model, provider,
+reasoning, concurrency, budget, escalation, and substitution choices SHALL
+live in a private machine-local Codex execution profile and SHALL NOT become
+canonical Matter state, a public schema dependency, or a release identity.
+The bounded pending-package response SHALL publish the active private
+`execution_profile_identity` beside the immutable packages because result
+admission requires that identity. This runtime envelope field SHALL NOT enter
+the package fingerprint or expose the concrete model mapping.
+
+#### Scenario: A Codex worker fetches pending packages
+- **WHEN** the local service returns one or more immutable pending work packages
+- **THEN** the response SHALL include the current `execution_profile_identity`, the worker SHALL copy it into each result, and changing the active mapping SHALL change only this runtime identity and its receipts
+
+#### Scenario: The runtime identity is absent or stale
+- **WHEN** a worker cannot bind its result to the active `execution_profile_identity`
+- **THEN** admission SHALL keep the package pending with `execution_profile_identity_mismatch` and SHALL NOT discard, fabricate, or auto-apply semantic output
+
+#### Scenario: High-volume annotation uses the current low-cost mapping
+- **WHEN** an authorized low-reasoning package requests `low_cost_annotator` and the current machine profile maps that role to `gpt-5.6-luna` at low reasoning
+- **THEN** Codex MAY execute that package with the mapped model, SHALL record the concrete private execution identity, and SHALL validate the same model-independent result contract
+
+#### Scenario: Complex modeling escalates
+- **WHEN** a package requires hierarchy synthesis, conflict resolution, or another declared complex capability
+- **THEN** the router SHALL select the current compatible higher-capability mapping or terminate `pending_capability` without pretending that cheap annotation completed the complex work
+
+#### Scenario: A daily run needs bounded delegation
+- **WHEN** current work includes high-volume annotation plus merge, hierarchy, summary, or consistency judgment
+- **THEN** `maintenance_orchestrator` SHALL use the strongest compatible current reasoning profile to plan the run, delegate only typed bounded low-cost packages, validate their structured results, and join them through the same original-owner path
+- **AND** concrete primary or delegated model names SHALL remain only in private execution receipts
+
+#### Scenario: A stable Matter needs a hero
+- **WHEN** a root Matter requests `hero_image_generator` with a current privacy-minimized photographic theme brief
+- **THEN** the active profile MAY invoke an available Codex image-generation capability and SHALL return a typed private generated asset or bounded unavailable/failed disposition without requesting an application-owned API key
+
+#### Scenario: The machine changes its model mapping
+- **WHEN** Luna, Terra, or another concrete model is added, removed, upgraded, or remapped
+- **THEN** unchanged product work-package schemas and canonical Matter revisions SHALL remain valid and only affected private execution-profile receipts SHALL change
+
+#### Scenario: No compatible Codex model is available
+- **WHEN** no current profile mapping satisfies the requested capability contract
+- **THEN** the operation SHALL remain `analysis_unavailable` or `pending_capability`, SHALL preserve completed work, and SHALL NOT request an application-owned API key or silently call a provider API
+
+#### Scenario: A passed result only needs original-owner redispatch
+- **WHEN** the desktop has no Codex runner but a current passed result was previously blocked by a missing owner prerequisite that has now recovered
+- **THEN** maintenance SHALL select that result through a bounded indexed redispatch route and SHALL NOT rerun AI or perform a broad pending-package scan
+
+### Requirement: Codex daily maintenance reuses the bounded product path
+A Codex-hosted scheduled task MAY invoke the same CLI/MCP service path used by
+interactive work after one successful manual rehearsal. It SHALL resume only
+authorized changed-item discovery, annotation, escalation, hierarchy repair,
+material-clue/summary refresh, localization, generated-hero work, supplemental
+information, and projection. It SHALL start with a
+`maintenance_orchestrator`, MAY delegate typed low-cost packages to cheaper
+current mappings, SHALL record private run and execution-profile receipts, and
+SHALL NOT become a second canonical workflow.
+
+#### Scenario: Daily maintenance has current changed items
+- **WHEN** the scheduled Codex task runs with current authorization and pending or stale ledger stages
+- **THEN** it SHALL execute the next bounded idempotent work packages through the shared service path and leave every item at an exact terminal, pending, or blocked stage
+
+#### Scenario: Daily maintenance has no delta
+- **WHEN** the scheduled task finds no new, changed, moved, deleted, stale, or policy-affected input
+- **THEN** it SHALL record a successful no-delta receipt without duplicating analysis, Matter revisions, projections, or notifications
+
+#### Scenario: A scheduled run is missed or interrupted
+- **WHEN** Codex, the computer, or the local service is unavailable, or a run stops before completion
+- **THEN** no source or mailbox mutation SHALL occur and the next authorized run SHALL resume from durable checkpoints without claiming the missed run passed
+
+#### Scenario: Final verification is due
+- **WHEN** a release, install, Git, tag, final model, or full-test gate becomes pending
+- **THEN** the routine scheduled task SHALL leave that gate not run for its explicit foreground owner rather than executing an unattended final verification
 
 ### Requirement: AI scope triage is bounded and auditable
 An AI scope-triage operation SHALL classify only occurrences in its authorized
@@ -103,6 +180,117 @@ directories, mailboxes, cloud services, Jira, or Rovo.
 - **WHEN** a skill operation requests a path not present in the work package
 - **THEN** the operation SHALL be rejected as scope-incompatible without reading that path
 
+### Requirement: Personal Situation/World Model inference is persistent and advisory
+The system SHALL maintain a versioned personal Situation/World Model read
+projection that joins current source observations, people, times, Matters,
+WorkItems, Events, open loops, outcomes, source groups, expected trajectories,
+and gaps. C11 MAY add typed advisory hypotheses, forecasts, expected events,
+and alternatives. M0 coordinates currentness and C12 publishes the projection;
+the model SHALL NOT become a second canonical owner.
+
+Every inference SHALL bind the exact SituationGraph/source/evidence snapshot,
+statement, `ai_inferred` modality, confidence, supporting signals,
+counter-signals, coverage boundary, alternatives, horizon, freshness/expiry,
+and original-owner disposition. It SHALL survive restart, become stale when
+any bound dependency changes, and remain visibly distinct from confirmed,
+reported, or planned state.
+
+Historical-gap inference and future prediction SHALL remain different
+artifacts. Historical-gap inference MAY describe a necessary, already elapsed
+activity as likely occurred. A future prediction SHALL remain a deliberately
+fuzzy, testable model expectation and SHALL bind a verification condition,
+contradiction condition, observation horizon, expiry, declared weakening
+conditions, and a retrospective-review-on-conflict flag. It SHALL appear only
+in AI supplemental information or the World Model surface and SHALL NOT be
+written into the occurred timeline, lifecycle, outcome, or primary graph as a
+fact.
+
+#### Scenario: Expected event time has passed
+- **WHEN** current evidence supports an expected event and its time has passed but no licensed observed-completion evidence exists
+- **THEN** C11 MAY return `likely_occurred`, `likely_not_occurred`,
+  `conflict_preserved`, or `insufficient` with confidence and alternatives
+- **AND** the original lifecycle/outcome owners SHALL NOT convert that result into confirmed completion without their declared evidence
+
+#### Scenario: Inference depends on no contrary message
+- **WHEN** the inference uses current covered mail or file scope and finds no cancellation, refund, or contrary record
+- **THEN** it SHALL describe that condition as coverage-bounded missing contradiction, not as proof that no contrary event exists
+
+#### Scenario: Inference dependency changes
+- **WHEN** a source, graph edge, event, hierarchy, policy, coverage, or model identity bound to the inference changes
+- **THEN** the inference and every dependent summary/graph/UI projection SHALL become stale until the same advisory owner recomputes or returns an explicit terminal disposition
+
+#### Scenario: Daily maintenance refreshes world inference
+- **WHEN** the Codex-hosted maintenance run selects stale or missing Situation/World Model inference work
+- **THEN** it SHALL execute bounded model-agnostic advisory packages and dispatch results through the same C11/M0/C12 path without creating a new scheduler-owned truth route
+
+#### Scenario: Future prediction is registered
+- **WHEN** C11 predicts that a future application, trip, submission, payment, or project milestone may reach an outcome
+- **THEN** it SHALL freeze the prediction before the observation, record how and by when it can be verified or contradicted, preserve uncertainty and alternatives, and prohibit canonical writes
+- **AND** C12 SHALL label it as a future AI prediction rather than an occurred Event or current lifecycle state
+
+#### Scenario: Later evidence agrees with the prediction
+- **WHEN** a strictly later, licensed observation satisfies the frozen verification condition
+- **THEN** the World Model SHALL append a confirmed feedback record while the original C5-C9 owner independently records any newly licensed fact
+- **AND** the prediction itself SHALL remain historical advisory evidence rather than becoming the fact owner
+
+#### Scenario: Later evidence contradicts the prediction
+- **WHEN** a strictly later, licensed observation satisfies the frozen contradiction condition
+- **THEN** the World Model SHALL preserve the prediction and contradictory observation, append a `contradicted` feedback record, and enqueue one idempotent model-miss review
+- **AND** that review SHALL re-examine the original evidence sufficiency, source grouping, Matter merge/split, temporal interpretation, and model boundary that licensed the prediction
+- **AND** runtime SHALL NOT silently rewrite the prediction, the observation, or a past canonical state
+
+#### Scenario: Prediction reaches its horizon without decisive evidence
+- **WHEN** the verification horizon or expiry passes without satisfying either condition
+- **THEN** the prediction SHALL become `expired` or `unresolved`, remain visible as non-confirming model history, and SHALL NOT be counted as predictive success
+
+### Requirement: AI receives a bounded model map and situation packet
+The system SHALL expose one model-agnostic AI gateway over MatterService/MCP.
+It SHALL provide a bounded functional map of M0, C1-C12, S0, and A0-A3 and one
+revision-bound `SituationContextPacket` for a selected Matter. The packet SHALL
+contain only current permitted projections, distinguish confirmed, reported,
+planned, and `ai_inferred` modalities, include coverage/freshness and gaps, and
+use bounded continuation handles for additional history.
+
+A3 SHALL own only gateway query and feedback receipts. It SHALL NOT become C13,
+write a C1-C12 canonical field, inspect raw private storage, or claim that a
+missing ResearchGuard result is equivalent to completed research.
+
+#### Scenario: AI asks what is happening now
+- **WHEN** an authorized AI requests current context for one Matter
+- **THEN** the gateway SHALL return the exact Matter revision, relevant current situation and World Model projections, current gaps, and `as_of` identity without returning an unbounded history or raw private path
+
+#### Scenario: AI asks where to find a kind of information
+- **WHEN** an AI traverses the functional model map by purpose or relation
+- **THEN** the gateway SHALL return the existing owner and supported operation, not a database table or a new write route
+
+### Requirement: AI feedback is typed, append-only, and owner-dispatched
+The gateway SHALL distinguish `user_observation`, explicit `correction`,
+`prediction_feedback`, and `model_miss`. Every accepted item SHALL receive an
+idempotent durable receipt with Matter identity, type, bounded source
+attribution, freshness, status, and required owner disposition.
+
+A user observation SHALL remain reported candidate evidence until an original
+owner validates it. An explicit correction SHALL route through C10. Prediction
+feedback SHALL evaluate a frozen C11 prediction without rewriting either
+record. A model miss SHALL enter the development-maintenance queue and SHALL
+NOT edit code, OpenSpec, FlowGuard, or runtime rules automatically.
+
+#### Scenario: AI learns a new fact from the user
+- **WHEN** the user states a new bounded observation in a Codex conversation
+- **THEN** A3 SHALL append a minimized `user_observation` receipt, omit the full conversation by default, and expose the pending original-owner disposition for later maintenance
+
+#### Scenario: AI identifies a factual correction
+- **WHEN** the user explicitly says a current Matter fact is wrong and supplies replacement scope
+- **THEN** the gateway SHALL call the existing C10 correction contract and SHALL NOT disguise the change as an ordinary observation
+
+#### Scenario: AI compares prediction with reality
+- **WHEN** a strictly later licensed observation verifies, contradicts, or leaves a frozen prediction unresolved
+- **THEN** the gateway SHALL call the existing C11 feedback contract, preserve prediction and observation history, and return the resulting feedback/model-miss disposition
+
+#### Scenario: AI notices a software or model gap
+- **WHEN** runtime use exposes a missing owner, invalid model assumption, unsafe route, or non-representable case
+- **THEN** A3 SHALL append a bounded model-miss clue for the development pipeline and SHALL keep the current product result partial, blocked, or stale rather than self-editing
+
 ### Requirement: No silent heuristic equivalence
 The system SHALL NOT substitute keyword heuristics or an unversioned parser for
 an unavailable AI/local-skill operation while reporting the requested
@@ -123,6 +311,22 @@ finding.
 - **WHEN** a result omits a frozen evidence or asset id or assigns more than one incompatible disposition
 - **THEN** validation SHALL fail with the exact input id and SHALL NOT dispatch any finding
 
+### Requirement: Background workers can consume only their exact assigned package set
+The private pending-work facade and CLI SHALL support exact package-id,
+source-revision, and task-kind selectors in addition to the existing bounded
+local-operator page. Selectors SHALL be conjunctive, single-line, and evaluated
+before pagination so the returned total and continuation describe only the
+assigned set. A selector SHALL NOT expose raw source content, private paths, or
+unrelated pending packages.
+
+#### Scenario: A capability worker receives one exact source-revision refresh
+- **WHEN** the orchestrator supplies an exact package id, source revision, and task kind to a background worker
+- **THEN** the pending-work facade SHALL return only a pending current package matching all three selectors or an empty page, and SHALL preserve the normalized selectors in the private response receipt
+
+#### Scenario: The local operator requests the existing bounded pending page
+- **WHEN** no exact selector is supplied
+- **THEN** the facade SHALL retain the existing capability-role filtering, bounds, ordering, pagination, and disclosure boundary without converting the worker selector into a new public data API
+
 ### Requirement: Automatic dispatch is durable and idempotent
 The dispatcher SHALL persist the finding, source revision, owner model,
 prompt/schema/policy identities, retry state, and terminal owner disposition.
@@ -136,3 +340,15 @@ all required original-owner results for the active revision are terminal.
 #### Scenario: Owner rejects an unsupported proposal
 - **WHEN** the declared owner determines that a valid advisory finding lacks the evidence required for a canonical write
 - **THEN** the owner SHALL return `policy_rejected`, `source_only`, `candidate`, `uncertainty_preserved`, `not_applicable`, or `blocked` as appropriate and the pipeline SHALL continue without user confirmation
+
+### Requirement: Hierarchy findings remain advisory and typed
+AI and ResearchGuard hierarchy work SHALL use typed
+`matter_structure_candidate`, `containment_candidate`, `reparent_candidate`,
+`split_candidate`, `merge_candidate`, `work_item_candidate`, and
+`event_assignment_candidate` findings. Each finding SHALL cite current allowed
+evidence and SHALL enter the existing C5/C6/C7-C10 owners rather than writing
+containment, lifecycle, outcome, or projection state.
+
+#### Scenario: AI proposes parent and child structure
+- **WHEN** a current bounded work package proposes a root Matter and several children
+- **THEN** the dispatcher SHALL route each typed finding exactly once to its declared owner and SHALL preserve unsupported or conflicting alternatives without creating a second hierarchy authority

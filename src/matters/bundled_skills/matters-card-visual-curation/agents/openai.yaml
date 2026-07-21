@@ -1,4 +1,0 @@
-interface:
-  display_name: "Matters Card Visual Curation"
-  short_description: "Choose one representative visual from allowed assets"
-  default_prompt: "Use $matters-card-visual-curation through MatterService to choose one representative current asset only from eligible_asset_ids and return exact bilingual display text without fetching or inventing evidence."

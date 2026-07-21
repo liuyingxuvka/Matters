@@ -1,4 +1,4 @@
 interface:
   display_name: "Matters Skill Runtime"
   short_description: "Resolve and inspect the active Skill Pack"
-  default_prompt: "Use $matters-skill-runtime through MatterService to resolve the exact eleven-skill active view by version, hash, compatibility, validator, and ownership without global installation."
+  default_prompt: "Use $matters-skill-runtime through MatterService to resolve the exact eleven-skill active view and require deterministic_hard_exclusion plus deterministic_preprocessor, low_cost_annotator, ambiguity_resolver, matter_modeler, hero_image_generator, consistency_reviewer, and maintenance_orchestrator. Preserve source_neighborhood_id, source_group_chain, source_group_labels, and source_spatial_context_revision for parent/child WorkItem hierarchy audit and English/Chinese title, summary, topic type, generated_hero, and research_operation handoff. Original owners alone write canonical Matter, hierarchy, activity, generated hero, supplemental information, and UI state. Preserve private source context and reject absolute path/public leakage, named-model binding, API key requests, direct provider API calls, or direct API fallback."

@@ -201,3 +201,100 @@ def test_gmail_injected_page_source_retries_same_cursor_idempotently():
 
     assert first == retry
     assert calls == ["", ""]
+
+
+def test_fixed_authorized_from_nontracks_older_rows_without_reading_bodies():
+    adapter = GmailReadOnlyAdapter(_manifest(authorized_from="2025-07-20"))
+    old = GmailMessageMetadata(
+        "old-message",
+        "old-thread",
+        "inbox",
+        ("inbox",),
+        "2025-07-19T23:59:59Z",
+    )
+    current = GmailMessageMetadata(
+        "current-message",
+        "current-thread",
+        "inbox",
+        ("inbox",),
+        "2025-07-20T00:00:00Z",
+    )
+    page = _page(
+        messages=(old, current),
+        contents=(
+            GmailMessageContent("old-message", "old body must not be read"),
+            GmailMessageContent("current-message", "current body"),
+        ),
+    )
+
+    discovery = adapter.accept_page(page)
+    old_item = next(
+        item
+        for item in discovery.items
+        if item.envelope.payload.get("provider_message_id") == "old-message"
+    )
+    current_item = next(
+        item
+        for item in discovery.items
+        if item.envelope.payload.get("provider_message_id") == "current-message"
+    )
+    assert old_item.recommended_disposition == "not_tracked"
+    assert old_item.reason == "gmail_before_authorized_from"
+    assert current_item.recommended_disposition == "tracked"
+
+    results = adapter.read_page(
+        page,
+        tracking_dispositions={
+            old_item.envelope.external_id: "tracked",
+            current_item.envelope.external_id: "tracked",
+        },
+    )
+    old_result = next(
+        item for item in results if item.external_id == old_item.envelope.external_id
+    )
+    current_result = next(
+        item
+        for item in results
+        if item.external_id == current_item.envelope.external_id
+    )
+    assert old_result.disposition == "not_tracked"
+    assert old_result.reason == "gmail_before_authorized_from"
+    assert old_result.envelope is None
+    assert current_result.ingested
+    assert current_result.envelope.payload["body_text"] == "current body"
+
+
+def test_empty_authorized_from_keeps_full_history_and_rejects_rolling_values():
+    adapter = GmailReadOnlyAdapter(_manifest())
+    old_page = _page(
+        messages=(
+            GmailMessageMetadata(
+                "old-message", "old-thread", "inbox", ("inbox",), "2020-01-01"
+            ),
+        ),
+        contents=(),
+    )
+
+    item = next(
+        item
+        for item in adapter.accept_page(old_page).items
+        if item.envelope.object_type == "gmail_message"
+    )
+    assert adapter.manifest.authorized_from == ""
+    assert item.recommended_disposition == "tracked"
+    with pytest.raises(ValueError, match="fixed YYYY-MM-DD"):
+        _manifest(authorized_from="last-365-days")
+
+
+def test_authorized_from_successors_can_only_keep_or_expand_history():
+    prior = _manifest(authorized_from="2025-07-20")
+
+    _manifest(authorized_from="2025-07-20").assert_not_narrower_than(prior)
+    _manifest(authorized_from="2024-01-01").assert_not_narrower_than(prior)
+    _manifest().assert_not_narrower_than(prior)
+    with pytest.raises(ValueError, match="cannot move later"):
+        _manifest(authorized_from="2025-07-21").assert_not_narrower_than(prior)
+    with pytest.raises(ValueError, match="cannot narrow full history"):
+        _manifest(authorized_from="2025-07-20").assert_not_narrower_than(
+            _manifest()
+        )

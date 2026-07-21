@@ -1,13 +1,40 @@
 {
   "schema": "matters.plugin.v1",
   "name": "Matters",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "entrypoint": "matters.api.mcp.server:MattersMCP",
   "capabilities": [
     "review_authorized_provider_envelope",
     "render_current_bilingual_projection",
-    "submit_correction_to_c10"
+    "submit_correction_to_c10",
+    "list_functional_model_contracts",
+    "get_bounded_situation_context",
+    "get_bounded_ai_history",
+    "record_append_only_user_observation",
+    "record_prediction_feedback",
+    "report_model_miss"
   ],
+  "public_codex_gateway": "plugins/matters",
+  "bundled_internal_skill_count": 11,
+  "public_gateway_is_internal_skill": false,
+  "guard_family_skills_bundled": false,
+  "research_provider": {
+    "id": "researchguard",
+    "distribution": "external_independent_dependency",
+    "sole_real_research_provider": true,
+    "legacy_guard_fallback": false,
+    "core_context_available_when_missing": true,
+    "research_completeness_blocked_when_missing": true
+  },
+  "maintenance_triggers": {
+    "default": [
+      "installed_ui_launch",
+      "first_run",
+      "explicit_cli_mcp_or_codex_request",
+      "registered_source_or_project_change"
+    ],
+    "daily_schedule": "explicit_user_opt_in_only"
+  },
   "provider_writes": false,
   "canonical_ui_writes": false
 }

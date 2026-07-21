@@ -1,13 +1,25 @@
 {
   "artifact_type": "matters.flowguard-model-receipt.v1",
-  "claim_boundary": "This model establishes the extracted-anchor to bounded work-package, terminal bilingual typed findings, full input accounting, automatic idempotent original-owner dispatch, advisory-only research output, ResearchGuard gate, legacy-fallback rejection, freshness, semantic-depth, scope, visual recommendations, and forecast transitions. It does not prove factual truth, ResearchGuard installation, model quality, or private first-run usefulness.",
-  "evidence_id": "evidence:C11_guard_artifact_prediction:bdb7bc7a407ec5ec",
+  "claim_boundary": "This model establishes the extracted-anchor to bounded work-package, terminal bilingual typed findings, full input accounting, automatic idempotent original-owner dispatch, advisory-only research output, ResearchGuard gate, legacy-fallback rejection, freshness, semantic-depth, scope, generated-hero registration, labeled supplemental information, and forecast transitions. It does not prove factual truth, ResearchGuard installation, concrete Codex model availability, model quality, or private first-run usefulness.",
+  "evidence_id": "evidence:C11_guard_artifact_prediction:c11c7badfced8e30",
   "evidence_tiers": [
     "abstract_green",
     "hazard_green"
   ],
-  "generated_at": "2026-07-19T05:48:54.036193+00:00",
+  "generated_at": "2026-07-21T07:12:19.321394+00:00",
   "known_bad_proofs": [
+    {
+      "evidence_id": "C11_guard_artifact_prediction:known-bad:H-C11-024-empty-supplemental-claimed-current",
+      "failure_id": "H-C11-024-empty-supplemental-claimed-current",
+      "observed_status": "failed",
+      "protected_error_class": "supplemental_zero_item_false_current"
+    },
+    {
+      "evidence_id": "C11_guard_artifact_prediction:known-bad:H-C11-025-internal-audit-language-becomes-summary",
+      "failure_id": "H-C11-025-internal-audit-language-becomes-summary",
+      "observed_status": "failed",
+      "protected_error_class": "human_narrative_internal_language_leak"
+    },
     {
       "evidence_id": "C11_guard_artifact_prediction:known-bad:H-C11-001-research-writes-canonical-state",
       "failure_id": "H-C11-001-research-writes-canonical-state",
@@ -31,6 +43,12 @@
       "failure_id": "H-C11-004-progress-receipt-promoted",
       "observed_status": "failed",
       "protected_error_class": "nonterminal_evidence_promotion"
+    },
+    {
+      "evidence_id": "C11_guard_artifact_prediction:known-bad:H-C11-008-hierarchy-proposal-writes-parent",
+      "failure_id": "H-C11-008-hierarchy-proposal-writes-parent",
+      "observed_status": "failed",
+      "protected_error_class": "hierarchy_advisory_authority_escape"
     },
     {
       "evidence_id": "C11_guard_artifact_prediction:known-bad:H-C11-005-legacy-three-guard-fallback",
@@ -81,13 +99,73 @@
       "protected_error_class": "analysis_input_accounting_gap"
     },
     {
-      "evidence_id": "C11_guard_artifact_prediction:known-bad:H-C11-013-visual-recommendation-writes-c12",
-      "failure_id": "H-C11-013-visual-recommendation-writes-c12",
+      "evidence_id": "C11_guard_artifact_prediction:known-bad:H-C11-013-generated-hero-writes-c12-directly",
+      "failure_id": "H-C11-013-generated-hero-writes-c12-directly",
       "observed_status": "failed",
-      "protected_error_class": "visual_projection_owner_bypass"
+      "protected_error_class": "generated_hero_projection_owner_bypass"
+    },
+    {
+      "evidence_id": "C11_guard_artifact_prediction:known-bad:H-C11-014-named-model-product-dependency",
+      "failure_id": "H-C11-014-named-model-product-dependency",
+      "observed_status": "failed",
+      "protected_error_class": "model_specific_product_contract"
+    },
+    {
+      "evidence_id": "C11_guard_artifact_prediction:known-bad:H-C11-015-unavailable-capability-claimed-current",
+      "failure_id": "H-C11-015-unavailable-capability-claimed-current",
+      "observed_status": "failed",
+      "protected_error_class": "capability_gap_hidden"
+    },
+    {
+      "evidence_id": "C11_guard_artifact_prediction:known-bad:H-C11-016-retired-role-remains-runnable",
+      "failure_id": "H-C11-016-retired-role-remains-runnable",
+      "observed_status": "failed",
+      "protected_error_class": "retired_capability_runtime_authority"
+    },
+    {
+      "evidence_id": "C11_guard_artifact_prediction:known-bad:H-C11-017-excluded-source-sent-to-model",
+      "failure_id": "H-C11-017-excluded-source-sent-to-model",
+      "observed_status": "failed",
+      "protected_error_class": "analysis_policy_retirement_bypass"
+    },
+    {
+      "evidence_id": "C11_guard_artifact_prediction:known-bad:H-C11-018-generated-hero-treated-as-source-evidence",
+      "failure_id": "H-C11-018-generated-hero-treated-as-source-evidence",
+      "observed_status": "failed",
+      "protected_error_class": "presentation_artifact_evidence_pollution"
+    },
+    {
+      "evidence_id": "C11_guard_artifact_prediction:known-bad:H-C11-019-supplemental-information-unlabeled-as-fact",
+      "failure_id": "H-C11-019-supplemental-information-unlabeled-as-fact",
+      "observed_status": "failed",
+      "protected_error_class": "supplemental_context_fact_conflation"
+    },
+    {
+      "evidence_id": "C11_guard_artifact_prediction:known-bad:H-C11-020-unfrozen-future-prediction-evaluated",
+      "failure_id": "H-C11-020-unfrozen-future-prediction-evaluated",
+      "observed_status": "failed",
+      "protected_error_class": "prediction_hindsight_leak"
+    },
+    {
+      "evidence_id": "C11_guard_artifact_prediction:known-bad:H-C11-021-prediction-contradiction-silently-rewritten",
+      "failure_id": "H-C11-021-prediction-contradiction-silently-rewritten",
+      "observed_status": "failed",
+      "protected_error_class": "prediction_feedback_history_erasure"
+    },
+    {
+      "evidence_id": "C11_guard_artifact_prediction:known-bad:H-C11-022-prediction-conflict-skips-model-miss",
+      "failure_id": "H-C11-022-prediction-conflict-skips-model-miss",
+      "observed_status": "failed",
+      "protected_error_class": "prediction_feedback_learning_loop_broken"
+    },
+    {
+      "evidence_id": "C11_guard_artifact_prediction:known-bad:H-C11-023-unrepresentative-hero-retained",
+      "failure_id": "H-C11-023-unrepresentative-hero-retained",
+      "observed_status": "failed",
+      "protected_error_class": "generated_hero_visual_specificity_gap"
     }
   ],
-  "model_fingerprint": "sha256:bdb7bc7a407ec5ec62dd03f10e08a62d0e4a54fe251503b84987892398505a8c",
+  "model_fingerprint": "sha256:c11c7badfced8e3095d1fa2a0804385019d2675e006052cbbdf1551f4b7f846d",
   "model_id": "C11_guard_artifact_prediction",
   "model_title": "C11 AI, Research & Prediction Boundary",
   "overall_status": "pass_with_gaps",
@@ -112,7 +190,7 @@
     "model_mesh": "not_run_in_this_owner: cross-model topology belongs to the separate ModelMesh owner"
   },
   "toolchain": {
-    "flowguard_package_version": "0.58.4",
+    "flowguard_package_version": "0.58.5",
     "flowguard_schema_version": "1.0"
   }
 }

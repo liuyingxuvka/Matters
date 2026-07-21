@@ -62,7 +62,7 @@ REQUIRED_INITIAL_SKILL_IDS = (
     "matters-research-orchestration",
     "matters-semantic-understanding",
     "matters-autonomous-maintenance",
-    "matters-card-visual-curation",
+    "matters-hero-image-generation",
 )
 
 

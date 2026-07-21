@@ -37,3 +37,17 @@ an AI or local-skill suggestion.
 #### Scenario: AI proposes completion
 - **WHEN** an advisory result proposes completion without current evidence for every required criterion
 - **THEN** the outcome owner SHALL automatically reject the completion proposal or emit `completion_unproven`/`outcome_conflict` while preserving the advisory artifact
+
+### Requirement: Parent completion includes required children and parent criteria
+A parent Matter SHALL be completed only when its own declared completion
+criteria and every current required child criterion are satisfied. Optional
+children SHALL NOT block parent completion. Child completion alone SHALL NOT
+complete the parent.
+
+#### Scenario: All required bookings are complete
+- **WHEN** every required booking child is complete but the root trip criterion requires the trip to occur
+- **THEN** the root SHALL remain incomplete until current evidence satisfies the root criterion
+
+#### Scenario: Required child reopens
+- **WHEN** a current required child receives a new unresolved obligation after the parent was completed
+- **THEN** the parent outcome SHALL be invalidated and automatically reopened or preserved as an outcome conflict while retaining the prior completion revision

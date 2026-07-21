@@ -1,18 +1,48 @@
 {
   "artifact_type": "matters.flowguard-model-receipt.v1",
-  "claim_boundary": "This receipt can establish C3 finite anchor admission, modality, and staleness hazards. It does not establish OCR accuracy, factual truth, payload conformance, or downstream claim validity.",
-  "evidence_id": "evidence:C3_evidence_qualification:c4772b78e1a3dfeb",
+  "claim_boundary": "This receipt can establish C3 finite anchor admission, modality, bounded anchor-set pointer identity through exact SourceVersion plus count and canonical digest, and staleness hazards. It does not establish OCR accuracy, factual truth, payload conformance, real pointer migration, or downstream claim validity.",
+  "evidence_id": "evidence:C3_evidence_qualification:652d9df4c2157123",
   "evidence_tiers": [
     "abstract_green",
     "hazard_green"
   ],
-  "generated_at": "2026-07-19T05:48:42.628305+00:00",
+  "generated_at": "2026-07-21T07:11:28.662770+00:00",
   "known_bad_proofs": [
+    {
+      "evidence_id": "C3_evidence_qualification:known-bad:H-C3-008-unbounded-anchor-ids-copied-downstream",
+      "failure_id": "H-C3-008-unbounded-anchor-ids-copied-downstream",
+      "observed_status": "failed",
+      "protected_error_class": "evidence_anchor_reference_amplification"
+    },
+    {
+      "evidence_id": "C3_evidence_qualification:known-bad:H-C3-007-per-anchor-transaction-amplification",
+      "failure_id": "H-C3-007-per-anchor-transaction-amplification",
+      "observed_status": "failed",
+      "protected_error_class": "evidence_transaction_amplification"
+    },
+    {
+      "evidence_id": "C3_evidence_qualification:known-bad:H-C3-006-folder-proximity-promoted-to-proof",
+      "failure_id": "H-C3-006-folder-proximity-promoted-to-proof",
+      "observed_status": "failed",
+      "protected_error_class": "spatial_context_evidence_overclaim"
+    },
     {
       "evidence_id": "C3_evidence_qualification:known-bad:H-C3-001-unanchored-claim-promoted",
       "failure_id": "H-C3-001-unanchored-claim-promoted",
       "observed_status": "failed",
       "protected_error_class": "unanchored_evidence_promotion"
+    },
+    {
+      "evidence_id": "C3_evidence_qualification:known-bad:H-C3-009-gmail-body-receipt-without-anchor",
+      "failure_id": "H-C3-009-gmail-body-receipt-without-anchor",
+      "observed_status": "failed",
+      "protected_error_class": "gmail_body_evidence_gap_hidden"
+    },
+    {
+      "evidence_id": "C3_evidence_qualification:known-bad:H-C3-010-gmail-no-text-fake-anchor",
+      "failure_id": "H-C3-010-gmail-no-text-fake-anchor",
+      "observed_status": "failed",
+      "protected_error_class": "gmail_no_text_fake_evidence"
     },
     {
       "evidence_id": "C3_evidence_qualification:known-bad:H-C3-002-planned-promoted-to-occurred",
@@ -27,10 +57,10 @@
       "protected_error_class": "stale_evidence_reuse"
     },
     {
-      "evidence_id": "C3_evidence_qualification:known-bad:H-C3-005-denied-visual-promoted",
-      "failure_id": "H-C3-005-denied-visual-promoted",
+      "evidence_id": "C3_evidence_qualification:known-bad:H-C3-005-denied-gallery-asset-promoted",
+      "failure_id": "H-C3-005-denied-gallery-asset-promoted",
       "observed_status": "failed",
-      "protected_error_class": "visual_display_authority_escape"
+      "protected_error_class": "gallery_display_authority_escape"
     },
     {
       "evidence_id": "C3_evidence_qualification:known-bad:H-C3-004-unsupported-payload-fabricated",
@@ -39,7 +69,7 @@
       "protected_error_class": "unsupported_equivalence_fabrication"
     }
   ],
-  "model_fingerprint": "sha256:c4772b78e1a3dfebb8f24425239cda26dfb7c9f2686796c6bde0a415ef153d3f",
+  "model_fingerprint": "sha256:652d9df4c2157123b2d0a6c97e20bc6a31603990108fade204e17633b0a46c6c",
   "model_id": "C3_evidence_qualification",
   "model_title": "C3 Evidence Qualification",
   "overall_status": "pass_with_gaps",
@@ -64,7 +94,7 @@
     "model_mesh": "not_run_in_this_owner: cross-model topology belongs to the separate ModelMesh owner"
   },
   "toolchain": {
-    "flowguard_package_version": "0.58.4",
+    "flowguard_package_version": "0.58.5",
     "flowguard_schema_version": "1.0"
   }
 }

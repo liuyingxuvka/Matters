@@ -1,12 +1,12 @@
 {
   "artifact_type": "matters.flowguard-model-receipt.v1",
-  "claim_boundary": "This receipt can establish C9 abstract completion-evidence, cancellation, reopen, and conflict hazards. It does not establish Matter-specific criteria, C8 loop closure, or production outcomes.",
-  "evidence_id": "evidence:C9_completion_cancellation_reopen:fd9fe90d10d99d57",
+  "claim_boundary": "This receipt can establish C9 abstract completion-evidence, cancellation, reopen, conflict, and child/parent completion-separation hazards. It does not establish Matter-specific criteria, hierarchy completeness, C8 loop closure, or production outcomes.",
+  "evidence_id": "evidence:C9_completion_cancellation_reopen:7e567c24f8a5704a",
   "evidence_tiers": [
     "abstract_green",
     "hazard_green"
   ],
-  "generated_at": "2026-07-19T05:48:50.580310+00:00",
+  "generated_at": "2026-07-21T07:12:00.851248+00:00",
   "known_bad_proofs": [
     {
       "evidence_id": "C9_completion_cancellation_reopen:known-bad:H-C9-001-false-completion-proof",
@@ -37,9 +37,15 @@
       "failure_id": "H-C9-005-ai-reopens-without-obligation",
       "observed_status": "failed",
       "protected_error_class": "advisory_reopen_authority_escape"
+    },
+    {
+      "evidence_id": "C9_completion_cancellation_reopen:known-bad:H-C9-006-all-children-mechanically-complete-parent",
+      "failure_id": "H-C9-006-all-children-mechanically-complete-parent",
+      "observed_status": "failed",
+      "protected_error_class": "child_parent_completion_conflation"
     }
   ],
-  "model_fingerprint": "sha256:fd9fe90d10d99d576eeaf6b7cb8686d0425979a6603fddf0c8a3b2bcdfd8c95b",
+  "model_fingerprint": "sha256:7e567c24f8a5704a831cf00478b06ce1b8e3d07c49698512017773db8ef96714",
   "model_id": "C9_completion_cancellation_reopen",
   "model_title": "C9 Completion / Cancellation / Reopen",
   "overall_status": "pass_with_gaps",
@@ -64,7 +70,7 @@
     "model_mesh": "not_run_in_this_owner: cross-model topology belongs to the separate ModelMesh owner"
   },
   "toolchain": {
-    "flowguard_package_version": "0.58.4",
+    "flowguard_package_version": "0.58.5",
     "flowguard_schema_version": "1.0"
   }
 }

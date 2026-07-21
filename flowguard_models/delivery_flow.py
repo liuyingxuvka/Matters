@@ -26,9 +26,12 @@ from flowguard import (
 )
 
 from flowguard_models.model_mesh import PARENT_ID, CHILD_IDS, run_mesh
+from flowguard_models.agent_operation_models import AGENT_OPERATION_MODELS
 from flowguard_models.run_model import MODELS
 from flowguard_design.run_g4_review import _fingerprint as g4_design_fingerprint
+from flowguard_design.ui_runtime_contract import REQUIRED_UI_CHECKS
 from flowguard_design.ui_flow_structure import current_revision as ui_revision
+from matters._version import VERSION
 from matters.integrations.researchguard import probe_researchguard
 from scripts.check_public_boundary import check as check_public_boundary
 
@@ -205,34 +208,60 @@ def _behavior_ledger_review(root: Path) -> dict:
 
 
 def _model_gate(root: Path) -> dict:
-    receipt_root = root / ".flowguard" / "evidence" / "models"
+    inventories = (
+        (
+            "product_runtime",
+            root / ".flowguard" / "evidence" / "models",
+            {model_id: MODELS[model_id] for model_id in (PARENT_ID,) + CHILD_IDS},
+        ),
+        (
+            "agent_operation",
+            root / ".flowguard" / "evidence" / "agent_operations" / "models",
+            AGENT_OPERATION_MODELS,
+        ),
+    )
     rows = []
-    for model_id in (PARENT_ID,) + CHILD_IDS:
-        path = receipt_root / f"{model_id}.json"
-        receipt = json.loads(path.read_text(encoding="utf-8"))
-        current = (
-            receipt.get("model_id") == model_id
-            and receipt.get("model_fingerprint")
-            == MODELS[model_id].fingerprint()
-            and receipt.get("pass_for_g2") is True
-            and "abstract_green" in receipt.get("evidence_tiers", ())
-            and "hazard_green" in receipt.get("evidence_tiers", ())
-            and all(
-                proof.get("observed_status") == "failed"
-                for proof in receipt.get("known_bad_proofs", ())
+    for behavior_plane, receipt_root, models in inventories:
+        for model_id, model in models.items():
+            path = receipt_root / f"{model_id}.json"
+            try:
+                receipt = json.loads(path.read_text(encoding="utf-8"))
+            except (OSError, TypeError, ValueError, json.JSONDecodeError):
+                receipt = {}
+            current = (
+                receipt.get("model_id") == model_id
+                and receipt.get("model_fingerprint") == model.fingerprint()
+                and receipt.get("pass_for_g2") is True
+                and "abstract_green" in receipt.get("evidence_tiers", ())
+                and "hazard_green" in receipt.get("evidence_tiers", ())
+                and all(
+                    proof.get("observed_status") == "failed"
+                    for proof in receipt.get("known_bad_proofs", ())
+                )
             )
-        )
-        rows.append(
-            {
-                "model_id": model_id,
-                "current": current,
-                "evidence_id": receipt.get("evidence_id", ""),
-                "model_fingerprint": receipt.get("model_fingerprint", ""),
-            }
-        )
+            rows.append(
+                {
+                    "behavior_plane": behavior_plane,
+                    "model_id": model_id,
+                    "current": current,
+                    "evidence_id": receipt.get("evidence_id", ""),
+                    "model_fingerprint": receipt.get("model_fingerprint", ""),
+                }
+            )
     return {
         "ok": all(row["current"] for row in rows),
         "models": rows,
+        "product_model_count": sum(
+            row["behavior_plane"] == "product_runtime" for row in rows
+        ),
+        "agent_operation_model_count": sum(
+            row["behavior_plane"] == "agent_operation" for row in rows
+        ),
+        "claim_boundary": (
+            "G2 validates M0/C1-C12 product receipts and A0/A1/A2/A3 operation "
+            "receipts from separate evidence roots. A pass in one plane never "
+            "substitutes for the other."
+        ),
     }
 
 
@@ -375,15 +404,91 @@ def _private_first_run_gate() -> dict:
     partitions = payload.get("partition_inventory", {})
     depth = payload.get("semantic_depth", {})
     localization = payload.get("localization", {})
+    maintenance = payload.get("codex_daily_maintenance", {})
+    storage = payload.get("storage_migrations", {})
     evidence_handle = str(payload.get("private_evidence_handle", ""))
     safe_handle = (
         evidence_handle.startswith("private-evidence:")
         and "/" not in evidence_handle
         and "\\" not in evidence_handle
     )
+    mutation_counts = maintenance.get("mutation_attempt_counts", {})
+    mutation_keys = {
+        "source",
+        "mailbox",
+        "outbound",
+        "grant",
+        "code",
+        "model",
+        "install",
+        "git",
+        "tag",
+        "release",
+    }
+    zero_mutation = (
+        isinstance(mutation_counts, dict)
+        and set(mutation_counts) == mutation_keys
+        and all(
+            isinstance(mutation_counts[key], int)
+            and mutation_counts[key] == 0
+            for key in mutation_keys
+        )
+    )
+    storage_migrations_current = (
+        isinstance(storage, dict)
+        and storage.get("status") == "current"
+        and storage.get("migration_order")
+        == ["evidence_pointer_rebase", "coverage_history_archive"]
+        and storage.get("verified_restorable_copy") is True
+        and storage.get("all_other_writers_stopped") is True
+        and storage.get("evidence_pointer_rebase_terminal") is True
+        and storage.get("coverage_history_archive_terminal") is True
+        and storage.get("archive_verified_before_original_retirement") is True
+        and storage.get("integrity_check_current") is True
+        and storage.get("count_check_current") is True
+        and storage.get("sampled_history_equivalence_current") is True
+        and storage.get("startup_migration_attempt_count") == 0
+        and storage.get("vacuum_attempt_count") == 0
+        and str(
+            storage.get("evidence_pointer_rebase_terminal_receipt_id", "")
+        ).startswith("storage-migration:evidence-pointer:")
+        and str(
+            storage.get("coverage_history_archive_terminal_receipt_id", "")
+        ).startswith("storage-migration:coverage-history:")
+    )
+    run_receipt_ids = maintenance.get("run_receipt_ids", ())
+    identity_current = (
+        str(maintenance.get("schedule_identity", "")).startswith(
+            "codex-automation:"
+        )
+        and str(maintenance.get("execution_profile_identity", "")).startswith(
+            "execution-profile:"
+        )
+        and str(
+            maintenance.get("manual_rehearsal_receipt_id", "")
+        ).startswith("maintenance-rehearsal:")
+        and str(
+            maintenance.get("manual_rehearsal_fingerprint", "")
+        ).startswith("sha256:")
+        and str(
+            maintenance.get("install_currentness_receipt_id", "")
+        ).startswith("maintenance-install:")
+        and str(
+            maintenance.get("install_currentness_fingerprint", "")
+        ).startswith("sha256:")
+        and str(
+            maintenance.get("shared_service_entrypoint_fingerprint", "")
+        ).startswith("sha256:")
+        and isinstance(run_receipt_ids, list)
+        and bool(run_receipt_ids)
+        and all(
+            str(receipt_id).startswith("maintenance-run:")
+            for receipt_id in run_receipt_ids
+        )
+    )
     ok = (
         payload.get("artifact_type")
-        == "matters.private-first-run-aggregate.v1"
+        == "matters.private-first-run-aggregate.v2"
         and payload.get("ok") is True
         and payload.get("status")
         in {"current_with_open_work", "coverage_complete"}
@@ -392,6 +497,17 @@ def _private_first_run_gate() -> dict:
         and partitions.get("failed_partition_count") == 0
         and depth.get("all_accounted") is True
         and localization.get("current") is True
+        and storage_migrations_current
+        and maintenance.get("status") == "current"
+        and maintenance.get("current") is True
+        and identity_current
+        and maintenance.get("installed") is True
+        and maintenance.get("manual_rehearsal_current") is True
+        and maintenance.get("shared_service_path") is True
+        and maintenance.get("model_agnostic") is True
+        and maintenance.get("app_api_key_required") is False
+        and zero_mutation
+        and maintenance.get("unattended_final_verification") is False
         and safe_handle
     )
     return {
@@ -409,11 +525,53 @@ def _private_first_run_gate() -> dict:
         ),
         "semantic_depth_accounted": depth.get("all_accounted") is True,
         "localization_current": localization.get("current") is True,
+        "storage_migrations_current": storage_migrations_current,
+        "storage_migration_order_current": (
+            isinstance(storage, dict)
+            and storage.get("migration_order")
+            == ["evidence_pointer_rebase", "coverage_history_archive"]
+        ),
+        "storage_restorable_copy_verified": (
+            isinstance(storage, dict)
+            and storage.get("verified_restorable_copy") is True
+        ),
+        "storage_startup_migration_attempt_count": (
+            storage.get("startup_migration_attempt_count")
+            if isinstance(storage, dict)
+            and isinstance(storage.get("startup_migration_attempt_count"), int)
+            else -1
+        ),
+        "storage_vacuum_attempt_count": (
+            storage.get("vacuum_attempt_count")
+            if isinstance(storage, dict)
+            and isinstance(storage.get("vacuum_attempt_count"), int)
+            else -1
+        ),
+        "codex_daily_maintenance_installed": maintenance.get("installed") is True,
+        "codex_daily_maintenance_rehearsed": (
+            maintenance.get("manual_rehearsal_current") is True
+        ),
+        "codex_daily_maintenance_shared_path": (
+            maintenance.get("shared_service_path") is True
+        ),
+        "codex_daily_maintenance_model_agnostic": (
+            maintenance.get("model_agnostic") is True
+        ),
+        "codex_daily_maintenance_identity_current": identity_current,
+        "codex_daily_maintenance_zero_mutation": zero_mutation,
+        "codex_daily_maintenance_foreground_final_gates": (
+            maintenance.get("unattended_final_verification") is False
+        ),
         "claim_boundary": (
             "This gate consumes only a privacy-minimized aggregate and opaque "
             "handle. It proves a bounded real-private first run with exact "
-            "inventory/depth/localization accounting; coverage_complete=false "
-            "remains open work and no private payload is serialized."
+            "inventory/depth/localization accounting, exact ordered bounded "
+            "evidence-pointer and coverage-history migrations from a verified "
+            "restorable copy with zero startup/VACUUM attempts, plus one manually rehearsed "
+            "model-agnostic Codex-hosted daily maintenance schedule through the "
+            "shared service path with zero mailbox/source/outbound mutation and "
+            "no unattended final gate; coverage_complete=false remains open work "
+            "and no private payload or concrete model mapping is serialized."
         ),
     }
 
@@ -430,12 +588,16 @@ def _installed_ui_gate(root: Path) -> dict:
         }
     revision = ui_revision(root)
     checks = payload.get("checks", {})
+    required_checks = set(REQUIRED_UI_CHECKS)
+    exact_check_inventory = (
+        isinstance(checks, dict) and set(checks) == required_checks
+    )
     ok = (
         payload.get("artifact_type") == "matters.live-ui-evidence.v1"
         and payload.get("status") == "passed"
         and payload.get("ui_revision") == revision
         and isinstance(checks, dict)
-        and bool(checks)
+        and exact_check_inventory
         and all(value is True for value in checks.values())
         and not payload.get("browser_errors")
         and not payload.get("missing_checks")
@@ -447,6 +609,8 @@ def _installed_ui_gate(root: Path) -> dict:
         "ui_revision": revision,
         "evidence_current": payload.get("ui_revision") == revision,
         "check_count": len(checks) if isinstance(checks, dict) else 0,
+        "required_check_count": len(required_checks),
+        "exact_check_inventory": exact_check_inventory,
         "browser_error_count": len(payload.get("browser_errors", ())),
         "claim_boundary": str(payload.get("claim_boundary", "")),
     }
@@ -483,10 +647,26 @@ def _public_release_gate(root: Path) -> dict:
             "reason": "frozen_package_pair_not_supplied",
             "artifact_count": len(artifacts),
         }
+    configured_clone = os.environ.get("MATTERS_CLEAN_CLONE_ROOT", "")
+    if not configured_clone:
+        return {
+            "ok": False,
+            "status": "not_run",
+            "reason": "external_clean_clone_not_supplied",
+            "artifact_count": len(artifacts),
+        }
+    clean_clone_root = Path(configured_clone).expanduser().resolve()
+    if clean_clone_root == root.resolve() or not clean_clone_root.is_dir():
+        return {
+            "ok": False,
+            "status": "blocked",
+            "reason": "clean_clone_must_be_distinct_existing_root",
+            "artifact_count": len(artifacts),
+        }
     report = check_public_boundary(
         root,
         root / "docs" / "security" / "public-file-policy.json",
-        clean_clone_root=root,
+        clean_clone_root=clean_clone_root,
         package_artifacts=artifacts,
         release=True,
     )
@@ -512,6 +692,7 @@ def _public_release_gate(root: Path) -> dict:
         "clean_clone_status": report.get("inventories", {})
         .get("clean_clone", {})
         .get("status", ""),
+        "clean_clone_distinct": clean_clone_root != root.resolve(),
         "package_statuses": [
             str(row.get("status", "")) for row in package_rows
         ],
@@ -558,6 +739,165 @@ def _git_value(root: Path, *args: str) -> str:
     return result.stdout.strip() if result.returncode == 0 else ""
 
 
+def _source_version_identity(root: Path) -> dict:
+    try:
+        project = tomllib.loads(
+            (root / "pyproject.toml").read_text(encoding="utf-8")
+        )
+        plugin = json.loads(
+            (root / "plugin" / "matters-plugin.json").read_text(
+                encoding="utf-8"
+            )
+        )
+        sbom = json.loads((root / "sbom.json").read_text(encoding="utf-8"))
+    except (OSError, KeyError, TypeError, ValueError, json.JSONDecodeError):
+        return {
+            "ok": False,
+            "version": VERSION,
+            "checks": {"identity_files_readable": False},
+        }
+
+    project_section = project.get("project", {})
+    setuptools_dynamic = (
+        project.get("tool", {})
+        .get("setuptools", {})
+        .get("dynamic", {})
+        .get("version", {})
+    )
+    sbom_component = sbom.get("metadata", {}).get("component", {})
+    expected_purl = f"pkg:pypi/matters@{VERSION}"
+    checks = {
+        "identity_files_readable": True,
+        "runtime_authority": bool(VERSION),
+        "project_uses_dynamic_version": (
+            "version" in project_section.get("dynamic", ())
+            and "version" not in project_section
+        ),
+        "setuptools_reads_runtime_authority": (
+            setuptools_dynamic.get("attr") == "matters._version.VERSION"
+        ),
+        "plugin_projection": plugin.get("version") == VERSION,
+        "sbom_projection": (
+            sbom_component.get("version") == VERSION
+            and sbom_component.get("bom-ref") == expected_purl
+            and sbom_component.get("purl") == expected_purl
+        ),
+    }
+    return {
+        "ok": all(checks.values()),
+        "version": VERSION,
+        "checks": checks,
+    }
+
+
+def _standard_plugin_gate(root: Path) -> dict:
+    plugin_root = root / "plugins" / "matters"
+    try:
+        mcp = json.loads(
+            (plugin_root / ".mcp.json").read_text(encoding="utf-8")
+        )
+        metadata = json.loads(
+            (plugin_root / ".codex-plugin" / "plugin.json").read_text(
+                encoding="utf-8"
+            )
+        )
+    except (OSError, TypeError, ValueError, json.JSONDecodeError):
+        return {"ok": False, "reason": "standard_plugin_unreadable"}
+    matters_server = mcp.get("mcpServers", {}).get("matters", {})
+    required_paths = (
+        plugin_root / "skills" / "matters" / "SKILL.md",
+        plugin_root
+        / "skills"
+        / "matters"
+        / "references"
+        / "service-contract.md",
+    )
+    checks = {
+        "plugin_version": metadata.get("version") == VERSION,
+        "skill_paths_current": all(path.is_file() for path in required_paths),
+        "mcp_binding": (
+            matters_server.get("command") == "matters-mcp"
+            and matters_server.get("args") == []
+        ),
+    }
+    return {"ok": all(checks.values()), "checks": checks}
+
+
+def _desktop_install_gate(root: Path) -> dict:
+    manifest_path = Path(
+        os.environ.get(
+            "MATTERS_DESKTOP_MANIFEST",
+            str(root / "dist" / "desktop" / "desktop-manifest.json"),
+        )
+    ).expanduser()
+    receipt_path = Path(
+        os.environ.get(
+            "MATTERS_DESKTOP_INSTALL_RECEIPT",
+            str(
+                Path.home()
+                / ".matters"
+                / "install"
+                / "desktop"
+                / "active-install.json"
+            ),
+        )
+    ).expanduser()
+    toolchain_path = Path(
+        os.environ.get(
+            "MATTERS_DESKTOP_TOOLCHAIN_RECEIPT",
+            str(root / "dist" / "desktop" / "desktop-build-toolchain.json"),
+        )
+    ).expanduser()
+    try:
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+        receipt = json.loads(receipt_path.read_text(encoding="utf-8"))
+        toolchain = json.loads(toolchain_path.read_text(encoding="utf-8"))
+    except (OSError, TypeError, ValueError, json.JSONDecodeError):
+        return {
+            "ok": False,
+            "reason": "desktop_manifest_or_install_receipt_unavailable",
+        }
+    launcher = Path(str(receipt.get("launcher", ""))).expanduser()
+    launcher_hash = _file_hash(launcher) if launcher.is_file() else ""
+    checks = {
+        "manifest_version": manifest.get("matters_version") == VERSION,
+        "manifest_fingerprint": bool(manifest.get("manifest_fingerprint")),
+        "manifest_executable_hash": bool(manifest.get("executable_sha256")),
+        "toolchain_schema": (
+            toolchain.get("schema") == "matters.desktop-build-toolchain.v1"
+        ),
+        "toolchain_identity": (
+            manifest.get("build_toolchain_sha256")
+            == receipt.get("build_toolchain_sha256")
+            == _file_hash(toolchain_path)
+        ),
+        "receipt_schema": (
+            receipt.get("schema") == "matters.desktop-install-receipt.v1"
+        ),
+        "receipt_version": receipt.get("matters_version") == VERSION,
+        "receipt_manifest": (
+            receipt.get("manifest_fingerprint")
+            == manifest.get("manifest_fingerprint")
+        ),
+        "receipt_executable": (
+            receipt.get("executable_sha256")
+            == manifest.get("executable_sha256")
+            == launcher_hash
+        ),
+        "receipt_package": (
+            receipt.get("package_sha256") == manifest.get("package_sha256")
+        ),
+    }
+    return {
+        "ok": all(checks.values()),
+        "checks": checks,
+        "manifest_fingerprint": str(
+            manifest.get("manifest_fingerprint", "")
+        ),
+        "executable_sha256": launcher_hash,
+    }
+
+
 def _frozen_release_gate(
     root: Path,
     *,
@@ -566,11 +906,8 @@ def _frozen_release_gate(
     installed_ui: dict,
     public_release: dict,
 ) -> dict:
-    version = str(
-        tomllib.loads((root / "pyproject.toml").read_text(encoding="utf-8"))[
-            "project"
-        ]["version"]
-    )
+    source_version_identity = _source_version_identity(root)
+    version = str(source_version_identity["version"])
     commit = _git_value(root, "rev-parse", "HEAD")
     tag = _git_value(root, "describe", "--tags", "--exact-match", "HEAD")
     expected_tag = f"v{version}"
@@ -590,6 +927,21 @@ def _frozen_release_gate(
         installed_version = importlib.metadata.version("matters")
     except importlib.metadata.PackageNotFoundError:
         installed_version = ""
+    try:
+        distribution = importlib.metadata.distribution("matters")
+        installed_stdio = distribution.locate_file(
+            "matters/api/mcp/stdio.py"
+        )
+        mcp_entrypoints = tuple(
+            entry
+            for entry in distribution.entry_points
+            if entry.group == "console_scripts" and entry.name == "matters-mcp"
+        )
+    except importlib.metadata.PackageNotFoundError:
+        installed_stdio = Path()
+        mcp_entrypoints = ()
+    standard_plugin = _standard_plugin_gate(root)
+    desktop_install = _desktop_install_gate(root)
     tm0_path = (
         root
         / ".flowguard"
@@ -646,20 +998,40 @@ def _frozen_release_gate(
     )
     research = probe_researchguard()
     wheel_hash = _file_hash(wheel).removeprefix("sha256:") if wheel else ""
+    agent_operation_rows = tuple(
+        row
+        for row in models.get("models", ())
+        if row.get("behavior_plane") == "agent_operation"
+    )
     checks = {
         "private_first_run": private.get("ok") is True,
         "installed_ui": installed_ui.get("ok") is True,
         "public_release_boundary": public_release.get("ok") is True,
         "git_commit": len(commit) == 40,
         "exact_release_tag": tag == expected_tag,
-        "source_version": version == "0.2.0",
+        "source_version": source_version_identity.get("ok") is True,
         "installed_version": installed_version == version,
+        "installed_mcp_module": installed_stdio.is_file(),
+        "installed_mcp_entrypoint": (
+            len(mcp_entrypoints) == 1
+            and mcp_entrypoints[0].value == "matters.api.mcp.stdio:main"
+        ),
         "install_receipt": (
             install.get("schema") == "matters.local-install-receipt.v1"
             and install.get("matters_version") == version
             and install.get("wheel_sha256") == wheel_hash
         ),
         "product_models": models.get("ok") is True,
+        "agent_operation_models": (
+            models.get("agent_operation_model_count")
+            == len(AGENT_OPERATION_MODELS)
+            and {
+                str(row.get("model_id", ""))
+                for row in agent_operation_rows
+            }
+            == set(AGENT_OPERATION_MODELS)
+            and all(row.get("current") is True for row in agent_operation_rows)
+        ),
         "skill_models": skill_models_current,
         "skill_mesh": skill_mesh.get("status") == "mesh_green",
         "test_mesh": (
@@ -671,6 +1043,8 @@ def _frozen_release_gate(
             == "passed"
         ),
         "researchguard": research.status == "current",
+        "standard_plugin": standard_plugin.get("ok") is True,
+        "desktop_install": desktop_install.get("ok") is True,
     }
     ok = all(checks.values())
     return {
@@ -682,10 +1056,14 @@ def _frozen_release_gate(
         "tag": tag,
         "installed_version": installed_version,
         "wheel_sha256": wheel_hash,
+        "source_version_identity": source_version_identity,
         "researchguard_status": research.status,
+        "standard_plugin": standard_plugin,
+        "desktop_install": desktop_install,
         "claim_boundary": (
             "This frozen local-release gate binds exact Git/tag/version, "
-            "wheel/install, M0/C1-C12 and S0-S5 model evidence, complete "
+            "wheel/install, M0/C1-C12 product, A0/A1/A2/A3 agent-operation, and "
+            "S0-S5 skill-runtime model evidence from separate roots, complete "
             "TestMesh including TM19, current installed UI, public package "
             "boundary, bounded private-first-run aggregate, and the frozen "
             "ResearchGuard currentness identity. It does not claim GitHub "
@@ -798,7 +1176,12 @@ def capture_delivery_snapshot(root: Path) -> dict:
         "gates": gates,
         "claim_boundary": (
             "This snapshot advances only through consecutive current gates. "
-            "G9 consumes a minimized real-private aggregate, G10 current "
+            "G9 consumes a minimized real-private aggregate including the "
+            "manually rehearsed model-agnostic Codex daily-maintenance boundary "
+            "and exact terminal receipts for evidence-pointer rebase followed by "
+            "coverage-history archive. Missing, partial, out-of-order, startup-owned, "
+            "or VACUUM-owning migration evidence keeps G9 not run or blocked. "
+            "G10 current "
             "installed-browser evidence, G11 clean-clone/package privacy "
             "evidence, and G12 frozen local-release identities. Open private "
             "semantic coverage, Linux CI, Figma, GitHub publication, and "
@@ -957,7 +1340,15 @@ def build_plan(
                 "G2",
                 "flowguard_models",
                 ("artifact.g1.requirements",),
-                "M0 and C1-C12 executable finite models",
+                (
+                    "M0 and C1-C12 executable finite models, including "
+                    "coverage/source repair, atomic parent composition, "
+                    "same-Matter canonicalization, exact observation-time "
+                    "correction, complete-scope parent narrative, and catalog "
+                    "query-shape obligations; scan-independent selection identity, "
+                    "bounded anchor-set pointers, exact compressed history, and "
+                    "exact C6-admitted Matter identity are current model boundaries"
+                ),
             ),
             (
                 "artifact.g3.mesh",
@@ -971,7 +1362,12 @@ def build_plan(
                 "G4",
                 "flowguard_design",
                 ("artifact.g3.mesh",),
-                "model-derived module, field, contract, coverage, and TestMesh design",
+                (
+                    "model-derived module, field, contract, coverage, and "
+                    "TestMesh design; indexed catalog page selection before "
+                    "visible-card hydration plus storage/identity Model-Miss "
+                    "coverage remain hard G4 gates"
+                ),
             ),
             (
                 "artifact.g5.skeleton",
@@ -1006,7 +1402,7 @@ def build_plan(
                 "G9",
                 "private://first-run-aggregate",
                 ("artifact.g8.synthetic",),
-                "privacy-minimized real-private first-run aggregate",
+                "privacy-minimized real-private first-run, ordered bounded storage-migration, and Codex daily-maintenance aggregate",
             ),
             (
                 "artifact.g10.installed_ui",
@@ -1025,7 +1421,7 @@ def build_plan(
             (
                 "artifact.g12.frozen_release",
                 "G12",
-                "release://local-v0.2.0",
+                f"release://local-v{VERSION}",
                 ("artifact.g11.public_release",),
                 "frozen local Git, tag, package, install, model, and test identities",
             ),
@@ -1119,7 +1515,7 @@ def build_plan(
             "artifact.g9.private_first_run",
             "private_first_run",
             "private_first_run",
-            "python scripts/build_private_aggregate.py --database <private> --evidence-handle <opaque>",
+            "python scripts/build_private_aggregate.py --database <private> --evidence-handle <opaque> --maintenance-evidence <private-maintenance-receipt>",
         ),
         (
             "G10",
@@ -1544,7 +1940,9 @@ def build_receipt(root: Path) -> dict:
             f"{current_gate}. A G12 result is a frozen local-release claim "
             "covering the bounded private aggregate, installed UI, clean "
             "clone/packages, Git/tag/version, model, TestMesh, skill, install, "
-            "and ResearchGuard identities. It never claims complete private "
+            "ResearchGuard identities, and exact terminal pointer/archive "
+            "migration receipts. It never treats startup, a partial page, or "
+            "logical migration as VACUUM or physical-shrink evidence. It never claims complete private "
             "semantic coverage, Figma evidence, Linux CI, licensing approval, "
             "GitHub push, or public publication."
         ),

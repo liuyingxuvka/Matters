@@ -131,8 +131,40 @@ class PartitionedFilesystemRunner:
             raise PartitionManifestError("partition_directory_required")
         return resolved
 
-    def _new_manifest(self, root: Path) -> dict[str, Any]:
+    def _new_manifest(
+        self,
+        root: Path,
+        *,
+        superseded: Mapping[str, Any] | None = None,
+    ) -> dict[str, Any]:
         now = _utc_now()
+        former_paths = {
+            str(node.get("relative_path", ""))
+            for node in dict((superseded or {}).get("nodes", {})).values()
+            if str(node.get("relative_path", "")) not in {"", "."}
+        }
+        former_paths.update(
+            str(item)
+            for item in (superseded or {}).get(
+                "retirement_relative_paths",
+                (),
+            )
+            if str(item) not in {"", "."}
+        )
+        superseded_identity = ""
+        superseded_policy_revision = 0
+        if superseded:
+            superseded_identity = _digest(
+                json.dumps(
+                    superseded,
+                    ensure_ascii=False,
+                    sort_keys=True,
+                    default=str,
+                )
+            )
+            superseded_policy_revision = int(
+                superseded.get("policy_revision", 0)
+            )
         return {
             "schema": MANIFEST_SCHEMA,
             "manifest_revision": 1,
@@ -143,6 +175,9 @@ class PartitionedFilesystemRunner:
             "last_content_limit": 0,
             "inventory_status": "partial",
             "terminal_coverage": "not_claimed",
+            "superseded_manifest_identity": superseded_identity,
+            "superseded_policy_revision": superseded_policy_revision,
+            "retirement_relative_paths": sorted(former_paths),
             "created_at": now,
             "updated_at": now,
             "nodes": {
@@ -177,7 +212,7 @@ class PartitionedFilesystemRunner:
         if payload.get("max_entries") != self.max_entries:
             raise PartitionManifestError("partition_manifest_budget_mismatch")
         if payload.get("policy_revision") != CURRENT_TRACKING_POLICY_REVISION:
-            raise PartitionManifestError("partition_manifest_policy_stale")
+            return self._new_manifest(root, superseded=payload)
         nodes = payload.get("nodes")
         if not isinstance(nodes, dict) or _node_id(".") not in nodes:
             raise PartitionManifestError("partition_manifest_nodes_invalid")
@@ -328,12 +363,10 @@ class PartitionedFilesystemRunner:
         if not root.is_dir():
             raise ValueError("authorized filesystem root must be a directory")
         manifest = self._load(root)
-        nodes: dict[str, dict[str, Any]] = manifest["nodes"]
         if refresh:
-            for node in nodes.values():
-                node["status"] = "pending"
-                node["error_code"] = ""
-        else:
+            manifest = self._new_manifest(root, superseded=manifest)
+        nodes: dict[str, dict[str, Any]] = manifest["nodes"]
+        if not refresh:
             for node in nodes.values():
                 if node["status"] in {"running", "failed"}:
                     node["status"] = "pending"
@@ -509,6 +542,31 @@ class PartitionedFilesystemRunner:
             "attempted": extraction_attempted,
             "content_ingested": content_ingested,
         }
+        retirement = {
+            "retired_scope_count": 0,
+            "retired_object_count": 0,
+        }
+        if ok:
+            active_relative_paths = {
+                str(node.get("relative_path", ""))
+                for node in nodes.values()
+            }
+            retirement_candidates = tuple(
+                str(item)
+                for item in manifest.get(
+                    "retirement_relative_paths",
+                    (),
+                )
+                if str(item) not in active_relative_paths
+            )
+            retirement = dict(
+                self.workflow.retire_filesystem_scopes(
+                    root=root,
+                    relative_paths=retirement_candidates,
+                )
+            )
+            manifest["retirement_relative_paths"] = []
+        manifest["last_scope_retirement"] = retirement
         manifest["updated_at"] = _utc_now()
         self._save(manifest)
         if self.service.coverage_ledger is not None:
@@ -526,6 +584,8 @@ class PartitionedFilesystemRunner:
             + statuses.count("running"),
             "content_attempted": extraction_attempted,
             "content_ingested": content_ingested,
+            "retired_scope_count": int(retirement["retired_scope_count"]),
+            "retired_object_count": int(retirement["retired_object_count"]),
         }
 
 

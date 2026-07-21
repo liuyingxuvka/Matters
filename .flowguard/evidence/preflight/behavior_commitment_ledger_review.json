@@ -11,22 +11,26 @@
     "commitment_primary_path_material_evidence_missing",
     "commitment_primary_path_risk_gate_missing"
   ],
-  "generated_at": "2026-07-18T21:42:20.441132+00:00",
-  "ledger_fingerprint": "sha256:f376db2644b5ca159165ba6d3180d25a90e7887a65ddea784007be5ad2dd9251",
-  "ledger_revision": "autonomous-object-browser-v2",
+  "generated_at": "2026-07-20T03:11:50.112500+00:00",
+  "ledger_fingerprint": "sha256:e6655064e8f3cf6877112e73dbeae510f2725eb8c78a5408fc18b39286b41c0f",
+  "ledger_revision": "storage-identity-model-miss-v4",
   "native_report": {
     "confidence": "blocked",
     "coverage_case_ids": [
-      "TC-M0_matters_end_to_end_authority-all_children_current_consumed_no_pending",
-      "TC-M0_matters_end_to_end_authority-all_children_current_consumed_no_pending-retry",
-      "TC-M0_matters_end_to_end_authority-child_review_token_present",
-      "TC-M0_matters_end_to_end_authority-child_review_token_present-retry",
-      "TC-M0_matters_end_to_end_authority-child_blocked_or_pending",
-      "TC-M0_matters_end_to_end_authority-child_blocked_or_pending-retry",
+      "TC-M0_matters_end_to_end_authority-all_registered_objects_terminal_and_ui_ready",
+      "TC-M0_matters_end_to_end_authority-all_registered_objects_terminal_and_ui_ready-retry",
+      "TC-M0_matters_end_to_end_authority-missing_or_stale_stage_work",
+      "TC-M0_matters_end_to_end_authority-missing_or_stale_stage_work-retry",
+      "TC-M0_matters_end_to_end_authority-typed_finding_owner_join_pending",
+      "TC-M0_matters_end_to_end_authority-typed_finding_owner_join_pending-retry",
+      "TC-M0_matters_end_to_end_authority-one_object_blocked_others_progress",
+      "TC-M0_matters_end_to_end_authority-one_object_blocked_others_progress-retry",
       "TC-M0_matters_end_to_end_authority-progressive_inventory_partial",
       "TC-M0_matters_end_to_end_authority-progressive_inventory_partial-retry",
       "TC-M0_matters_end_to_end_authority-semantic_depth_partial",
       "TC-M0_matters_end_to_end_authority-semantic_depth_partial-retry",
+      "TC-M0_matters_end_to_end_authority-visual_localization_or_ui_gap",
+      "TC-M0_matters_end_to_end_authority-visual_localization_or_ui_gap-retry",
       "TC-M0_matters_end_to_end_authority-researchguard_pending",
       "TC-M0_matters_end_to_end_authority-researchguard_pending-retry",
       "TC-M0_matters_end_to_end_authority-stale_child_receipt",
@@ -35,8 +39,10 @@
       "TC-M0_matters_end_to_end_authority-unconsumed_child_output-retry",
       "TC-M0_matters_end_to_end_authority-correction_invalidates_downstream",
       "TC-M0_matters_end_to_end_authority-correction_invalidates_downstream-retry",
-      "TC-M0_matters_end_to_end_authority-recompute_owner_join_pending",
-      "TC-M0_matters_end_to_end_authority-recompute_owner_join_pending-retry",
+      "TC-M0_matters_end_to_end_authority-restart_from_checkpoint",
+      "TC-M0_matters_end_to_end_authority-restart_from_checkpoint-retry",
+      "TC-M0_matters_end_to_end_authority-unchanged_rescan",
+      "TC-M0_matters_end_to_end_authority-unchanged_rescan-retry",
       "TC-M0_matters_end_to_end_authority-parent_attempts_child_write",
       "TC-M0_matters_end_to_end_authority-parent_attempts_child_write-retry",
       "TC-C1_authorization_coverage-candidate_scope_frozen",
@@ -47,20 +53,48 @@
       "TC-C1_authorization_coverage-ai_not_tracked_current-retry",
       "TC-C1_authorization_coverage-ai_uncertain_or_protected",
       "TC-C1_authorization_coverage-ai_uncertain_or_protected-retry",
-      "TC-C1_authorization_coverage-deferred_item_present",
-      "TC-C1_authorization_coverage-deferred_item_present-retry",
+      "TC-C1_authorization_coverage-temporarily_unavailable_item",
+      "TC-C1_authorization_coverage-temporarily_unavailable_item-retry",
       "TC-C1_authorization_coverage-all_items_and_pages_terminal",
       "TC-C1_authorization_coverage-all_items_and_pages_terminal-retry",
       "TC-C1_authorization_coverage-nonterminal_or_missing_page",
       "TC-C1_authorization_coverage-nonterminal_or_missing_page-retry",
+      "TC-C1_authorization_coverage-large_root_budget_exceeded",
+      "TC-C1_authorization_coverage-large_root_budget_exceeded-retry",
+      "TC-C1_authorization_coverage-parent_partition_boundary",
+      "TC-C1_authorization_coverage-parent_partition_boundary-retry",
+      "TC-C1_authorization_coverage-partition_child_retains_policy_context",
+      "TC-C1_authorization_coverage-partition_child_retains_policy_context-retry",
+      "TC-C1_authorization_coverage-generated_state_pruned_before_partition",
+      "TC-C1_authorization_coverage-generated_state_pruned_before_partition-retry",
+      "TC-C1_authorization_coverage-partition_child_pending_failed_or_stale",
+      "TC-C1_authorization_coverage-partition_child_pending_failed_or_stale-retry",
+      "TC-C1_authorization_coverage-partition_checkpoint_batch_progress",
+      "TC-C1_authorization_coverage-partition_checkpoint_batch_progress-retry",
+      "TC-C1_authorization_coverage-bounded_child_scanned_before_further_partition",
+      "TC-C1_authorization_coverage-bounded_child_scanned_before_further_partition-retry",
+      "TC-C1_authorization_coverage-canary_smallest_sufficient_partition_first",
+      "TC-C1_authorization_coverage-canary_smallest_sufficient_partition_first-retry",
+      "TC-C1_authorization_coverage-canary_stage_updates_batch_summary_once",
+      "TC-C1_authorization_coverage-canary_stage_updates_batch_summary_once-retry",
+      "TC-C1_authorization_coverage-gmail_budget_prioritizes_supplied_authorized_content",
+      "TC-C1_authorization_coverage-gmail_budget_prioritizes_supplied_authorized_content-retry",
+      "TC-C1_authorization_coverage-all_partitions_and_items_terminal",
+      "TC-C1_authorization_coverage-all_partitions_and_items_terminal-retry",
       "TC-C1_authorization_coverage-tracking_policy_changed",
       "TC-C1_authorization_coverage-tracking_policy_changed-retry",
+      "TC-C1_authorization_coverage-policy_changed_after_user_override",
+      "TC-C1_authorization_coverage-policy_changed_after_user_override-retry",
+      "TC-C1_authorization_coverage-source_catalog_action_current",
+      "TC-C1_authorization_coverage-source_catalog_action_current-retry",
       "TC-C1_authorization_coverage-outside_scope",
       "TC-C1_authorization_coverage-outside_scope-retry",
       "TC-C1_authorization_coverage-authorization_revoked",
       "TC-C1_authorization_coverage-authorization_revoked-retry",
       "TC-C1_authorization_coverage-private_root_outside_git",
       "TC-C1_authorization_coverage-private_root_outside_git-retry",
+      "TC-C1_authorization_coverage-installed_private_root_single_physical_authority",
+      "TC-C1_authorization_coverage-installed_private_root_single_physical_authority-retry",
       "TC-C1_authorization_coverage-private_root_inside_git",
       "TC-C1_authorization_coverage-private_root_inside_git-retry",
       "TC-C2_source_registry-inventory_first_snapshot",
@@ -79,6 +113,10 @@
       "TC-C2_source_registry-source_modified-retry",
       "TC-C2_source_registry-source_deleted",
       "TC-C2_source_registry-source_deleted-retry",
+      "TC-C2_source_registry-eligible_visual_derivative",
+      "TC-C2_source_registry-eligible_visual_derivative-retry",
+      "TC-C2_source_registry-unsafe_or_stale_visual",
+      "TC-C2_source_registry-unsafe_or_stale_visual-retry",
       "TC-C2_source_registry-ai_rewrite_attempt",
       "TC-C2_source_registry-ai_rewrite_attempt-retry",
       "TC-C3_evidence_qualification-exact_field_anchor",
@@ -91,6 +129,10 @@
       "TC-C3_evidence_qualification-exact_sheet_cell_range-retry",
       "TC-C3_evidence_qualification-exact_mail_attachment_anchor",
       "TC-C3_evidence_qualification-exact_mail_attachment_anchor-retry",
+      "TC-C3_evidence_qualification-exact_safe_visual_anchor",
+      "TC-C3_evidence_qualification-exact_safe_visual_anchor-retry",
+      "TC-C3_evidence_qualification-visual_anchor_denied_or_unrelated",
+      "TC-C3_evidence_qualification-visual_anchor_denied_or_unrelated-retry",
       "TC-C3_evidence_qualification-unsupported_or_unreadable_payload",
       "TC-C3_evidence_qualification-unsupported_or_unreadable_payload-retry",
       "TC-C3_evidence_qualification-title_or_filename_only",
@@ -127,6 +169,12 @@
       "TC-C6_matter_formation_admission-fully_evidenced_obligation-retry",
       "TC-C6_matter_formation_admission-conflicting_or_insufficient",
       "TC-C6_matter_formation_admission-conflicting_or_insufficient-retry",
+      "TC-C6_matter_formation_admission-irrelevant_or_non_actionable",
+      "TC-C6_matter_formation_admission-irrelevant_or_non_actionable-retry",
+      "TC-C6_matter_formation_admission-visual_related_to_matter",
+      "TC-C6_matter_formation_admission-visual_related_to_matter-retry",
+      "TC-C6_matter_formation_admission-visual_unrelated_to_matter",
+      "TC-C6_matter_formation_admission-visual_unrelated_to_matter-retry",
       "TC-C6_matter_formation_admission-access_blocked",
       "TC-C6_matter_formation_admission-access_blocked-retry",
       "TC-C7_lifecycle_board_state-explicit_start_evidence",
@@ -167,6 +215,8 @@
       "TC-C9_completion_cancellation_reopen-conflicting_termination_evidence-retry",
       "TC-C10_correction_revocation-user_correction",
       "TC-C10_correction_revocation-user_correction-retry",
+      "TC-C10_correction_revocation-card_visual_pin_unpin_or_change",
+      "TC-C10_correction_revocation-card_visual_pin_unpin_or_change-retry",
       "TC-C10_correction_revocation-source_or_tracking_stale",
       "TC-C10_correction_revocation-source_or_tracking_stale-retry",
       "TC-C10_correction_revocation-all_required_owners_terminal",
@@ -181,6 +231,16 @@
       "TC-C10_correction_revocation-ui_only_patch_request-retry",
       "TC-C10_correction_revocation-direct_foreign_state_write",
       "TC-C10_correction_revocation-direct_foreign_state_write-retry",
+      "TC-C11_guard_artifact_prediction-extracted_anchors_queued",
+      "TC-C11_guard_artifact_prediction-extracted_anchors_queued-retry",
+      "TC-C11_guard_artifact_prediction-valid_bilingual_understanding_result",
+      "TC-C11_guard_artifact_prediction-valid_bilingual_understanding_result-retry",
+      "TC-C11_guard_artifact_prediction-typed_finding_auto_dispatched",
+      "TC-C11_guard_artifact_prediction-typed_finding_auto_dispatched-retry",
+      "TC-C11_guard_artifact_prediction-no_finding_or_policy_rejected",
+      "TC-C11_guard_artifact_prediction-no_finding_or_policy_rejected-retry",
+      "TC-C11_guard_artifact_prediction-analysis_operation_failed_or_blocked",
+      "TC-C11_guard_artifact_prediction-analysis_operation_failed_or_blocked-retry",
       "TC-C11_guard_artifact_prediction-current_ai_finding",
       "TC-C11_guard_artifact_prediction-current_ai_finding-retry",
       "TC-C11_guard_artifact_prediction-current_researchguard_result",
@@ -195,6 +255,8 @@
       "TC-C11_guard_artifact_prediction-depth_sufficient_current-retry",
       "TC-C11_guard_artifact_prediction-depth_partial_or_stale",
       "TC-C11_guard_artifact_prediction-depth_partial_or_stale-retry",
+      "TC-C11_guard_artifact_prediction-visual_candidates_ranked",
+      "TC-C11_guard_artifact_prediction-visual_candidates_ranked-retry",
       "TC-C11_guard_artifact_prediction-stale_operation_result",
       "TC-C11_guard_artifact_prediction-stale_operation_result-retry",
       "TC-C11_guard_artifact_prediction-scope_escape_attempt",
@@ -215,46 +277,54 @@
       "TC-C12_projection_bilingual_ui-future_locale_complete-retry",
       "TC-C12_projection_bilingual_ui-missing_required_locale",
       "TC-C12_projection_bilingual_ui-missing_required_locale-retry",
-      "TC-C12_projection_bilingual_ui-unsupported_locale_requested",
-      "TC-C12_projection_bilingual_ui-unsupported_locale_requested-retry",
-      "TC-C12_projection_bilingual_ui-static_copy_complete",
-      "TC-C12_projection_bilingual_ui-static_copy_complete-retry",
-      "TC-C12_projection_bilingual_ui-source_catalog_current",
-      "TC-C12_projection_bilingual_ui-source_catalog_current-retry",
-      "TC-C12_projection_bilingual_ui-large_catalog_incremental",
-      "TC-C12_projection_bilingual_ui-large_catalog_incremental-retry",
-      "TC-C12_projection_bilingual_ui-source_tracking_control",
-      "TC-C12_projection_bilingual_ui-source_tracking_control-retry",
-      "TC-C12_projection_bilingual_ui-advisory_candidate_review_control",
-      "TC-C12_projection_bilingual_ui-advisory_candidate_review_control-retry",
+      "TC-C12_projection_bilingual_ui-matter_catalog_current",
+      "TC-C12_projection_bilingual_ui-matter_catalog_current-retry",
+      "TC-C12_projection_bilingual_ui-matter_coverage_relation_index_current",
+      "TC-C12_projection_bilingual_ui-matter_coverage_relation_index_current-retry",
+      "TC-C12_projection_bilingual_ui-catalog_search_or_filter_changed",
+      "TC-C12_projection_bilingual_ui-catalog_search_or_filter_changed-retry",
+      "TC-C12_projection_bilingual_ui-density_switched",
+      "TC-C12_projection_bilingual_ui-density_switched-retry",
+      "TC-C12_projection_bilingual_ui-viewport_changed",
+      "TC-C12_projection_bilingual_ui-viewport_changed-retry",
+      "TC-C12_projection_bilingual_ui-single_card_catalog",
+      "TC-C12_projection_bilingual_ui-single_card_catalog-retry",
+      "TC-C12_projection_bilingual_ui-matter_detail_opened",
+      "TC-C12_projection_bilingual_ui-matter_detail_opened-retry",
+      "TC-C12_projection_bilingual_ui-human_readable_timeline",
+      "TC-C12_projection_bilingual_ui-human_readable_timeline-retry",
+      "TC-C12_projection_bilingual_ui-eligible_visual_selected",
+      "TC-C12_projection_bilingual_ui-eligible_visual_selected-retry",
+      "TC-C12_projection_bilingual_ui-no_eligible_visual",
+      "TC-C12_projection_bilingual_ui-no_eligible_visual-retry",
+      "TC-C12_projection_bilingual_ui-optional_correction_requested",
+      "TC-C12_projection_bilingual_ui-optional_correction_requested-retry",
+      "TC-C12_projection_bilingual_ui-background_work_pending_or_blocked",
+      "TC-C12_projection_bilingual_ui-background_work_pending_or_blocked-retry",
+      "TC-C12_projection_bilingual_ui-stale_or_cancelled_response",
+      "TC-C12_projection_bilingual_ui-stale_or_cancelled_response-retry",
       "TC-C12_projection_bilingual_ui-recompute_not_terminal",
       "TC-C12_projection_bilingual_ui-recompute_not_terminal-retry",
-      "TC-C12_projection_bilingual_ui-blocked_waiting_conflict",
-      "TC-C12_projection_bilingual_ui-blocked_waiting_conflict-retry",
-      "TC-C12_projection_bilingual_ui-stale_one_language",
-      "TC-C12_projection_bilingual_ui-stale_one_language-retry",
       "TC-C12_projection_bilingual_ui-ui_infers_state",
       "TC-C12_projection_bilingual_ui-ui_infers_state-retry",
-      "TC-C12_projection_bilingual_ui-correction_control",
-      "TC-C12_projection_bilingual_ui-correction_control-retry",
       "TC-C12_projection_bilingual_ui-internal_identifier_requested_by_default",
       "TC-C12_projection_bilingual_ui-internal_identifier_requested_by_default-retry"
     ],
     "coverage_receipt_ids": [
-      "run:TM14_end_to_end_conformance:f64bb3ad47fa9c63",
-      "run:TM01_authorization_coverage:f45606e8a42e9833",
-      "run:TM02_source_registry:9a087eecb8c0b519",
-      "run:TM03_evidence_qualification:08af59d007a9d3ad",
-      "run:TM04_identity_resolution:ea4a1f906e57c830",
-      "run:TM05_event_trace:fa2ea24b43f9de78",
-      "run:TM06_matter_admission:66103c6185a80f90",
-      "run:TM07_lifecycle_board_state:630e066da6c2d9f9",
-      "run:TM08_open_loop_blocking:3e5f7191782208d3",
-      "run:TM09_completion_reopen:b0c35c13f8cc535a",
-      "run:TM10_correction_invalidation:5c70656a8546d941",
-      "run:TM11_guard_prediction_boundary:afa6dc8d7a916e83",
-      "run:TM12_projection_bilingual_ui:90a2078dfb914f85",
-      "run:TM18_privacy_public_boundary:a720d3e2ac6400c8"
+      "run:TM14_end_to_end_conformance:029cfaf6e667804e",
+      "run:TM01_authorization_coverage:7a24caff94d489af",
+      "run:TM02_source_registry:fdaed2e94eeb89f5",
+      "run:TM03_evidence_qualification:b2018041e7447fe6",
+      "run:TM04_identity_resolution:a161fdf7eb3ea2bc",
+      "run:TM05_event_trace:9151d6e5c5ca23c5",
+      "run:TM06_matter_admission:0d678bfc40bc483b",
+      "run:TM07_lifecycle_board_state:b0368573b50ca695",
+      "run:TM08_open_loop_blocking:f618b5f89f0578d1",
+      "run:TM09_completion_reopen:0f4e242d801d86b8",
+      "run:TM10_correction_invalidation:98eb85d4f7738b33",
+      "run:TM11_guard_prediction_boundary:4d4870c06a0fb2d2",
+      "run:TM12_projection_bilingual_ui:95f7ca779dc61dd6",
+      "run:TM18_privacy_public_boundary:964bc23c9ffc316f"
     ],
     "coverage_shard_ids": [
       "TM14_end_to_end_conformance",
@@ -293,12 +363,11 @@
               ".flowguard/evidence/synthetic/G8_fully_synthetic_end_to_end.json"
             ],
             "fallback_candidate_ids": [],
-            "legacy_plural_migrated": false,
             "metadata": {},
             "path_sensitive": true,
             "ppa_confidence": "blocked",
             "ppa_coverage_receipt_ids": [
-              "run:TM14_end_to_end_conformance:f64bb3ad47fa9c63"
+              "run:TM14_end_to_end_conformance:029cfaf6e667804e"
             ],
             "ppa_coverage_shard_ids": [
               "TM14_end_to_end_conformance"
@@ -312,24 +381,27 @@
               "G8-fully-synthetic"
             ],
             "primary_path_id": "path:matters-end-to-end-authority",
-            "primary_path_migration_ambiguous": false,
             "proof_artifact_ids": [
-              "evidence:M0_matters_end_to_end_authority:c41cc6b8ddbfe0d5",
-              "artifact:run:TM14_end_to_end_conformance:f64bb3ad47fa9c63",
-              "evidence:model-code-test-alignment:9c4af1411686aaae",
-              "evidence:G8-fully-synthetic:bc64583f4f44a72f"
+              "evidence:M0_matters_end_to_end_authority:96f9b1c9603a2ddc",
+              "artifact:run:TM14_end_to_end_conformance:029cfaf6e667804e",
+              "evidence:model-code-test-alignment:656e66dd6db30bd7",
+              "evidence:G8-fully-synthetic:ffe0563f16dabefc"
             ],
             "runtime_observation_ids": [
-              "BO-TC-M0_matters_end_to_end_authority-all_children_current_consumed_no_pending",
-              "BO-TC-M0_matters_end_to_end_authority-all_children_current_consumed_no_pending-retry",
-              "BO-TC-M0_matters_end_to_end_authority-child_review_token_present",
-              "BO-TC-M0_matters_end_to_end_authority-child_review_token_present-retry",
-              "BO-TC-M0_matters_end_to_end_authority-child_blocked_or_pending",
-              "BO-TC-M0_matters_end_to_end_authority-child_blocked_or_pending-retry",
+              "BO-TC-M0_matters_end_to_end_authority-all_registered_objects_terminal_and_ui_ready",
+              "BO-TC-M0_matters_end_to_end_authority-all_registered_objects_terminal_and_ui_ready-retry",
+              "BO-TC-M0_matters_end_to_end_authority-missing_or_stale_stage_work",
+              "BO-TC-M0_matters_end_to_end_authority-missing_or_stale_stage_work-retry",
+              "BO-TC-M0_matters_end_to_end_authority-typed_finding_owner_join_pending",
+              "BO-TC-M0_matters_end_to_end_authority-typed_finding_owner_join_pending-retry",
+              "BO-TC-M0_matters_end_to_end_authority-one_object_blocked_others_progress",
+              "BO-TC-M0_matters_end_to_end_authority-one_object_blocked_others_progress-retry",
               "BO-TC-M0_matters_end_to_end_authority-progressive_inventory_partial",
               "BO-TC-M0_matters_end_to_end_authority-progressive_inventory_partial-retry",
               "BO-TC-M0_matters_end_to_end_authority-semantic_depth_partial",
               "BO-TC-M0_matters_end_to_end_authority-semantic_depth_partial-retry",
+              "BO-TC-M0_matters_end_to_end_authority-visual_localization_or_ui_gap",
+              "BO-TC-M0_matters_end_to_end_authority-visual_localization_or_ui_gap-retry",
               "BO-TC-M0_matters_end_to_end_authority-researchguard_pending",
               "BO-TC-M0_matters_end_to_end_authority-researchguard_pending-retry",
               "BO-TC-M0_matters_end_to_end_authority-stale_child_receipt",
@@ -338,8 +410,10 @@
               "BO-TC-M0_matters_end_to_end_authority-unconsumed_child_output-retry",
               "BO-TC-M0_matters_end_to_end_authority-correction_invalidates_downstream",
               "BO-TC-M0_matters_end_to_end_authority-correction_invalidates_downstream-retry",
-              "BO-TC-M0_matters_end_to_end_authority-recompute_owner_join_pending",
-              "BO-TC-M0_matters_end_to_end_authority-recompute_owner_join_pending-retry",
+              "BO-TC-M0_matters_end_to_end_authority-restart_from_checkpoint",
+              "BO-TC-M0_matters_end_to_end_authority-restart_from_checkpoint-retry",
+              "BO-TC-M0_matters_end_to_end_authority-unchanged_rescan",
+              "BO-TC-M0_matters_end_to_end_authority-unchanged_rescan-retry",
               "BO-TC-M0_matters_end_to_end_authority-parent_attempts_child_write",
               "BO-TC-M0_matters_end_to_end_authority-parent_attempts_child_write-retry",
               "BO-M0_matters_end_to_end_authority-foreign_owner_write",
@@ -367,12 +441,11 @@
               ".flowguard/evidence/synthetic/G8_fully_synthetic_end_to_end.json"
             ],
             "fallback_candidate_ids": [],
-            "legacy_plural_migrated": false,
             "metadata": {},
             "path_sensitive": true,
             "ppa_confidence": "blocked",
             "ppa_coverage_receipt_ids": [
-              "run:TM14_end_to_end_conformance:f64bb3ad47fa9c63"
+              "run:TM14_end_to_end_conformance:029cfaf6e667804e"
             ],
             "ppa_coverage_shard_ids": [
               "TM14_end_to_end_conformance"
@@ -386,24 +459,27 @@
               "G8-fully-synthetic"
             ],
             "primary_path_id": "path:matters-end-to-end-authority",
-            "primary_path_migration_ambiguous": false,
             "proof_artifact_ids": [
-              "evidence:M0_matters_end_to_end_authority:c41cc6b8ddbfe0d5",
-              "artifact:run:TM14_end_to_end_conformance:f64bb3ad47fa9c63",
-              "evidence:model-code-test-alignment:9c4af1411686aaae",
-              "evidence:G8-fully-synthetic:bc64583f4f44a72f"
+              "evidence:M0_matters_end_to_end_authority:96f9b1c9603a2ddc",
+              "artifact:run:TM14_end_to_end_conformance:029cfaf6e667804e",
+              "evidence:model-code-test-alignment:656e66dd6db30bd7",
+              "evidence:G8-fully-synthetic:ffe0563f16dabefc"
             ],
             "runtime_observation_ids": [
-              "BO-TC-M0_matters_end_to_end_authority-all_children_current_consumed_no_pending",
-              "BO-TC-M0_matters_end_to_end_authority-all_children_current_consumed_no_pending-retry",
-              "BO-TC-M0_matters_end_to_end_authority-child_review_token_present",
-              "BO-TC-M0_matters_end_to_end_authority-child_review_token_present-retry",
-              "BO-TC-M0_matters_end_to_end_authority-child_blocked_or_pending",
-              "BO-TC-M0_matters_end_to_end_authority-child_blocked_or_pending-retry",
+              "BO-TC-M0_matters_end_to_end_authority-all_registered_objects_terminal_and_ui_ready",
+              "BO-TC-M0_matters_end_to_end_authority-all_registered_objects_terminal_and_ui_ready-retry",
+              "BO-TC-M0_matters_end_to_end_authority-missing_or_stale_stage_work",
+              "BO-TC-M0_matters_end_to_end_authority-missing_or_stale_stage_work-retry",
+              "BO-TC-M0_matters_end_to_end_authority-typed_finding_owner_join_pending",
+              "BO-TC-M0_matters_end_to_end_authority-typed_finding_owner_join_pending-retry",
+              "BO-TC-M0_matters_end_to_end_authority-one_object_blocked_others_progress",
+              "BO-TC-M0_matters_end_to_end_authority-one_object_blocked_others_progress-retry",
               "BO-TC-M0_matters_end_to_end_authority-progressive_inventory_partial",
               "BO-TC-M0_matters_end_to_end_authority-progressive_inventory_partial-retry",
               "BO-TC-M0_matters_end_to_end_authority-semantic_depth_partial",
               "BO-TC-M0_matters_end_to_end_authority-semantic_depth_partial-retry",
+              "BO-TC-M0_matters_end_to_end_authority-visual_localization_or_ui_gap",
+              "BO-TC-M0_matters_end_to_end_authority-visual_localization_or_ui_gap-retry",
               "BO-TC-M0_matters_end_to_end_authority-researchguard_pending",
               "BO-TC-M0_matters_end_to_end_authority-researchguard_pending-retry",
               "BO-TC-M0_matters_end_to_end_authority-stale_child_receipt",
@@ -412,8 +488,10 @@
               "BO-TC-M0_matters_end_to_end_authority-unconsumed_child_output-retry",
               "BO-TC-M0_matters_end_to_end_authority-correction_invalidates_downstream",
               "BO-TC-M0_matters_end_to_end_authority-correction_invalidates_downstream-retry",
-              "BO-TC-M0_matters_end_to_end_authority-recompute_owner_join_pending",
-              "BO-TC-M0_matters_end_to_end_authority-recompute_owner_join_pending-retry",
+              "BO-TC-M0_matters_end_to_end_authority-restart_from_checkpoint",
+              "BO-TC-M0_matters_end_to_end_authority-restart_from_checkpoint-retry",
+              "BO-TC-M0_matters_end_to_end_authority-unchanged_rescan",
+              "BO-TC-M0_matters_end_to_end_authority-unchanged_rescan-retry",
               "BO-TC-M0_matters_end_to_end_authority-parent_attempts_child_write",
               "BO-TC-M0_matters_end_to_end_authority-parent_attempts_child_write-retry",
               "BO-M0_matters_end_to_end_authority-foreign_owner_write",
@@ -441,12 +519,11 @@
               ".flowguard/evidence/synthetic/G8_fully_synthetic_end_to_end.json"
             ],
             "fallback_candidate_ids": [],
-            "legacy_plural_migrated": false,
             "metadata": {},
             "path_sensitive": true,
             "ppa_confidence": "blocked",
             "ppa_coverage_receipt_ids": [
-              "run:TM01_authorization_coverage:f45606e8a42e9833"
+              "run:TM01_authorization_coverage:7a24caff94d489af"
             ],
             "ppa_coverage_shard_ids": [
               "TM01_authorization_coverage"
@@ -460,12 +537,11 @@
               "G8-fully-synthetic"
             ],
             "primary_path_id": "path:c1-freeze-and-classify-candidate-universe",
-            "primary_path_migration_ambiguous": false,
             "proof_artifact_ids": [
-              "evidence:C1_authorization_coverage:c79e7de035569689",
-              "artifact:run:TM01_authorization_coverage:f45606e8a42e9833",
-              "evidence:model-code-test-alignment:9c4af1411686aaae",
-              "evidence:G8-fully-synthetic:bc64583f4f44a72f"
+              "evidence:C1_authorization_coverage:68f1f53f4b9e29af",
+              "artifact:run:TM01_authorization_coverage:7a24caff94d489af",
+              "evidence:model-code-test-alignment:656e66dd6db30bd7",
+              "evidence:G8-fully-synthetic:ffe0563f16dabefc"
             ],
             "runtime_observation_ids": [
               "BO-TC-C1_authorization_coverage-candidate_scope_frozen",
@@ -476,20 +552,48 @@
               "BO-TC-C1_authorization_coverage-ai_not_tracked_current-retry",
               "BO-TC-C1_authorization_coverage-ai_uncertain_or_protected",
               "BO-TC-C1_authorization_coverage-ai_uncertain_or_protected-retry",
-              "BO-TC-C1_authorization_coverage-deferred_item_present",
-              "BO-TC-C1_authorization_coverage-deferred_item_present-retry",
+              "BO-TC-C1_authorization_coverage-temporarily_unavailable_item",
+              "BO-TC-C1_authorization_coverage-temporarily_unavailable_item-retry",
               "BO-TC-C1_authorization_coverage-all_items_and_pages_terminal",
               "BO-TC-C1_authorization_coverage-all_items_and_pages_terminal-retry",
               "BO-TC-C1_authorization_coverage-nonterminal_or_missing_page",
               "BO-TC-C1_authorization_coverage-nonterminal_or_missing_page-retry",
+              "BO-TC-C1_authorization_coverage-large_root_budget_exceeded",
+              "BO-TC-C1_authorization_coverage-large_root_budget_exceeded-retry",
+              "BO-TC-C1_authorization_coverage-parent_partition_boundary",
+              "BO-TC-C1_authorization_coverage-parent_partition_boundary-retry",
+              "BO-TC-C1_authorization_coverage-partition_child_retains_policy_context",
+              "BO-TC-C1_authorization_coverage-partition_child_retains_policy_context-retry",
+              "BO-TC-C1_authorization_coverage-generated_state_pruned_before_partition",
+              "BO-TC-C1_authorization_coverage-generated_state_pruned_before_partition-retry",
+              "BO-TC-C1_authorization_coverage-partition_child_pending_failed_or_stale",
+              "BO-TC-C1_authorization_coverage-partition_child_pending_failed_or_stale-retry",
+              "BO-TC-C1_authorization_coverage-partition_checkpoint_batch_progress",
+              "BO-TC-C1_authorization_coverage-partition_checkpoint_batch_progress-retry",
+              "BO-TC-C1_authorization_coverage-bounded_child_scanned_before_further_partition",
+              "BO-TC-C1_authorization_coverage-bounded_child_scanned_before_further_partition-retry",
+              "BO-TC-C1_authorization_coverage-canary_smallest_sufficient_partition_first",
+              "BO-TC-C1_authorization_coverage-canary_smallest_sufficient_partition_first-retry",
+              "BO-TC-C1_authorization_coverage-canary_stage_updates_batch_summary_once",
+              "BO-TC-C1_authorization_coverage-canary_stage_updates_batch_summary_once-retry",
+              "BO-TC-C1_authorization_coverage-gmail_budget_prioritizes_supplied_authorized_content",
+              "BO-TC-C1_authorization_coverage-gmail_budget_prioritizes_supplied_authorized_content-retry",
+              "BO-TC-C1_authorization_coverage-all_partitions_and_items_terminal",
+              "BO-TC-C1_authorization_coverage-all_partitions_and_items_terminal-retry",
               "BO-TC-C1_authorization_coverage-tracking_policy_changed",
               "BO-TC-C1_authorization_coverage-tracking_policy_changed-retry",
+              "BO-TC-C1_authorization_coverage-policy_changed_after_user_override",
+              "BO-TC-C1_authorization_coverage-policy_changed_after_user_override-retry",
+              "BO-TC-C1_authorization_coverage-source_catalog_action_current",
+              "BO-TC-C1_authorization_coverage-source_catalog_action_current-retry",
               "BO-TC-C1_authorization_coverage-outside_scope",
               "BO-TC-C1_authorization_coverage-outside_scope-retry",
               "BO-TC-C1_authorization_coverage-authorization_revoked",
               "BO-TC-C1_authorization_coverage-authorization_revoked-retry",
               "BO-TC-C1_authorization_coverage-private_root_outside_git",
               "BO-TC-C1_authorization_coverage-private_root_outside_git-retry",
+              "BO-TC-C1_authorization_coverage-installed_private_root_single_physical_authority",
+              "BO-TC-C1_authorization_coverage-installed_private_root_single_physical_authority-retry",
               "BO-TC-C1_authorization_coverage-private_root_inside_git",
               "BO-TC-C1_authorization_coverage-private_root_inside_git-retry",
               "BO-C1_authorization_coverage-foreign_owner_write",
@@ -517,12 +621,11 @@
               ".flowguard/evidence/synthetic/G8_fully_synthetic_end_to_end.json"
             ],
             "fallback_candidate_ids": [],
-            "legacy_plural_migrated": false,
             "metadata": {},
             "path_sensitive": true,
             "ppa_confidence": "blocked",
             "ppa_coverage_receipt_ids": [
-              "run:TM01_authorization_coverage:f45606e8a42e9833"
+              "run:TM01_authorization_coverage:7a24caff94d489af"
             ],
             "ppa_coverage_shard_ids": [
               "TM01_authorization_coverage"
@@ -536,12 +639,11 @@
               "G8-fully-synthetic"
             ],
             "primary_path_id": "path:c1-freeze-and-classify-candidate-universe",
-            "primary_path_migration_ambiguous": false,
             "proof_artifact_ids": [
-              "evidence:C1_authorization_coverage:c79e7de035569689",
-              "artifact:run:TM01_authorization_coverage:f45606e8a42e9833",
-              "evidence:model-code-test-alignment:9c4af1411686aaae",
-              "evidence:G8-fully-synthetic:bc64583f4f44a72f"
+              "evidence:C1_authorization_coverage:68f1f53f4b9e29af",
+              "artifact:run:TM01_authorization_coverage:7a24caff94d489af",
+              "evidence:model-code-test-alignment:656e66dd6db30bd7",
+              "evidence:G8-fully-synthetic:ffe0563f16dabefc"
             ],
             "runtime_observation_ids": [
               "BO-TC-C1_authorization_coverage-candidate_scope_frozen",
@@ -552,20 +654,48 @@
               "BO-TC-C1_authorization_coverage-ai_not_tracked_current-retry",
               "BO-TC-C1_authorization_coverage-ai_uncertain_or_protected",
               "BO-TC-C1_authorization_coverage-ai_uncertain_or_protected-retry",
-              "BO-TC-C1_authorization_coverage-deferred_item_present",
-              "BO-TC-C1_authorization_coverage-deferred_item_present-retry",
+              "BO-TC-C1_authorization_coverage-temporarily_unavailable_item",
+              "BO-TC-C1_authorization_coverage-temporarily_unavailable_item-retry",
               "BO-TC-C1_authorization_coverage-all_items_and_pages_terminal",
               "BO-TC-C1_authorization_coverage-all_items_and_pages_terminal-retry",
               "BO-TC-C1_authorization_coverage-nonterminal_or_missing_page",
               "BO-TC-C1_authorization_coverage-nonterminal_or_missing_page-retry",
+              "BO-TC-C1_authorization_coverage-large_root_budget_exceeded",
+              "BO-TC-C1_authorization_coverage-large_root_budget_exceeded-retry",
+              "BO-TC-C1_authorization_coverage-parent_partition_boundary",
+              "BO-TC-C1_authorization_coverage-parent_partition_boundary-retry",
+              "BO-TC-C1_authorization_coverage-partition_child_retains_policy_context",
+              "BO-TC-C1_authorization_coverage-partition_child_retains_policy_context-retry",
+              "BO-TC-C1_authorization_coverage-generated_state_pruned_before_partition",
+              "BO-TC-C1_authorization_coverage-generated_state_pruned_before_partition-retry",
+              "BO-TC-C1_authorization_coverage-partition_child_pending_failed_or_stale",
+              "BO-TC-C1_authorization_coverage-partition_child_pending_failed_or_stale-retry",
+              "BO-TC-C1_authorization_coverage-partition_checkpoint_batch_progress",
+              "BO-TC-C1_authorization_coverage-partition_checkpoint_batch_progress-retry",
+              "BO-TC-C1_authorization_coverage-bounded_child_scanned_before_further_partition",
+              "BO-TC-C1_authorization_coverage-bounded_child_scanned_before_further_partition-retry",
+              "BO-TC-C1_authorization_coverage-canary_smallest_sufficient_partition_first",
+              "BO-TC-C1_authorization_coverage-canary_smallest_sufficient_partition_first-retry",
+              "BO-TC-C1_authorization_coverage-canary_stage_updates_batch_summary_once",
+              "BO-TC-C1_authorization_coverage-canary_stage_updates_batch_summary_once-retry",
+              "BO-TC-C1_authorization_coverage-gmail_budget_prioritizes_supplied_authorized_content",
+              "BO-TC-C1_authorization_coverage-gmail_budget_prioritizes_supplied_authorized_content-retry",
+              "BO-TC-C1_authorization_coverage-all_partitions_and_items_terminal",
+              "BO-TC-C1_authorization_coverage-all_partitions_and_items_terminal-retry",
               "BO-TC-C1_authorization_coverage-tracking_policy_changed",
               "BO-TC-C1_authorization_coverage-tracking_policy_changed-retry",
+              "BO-TC-C1_authorization_coverage-policy_changed_after_user_override",
+              "BO-TC-C1_authorization_coverage-policy_changed_after_user_override-retry",
+              "BO-TC-C1_authorization_coverage-source_catalog_action_current",
+              "BO-TC-C1_authorization_coverage-source_catalog_action_current-retry",
               "BO-TC-C1_authorization_coverage-outside_scope",
               "BO-TC-C1_authorization_coverage-outside_scope-retry",
               "BO-TC-C1_authorization_coverage-authorization_revoked",
               "BO-TC-C1_authorization_coverage-authorization_revoked-retry",
               "BO-TC-C1_authorization_coverage-private_root_outside_git",
               "BO-TC-C1_authorization_coverage-private_root_outside_git-retry",
+              "BO-TC-C1_authorization_coverage-installed_private_root_single_physical_authority",
+              "BO-TC-C1_authorization_coverage-installed_private_root_single_physical_authority-retry",
               "BO-TC-C1_authorization_coverage-private_root_inside_git",
               "BO-TC-C1_authorization_coverage-private_root_inside_git-retry",
               "BO-C1_authorization_coverage-foreign_owner_write",
@@ -593,12 +723,11 @@
               ".flowguard/evidence/synthetic/G8_fully_synthetic_end_to_end.json"
             ],
             "fallback_candidate_ids": [],
-            "legacy_plural_migrated": false,
             "metadata": {},
             "path_sensitive": true,
             "ppa_confidence": "blocked",
             "ppa_coverage_receipt_ids": [
-              "run:TM02_source_registry:9a087eecb8c0b519"
+              "run:TM02_source_registry:fdaed2e94eeb89f5"
             ],
             "ppa_coverage_shard_ids": [
               "TM02_source_registry"
@@ -612,12 +741,11 @@
               "G8-fully-synthetic"
             ],
             "primary_path_id": "path:c2-register-source-version",
-            "primary_path_migration_ambiguous": false,
             "proof_artifact_ids": [
-              "evidence:C2_source_registry:ff39a3a09d9640d1",
-              "artifact:run:TM02_source_registry:9a087eecb8c0b519",
-              "evidence:model-code-test-alignment:9c4af1411686aaae",
-              "evidence:G8-fully-synthetic:bc64583f4f44a72f"
+              "evidence:C2_source_registry:9197d59c0887a460",
+              "artifact:run:TM02_source_registry:fdaed2e94eeb89f5",
+              "evidence:model-code-test-alignment:656e66dd6db30bd7",
+              "evidence:G8-fully-synthetic:ffe0563f16dabefc"
             ],
             "runtime_observation_ids": [
               "BO-TC-C2_source_registry-inventory_first_snapshot",
@@ -636,6 +764,10 @@
               "BO-TC-C2_source_registry-source_modified-retry",
               "BO-TC-C2_source_registry-source_deleted",
               "BO-TC-C2_source_registry-source_deleted-retry",
+              "BO-TC-C2_source_registry-eligible_visual_derivative",
+              "BO-TC-C2_source_registry-eligible_visual_derivative-retry",
+              "BO-TC-C2_source_registry-unsafe_or_stale_visual",
+              "BO-TC-C2_source_registry-unsafe_or_stale_visual-retry",
               "BO-TC-C2_source_registry-ai_rewrite_attempt",
               "BO-TC-C2_source_registry-ai_rewrite_attempt-retry",
               "BO-C2_source_registry-foreign_owner_write",
@@ -663,12 +795,11 @@
               ".flowguard/evidence/synthetic/G8_fully_synthetic_end_to_end.json"
             ],
             "fallback_candidate_ids": [],
-            "legacy_plural_migrated": false,
             "metadata": {},
             "path_sensitive": true,
             "ppa_confidence": "blocked",
             "ppa_coverage_receipt_ids": [
-              "run:TM02_source_registry:9a087eecb8c0b519"
+              "run:TM02_source_registry:fdaed2e94eeb89f5"
             ],
             "ppa_coverage_shard_ids": [
               "TM02_source_registry"
@@ -682,12 +813,11 @@
               "G8-fully-synthetic"
             ],
             "primary_path_id": "path:c2-register-source-version",
-            "primary_path_migration_ambiguous": false,
             "proof_artifact_ids": [
-              "evidence:C2_source_registry:ff39a3a09d9640d1",
-              "artifact:run:TM02_source_registry:9a087eecb8c0b519",
-              "evidence:model-code-test-alignment:9c4af1411686aaae",
-              "evidence:G8-fully-synthetic:bc64583f4f44a72f"
+              "evidence:C2_source_registry:9197d59c0887a460",
+              "artifact:run:TM02_source_registry:fdaed2e94eeb89f5",
+              "evidence:model-code-test-alignment:656e66dd6db30bd7",
+              "evidence:G8-fully-synthetic:ffe0563f16dabefc"
             ],
             "runtime_observation_ids": [
               "BO-TC-C2_source_registry-inventory_first_snapshot",
@@ -706,6 +836,10 @@
               "BO-TC-C2_source_registry-source_modified-retry",
               "BO-TC-C2_source_registry-source_deleted",
               "BO-TC-C2_source_registry-source_deleted-retry",
+              "BO-TC-C2_source_registry-eligible_visual_derivative",
+              "BO-TC-C2_source_registry-eligible_visual_derivative-retry",
+              "BO-TC-C2_source_registry-unsafe_or_stale_visual",
+              "BO-TC-C2_source_registry-unsafe_or_stale_visual-retry",
               "BO-TC-C2_source_registry-ai_rewrite_attempt",
               "BO-TC-C2_source_registry-ai_rewrite_attempt-retry",
               "BO-C2_source_registry-foreign_owner_write",
@@ -733,12 +867,11 @@
               ".flowguard/evidence/synthetic/G8_fully_synthetic_end_to_end.json"
             ],
             "fallback_candidate_ids": [],
-            "legacy_plural_migrated": false,
             "metadata": {},
             "path_sensitive": true,
             "ppa_confidence": "blocked",
             "ppa_coverage_receipt_ids": [
-              "run:TM03_evidence_qualification:08af59d007a9d3ad"
+              "run:TM03_evidence_qualification:b2018041e7447fe6"
             ],
             "ppa_coverage_shard_ids": [
               "TM03_evidence_qualification"
@@ -752,12 +885,11 @@
               "G8-fully-synthetic"
             ],
             "primary_path_id": "path:c3-qualify-evidence",
-            "primary_path_migration_ambiguous": false,
             "proof_artifact_ids": [
-              "evidence:C3_evidence_qualification:da41d0d4a62eee95",
-              "artifact:run:TM03_evidence_qualification:08af59d007a9d3ad",
-              "evidence:model-code-test-alignment:9c4af1411686aaae",
-              "evidence:G8-fully-synthetic:bc64583f4f44a72f"
+              "evidence:C3_evidence_qualification:c4772b78e1a3dfeb",
+              "artifact:run:TM03_evidence_qualification:b2018041e7447fe6",
+              "evidence:model-code-test-alignment:656e66dd6db30bd7",
+              "evidence:G8-fully-synthetic:ffe0563f16dabefc"
             ],
             "runtime_observation_ids": [
               "BO-TC-C3_evidence_qualification-exact_field_anchor",
@@ -770,6 +902,10 @@
               "BO-TC-C3_evidence_qualification-exact_sheet_cell_range-retry",
               "BO-TC-C3_evidence_qualification-exact_mail_attachment_anchor",
               "BO-TC-C3_evidence_qualification-exact_mail_attachment_anchor-retry",
+              "BO-TC-C3_evidence_qualification-exact_safe_visual_anchor",
+              "BO-TC-C3_evidence_qualification-exact_safe_visual_anchor-retry",
+              "BO-TC-C3_evidence_qualification-visual_anchor_denied_or_unrelated",
+              "BO-TC-C3_evidence_qualification-visual_anchor_denied_or_unrelated-retry",
               "BO-TC-C3_evidence_qualification-unsupported_or_unreadable_payload",
               "BO-TC-C3_evidence_qualification-unsupported_or_unreadable_payload-retry",
               "BO-TC-C3_evidence_qualification-title_or_filename_only",
@@ -803,12 +939,11 @@
               ".flowguard/evidence/synthetic/G8_fully_synthetic_end_to_end.json"
             ],
             "fallback_candidate_ids": [],
-            "legacy_plural_migrated": false,
             "metadata": {},
             "path_sensitive": true,
             "ppa_confidence": "blocked",
             "ppa_coverage_receipt_ids": [
-              "run:TM03_evidence_qualification:08af59d007a9d3ad"
+              "run:TM03_evidence_qualification:b2018041e7447fe6"
             ],
             "ppa_coverage_shard_ids": [
               "TM03_evidence_qualification"
@@ -822,12 +957,11 @@
               "G8-fully-synthetic"
             ],
             "primary_path_id": "path:c3-qualify-evidence",
-            "primary_path_migration_ambiguous": false,
             "proof_artifact_ids": [
-              "evidence:C3_evidence_qualification:da41d0d4a62eee95",
-              "artifact:run:TM03_evidence_qualification:08af59d007a9d3ad",
-              "evidence:model-code-test-alignment:9c4af1411686aaae",
-              "evidence:G8-fully-synthetic:bc64583f4f44a72f"
+              "evidence:C3_evidence_qualification:c4772b78e1a3dfeb",
+              "artifact:run:TM03_evidence_qualification:b2018041e7447fe6",
+              "evidence:model-code-test-alignment:656e66dd6db30bd7",
+              "evidence:G8-fully-synthetic:ffe0563f16dabefc"
             ],
             "runtime_observation_ids": [
               "BO-TC-C3_evidence_qualification-exact_field_anchor",
@@ -840,6 +974,10 @@
               "BO-TC-C3_evidence_qualification-exact_sheet_cell_range-retry",
               "BO-TC-C3_evidence_qualification-exact_mail_attachment_anchor",
               "BO-TC-C3_evidence_qualification-exact_mail_attachment_anchor-retry",
+              "BO-TC-C3_evidence_qualification-exact_safe_visual_anchor",
+              "BO-TC-C3_evidence_qualification-exact_safe_visual_anchor-retry",
+              "BO-TC-C3_evidence_qualification-visual_anchor_denied_or_unrelated",
+              "BO-TC-C3_evidence_qualification-visual_anchor_denied_or_unrelated-retry",
               "BO-TC-C3_evidence_qualification-unsupported_or_unreadable_payload",
               "BO-TC-C3_evidence_qualification-unsupported_or_unreadable_payload-retry",
               "BO-TC-C3_evidence_qualification-title_or_filename_only",
@@ -873,12 +1011,11 @@
               ".flowguard/evidence/synthetic/G8_fully_synthetic_end_to_end.json"
             ],
             "fallback_candidate_ids": [],
-            "legacy_plural_migrated": false,
             "metadata": {},
             "path_sensitive": true,
             "ppa_confidence": "blocked",
             "ppa_coverage_receipt_ids": [
-              "run:TM04_identity_resolution:ea4a1f906e57c830"
+              "run:TM04_identity_resolution:a161fdf7eb3ea2bc"
             ],
             "ppa_coverage_shard_ids": [
               "TM04_identity_resolution"
@@ -892,12 +1029,11 @@
               "G8-fully-synthetic"
             ],
             "primary_path_id": "path:c4-resolve-identity",
-            "primary_path_migration_ambiguous": false,
             "proof_artifact_ids": [
-              "evidence:C4_person_entity_resolution:e1779455e01513d0",
-              "artifact:run:TM04_identity_resolution:ea4a1f906e57c830",
-              "evidence:model-code-test-alignment:9c4af1411686aaae",
-              "evidence:G8-fully-synthetic:bc64583f4f44a72f"
+              "evidence:C4_person_entity_resolution:603526a339d987e3",
+              "artifact:run:TM04_identity_resolution:a161fdf7eb3ea2bc",
+              "evidence:model-code-test-alignment:656e66dd6db30bd7",
+              "evidence:G8-fully-synthetic:ffe0563f16dabefc"
             ],
             "runtime_observation_ids": [
               "BO-TC-C4_person_entity_resolution-same_name_no_link",
@@ -935,12 +1071,11 @@
               ".flowguard/evidence/synthetic/G8_fully_synthetic_end_to_end.json"
             ],
             "fallback_candidate_ids": [],
-            "legacy_plural_migrated": false,
             "metadata": {},
             "path_sensitive": true,
             "ppa_confidence": "blocked",
             "ppa_coverage_receipt_ids": [
-              "run:TM04_identity_resolution:ea4a1f906e57c830"
+              "run:TM04_identity_resolution:a161fdf7eb3ea2bc"
             ],
             "ppa_coverage_shard_ids": [
               "TM04_identity_resolution"
@@ -954,12 +1089,11 @@
               "G8-fully-synthetic"
             ],
             "primary_path_id": "path:c4-resolve-identity",
-            "primary_path_migration_ambiguous": false,
             "proof_artifact_ids": [
-              "evidence:C4_person_entity_resolution:e1779455e01513d0",
-              "artifact:run:TM04_identity_resolution:ea4a1f906e57c830",
-              "evidence:model-code-test-alignment:9c4af1411686aaae",
-              "evidence:G8-fully-synthetic:bc64583f4f44a72f"
+              "evidence:C4_person_entity_resolution:603526a339d987e3",
+              "artifact:run:TM04_identity_resolution:a161fdf7eb3ea2bc",
+              "evidence:model-code-test-alignment:656e66dd6db30bd7",
+              "evidence:G8-fully-synthetic:ffe0563f16dabefc"
             ],
             "runtime_observation_ids": [
               "BO-TC-C4_person_entity_resolution-same_name_no_link",
@@ -997,12 +1131,11 @@
               ".flowguard/evidence/synthetic/G8_fully_synthetic_end_to_end.json"
             ],
             "fallback_candidate_ids": [],
-            "legacy_plural_migrated": false,
             "metadata": {},
             "path_sensitive": true,
             "ppa_confidence": "blocked",
             "ppa_coverage_receipt_ids": [
-              "run:TM05_event_trace:fa2ea24b43f9de78"
+              "run:TM05_event_trace:9151d6e5c5ca23c5"
             ],
             "ppa_coverage_shard_ids": [
               "TM05_event_trace"
@@ -1016,12 +1149,11 @@
               "G8-fully-synthetic"
             ],
             "primary_path_id": "path:c5-build-temporal-trace",
-            "primary_path_migration_ambiguous": false,
             "proof_artifact_ids": [
-              "evidence:C5_event_temporal_trace:8fabe06e2d43d49c",
-              "artifact:run:TM05_event_trace:fa2ea24b43f9de78",
-              "evidence:model-code-test-alignment:9c4af1411686aaae",
-              "evidence:G8-fully-synthetic:bc64583f4f44a72f"
+              "evidence:C5_event_temporal_trace:72d80a24bcaecef0",
+              "artifact:run:TM05_event_trace:9151d6e5c5ca23c5",
+              "evidence:model-code-test-alignment:656e66dd6db30bd7",
+              "evidence:G8-fully-synthetic:ffe0563f16dabefc"
             ],
             "runtime_observation_ids": [
               "BO-TC-C5_event_temporal_trace-explicit_actual_start",
@@ -1059,12 +1191,11 @@
               ".flowguard/evidence/synthetic/G8_fully_synthetic_end_to_end.json"
             ],
             "fallback_candidate_ids": [],
-            "legacy_plural_migrated": false,
             "metadata": {},
             "path_sensitive": true,
             "ppa_confidence": "blocked",
             "ppa_coverage_receipt_ids": [
-              "run:TM05_event_trace:fa2ea24b43f9de78"
+              "run:TM05_event_trace:9151d6e5c5ca23c5"
             ],
             "ppa_coverage_shard_ids": [
               "TM05_event_trace"
@@ -1078,12 +1209,11 @@
               "G8-fully-synthetic"
             ],
             "primary_path_id": "path:c5-build-temporal-trace",
-            "primary_path_migration_ambiguous": false,
             "proof_artifact_ids": [
-              "evidence:C5_event_temporal_trace:8fabe06e2d43d49c",
-              "artifact:run:TM05_event_trace:fa2ea24b43f9de78",
-              "evidence:model-code-test-alignment:9c4af1411686aaae",
-              "evidence:G8-fully-synthetic:bc64583f4f44a72f"
+              "evidence:C5_event_temporal_trace:72d80a24bcaecef0",
+              "artifact:run:TM05_event_trace:9151d6e5c5ca23c5",
+              "evidence:model-code-test-alignment:656e66dd6db30bd7",
+              "evidence:G8-fully-synthetic:ffe0563f16dabefc"
             ],
             "runtime_observation_ids": [
               "BO-TC-C5_event_temporal_trace-explicit_actual_start",
@@ -1121,12 +1251,11 @@
               ".flowguard/evidence/synthetic/G8_fully_synthetic_end_to_end.json"
             ],
             "fallback_candidate_ids": [],
-            "legacy_plural_migrated": false,
             "metadata": {},
             "path_sensitive": true,
             "ppa_confidence": "blocked",
             "ppa_coverage_receipt_ids": [
-              "run:TM06_matter_admission:66103c6185a80f90"
+              "run:TM06_matter_admission:0d678bfc40bc483b"
             ],
             "ppa_coverage_shard_ids": [
               "TM06_matter_admission"
@@ -1140,12 +1269,11 @@
               "G8-fully-synthetic"
             ],
             "primary_path_id": "path:c6-admit-matter",
-            "primary_path_migration_ambiguous": false,
             "proof_artifact_ids": [
-              "evidence:C6_matter_formation_admission:5217fcc14cccf92d",
-              "artifact:run:TM06_matter_admission:66103c6185a80f90",
-              "evidence:model-code-test-alignment:9c4af1411686aaae",
-              "evidence:G8-fully-synthetic:bc64583f4f44a72f"
+              "evidence:C6_matter_formation_admission:5952495975d42700",
+              "artifact:run:TM06_matter_admission:0d678bfc40bc483b",
+              "evidence:model-code-test-alignment:656e66dd6db30bd7",
+              "evidence:G8-fully-synthetic:ffe0563f16dabefc"
             ],
             "runtime_observation_ids": [
               "BO-TC-C6_matter_formation_admission-provider_item_basic",
@@ -1156,6 +1284,12 @@
               "BO-TC-C6_matter_formation_admission-fully_evidenced_obligation-retry",
               "BO-TC-C6_matter_formation_admission-conflicting_or_insufficient",
               "BO-TC-C6_matter_formation_admission-conflicting_or_insufficient-retry",
+              "BO-TC-C6_matter_formation_admission-irrelevant_or_non_actionable",
+              "BO-TC-C6_matter_formation_admission-irrelevant_or_non_actionable-retry",
+              "BO-TC-C6_matter_formation_admission-visual_related_to_matter",
+              "BO-TC-C6_matter_formation_admission-visual_related_to_matter-retry",
+              "BO-TC-C6_matter_formation_admission-visual_unrelated_to_matter",
+              "BO-TC-C6_matter_formation_admission-visual_unrelated_to_matter-retry",
               "BO-TC-C6_matter_formation_admission-access_blocked",
               "BO-TC-C6_matter_formation_admission-access_blocked-retry",
               "BO-C6_matter_formation_admission-foreign_owner_write",
@@ -1183,12 +1317,11 @@
               ".flowguard/evidence/synthetic/G8_fully_synthetic_end_to_end.json"
             ],
             "fallback_candidate_ids": [],
-            "legacy_plural_migrated": false,
             "metadata": {},
             "path_sensitive": true,
             "ppa_confidence": "blocked",
             "ppa_coverage_receipt_ids": [
-              "run:TM06_matter_admission:66103c6185a80f90"
+              "run:TM06_matter_admission:0d678bfc40bc483b"
             ],
             "ppa_coverage_shard_ids": [
               "TM06_matter_admission"
@@ -1202,12 +1335,11 @@
               "G8-fully-synthetic"
             ],
             "primary_path_id": "path:c6-admit-matter",
-            "primary_path_migration_ambiguous": false,
             "proof_artifact_ids": [
-              "evidence:C6_matter_formation_admission:5217fcc14cccf92d",
-              "artifact:run:TM06_matter_admission:66103c6185a80f90",
-              "evidence:model-code-test-alignment:9c4af1411686aaae",
-              "evidence:G8-fully-synthetic:bc64583f4f44a72f"
+              "evidence:C6_matter_formation_admission:5952495975d42700",
+              "artifact:run:TM06_matter_admission:0d678bfc40bc483b",
+              "evidence:model-code-test-alignment:656e66dd6db30bd7",
+              "evidence:G8-fully-synthetic:ffe0563f16dabefc"
             ],
             "runtime_observation_ids": [
               "BO-TC-C6_matter_formation_admission-provider_item_basic",
@@ -1218,6 +1350,12 @@
               "BO-TC-C6_matter_formation_admission-fully_evidenced_obligation-retry",
               "BO-TC-C6_matter_formation_admission-conflicting_or_insufficient",
               "BO-TC-C6_matter_formation_admission-conflicting_or_insufficient-retry",
+              "BO-TC-C6_matter_formation_admission-irrelevant_or_non_actionable",
+              "BO-TC-C6_matter_formation_admission-irrelevant_or_non_actionable-retry",
+              "BO-TC-C6_matter_formation_admission-visual_related_to_matter",
+              "BO-TC-C6_matter_formation_admission-visual_related_to_matter-retry",
+              "BO-TC-C6_matter_formation_admission-visual_unrelated_to_matter",
+              "BO-TC-C6_matter_formation_admission-visual_unrelated_to_matter-retry",
               "BO-TC-C6_matter_formation_admission-access_blocked",
               "BO-TC-C6_matter_formation_admission-access_blocked-retry",
               "BO-C6_matter_formation_admission-foreign_owner_write",
@@ -1245,12 +1383,11 @@
               ".flowguard/evidence/synthetic/G8_fully_synthetic_end_to_end.json"
             ],
             "fallback_candidate_ids": [],
-            "legacy_plural_migrated": false,
             "metadata": {},
             "path_sensitive": true,
             "ppa_confidence": "blocked",
             "ppa_coverage_receipt_ids": [
-              "run:TM07_lifecycle_board_state:630e066da6c2d9f9"
+              "run:TM07_lifecycle_board_state:b0368573b50ca695"
             ],
             "ppa_coverage_shard_ids": [
               "TM07_lifecycle_board_state"
@@ -1264,12 +1401,11 @@
               "G8-fully-synthetic"
             ],
             "primary_path_id": "path:c7-decide-lifecycle",
-            "primary_path_migration_ambiguous": false,
             "proof_artifact_ids": [
-              "evidence:C7_lifecycle_board_state:014e23d32d762fcf",
-              "artifact:run:TM07_lifecycle_board_state:630e066da6c2d9f9",
-              "evidence:model-code-test-alignment:9c4af1411686aaae",
-              "evidence:G8-fully-synthetic:bc64583f4f44a72f"
+              "evidence:C7_lifecycle_board_state:951befd66451fa09",
+              "artifact:run:TM07_lifecycle_board_state:b0368573b50ca695",
+              "evidence:model-code-test-alignment:656e66dd6db30bd7",
+              "evidence:G8-fully-synthetic:ffe0563f16dabefc"
             ],
             "runtime_observation_ids": [
               "BO-TC-C7_lifecycle_board_state-explicit_start_evidence",
@@ -1307,12 +1443,11 @@
               ".flowguard/evidence/synthetic/G8_fully_synthetic_end_to_end.json"
             ],
             "fallback_candidate_ids": [],
-            "legacy_plural_migrated": false,
             "metadata": {},
             "path_sensitive": true,
             "ppa_confidence": "blocked",
             "ppa_coverage_receipt_ids": [
-              "run:TM07_lifecycle_board_state:630e066da6c2d9f9"
+              "run:TM07_lifecycle_board_state:b0368573b50ca695"
             ],
             "ppa_coverage_shard_ids": [
               "TM07_lifecycle_board_state"
@@ -1326,12 +1461,11 @@
               "G8-fully-synthetic"
             ],
             "primary_path_id": "path:c7-decide-lifecycle",
-            "primary_path_migration_ambiguous": false,
             "proof_artifact_ids": [
-              "evidence:C7_lifecycle_board_state:014e23d32d762fcf",
-              "artifact:run:TM07_lifecycle_board_state:630e066da6c2d9f9",
-              "evidence:model-code-test-alignment:9c4af1411686aaae",
-              "evidence:G8-fully-synthetic:bc64583f4f44a72f"
+              "evidence:C7_lifecycle_board_state:951befd66451fa09",
+              "artifact:run:TM07_lifecycle_board_state:b0368573b50ca695",
+              "evidence:model-code-test-alignment:656e66dd6db30bd7",
+              "evidence:G8-fully-synthetic:ffe0563f16dabefc"
             ],
             "runtime_observation_ids": [
               "BO-TC-C7_lifecycle_board_state-explicit_start_evidence",
@@ -1369,12 +1503,11 @@
               ".flowguard/evidence/synthetic/G8_fully_synthetic_end_to_end.json"
             ],
             "fallback_candidate_ids": [],
-            "legacy_plural_migrated": false,
             "metadata": {},
             "path_sensitive": true,
             "ppa_confidence": "blocked",
             "ppa_coverage_receipt_ids": [
-              "run:TM08_open_loop_blocking:3e5f7191782208d3"
+              "run:TM08_open_loop_blocking:f618b5f89f0578d1"
             ],
             "ppa_coverage_shard_ids": [
               "TM08_open_loop_blocking"
@@ -1388,12 +1521,11 @@
               "G8-fully-synthetic"
             ],
             "primary_path_id": "path:c8-evaluate-open-loop",
-            "primary_path_migration_ambiguous": false,
             "proof_artifact_ids": [
-              "evidence:C8_open_loop_waiting_blocking:b8e5b2421778fbba",
-              "artifact:run:TM08_open_loop_blocking:3e5f7191782208d3",
-              "evidence:model-code-test-alignment:9c4af1411686aaae",
-              "evidence:G8-fully-synthetic:bc64583f4f44a72f"
+              "evidence:C8_open_loop_waiting_blocking:0ab663d7fe25bfed",
+              "artifact:run:TM08_open_loop_blocking:f618b5f89f0578d1",
+              "evidence:model-code-test-alignment:656e66dd6db30bd7",
+              "evidence:G8-fully-synthetic:ffe0563f16dabefc"
             ],
             "runtime_observation_ids": [
               "BO-TC-C8_open_loop_waiting_blocking-request_with_target_and_condition",
@@ -1435,12 +1567,11 @@
               ".flowguard/evidence/synthetic/G8_fully_synthetic_end_to_end.json"
             ],
             "fallback_candidate_ids": [],
-            "legacy_plural_migrated": false,
             "metadata": {},
             "path_sensitive": true,
             "ppa_confidence": "blocked",
             "ppa_coverage_receipt_ids": [
-              "run:TM08_open_loop_blocking:3e5f7191782208d3"
+              "run:TM08_open_loop_blocking:f618b5f89f0578d1"
             ],
             "ppa_coverage_shard_ids": [
               "TM08_open_loop_blocking"
@@ -1454,12 +1585,11 @@
               "G8-fully-synthetic"
             ],
             "primary_path_id": "path:c8-evaluate-open-loop",
-            "primary_path_migration_ambiguous": false,
             "proof_artifact_ids": [
-              "evidence:C8_open_loop_waiting_blocking:b8e5b2421778fbba",
-              "artifact:run:TM08_open_loop_blocking:3e5f7191782208d3",
-              "evidence:model-code-test-alignment:9c4af1411686aaae",
-              "evidence:G8-fully-synthetic:bc64583f4f44a72f"
+              "evidence:C8_open_loop_waiting_blocking:0ab663d7fe25bfed",
+              "artifact:run:TM08_open_loop_blocking:f618b5f89f0578d1",
+              "evidence:model-code-test-alignment:656e66dd6db30bd7",
+              "evidence:G8-fully-synthetic:ffe0563f16dabefc"
             ],
             "runtime_observation_ids": [
               "BO-TC-C8_open_loop_waiting_blocking-request_with_target_and_condition",
@@ -1501,12 +1631,11 @@
               ".flowguard/evidence/synthetic/G8_fully_synthetic_end_to_end.json"
             ],
             "fallback_candidate_ids": [],
-            "legacy_plural_migrated": false,
             "metadata": {},
             "path_sensitive": true,
             "ppa_confidence": "blocked",
             "ppa_coverage_receipt_ids": [
-              "run:TM09_completion_reopen:b0c35c13f8cc535a"
+              "run:TM09_completion_reopen:0f4e242d801d86b8"
             ],
             "ppa_coverage_shard_ids": [
               "TM09_completion_reopen"
@@ -1520,12 +1649,11 @@
               "G8-fully-synthetic"
             ],
             "primary_path_id": "path:c9-decide-outcome",
-            "primary_path_migration_ambiguous": false,
             "proof_artifact_ids": [
-              "evidence:C9_completion_cancellation_reopen:b376e613907ddfe0",
-              "artifact:run:TM09_completion_reopen:b0c35c13f8cc535a",
-              "evidence:model-code-test-alignment:9c4af1411686aaae",
-              "evidence:G8-fully-synthetic:bc64583f4f44a72f"
+              "evidence:C9_completion_cancellation_reopen:fd9fe90d10d99d57",
+              "artifact:run:TM09_completion_reopen:0f4e242d801d86b8",
+              "evidence:model-code-test-alignment:656e66dd6db30bd7",
+              "evidence:G8-fully-synthetic:ffe0563f16dabefc"
             ],
             "runtime_observation_ids": [
               "BO-TC-C9_completion_cancellation_reopen-all_completion_criteria_evidenced",
@@ -1565,12 +1693,11 @@
               ".flowguard/evidence/synthetic/G8_fully_synthetic_end_to_end.json"
             ],
             "fallback_candidate_ids": [],
-            "legacy_plural_migrated": false,
             "metadata": {},
             "path_sensitive": true,
             "ppa_confidence": "blocked",
             "ppa_coverage_receipt_ids": [
-              "run:TM09_completion_reopen:b0c35c13f8cc535a"
+              "run:TM09_completion_reopen:0f4e242d801d86b8"
             ],
             "ppa_coverage_shard_ids": [
               "TM09_completion_reopen"
@@ -1584,12 +1711,11 @@
               "G8-fully-synthetic"
             ],
             "primary_path_id": "path:c9-decide-outcome",
-            "primary_path_migration_ambiguous": false,
             "proof_artifact_ids": [
-              "evidence:C9_completion_cancellation_reopen:b376e613907ddfe0",
-              "artifact:run:TM09_completion_reopen:b0c35c13f8cc535a",
-              "evidence:model-code-test-alignment:9c4af1411686aaae",
-              "evidence:G8-fully-synthetic:bc64583f4f44a72f"
+              "evidence:C9_completion_cancellation_reopen:fd9fe90d10d99d57",
+              "artifact:run:TM09_completion_reopen:0f4e242d801d86b8",
+              "evidence:model-code-test-alignment:656e66dd6db30bd7",
+              "evidence:G8-fully-synthetic:ffe0563f16dabefc"
             ],
             "runtime_observation_ids": [
               "BO-TC-C9_completion_cancellation_reopen-all_completion_criteria_evidenced",
@@ -1629,12 +1755,11 @@
               ".flowguard/evidence/synthetic/G8_fully_synthetic_end_to_end.json"
             ],
             "fallback_candidate_ids": [],
-            "legacy_plural_migrated": false,
             "metadata": {},
             "path_sensitive": true,
             "ppa_confidence": "blocked",
             "ppa_coverage_receipt_ids": [
-              "run:TM10_correction_invalidation:5c70656a8546d941"
+              "run:TM10_correction_invalidation:98eb85d4f7738b33"
             ],
             "ppa_coverage_shard_ids": [
               "TM10_correction_invalidation"
@@ -1648,16 +1773,17 @@
               "G8-fully-synthetic"
             ],
             "primary_path_id": "path:c10-invalidate-and-request-recompute",
-            "primary_path_migration_ambiguous": false,
             "proof_artifact_ids": [
-              "evidence:C10_correction_revocation:f1d829db3075e610",
-              "artifact:run:TM10_correction_invalidation:5c70656a8546d941",
-              "evidence:model-code-test-alignment:9c4af1411686aaae",
-              "evidence:G8-fully-synthetic:bc64583f4f44a72f"
+              "evidence:C10_correction_revocation:af05d44733387852",
+              "artifact:run:TM10_correction_invalidation:98eb85d4f7738b33",
+              "evidence:model-code-test-alignment:656e66dd6db30bd7",
+              "evidence:G8-fully-synthetic:ffe0563f16dabefc"
             ],
             "runtime_observation_ids": [
               "BO-TC-C10_correction_revocation-user_correction",
               "BO-TC-C10_correction_revocation-user_correction-retry",
+              "BO-TC-C10_correction_revocation-card_visual_pin_unpin_or_change",
+              "BO-TC-C10_correction_revocation-card_visual_pin_unpin_or_change-retry",
               "BO-TC-C10_correction_revocation-source_or_tracking_stale",
               "BO-TC-C10_correction_revocation-source_or_tracking_stale-retry",
               "BO-TC-C10_correction_revocation-all_required_owners_terminal",
@@ -1697,12 +1823,11 @@
               ".flowguard/evidence/synthetic/G8_fully_synthetic_end_to_end.json"
             ],
             "fallback_candidate_ids": [],
-            "legacy_plural_migrated": false,
             "metadata": {},
             "path_sensitive": true,
             "ppa_confidence": "blocked",
             "ppa_coverage_receipt_ids": [
-              "run:TM10_correction_invalidation:5c70656a8546d941"
+              "run:TM10_correction_invalidation:98eb85d4f7738b33"
             ],
             "ppa_coverage_shard_ids": [
               "TM10_correction_invalidation"
@@ -1716,16 +1841,17 @@
               "G8-fully-synthetic"
             ],
             "primary_path_id": "path:c10-invalidate-and-request-recompute",
-            "primary_path_migration_ambiguous": false,
             "proof_artifact_ids": [
-              "evidence:C10_correction_revocation:f1d829db3075e610",
-              "artifact:run:TM10_correction_invalidation:5c70656a8546d941",
-              "evidence:model-code-test-alignment:9c4af1411686aaae",
-              "evidence:G8-fully-synthetic:bc64583f4f44a72f"
+              "evidence:C10_correction_revocation:af05d44733387852",
+              "artifact:run:TM10_correction_invalidation:98eb85d4f7738b33",
+              "evidence:model-code-test-alignment:656e66dd6db30bd7",
+              "evidence:G8-fully-synthetic:ffe0563f16dabefc"
             ],
             "runtime_observation_ids": [
               "BO-TC-C10_correction_revocation-user_correction",
               "BO-TC-C10_correction_revocation-user_correction-retry",
+              "BO-TC-C10_correction_revocation-card_visual_pin_unpin_or_change",
+              "BO-TC-C10_correction_revocation-card_visual_pin_unpin_or_change-retry",
               "BO-TC-C10_correction_revocation-source_or_tracking_stale",
               "BO-TC-C10_correction_revocation-source_or_tracking_stale-retry",
               "BO-TC-C10_correction_revocation-all_required_owners_terminal",
@@ -1765,12 +1891,11 @@
               ".flowguard/evidence/synthetic/G8_fully_synthetic_end_to_end.json"
             ],
             "fallback_candidate_ids": [],
-            "legacy_plural_migrated": false,
             "metadata": {},
             "path_sensitive": true,
             "ppa_confidence": "blocked",
             "ppa_coverage_receipt_ids": [
-              "run:TM11_guard_prediction_boundary:afa6dc8d7a916e83"
+              "run:TM11_guard_prediction_boundary:4d4870c06a0fb2d2"
             ],
             "ppa_coverage_shard_ids": [
               "TM11_guard_prediction_boundary"
@@ -1784,14 +1909,23 @@
               "G8-fully-synthetic"
             ],
             "primary_path_id": "path:c11-register-advisory-analysis-artifact",
-            "primary_path_migration_ambiguous": false,
             "proof_artifact_ids": [
-              "evidence:C11_guard_artifact_prediction:c5379d1ae3c201f6",
-              "artifact:run:TM11_guard_prediction_boundary:afa6dc8d7a916e83",
-              "evidence:model-code-test-alignment:9c4af1411686aaae",
-              "evidence:G8-fully-synthetic:bc64583f4f44a72f"
+              "evidence:C11_guard_artifact_prediction:bdb7bc7a407ec5ec",
+              "artifact:run:TM11_guard_prediction_boundary:4d4870c06a0fb2d2",
+              "evidence:model-code-test-alignment:656e66dd6db30bd7",
+              "evidence:G8-fully-synthetic:ffe0563f16dabefc"
             ],
             "runtime_observation_ids": [
+              "BO-TC-C11_guard_artifact_prediction-extracted_anchors_queued",
+              "BO-TC-C11_guard_artifact_prediction-extracted_anchors_queued-retry",
+              "BO-TC-C11_guard_artifact_prediction-valid_bilingual_understanding_result",
+              "BO-TC-C11_guard_artifact_prediction-valid_bilingual_understanding_result-retry",
+              "BO-TC-C11_guard_artifact_prediction-typed_finding_auto_dispatched",
+              "BO-TC-C11_guard_artifact_prediction-typed_finding_auto_dispatched-retry",
+              "BO-TC-C11_guard_artifact_prediction-no_finding_or_policy_rejected",
+              "BO-TC-C11_guard_artifact_prediction-no_finding_or_policy_rejected-retry",
+              "BO-TC-C11_guard_artifact_prediction-analysis_operation_failed_or_blocked",
+              "BO-TC-C11_guard_artifact_prediction-analysis_operation_failed_or_blocked-retry",
               "BO-TC-C11_guard_artifact_prediction-current_ai_finding",
               "BO-TC-C11_guard_artifact_prediction-current_ai_finding-retry",
               "BO-TC-C11_guard_artifact_prediction-current_researchguard_result",
@@ -1806,6 +1940,8 @@
               "BO-TC-C11_guard_artifact_prediction-depth_sufficient_current-retry",
               "BO-TC-C11_guard_artifact_prediction-depth_partial_or_stale",
               "BO-TC-C11_guard_artifact_prediction-depth_partial_or_stale-retry",
+              "BO-TC-C11_guard_artifact_prediction-visual_candidates_ranked",
+              "BO-TC-C11_guard_artifact_prediction-visual_candidates_ranked-retry",
               "BO-TC-C11_guard_artifact_prediction-stale_operation_result",
               "BO-TC-C11_guard_artifact_prediction-stale_operation_result-retry",
               "BO-TC-C11_guard_artifact_prediction-scope_escape_attempt",
@@ -1841,12 +1977,11 @@
               ".flowguard/evidence/synthetic/G8_fully_synthetic_end_to_end.json"
             ],
             "fallback_candidate_ids": [],
-            "legacy_plural_migrated": false,
             "metadata": {},
             "path_sensitive": true,
             "ppa_confidence": "blocked",
             "ppa_coverage_receipt_ids": [
-              "run:TM11_guard_prediction_boundary:afa6dc8d7a916e83"
+              "run:TM11_guard_prediction_boundary:4d4870c06a0fb2d2"
             ],
             "ppa_coverage_shard_ids": [
               "TM11_guard_prediction_boundary"
@@ -1860,14 +1995,23 @@
               "G8-fully-synthetic"
             ],
             "primary_path_id": "path:c11-register-advisory-analysis-artifact",
-            "primary_path_migration_ambiguous": false,
             "proof_artifact_ids": [
-              "evidence:C11_guard_artifact_prediction:c5379d1ae3c201f6",
-              "artifact:run:TM11_guard_prediction_boundary:afa6dc8d7a916e83",
-              "evidence:model-code-test-alignment:9c4af1411686aaae",
-              "evidence:G8-fully-synthetic:bc64583f4f44a72f"
+              "evidence:C11_guard_artifact_prediction:bdb7bc7a407ec5ec",
+              "artifact:run:TM11_guard_prediction_boundary:4d4870c06a0fb2d2",
+              "evidence:model-code-test-alignment:656e66dd6db30bd7",
+              "evidence:G8-fully-synthetic:ffe0563f16dabefc"
             ],
             "runtime_observation_ids": [
+              "BO-TC-C11_guard_artifact_prediction-extracted_anchors_queued",
+              "BO-TC-C11_guard_artifact_prediction-extracted_anchors_queued-retry",
+              "BO-TC-C11_guard_artifact_prediction-valid_bilingual_understanding_result",
+              "BO-TC-C11_guard_artifact_prediction-valid_bilingual_understanding_result-retry",
+              "BO-TC-C11_guard_artifact_prediction-typed_finding_auto_dispatched",
+              "BO-TC-C11_guard_artifact_prediction-typed_finding_auto_dispatched-retry",
+              "BO-TC-C11_guard_artifact_prediction-no_finding_or_policy_rejected",
+              "BO-TC-C11_guard_artifact_prediction-no_finding_or_policy_rejected-retry",
+              "BO-TC-C11_guard_artifact_prediction-analysis_operation_failed_or_blocked",
+              "BO-TC-C11_guard_artifact_prediction-analysis_operation_failed_or_blocked-retry",
               "BO-TC-C11_guard_artifact_prediction-current_ai_finding",
               "BO-TC-C11_guard_artifact_prediction-current_ai_finding-retry",
               "BO-TC-C11_guard_artifact_prediction-current_researchguard_result",
@@ -1882,6 +2026,8 @@
               "BO-TC-C11_guard_artifact_prediction-depth_sufficient_current-retry",
               "BO-TC-C11_guard_artifact_prediction-depth_partial_or_stale",
               "BO-TC-C11_guard_artifact_prediction-depth_partial_or_stale-retry",
+              "BO-TC-C11_guard_artifact_prediction-visual_candidates_ranked",
+              "BO-TC-C11_guard_artifact_prediction-visual_candidates_ranked-retry",
               "BO-TC-C11_guard_artifact_prediction-stale_operation_result",
               "BO-TC-C11_guard_artifact_prediction-stale_operation_result-retry",
               "BO-TC-C11_guard_artifact_prediction-scope_escape_attempt",
@@ -1917,12 +2063,11 @@
               ".flowguard/evidence/synthetic/G8_fully_synthetic_end_to_end.json"
             ],
             "fallback_candidate_ids": [],
-            "legacy_plural_migrated": false,
             "metadata": {},
             "path_sensitive": true,
             "ppa_confidence": "blocked",
             "ppa_coverage_receipt_ids": [
-              "run:TM12_projection_bilingual_ui:90a2078dfb914f85"
+              "run:TM12_projection_bilingual_ui:95f7ca779dc61dd6"
             ],
             "ppa_coverage_shard_ids": [
               "TM12_projection_bilingual_ui"
@@ -1936,12 +2081,11 @@
               "G8-fully-synthetic"
             ],
             "primary_path_id": "path:c12-project-inventory-freshness-depth-review",
-            "primary_path_migration_ambiguous": false,
             "proof_artifact_ids": [
-              "evidence:C12_projection_bilingual_ui:20c4784395f203c6",
-              "artifact:run:TM12_projection_bilingual_ui:90a2078dfb914f85",
-              "evidence:model-code-test-alignment:9c4af1411686aaae",
-              "evidence:G8-fully-synthetic:bc64583f4f44a72f"
+              "evidence:C12_projection_bilingual_ui:0f7891134bc61010",
+              "artifact:run:TM12_projection_bilingual_ui:95f7ca779dc61dd6",
+              "evidence:model-code-test-alignment:656e66dd6db30bd7",
+              "evidence:G8-fully-synthetic:ffe0563f16dabefc"
             ],
             "runtime_observation_ids": [
               "BO-TC-C12_projection_bilingual_ui-same_revision_equivalent",
@@ -1954,28 +2098,36 @@
               "BO-TC-C12_projection_bilingual_ui-future_locale_complete-retry",
               "BO-TC-C12_projection_bilingual_ui-missing_required_locale",
               "BO-TC-C12_projection_bilingual_ui-missing_required_locale-retry",
-              "BO-TC-C12_projection_bilingual_ui-unsupported_locale_requested",
-              "BO-TC-C12_projection_bilingual_ui-unsupported_locale_requested-retry",
-              "BO-TC-C12_projection_bilingual_ui-static_copy_complete",
-              "BO-TC-C12_projection_bilingual_ui-static_copy_complete-retry",
-              "BO-TC-C12_projection_bilingual_ui-source_catalog_current",
-              "BO-TC-C12_projection_bilingual_ui-source_catalog_current-retry",
-              "BO-TC-C12_projection_bilingual_ui-large_catalog_incremental",
-              "BO-TC-C12_projection_bilingual_ui-large_catalog_incremental-retry",
-              "BO-TC-C12_projection_bilingual_ui-source_tracking_control",
-              "BO-TC-C12_projection_bilingual_ui-source_tracking_control-retry",
-              "BO-TC-C12_projection_bilingual_ui-advisory_candidate_review_control",
-              "BO-TC-C12_projection_bilingual_ui-advisory_candidate_review_control-retry",
+              "BO-TC-C12_projection_bilingual_ui-matter_catalog_current",
+              "BO-TC-C12_projection_bilingual_ui-matter_catalog_current-retry",
+              "BO-TC-C12_projection_bilingual_ui-matter_coverage_relation_index_current",
+              "BO-TC-C12_projection_bilingual_ui-matter_coverage_relation_index_current-retry",
+              "BO-TC-C12_projection_bilingual_ui-catalog_search_or_filter_changed",
+              "BO-TC-C12_projection_bilingual_ui-catalog_search_or_filter_changed-retry",
+              "BO-TC-C12_projection_bilingual_ui-density_switched",
+              "BO-TC-C12_projection_bilingual_ui-density_switched-retry",
+              "BO-TC-C12_projection_bilingual_ui-viewport_changed",
+              "BO-TC-C12_projection_bilingual_ui-viewport_changed-retry",
+              "BO-TC-C12_projection_bilingual_ui-single_card_catalog",
+              "BO-TC-C12_projection_bilingual_ui-single_card_catalog-retry",
+              "BO-TC-C12_projection_bilingual_ui-matter_detail_opened",
+              "BO-TC-C12_projection_bilingual_ui-matter_detail_opened-retry",
+              "BO-TC-C12_projection_bilingual_ui-human_readable_timeline",
+              "BO-TC-C12_projection_bilingual_ui-human_readable_timeline-retry",
+              "BO-TC-C12_projection_bilingual_ui-eligible_visual_selected",
+              "BO-TC-C12_projection_bilingual_ui-eligible_visual_selected-retry",
+              "BO-TC-C12_projection_bilingual_ui-no_eligible_visual",
+              "BO-TC-C12_projection_bilingual_ui-no_eligible_visual-retry",
+              "BO-TC-C12_projection_bilingual_ui-optional_correction_requested",
+              "BO-TC-C12_projection_bilingual_ui-optional_correction_requested-retry",
+              "BO-TC-C12_projection_bilingual_ui-background_work_pending_or_blocked",
+              "BO-TC-C12_projection_bilingual_ui-background_work_pending_or_blocked-retry",
+              "BO-TC-C12_projection_bilingual_ui-stale_or_cancelled_response",
+              "BO-TC-C12_projection_bilingual_ui-stale_or_cancelled_response-retry",
               "BO-TC-C12_projection_bilingual_ui-recompute_not_terminal",
               "BO-TC-C12_projection_bilingual_ui-recompute_not_terminal-retry",
-              "BO-TC-C12_projection_bilingual_ui-blocked_waiting_conflict",
-              "BO-TC-C12_projection_bilingual_ui-blocked_waiting_conflict-retry",
-              "BO-TC-C12_projection_bilingual_ui-stale_one_language",
-              "BO-TC-C12_projection_bilingual_ui-stale_one_language-retry",
               "BO-TC-C12_projection_bilingual_ui-ui_infers_state",
               "BO-TC-C12_projection_bilingual_ui-ui_infers_state-retry",
-              "BO-TC-C12_projection_bilingual_ui-correction_control",
-              "BO-TC-C12_projection_bilingual_ui-correction_control-retry",
               "BO-TC-C12_projection_bilingual_ui-internal_identifier_requested_by_default",
               "BO-TC-C12_projection_bilingual_ui-internal_identifier_requested_by_default-retry",
               "BO-C12_projection_bilingual_ui-foreign_owner_write",
@@ -2003,12 +2155,11 @@
               ".flowguard/evidence/synthetic/G8_fully_synthetic_end_to_end.json"
             ],
             "fallback_candidate_ids": [],
-            "legacy_plural_migrated": false,
             "metadata": {},
             "path_sensitive": true,
             "ppa_confidence": "blocked",
             "ppa_coverage_receipt_ids": [
-              "run:TM12_projection_bilingual_ui:90a2078dfb914f85"
+              "run:TM12_projection_bilingual_ui:95f7ca779dc61dd6"
             ],
             "ppa_coverage_shard_ids": [
               "TM12_projection_bilingual_ui"
@@ -2022,12 +2173,11 @@
               "G8-fully-synthetic"
             ],
             "primary_path_id": "path:c12-project-inventory-freshness-depth-review",
-            "primary_path_migration_ambiguous": false,
             "proof_artifact_ids": [
-              "evidence:C12_projection_bilingual_ui:20c4784395f203c6",
-              "artifact:run:TM12_projection_bilingual_ui:90a2078dfb914f85",
-              "evidence:model-code-test-alignment:9c4af1411686aaae",
-              "evidence:G8-fully-synthetic:bc64583f4f44a72f"
+              "evidence:C12_projection_bilingual_ui:0f7891134bc61010",
+              "artifact:run:TM12_projection_bilingual_ui:95f7ca779dc61dd6",
+              "evidence:model-code-test-alignment:656e66dd6db30bd7",
+              "evidence:G8-fully-synthetic:ffe0563f16dabefc"
             ],
             "runtime_observation_ids": [
               "BO-TC-C12_projection_bilingual_ui-same_revision_equivalent",
@@ -2040,28 +2190,36 @@
               "BO-TC-C12_projection_bilingual_ui-future_locale_complete-retry",
               "BO-TC-C12_projection_bilingual_ui-missing_required_locale",
               "BO-TC-C12_projection_bilingual_ui-missing_required_locale-retry",
-              "BO-TC-C12_projection_bilingual_ui-unsupported_locale_requested",
-              "BO-TC-C12_projection_bilingual_ui-unsupported_locale_requested-retry",
-              "BO-TC-C12_projection_bilingual_ui-static_copy_complete",
-              "BO-TC-C12_projection_bilingual_ui-static_copy_complete-retry",
-              "BO-TC-C12_projection_bilingual_ui-source_catalog_current",
-              "BO-TC-C12_projection_bilingual_ui-source_catalog_current-retry",
-              "BO-TC-C12_projection_bilingual_ui-large_catalog_incremental",
-              "BO-TC-C12_projection_bilingual_ui-large_catalog_incremental-retry",
-              "BO-TC-C12_projection_bilingual_ui-source_tracking_control",
-              "BO-TC-C12_projection_bilingual_ui-source_tracking_control-retry",
-              "BO-TC-C12_projection_bilingual_ui-advisory_candidate_review_control",
-              "BO-TC-C12_projection_bilingual_ui-advisory_candidate_review_control-retry",
+              "BO-TC-C12_projection_bilingual_ui-matter_catalog_current",
+              "BO-TC-C12_projection_bilingual_ui-matter_catalog_current-retry",
+              "BO-TC-C12_projection_bilingual_ui-matter_coverage_relation_index_current",
+              "BO-TC-C12_projection_bilingual_ui-matter_coverage_relation_index_current-retry",
+              "BO-TC-C12_projection_bilingual_ui-catalog_search_or_filter_changed",
+              "BO-TC-C12_projection_bilingual_ui-catalog_search_or_filter_changed-retry",
+              "BO-TC-C12_projection_bilingual_ui-density_switched",
+              "BO-TC-C12_projection_bilingual_ui-density_switched-retry",
+              "BO-TC-C12_projection_bilingual_ui-viewport_changed",
+              "BO-TC-C12_projection_bilingual_ui-viewport_changed-retry",
+              "BO-TC-C12_projection_bilingual_ui-single_card_catalog",
+              "BO-TC-C12_projection_bilingual_ui-single_card_catalog-retry",
+              "BO-TC-C12_projection_bilingual_ui-matter_detail_opened",
+              "BO-TC-C12_projection_bilingual_ui-matter_detail_opened-retry",
+              "BO-TC-C12_projection_bilingual_ui-human_readable_timeline",
+              "BO-TC-C12_projection_bilingual_ui-human_readable_timeline-retry",
+              "BO-TC-C12_projection_bilingual_ui-eligible_visual_selected",
+              "BO-TC-C12_projection_bilingual_ui-eligible_visual_selected-retry",
+              "BO-TC-C12_projection_bilingual_ui-no_eligible_visual",
+              "BO-TC-C12_projection_bilingual_ui-no_eligible_visual-retry",
+              "BO-TC-C12_projection_bilingual_ui-optional_correction_requested",
+              "BO-TC-C12_projection_bilingual_ui-optional_correction_requested-retry",
+              "BO-TC-C12_projection_bilingual_ui-background_work_pending_or_blocked",
+              "BO-TC-C12_projection_bilingual_ui-background_work_pending_or_blocked-retry",
+              "BO-TC-C12_projection_bilingual_ui-stale_or_cancelled_response",
+              "BO-TC-C12_projection_bilingual_ui-stale_or_cancelled_response-retry",
               "BO-TC-C12_projection_bilingual_ui-recompute_not_terminal",
               "BO-TC-C12_projection_bilingual_ui-recompute_not_terminal-retry",
-              "BO-TC-C12_projection_bilingual_ui-blocked_waiting_conflict",
-              "BO-TC-C12_projection_bilingual_ui-blocked_waiting_conflict-retry",
-              "BO-TC-C12_projection_bilingual_ui-stale_one_language",
-              "BO-TC-C12_projection_bilingual_ui-stale_one_language-retry",
               "BO-TC-C12_projection_bilingual_ui-ui_infers_state",
               "BO-TC-C12_projection_bilingual_ui-ui_infers_state-retry",
-              "BO-TC-C12_projection_bilingual_ui-correction_control",
-              "BO-TC-C12_projection_bilingual_ui-correction_control-retry",
               "BO-TC-C12_projection_bilingual_ui-internal_identifier_requested_by_default",
               "BO-TC-C12_projection_bilingual_ui-internal_identifier_requested_by_default-retry",
               "BO-C12_projection_bilingual_ui-foreign_owner_write",
@@ -2089,12 +2247,11 @@
               ".flowguard/evidence/synthetic/G8_fully_synthetic_end_to_end.json"
             ],
             "fallback_candidate_ids": [],
-            "legacy_plural_migrated": false,
             "metadata": {},
             "path_sensitive": true,
             "ppa_confidence": "blocked",
             "ppa_coverage_receipt_ids": [
-              "run:TM18_privacy_public_boundary:a720d3e2ac6400c8"
+              "run:TM18_privacy_public_boundary:964bc23c9ffc316f"
             ],
             "ppa_coverage_shard_ids": [
               "TM18_privacy_public_boundary"
@@ -2108,12 +2265,11 @@
               "G8-fully-synthetic"
             ],
             "primary_path_id": "path:c1-activate-external-private-root",
-            "primary_path_migration_ambiguous": false,
             "proof_artifact_ids": [
-              "evidence:C1_authorization_coverage:c79e7de035569689",
-              "artifact:run:TM18_privacy_public_boundary:a720d3e2ac6400c8",
-              "evidence:model-code-test-alignment:9c4af1411686aaae",
-              "evidence:G8-fully-synthetic:bc64583f4f44a72f"
+              "evidence:C1_authorization_coverage:68f1f53f4b9e29af",
+              "artifact:run:TM18_privacy_public_boundary:964bc23c9ffc316f",
+              "evidence:model-code-test-alignment:656e66dd6db30bd7",
+              "evidence:G8-fully-synthetic:ffe0563f16dabefc"
             ],
             "runtime_observation_ids": [
               "BO-TC-C1_authorization_coverage-candidate_scope_frozen",
@@ -2124,20 +2280,48 @@
               "BO-TC-C1_authorization_coverage-ai_not_tracked_current-retry",
               "BO-TC-C1_authorization_coverage-ai_uncertain_or_protected",
               "BO-TC-C1_authorization_coverage-ai_uncertain_or_protected-retry",
-              "BO-TC-C1_authorization_coverage-deferred_item_present",
-              "BO-TC-C1_authorization_coverage-deferred_item_present-retry",
+              "BO-TC-C1_authorization_coverage-temporarily_unavailable_item",
+              "BO-TC-C1_authorization_coverage-temporarily_unavailable_item-retry",
               "BO-TC-C1_authorization_coverage-all_items_and_pages_terminal",
               "BO-TC-C1_authorization_coverage-all_items_and_pages_terminal-retry",
               "BO-TC-C1_authorization_coverage-nonterminal_or_missing_page",
               "BO-TC-C1_authorization_coverage-nonterminal_or_missing_page-retry",
+              "BO-TC-C1_authorization_coverage-large_root_budget_exceeded",
+              "BO-TC-C1_authorization_coverage-large_root_budget_exceeded-retry",
+              "BO-TC-C1_authorization_coverage-parent_partition_boundary",
+              "BO-TC-C1_authorization_coverage-parent_partition_boundary-retry",
+              "BO-TC-C1_authorization_coverage-partition_child_retains_policy_context",
+              "BO-TC-C1_authorization_coverage-partition_child_retains_policy_context-retry",
+              "BO-TC-C1_authorization_coverage-generated_state_pruned_before_partition",
+              "BO-TC-C1_authorization_coverage-generated_state_pruned_before_partition-retry",
+              "BO-TC-C1_authorization_coverage-partition_child_pending_failed_or_stale",
+              "BO-TC-C1_authorization_coverage-partition_child_pending_failed_or_stale-retry",
+              "BO-TC-C1_authorization_coverage-partition_checkpoint_batch_progress",
+              "BO-TC-C1_authorization_coverage-partition_checkpoint_batch_progress-retry",
+              "BO-TC-C1_authorization_coverage-bounded_child_scanned_before_further_partition",
+              "BO-TC-C1_authorization_coverage-bounded_child_scanned_before_further_partition-retry",
+              "BO-TC-C1_authorization_coverage-canary_smallest_sufficient_partition_first",
+              "BO-TC-C1_authorization_coverage-canary_smallest_sufficient_partition_first-retry",
+              "BO-TC-C1_authorization_coverage-canary_stage_updates_batch_summary_once",
+              "BO-TC-C1_authorization_coverage-canary_stage_updates_batch_summary_once-retry",
+              "BO-TC-C1_authorization_coverage-gmail_budget_prioritizes_supplied_authorized_content",
+              "BO-TC-C1_authorization_coverage-gmail_budget_prioritizes_supplied_authorized_content-retry",
+              "BO-TC-C1_authorization_coverage-all_partitions_and_items_terminal",
+              "BO-TC-C1_authorization_coverage-all_partitions_and_items_terminal-retry",
               "BO-TC-C1_authorization_coverage-tracking_policy_changed",
               "BO-TC-C1_authorization_coverage-tracking_policy_changed-retry",
+              "BO-TC-C1_authorization_coverage-policy_changed_after_user_override",
+              "BO-TC-C1_authorization_coverage-policy_changed_after_user_override-retry",
+              "BO-TC-C1_authorization_coverage-source_catalog_action_current",
+              "BO-TC-C1_authorization_coverage-source_catalog_action_current-retry",
               "BO-TC-C1_authorization_coverage-outside_scope",
               "BO-TC-C1_authorization_coverage-outside_scope-retry",
               "BO-TC-C1_authorization_coverage-authorization_revoked",
               "BO-TC-C1_authorization_coverage-authorization_revoked-retry",
               "BO-TC-C1_authorization_coverage-private_root_outside_git",
               "BO-TC-C1_authorization_coverage-private_root_outside_git-retry",
+              "BO-TC-C1_authorization_coverage-installed_private_root_single_physical_authority",
+              "BO-TC-C1_authorization_coverage-installed_private_root_single_physical_authority-retry",
               "BO-TC-C1_authorization_coverage-private_root_inside_git",
               "BO-TC-C1_authorization_coverage-private_root_inside_git-retry",
               "BO-C1_authorization_coverage-foreign_owner_write",
@@ -2165,12 +2349,11 @@
               ".flowguard/evidence/synthetic/G8_fully_synthetic_end_to_end.json"
             ],
             "fallback_candidate_ids": [],
-            "legacy_plural_migrated": false,
             "metadata": {},
             "path_sensitive": true,
             "ppa_confidence": "blocked",
             "ppa_coverage_receipt_ids": [
-              "run:TM18_privacy_public_boundary:a720d3e2ac6400c8"
+              "run:TM18_privacy_public_boundary:964bc23c9ffc316f"
             ],
             "ppa_coverage_shard_ids": [
               "TM18_privacy_public_boundary"
@@ -2184,12 +2367,11 @@
               "G8-fully-synthetic"
             ],
             "primary_path_id": "path:c1-activate-external-private-root",
-            "primary_path_migration_ambiguous": false,
             "proof_artifact_ids": [
-              "evidence:C1_authorization_coverage:c79e7de035569689",
-              "artifact:run:TM18_privacy_public_boundary:a720d3e2ac6400c8",
-              "evidence:model-code-test-alignment:9c4af1411686aaae",
-              "evidence:G8-fully-synthetic:bc64583f4f44a72f"
+              "evidence:C1_authorization_coverage:68f1f53f4b9e29af",
+              "artifact:run:TM18_privacy_public_boundary:964bc23c9ffc316f",
+              "evidence:model-code-test-alignment:656e66dd6db30bd7",
+              "evidence:G8-fully-synthetic:ffe0563f16dabefc"
             ],
             "runtime_observation_ids": [
               "BO-TC-C1_authorization_coverage-candidate_scope_frozen",
@@ -2200,20 +2382,48 @@
               "BO-TC-C1_authorization_coverage-ai_not_tracked_current-retry",
               "BO-TC-C1_authorization_coverage-ai_uncertain_or_protected",
               "BO-TC-C1_authorization_coverage-ai_uncertain_or_protected-retry",
-              "BO-TC-C1_authorization_coverage-deferred_item_present",
-              "BO-TC-C1_authorization_coverage-deferred_item_present-retry",
+              "BO-TC-C1_authorization_coverage-temporarily_unavailable_item",
+              "BO-TC-C1_authorization_coverage-temporarily_unavailable_item-retry",
               "BO-TC-C1_authorization_coverage-all_items_and_pages_terminal",
               "BO-TC-C1_authorization_coverage-all_items_and_pages_terminal-retry",
               "BO-TC-C1_authorization_coverage-nonterminal_or_missing_page",
               "BO-TC-C1_authorization_coverage-nonterminal_or_missing_page-retry",
+              "BO-TC-C1_authorization_coverage-large_root_budget_exceeded",
+              "BO-TC-C1_authorization_coverage-large_root_budget_exceeded-retry",
+              "BO-TC-C1_authorization_coverage-parent_partition_boundary",
+              "BO-TC-C1_authorization_coverage-parent_partition_boundary-retry",
+              "BO-TC-C1_authorization_coverage-partition_child_retains_policy_context",
+              "BO-TC-C1_authorization_coverage-partition_child_retains_policy_context-retry",
+              "BO-TC-C1_authorization_coverage-generated_state_pruned_before_partition",
+              "BO-TC-C1_authorization_coverage-generated_state_pruned_before_partition-retry",
+              "BO-TC-C1_authorization_coverage-partition_child_pending_failed_or_stale",
+              "BO-TC-C1_authorization_coverage-partition_child_pending_failed_or_stale-retry",
+              "BO-TC-C1_authorization_coverage-partition_checkpoint_batch_progress",
+              "BO-TC-C1_authorization_coverage-partition_checkpoint_batch_progress-retry",
+              "BO-TC-C1_authorization_coverage-bounded_child_scanned_before_further_partition",
+              "BO-TC-C1_authorization_coverage-bounded_child_scanned_before_further_partition-retry",
+              "BO-TC-C1_authorization_coverage-canary_smallest_sufficient_partition_first",
+              "BO-TC-C1_authorization_coverage-canary_smallest_sufficient_partition_first-retry",
+              "BO-TC-C1_authorization_coverage-canary_stage_updates_batch_summary_once",
+              "BO-TC-C1_authorization_coverage-canary_stage_updates_batch_summary_once-retry",
+              "BO-TC-C1_authorization_coverage-gmail_budget_prioritizes_supplied_authorized_content",
+              "BO-TC-C1_authorization_coverage-gmail_budget_prioritizes_supplied_authorized_content-retry",
+              "BO-TC-C1_authorization_coverage-all_partitions_and_items_terminal",
+              "BO-TC-C1_authorization_coverage-all_partitions_and_items_terminal-retry",
               "BO-TC-C1_authorization_coverage-tracking_policy_changed",
               "BO-TC-C1_authorization_coverage-tracking_policy_changed-retry",
+              "BO-TC-C1_authorization_coverage-policy_changed_after_user_override",
+              "BO-TC-C1_authorization_coverage-policy_changed_after_user_override-retry",
+              "BO-TC-C1_authorization_coverage-source_catalog_action_current",
+              "BO-TC-C1_authorization_coverage-source_catalog_action_current-retry",
               "BO-TC-C1_authorization_coverage-outside_scope",
               "BO-TC-C1_authorization_coverage-outside_scope-retry",
               "BO-TC-C1_authorization_coverage-authorization_revoked",
               "BO-TC-C1_authorization_coverage-authorization_revoked-retry",
               "BO-TC-C1_authorization_coverage-private_root_outside_git",
               "BO-TC-C1_authorization_coverage-private_root_outside_git-retry",
+              "BO-TC-C1_authorization_coverage-installed_private_root_single_physical_authority",
+              "BO-TC-C1_authorization_coverage-installed_private_root_single_physical_authority-retry",
               "BO-TC-C1_authorization_coverage-private_root_inside_git",
               "BO-TC-C1_authorization_coverage-private_root_inside_git-retry",
               "BO-C1_authorization_coverage-foreign_owner_write",
@@ -2237,7 +2447,6 @@
             "evidence_current": false,
             "evidence_refs": [],
             "fallback_candidate_ids": [],
-            "legacy_plural_migrated": false,
             "metadata": {},
             "path_sensitive": true,
             "ppa_confidence": "blocked",
@@ -2248,7 +2457,6 @@
             "ppa_report_id": "",
             "ppa_risk_gate_ids": [],
             "primary_path_id": "path:ao-source-analysis-work-package",
-            "primary_path_migration_ambiguous": false,
             "proof_artifact_ids": [],
             "runtime_observation_ids": [],
             "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
@@ -2269,7 +2477,6 @@
             "evidence_current": false,
             "evidence_refs": [],
             "fallback_candidate_ids": [],
-            "legacy_plural_migrated": false,
             "metadata": {},
             "path_sensitive": true,
             "ppa_confidence": "blocked",
@@ -2280,7 +2487,6 @@
             "ppa_report_id": "",
             "ppa_risk_gate_ids": [],
             "primary_path_id": "path:ao-source-analysis-work-package",
-            "primary_path_migration_ambiguous": false,
             "proof_artifact_ids": [],
             "runtime_observation_ids": [],
             "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
@@ -2301,7 +2507,6 @@
             "evidence_current": false,
             "evidence_refs": [],
             "fallback_candidate_ids": [],
-            "legacy_plural_migrated": false,
             "metadata": {},
             "path_sensitive": true,
             "ppa_confidence": "blocked",
@@ -2312,7 +2517,6 @@
             "ppa_report_id": "",
             "ppa_risk_gate_ids": [],
             "primary_path_id": "path:ao-source-analysis-work-package",
-            "primary_path_migration_ambiguous": false,
             "proof_artifact_ids": [],
             "runtime_observation_ids": [],
             "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
@@ -2333,7 +2537,6 @@
             "evidence_current": false,
             "evidence_refs": [],
             "fallback_candidate_ids": [],
-            "legacy_plural_migrated": false,
             "metadata": {},
             "path_sensitive": true,
             "ppa_confidence": "blocked",
@@ -2344,7 +2547,6 @@
             "ppa_report_id": "",
             "ppa_risk_gate_ids": [],
             "primary_path_id": "path:ao-research-operation-researchguard",
-            "primary_path_migration_ambiguous": false,
             "proof_artifact_ids": [],
             "runtime_observation_ids": [],
             "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
@@ -2365,7 +2567,6 @@
             "evidence_current": false,
             "evidence_refs": [],
             "fallback_candidate_ids": [],
-            "legacy_plural_migrated": false,
             "metadata": {},
             "path_sensitive": true,
             "ppa_confidence": "blocked",
@@ -2376,7 +2577,6 @@
             "ppa_report_id": "",
             "ppa_risk_gate_ids": [],
             "primary_path_id": "path:ao-research-operation-researchguard",
-            "primary_path_migration_ambiguous": false,
             "proof_artifact_ids": [],
             "runtime_observation_ids": [],
             "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
@@ -2397,7 +2597,6 @@
             "evidence_current": false,
             "evidence_refs": [],
             "fallback_candidate_ids": [],
-            "legacy_plural_migrated": false,
             "metadata": {},
             "path_sensitive": true,
             "ppa_confidence": "blocked",
@@ -2408,7 +2607,6 @@
             "ppa_report_id": "",
             "ppa_risk_gate_ids": [],
             "primary_path_id": "path:ao-research-operation-researchguard",
-            "primary_path_migration_ambiguous": false,
             "proof_artifact_ids": [],
             "runtime_observation_ids": [],
             "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
@@ -2429,7 +2627,6 @@
             "evidence_current": false,
             "evidence_refs": [],
             "fallback_candidate_ids": [],
-            "legacy_plural_migrated": false,
             "metadata": {},
             "path_sensitive": true,
             "ppa_confidence": "blocked",
@@ -2440,7 +2637,6 @@
             "ppa_report_id": "",
             "ppa_risk_gate_ids": [],
             "primary_path_id": "path:dpf-matters-g0-g12",
-            "primary_path_migration_ambiguous": false,
             "proof_artifact_ids": [],
             "runtime_observation_ids": [],
             "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
@@ -2461,7 +2657,6 @@
             "evidence_current": false,
             "evidence_refs": [],
             "fallback_candidate_ids": [],
-            "legacy_plural_migrated": false,
             "metadata": {},
             "path_sensitive": true,
             "ppa_confidence": "blocked",
@@ -2472,7 +2667,6 @@
             "ppa_report_id": "",
             "ppa_risk_gate_ids": [],
             "primary_path_id": "path:dpf-matters-g0-g12",
-            "primary_path_migration_ambiguous": false,
             "proof_artifact_ids": [],
             "runtime_observation_ids": [],
             "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
@@ -2493,7 +2687,6 @@
             "evidence_current": false,
             "evidence_refs": [],
             "fallback_candidate_ids": [],
-            "legacy_plural_migrated": false,
             "metadata": {},
             "path_sensitive": true,
             "ppa_confidence": "blocked",
@@ -2504,7 +2697,6 @@
             "ppa_report_id": "",
             "ppa_risk_gate_ids": [],
             "primary_path_id": "path:dpf-matters-g0-g12",
-            "primary_path_migration_ambiguous": false,
             "proof_artifact_ids": [],
             "runtime_observation_ids": [],
             "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
@@ -2525,7 +2717,6 @@
             "evidence_current": false,
             "evidence_refs": [],
             "fallback_candidate_ids": [],
-            "legacy_plural_migrated": false,
             "metadata": {},
             "path_sensitive": true,
             "ppa_confidence": "blocked",
@@ -2536,7 +2727,6 @@
             "ppa_report_id": "",
             "ppa_risk_gate_ids": [],
             "primary_path_id": "path:dpf-clean-source-release",
-            "primary_path_migration_ambiguous": false,
             "proof_artifact_ids": [],
             "runtime_observation_ids": [],
             "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
@@ -2557,7 +2747,6 @@
             "evidence_current": false,
             "evidence_refs": [],
             "fallback_candidate_ids": [],
-            "legacy_plural_migrated": false,
             "metadata": {},
             "path_sensitive": true,
             "ppa_confidence": "blocked",
@@ -2568,7 +2757,6 @@
             "ppa_report_id": "",
             "ppa_risk_gate_ids": [],
             "primary_path_id": "path:dpf-clean-source-release",
-            "primary_path_migration_ambiguous": false,
             "proof_artifact_ids": [],
             "runtime_observation_ids": [],
             "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
@@ -2589,7 +2777,6 @@
             "evidence_current": false,
             "evidence_refs": [],
             "fallback_candidate_ids": [],
-            "legacy_plural_migrated": false,
             "metadata": {},
             "path_sensitive": true,
             "ppa_confidence": "blocked",
@@ -2600,7 +2787,6 @@
             "ppa_report_id": "",
             "ppa_risk_gate_ids": [],
             "primary_path_id": "path:dpf-clean-source-release",
-            "primary_path_migration_ambiguous": false,
             "proof_artifact_ids": [],
             "runtime_observation_ids": [],
             "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
@@ -2621,7 +2807,6 @@
             "evidence_current": false,
             "evidence_refs": [],
             "fallback_candidate_ids": [],
-            "legacy_plural_migrated": false,
             "metadata": {},
             "path_sensitive": true,
             "ppa_confidence": "blocked",
@@ -2632,7 +2817,6 @@
             "ppa_report_id": "",
             "ppa_risk_gate_ids": [],
             "primary_path_id": "path:dpf-progressive-private-first-run",
-            "primary_path_migration_ambiguous": false,
             "proof_artifact_ids": [],
             "runtime_observation_ids": [],
             "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
@@ -2653,7 +2837,6 @@
             "evidence_current": false,
             "evidence_refs": [],
             "fallback_candidate_ids": [],
-            "legacy_plural_migrated": false,
             "metadata": {},
             "path_sensitive": true,
             "ppa_confidence": "blocked",
@@ -2664,7 +2847,6 @@
             "ppa_report_id": "",
             "ppa_risk_gate_ids": [],
             "primary_path_id": "path:dpf-progressive-private-first-run",
-            "primary_path_migration_ambiguous": false,
             "proof_artifact_ids": [],
             "runtime_observation_ids": [],
             "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
@@ -2685,7 +2867,6 @@
             "evidence_current": false,
             "evidence_refs": [],
             "fallback_candidate_ids": [],
-            "legacy_plural_migrated": false,
             "metadata": {},
             "path_sensitive": true,
             "ppa_confidence": "blocked",
@@ -2696,7 +2877,6 @@
             "ppa_report_id": "",
             "ppa_risk_gate_ids": [],
             "primary_path_id": "path:dpf-progressive-private-first-run",
-            "primary_path_migration_ambiguous": false,
             "proof_artifact_ids": [],
             "runtime_observation_ids": [],
             "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
@@ -2717,7 +2897,6 @@
             "evidence_current": false,
             "evidence_refs": [],
             "fallback_candidate_ids": [],
-            "legacy_plural_migrated": false,
             "metadata": {},
             "path_sensitive": true,
             "ppa_confidence": "blocked",
@@ -2728,7 +2907,6 @@
             "ppa_report_id": "",
             "ppa_risk_gate_ids": [],
             "primary_path_id": "path:s0-freeze-bundled-skill-pack",
-            "primary_path_migration_ambiguous": false,
             "proof_artifact_ids": [],
             "runtime_observation_ids": [],
             "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
@@ -2749,7 +2927,6 @@
             "evidence_current": false,
             "evidence_refs": [],
             "fallback_candidate_ids": [],
-            "legacy_plural_migrated": false,
             "metadata": {},
             "path_sensitive": true,
             "ppa_confidence": "blocked",
@@ -2760,7 +2937,6 @@
             "ppa_report_id": "",
             "ppa_risk_gate_ids": [],
             "primary_path_id": "path:s0-freeze-bundled-skill-pack",
-            "primary_path_migration_ambiguous": false,
             "proof_artifact_ids": [],
             "runtime_observation_ids": [],
             "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
@@ -2781,7 +2957,6 @@
             "evidence_current": false,
             "evidence_refs": [],
             "fallback_candidate_ids": [],
-            "legacy_plural_migrated": false,
             "metadata": {},
             "path_sensitive": true,
             "ppa_confidence": "blocked",
@@ -2792,7 +2967,6 @@
             "ppa_report_id": "",
             "ppa_risk_gate_ids": [],
             "primary_path_id": "path:s0-freeze-bundled-skill-pack",
-            "primary_path_migration_ambiguous": false,
             "proof_artifact_ids": [],
             "runtime_observation_ids": [],
             "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
@@ -2813,7 +2987,6 @@
             "evidence_current": false,
             "evidence_refs": [],
             "fallback_candidate_ids": [],
-            "legacy_plural_migrated": false,
             "metadata": {},
             "path_sensitive": true,
             "ppa_confidence": "blocked",
@@ -2824,7 +2997,6 @@
             "ppa_report_id": "",
             "ppa_risk_gate_ids": [],
             "primary_path_id": "path:s0-resolve-compatible-active-view",
-            "primary_path_migration_ambiguous": false,
             "proof_artifact_ids": [],
             "runtime_observation_ids": [],
             "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
@@ -2845,7 +3017,6 @@
             "evidence_current": false,
             "evidence_refs": [],
             "fallback_candidate_ids": [],
-            "legacy_plural_migrated": false,
             "metadata": {},
             "path_sensitive": true,
             "ppa_confidence": "blocked",
@@ -2856,7 +3027,6 @@
             "ppa_report_id": "",
             "ppa_risk_gate_ids": [],
             "primary_path_id": "path:s0-resolve-compatible-active-view",
-            "primary_path_migration_ambiguous": false,
             "proof_artifact_ids": [],
             "runtime_observation_ids": [],
             "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
@@ -2877,7 +3047,6 @@
             "evidence_current": false,
             "evidence_refs": [],
             "fallback_candidate_ids": [],
-            "legacy_plural_migrated": false,
             "metadata": {},
             "path_sensitive": true,
             "ppa_confidence": "blocked",
@@ -2888,7 +3057,6 @@
             "ppa_report_id": "",
             "ppa_risk_gate_ids": [],
             "primary_path_id": "path:s0-resolve-compatible-active-view",
-            "primary_path_migration_ambiguous": false,
             "proof_artifact_ids": [],
             "runtime_observation_ids": [],
             "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
@@ -2909,7 +3077,6 @@
             "evidence_current": false,
             "evidence_refs": [],
             "fallback_candidate_ids": [],
-            "legacy_plural_migrated": false,
             "metadata": {},
             "path_sensitive": true,
             "ppa_confidence": "blocked",
@@ -2920,7 +3087,6 @@
             "ppa_report_id": "",
             "ppa_risk_gate_ids": [],
             "primary_path_id": "path:s0-managed-sync-with-rollback",
-            "primary_path_migration_ambiguous": false,
             "proof_artifact_ids": [],
             "runtime_observation_ids": [],
             "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
@@ -2941,7 +3107,6 @@
             "evidence_current": false,
             "evidence_refs": [],
             "fallback_candidate_ids": [],
-            "legacy_plural_migrated": false,
             "metadata": {},
             "path_sensitive": true,
             "ppa_confidence": "blocked",
@@ -2952,7 +3117,6 @@
             "ppa_report_id": "",
             "ppa_risk_gate_ids": [],
             "primary_path_id": "path:s0-managed-sync-with-rollback",
-            "primary_path_migration_ambiguous": false,
             "proof_artifact_ids": [],
             "runtime_observation_ids": [],
             "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
@@ -2973,7 +3137,6 @@
             "evidence_current": false,
             "evidence_refs": [],
             "fallback_candidate_ids": [],
-            "legacy_plural_migrated": false,
             "metadata": {},
             "path_sensitive": true,
             "ppa_confidence": "blocked",
@@ -2984,7 +3147,6 @@
             "ppa_report_id": "",
             "ppa_risk_gate_ids": [],
             "primary_path_id": "path:s0-managed-sync-with-rollback",
-            "primary_path_migration_ambiguous": false,
             "proof_artifact_ids": [],
             "runtime_observation_ids": [],
             "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
@@ -3005,7 +3167,6 @@
             "evidence_current": false,
             "evidence_refs": [],
             "fallback_candidate_ids": [],
-            "legacy_plural_migrated": false,
             "metadata": {},
             "path_sensitive": true,
             "ppa_confidence": "blocked",
@@ -3016,7 +3177,6 @@
             "ppa_report_id": "",
             "ppa_risk_gate_ids": [],
             "primary_path_id": "path:s0-freeze-researchguard-integration",
-            "primary_path_migration_ambiguous": false,
             "proof_artifact_ids": [],
             "runtime_observation_ids": [],
             "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
@@ -3037,7 +3197,6 @@
             "evidence_current": false,
             "evidence_refs": [],
             "fallback_candidate_ids": [],
-            "legacy_plural_migrated": false,
             "metadata": {},
             "path_sensitive": true,
             "ppa_confidence": "blocked",
@@ -3048,7 +3207,6 @@
             "ppa_report_id": "",
             "ppa_risk_gate_ids": [],
             "primary_path_id": "path:s0-freeze-researchguard-integration",
-            "primary_path_migration_ambiguous": false,
             "proof_artifact_ids": [],
             "runtime_observation_ids": [],
             "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
@@ -3069,7 +3227,6 @@
             "evidence_current": false,
             "evidence_refs": [],
             "fallback_candidate_ids": [],
-            "legacy_plural_migrated": false,
             "metadata": {},
             "path_sensitive": true,
             "ppa_confidence": "blocked",
@@ -3080,7 +3237,6 @@
             "ppa_report_id": "",
             "ppa_risk_gate_ids": [],
             "primary_path_id": "path:s0-freeze-researchguard-integration",
-            "primary_path_migration_ambiguous": false,
             "proof_artifact_ids": [],
             "runtime_observation_ids": [],
             "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
@@ -3101,7 +3257,6 @@
             "evidence_current": false,
             "evidence_refs": [],
             "fallback_candidate_ids": [],
-            "legacy_plural_migrated": false,
             "metadata": {},
             "path_sensitive": true,
             "ppa_confidence": "blocked",
@@ -3112,7 +3267,6 @@
             "ppa_report_id": "",
             "ppa_risk_gate_ids": [],
             "primary_path_id": "path:dpf-self-maintenance-model-miss-handoff",
-            "primary_path_migration_ambiguous": false,
             "proof_artifact_ids": [],
             "runtime_observation_ids": [],
             "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
@@ -3133,7 +3287,6 @@
             "evidence_current": false,
             "evidence_refs": [],
             "fallback_candidate_ids": [],
-            "legacy_plural_migrated": false,
             "metadata": {},
             "path_sensitive": true,
             "ppa_confidence": "blocked",
@@ -3144,7 +3297,6 @@
             "ppa_report_id": "",
             "ppa_risk_gate_ids": [],
             "primary_path_id": "path:dpf-self-maintenance-model-miss-handoff",
-            "primary_path_migration_ambiguous": false,
             "proof_artifact_ids": [],
             "runtime_observation_ids": [],
             "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
@@ -3165,7 +3317,6 @@
             "evidence_current": false,
             "evidence_refs": [],
             "fallback_candidate_ids": [],
-            "legacy_plural_migrated": false,
             "metadata": {},
             "path_sensitive": true,
             "ppa_confidence": "blocked",
@@ -3176,7 +3327,96 @@
             "ppa_report_id": "",
             "ppa_risk_gate_ids": [],
             "primary_path_id": "path:dpf-self-maintenance-model-miss-handoff",
-            "primary_path_migration_ambiguous": false,
+            "proof_artifact_ids": [],
+            "runtime_observation_ids": [],
+            "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
+          }
+        },
+        "severity": "blocker",
+        "surface_id": ""
+      },
+      {
+        "code": "commitment_primary_path_blocked",
+        "commitment_id": "BC-AO-003",
+        "message": "Primary Path Authority blocks this path-sensitive commitment",
+        "metadata": {
+          "path_authority": {
+            "behavior_commitment_id": "BC-AO-003",
+            "business_intent": "",
+            "business_intent_id": "BI-AO-003-orchestrate-private-maintenance",
+            "evidence_current": false,
+            "evidence_refs": [],
+            "fallback_candidate_ids": [],
+            "metadata": {},
+            "path_sensitive": true,
+            "ppa_confidence": "blocked",
+            "ppa_coverage_receipt_ids": [],
+            "ppa_coverage_shard_ids": [],
+            "ppa_decision": "primary_path_authority_blocked",
+            "ppa_ok": false,
+            "ppa_report_id": "",
+            "ppa_risk_gate_ids": [],
+            "primary_path_id": "path:ao-private-maintenance-orchestrator",
+            "proof_artifact_ids": [],
+            "runtime_observation_ids": [],
+            "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
+          }
+        },
+        "severity": "blocker",
+        "surface_id": ""
+      },
+      {
+        "code": "commitment_primary_path_material_evidence_missing",
+        "commitment_id": "BC-AO-003",
+        "message": "PPA binding must carry current runtime observations and proof artifact ids",
+        "metadata": {
+          "path_authority": {
+            "behavior_commitment_id": "BC-AO-003",
+            "business_intent": "",
+            "business_intent_id": "BI-AO-003-orchestrate-private-maintenance",
+            "evidence_current": false,
+            "evidence_refs": [],
+            "fallback_candidate_ids": [],
+            "metadata": {},
+            "path_sensitive": true,
+            "ppa_confidence": "blocked",
+            "ppa_coverage_receipt_ids": [],
+            "ppa_coverage_shard_ids": [],
+            "ppa_decision": "primary_path_authority_blocked",
+            "ppa_ok": false,
+            "ppa_report_id": "",
+            "ppa_risk_gate_ids": [],
+            "primary_path_id": "path:ao-private-maintenance-orchestrator",
+            "proof_artifact_ids": [],
+            "runtime_observation_ids": [],
+            "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
+          }
+        },
+        "severity": "blocker",
+        "surface_id": ""
+      },
+      {
+        "code": "commitment_primary_path_risk_gate_missing",
+        "commitment_id": "BC-AO-003",
+        "message": "PPA binding must preserve downstream risk gate ids",
+        "metadata": {
+          "path_authority": {
+            "behavior_commitment_id": "BC-AO-003",
+            "business_intent": "",
+            "business_intent_id": "BI-AO-003-orchestrate-private-maintenance",
+            "evidence_current": false,
+            "evidence_refs": [],
+            "fallback_candidate_ids": [],
+            "metadata": {},
+            "path_sensitive": true,
+            "ppa_confidence": "blocked",
+            "ppa_coverage_receipt_ids": [],
+            "ppa_coverage_shard_ids": [],
+            "ppa_decision": "primary_path_authority_blocked",
+            "ppa_ok": false,
+            "ppa_report_id": "",
+            "ppa_risk_gate_ids": [],
+            "primary_path_id": "path:ao-private-maintenance-orchestrator",
             "proof_artifact_ids": [],
             "runtime_observation_ids": [],
             "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
@@ -3211,7 +3451,8 @@
       "BI-DP-006-resolve-compatible-active-view",
       "BI-DP-007-sync-managed-skill-projection",
       "BI-DP-008-freeze-researchguard-integration",
-      "BI-DP-009-handoff-self-maintenance-model-miss"
+      "BI-DP-009-handoff-self-maintenance-model-miss",
+      "BI-AO-003-orchestrate-private-maintenance"
     ],
     "ok": false,
     "path_sensitive_commitment_ids": [
@@ -3238,7 +3479,8 @@
       "BC-DP-006",
       "BC-DP-007",
       "BC-DP-008",
-      "BC-DP-009"
+      "BC-DP-009",
+      "BC-AO-003"
     ],
     "ppa_blocked_commitment_ids": [
       "BC-PR-000",
@@ -3264,7 +3506,8 @@
       "BC-DP-006",
       "BC-DP-007",
       "BC-DP-008",
-      "BC-DP-009"
+      "BC-DP-009",
+      "BC-AO-003"
     ],
     "required_risk_gate_ids": [
       "G3-model-mesh-closure",
@@ -3310,14 +3553,16 @@
       "G12-installed-currentness",
       "G6-researchguard-conformance",
       "G6-model-miss-handoff",
-      "G10-affected-revalidation"
+      "G10-affected-revalidation",
+      "G6-maintenance-orchestration-contract",
+      "G9-synthetic-maintenance-join-matrix"
     ],
-    "summary": "BLOCKED: ledger=matters-behavior-commitment-ledger decision=behavior_commitment_coverage_blocked findings=58",
+    "summary": "BLOCKED: ledger=matters-behavior-commitment-ledger decision=behavior_commitment_coverage_blocked findings=61",
     "unmapped_surface_ids": []
   },
   "status": "structural_inventory_current_evidence_deferred",
   "three_plane_counts": {
-    "agent_operation": 2,
+    "agent_operation": 3,
     "development_process": 8,
     "product_runtime": 14
   },

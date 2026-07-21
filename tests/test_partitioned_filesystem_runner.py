@@ -190,7 +190,9 @@ def test_partition_canary_uses_smallest_current_subtree_that_fills_sample(
     assert summary_refreshes == 1
 
 
-def test_partition_manifest_blocks_a_stale_tracking_policy(tmp_path: Path):
+def test_partition_manifest_rebuilds_under_the_current_tracking_policy(
+    tmp_path: Path,
+):
     repository, private, source = _service_roots(tmp_path)
     (source / "one.txt").write_text("one", encoding="utf-8")
     service = MatterService(
@@ -208,11 +210,68 @@ def test_partition_manifest_blocks_a_stale_tracking_policy(tmp_path: Path):
     manifest["policy_revision"] = CURRENT_TRACKING_POLICY_REVISION - 1
     runner._save(manifest)
 
-    with pytest.raises(
-        PartitionManifestError,
-        match="partition_manifest_policy_stale",
-    ):
-        runner.run(source)
+    result = runner.run(source)
+    replaced = json.loads(manifest_path.read_text(encoding="utf-8"))
+
+    assert result["ok"]
+    assert replaced["policy_revision"] == CURRENT_TRACKING_POLICY_REVISION
+    assert replaced["superseded_policy_revision"] == (
+        CURRENT_TRACKING_POLICY_REVISION - 1
+    )
+    assert replaced["superseded_manifest_identity"].startswith("sha256:")
+
+
+def test_partition_refresh_retires_pruned_scopes_and_active_coverage(
+    tmp_path: Path,
+):
+    repository, private, source = _service_roots(tmp_path)
+    former = source / "former-user-folder"
+    former.mkdir()
+    (former / "note.txt").write_text("note", encoding="utf-8")
+    service = MatterService(
+        repository_root=repository,
+        private_root=private,
+    )
+    manifest_path = private / "runs" / "policy-prune.json"
+    runner = PartitionedFilesystemRunner(
+        service,
+        manifest_path=manifest_path,
+        max_entries=20,
+        content_limit=0,
+    )
+    first = runner.run(source)
+    assert first["ok"]
+    prior_scope = next(
+        payload
+        for payload in service.store.iter_current("candidate_scope")
+        if Path(str(payload["root_locator"])) == former.resolve()
+    )
+    prior_snapshot = service.inventory.latest_snapshot(
+        str(prior_scope["scope_id"])
+    )
+    assert prior_snapshot is not None
+    retired_object_id = prior_snapshot.occurrences[0].occurrence_id
+
+    former.rename(source / ".local")
+    refreshed = runner.run(source, refresh=True)
+
+    retired_scope = service.store.current(
+        "candidate_scope",
+        str(prior_scope["scope_id"]),
+    )
+    retired_coverage = service.coverage_ledger.current(retired_object_id)
+    page, _total = service.coverage_ledger.page(offset=0, limit=100)
+
+    assert refreshed["ok"]
+    assert refreshed["retired_scope_count"] >= 1
+    assert refreshed["retired_object_count"] >= 1
+    assert retired_scope["active"] is False
+    assert retired_coverage is not None
+    assert retired_coverage.active is False
+    assert retired_object_id not in {
+        row["object_id"] for row in page
+    }
+    assert str(source) not in repr(refreshed)
 
 
 def test_partition_runner_keeps_unpartitionable_flat_directory_blocked(

@@ -34,3 +34,17 @@ condition before an AI or local-skill suggestion becomes a canonical OpenLoop.
 #### Scenario: AI finds vague waiting language
 - **WHEN** an advisory result reports waiting but cannot cite a target and closure condition
 - **THEN** the system SHALL automatically emit an `open_loop_gap` or policy rejection and SHALL NOT create a canonical OpenLoop or confirmation queue
+
+### Requirement: Child blocking propagates only through an explicit critical edge
+A child OpenLoop or blocker SHALL affect its child Matter first. It SHALL mark
+an ancestor fully blocked only when the current containment edge is `critical`,
+the blocker prevents every valid parent path, and current evidence licenses
+that conclusion.
+
+#### Scenario: Optional hotel preference is unresolved
+- **WHEN** an optional child Matter is waiting but the root trip can continue
+- **THEN** the child SHALL show waiting and the root SHALL NOT become fully blocked
+
+#### Scenario: Critical visa child prevents the trip
+- **WHEN** a critical child has a current blocker that prevents every valid trip path
+- **THEN** the parent blocking owner MAY publish a fully blocked parent decision with the child edge and loop evidence
