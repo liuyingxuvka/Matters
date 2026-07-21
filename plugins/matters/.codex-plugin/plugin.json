@@ -1,11 +1,11 @@
 {
   "name": "matters",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Give Codex one bounded information map for current Matters, history, predictions, corrections, and durable AI feedback.",
   "author": {
     "name": "Matters contributors"
   },
-  "license": "LicenseRef-Proprietary-Private-Repository-Release",
+  "license": "MIT",
   "keywords": [
     "personal-situation",
     "history",

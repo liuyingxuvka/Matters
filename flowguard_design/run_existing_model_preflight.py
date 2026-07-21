@@ -43,7 +43,7 @@ SOURCE_ANALYSIS_OWNER_ID = "A0_matters_source_analysis_operation"
 RESEARCH_OWNER_ID = "A1_matters_research_operation"
 MAINTENANCE_ORCHESTRATOR_OWNER_ID = "A2_matters_maintenance_orchestrator_operation"
 AI_GATEWAY_OWNER_ID = "A3_matters_ai_gateway_operation"
-SCOPE_REVISION = "v0.3.0-matter-browser-semantic-reset-v9"
+SCOPE_REVISION = "v0.3.1-mit-public-release-v10"
 REUSE_MAP = {
     "M0_matters_end_to_end_authority": "extend_with_source_in_place_migration_situation_graph_world_model_and_ui_reachability_join",
     "C1_authorization_coverage": "extend_with_source_in_place_storage_cleanup_group_graph_world_model_and_ui_stage_coverage",
@@ -187,7 +187,7 @@ def _process_hit() -> ModelContextHit:
         evidence_current=False,
         responsibilities=(
             "development gate order and evidence freshness",
-            "generic v0.3.0 release before progressive private first-run sequencing",
+            "generic v0.3.1 release before progressive private first-run sequencing",
             "Model Miss handoff into ordinary development",
         ),
         function_blocks=(
@@ -577,7 +577,7 @@ def build_preflight() -> ExistingModelPreflight:
             "matters-autonomous-object-browser-existing-model-preflight"
         ),
         task_summary=(
-            "Extend Matters v0.3.0 for a frozen candidate source universe, automatic "
+            "Extend Matters v0.3.1 for a frozen candidate source universe, automatic "
             "reversible terminal dispositions, durable inventory and ObjectCoverageLedger "
             "freshness/depth and exact per-object stage audit, context-aware root/child "
             "reconciliation, source-in-place storage with durable pointer/fingerprint and "
@@ -596,7 +596,7 @@ def build_preflight() -> ExistingModelPreflight:
             "pack without machine-global overlays, one separate public Matters AI "
             "gateway for bounded model-map/context/history access and typed feedback, "
             "event-driven progressive private maintenance through one shared path "
-            "after one separately verified generic public source-available v0.3.0 release, "
+            "after one separately verified generic public MIT-licensed v0.3.1 release, "
             "with daily scheduling opt-in only, and bounded Model Miss handoff "
             "without app-owned API keys, Jira/Rovo, Guard vendoring, or legacy "
             "Guard fallbacks."
@@ -636,7 +636,7 @@ def build_preflight() -> ExistingModelPreflight:
                 primary_owner_model_id=PROCESS_OWNER_ID,
                 score=99,
                 match_reasons=(
-                    "generic v0.3.0 public source-available release must close before the private first run",
+                    "generic v0.3.1 public MIT-licensed release must close before the private first run",
                     "release evidence excludes private aggregate consumption and completion claims",
                 ),
                 hit_role="validation_target",
@@ -723,7 +723,7 @@ def build_preflight() -> ExistingModelPreflight:
         ledger_fingerprint=ledger_fingerprint,
         behavior_lookup_reason=(
             "The change is primarily a development lifecycle and integration "
-            "rebase. DPF owns both the generic v0.3.0 release gate and the "
+            "rebase. DPF owns both the generic v0.3.1 release gate and the "
             "separate post-release private-first-run sequence; C1-C12 and agent "
             "operations are typed evidence targets and never merge into the "
             "development-process plane."

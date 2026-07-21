@@ -389,7 +389,7 @@
 
 - [x] 12.1 Recheck the complete required-public inventory before the first Git commit
 - [x] 12.2 Add package metadata, CLI entrypoint, UI/package data, build configuration, changelog, security policy, and deterministic SBOM
-- [x] 12.3 Freeze `liuyingxuvka/Matters` as a public repository under the proprietary source-available personal non-commercial license; keep OSI-approved open-source licensing and broader commercial redistribution out of scope until a separate explicit authorization
+- [x] 12.3 Freeze `liuyingxuvka/Matters` as a public repository under the MIT License while keeping private user data outside the public inventory
 - [x] 12.4 Run tracked/ignored/history/staging/link/path/secret/package/metadata scans on the candidate
 - [x] 12.5 Create an isolated clean clone or archive and run synthetic tests with empty private roots and fake runners
 - [x] 12.6 Verify Windows local install/start and record Linux CI as not run unless an actual Linux owner executes it
@@ -406,14 +406,15 @@
 - [ ] 12.17 Verify one portable frozen ResearchGuard currentness receipt or keep the local candidate blocked; no separate SourceGuard/TraceGuard/LogicGuard fallback may close the final complete-release gate
 - [ ] 12.18 Verify source, local package install, immutable bundled layer, machine-installed inventory and managed subtype, resolved active-view layer, local repository, commit, tag, and local release artifact as distinct synchronized identities
 - [ ] 12.19 Build and install the frozen Windows desktop package with one application shell around the packaged Web UI, installed application/desktop shortcut and icon, loopback-only service, bounded worker, private shell profile, persisted locale/density/window state, startup/recovery surface, and clean owned-process shutdown; verify desktop/service/worker/UI/skill/version identities against source, produce a desktop-specific public release ZIP that excludes self-test and `direct_url.json` build provenance and revalidates manifest/package/executable/toolchain identities, prove a browser-development URL alone cannot satisfy this gate, and restore the prior installed application transactionally on failure
-- [ ] 12.20 Freeze the exact GitHub repository, visibility, license disposition, public inventory, commit, tag, and release notes; then push and publish generic v0.3.0 without private data or a private-first-run completion claim
-- [ ] 12.21 Continue the private Gmail/local/Codex first run against released v0.3.0, reproduce reusable defects with public-safe synthetic evidence, and publish a separately frozen patch release only when accumulated generic fixes justify it
+- [x] 12.20 Freeze the exact GitHub repository, visibility, initial license disposition, public inventory, commit, tag, and release notes; then push and publish generic v0.3.0 without private data or a private-first-run completion claim
+- [ ] 12.21 Continue the private Gmail/local/Codex first run against the latest released 0.3.x contract, reproduce reusable defects with public-safe synthetic evidence, and publish a separately frozen patch release only when accumulated generic fixes justify it
+- [ ] 12.22 Correct the public source boundary wording, relicense the complete software under MIT, advance source/plugin/SBOM/package/desktop identities to v0.3.1, and publish a separately verified release without rewriting v0.3.0
 
 ## 13. Post-v0.2 Optional Connectors
 
 - [x] 13.1 Keep the generic Jira read adapter disabled, source-only, and excluded from every v0.2 required gate
 - [ ] 13.2 Keep Gmail v0.2 strictly user-authorized and read-only; allow only bounded Codex-hosted daily read/reconcile/model maintenance through the existing grant, while mailbox mutation, unattended non-Codex background sync, and general outbound-mail automation remain separate future-change decisions
-- [x] 13.3 Record Jira, Rovo, advanced audio/video/archive/database/model extractors, calendar or additional cloud-provider connectors, OSI-approved open-source licensing, and broader commercial redistribution as separate future-change decisions
+- [x] 13.3 Record Jira, Rovo, advanced audio/video/archive/database/model extractors, calendar, and additional cloud-provider connectors as separate future-change decisions
 
 ## 14. Semantic State and Hierarchy Stabilization
 

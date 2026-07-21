@@ -143,8 +143,8 @@ repository.
 - Multiple compatibility success paths or UI/provider-owned canonical state.
 - Publishing renamed, pseudonymized, hashed, embedded, summarized, screenshotted,
   or otherwise derived real private material as synthetic data.
-- An OSI-approved open-source license or broader commercial redistribution
-  right without a separate explicit user decision.
+- Publishing private user data merely because the software itself is licensed
+  under MIT.
 
 ## Decisions
 
@@ -1375,12 +1375,11 @@ terminate current before the complete-release claim.
 - **The current FlowGuard project audit has an external suite-inventory
   blocker** → Keep it visible, run target-owned model checks directly, and
   never convert the disposition into broad project-audit green evidence.
-- **The v0.3.0 GitHub publication identity is public and source-available** →
-  Freeze `liuyingxuvka/Matters`, public visibility, the proprietary
-  source-available personal non-commercial license, the approved generic
-  inventory, and tag `v0.3.0`; do not widen that decision into an OSI-approved
-  open-source license, unrestricted commercial redistribution, or private-data
-  publication.
+- **The current GitHub publication identity is public and MIT-licensed** →
+  Preserve historical tag `v0.3.0`, freeze `liuyingxuvka/Matters`, public
+  visibility, the MIT License, the approved generic inventory, and corrective
+  tag `v0.3.1`; never treat the software license as permission to publish
+  private data.
 
 ## Migration Plan
 
@@ -1567,8 +1566,6 @@ but cannot run or complete A2 on its own.
 
 ## Open Questions
 
-- Should a later change replace the public source-available license with an
-  OSI-approved open-source license or grant broader commercial rights?
 - Which cloud providers beyond already reachable filesystem placeholders need
   product connectors in a later change?
 - Which audio/video/archive/database formats should move from `metadata_only` or

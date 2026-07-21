@@ -1,16 +1,18 @@
 schema_version: matters.scope-manifest.v1
 manifest_id: matters-g0-scope-001
-status: private_v0_3_release_candidate_authorized
+status: public_v0_3_1_mit_release_authorized
 
-private_v0_3_release_permissions:
-  state: candidate_authorized
+public_v0_3_1_release_permissions:
+  state: release_authorized
   repository: liuyingxuvka/Matters
-  visibility: private
-  release_version: 0.3.0
+  visibility: public
+  license: MIT
+  release_version: 0.3.1
   allowed:
-    - private_github_repository_creation
+    - public_github_repository
+    - mit_licensed_source_publication
     - generic_public_safe_source_push
-    - v0_3_0_annotated_tag
+    - v0_3_1_annotated_tag
     - validated_wheel_sdist_and_windows_desktop_release_assets
   required_before_release:
     - openspec_strict_valid
@@ -20,15 +22,13 @@ private_v0_3_release_permissions:
     - source_package_install_and_mcp_identity_match
     - remote_tag_and_release_asset_verification
   forbidden:
-    - public_repository_visibility
-    - public_redistribution
     - private_source_or_private_derived_data
     - MATTERS_HOME_or_MATTERS_EVAL_VAULT_content
     - owner_first_run_completion_claim
   claim_boundary: >-
-    This authorization permits the private generic v0.3.0 software release
-    only. It does not publish, export, or claim completion of the owner's
-    Gmail, local-file, Codex-project, or private-model first run.
+    This authorization permits the public MIT-licensed generic v0.3.1 software
+    release only. It does not publish, export, or claim completion of the
+    owner's Gmail, local-file, Codex-project, or private-model first run.
 
 security_domains:
   public_source_repo:

@@ -169,7 +169,7 @@ GitHub release.
 - **WHEN** the user authorizes GitHub publication but the exact repository, visibility, license disposition, or public inventory is not current
 - **THEN** the generic release work SHALL continue through the local frozen-candidate gate, but push, tag publication, and GitHub Release creation SHALL remain blocked until those publication identities are explicit and mutually consistent
 
-#### Scenario: Generic v0.3.0 public GitHub identity is frozen
-- **WHEN** the authorized owner selects `liuyingxuvka/Matters` as a public repository, selects the proprietary source-available personal non-commercial license and approved generic public-safe inventory, and requests source, tag `v0.3.0`, and GitHub Release publication
+#### Scenario: Current v0.3.1 public GitHub identity is frozen
+- **WHEN** the authorized owner selects `liuyingxuvka/Matters` as a public repository, selects the MIT License and approved generic public-safe inventory, preserves historical tag `v0.3.0`, and requests source, corrective tag `v0.3.1`, and GitHub Release publication
 - **THEN** the publication owner MAY create and push that public remote only after the frozen candidate passes its generic model, test, UI, privacy, package, anonymous-install, desktop, MCP, bundled-skill, README, and public-rendering gates
-- **AND** the public repository decision SHALL NOT authorize an OSI-approved open-source claim, broader commercial redistribution, private-data upload, or a private-first-run completion claim
+- **AND** the MIT software license SHALL NOT authorize private-data upload or a private-first-run completion claim

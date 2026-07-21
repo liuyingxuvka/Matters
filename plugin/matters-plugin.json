@@ -1,7 +1,7 @@
 {
   "schema": "matters.plugin.v1",
   "name": "Matters",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "entrypoint": "matters.api.mcp.server:MattersMCP",
   "capabilities": [
     "review_authorized_provider_envelope",

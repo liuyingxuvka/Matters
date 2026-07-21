@@ -24,7 +24,7 @@ from flowguard_design.inventory import MODELS
 
 
 LEDGER_PATH = Path(".flowguard/behavior_commitment_ledger/ledger.json")
-REVISION = "v0.3.0-matter-browser-semantic-reset-v9"
+REVISION = "v0.3.1-mit-public-release-v10"
 
 UPDATES: dict[str, dict[str, object]] = {
     "BC-PR-000": {
@@ -312,11 +312,11 @@ UPDATES: dict[str, dict[str, object]] = {
     },
     "BC-DP-003": {
         "label": (
-            "publish generic v0.3.0 source, package, desktop, and AI gateway "
+            "publish generic v0.3.1 MIT source, package, desktop, and AI gateway "
             "before the private first run"
         ),
         "expected_result": (
-            "one public source-available GitHub repository release whose commit, v0.3.0 tag, "
+            "one public MIT-licensed GitHub repository release whose commit, v0.3.1 tag, "
             "wheel, source distribution, Windows desktop package, installed "
             "Python and desktop identities, matters-mcp AI gateway, model/test "
             "receipts, public-safe inventory, and anonymous recheck agree "
@@ -329,14 +329,14 @@ UPDATES: dict[str, dict[str, object]] = {
         "trigger": (
             "generic source, model, TestMesh, UI, privacy, package, desktop, "
             "MCP, bundled-skill, and ResearchGuard identities are current and "
-            "the user authorizes liuyingxuvka/Matters as a public source-available v0.3.0 release"
+            "the user authorizes liuyingxuvka/Matters as a public MIT-licensed v0.3.1 release"
         ),
         "failure_boundary": (
             "private Gmail, filesystem, Codex-project, aggregate, receipt, "
             "screenshot, identifier, or first-run completion evidence cannot "
             "enter or gate the generic release; candidate drift, unexpected "
             "build-environment packages, missing matters-mcp, incomplete "
-            "bundled skills, mismatched tag/install/assets, or a non-private "
+            "bundled skills, mismatched tag/install/assets, or a non-public "
             "remote blocks publication"
         ),
     },
@@ -351,7 +351,7 @@ UPDATES: dict[str, dict[str, object]] = {
             "and no normal human gate"
         ),
         "trigger": (
-            "the generic v0.3.0 release identity is current and the user starts "
+            "the generic v0.3.1 release identity is current and the user starts "
             "or resumes the authorized post-release private first run"
         ),
     },
@@ -720,7 +720,7 @@ def main() -> int:
         metadata = evidence.setdefault("metadata", {})
         metadata["scope_revision"] = REVISION
         metadata["stale_reason"] = (
-            "v0.3.0 source-in-place storage, private retention classes, SourceGroup, "
+            "v0.3.1 source-in-place storage, private retention classes, SourceGroup, "
             "Matter-only hierarchy, logical-event deduplication, human narrative, "
             "people/relations, Situation/World Model inference, root-only photographic Hero, "
             "summary-free cards, single-layer node quick view, grouped source locations, "
@@ -773,13 +773,13 @@ def main() -> int:
             )
         elif commitment_id == "BC-DP-003":
             row["rationale"] = (
-                "This is the single generic public source-available repository publication path. "
+                "This is the single generic public MIT-licensed repository publication path. "
                 "It closes before, and never consumes, the separate private first run."
             )
             row["side_effects"] = [
                 "stop only the exact prior Matters-managed desktop process tree",
                 "push approved generic public-safe source to the public remote",
-                "create the v0.3.0 tag and GitHub Release",
+                "create the v0.3.1 tag and GitHub Release",
                 "publish the wheel, source distribution, Windows desktop package, and checksums",
             ]
             row["source_surface_ids"] = [
@@ -823,7 +823,7 @@ def main() -> int:
                 "task_terms": [
                     "generic release",
                     "public GitHub",
-                    "v0.3.0",
+                    "v0.3.1",
                     "tag",
                     "wheel",
                     "source distribution",
@@ -837,7 +837,7 @@ def main() -> int:
                 "workflow_families": ["generic_public_source_available_release"],
             }
             authority["business_intent"] = (
-                "publish generic v0.3.0 before the private first run"
+                "publish generic v0.3.1 before the private first run"
             )
             authority["primary_path_id"] = (
                 "path:dpf-generic-v030-release-before-private-first-run"
@@ -869,7 +869,7 @@ def main() -> int:
                     "metadata": {},
                     "rationale": (
                         "The authorized private first run starts against the "
-                        "already released generic v0.3.0 contract."
+                        "already released generic v0.3.1 contract."
                     ),
                     "relation_type": "depends_on",
                     "target_commitment_id": "BC-DP-003",

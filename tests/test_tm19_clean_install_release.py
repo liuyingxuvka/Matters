@@ -26,7 +26,7 @@ def test_release_version_plugin_security_and_sbom_are_consistent():
     component = sbom["metadata"]["component"]
     security = Path("SECURITY.md").read_text(encoding="utf-8")
 
-    assert VERSION == "0.3.0"
+    assert VERSION == "0.3.1"
     assert plugin["version"] == VERSION
     assert component["version"] == VERSION
     assert component["purl"] == f"pkg:pypi/matters@{VERSION}"

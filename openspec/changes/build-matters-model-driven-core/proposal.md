@@ -366,13 +366,12 @@ but never for clean-clone, package, installation, or public release
 verification. No Jira login, Rovo installation, or automatic external action
 is required for the generic release. The user has now authorized a public
 GitHub software release before the private first run completes. The remote is
-frozen as `liuyingxuvka/Matters`, visibility is public, the license is
-proprietary source-available for personal non-commercial use, and only the
-approved generic public-safe inventory may be published. This authorization
-does not include private data or establish an OSI-approved open-source license.
+frozen as `liuyingxuvka/Matters`, visibility is public, the license is MIT, and
+only the approved generic public-safe inventory may be published. The license
+change does not include private data or authorize disclosure of user material.
 
 The release sequence therefore has two independent acceptance domains. First,
-v0.3.0 freezes the generic hierarchy, people, timeline, summary,
+v0.3.1 carries the current generic hierarchy, people, timeline, summary,
 inference/correction, bilingual object browser, desktop shell, MCP, bundled
 skills, privacy, package, and anonymous-install behavior without private
 content. Second, the private Gmail/local/Codex first run continues against that

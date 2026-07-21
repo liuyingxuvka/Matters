@@ -2,6 +2,22 @@
 
 All notable changes to Matters are recorded in this file.
 
+## 0.3.1 — 2026-07-21
+
+Documentation and licensing correction released immediately after v0.3.0.
+
+- Replaced the temporary source-available license with the standard MIT
+  License, including matching Python package, plugin, SBOM, security, and
+  public-release metadata.
+- Corrected the bilingual README so Matters is defined by the user's explicitly
+  authorized file-reading scope, information-reading scope, and connected data
+  sources, without defining the product around any fixed connector list.
+- Preserved the non-mutating source-in-place design and kept mailbox mutation,
+  file deletion or execution, outbound messaging, remote-model disclosure, and
+  public publication as separate permissions.
+- Advanced the public package, desktop archive, plugin, and MCP server identity
+  to 0.3.1 without changing the historical v0.3.0 tag or release assets.
+
 ## 0.3.0 — 2026-07-21
 
 Prepared as the first generic public, source-available GitHub release. Until the remote tag
