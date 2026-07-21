@@ -708,7 +708,7 @@
     "hazard_green"
   ],
   "function_signature": "S0_matters_skill_runtime: CaseInput x ModelState -> Set(DecisionOutput x ModelState)",
-  "generated_at": "2026-07-21T09:47:32.242161+00:00",
+  "generated_at": "2026-07-21T11:36:54.754024+00:00",
   "known_bad_proofs": [
     {
       "evidence_id": "S0_matters_skill_runtime:known-bad:H-S0-001-child-blocker-hidden",

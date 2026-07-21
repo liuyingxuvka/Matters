@@ -273,7 +273,8 @@ SHALL remain hidden.
 
 #### Scenario: Title and summary bind to the same accepted Matter owner
 - **WHEN** one accepted autonomous result contains a C6 Matter candidate and a C12 bounded summary without an explicit Matter id
-- **THEN** C12 SHALL bind both values only to the unique current C6 admission owner from that same package and semantic revision
+- **THEN** C12 SHALL bind both values only to the unique current C6 admission owner from that same accepted result and canonical Matter
+- **AND** the title and summary MAY cite different current SourceVersions when the Matter is modeled from multiple sources; source-revision equality SHALL NOT be required for this owner join
 - **AND** source-version overlap with an older Matter SHALL NOT select, overwrite, or revive that older Matter's projection
 - **AND** zero or multiple same-result Matter owners SHALL block projection until the finding declares an unambiguous current Matter id
 
@@ -541,6 +542,25 @@ checkpoints on the next launch.
 - **WHEN** the local desktop process can see pending AI work but no Codex-hosted execution owner is attached
 - **THEN** the worker SHALL report `waiting_for_codex`, use indexed coverage state and a bounded polling interval, SHALL NOT repeatedly enumerate private analysis packages, and SHALL leave the object browser responsive
 
+### Requirement: Desktop release archive is portable and privacy-safe
+The Windows desktop release archive SHALL contain the complete frozen
+`Matters/` package tree, one portable desktop manifest, and one path-free build
+toolchain identity. It SHALL NOT contain the external packaged self-test
+receipt, `direct_url.json`, a machine-local user-home path, private source
+content, or another release-root payload. The archive verifier SHALL treat the
+desktop ZIP as a desktop artifact rather than a wheel and SHALL independently
+reconcile its manifest fingerprint, canonical package-tree hash, executable
+hash, build-toolchain hash, required bilingual/runtime gates, member size, and
+privacy scan.
+
+#### Scenario: Build provenance contains a local wheel path
+- **WHEN** the desktop build environment produces a `direct_url.json` receipt or the packaged self-test records a local icon path
+- **THEN** the package builder SHALL remove `direct_url.json` before freezing the package manifest, retain the self-test only as external build evidence, and exclude both records from the release ZIP
+
+#### Scenario: A desktop ZIP member changes after the manifest is frozen
+- **WHEN** any application file, executable, or build-toolchain receipt differs from the identities in `desktop-manifest.json`
+- **THEN** the public-boundary verifier SHALL reject the archive and SHALL NOT treat a wheel inventory check or a third-party dependency-metadata exemption as release evidence
+
 ### Requirement: Object-browser filters preserve the Databank navigation language
 The left navigation SHALL expose one `All matters` entry and collapsible
 Status, Start time, People, Relationships, Topic/Type, and Source type groups.
@@ -556,22 +576,57 @@ grouped filter model.
 Matter detail SHALL include a Sub-matters graph whose primary edges show the
 current single-parent containment tree across every current bounded depth and
 whose secondary styled edges show typed Matter-to-Matter relations without
-changing primary parentage. Only current admitted Matters SHALL render as
-graph nodes. WorkItems, Events, facts, sources, and advisory inferences SHALL
-remain itemized under their owning Matter's quick view rather than becoming
-graph boxes. The graph SHALL support pan, 0.5x-5x zoom, reset, minimap,
+changing primary parentage. Current admitted Matters SHALL render as large
+hierarchy nodes. A bounded set of required, stage-changing WorkItems MAY render
+as smaller stage nodes under their owning Matter; their type, count, state,
+and evidence basis SHALL remain WorkItem-owned and they SHALL never masquerade
+as child Matters or accept descendants. Events, facts, sources, ordinary
+actions, and advisory inferences SHALL remain itemized under their owning
+Matter's quick view rather than becoming graph boxes. The graph SHALL support
+pan, 0.5x-5x zoom, reset, minimap,
 keyboard traversal, bounded continuation, and stable focus restoration. It
 SHALL expose no per-node collapse/expand button and SHALL NOT navigate a node
 to another full Matter detail page.
 
+When a root Matter has a complete bounded decomposition made of current
+material WorkItems directly owned by that root, C12 SHALL use that stage
+decomposition as the visible child projection and SHALL suppress competing
+legacy first-level child-Matter boxes from the same graph page. Suppression is
+presentation-only: it SHALL NOT delete canonical Matters, evidence, events, or
+source links, and those records remain reachable through the owning Matter's
+timeline, files/information, search, and quick-view surfaces. When material
+WorkItems belong to a genuine child Matter instead of directly to the root,
+the child Matter and its stages SHALL both remain visible.
+
+#### Scenario: Root-owned stages replace a competing legacy decomposition
+- **WHEN** one root graph page contains current material WorkItems all directly owned by the root and legacy first-level child Matters that repeat the same stage decomposition
+- **THEN** C12 SHALL render the root plus the material WorkItems, count those visible stage nodes in Sub-matters, and omit the competing child-Matter boxes and their disconnected edges from that page
+- **AND** the omission SHALL NOT retire, rewrite, or delete the hidden canonical Matter records
+
 #### Scenario: User selects any graph node
-- **WHEN** the user activates a current admitted Matter node at any visible depth
+- **WHEN** the user activates a current admitted Matter node or material stage node at any visible depth
 - **THEN** the UI SHALL open or update exactly one reusable single-layer quick-view dialog over the current root detail
 - **AND** the quick view SHALL contain exactly two stacked primary regions: a localized human summary/current-state region containing itemized facts/events/work/waits with time and basis, and one flat files/information list with a Source group field
 - **AND** current state SHALL use the exact current lifecycle/outcome basis, label a past-gap completion as localized `AI historical inference`, and omit internal `unknown` coverage vocabulary
 - **AND** the files/information region SHALL include only material directly bound to the selected Matter node rather than copying every source from the owning root or parent
 - **AND** it SHALL NOT render another hero, another eight-section Matter reader, another graph, another modal layer, or a recursive card/detail page
 - **AND** technical record-currentness values such as `current`, `reported`, `observed`, or `inferred` SHALL NOT appear as a second user-facing lifecycle state on graph nodes; the node SHALL show a human lifecycle state only when one exists and retain modality/certainty in its separately owned label
+
+#### Scenario: Historical completion is provisional
+- **WHEN** C9 publishes `completed` with `basis_modality=ai_inferred` and `terminality=provisional`
+- **THEN** C12 SHALL display localized `Completed · AI historical inference`, preserve the revisable explanation, and SHALL NOT style or summarize it as confirmed completion
+
+#### Scenario: Current preparation is inferred
+- **WHEN** C7 publishes `in_progress` with `basis_modality=ai_inferred`, `basis_scope=current_phase`, and `terminality=provisional`
+- **THEN** C12 SHALL display localized `In progress · AI inference` and explain that preparation is the current best phase estimate
+- **AND** it SHALL NOT claim direct observation or mark the future submission completed
+
+#### Scenario: Legacy node is waiting for semantic recomputation
+- **WHEN** a restored Matter or WorkItem lacks one or more current basis, temporal, or terminality fields
+- **THEN** C12 SHALL keep the node and its available human lifecycle value visible
+- **AND** its quick view SHALL show a localized neutral `Pending semantic recomputation` explanation rather than displaying `reported`, `observed`, `planned`, or `AI inference` as a guessed basis
+- **AND** the projection SHALL retain `semantic_contract_status=legacy_pending_recompute`, `state_basis_modality=unknown`, and `state_terminality=provisional` until an append-only current revision replaces it
+- **AND** the object SHALL remain non-green in coverage and SHALL NOT disappear from the catalog or graph
 
 #### Scenario: User selects a different node
 - **WHEN** the quick view is open and the user activates another graph node

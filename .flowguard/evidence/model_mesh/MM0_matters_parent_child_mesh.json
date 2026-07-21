@@ -169,7 +169,8 @@
         "C11_guard_artifact_prediction:HeroNotApplicable",
         "C11_guard_artifact_prediction:HumanMatterNarrative",
         "C11_guard_artifact_prediction:NonEmptySupplementalInformation",
-        "C11_guard_artifact_prediction:MatterScopedSemanticDepth"
+        "C11_guard_artifact_prediction:MatterScopedSemanticDepth",
+        "C11_guard_artifact_prediction:CurrentPhaseInference"
       ],
       "affected_sibling_ids": [
         "A0_matters_source_analysis_operation",
@@ -761,8 +762,8 @@
         "C7_lifecycle_board_state",
         "C12_projection_bilingual_ui"
       ],
-      "child_evidence_id": "evidence:C5_event_temporal_trace:a9636cba74a284fc",
-      "child_fingerprint": "sha256:a9636cba74a284fc3a2512b5bcfadbc004405f6a306bff3b918ddb56c55cfdf4",
+      "child_evidence_id": "evidence:C5_event_temporal_trace:2d7eeeeddc5be7df",
+      "child_fingerprint": "sha256:2d7eeeeddc5be7df05cebda4ad3a17e2e257dc6b7216c16fc499699a8d3e6a11",
       "child_model_id": "C5_event_temporal_trace",
       "emitted_output_tokens": [
         "C5_event_temporal_trace:TypedEvent",
@@ -785,6 +786,7 @@
         "C5_event_temporal_trace:ParentNarrativeRefreshRequired",
         "C5_event_temporal_trace:SituationGraphEventNode",
         "C5_event_temporal_trace:EventCertainty",
+        "C5_event_temporal_trace:ReportedTemporalDirectionPreserved",
         "C5_event_temporal_trace:InferenceAlternatives",
         "C5_event_temporal_trace:StaleTemporalOwnerOutputExcluded",
         "C5_event_temporal_trace:AnalysisOutputReplacementPending",
@@ -812,6 +814,7 @@
         "state:C5_event_temporal_trace:event.matter_relation_candidate",
         "state:C5_event_temporal_trace:event.owning_matter_path",
         "state:C5_event_temporal_trace:event.supersedes_event_id",
+        "state:C5_event_temporal_trace:event.temporal_assertion",
         "state:C5_event_temporal_trace:event.temporal_fields",
         "state:C5_event_temporal_trace:trace.conflict",
         "state:C5_event_temporal_trace:trace.latest_meaningful_clue_at",
@@ -859,6 +862,7 @@
         "trace.parent_narrative_refresh_trigger_revision",
         "trace.situation_graph_event_revision",
         "event.certainty_class",
+        "event.temporal_assertion",
         "event.inference_confidence",
         "event.alternative_interpretations"
       ]
@@ -881,8 +885,8 @@
         "C10_correction_revocation",
         "C12_projection_bilingual_ui"
       ],
-      "child_evidence_id": "evidence:C6_matter_formation_admission:cbb76081a7a7054e",
-      "child_fingerprint": "sha256:cbb76081a7a7054ee1ca08e212c04ee7ec4a0a386936fd4e7823b0f139a27aae",
+      "child_evidence_id": "evidence:C6_matter_formation_admission:e67d30bee9284522",
+      "child_fingerprint": "sha256:e67d30bee92845227249299316a3c04f0a2ade6628fe34f41af4548a2a7dd3ad",
       "child_model_id": "C6_matter_formation_admission",
       "emitted_output_tokens": [
         "C6_matter_formation_admission:SourceOnly",
@@ -921,6 +925,8 @@
         "C6_matter_formation_admission:CanonicalMatterIdentityCurrent",
         "C6_matter_formation_admission:CanonicalMatterIdentityRejected",
         "C6_matter_formation_admission:MatterOnlyHierarchyProjection",
+        "C6_matter_formation_admission:MaterialWorkItemStage",
+        "C6_matter_formation_admission:GranularityConflictPreserved",
         "C6_matter_formation_admission:CrossDomainMatterRelation",
         "C6_matter_formation_admission:TravelHierarchyReconciled",
         "C6_matter_formation_admission:SoftwarePortfolioHierarchyReconciled",
@@ -929,7 +935,14 @@
         "C6_matter_formation_admission:MatterSourceRevisionTargetAdopted",
         "C6_matter_formation_admission:SourceRevisionStalePackageRejected",
         "C6_matter_formation_admission:SourceRevisionCurrentSuccessorRequired",
-        "C6_matter_formation_admission:OldRevisionEvidenceRetired"
+        "C6_matter_formation_admission:OldRevisionEvidenceRetired",
+        "C6_matter_formation_admission:SourceRevisionSecondaryC6FindingDispatched",
+        "C6_matter_formation_admission:MatterSemanticRefreshIdentityPreserved",
+        "C6_matter_formation_admission:MatterSemanticRefreshCrossSourceBound",
+        "C6_matter_formation_admission:SemanticWorkItemIdentityCurrent",
+        "C6_matter_formation_admission:SituationGraphConflictPreserved",
+        "C6_matter_formation_admission:SingleReconciliationOwnerPath",
+        "C6_matter_formation_admission:PreEvidenceSourceRetained"
       ],
       "evidence_tier": "hazard_green",
       "outgoing_guarantees": [
@@ -969,6 +982,7 @@
         "state:C6_matter_formation_admission:matter.primary_parent",
         "state:C6_matter_formation_admission:matter.rationale",
         "state:C6_matter_formation_admission:matter.reconciliation_context",
+        "state:C6_matter_formation_admission:matter.reconciliation_owner_path",
         "state:C6_matter_formation_admission:matter.root_granularity",
         "state:C6_matter_formation_admission:matter.situation_graph_continuation",
         "state:C6_matter_formation_admission:matter.situation_graph_primary_edges",
@@ -980,7 +994,10 @@
         "state:C6_matter_formation_admission:matter.ui_hierarchy_matter_ids",
         "state:C6_matter_formation_admission:matter.ui_hierarchy_projection_revision",
         "state:C6_matter_formation_admission:matter.ui_hierarchy_secondary_edges",
-        "state:C6_matter_formation_admission:work_item.membership"
+        "state:C6_matter_formation_admission:work_item.material_stage_eligibility",
+        "state:C6_matter_formation_admission:work_item.membership",
+        "state:C6_matter_formation_admission:work_item.semantic_role_identity",
+        "state:C6_matter_formation_admission:work_item.supersession"
       ],
       "runtime_path_evidence_ids": [],
       "side_effect_owner_fields": [
@@ -1018,7 +1035,11 @@
         "matter.parent_narrative_child_projection_revisions",
         "matter.parent_narrative_evidence_revisions",
         "matter.root_granularity",
+        "matter.reconciliation_owner_path",
         "work_item.membership",
+        "work_item.material_stage_eligibility",
+        "work_item.semantic_role_identity",
+        "work_item.supersession",
         "matter.situation_graph_revision",
         "matter.situation_graph_primary_edges",
         "matter.situation_graph_secondary_edges",
@@ -1044,8 +1065,8 @@
         "C10_correction_revocation",
         "C12_projection_bilingual_ui"
       ],
-      "child_evidence_id": "evidence:C7_lifecycle_board_state:48dbb364b6c25605",
-      "child_fingerprint": "sha256:48dbb364b6c2560542db3cfaa033d23dc92818ff04f29f25c2d029a3bc5c5d3f",
+      "child_evidence_id": "evidence:C7_lifecycle_board_state:21186cb360aefdee",
+      "child_fingerprint": "sha256:21186cb360aefdeec2c4415930b64d1fa4668582164414b57ffe77b505d9182a",
       "child_model_id": "C7_lifecycle_board_state",
       "emitted_output_tokens": [
         "C7_lifecycle_board_state:LifecycleState",
@@ -1062,7 +1083,10 @@
         "C7_lifecycle_board_state:AIInferredLifecycle",
         "C7_lifecycle_board_state:InferenceAlternatives",
         "C7_lifecycle_board_state:LifecycleDisplayContract",
-        "C7_lifecycle_board_state:LifecycleModalitySeparated"
+        "C7_lifecycle_board_state:LifecycleModalitySeparated",
+        "C7_lifecycle_board_state:CurrentPhaseInference",
+        "C7_lifecycle_board_state:ProvisionalTerminality",
+        "C7_lifecycle_board_state:CurrentPhaseContradictionPreserved"
       ],
       "evidence_tier": "hazard_green",
       "outgoing_guarantees": [
@@ -1080,11 +1104,18 @@
         "state:C7_lifecycle_board_state:matter.child_state_snapshot",
         "state:C7_lifecycle_board_state:matter.lifecycle_axes",
         "state:C7_lifecycle_board_state:matter.lifecycle_basis_modality",
+        "state:C7_lifecycle_board_state:matter.lifecycle_basis_scope",
         "state:C7_lifecycle_board_state:matter.lifecycle_certainty",
+        "state:C7_lifecycle_board_state:matter.lifecycle_confidence",
+        "state:C7_lifecycle_board_state:matter.lifecycle_contradiction_triggers",
+        "state:C7_lifecycle_board_state:matter.lifecycle_counter_signals",
+        "state:C7_lifecycle_board_state:matter.lifecycle_coverage_boundary",
         "state:C7_lifecycle_board_state:matter.lifecycle_display_key",
         "state:C7_lifecycle_board_state:matter.lifecycle_inference_alternatives",
         "state:C7_lifecycle_board_state:matter.lifecycle_inference_basis",
         "state:C7_lifecycle_board_state:matter.lifecycle_inference_expiry",
+        "state:C7_lifecycle_board_state:matter.lifecycle_temporal_assertion",
+        "state:C7_lifecycle_board_state:matter.lifecycle_terminality",
         "state:C7_lifecycle_board_state:matter.state_rationale"
       ],
       "runtime_path_evidence_ids": [],
@@ -1102,7 +1133,14 @@
         "matter.lifecycle_inference_alternatives",
         "matter.lifecycle_inference_expiry",
         "matter.lifecycle_display_key",
-        "matter.lifecycle_basis_modality"
+        "matter.lifecycle_basis_modality",
+        "matter.lifecycle_basis_scope",
+        "matter.lifecycle_temporal_assertion",
+        "matter.lifecycle_terminality",
+        "matter.lifecycle_confidence",
+        "matter.lifecycle_coverage_boundary",
+        "matter.lifecycle_contradiction_triggers",
+        "matter.lifecycle_counter_signals"
       ]
     },
     {
@@ -1119,8 +1157,8 @@
         "C10_correction_revocation",
         "C12_projection_bilingual_ui"
       ],
-      "child_evidence_id": "evidence:C8_open_loop_waiting_blocking:87ab92d77bb88b87",
-      "child_fingerprint": "sha256:87ab92d77bb88b87bad1476e4fcf6456cb4a415beaba35ddb2f336ba7860431c",
+      "child_evidence_id": "evidence:C8_open_loop_waiting_blocking:35fb1bc35def79c1",
+      "child_fingerprint": "sha256:35fb1bc35def79c1cdfc7557aba17803cf13eb7ac0cc52e23428a0162af5e560",
       "child_model_id": "C8_open_loop_waiting_blocking",
       "emitted_output_tokens": [
         "C8_open_loop_waiting_blocking:OpenLoop",
@@ -1130,7 +1168,8 @@
         "C8_open_loop_waiting_blocking:LoopClosed",
         "C8_open_loop_waiting_blocking:OpenLoopGap",
         "C8_open_loop_waiting_blocking:ChildBlockingCurrent",
-        "C8_open_loop_waiting_blocking:AncestorBlockingRollupCurrent"
+        "C8_open_loop_waiting_blocking:AncestorBlockingRollupCurrent",
+        "C8_open_loop_waiting_blocking:SemanticOpenLoopIdentityCurrent"
       ],
       "evidence_tier": "hazard_green",
       "outgoing_guarantees": [
@@ -1148,6 +1187,8 @@
         "state:C8_open_loop_waiting_blocking:matter.child_blocking_summary",
         "state:C8_open_loop_waiting_blocking:open_loop.closure_condition",
         "state:C8_open_loop_waiting_blocking:open_loop.identity",
+        "state:C8_open_loop_waiting_blocking:open_loop.semantic_role_identity",
+        "state:C8_open_loop_waiting_blocking:open_loop.supersession",
         "state:C8_open_loop_waiting_blocking:open_loop.wait_target"
       ],
       "runtime_path_evidence_ids": [],
@@ -1156,6 +1197,8 @@
       ],
       "state_owner_fields": [
         "open_loop.identity",
+        "open_loop.semantic_role_identity",
+        "open_loop.supersession",
         "open_loop.wait_target",
         "open_loop.closure_condition",
         "matter.blocking_axis",
@@ -1183,8 +1226,8 @@
         "C10_correction_revocation",
         "C12_projection_bilingual_ui"
       ],
-      "child_evidence_id": "evidence:C9_completion_cancellation_reopen:7e567c24f8a5704a",
-      "child_fingerprint": "sha256:7e567c24f8a5704a831cf00478b06ce1b8e3d07c49698512017773db8ef96714",
+      "child_evidence_id": "evidence:C9_completion_cancellation_reopen:eb4b5dced0a9acf3",
+      "child_fingerprint": "sha256:eb4b5dced0a9acf3364793649c55281cb4a6b5599e8411b23aa2ff2da61c29b8",
       "child_model_id": "C9_completion_cancellation_reopen",
       "emitted_output_tokens": [
         "C9_completion_cancellation_reopen:Completed",
@@ -1197,7 +1240,10 @@
         "C9_completion_cancellation_reopen:OutcomeUncertainty",
         "C9_completion_cancellation_reopen:ChildOutcomeCurrent",
         "C9_completion_cancellation_reopen:AncestorOutcomeRollupCurrent",
-        "C9_completion_cancellation_reopen:ParentCompletionUnproven"
+        "C9_completion_cancellation_reopen:ParentCompletionUnproven",
+        "C9_completion_cancellation_reopen:ProvisionalHistoricalCompletion",
+        "C9_completion_cancellation_reopen:OwnerEvidenceLicenseRejected",
+        "C9_completion_cancellation_reopen:ReportedCancellationLicensed"
       ],
       "evidence_tier": "hazard_green",
       "outgoing_guarantees": [
@@ -1213,7 +1259,12 @@
         "state:C9_completion_cancellation_reopen:matter.ancestor_outcome_rollup",
         "state:C9_completion_cancellation_reopen:matter.child_outcome_summary",
         "state:C9_completion_cancellation_reopen:matter.outcome",
+        "state:C9_completion_cancellation_reopen:matter.outcome_basis_modality",
+        "state:C9_completion_cancellation_reopen:matter.outcome_basis_scope",
         "state:C9_completion_cancellation_reopen:matter.outcome_criteria",
+        "state:C9_completion_cancellation_reopen:matter.outcome_inference_contract",
+        "state:C9_completion_cancellation_reopen:matter.outcome_owner_evidence_license",
+        "state:C9_completion_cancellation_reopen:matter.outcome_terminality",
         "state:C9_completion_cancellation_reopen:matter.reopen_revision"
       ],
       "runtime_path_evidence_ids": [],
@@ -1225,7 +1276,12 @@
         "matter.outcome_criteria",
         "matter.reopen_revision",
         "matter.child_outcome_summary",
-        "matter.ancestor_outcome_rollup"
+        "matter.ancestor_outcome_rollup",
+        "matter.outcome_basis_modality",
+        "matter.outcome_basis_scope",
+        "matter.outcome_terminality",
+        "matter.outcome_inference_contract",
+        "matter.outcome_owner_evidence_license"
       ]
     },
     {
@@ -1379,8 +1435,8 @@
         "C7_lifecycle_board_state",
         "C12_projection_bilingual_ui"
       ],
-      "child_evidence_id": "evidence:C11_guard_artifact_prediction:c11c7badfced8e30",
-      "child_fingerprint": "sha256:c11c7badfced8e3095d1fa2a0804385019d2675e006052cbbdf1551f4b7f846d",
+      "child_evidence_id": "evidence:C11_guard_artifact_prediction:d8ca19b34486df41",
+      "child_fingerprint": "sha256:d8ca19b34486df41669afe39ee1fa494a7acd2a50753c4b4425d851f77d3bf49",
       "child_model_id": "C11_guard_artifact_prediction",
       "emitted_output_tokens": [
         "C11_guard_artifact_prediction:AnalysisWorkPackageV2",
@@ -1416,7 +1472,8 @@
         "C11_guard_artifact_prediction:HeroNotApplicable",
         "C11_guard_artifact_prediction:HumanMatterNarrative",
         "C11_guard_artifact_prediction:NonEmptySupplementalInformation",
-        "C11_guard_artifact_prediction:MatterScopedSemanticDepth"
+        "C11_guard_artifact_prediction:MatterScopedSemanticDepth",
+        "C11_guard_artifact_prediction:CurrentPhaseInference"
       ],
       "evidence_tier": "hazard_green",
       "outgoing_guarantees": [
@@ -1443,6 +1500,7 @@
         "state:C11_guard_artifact_prediction:agent.capability_role_registry",
         "state:C11_guard_artifact_prediction:agent.result_registry",
         "state:C11_guard_artifact_prediction:agent.work_package_v2_registry",
+        "state:C11_guard_artifact_prediction:analysis.current_phase_inference_registry",
         "state:C11_guard_artifact_prediction:analysis.depth_registry",
         "state:C11_guard_artifact_prediction:analysis.dispatch_outbox",
         "state:C11_guard_artifact_prediction:analysis.finding_history",
@@ -1488,6 +1546,7 @@
         "analysis.situation_inference_dependency_registry",
         "analysis.world_model_feedback_registry",
         "analysis.world_model_miss_outbox",
+        "analysis.current_phase_inference_registry",
         "research.provider_status",
         "analysis.depth_registry",
         "forecast_registry"
@@ -1558,8 +1617,8 @@
         "C11_guard_artifact_prediction:ResearchGuardPending"
       ],
       "affected_sibling_ids": [],
-      "child_evidence_id": "evidence:C12_projection_bilingual_ui:c28a74c07f26dc67",
-      "child_fingerprint": "sha256:c28a74c07f26dc6757b115e00657da8f703dfc825df8228f7d569210248acbd3",
+      "child_evidence_id": "evidence:C12_projection_bilingual_ui:158d7c0456bf432d",
+      "child_fingerprint": "sha256:158d7c0456bf432d1a5f9a49920197b0cac67f01e50548c414401bee86cd8b33",
       "child_model_id": "C12_projection_bilingual_ui",
       "emitted_output_tokens": [
         "C12_projection_bilingual_ui:LocalizedProjection",
@@ -1624,7 +1683,10 @@
         "C12_projection_bilingual_ui:CompactCoverageIndicator",
         "C12_projection_bilingual_ui:CoverageFirstGapDrilldown",
         "C12_projection_bilingual_ui:LifecycleVisualLanguage",
-        "C12_projection_bilingual_ui:FilesInformationReadableTypography"
+        "C12_projection_bilingual_ui:FilesInformationReadableTypography",
+        "C12_projection_bilingual_ui:MaterialWorkItemStage",
+        "C12_projection_bilingual_ui:ProvisionalStateBasis",
+        "C12_projection_bilingual_ui:LegacySemanticRecomputePending"
       ],
       "evidence_tier": "hazard_green",
       "outgoing_guarantees": [
@@ -1667,8 +1729,10 @@
         "state:C12_projection_bilingual_ui:projection.parent_narrative_refresh_status",
         "state:C12_projection_bilingual_ui:projection.parent_narrative_revision",
         "state:C12_projection_bilingual_ui:projection.parent_narrative_scope_revision",
+        "state:C12_projection_bilingual_ui:projection.semantic_contract_status",
         "state:C12_projection_bilingual_ui:projection.state_basis_modality",
         "state:C12_projection_bilingual_ui:projection.state_basis_scope",
+        "state:C12_projection_bilingual_ui:projection.state_terminality",
         "state:C12_projection_bilingual_ui:projection.summary_revision",
         "state:C12_projection_bilingual_ui:projection.supplemental_information",
         "state:C12_projection_bilingual_ui:projection.supplemental_information_disposition",
@@ -1696,6 +1760,7 @@
         "state:C12_projection_bilingual_ui:ui.image_gallery_state",
         "state:C12_projection_bilingual_ui:ui.last_successful_catalog_revision",
         "state:C12_projection_bilingual_ui:ui.locale_preference",
+        "state:C12_projection_bilingual_ui:ui.material_stage_nodes",
         "state:C12_projection_bilingual_ui:ui.matter_hierarchy_projection",
         "state:C12_projection_bilingual_ui:ui.node_quick_view_facts",
         "state:C12_projection_bilingual_ui:ui.node_quick_view_source_groups",
@@ -1759,6 +1824,8 @@
         "projection.analysis_owner_currentness",
         "projection.state_basis_modality",
         "projection.state_basis_scope",
+        "projection.state_terminality",
+        "projection.semantic_contract_status",
         "projection.lifecycle_visual_state",
         "ui.selected_locale",
         "ui.locale_preference",
@@ -1798,7 +1865,8 @@
         "ui.node_quick_view_state",
         "ui.node_quick_view_facts",
         "ui.node_quick_view_source_groups",
-        "ui.source_group_window"
+        "ui.source_group_window",
+        "ui.material_stage_nodes"
       ]
     }
   ],
@@ -2103,6 +2171,10 @@
       "A2_matters_maintenance_orchestrator_operation",
       "M0_matters_end_to_end_authority"
     ],
+    "C11_guard_artifact_prediction:CurrentPhaseInference": [
+      "A2_matters_maintenance_orchestrator_operation",
+      "M0_matters_end_to_end_authority"
+    ],
     "C11_guard_artifact_prediction:DepthAssessment": [
       "A2_matters_maintenance_orchestrator_operation",
       "C12_projection_bilingual_ui",
@@ -2300,6 +2372,9 @@
     "C12_projection_bilingual_ui:IndexedCatalogPage": [
       "M0_matters_end_to_end_authority"
     ],
+    "C12_projection_bilingual_ui:LegacySemanticRecomputePending": [
+      "M0_matters_end_to_end_authority"
+    ],
     "C12_projection_bilingual_ui:LifecycleVisualLanguage": [
       "M0_matters_end_to_end_authority"
     ],
@@ -2313,6 +2388,9 @@
       "M0_matters_end_to_end_authority"
     ],
     "C12_projection_bilingual_ui:MaterialClue": [
+      "M0_matters_end_to_end_authority"
+    ],
+    "C12_projection_bilingual_ui:MaterialWorkItemStage": [
       "M0_matters_end_to_end_authority"
     ],
     "C12_projection_bilingual_ui:MatterCard": [
@@ -2355,6 +2433,9 @@
       "M0_matters_end_to_end_authority"
     ],
     "C12_projection_bilingual_ui:ProjectionPending": [
+      "M0_matters_end_to_end_authority"
+    ],
+    "C12_projection_bilingual_ui:ProvisionalStateBasis": [
       "M0_matters_end_to_end_authority"
     ],
     "C12_projection_bilingual_ui:RootHeroProjection": [
@@ -2764,6 +2845,9 @@
       "C12_projection_bilingual_ui",
       "M0_matters_end_to_end_authority"
     ],
+    "C5_event_temporal_trace:ReportedTemporalDirectionPreserved": [
+      "M0_matters_end_to_end_authority"
+    ],
     "C5_event_temporal_trace:SituationGraphEventNode": [
       "M0_matters_end_to_end_authority"
     ],
@@ -2847,6 +2931,9 @@
     "C6_matter_formation_admission:GlobalCandidateRecallComplete": [
       "M0_matters_end_to_end_authority"
     ],
+    "C6_matter_formation_admission:GranularityConflictPreserved": [
+      "M0_matters_end_to_end_authority"
+    ],
     "C6_matter_formation_admission:HierarchyBatchCommitted": [
       "M0_matters_end_to_end_authority"
     ],
@@ -2872,6 +2959,9 @@
       "C12_projection_bilingual_ui",
       "M0_matters_end_to_end_authority"
     ],
+    "C6_matter_formation_admission:MaterialWorkItemStage": [
+      "M0_matters_end_to_end_authority"
+    ],
     "C6_matter_formation_admission:MatterCandidate": [
       "M0_matters_end_to_end_authority"
     ],
@@ -2880,6 +2970,12 @@
       "M0_matters_end_to_end_authority"
     ],
     "C6_matter_formation_admission:MatterOnlyHierarchyProjection": [
+      "M0_matters_end_to_end_authority"
+    ],
+    "C6_matter_formation_admission:MatterSemanticRefreshCrossSourceBound": [
+      "M0_matters_end_to_end_authority"
+    ],
+    "C6_matter_formation_admission:MatterSemanticRefreshIdentityPreserved": [
       "M0_matters_end_to_end_authority"
     ],
     "C6_matter_formation_admission:MatterSourceRelation": [
@@ -2912,6 +3008,9 @@
       "C12_projection_bilingual_ui",
       "M0_matters_end_to_end_authority"
     ],
+    "C6_matter_formation_admission:PreEvidenceSourceRetained": [
+      "M0_matters_end_to_end_authority"
+    ],
     "C6_matter_formation_admission:RelatedMatterOnly": [
       "M0_matters_end_to_end_authority"
     ],
@@ -2920,7 +3019,16 @@
       "C7_lifecycle_board_state",
       "M0_matters_end_to_end_authority"
     ],
+    "C6_matter_formation_admission:SemanticWorkItemIdentityCurrent": [
+      "M0_matters_end_to_end_authority"
+    ],
+    "C6_matter_formation_admission:SingleReconciliationOwnerPath": [
+      "M0_matters_end_to_end_authority"
+    ],
     "C6_matter_formation_admission:SituationGraph": [
+      "M0_matters_end_to_end_authority"
+    ],
+    "C6_matter_formation_admission:SituationGraphConflictPreserved": [
       "M0_matters_end_to_end_authority"
     ],
     "C6_matter_formation_admission:SituationGraphContinuation": [
@@ -2939,6 +3047,9 @@
       "M0_matters_end_to_end_authority"
     ],
     "C6_matter_formation_admission:SourceRevisionCurrentSuccessorRequired": [
+      "M0_matters_end_to_end_authority"
+    ],
+    "C6_matter_formation_admission:SourceRevisionSecondaryC6FindingDispatched": [
       "M0_matters_end_to_end_authority"
     ],
     "C6_matter_formation_admission:SourceRevisionStalePackageRejected": [
@@ -2984,6 +3095,12 @@
     "C7_lifecycle_board_state:CoverageGap": [
       "M0_matters_end_to_end_authority"
     ],
+    "C7_lifecycle_board_state:CurrentPhaseContradictionPreserved": [
+      "M0_matters_end_to_end_authority"
+    ],
+    "C7_lifecycle_board_state:CurrentPhaseInference": [
+      "M0_matters_end_to_end_authority"
+    ],
     "C7_lifecycle_board_state:HierarchyProgressSummary": [
       "C12_projection_bilingual_ui",
       "M0_matters_end_to_end_authority"
@@ -3006,6 +3123,9 @@
       "M0_matters_end_to_end_authority"
     ],
     "C7_lifecycle_board_state:LifecycleUncertainty": [
+      "M0_matters_end_to_end_authority"
+    ],
+    "C7_lifecycle_board_state:ProvisionalTerminality": [
       "M0_matters_end_to_end_authority"
     ],
     "C7_lifecycle_board_state:RollupUncertainty": [
@@ -3051,6 +3171,9 @@
       "C9_completion_cancellation_reopen",
       "M0_matters_end_to_end_authority"
     ],
+    "C8_open_loop_waiting_blocking:SemanticOpenLoopIdentityCurrent": [
+      "M0_matters_end_to_end_authority"
+    ],
     "C8_open_loop_waiting_blocking:Waiting": [
       "C12_projection_bilingual_ui",
       "C9_completion_cancellation_reopen",
@@ -3091,17 +3214,26 @@
     "C9_completion_cancellation_reopen:OutcomeUncertainty": [
       "M0_matters_end_to_end_authority"
     ],
+    "C9_completion_cancellation_reopen:OwnerEvidenceLicenseRejected": [
+      "M0_matters_end_to_end_authority"
+    ],
     "C9_completion_cancellation_reopen:ParentCompletionUnproven": [
       "C12_projection_bilingual_ui",
+      "M0_matters_end_to_end_authority"
+    ],
+    "C9_completion_cancellation_reopen:ProvisionalHistoricalCompletion": [
       "M0_matters_end_to_end_authority"
     ],
     "C9_completion_cancellation_reopen:Reopened": [
       "C12_projection_bilingual_ui",
       "M0_matters_end_to_end_authority"
+    ],
+    "C9_completion_cancellation_reopen:ReportedCancellationLicensed": [
+      "M0_matters_end_to_end_authority"
     ]
   },
   "evidence_tier": "mesh_green",
-  "generated_at": "2026-07-21T09:47:36.541932+00:00",
+  "generated_at": "2026-07-21T20:14:21.136833+00:00",
   "layered_boundary_plan": {
     "allow_scoped_leaf_exemptions": false,
     "allowed_shared_functions": [],
@@ -3150,7 +3282,7 @@
         ],
         "proof_artifact": {
           "artifact_fingerprints": {
-            ".flowguard/evidence/agent_operations/models/A0_matters_source_analysis_operation.json": "sha256:3a3a4eb6f1cd40f4fa0534b91044612c067ee4508c54bc59794d2abfa37dd556"
+            ".flowguard/evidence/agent_operations/models/A0_matters_source_analysis_operation.json": "sha256:f9bd28b213b97cd568b52a8b6a89f9f0a1895e672f5644abe32792d82caa29c3"
           },
           "artifact_id": "artifact:A0_matters_source_analysis_operation:g2",
           "assertion_scope": "external_contract",
@@ -3263,7 +3395,7 @@
         ],
         "proof_artifact": {
           "artifact_fingerprints": {
-            ".flowguard/evidence/agent_operations/models/A1_matters_research_operation.json": "sha256:bc9ae5f374395e48d9690e2693d1333d7e9230abd56c46b62b357e95ccafa03a"
+            ".flowguard/evidence/agent_operations/models/A1_matters_research_operation.json": "sha256:5d79996c5998f99263fa3e8ab0d841b37c09595e131982f09c11d03d64ba1c85"
           },
           "artifact_id": "artifact:A1_matters_research_operation:g2",
           "assertion_scope": "external_contract",
@@ -3386,7 +3518,8 @@
           "C11_guard_artifact_prediction:HeroNotApplicable",
           "C11_guard_artifact_prediction:HumanMatterNarrative",
           "C11_guard_artifact_prediction:NonEmptySupplementalInformation",
-          "C11_guard_artifact_prediction:MatterScopedSemanticDepth"
+          "C11_guard_artifact_prediction:MatterScopedSemanticDepth",
+          "C11_guard_artifact_prediction:CurrentPhaseInference"
         ],
         "invariants_owned": [
           "A2_matters_maintenance_orchestrator_operation:declared_transition_contract",
@@ -3409,7 +3542,7 @@
         ],
         "proof_artifact": {
           "artifact_fingerprints": {
-            ".flowguard/evidence/agent_operations/models/A2_matters_maintenance_orchestrator_operation.json": "sha256:4f952d97e817a3630356e35d18091e99bfb9480ddc140b163024dd8e8fc6aec3"
+            ".flowguard/evidence/agent_operations/models/A2_matters_maintenance_orchestrator_operation.json": "sha256:c384c52e8e82fcb8a39b3ce754f207fd3122bc894e1fce4235d1c18aa3b0d032"
           },
           "artifact_id": "artifact:A2_matters_maintenance_orchestrator_operation:g2",
           "assertion_scope": "external_contract",
@@ -3532,7 +3665,7 @@
         ],
         "proof_artifact": {
           "artifact_fingerprints": {
-            ".flowguard/evidence/agent_operations/models/A3_matters_ai_gateway_operation.json": "sha256:ebf0273db2a46f957e829afc192195e04ef1da3066248ae80530120cead20b03"
+            ".flowguard/evidence/agent_operations/models/A3_matters_ai_gateway_operation.json": "sha256:68641f303c06921bf7b49d16229f5c8125d6e34f176136884f35c59ab3ca4f30"
           },
           "artifact_id": "artifact:A3_matters_ai_gateway_operation:g2",
           "assertion_scope": "external_contract",
@@ -3674,7 +3807,7 @@
         ],
         "proof_artifact": {
           "artifact_fingerprints": {
-            ".flowguard/evidence/models/C1_authorization_coverage.json": "sha256:5fb2409c2d3dbe535503cbf6a7775722ffd122c68da8e8a3be2b782d745dd695"
+            ".flowguard/evidence/models/C1_authorization_coverage.json": "sha256:a11ebb9e37a55aeefb2455d2439078adaf1daf6d133998a0e5f6ab976c90f0d2"
           },
           "artifact_id": "artifact:C1_authorization_coverage:g2",
           "assertion_scope": "external_contract",
@@ -3926,7 +4059,7 @@
         ],
         "proof_artifact": {
           "artifact_fingerprints": {
-            ".flowguard/evidence/models/C2_source_registry.json": "sha256:f6ef8e704ab76d823738728c8203f6d40928fd61e84ef42df0b04e8c541808ea"
+            ".flowguard/evidence/models/C2_source_registry.json": "sha256:005477cee9f32536c92b115264a9d02926ebd80ebfb97da61b0ea311906a102f"
           },
           "artifact_id": "artifact:C2_source_registry:g2",
           "assertion_scope": "external_contract",
@@ -4165,7 +4298,7 @@
         ],
         "proof_artifact": {
           "artifact_fingerprints": {
-            ".flowguard/evidence/models/C3_evidence_qualification.json": "sha256:41d69492c26f21ead288e0bcce8f6fa519ae3bbfaaee93c7461961300a626af6"
+            ".flowguard/evidence/models/C3_evidence_qualification.json": "sha256:16e178a6265eb436707aecdf1832a6e5e27028dca70993d404bfdc5a59d20d25"
           },
           "artifact_id": "artifact:C3_evidence_qualification:g2",
           "assertion_scope": "external_contract",
@@ -4283,7 +4416,7 @@
         ],
         "proof_artifact": {
           "artifact_fingerprints": {
-            ".flowguard/evidence/models/C4_person_entity_resolution.json": "sha256:af22eceb80e77175f5eea4303d5ab9440d8d19941932a834edd10d3843b10092"
+            ".flowguard/evidence/models/C4_person_entity_resolution.json": "sha256:dd99a14d9f66079e467eb529d460d0491a32328b3ad3386670c1c413bd82e9db"
           },
           "artifact_id": "artifact:C4_person_entity_resolution:g2",
           "assertion_scope": "external_contract",
@@ -4345,7 +4478,7 @@
           "guarantee:C5_event_temporal_trace:finite_relation"
         ],
         "evidence_current": true,
-        "evidence_id": "evidence:C5_event_temporal_trace:a9636cba74a284fc",
+        "evidence_id": "evidence:C5_event_temporal_trace:2d7eeeeddc5be7df",
         "evidence_status": "passed",
         "functions_owned": [
           "C5_event_temporal_trace:finite_transition"
@@ -4384,6 +4517,7 @@
           "C5_event_temporal_trace:ParentNarrativeRefreshRequired",
           "C5_event_temporal_trace:SituationGraphEventNode",
           "C5_event_temporal_trace:EventCertainty",
+          "C5_event_temporal_trace:ReportedTemporalDirectionPreserved",
           "C5_event_temporal_trace:InferenceAlternatives",
           "C5_event_temporal_trace:StaleTemporalOwnerOutputExcluded",
           "C5_event_temporal_trace:AnalysisOutputReplacementPending",
@@ -4391,7 +4525,7 @@
         ],
         "proof_artifact": {
           "artifact_fingerprints": {
-            ".flowguard/evidence/models/C5_event_temporal_trace.json": "sha256:61141cc30dafd6eabc01bc239c6767344aff28e2f124f17e4c06fc7709d8971a"
+            ".flowguard/evidence/models/C5_event_temporal_trace.json": "sha256:6cbaacac487caa3d1a8b2fe7030ebb365a92871d7bdb4a0332696be292b9963d"
           },
           "artifact_id": "artifact:C5_event_temporal_trace:g2",
           "assertion_scope": "external_contract",
@@ -4423,6 +4557,7 @@
             "state:C5_event_temporal_trace:trace.parent_narrative_refresh_trigger_revision",
             "state:C5_event_temporal_trace:trace.situation_graph_event_revision",
             "state:C5_event_temporal_trace:event.certainty_class",
+            "state:C5_event_temporal_trace:event.temporal_assertion",
             "state:C5_event_temporal_trace:event.inference_confidence",
             "state:C5_event_temporal_trace:event.alternative_interpretations",
             "side_effect:C5_event_temporal_trace:event_registry_write",
@@ -4472,6 +4607,7 @@
           "state:C5_event_temporal_trace:trace.parent_narrative_refresh_trigger_revision",
           "state:C5_event_temporal_trace:trace.situation_graph_event_revision",
           "state:C5_event_temporal_trace:event.certainty_class",
+          "state:C5_event_temporal_trace:event.temporal_assertion",
           "state:C5_event_temporal_trace:event.inference_confidence",
           "state:C5_event_temporal_trace:event.alternative_interpretations",
           "side_effect:C5_event_temporal_trace:event_registry_write",
@@ -4516,6 +4652,7 @@
           "trace.parent_narrative_refresh_trigger_revision",
           "trace.situation_graph_event_revision",
           "event.certainty_class",
+          "event.temporal_assertion",
           "event.inference_confidence",
           "event.alternative_interpretations"
         ]
@@ -4526,7 +4663,7 @@
           "guarantee:C6_matter_formation_admission:finite_relation"
         ],
         "evidence_current": true,
-        "evidence_id": "evidence:C6_matter_formation_admission:cbb76081a7a7054e",
+        "evidence_id": "evidence:C6_matter_formation_admission:e67d30bee9284522",
         "evidence_status": "passed",
         "functions_owned": [
           "C6_matter_formation_admission:finite_transition"
@@ -4586,6 +4723,8 @@
           "C6_matter_formation_admission:CanonicalMatterIdentityCurrent",
           "C6_matter_formation_admission:CanonicalMatterIdentityRejected",
           "C6_matter_formation_admission:MatterOnlyHierarchyProjection",
+          "C6_matter_formation_admission:MaterialWorkItemStage",
+          "C6_matter_formation_admission:GranularityConflictPreserved",
           "C6_matter_formation_admission:CrossDomainMatterRelation",
           "C6_matter_formation_admission:TravelHierarchyReconciled",
           "C6_matter_formation_admission:SoftwarePortfolioHierarchyReconciled",
@@ -4594,11 +4733,18 @@
           "C6_matter_formation_admission:MatterSourceRevisionTargetAdopted",
           "C6_matter_formation_admission:SourceRevisionStalePackageRejected",
           "C6_matter_formation_admission:SourceRevisionCurrentSuccessorRequired",
-          "C6_matter_formation_admission:OldRevisionEvidenceRetired"
+          "C6_matter_formation_admission:OldRevisionEvidenceRetired",
+          "C6_matter_formation_admission:SourceRevisionSecondaryC6FindingDispatched",
+          "C6_matter_formation_admission:MatterSemanticRefreshIdentityPreserved",
+          "C6_matter_formation_admission:MatterSemanticRefreshCrossSourceBound",
+          "C6_matter_formation_admission:SemanticWorkItemIdentityCurrent",
+          "C6_matter_formation_admission:SituationGraphConflictPreserved",
+          "C6_matter_formation_admission:SingleReconciliationOwnerPath",
+          "C6_matter_formation_admission:PreEvidenceSourceRetained"
         ],
         "proof_artifact": {
           "artifact_fingerprints": {
-            ".flowguard/evidence/models/C6_matter_formation_admission.json": "sha256:1f955e7d645c50fd41de636051907fb9c39d57c21179909b1dfbbab172757787"
+            ".flowguard/evidence/models/C6_matter_formation_admission.json": "sha256:a9a142c3cf0a2be057004bb5b94cc8b48be8f21b968a0efc564519cb46d91600"
           },
           "artifact_id": "artifact:C6_matter_formation_admission:g2",
           "assertion_scope": "external_contract",
@@ -4632,7 +4778,11 @@
             "state:C6_matter_formation_admission:matter.parent_narrative_child_projection_revisions",
             "state:C6_matter_formation_admission:matter.parent_narrative_evidence_revisions",
             "state:C6_matter_formation_admission:matter.root_granularity",
+            "state:C6_matter_formation_admission:matter.reconciliation_owner_path",
             "state:C6_matter_formation_admission:work_item.membership",
+            "state:C6_matter_formation_admission:work_item.material_stage_eligibility",
+            "state:C6_matter_formation_admission:work_item.semantic_role_identity",
+            "state:C6_matter_formation_admission:work_item.supersession",
             "state:C6_matter_formation_admission:matter.situation_graph_revision",
             "state:C6_matter_formation_admission:matter.situation_graph_primary_edges",
             "state:C6_matter_formation_admission:matter.situation_graph_secondary_edges",
@@ -4693,7 +4843,11 @@
           "state:C6_matter_formation_admission:matter.parent_narrative_child_projection_revisions",
           "state:C6_matter_formation_admission:matter.parent_narrative_evidence_revisions",
           "state:C6_matter_formation_admission:matter.root_granularity",
+          "state:C6_matter_formation_admission:matter.reconciliation_owner_path",
           "state:C6_matter_formation_admission:work_item.membership",
+          "state:C6_matter_formation_admission:work_item.material_stage_eligibility",
+          "state:C6_matter_formation_admission:work_item.semantic_role_identity",
+          "state:C6_matter_formation_admission:work_item.supersession",
           "state:C6_matter_formation_admission:matter.situation_graph_revision",
           "state:C6_matter_formation_admission:matter.situation_graph_primary_edges",
           "state:C6_matter_formation_admission:matter.situation_graph_secondary_edges",
@@ -4753,7 +4907,11 @@
           "matter.parent_narrative_child_projection_revisions",
           "matter.parent_narrative_evidence_revisions",
           "matter.root_granularity",
+          "matter.reconciliation_owner_path",
           "work_item.membership",
+          "work_item.material_stage_eligibility",
+          "work_item.semantic_role_identity",
+          "work_item.supersession",
           "matter.situation_graph_revision",
           "matter.situation_graph_primary_edges",
           "matter.situation_graph_secondary_edges",
@@ -4769,7 +4927,7 @@
           "guarantee:C7_lifecycle_board_state:finite_relation"
         ],
         "evidence_current": true,
-        "evidence_id": "evidence:C7_lifecycle_board_state:48dbb364b6c25605",
+        "evidence_id": "evidence:C7_lifecycle_board_state:21186cb360aefdee",
         "evidence_status": "passed",
         "functions_owned": [
           "C7_lifecycle_board_state:finite_transition"
@@ -4806,11 +4964,14 @@
           "C7_lifecycle_board_state:AIInferredLifecycle",
           "C7_lifecycle_board_state:InferenceAlternatives",
           "C7_lifecycle_board_state:LifecycleDisplayContract",
-          "C7_lifecycle_board_state:LifecycleModalitySeparated"
+          "C7_lifecycle_board_state:LifecycleModalitySeparated",
+          "C7_lifecycle_board_state:CurrentPhaseInference",
+          "C7_lifecycle_board_state:ProvisionalTerminality",
+          "C7_lifecycle_board_state:CurrentPhaseContradictionPreserved"
         ],
         "proof_artifact": {
           "artifact_fingerprints": {
-            ".flowguard/evidence/models/C7_lifecycle_board_state.json": "sha256:5000fccc9bb230f5b7fb8f46ed90048a8aba95243b19827a05b2861c32564cfb"
+            ".flowguard/evidence/models/C7_lifecycle_board_state.json": "sha256:0350f6c169ee19a3c11da231e0b78e6960ac40e81ca2b001e5e800e38a4ef3d8"
           },
           "artifact_id": "artifact:C7_lifecycle_board_state:g2",
           "assertion_scope": "external_contract",
@@ -4828,6 +4989,13 @@
             "state:C7_lifecycle_board_state:matter.lifecycle_inference_expiry",
             "state:C7_lifecycle_board_state:matter.lifecycle_display_key",
             "state:C7_lifecycle_board_state:matter.lifecycle_basis_modality",
+            "state:C7_lifecycle_board_state:matter.lifecycle_basis_scope",
+            "state:C7_lifecycle_board_state:matter.lifecycle_temporal_assertion",
+            "state:C7_lifecycle_board_state:matter.lifecycle_terminality",
+            "state:C7_lifecycle_board_state:matter.lifecycle_confidence",
+            "state:C7_lifecycle_board_state:matter.lifecycle_coverage_boundary",
+            "state:C7_lifecycle_board_state:matter.lifecycle_contradiction_triggers",
+            "state:C7_lifecycle_board_state:matter.lifecycle_counter_signals",
             "side_effect:C7_lifecycle_board_state:lifecycle_registry_write",
             "invariant:C7_lifecycle_board_state:declared_transition_contract",
             "invariant:C7_lifecycle_board_state:owned_writes_only",
@@ -4861,6 +5029,13 @@
           "state:C7_lifecycle_board_state:matter.lifecycle_inference_expiry",
           "state:C7_lifecycle_board_state:matter.lifecycle_display_key",
           "state:C7_lifecycle_board_state:matter.lifecycle_basis_modality",
+          "state:C7_lifecycle_board_state:matter.lifecycle_basis_scope",
+          "state:C7_lifecycle_board_state:matter.lifecycle_temporal_assertion",
+          "state:C7_lifecycle_board_state:matter.lifecycle_terminality",
+          "state:C7_lifecycle_board_state:matter.lifecycle_confidence",
+          "state:C7_lifecycle_board_state:matter.lifecycle_coverage_boundary",
+          "state:C7_lifecycle_board_state:matter.lifecycle_contradiction_triggers",
+          "state:C7_lifecycle_board_state:matter.lifecycle_counter_signals",
           "side_effect:C7_lifecycle_board_state:lifecycle_registry_write",
           "invariant:C7_lifecycle_board_state:declared_transition_contract",
           "invariant:C7_lifecycle_board_state:owned_writes_only",
@@ -4888,7 +5063,14 @@
           "matter.lifecycle_inference_alternatives",
           "matter.lifecycle_inference_expiry",
           "matter.lifecycle_display_key",
-          "matter.lifecycle_basis_modality"
+          "matter.lifecycle_basis_modality",
+          "matter.lifecycle_basis_scope",
+          "matter.lifecycle_temporal_assertion",
+          "matter.lifecycle_terminality",
+          "matter.lifecycle_confidence",
+          "matter.lifecycle_coverage_boundary",
+          "matter.lifecycle_contradiction_triggers",
+          "matter.lifecycle_counter_signals"
         ]
       },
       {
@@ -4897,7 +5079,7 @@
           "guarantee:C8_open_loop_waiting_blocking:finite_relation"
         ],
         "evidence_current": true,
-        "evidence_id": "evidence:C8_open_loop_waiting_blocking:87ab92d77bb88b87",
+        "evidence_id": "evidence:C8_open_loop_waiting_blocking:35fb1bc35def79c1",
         "evidence_status": "passed",
         "functions_owned": [
           "C8_open_loop_waiting_blocking:finite_transition"
@@ -4926,11 +5108,12 @@
           "C8_open_loop_waiting_blocking:LoopClosed",
           "C8_open_loop_waiting_blocking:OpenLoopGap",
           "C8_open_loop_waiting_blocking:ChildBlockingCurrent",
-          "C8_open_loop_waiting_blocking:AncestorBlockingRollupCurrent"
+          "C8_open_loop_waiting_blocking:AncestorBlockingRollupCurrent",
+          "C8_open_loop_waiting_blocking:SemanticOpenLoopIdentityCurrent"
         ],
         "proof_artifact": {
           "artifact_fingerprints": {
-            ".flowguard/evidence/models/C8_open_loop_waiting_blocking.json": "sha256:f3c0a27555352f2d06389f805c2d8e31252a032ba4aa8600c6f0f7a883925d0f"
+            ".flowguard/evidence/models/C8_open_loop_waiting_blocking.json": "sha256:816d3765d5a12ec629e35a2836ff9244f2615dcb6a72e3ff6679e649dad8e53f"
           },
           "artifact_id": "artifact:C8_open_loop_waiting_blocking:g2",
           "assertion_scope": "external_contract",
@@ -4938,6 +5121,8 @@
           "covered_obligation_ids": [
             "function:C8_open_loop_waiting_blocking:finite_transition",
             "state:C8_open_loop_waiting_blocking:open_loop.identity",
+            "state:C8_open_loop_waiting_blocking:open_loop.semantic_role_identity",
+            "state:C8_open_loop_waiting_blocking:open_loop.supersession",
             "state:C8_open_loop_waiting_blocking:open_loop.wait_target",
             "state:C8_open_loop_waiting_blocking:open_loop.closure_condition",
             "state:C8_open_loop_waiting_blocking:matter.blocking_axis",
@@ -4966,6 +5151,8 @@
         "responsibilities": [
           "function:C8_open_loop_waiting_blocking:finite_transition",
           "state:C8_open_loop_waiting_blocking:open_loop.identity",
+          "state:C8_open_loop_waiting_blocking:open_loop.semantic_role_identity",
+          "state:C8_open_loop_waiting_blocking:open_loop.supersession",
           "state:C8_open_loop_waiting_blocking:open_loop.wait_target",
           "state:C8_open_loop_waiting_blocking:open_loop.closure_condition",
           "state:C8_open_loop_waiting_blocking:matter.blocking_axis",
@@ -4989,6 +5176,8 @@
         "split_required": false,
         "state_owned": [
           "open_loop.identity",
+          "open_loop.semantic_role_identity",
+          "open_loop.supersession",
           "open_loop.wait_target",
           "open_loop.closure_condition",
           "matter.blocking_axis",
@@ -5002,7 +5191,7 @@
           "guarantee:C9_completion_cancellation_reopen:finite_relation"
         ],
         "evidence_current": true,
-        "evidence_id": "evidence:C9_completion_cancellation_reopen:7e567c24f8a5704a",
+        "evidence_id": "evidence:C9_completion_cancellation_reopen:eb4b5dced0a9acf3",
         "evidence_status": "passed",
         "functions_owned": [
           "C9_completion_cancellation_reopen:finite_transition"
@@ -5041,11 +5230,14 @@
           "C9_completion_cancellation_reopen:OutcomeUncertainty",
           "C9_completion_cancellation_reopen:ChildOutcomeCurrent",
           "C9_completion_cancellation_reopen:AncestorOutcomeRollupCurrent",
-          "C9_completion_cancellation_reopen:ParentCompletionUnproven"
+          "C9_completion_cancellation_reopen:ParentCompletionUnproven",
+          "C9_completion_cancellation_reopen:ProvisionalHistoricalCompletion",
+          "C9_completion_cancellation_reopen:OwnerEvidenceLicenseRejected",
+          "C9_completion_cancellation_reopen:ReportedCancellationLicensed"
         ],
         "proof_artifact": {
           "artifact_fingerprints": {
-            ".flowguard/evidence/models/C9_completion_cancellation_reopen.json": "sha256:305098d27157094cafbc6e97a2c64081659632c85210c367ca595ad5de658b51"
+            ".flowguard/evidence/models/C9_completion_cancellation_reopen.json": "sha256:b343520f09461a42437f1d38c6ab6f6124b49074a9e1876bf6b2844f2fc6bf47"
           },
           "artifact_id": "artifact:C9_completion_cancellation_reopen:g2",
           "assertion_scope": "external_contract",
@@ -5057,6 +5249,11 @@
             "state:C9_completion_cancellation_reopen:matter.reopen_revision",
             "state:C9_completion_cancellation_reopen:matter.child_outcome_summary",
             "state:C9_completion_cancellation_reopen:matter.ancestor_outcome_rollup",
+            "state:C9_completion_cancellation_reopen:matter.outcome_basis_modality",
+            "state:C9_completion_cancellation_reopen:matter.outcome_basis_scope",
+            "state:C9_completion_cancellation_reopen:matter.outcome_terminality",
+            "state:C9_completion_cancellation_reopen:matter.outcome_inference_contract",
+            "state:C9_completion_cancellation_reopen:matter.outcome_owner_evidence_license",
             "side_effect:C9_completion_cancellation_reopen:outcome_registry_write",
             "invariant:C9_completion_cancellation_reopen:declared_transition_contract",
             "invariant:C9_completion_cancellation_reopen:owned_writes_only",
@@ -5084,6 +5281,11 @@
           "state:C9_completion_cancellation_reopen:matter.reopen_revision",
           "state:C9_completion_cancellation_reopen:matter.child_outcome_summary",
           "state:C9_completion_cancellation_reopen:matter.ancestor_outcome_rollup",
+          "state:C9_completion_cancellation_reopen:matter.outcome_basis_modality",
+          "state:C9_completion_cancellation_reopen:matter.outcome_basis_scope",
+          "state:C9_completion_cancellation_reopen:matter.outcome_terminality",
+          "state:C9_completion_cancellation_reopen:matter.outcome_inference_contract",
+          "state:C9_completion_cancellation_reopen:matter.outcome_owner_evidence_license",
           "side_effect:C9_completion_cancellation_reopen:outcome_registry_write",
           "invariant:C9_completion_cancellation_reopen:declared_transition_contract",
           "invariant:C9_completion_cancellation_reopen:owned_writes_only",
@@ -5105,7 +5307,12 @@
           "matter.outcome_criteria",
           "matter.reopen_revision",
           "matter.child_outcome_summary",
-          "matter.ancestor_outcome_rollup"
+          "matter.ancestor_outcome_rollup",
+          "matter.outcome_basis_modality",
+          "matter.outcome_basis_scope",
+          "matter.outcome_terminality",
+          "matter.outcome_inference_contract",
+          "matter.outcome_owner_evidence_license"
         ]
       },
       {
@@ -5168,7 +5375,7 @@
         ],
         "proof_artifact": {
           "artifact_fingerprints": {
-            ".flowguard/evidence/models/C10_correction_revocation.json": "sha256:55839235f912b1a484190c7499003facd16abec3ba2a52dd0cad9fb8231985c1"
+            ".flowguard/evidence/models/C10_correction_revocation.json": "sha256:124a7226a02aaf7ea0bf541185ab762b5488a5c5c45f1296a53e8b7b8b2e0576"
           },
           "artifact_id": "artifact:C10_correction_revocation:g2",
           "assertion_scope": "external_contract",
@@ -5287,7 +5494,7 @@
           "guarantee:C11_guard_artifact_prediction:finite_relation"
         ],
         "evidence_current": true,
-        "evidence_id": "evidence:C11_guard_artifact_prediction:c11c7badfced8e30",
+        "evidence_id": "evidence:C11_guard_artifact_prediction:d8ca19b34486df41",
         "evidence_status": "passed",
         "functions_owned": [
           "C11_guard_artifact_prediction:finite_transition"
@@ -5359,11 +5566,12 @@
           "C11_guard_artifact_prediction:HeroNotApplicable",
           "C11_guard_artifact_prediction:HumanMatterNarrative",
           "C11_guard_artifact_prediction:NonEmptySupplementalInformation",
-          "C11_guard_artifact_prediction:MatterScopedSemanticDepth"
+          "C11_guard_artifact_prediction:MatterScopedSemanticDepth",
+          "C11_guard_artifact_prediction:CurrentPhaseInference"
         ],
         "proof_artifact": {
           "artifact_fingerprints": {
-            ".flowguard/evidence/models/C11_guard_artifact_prediction.json": "sha256:d3963bd058e8b49142be1db48ac743e7e8dbc4de680181a7c7d4f1664e05e8d3"
+            ".flowguard/evidence/models/C11_guard_artifact_prediction.json": "sha256:923015797494f2b3cb0a36368156243cdc8d14e4efa03161d7db2acf03b64399"
           },
           "artifact_id": "artifact:C11_guard_artifact_prediction:g2",
           "assertion_scope": "external_contract",
@@ -5384,6 +5592,7 @@
             "state:C11_guard_artifact_prediction:analysis.situation_inference_dependency_registry",
             "state:C11_guard_artifact_prediction:analysis.world_model_feedback_registry",
             "state:C11_guard_artifact_prediction:analysis.world_model_miss_outbox",
+            "state:C11_guard_artifact_prediction:analysis.current_phase_inference_registry",
             "state:C11_guard_artifact_prediction:research.provider_status",
             "state:C11_guard_artifact_prediction:analysis.depth_registry",
             "state:C11_guard_artifact_prediction:forecast_registry",
@@ -5434,6 +5643,7 @@
           "state:C11_guard_artifact_prediction:analysis.situation_inference_dependency_registry",
           "state:C11_guard_artifact_prediction:analysis.world_model_feedback_registry",
           "state:C11_guard_artifact_prediction:analysis.world_model_miss_outbox",
+          "state:C11_guard_artifact_prediction:analysis.current_phase_inference_registry",
           "state:C11_guard_artifact_prediction:research.provider_status",
           "state:C11_guard_artifact_prediction:analysis.depth_registry",
           "state:C11_guard_artifact_prediction:forecast_registry",
@@ -5493,6 +5703,7 @@
           "analysis.situation_inference_dependency_registry",
           "analysis.world_model_feedback_registry",
           "analysis.world_model_miss_outbox",
+          "analysis.current_phase_inference_registry",
           "research.provider_status",
           "analysis.depth_registry",
           "forecast_registry"
@@ -5504,7 +5715,7 @@
           "guarantee:C12_projection_bilingual_ui:finite_relation"
         ],
         "evidence_current": true,
-        "evidence_id": "evidence:C12_projection_bilingual_ui:c28a74c07f26dc67",
+        "evidence_id": "evidence:C12_projection_bilingual_ui:158d7c0456bf432d",
         "evidence_status": "passed",
         "functions_owned": [
           "C12_projection_bilingual_ui:finite_transition"
@@ -5643,11 +5854,14 @@
           "C12_projection_bilingual_ui:CompactCoverageIndicator",
           "C12_projection_bilingual_ui:CoverageFirstGapDrilldown",
           "C12_projection_bilingual_ui:LifecycleVisualLanguage",
-          "C12_projection_bilingual_ui:FilesInformationReadableTypography"
+          "C12_projection_bilingual_ui:FilesInformationReadableTypography",
+          "C12_projection_bilingual_ui:MaterialWorkItemStage",
+          "C12_projection_bilingual_ui:ProvisionalStateBasis",
+          "C12_projection_bilingual_ui:LegacySemanticRecomputePending"
         ],
         "proof_artifact": {
           "artifact_fingerprints": {
-            ".flowguard/evidence/models/C12_projection_bilingual_ui.json": "sha256:ca2afdabcaa91ec0769200bf1ce79e0aa330a1f9d4cfc9bdff976c77ac9a7b05"
+            ".flowguard/evidence/models/C12_projection_bilingual_ui.json": "sha256:67b2f0f53064be6d7ba9820dc8410466c4fe4d03a9b1fe31c42251e71c775206"
           },
           "artifact_id": "artifact:C12_projection_bilingual_ui:g2",
           "assertion_scope": "external_contract",
@@ -5683,6 +5897,8 @@
             "state:C12_projection_bilingual_ui:projection.analysis_owner_currentness",
             "state:C12_projection_bilingual_ui:projection.state_basis_modality",
             "state:C12_projection_bilingual_ui:projection.state_basis_scope",
+            "state:C12_projection_bilingual_ui:projection.state_terminality",
+            "state:C12_projection_bilingual_ui:projection.semantic_contract_status",
             "state:C12_projection_bilingual_ui:projection.lifecycle_visual_state",
             "state:C12_projection_bilingual_ui:ui.selected_locale",
             "state:C12_projection_bilingual_ui:ui.locale_preference",
@@ -5723,6 +5939,7 @@
             "state:C12_projection_bilingual_ui:ui.node_quick_view_facts",
             "state:C12_projection_bilingual_ui:ui.node_quick_view_source_groups",
             "state:C12_projection_bilingual_ui:ui.source_group_window",
+            "state:C12_projection_bilingual_ui:ui.material_stage_nodes",
             "side_effect:C12_projection_bilingual_ui:projection_publish",
             "side_effect:C12_projection_bilingual_ui:ui_preference_write",
             "side_effect:C12_projection_bilingual_ui:ui_window_write",
@@ -5783,6 +6000,8 @@
           "state:C12_projection_bilingual_ui:projection.analysis_owner_currentness",
           "state:C12_projection_bilingual_ui:projection.state_basis_modality",
           "state:C12_projection_bilingual_ui:projection.state_basis_scope",
+          "state:C12_projection_bilingual_ui:projection.state_terminality",
+          "state:C12_projection_bilingual_ui:projection.semantic_contract_status",
           "state:C12_projection_bilingual_ui:projection.lifecycle_visual_state",
           "state:C12_projection_bilingual_ui:ui.selected_locale",
           "state:C12_projection_bilingual_ui:ui.locale_preference",
@@ -5823,6 +6042,7 @@
           "state:C12_projection_bilingual_ui:ui.node_quick_view_facts",
           "state:C12_projection_bilingual_ui:ui.node_quick_view_source_groups",
           "state:C12_projection_bilingual_ui:ui.source_group_window",
+          "state:C12_projection_bilingual_ui:ui.material_stage_nodes",
           "side_effect:C12_projection_bilingual_ui:projection_publish",
           "side_effect:C12_projection_bilingual_ui:ui_preference_write",
           "side_effect:C12_projection_bilingual_ui:ui_window_write",
@@ -5895,6 +6115,8 @@
           "projection.analysis_owner_currentness",
           "projection.state_basis_modality",
           "projection.state_basis_scope",
+          "projection.state_terminality",
+          "projection.semantic_contract_status",
           "projection.lifecycle_visual_state",
           "ui.selected_locale",
           "ui.locale_preference",
@@ -5934,7 +6156,8 @@
           "ui.node_quick_view_state",
           "ui.node_quick_view_facts",
           "ui.node_quick_view_source_groups",
-          "ui.source_group_window"
+          "ui.source_group_window",
+          "ui.material_stage_nodes"
         ]
       }
     ],
@@ -8571,6 +8794,15 @@
       },
       {
         "allowed_shared_with": [],
+        "description": "unique writer for event.temporal_assertion",
+        "item_id": "state:C5_event_temporal_trace:event.temporal_assertion",
+        "item_type": "state",
+        "owner_kind": "child",
+        "owner_model_id": "C5_event_temporal_trace",
+        "rationale": "Derived from the current checked A0/A1/A2/A3 operation-plane plus M0/C1-C12 product partition."
+      },
+      {
+        "allowed_shared_with": [],
         "description": "unique writer for event.inference_confidence",
         "item_id": "state:C5_event_temporal_trace:event.inference_confidence",
         "item_type": "state",
@@ -8886,8 +9118,44 @@
       },
       {
         "allowed_shared_with": [],
+        "description": "unique writer for matter.reconciliation_owner_path",
+        "item_id": "state:C6_matter_formation_admission:matter.reconciliation_owner_path",
+        "item_type": "state",
+        "owner_kind": "child",
+        "owner_model_id": "C6_matter_formation_admission",
+        "rationale": "Derived from the current checked A0/A1/A2/A3 operation-plane plus M0/C1-C12 product partition."
+      },
+      {
+        "allowed_shared_with": [],
         "description": "unique writer for work_item.membership",
         "item_id": "state:C6_matter_formation_admission:work_item.membership",
+        "item_type": "state",
+        "owner_kind": "child",
+        "owner_model_id": "C6_matter_formation_admission",
+        "rationale": "Derived from the current checked A0/A1/A2/A3 operation-plane plus M0/C1-C12 product partition."
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "unique writer for work_item.material_stage_eligibility",
+        "item_id": "state:C6_matter_formation_admission:work_item.material_stage_eligibility",
+        "item_type": "state",
+        "owner_kind": "child",
+        "owner_model_id": "C6_matter_formation_admission",
+        "rationale": "Derived from the current checked A0/A1/A2/A3 operation-plane plus M0/C1-C12 product partition."
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "unique writer for work_item.semantic_role_identity",
+        "item_id": "state:C6_matter_formation_admission:work_item.semantic_role_identity",
+        "item_type": "state",
+        "owner_kind": "child",
+        "owner_model_id": "C6_matter_formation_admission",
+        "rationale": "Derived from the current checked A0/A1/A2/A3 operation-plane plus M0/C1-C12 product partition."
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "unique writer for work_item.supersession",
+        "item_id": "state:C6_matter_formation_admission:work_item.supersession",
         "item_type": "state",
         "owner_kind": "child",
         "owner_model_id": "C6_matter_formation_admission",
@@ -9147,6 +9415,69 @@
       },
       {
         "allowed_shared_with": [],
+        "description": "unique writer for matter.lifecycle_basis_scope",
+        "item_id": "state:C7_lifecycle_board_state:matter.lifecycle_basis_scope",
+        "item_type": "state",
+        "owner_kind": "child",
+        "owner_model_id": "C7_lifecycle_board_state",
+        "rationale": "Derived from the current checked A0/A1/A2/A3 operation-plane plus M0/C1-C12 product partition."
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "unique writer for matter.lifecycle_temporal_assertion",
+        "item_id": "state:C7_lifecycle_board_state:matter.lifecycle_temporal_assertion",
+        "item_type": "state",
+        "owner_kind": "child",
+        "owner_model_id": "C7_lifecycle_board_state",
+        "rationale": "Derived from the current checked A0/A1/A2/A3 operation-plane plus M0/C1-C12 product partition."
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "unique writer for matter.lifecycle_terminality",
+        "item_id": "state:C7_lifecycle_board_state:matter.lifecycle_terminality",
+        "item_type": "state",
+        "owner_kind": "child",
+        "owner_model_id": "C7_lifecycle_board_state",
+        "rationale": "Derived from the current checked A0/A1/A2/A3 operation-plane plus M0/C1-C12 product partition."
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "unique writer for matter.lifecycle_confidence",
+        "item_id": "state:C7_lifecycle_board_state:matter.lifecycle_confidence",
+        "item_type": "state",
+        "owner_kind": "child",
+        "owner_model_id": "C7_lifecycle_board_state",
+        "rationale": "Derived from the current checked A0/A1/A2/A3 operation-plane plus M0/C1-C12 product partition."
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "unique writer for matter.lifecycle_coverage_boundary",
+        "item_id": "state:C7_lifecycle_board_state:matter.lifecycle_coverage_boundary",
+        "item_type": "state",
+        "owner_kind": "child",
+        "owner_model_id": "C7_lifecycle_board_state",
+        "rationale": "Derived from the current checked A0/A1/A2/A3 operation-plane plus M0/C1-C12 product partition."
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "unique writer for matter.lifecycle_contradiction_triggers",
+        "item_id": "state:C7_lifecycle_board_state:matter.lifecycle_contradiction_triggers",
+        "item_type": "state",
+        "owner_kind": "child",
+        "owner_model_id": "C7_lifecycle_board_state",
+        "rationale": "Derived from the current checked A0/A1/A2/A3 operation-plane plus M0/C1-C12 product partition."
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "unique writer for matter.lifecycle_counter_signals",
+        "item_id": "state:C7_lifecycle_board_state:matter.lifecycle_counter_signals",
+        "item_type": "state",
+        "owner_kind": "child",
+        "owner_model_id": "C7_lifecycle_board_state",
+        "rationale": "Derived from the current checked A0/A1/A2/A3 operation-plane plus M0/C1-C12 product partition."
+      },
+      {
+        "allowed_shared_with": [],
         "description": "unique side-effect owner for lifecycle_registry_write",
         "item_id": "side_effect:C7_lifecycle_board_state:lifecycle_registry_write",
         "item_type": "side_effect",
@@ -9203,6 +9534,24 @@
         "allowed_shared_with": [],
         "description": "unique writer for open_loop.identity",
         "item_id": "state:C8_open_loop_waiting_blocking:open_loop.identity",
+        "item_type": "state",
+        "owner_kind": "child",
+        "owner_model_id": "C8_open_loop_waiting_blocking",
+        "rationale": "Derived from the current checked A0/A1/A2/A3 operation-plane plus M0/C1-C12 product partition."
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "unique writer for open_loop.semantic_role_identity",
+        "item_id": "state:C8_open_loop_waiting_blocking:open_loop.semantic_role_identity",
+        "item_type": "state",
+        "owner_kind": "child",
+        "owner_model_id": "C8_open_loop_waiting_blocking",
+        "rationale": "Derived from the current checked A0/A1/A2/A3 operation-plane plus M0/C1-C12 product partition."
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "unique writer for open_loop.supersession",
+        "item_id": "state:C8_open_loop_waiting_blocking:open_loop.supersession",
         "item_type": "state",
         "owner_kind": "child",
         "owner_model_id": "C8_open_loop_waiting_blocking",
@@ -9347,6 +9696,51 @@
         "allowed_shared_with": [],
         "description": "unique writer for matter.ancestor_outcome_rollup",
         "item_id": "state:C9_completion_cancellation_reopen:matter.ancestor_outcome_rollup",
+        "item_type": "state",
+        "owner_kind": "child",
+        "owner_model_id": "C9_completion_cancellation_reopen",
+        "rationale": "Derived from the current checked A0/A1/A2/A3 operation-plane plus M0/C1-C12 product partition."
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "unique writer for matter.outcome_basis_modality",
+        "item_id": "state:C9_completion_cancellation_reopen:matter.outcome_basis_modality",
+        "item_type": "state",
+        "owner_kind": "child",
+        "owner_model_id": "C9_completion_cancellation_reopen",
+        "rationale": "Derived from the current checked A0/A1/A2/A3 operation-plane plus M0/C1-C12 product partition."
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "unique writer for matter.outcome_basis_scope",
+        "item_id": "state:C9_completion_cancellation_reopen:matter.outcome_basis_scope",
+        "item_type": "state",
+        "owner_kind": "child",
+        "owner_model_id": "C9_completion_cancellation_reopen",
+        "rationale": "Derived from the current checked A0/A1/A2/A3 operation-plane plus M0/C1-C12 product partition."
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "unique writer for matter.outcome_terminality",
+        "item_id": "state:C9_completion_cancellation_reopen:matter.outcome_terminality",
+        "item_type": "state",
+        "owner_kind": "child",
+        "owner_model_id": "C9_completion_cancellation_reopen",
+        "rationale": "Derived from the current checked A0/A1/A2/A3 operation-plane plus M0/C1-C12 product partition."
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "unique writer for matter.outcome_inference_contract",
+        "item_id": "state:C9_completion_cancellation_reopen:matter.outcome_inference_contract",
+        "item_type": "state",
+        "owner_kind": "child",
+        "owner_model_id": "C9_completion_cancellation_reopen",
+        "rationale": "Derived from the current checked A0/A1/A2/A3 operation-plane plus M0/C1-C12 product partition."
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "unique writer for matter.outcome_owner_evidence_license",
+        "item_id": "state:C9_completion_cancellation_reopen:matter.outcome_owner_evidence_license",
         "item_type": "state",
         "owner_kind": "child",
         "owner_model_id": "C9_completion_cancellation_reopen",
@@ -9770,6 +10164,15 @@
         "allowed_shared_with": [],
         "description": "unique writer for analysis.world_model_miss_outbox",
         "item_id": "state:C11_guard_artifact_prediction:analysis.world_model_miss_outbox",
+        "item_type": "state",
+        "owner_kind": "child",
+        "owner_model_id": "C11_guard_artifact_prediction",
+        "rationale": "Derived from the current checked A0/A1/A2/A3 operation-plane plus M0/C1-C12 product partition."
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "unique writer for analysis.current_phase_inference_registry",
+        "item_id": "state:C11_guard_artifact_prediction:analysis.current_phase_inference_registry",
         "item_type": "state",
         "owner_kind": "child",
         "owner_model_id": "C11_guard_artifact_prediction",
@@ -10218,6 +10621,24 @@
       },
       {
         "allowed_shared_with": [],
+        "description": "unique writer for projection.state_terminality",
+        "item_id": "state:C12_projection_bilingual_ui:projection.state_terminality",
+        "item_type": "state",
+        "owner_kind": "child",
+        "owner_model_id": "C12_projection_bilingual_ui",
+        "rationale": "Derived from the current checked A0/A1/A2/A3 operation-plane plus M0/C1-C12 product partition."
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "unique writer for projection.semantic_contract_status",
+        "item_id": "state:C12_projection_bilingual_ui:projection.semantic_contract_status",
+        "item_type": "state",
+        "owner_kind": "child",
+        "owner_model_id": "C12_projection_bilingual_ui",
+        "rationale": "Derived from the current checked A0/A1/A2/A3 operation-plane plus M0/C1-C12 product partition."
+      },
+      {
+        "allowed_shared_with": [],
         "description": "unique writer for projection.lifecycle_visual_state",
         "item_id": "state:C12_projection_bilingual_ui:projection.lifecycle_visual_state",
         "item_type": "state",
@@ -10578,6 +10999,15 @@
       },
       {
         "allowed_shared_with": [],
+        "description": "unique writer for ui.material_stage_nodes",
+        "item_id": "state:C12_projection_bilingual_ui:ui.material_stage_nodes",
+        "item_type": "state",
+        "owner_kind": "child",
+        "owner_model_id": "C12_projection_bilingual_ui",
+        "rationale": "Derived from the current checked A0/A1/A2/A3 operation-plane plus M0/C1-C12 product partition."
+      },
+      {
+        "allowed_shared_with": [],
         "description": "unique side-effect owner for projection_publish",
         "item_id": "side_effect:C12_projection_bilingual_ui:projection_publish",
         "item_type": "side_effect",
@@ -10849,7 +11279,8 @@
           "C11_guard_artifact_prediction:HeroNotApplicable",
           "C11_guard_artifact_prediction:HumanMatterNarrative",
           "C11_guard_artifact_prediction:NonEmptySupplementalInformation",
-          "C11_guard_artifact_prediction:MatterScopedSemanticDepth"
+          "C11_guard_artifact_prediction:MatterScopedSemanticDepth",
+          "C11_guard_artifact_prediction:CurrentPhaseInference"
         ],
         "expected_outputs": [
           "A2_matters_maintenance_orchestrator_operation:MaintenanceOrchestratorCurrent",
@@ -11233,7 +11664,7 @@
         "allow_extra_side_effects": false,
         "allow_extra_state_owned": false,
         "child_model_id": "C5_event_temporal_trace",
-        "consumed_evidence_id": "evidence:C5_event_temporal_trace:a9636cba74a284fc",
+        "consumed_evidence_id": "evidence:C5_event_temporal_trace:2d7eeeeddc5be7df",
         "expected_contracts_out": [
           "guarantee:C5_event_temporal_trace:finite_relation"
         ],
@@ -11263,6 +11694,7 @@
           "C5_event_temporal_trace:ParentNarrativeRefreshRequired",
           "C5_event_temporal_trace:SituationGraphEventNode",
           "C5_event_temporal_trace:EventCertainty",
+          "C5_event_temporal_trace:ReportedTemporalDirectionPreserved",
           "C5_event_temporal_trace:InferenceAlternatives",
           "C5_event_temporal_trace:StaleTemporalOwnerOutputExcluded",
           "C5_event_temporal_trace:AnalysisOutputReplacementPending",
@@ -11297,6 +11729,7 @@
           "trace.parent_narrative_refresh_trigger_revision",
           "trace.situation_graph_event_revision",
           "event.certainty_class",
+          "event.temporal_assertion",
           "event.inference_confidence",
           "event.alternative_interpretations"
         ],
@@ -11309,7 +11742,7 @@
         "allow_extra_side_effects": false,
         "allow_extra_state_owned": false,
         "child_model_id": "C6_matter_formation_admission",
-        "consumed_evidence_id": "evidence:C6_matter_formation_admission:cbb76081a7a7054e",
+        "consumed_evidence_id": "evidence:C6_matter_formation_admission:e67d30bee9284522",
         "expected_contracts_out": [
           "guarantee:C6_matter_formation_admission:finite_relation"
         ],
@@ -11360,6 +11793,8 @@
           "C6_matter_formation_admission:CanonicalMatterIdentityCurrent",
           "C6_matter_formation_admission:CanonicalMatterIdentityRejected",
           "C6_matter_formation_admission:MatterOnlyHierarchyProjection",
+          "C6_matter_formation_admission:MaterialWorkItemStage",
+          "C6_matter_formation_admission:GranularityConflictPreserved",
           "C6_matter_formation_admission:CrossDomainMatterRelation",
           "C6_matter_formation_admission:TravelHierarchyReconciled",
           "C6_matter_formation_admission:SoftwarePortfolioHierarchyReconciled",
@@ -11368,7 +11803,14 @@
           "C6_matter_formation_admission:MatterSourceRevisionTargetAdopted",
           "C6_matter_formation_admission:SourceRevisionStalePackageRejected",
           "C6_matter_formation_admission:SourceRevisionCurrentSuccessorRequired",
-          "C6_matter_formation_admission:OldRevisionEvidenceRetired"
+          "C6_matter_formation_admission:OldRevisionEvidenceRetired",
+          "C6_matter_formation_admission:SourceRevisionSecondaryC6FindingDispatched",
+          "C6_matter_formation_admission:MatterSemanticRefreshIdentityPreserved",
+          "C6_matter_formation_admission:MatterSemanticRefreshCrossSourceBound",
+          "C6_matter_formation_admission:SemanticWorkItemIdentityCurrent",
+          "C6_matter_formation_admission:SituationGraphConflictPreserved",
+          "C6_matter_formation_admission:SingleReconciliationOwnerPath",
+          "C6_matter_formation_admission:PreEvidenceSourceRetained"
         ],
         "expected_side_effects_owned": [
           "matter_registry_write",
@@ -11405,7 +11847,11 @@
           "matter.parent_narrative_child_projection_revisions",
           "matter.parent_narrative_evidence_revisions",
           "matter.root_granularity",
+          "matter.reconciliation_owner_path",
           "work_item.membership",
+          "work_item.material_stage_eligibility",
+          "work_item.semantic_role_identity",
+          "work_item.supersession",
           "matter.situation_graph_revision",
           "matter.situation_graph_primary_edges",
           "matter.situation_graph_secondary_edges",
@@ -11423,7 +11869,7 @@
         "allow_extra_side_effects": false,
         "allow_extra_state_owned": false,
         "child_model_id": "C7_lifecycle_board_state",
-        "consumed_evidence_id": "evidence:C7_lifecycle_board_state:48dbb364b6c25605",
+        "consumed_evidence_id": "evidence:C7_lifecycle_board_state:21186cb360aefdee",
         "expected_contracts_out": [
           "guarantee:C7_lifecycle_board_state:finite_relation"
         ],
@@ -11451,7 +11897,10 @@
           "C7_lifecycle_board_state:AIInferredLifecycle",
           "C7_lifecycle_board_state:InferenceAlternatives",
           "C7_lifecycle_board_state:LifecycleDisplayContract",
-          "C7_lifecycle_board_state:LifecycleModalitySeparated"
+          "C7_lifecycle_board_state:LifecycleModalitySeparated",
+          "C7_lifecycle_board_state:CurrentPhaseInference",
+          "C7_lifecycle_board_state:ProvisionalTerminality",
+          "C7_lifecycle_board_state:CurrentPhaseContradictionPreserved"
         ],
         "expected_side_effects_owned": [
           "lifecycle_registry_write"
@@ -11467,7 +11916,14 @@
           "matter.lifecycle_inference_alternatives",
           "matter.lifecycle_inference_expiry",
           "matter.lifecycle_display_key",
-          "matter.lifecycle_basis_modality"
+          "matter.lifecycle_basis_modality",
+          "matter.lifecycle_basis_scope",
+          "matter.lifecycle_temporal_assertion",
+          "matter.lifecycle_terminality",
+          "matter.lifecycle_confidence",
+          "matter.lifecycle_coverage_boundary",
+          "matter.lifecycle_contradiction_triggers",
+          "matter.lifecycle_counter_signals"
         ],
         "rationale": "M0 consumes the exact current bounded child contract."
       },
@@ -11478,7 +11934,7 @@
         "allow_extra_side_effects": false,
         "allow_extra_state_owned": false,
         "child_model_id": "C8_open_loop_waiting_blocking",
-        "consumed_evidence_id": "evidence:C8_open_loop_waiting_blocking:87ab92d77bb88b87",
+        "consumed_evidence_id": "evidence:C8_open_loop_waiting_blocking:35fb1bc35def79c1",
         "expected_contracts_out": [
           "guarantee:C8_open_loop_waiting_blocking:finite_relation"
         ],
@@ -11498,13 +11954,16 @@
           "C8_open_loop_waiting_blocking:LoopClosed",
           "C8_open_loop_waiting_blocking:OpenLoopGap",
           "C8_open_loop_waiting_blocking:ChildBlockingCurrent",
-          "C8_open_loop_waiting_blocking:AncestorBlockingRollupCurrent"
+          "C8_open_loop_waiting_blocking:AncestorBlockingRollupCurrent",
+          "C8_open_loop_waiting_blocking:SemanticOpenLoopIdentityCurrent"
         ],
         "expected_side_effects_owned": [
           "open_loop_registry_write"
         ],
         "expected_state_owned": [
           "open_loop.identity",
+          "open_loop.semantic_role_identity",
+          "open_loop.supersession",
           "open_loop.wait_target",
           "open_loop.closure_condition",
           "matter.blocking_axis",
@@ -11520,7 +11979,7 @@
         "allow_extra_side_effects": false,
         "allow_extra_state_owned": false,
         "child_model_id": "C9_completion_cancellation_reopen",
-        "consumed_evidence_id": "evidence:C9_completion_cancellation_reopen:7e567c24f8a5704a",
+        "consumed_evidence_id": "evidence:C9_completion_cancellation_reopen:eb4b5dced0a9acf3",
         "expected_contracts_out": [
           "guarantee:C9_completion_cancellation_reopen:finite_relation"
         ],
@@ -11550,7 +12009,10 @@
           "C9_completion_cancellation_reopen:OutcomeUncertainty",
           "C9_completion_cancellation_reopen:ChildOutcomeCurrent",
           "C9_completion_cancellation_reopen:AncestorOutcomeRollupCurrent",
-          "C9_completion_cancellation_reopen:ParentCompletionUnproven"
+          "C9_completion_cancellation_reopen:ParentCompletionUnproven",
+          "C9_completion_cancellation_reopen:ProvisionalHistoricalCompletion",
+          "C9_completion_cancellation_reopen:OwnerEvidenceLicenseRejected",
+          "C9_completion_cancellation_reopen:ReportedCancellationLicensed"
         ],
         "expected_side_effects_owned": [
           "outcome_registry_write"
@@ -11560,7 +12022,12 @@
           "matter.outcome_criteria",
           "matter.reopen_revision",
           "matter.child_outcome_summary",
-          "matter.ancestor_outcome_rollup"
+          "matter.ancestor_outcome_rollup",
+          "matter.outcome_basis_modality",
+          "matter.outcome_basis_scope",
+          "matter.outcome_terminality",
+          "matter.outcome_inference_contract",
+          "matter.outcome_owner_evidence_license"
         ],
         "rationale": "M0 consumes the exact current bounded child contract."
       },
@@ -11649,7 +12116,7 @@
         "allow_extra_side_effects": false,
         "allow_extra_state_owned": false,
         "child_model_id": "C11_guard_artifact_prediction",
-        "consumed_evidence_id": "evidence:C11_guard_artifact_prediction:c11c7badfced8e30",
+        "consumed_evidence_id": "evidence:C11_guard_artifact_prediction:d8ca19b34486df41",
         "expected_contracts_out": [
           "guarantee:C11_guard_artifact_prediction:finite_relation"
         ],
@@ -11712,7 +12179,8 @@
           "C11_guard_artifact_prediction:HeroNotApplicable",
           "C11_guard_artifact_prediction:HumanMatterNarrative",
           "C11_guard_artifact_prediction:NonEmptySupplementalInformation",
-          "C11_guard_artifact_prediction:MatterScopedSemanticDepth"
+          "C11_guard_artifact_prediction:MatterScopedSemanticDepth",
+          "C11_guard_artifact_prediction:CurrentPhaseInference"
         ],
         "expected_side_effects_owned": [
           "agent_work_package_write",
@@ -11743,6 +12211,7 @@
           "analysis.situation_inference_dependency_registry",
           "analysis.world_model_feedback_registry",
           "analysis.world_model_miss_outbox",
+          "analysis.current_phase_inference_registry",
           "research.provider_status",
           "analysis.depth_registry",
           "forecast_registry"
@@ -11756,7 +12225,7 @@
         "allow_extra_side_effects": false,
         "allow_extra_state_owned": false,
         "child_model_id": "C12_projection_bilingual_ui",
-        "consumed_evidence_id": "evidence:C12_projection_bilingual_ui:c28a74c07f26dc67",
+        "consumed_evidence_id": "evidence:C12_projection_bilingual_ui:158d7c0456bf432d",
         "expected_contracts_out": [
           "guarantee:C12_projection_bilingual_ui:finite_relation"
         ],
@@ -11886,7 +12355,10 @@
           "C12_projection_bilingual_ui:CompactCoverageIndicator",
           "C12_projection_bilingual_ui:CoverageFirstGapDrilldown",
           "C12_projection_bilingual_ui:LifecycleVisualLanguage",
-          "C12_projection_bilingual_ui:FilesInformationReadableTypography"
+          "C12_projection_bilingual_ui:FilesInformationReadableTypography",
+          "C12_projection_bilingual_ui:MaterialWorkItemStage",
+          "C12_projection_bilingual_ui:ProvisionalStateBasis",
+          "C12_projection_bilingual_ui:LegacySemanticRecomputePending"
         ],
         "expected_side_effects_owned": [
           "projection_publish",
@@ -11930,6 +12402,8 @@
           "projection.analysis_owner_currentness",
           "projection.state_basis_modality",
           "projection.state_basis_scope",
+          "projection.state_terminality",
+          "projection.semantic_contract_status",
           "projection.lifecycle_visual_state",
           "ui.selected_locale",
           "ui.locale_preference",
@@ -11969,7 +12443,8 @@
           "ui.node_quick_view_state",
           "ui.node_quick_view_facts",
           "ui.node_quick_view_source_groups",
-          "ui.source_group_window"
+          "ui.source_group_window",
+          "ui.material_stage_nodes"
         ],
         "rationale": "M0 consumes the exact current bounded child contract."
       }
@@ -11985,7 +12460,7 @@
     "proof_id": "LBP0_matters_parent_child_models",
     "summary": "OK: layered_boundary_proof parent=M0_matters_end_to_end_authority decision=layered_boundary_proof_green findings=0"
   },
-  "mesh_fingerprint": "sha256:147ab169f83af9795b3f6ff475eee6870956fc88d7fa2e1a16b62ed20a99bb9a",
+  "mesh_fingerprint": "sha256:7725da199bd9f605cda1cae88edd2f25a61331e0b6d08c9e65810e75ee03fd4e",
   "mesh_id": "MM0_matters_parent_child_mesh",
   "native_report": {
     "activation_reasons": [
@@ -12081,6 +12556,7 @@
         "C11_guard_artifact_prediction:BilingualFinding",
         "C11_guard_artifact_prediction:CapabilityPending",
         "C11_guard_artifact_prediction:CapabilityRole",
+        "C11_guard_artifact_prediction:CurrentPhaseInference",
         "C11_guard_artifact_prediction:DepthAssessment",
         "C11_guard_artifact_prediction:Finding",
         "C11_guard_artifact_prediction:Forecast",
@@ -12135,11 +12611,13 @@
         "C12_projection_bilingual_ui:HumanReadableTimeline",
         "C12_projection_bilingual_ui:ImagesGallery",
         "C12_projection_bilingual_ui:IndexedCatalogPage",
+        "C12_projection_bilingual_ui:LegacySemanticRecomputePending",
         "C12_projection_bilingual_ui:LifecycleVisualLanguage",
         "C12_projection_bilingual_ui:LocaleRegistry",
         "C12_projection_bilingual_ui:LocalizedProjection",
         "C12_projection_bilingual_ui:LogicalTimelineProjection",
         "C12_projection_bilingual_ui:MaterialClue",
+        "C12_projection_bilingual_ui:MaterialWorkItemStage",
         "C12_projection_bilingual_ui:MatterCard",
         "C12_projection_bilingual_ui:MatterCatalog",
         "C12_projection_bilingual_ui:MatterDetail",
@@ -12154,6 +12632,7 @@
         "C12_projection_bilingual_ui:ParentNarrativeRefreshQueued",
         "C12_projection_bilingual_ui:ParentNarrativeWriteBoundaryPreserved",
         "C12_projection_bilingual_ui:ProjectionPending",
+        "C12_projection_bilingual_ui:ProvisionalStateBasis",
         "C12_projection_bilingual_ui:RootHeroProjection",
         "C12_projection_bilingual_ui:RootMatterCatalog",
         "C12_projection_bilingual_ui:SituationGraphContinuation",
@@ -12278,6 +12757,7 @@
         "C5_event_temporal_trace:ObservationTimeCorrected",
         "C5_event_temporal_trace:ObservationTimeGap",
         "C5_event_temporal_trace:ParentNarrativeRefreshRequired",
+        "C5_event_temporal_trace:ReportedTemporalDirectionPreserved",
         "C5_event_temporal_trace:SituationGraphEventNode",
         "C5_event_temporal_trace:StaleTemporalOwnerOutputExcluded",
         "C5_event_temporal_trace:StartBoundary",
@@ -12300,15 +12780,19 @@
         "C6_matter_formation_admission:CrossDomainMatterRelation",
         "C6_matter_formation_admission:EventOnly",
         "C6_matter_formation_admission:GlobalCandidateRecallComplete",
+        "C6_matter_formation_admission:GranularityConflictPreserved",
         "C6_matter_formation_admission:HierarchyBatchCommitted",
         "C6_matter_formation_admission:HierarchyConflict",
         "C6_matter_formation_admission:HierarchyDecision",
         "C6_matter_formation_admission:HierarchyDepthPending",
         "C6_matter_formation_admission:HierarchyPublicationRecovered",
         "C6_matter_formation_admission:HierarchyRevision",
+        "C6_matter_formation_admission:MaterialWorkItemStage",
         "C6_matter_formation_admission:MatterCandidate",
         "C6_matter_formation_admission:MatterCanonicalization",
         "C6_matter_formation_admission:MatterOnlyHierarchyProjection",
+        "C6_matter_formation_admission:MatterSemanticRefreshCrossSourceBound",
+        "C6_matter_formation_admission:MatterSemanticRefreshIdentityPreserved",
         "C6_matter_formation_admission:MatterSourceRelation",
         "C6_matter_formation_admission:MatterSourceRevisionAnalysisRequired",
         "C6_matter_formation_admission:MatterSourceRevisionCurrent",
@@ -12318,15 +12802,20 @@
         "C6_matter_formation_admission:OldRevisionEvidenceRetired",
         "C6_matter_formation_admission:ParentCompositionAtomic",
         "C6_matter_formation_admission:ParentNarrativeScopeCurrent",
+        "C6_matter_formation_admission:PreEvidenceSourceRetained",
         "C6_matter_formation_admission:RelatedMatterOnly",
         "C6_matter_formation_admission:RootMatter",
+        "C6_matter_formation_admission:SemanticWorkItemIdentityCurrent",
+        "C6_matter_formation_admission:SingleReconciliationOwnerPath",
         "C6_matter_formation_admission:SituationGraph",
+        "C6_matter_formation_admission:SituationGraphConflictPreserved",
         "C6_matter_formation_admission:SituationGraphContinuation",
         "C6_matter_formation_admission:SituationGraphPrimaryEdge",
         "C6_matter_formation_admission:SituationGraphSecondaryEdge",
         "C6_matter_formation_admission:SoftwarePortfolioHierarchyReconciled",
         "C6_matter_formation_admission:SourceOnly",
         "C6_matter_formation_admission:SourceRevisionCurrentSuccessorRequired",
+        "C6_matter_formation_admission:SourceRevisionSecondaryC6FindingDispatched",
         "C6_matter_formation_admission:SourceRevisionStalePackageRejected",
         "C6_matter_formation_admission:SplitMergeDisposition",
         "C6_matter_formation_admission:TravelHierarchyReconciled",
@@ -12338,6 +12827,8 @@
         "C7_lifecycle_board_state:ChildStateCurrent",
         "C7_lifecycle_board_state:CompletionUnproven",
         "C7_lifecycle_board_state:CoverageGap",
+        "C7_lifecycle_board_state:CurrentPhaseContradictionPreserved",
+        "C7_lifecycle_board_state:CurrentPhaseInference",
         "C7_lifecycle_board_state:HierarchyProgressSummary",
         "C7_lifecycle_board_state:InferenceAlternatives",
         "C7_lifecycle_board_state:LifecycleCertainty",
@@ -12345,6 +12836,7 @@
         "C7_lifecycle_board_state:LifecycleModalitySeparated",
         "C7_lifecycle_board_state:LifecycleState",
         "C7_lifecycle_board_state:LifecycleUncertainty",
+        "C7_lifecycle_board_state:ProvisionalTerminality",
         "C7_lifecycle_board_state:RollupUncertainty",
         "C7_lifecycle_board_state:StateRationale",
         "C8_open_loop_waiting_blocking:AncestorBlockingRollupCurrent",
@@ -12354,6 +12846,7 @@
         "C8_open_loop_waiting_blocking:OpenLoop",
         "C8_open_loop_waiting_blocking:OpenLoopGap",
         "C8_open_loop_waiting_blocking:PartialBlock",
+        "C8_open_loop_waiting_blocking:SemanticOpenLoopIdentityCurrent",
         "C8_open_loop_waiting_blocking:Waiting",
         "C9_completion_cancellation_reopen:Abandoned",
         "C9_completion_cancellation_reopen:AncestorOutcomeRollupCurrent",
@@ -12364,8 +12857,11 @@
         "C9_completion_cancellation_reopen:CompletionUnproven",
         "C9_completion_cancellation_reopen:OutcomeConflict",
         "C9_completion_cancellation_reopen:OutcomeUncertainty",
+        "C9_completion_cancellation_reopen:OwnerEvidenceLicenseRejected",
         "C9_completion_cancellation_reopen:ParentCompletionUnproven",
+        "C9_completion_cancellation_reopen:ProvisionalHistoricalCompletion",
         "C9_completion_cancellation_reopen:Reopened",
+        "C9_completion_cancellation_reopen:ReportedCancellationLicensed",
         "M0:AIGatewayRequest",
         "M0:AuthorizedSourceUniverseRequest",
         "M0:CorrectionOrRevocation",
@@ -12648,7 +13144,8 @@
           "input_contract:A2_matters_maintenance_orchestrator_operation:C11_guard_artifact_prediction:HeroNotApplicable",
           "input_contract:A2_matters_maintenance_orchestrator_operation:C11_guard_artifact_prediction:HumanMatterNarrative",
           "input_contract:A2_matters_maintenance_orchestrator_operation:C11_guard_artifact_prediction:NonEmptySupplementalInformation",
-          "input_contract:A2_matters_maintenance_orchestrator_operation:C11_guard_artifact_prediction:MatterScopedSemanticDepth"
+          "input_contract:A2_matters_maintenance_orchestrator_operation:C11_guard_artifact_prediction:MatterScopedSemanticDepth",
+          "input_contract:A2_matters_maintenance_orchestrator_operation:C11_guard_artifact_prediction:CurrentPhaseInference"
         ],
         "contracts_out": [
           "guarantee:A2_matters_maintenance_orchestrator_operation:finite_relation"
@@ -12719,7 +13216,8 @@
           "C11_guard_artifact_prediction:HeroNotApplicable",
           "C11_guard_artifact_prediction:HumanMatterNarrative",
           "C11_guard_artifact_prediction:NonEmptySupplementalInformation",
-          "C11_guard_artifact_prediction:MatterScopedSemanticDepth"
+          "C11_guard_artifact_prediction:MatterScopedSemanticDepth",
+          "C11_guard_artifact_prediction:CurrentPhaseInference"
         ],
         "invariants_owned": [
           "A2_matters_maintenance_orchestrator_operation:declared_transition_contract",
@@ -13405,9 +13903,9 @@
           "C3_evidence_qualification",
           "C11_guard_artifact_prediction"
         ],
-        "estimated_state_count": 25,
+        "estimated_state_count": 27,
         "evidence_current": true,
-        "evidence_id": "evidence:C5_event_temporal_trace:a9636cba74a284fc",
+        "evidence_id": "evidence:C5_event_temporal_trace:2d7eeeeddc5be7df",
         "evidence_tier": "hazard_green",
         "functional_areas": [
           "matters:C5_event_temporal_trace"
@@ -13430,7 +13928,7 @@
         "is_legacy": false,
         "model_id": "C5_event_temporal_trace",
         "not_run_checks": [],
-        "observed_state_count": 25,
+        "observed_state_count": 27,
         "outputs_emitted": [
           "C5_event_temporal_trace:TypedEvent",
           "C5_event_temporal_trace:LogicalEventCurrentProjection",
@@ -13452,6 +13950,7 @@
           "C5_event_temporal_trace:ParentNarrativeRefreshRequired",
           "C5_event_temporal_trace:SituationGraphEventNode",
           "C5_event_temporal_trace:EventCertainty",
+          "C5_event_temporal_trace:ReportedTemporalDirectionPreserved",
           "C5_event_temporal_trace:InferenceAlternatives",
           "C5_event_temporal_trace:StaleTemporalOwnerOutputExcluded",
           "C5_event_temporal_trace:AnalysisOutputReplacementPending",
@@ -13496,13 +13995,15 @@
           "trace.parent_narrative_refresh_trigger_revision",
           "trace.situation_graph_event_revision",
           "event.certainty_class",
+          "event.temporal_assertion",
           "event.inference_confidence",
           "event.alternative_interpretations"
         ],
         "structurally_cohesive": true,
         "unrelated_functional_areas": false,
         "validation_evidence": [
-          "evidence:C5_event_temporal_trace:a9636cba74a284fc",
+          "evidence:C5_event_temporal_trace:2d7eeeeddc5be7df",
+          "C5_event_temporal_trace:known-bad:H-C5-023-future-flight-completed-by-ticket",
           "C5_event_temporal_trace:known-bad:H-C5-016-restart-revives-superseded-event",
           "C5_event_temporal_trace:known-bad:H-C5-015-logical-event-revisions-duplicate-timeline",
           "C5_event_temporal_trace:known-bad:H-C5-014-rebased-output-remains-current",
@@ -13520,6 +14021,7 @@
           "C5_event_temporal_trace:known-bad:H-C5-006-processing-time-becomes-clue-time",
           "C5_event_temporal_trace:known-bad:H-C5-007-start-time-becomes-clue-time",
           "C5_event_temporal_trace:known-bad:H-C5-009-explicit-source-modality-relabeled-inferred",
+          "C5_event_temporal_trace:known-bad:H-C5-014-reported-temporal-direction-rejected-as-inference-metadata",
           "C5_event_temporal_trace:known-bad:H-C5-010-future-ai-inference-enters-occurred-trace"
         ]
       },
@@ -13543,9 +14045,9 @@
           "C5_event_temporal_trace",
           "C11_guard_artifact_prediction"
         ],
-        "estimated_state_count": 39,
+        "estimated_state_count": 48,
         "evidence_current": true,
-        "evidence_id": "evidence:C6_matter_formation_admission:cbb76081a7a7054e",
+        "evidence_id": "evidence:C6_matter_formation_admission:e67d30bee9284522",
         "evidence_tier": "hazard_green",
         "functional_areas": [
           "matters:C6_matter_formation_admission"
@@ -13573,7 +14075,7 @@
         "is_legacy": false,
         "model_id": "C6_matter_formation_admission",
         "not_run_checks": [],
-        "observed_state_count": 39,
+        "observed_state_count": 48,
         "outputs_emitted": [
           "C6_matter_formation_admission:SourceOnly",
           "C6_matter_formation_admission:MatterCandidate",
@@ -13611,6 +14113,8 @@
           "C6_matter_formation_admission:CanonicalMatterIdentityCurrent",
           "C6_matter_formation_admission:CanonicalMatterIdentityRejected",
           "C6_matter_formation_admission:MatterOnlyHierarchyProjection",
+          "C6_matter_formation_admission:MaterialWorkItemStage",
+          "C6_matter_formation_admission:GranularityConflictPreserved",
           "C6_matter_formation_admission:CrossDomainMatterRelation",
           "C6_matter_formation_admission:TravelHierarchyReconciled",
           "C6_matter_formation_admission:SoftwarePortfolioHierarchyReconciled",
@@ -13619,10 +14123,17 @@
           "C6_matter_formation_admission:MatterSourceRevisionTargetAdopted",
           "C6_matter_formation_admission:SourceRevisionStalePackageRejected",
           "C6_matter_formation_admission:SourceRevisionCurrentSuccessorRequired",
-          "C6_matter_formation_admission:OldRevisionEvidenceRetired"
+          "C6_matter_formation_admission:OldRevisionEvidenceRetired",
+          "C6_matter_formation_admission:SourceRevisionSecondaryC6FindingDispatched",
+          "C6_matter_formation_admission:MatterSemanticRefreshIdentityPreserved",
+          "C6_matter_formation_admission:MatterSemanticRefreshCrossSourceBound",
+          "C6_matter_formation_admission:SemanticWorkItemIdentityCurrent",
+          "C6_matter_formation_admission:SituationGraphConflictPreserved",
+          "C6_matter_formation_admission:SingleReconciliationOwnerPath",
+          "C6_matter_formation_admission:PreEvidenceSourceRetained"
         ],
         "overlaps_existing_model": "",
-        "risk_boundary": "source-first Matter formation, autonomous admitted/source-only/not-applicable/uncertain/blocked outcomes, context-aware semantic reconciliation, Matter-source gallery relations, admitted statistics, and recursive broad-root/child-Matter/WorkItem/Event/Source classification with one acyclic primary-parent containment edge and required/optional/critical role semantics, plus one bounded internal SituationGraph and one ordinary UI MatterHierarchyProjection whose nodes are admitted Matters only, with primary containment and typed Matter-to-Matter secondary edges",
+        "risk_boundary": "source-first Matter formation, autonomous admitted/source-only/not-applicable/uncertain/blocked outcomes, context-aware semantic reconciliation, Matter-source gallery relations, admitted statistics, and recursive broad-root/child-Matter/WorkItem/Event/Source classification with one acyclic primary-parent containment edge and required/optional/critical role semantics, plus one bounded internal SituationGraph and one ordinary UI MatterHierarchyProjection whose large nodes are admitted Matters, whose bounded small stage nodes are material WorkItems, with primary containment and typed Matter-to-Matter secondary edges",
         "risk_classes": [
           "C6_matter_formation_admission:decision",
           "C6_matter_formation_admission:state_transition",
@@ -13666,7 +14177,11 @@
           "matter.parent_narrative_child_projection_revisions",
           "matter.parent_narrative_evidence_revisions",
           "matter.root_granularity",
+          "matter.reconciliation_owner_path",
           "work_item.membership",
+          "work_item.material_stage_eligibility",
+          "work_item.semantic_role_identity",
+          "work_item.supersession",
           "matter.situation_graph_revision",
           "matter.situation_graph_primary_edges",
           "matter.situation_graph_secondary_edges",
@@ -13678,9 +14193,17 @@
         "structurally_cohesive": true,
         "unrelated_functional_areas": false,
         "validation_evidence": [
-          "evidence:C6_matter_formation_admission:cbb76081a7a7054e",
+          "evidence:C6_matter_formation_admission:e67d30bee9284522",
+          "C6_matter_formation_admission:known-bad:H-C6-033-direct-admission-bypasses-reconciliation",
+          "C6_matter_formation_admission:known-bad:H-C6-034-unqualified-source-becomes-matter",
+          "C6_matter_formation_admission:known-bad:H-C6-035-source-refresh-swallows-secondary-c6-finding",
+          "C6_matter_formation_admission:known-bad:H-C6-036-graph-conflict-picks-stronger-record",
+          "C6_matter_formation_admission:known-bad:H-C6-031-single-action-promoted-to-matter",
+          "C6_matter_formation_admission:known-bad:H-C6-032-work-item-stage-counted-as-matter",
           "C6_matter_formation_admission:known-bad:H-C6-024-new-source-revision-bypasses-analysis",
           "C6_matter_formation_admission:known-bad:H-C6-025-target-bound-revision-escapes-to-similar-matter",
+          "C6_matter_formation_admission:known-bad:H-C6-037-cross-source-refresh-fragments-or-mutates-membership",
+          "C6_matter_formation_admission:known-bad:H-C6-038-same-semantic-role-creates-peer-work-items",
           "C6_matter_formation_admission:known-bad:H-C6-026-old-revision-evidence-remains-current",
           "C6_matter_formation_admission:known-bad:H-C6-027-stale-sibling-retried-or-duplicate-successor",
           "C6_matter_formation_admission:known-bad:H-C6-021-nonmatter-node-enters-ui-hierarchy",
@@ -13727,9 +14250,9 @@
           "C6_matter_formation_admission",
           "C11_guard_artifact_prediction"
         ],
-        "estimated_state_count": 12,
+        "estimated_state_count": 14,
         "evidence_current": true,
-        "evidence_id": "evidence:C7_lifecycle_board_state:48dbb364b6c25605",
+        "evidence_id": "evidence:C7_lifecycle_board_state:21186cb360aefdee",
         "evidence_tier": "hazard_green",
         "functional_areas": [
           "matters:C7_lifecycle_board_state"
@@ -13756,7 +14279,7 @@
         "is_legacy": false,
         "model_id": "C7_lifecycle_board_state",
         "not_run_checks": [],
-        "observed_state_count": 12,
+        "observed_state_count": 14,
         "outputs_emitted": [
           "C7_lifecycle_board_state:LifecycleState",
           "C7_lifecycle_board_state:BoardPlacement",
@@ -13772,7 +14295,10 @@
           "C7_lifecycle_board_state:AIInferredLifecycle",
           "C7_lifecycle_board_state:InferenceAlternatives",
           "C7_lifecycle_board_state:LifecycleDisplayContract",
-          "C7_lifecycle_board_state:LifecycleModalitySeparated"
+          "C7_lifecycle_board_state:LifecycleModalitySeparated",
+          "C7_lifecycle_board_state:CurrentPhaseInference",
+          "C7_lifecycle_board_state:ProvisionalTerminality",
+          "C7_lifecycle_board_state:CurrentPhaseContradictionPreserved"
         ],
         "overlaps_existing_model": "",
         "risk_boundary": "evidence-licensed lifecycle axes, canonical board placement, current child-state snapshots, visible certainty class, advisory inference basis and alternatives, non-mechanical ancestor lifecycle rollup, and a stable lifecycle display key kept separate from evidence modality",
@@ -13798,12 +14324,21 @@
           "matter.lifecycle_inference_alternatives",
           "matter.lifecycle_inference_expiry",
           "matter.lifecycle_display_key",
-          "matter.lifecycle_basis_modality"
+          "matter.lifecycle_basis_modality",
+          "matter.lifecycle_basis_scope",
+          "matter.lifecycle_temporal_assertion",
+          "matter.lifecycle_terminality",
+          "matter.lifecycle_confidence",
+          "matter.lifecycle_coverage_boundary",
+          "matter.lifecycle_contradiction_triggers",
+          "matter.lifecycle_counter_signals"
         ],
         "structurally_cohesive": true,
         "unrelated_functional_areas": false,
         "validation_evidence": [
-          "evidence:C7_lifecycle_board_state:48dbb364b6c25605",
+          "evidence:C7_lifecycle_board_state:21186cb360aefdee",
+          "C7_lifecycle_board_state:known-bad:H-C7-011-current-contradiction-ignored",
+          "C7_lifecycle_board_state:known-bad:H-C7-010-deadline-alone-infers-active-work",
           "C7_lifecycle_board_state:known-bad:H-C7-008-modality-replaces-lifecycle-state",
           "C7_lifecycle_board_state:known-bad:H-C7-001-scheduled-becomes-active",
           "C7_lifecycle_board_state:known-bad:H-C7-002-partial-absence-becomes-not-started",
@@ -13831,9 +14366,9 @@
           "C6_matter_formation_admission",
           "C7_lifecycle_board_state"
         ],
-        "estimated_state_count": 9,
+        "estimated_state_count": 10,
         "evidence_current": true,
-        "evidence_id": "evidence:C8_open_loop_waiting_blocking:87ab92d77bb88b87",
+        "evidence_id": "evidence:C8_open_loop_waiting_blocking:35fb1bc35def79c1",
         "evidence_tier": "hazard_green",
         "functional_areas": [
           "matters:C8_open_loop_waiting_blocking"
@@ -13859,7 +14394,7 @@
         "is_legacy": false,
         "model_id": "C8_open_loop_waiting_blocking",
         "not_run_checks": [],
-        "observed_state_count": 9,
+        "observed_state_count": 10,
         "outputs_emitted": [
           "C8_open_loop_waiting_blocking:OpenLoop",
           "C8_open_loop_waiting_blocking:Waiting",
@@ -13868,7 +14403,8 @@
           "C8_open_loop_waiting_blocking:LoopClosed",
           "C8_open_loop_waiting_blocking:OpenLoopGap",
           "C8_open_loop_waiting_blocking:ChildBlockingCurrent",
-          "C8_open_loop_waiting_blocking:AncestorBlockingRollupCurrent"
+          "C8_open_loop_waiting_blocking:AncestorBlockingRollupCurrent",
+          "C8_open_loop_waiting_blocking:SemanticOpenLoopIdentityCurrent"
         ],
         "overlaps_existing_model": "",
         "risk_boundary": "requests, wait targets, closure conditions, partial/full blocking, and required/optional/critical child blocking rollup",
@@ -13885,6 +14421,8 @@
         "skipped_checks": [],
         "state_owned": [
           "open_loop.identity",
+          "open_loop.semantic_role_identity",
+          "open_loop.supersession",
           "open_loop.wait_target",
           "open_loop.closure_condition",
           "matter.blocking_axis",
@@ -13894,12 +14432,13 @@
         "structurally_cohesive": true,
         "unrelated_functional_areas": false,
         "validation_evidence": [
-          "evidence:C8_open_loop_waiting_blocking:87ab92d77bb88b87",
+          "evidence:C8_open_loop_waiting_blocking:35fb1bc35def79c1",
           "C8_open_loop_waiting_blocking:known-bad:H-C8-001-wait-without-closure-condition",
           "C8_open_loop_waiting_blocking:known-bad:H-C8-002-noncritical-failure-fully-blocks",
           "C8_open_loop_waiting_blocking:known-bad:H-C8-003-matter-completion-closes-loop",
           "C8_open_loop_waiting_blocking:known-bad:H-C8-004-advisory-blocker-becomes-loop",
-          "C8_open_loop_waiting_blocking:known-bad:H-C8-005-optional-child-fully-blocks-parent"
+          "C8_open_loop_waiting_blocking:known-bad:H-C8-005-optional-child-fully-blocks-parent",
+          "C8_open_loop_waiting_blocking:known-bad:H-C8-006-same-semantic-role-duplicates-open-loop"
         ]
       },
       {
@@ -13927,9 +14466,9 @@
           "C7_lifecycle_board_state",
           "C8_open_loop_waiting_blocking"
         ],
-        "estimated_state_count": 8,
+        "estimated_state_count": 11,
         "evidence_current": true,
-        "evidence_id": "evidence:C9_completion_cancellation_reopen:7e567c24f8a5704a",
+        "evidence_id": "evidence:C9_completion_cancellation_reopen:eb4b5dced0a9acf3",
         "evidence_tier": "hazard_green",
         "functional_areas": [
           "matters:C9_completion_cancellation_reopen"
@@ -13962,7 +14501,7 @@
         "is_legacy": false,
         "model_id": "C9_completion_cancellation_reopen",
         "not_run_checks": [],
-        "observed_state_count": 8,
+        "observed_state_count": 11,
         "outputs_emitted": [
           "C9_completion_cancellation_reopen:Completed",
           "C9_completion_cancellation_reopen:Cancelled",
@@ -13974,7 +14513,10 @@
           "C9_completion_cancellation_reopen:OutcomeUncertainty",
           "C9_completion_cancellation_reopen:ChildOutcomeCurrent",
           "C9_completion_cancellation_reopen:AncestorOutcomeRollupCurrent",
-          "C9_completion_cancellation_reopen:ParentCompletionUnproven"
+          "C9_completion_cancellation_reopen:ParentCompletionUnproven",
+          "C9_completion_cancellation_reopen:ProvisionalHistoricalCompletion",
+          "C9_completion_cancellation_reopen:OwnerEvidenceLicenseRejected",
+          "C9_completion_cancellation_reopen:ReportedCancellationLicensed"
         ],
         "overlaps_existing_model": "",
         "risk_boundary": "explicit completion and termination criteria, independent-loop disposition, reopening, and non-mechanical child-outcome rollup",
@@ -13994,12 +14536,19 @@
           "matter.outcome_criteria",
           "matter.reopen_revision",
           "matter.child_outcome_summary",
-          "matter.ancestor_outcome_rollup"
+          "matter.ancestor_outcome_rollup",
+          "matter.outcome_basis_modality",
+          "matter.outcome_basis_scope",
+          "matter.outcome_terminality",
+          "matter.outcome_inference_contract",
+          "matter.outcome_owner_evidence_license"
         ],
         "structurally_cohesive": true,
         "unrelated_functional_areas": false,
         "validation_evidence": [
-          "evidence:C9_completion_cancellation_reopen:7e567c24f8a5704a",
+          "evidence:C9_completion_cancellation_reopen:eb4b5dced0a9acf3",
+          "C9_completion_cancellation_reopen:known-bad:H-C9-007-unlicensed-ai-satisfied-completes",
+          "C9_completion_cancellation_reopen:known-bad:H-C9-008-ai-cancels-without-reported-termination",
           "C9_completion_cancellation_reopen:known-bad:H-C9-001-false-completion-proof",
           "C9_completion_cancellation_reopen:known-bad:H-C9-002-cancellation-silently-closes-loops",
           "C9_completion_cancellation_reopen:known-bad:H-C9-003-new-obligation-does-not-reopen",
@@ -14184,9 +14733,9 @@
           "C1_authorization_coverage",
           "C2_source_registry"
         ],
-        "estimated_state_count": 37,
+        "estimated_state_count": 38,
         "evidence_current": true,
-        "evidence_id": "evidence:C11_guard_artifact_prediction:c11c7badfced8e30",
+        "evidence_id": "evidence:C11_guard_artifact_prediction:d8ca19b34486df41",
         "evidence_tier": "hazard_green",
         "functional_areas": [
           "matters:C11_guard_artifact_prediction"
@@ -14229,7 +14778,7 @@
         "is_legacy": false,
         "model_id": "C11_guard_artifact_prediction",
         "not_run_checks": [],
-        "observed_state_count": 37,
+        "observed_state_count": 38,
         "outputs_emitted": [
           "C11_guard_artifact_prediction:AnalysisWorkPackageV2",
           "C11_guard_artifact_prediction:CapabilityRole",
@@ -14264,7 +14813,8 @@
           "C11_guard_artifact_prediction:HeroNotApplicable",
           "C11_guard_artifact_prediction:HumanMatterNarrative",
           "C11_guard_artifact_prediction:NonEmptySupplementalInformation",
-          "C11_guard_artifact_prediction:MatterScopedSemanticDepth"
+          "C11_guard_artifact_prediction:MatterScopedSemanticDepth",
+          "C11_guard_artifact_prediction:CurrentPhaseInference"
         ],
         "overlaps_existing_model": "",
         "risk_boundary": "versioned scope-bound model-agnostic capability-routed AI/ResearchOperation work packages, terminal results, ResearchGuard currentness, semantic depth, typed bilingual findings, input accounting, durable automatic original-owner dispatch, root-only photoreal generated-Hero work, AI supplemental information, persistent advisory Situation/World Model inference with alternatives and expiry, receipt freshness, and forecast/current-state separation",
@@ -14308,6 +14858,7 @@
           "analysis.situation_inference_dependency_registry",
           "analysis.world_model_feedback_registry",
           "analysis.world_model_miss_outbox",
+          "analysis.current_phase_inference_registry",
           "research.provider_status",
           "analysis.depth_registry",
           "forecast_registry"
@@ -14315,12 +14866,13 @@
         "structurally_cohesive": true,
         "unrelated_functional_areas": false,
         "validation_evidence": [
-          "evidence:C11_guard_artifact_prediction:c11c7badfced8e30",
+          "evidence:C11_guard_artifact_prediction:d8ca19b34486df41",
+          "C11_guard_artifact_prediction:known-bad:H-C11-030-current-phase-predicts-future-success",
           "C11_guard_artifact_prediction:known-bad:H-C11-024-empty-supplemental-claimed-current",
           "C11_guard_artifact_prediction:known-bad:H-C11-025-internal-audit-language-becomes-summary",
           "C11_guard_artifact_prediction:known-bad:H-C11-001-research-writes-canonical-state",
           "C11_guard_artifact_prediction:known-bad:H-C11-002-stale-result-promoted",
-          "C11_guard_artifact_prediction:known-bad:H-C11-003-forecast-changes-current-state",
+          "C11_guard_artifact_prediction:known-bad:H-C11-003-weak-forecast-entrypoint-remains-successful",
           "C11_guard_artifact_prediction:known-bad:H-C11-004-progress-receipt-promoted",
           "C11_guard_artifact_prediction:known-bad:H-C11-008-hierarchy-proposal-writes-parent",
           "C11_guard_artifact_prediction:known-bad:H-C11-005-legacy-three-guard-fallback",
@@ -14423,9 +14975,9 @@
           "C10_correction_revocation",
           "C11_guard_artifact_prediction"
         ],
-        "estimated_state_count": 59,
+        "estimated_state_count": 62,
         "evidence_current": true,
-        "evidence_id": "evidence:C12_projection_bilingual_ui:c28a74c07f26dc67",
+        "evidence_id": "evidence:C12_projection_bilingual_ui:158d7c0456bf432d",
         "evidence_tier": "hazard_green",
         "functional_areas": [
           "matters:C12_projection_bilingual_ui"
@@ -14506,7 +15058,7 @@
         "is_legacy": false,
         "model_id": "C12_projection_bilingual_ui",
         "not_run_checks": [],
-        "observed_state_count": 59,
+        "observed_state_count": 62,
         "outputs_emitted": [
           "C12_projection_bilingual_ui:LocalizedProjection",
           "C12_projection_bilingual_ui:LocaleRegistry",
@@ -14570,10 +15122,13 @@
           "C12_projection_bilingual_ui:CompactCoverageIndicator",
           "C12_projection_bilingual_ui:CoverageFirstGapDrilldown",
           "C12_projection_bilingual_ui:LifecycleVisualLanguage",
-          "C12_projection_bilingual_ui:FilesInformationReadableTypography"
+          "C12_projection_bilingual_ui:FilesInformationReadableTypography",
+          "C12_projection_bilingual_ui:MaterialWorkItemStage",
+          "C12_projection_bilingual_ui:ProvisionalStateBasis",
+          "C12_projection_bilingual_ui:LegacySemanticRecomputePending"
         ],
         "overlaps_existing_model": "",
-        "risk_boundary": "one-revision Matter catalog and detail projection, English-default and Chinese locale selection, distinct human-readable localized root-card title with no card summary or key-person row, day-only visible Start projection, plain status/date metadata parity, visible brand/heading visual-center alignment with transparent-icon compensation plus independent search/first-card-row top alignment, human-readable timelines, latest-material-clue activity ordering, one presentation-only photoreal generated hero per root Matter, Standard/Compact density, preserved search/filter/selection/scroll state, coverage and worker status, exactly eight ordinary detail sections, one bounded flat Files and information row set with folder, Gmail thread, Codex project/workspace, or provider retained as a SourceGroup column, one compact single-line truthful coverage indicator with indexed first-gap drilldown, a pannable bounded multi-depth Matter-only hierarchy graph and one reusable single-layer descendant quick view that keeps itemized facts, events, work, waits, and node-specific sources inside the selected Matter, an operable Images evidence gallery, labeled AI supplemental information, optional on-demand correction outside primary navigation, root-only catalog, descendant-aware timeline, transport-error preservation, internal-data hiding, and projection-only desktop UI",
+        "risk_boundary": "one-revision Matter catalog and detail projection, English-default and Chinese locale selection, distinct human-readable localized root-card title with no card summary or key-person row, day-only visible Start projection, plain status/date metadata parity, visible brand/heading visual-center alignment with transparent-icon compensation plus independent search/first-card-row top alignment, human-readable timelines, latest-material-clue activity ordering, one presentation-only photoreal generated hero per root Matter, Standard/Compact density, preserved search/filter/selection/scroll state, coverage and worker status, exactly eight ordinary detail sections, one bounded flat Files and information row set with folder, Gmail thread, Codex project/workspace, or provider retained as a SourceGroup column, one compact single-line truthful coverage indicator with indexed first-gap drilldown, a pannable bounded multi-depth Matter hierarchy graph with smaller material WorkItem stage nodes and one reusable single-layer descendant quick view that keeps itemized facts, events, work, waits, and node-specific sources inside the selected Matter, an operable Images evidence gallery, labeled AI supplemental information, optional on-demand correction outside primary navigation, root-only catalog, descendant-aware timeline, transport-error preservation, internal-data hiding, and projection-only desktop UI",
         "risk_classes": [
           "C12_projection_bilingual_ui:projection",
           "C12_projection_bilingual_ui:localization",
@@ -14632,6 +15187,8 @@
           "projection.analysis_owner_currentness",
           "projection.state_basis_modality",
           "projection.state_basis_scope",
+          "projection.state_terminality",
+          "projection.semantic_contract_status",
           "projection.lifecycle_visual_state",
           "ui.selected_locale",
           "ui.locale_preference",
@@ -14671,12 +15228,15 @@
           "ui.node_quick_view_state",
           "ui.node_quick_view_facts",
           "ui.node_quick_view_source_groups",
-          "ui.source_group_window"
+          "ui.source_group_window",
+          "ui.material_stage_nodes"
         ],
         "structurally_cohesive": true,
         "unrelated_functional_areas": false,
         "validation_evidence": [
-          "evidence:C12_projection_bilingual_ui:c28a74c07f26dc67",
+          "evidence:C12_projection_bilingual_ui:158d7c0456bf432d",
+          "C12_projection_bilingual_ui:known-bad:H-C12-061-legacy-lifecycle-invents-modality",
+          "C12_projection_bilingual_ui:known-bad:H-C12-049-bounded-summary-writes-state",
           "C12_projection_bilingual_ui:known-bad:H-C12-042-projection-id-becomes-canonical-matter",
           "C12_projection_bilingual_ui:known-bad:H-C12-048-superseded-analysis-projection-stays-visible",
           "C12_projection_bilingual_ui:known-bad:H-C12-040-latest-child-summary-becomes-parent-overview",
@@ -14729,6 +15289,7 @@
           "C12_projection_bilingual_ui:known-bad:H-C12-057-empty-supplemental-marked-current",
           "C12_projection_bilingual_ui:known-bad:H-C12-061-eligible-root-never-queues-supplemental-research",
           "C12_projection_bilingual_ui:known-bad:H-C12-062-descendant-duplicates-root-research",
+          "C12_projection_bilingual_ui:known-bad:H-C12-063-cross-source-title-summary-false-block",
           "C12_projection_bilingual_ui:known-bad:H-C12-058-coverage-green-with-unprocessed-ui-gap",
           "C12_projection_bilingual_ui:known-bad:H-C12-059-coverage-drilldown-full-ledger-scan",
           "C12_projection_bilingual_ui:known-bad:H-C12-060-lifecycle-and-modality-conflated",
@@ -15068,7 +15629,8 @@
             "C11_guard_artifact_prediction:HeroNotApplicable",
             "C11_guard_artifact_prediction:HumanMatterNarrative",
             "C11_guard_artifact_prediction:NonEmptySupplementalInformation",
-            "C11_guard_artifact_prediction:MatterScopedSemanticDepth"
+            "C11_guard_artifact_prediction:MatterScopedSemanticDepth",
+            "C11_guard_artifact_prediction:CurrentPhaseInference"
           ],
           "loop": false,
           "max_iterations": null,
@@ -15135,7 +15697,8 @@
             "C11_guard_artifact_prediction:HeroNotApplicable",
             "C11_guard_artifact_prediction:HumanMatterNarrative",
             "C11_guard_artifact_prediction:NonEmptySupplementalInformation",
-            "C11_guard_artifact_prediction:MatterScopedSemanticDepth"
+            "C11_guard_artifact_prediction:MatterScopedSemanticDepth",
+            "C11_guard_artifact_prediction:CurrentPhaseInference"
           ],
           "emits": [
             "A2_matters_maintenance_orchestrator_operation:DelegatedResultJoined",
@@ -15364,6 +15927,7 @@
             "C5_event_temporal_trace:ParentNarrativeRefreshRequired",
             "C5_event_temporal_trace:SituationGraphEventNode",
             "C5_event_temporal_trace:EventCertainty",
+            "C5_event_temporal_trace:ReportedTemporalDirectionPreserved",
             "C5_event_temporal_trace:InferenceAlternatives",
             "C5_event_temporal_trace:StaleTemporalOwnerOutputExcluded",
             "C5_event_temporal_trace:AnalysisOutputReplacementPending",
@@ -15430,6 +15994,8 @@
             "C6_matter_formation_admission:CanonicalMatterIdentityCurrent",
             "C6_matter_formation_admission:CanonicalMatterIdentityRejected",
             "C6_matter_formation_admission:MatterOnlyHierarchyProjection",
+            "C6_matter_formation_admission:MaterialWorkItemStage",
+            "C6_matter_formation_admission:GranularityConflictPreserved",
             "C6_matter_formation_admission:CrossDomainMatterRelation",
             "C6_matter_formation_admission:TravelHierarchyReconciled",
             "C6_matter_formation_admission:SoftwarePortfolioHierarchyReconciled",
@@ -15438,7 +16004,14 @@
             "C6_matter_formation_admission:MatterSourceRevisionTargetAdopted",
             "C6_matter_formation_admission:SourceRevisionStalePackageRejected",
             "C6_matter_formation_admission:SourceRevisionCurrentSuccessorRequired",
-            "C6_matter_formation_admission:OldRevisionEvidenceRetired"
+            "C6_matter_formation_admission:OldRevisionEvidenceRetired",
+            "C6_matter_formation_admission:SourceRevisionSecondaryC6FindingDispatched",
+            "C6_matter_formation_admission:MatterSemanticRefreshIdentityPreserved",
+            "C6_matter_formation_admission:MatterSemanticRefreshCrossSourceBound",
+            "C6_matter_formation_admission:SemanticWorkItemIdentityCurrent",
+            "C6_matter_formation_admission:SituationGraphConflictPreserved",
+            "C6_matter_formation_admission:SingleReconciliationOwnerPath",
+            "C6_matter_formation_admission:PreEvidenceSourceRetained"
           ],
           "loop": false,
           "max_iterations": null,
@@ -15478,7 +16051,10 @@
             "C7_lifecycle_board_state:AIInferredLifecycle",
             "C7_lifecycle_board_state:InferenceAlternatives",
             "C7_lifecycle_board_state:LifecycleDisplayContract",
-            "C7_lifecycle_board_state:LifecycleModalitySeparated"
+            "C7_lifecycle_board_state:LifecycleModalitySeparated",
+            "C7_lifecycle_board_state:CurrentPhaseInference",
+            "C7_lifecycle_board_state:ProvisionalTerminality",
+            "C7_lifecycle_board_state:CurrentPhaseContradictionPreserved"
           ],
           "loop": false,
           "max_iterations": null,
@@ -15510,7 +16086,8 @@
             "C8_open_loop_waiting_blocking:LoopClosed",
             "C8_open_loop_waiting_blocking:OpenLoopGap",
             "C8_open_loop_waiting_blocking:ChildBlockingCurrent",
-            "C8_open_loop_waiting_blocking:AncestorBlockingRollupCurrent"
+            "C8_open_loop_waiting_blocking:AncestorBlockingRollupCurrent",
+            "C8_open_loop_waiting_blocking:SemanticOpenLoopIdentityCurrent"
           ],
           "loop": false,
           "max_iterations": null,
@@ -15552,7 +16129,10 @@
             "C9_completion_cancellation_reopen:OutcomeUncertainty",
             "C9_completion_cancellation_reopen:ChildOutcomeCurrent",
             "C9_completion_cancellation_reopen:AncestorOutcomeRollupCurrent",
-            "C9_completion_cancellation_reopen:ParentCompletionUnproven"
+            "C9_completion_cancellation_reopen:ParentCompletionUnproven",
+            "C9_completion_cancellation_reopen:ProvisionalHistoricalCompletion",
+            "C9_completion_cancellation_reopen:OwnerEvidenceLicenseRejected",
+            "C9_completion_cancellation_reopen:ReportedCancellationLicensed"
           ],
           "loop": false,
           "max_iterations": null,
@@ -15747,7 +16327,10 @@
             "C12_projection_bilingual_ui:CompactCoverageIndicator",
             "C12_projection_bilingual_ui:CoverageFirstGapDrilldown",
             "C12_projection_bilingual_ui:LifecycleVisualLanguage",
-            "C12_projection_bilingual_ui:FilesInformationReadableTypography"
+            "C12_projection_bilingual_ui:FilesInformationReadableTypography",
+            "C12_projection_bilingual_ui:MaterialWorkItemStage",
+            "C12_projection_bilingual_ui:ProvisionalStateBasis",
+            "C12_projection_bilingual_ui:LegacySemanticRecomputePending"
           ],
           "loop": false,
           "max_iterations": null,
@@ -15910,6 +16493,7 @@
             "C5_event_temporal_trace:ParentNarrativeRefreshRequired",
             "C5_event_temporal_trace:SituationGraphEventNode",
             "C5_event_temporal_trace:EventCertainty",
+            "C5_event_temporal_trace:ReportedTemporalDirectionPreserved",
             "C5_event_temporal_trace:InferenceAlternatives",
             "C5_event_temporal_trace:StaleTemporalOwnerOutputExcluded",
             "C5_event_temporal_trace:AnalysisOutputReplacementPending",
@@ -15950,6 +16534,8 @@
             "C6_matter_formation_admission:CanonicalMatterIdentityCurrent",
             "C6_matter_formation_admission:CanonicalMatterIdentityRejected",
             "C6_matter_formation_admission:MatterOnlyHierarchyProjection",
+            "C6_matter_formation_admission:MaterialWorkItemStage",
+            "C6_matter_formation_admission:GranularityConflictPreserved",
             "C6_matter_formation_admission:CrossDomainMatterRelation",
             "C6_matter_formation_admission:TravelHierarchyReconciled",
             "C6_matter_formation_admission:SoftwarePortfolioHierarchyReconciled",
@@ -15959,6 +16545,13 @@
             "C6_matter_formation_admission:SourceRevisionStalePackageRejected",
             "C6_matter_formation_admission:SourceRevisionCurrentSuccessorRequired",
             "C6_matter_formation_admission:OldRevisionEvidenceRetired",
+            "C6_matter_formation_admission:SourceRevisionSecondaryC6FindingDispatched",
+            "C6_matter_formation_admission:MatterSemanticRefreshIdentityPreserved",
+            "C6_matter_formation_admission:MatterSemanticRefreshCrossSourceBound",
+            "C6_matter_formation_admission:SemanticWorkItemIdentityCurrent",
+            "C6_matter_formation_admission:SituationGraphConflictPreserved",
+            "C6_matter_formation_admission:SingleReconciliationOwnerPath",
+            "C6_matter_formation_admission:PreEvidenceSourceRetained",
             "C7_lifecycle_board_state:LifecycleState",
             "C7_lifecycle_board_state:BoardPlacement",
             "C7_lifecycle_board_state:StateRationale",
@@ -15974,6 +16567,9 @@
             "C7_lifecycle_board_state:InferenceAlternatives",
             "C7_lifecycle_board_state:LifecycleDisplayContract",
             "C7_lifecycle_board_state:LifecycleModalitySeparated",
+            "C7_lifecycle_board_state:CurrentPhaseInference",
+            "C7_lifecycle_board_state:ProvisionalTerminality",
+            "C7_lifecycle_board_state:CurrentPhaseContradictionPreserved",
             "C8_open_loop_waiting_blocking:OpenLoop",
             "C8_open_loop_waiting_blocking:Waiting",
             "C8_open_loop_waiting_blocking:PartialBlock",
@@ -15982,6 +16578,7 @@
             "C8_open_loop_waiting_blocking:OpenLoopGap",
             "C8_open_loop_waiting_blocking:ChildBlockingCurrent",
             "C8_open_loop_waiting_blocking:AncestorBlockingRollupCurrent",
+            "C8_open_loop_waiting_blocking:SemanticOpenLoopIdentityCurrent",
             "C9_completion_cancellation_reopen:Completed",
             "C9_completion_cancellation_reopen:Cancelled",
             "C9_completion_cancellation_reopen:Abandoned",
@@ -15993,6 +16590,9 @@
             "C9_completion_cancellation_reopen:ChildOutcomeCurrent",
             "C9_completion_cancellation_reopen:AncestorOutcomeRollupCurrent",
             "C9_completion_cancellation_reopen:ParentCompletionUnproven",
+            "C9_completion_cancellation_reopen:ProvisionalHistoricalCompletion",
+            "C9_completion_cancellation_reopen:OwnerEvidenceLicenseRejected",
+            "C9_completion_cancellation_reopen:ReportedCancellationLicensed",
             "C10_correction_revocation:RevisionGraph",
             "C10_correction_revocation:InvalidationPlan",
             "C10_correction_revocation:RecomputeRequest",
@@ -16050,6 +16650,7 @@
             "C11_guard_artifact_prediction:HumanMatterNarrative",
             "C11_guard_artifact_prediction:NonEmptySupplementalInformation",
             "C11_guard_artifact_prediction:MatterScopedSemanticDepth",
+            "C11_guard_artifact_prediction:CurrentPhaseInference",
             "C12_projection_bilingual_ui:LocalizedProjection",
             "C12_projection_bilingual_ui:LocaleRegistry",
             "C12_projection_bilingual_ui:MatterCatalog",
@@ -16112,7 +16713,10 @@
             "C12_projection_bilingual_ui:CompactCoverageIndicator",
             "C12_projection_bilingual_ui:CoverageFirstGapDrilldown",
             "C12_projection_bilingual_ui:LifecycleVisualLanguage",
-            "C12_projection_bilingual_ui:FilesInformationReadableTypography"
+            "C12_projection_bilingual_ui:FilesInformationReadableTypography",
+            "C12_projection_bilingual_ui:MaterialWorkItemStage",
+            "C12_projection_bilingual_ui:ProvisionalStateBasis",
+            "C12_projection_bilingual_ui:LegacySemanticRecomputePending"
           ],
           "emits": [
             "Attached:A0_matters_source_analysis_operation",
@@ -18487,6 +19091,14 @@
       },
       {
         "allowed_shared_with": [],
+        "description": "unique writer for event.temporal_assertion",
+        "item_id": "state:C5_event_temporal_trace:event.temporal_assertion",
+        "item_type": "state",
+        "owner_model_id": "C5_event_temporal_trace",
+        "ownership": "child"
+      },
+      {
+        "allowed_shared_with": [],
         "description": "unique writer for event.inference_confidence",
         "item_id": "state:C5_event_temporal_trace:event.inference_confidence",
         "item_type": "state",
@@ -18767,8 +19379,40 @@
       },
       {
         "allowed_shared_with": [],
+        "description": "unique writer for matter.reconciliation_owner_path",
+        "item_id": "state:C6_matter_formation_admission:matter.reconciliation_owner_path",
+        "item_type": "state",
+        "owner_model_id": "C6_matter_formation_admission",
+        "ownership": "child"
+      },
+      {
+        "allowed_shared_with": [],
         "description": "unique writer for work_item.membership",
         "item_id": "state:C6_matter_formation_admission:work_item.membership",
+        "item_type": "state",
+        "owner_model_id": "C6_matter_formation_admission",
+        "ownership": "child"
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "unique writer for work_item.material_stage_eligibility",
+        "item_id": "state:C6_matter_formation_admission:work_item.material_stage_eligibility",
+        "item_type": "state",
+        "owner_model_id": "C6_matter_formation_admission",
+        "ownership": "child"
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "unique writer for work_item.semantic_role_identity",
+        "item_id": "state:C6_matter_formation_admission:work_item.semantic_role_identity",
+        "item_type": "state",
+        "owner_model_id": "C6_matter_formation_admission",
+        "ownership": "child"
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "unique writer for work_item.supersession",
+        "item_id": "state:C6_matter_formation_admission:work_item.supersession",
         "item_type": "state",
         "owner_model_id": "C6_matter_formation_admission",
         "ownership": "child"
@@ -18999,6 +19643,62 @@
       },
       {
         "allowed_shared_with": [],
+        "description": "unique writer for matter.lifecycle_basis_scope",
+        "item_id": "state:C7_lifecycle_board_state:matter.lifecycle_basis_scope",
+        "item_type": "state",
+        "owner_model_id": "C7_lifecycle_board_state",
+        "ownership": "child"
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "unique writer for matter.lifecycle_temporal_assertion",
+        "item_id": "state:C7_lifecycle_board_state:matter.lifecycle_temporal_assertion",
+        "item_type": "state",
+        "owner_model_id": "C7_lifecycle_board_state",
+        "ownership": "child"
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "unique writer for matter.lifecycle_terminality",
+        "item_id": "state:C7_lifecycle_board_state:matter.lifecycle_terminality",
+        "item_type": "state",
+        "owner_model_id": "C7_lifecycle_board_state",
+        "ownership": "child"
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "unique writer for matter.lifecycle_confidence",
+        "item_id": "state:C7_lifecycle_board_state:matter.lifecycle_confidence",
+        "item_type": "state",
+        "owner_model_id": "C7_lifecycle_board_state",
+        "ownership": "child"
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "unique writer for matter.lifecycle_coverage_boundary",
+        "item_id": "state:C7_lifecycle_board_state:matter.lifecycle_coverage_boundary",
+        "item_type": "state",
+        "owner_model_id": "C7_lifecycle_board_state",
+        "ownership": "child"
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "unique writer for matter.lifecycle_contradiction_triggers",
+        "item_id": "state:C7_lifecycle_board_state:matter.lifecycle_contradiction_triggers",
+        "item_type": "state",
+        "owner_model_id": "C7_lifecycle_board_state",
+        "ownership": "child"
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "unique writer for matter.lifecycle_counter_signals",
+        "item_id": "state:C7_lifecycle_board_state:matter.lifecycle_counter_signals",
+        "item_type": "state",
+        "owner_model_id": "C7_lifecycle_board_state",
+        "ownership": "child"
+      },
+      {
+        "allowed_shared_with": [],
         "description": "unique side-effect owner for lifecycle_registry_write",
         "item_id": "side_effect:C7_lifecycle_board_state:lifecycle_registry_write",
         "item_type": "side_effect",
@@ -19049,6 +19749,22 @@
         "allowed_shared_with": [],
         "description": "unique writer for open_loop.identity",
         "item_id": "state:C8_open_loop_waiting_blocking:open_loop.identity",
+        "item_type": "state",
+        "owner_model_id": "C8_open_loop_waiting_blocking",
+        "ownership": "child"
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "unique writer for open_loop.semantic_role_identity",
+        "item_id": "state:C8_open_loop_waiting_blocking:open_loop.semantic_role_identity",
+        "item_type": "state",
+        "owner_model_id": "C8_open_loop_waiting_blocking",
+        "ownership": "child"
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "unique writer for open_loop.supersession",
+        "item_id": "state:C8_open_loop_waiting_blocking:open_loop.supersession",
         "item_type": "state",
         "owner_model_id": "C8_open_loop_waiting_blocking",
         "ownership": "child"
@@ -19177,6 +19893,46 @@
         "allowed_shared_with": [],
         "description": "unique writer for matter.ancestor_outcome_rollup",
         "item_id": "state:C9_completion_cancellation_reopen:matter.ancestor_outcome_rollup",
+        "item_type": "state",
+        "owner_model_id": "C9_completion_cancellation_reopen",
+        "ownership": "child"
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "unique writer for matter.outcome_basis_modality",
+        "item_id": "state:C9_completion_cancellation_reopen:matter.outcome_basis_modality",
+        "item_type": "state",
+        "owner_model_id": "C9_completion_cancellation_reopen",
+        "ownership": "child"
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "unique writer for matter.outcome_basis_scope",
+        "item_id": "state:C9_completion_cancellation_reopen:matter.outcome_basis_scope",
+        "item_type": "state",
+        "owner_model_id": "C9_completion_cancellation_reopen",
+        "ownership": "child"
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "unique writer for matter.outcome_terminality",
+        "item_id": "state:C9_completion_cancellation_reopen:matter.outcome_terminality",
+        "item_type": "state",
+        "owner_model_id": "C9_completion_cancellation_reopen",
+        "ownership": "child"
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "unique writer for matter.outcome_inference_contract",
+        "item_id": "state:C9_completion_cancellation_reopen:matter.outcome_inference_contract",
+        "item_type": "state",
+        "owner_model_id": "C9_completion_cancellation_reopen",
+        "ownership": "child"
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "unique writer for matter.outcome_owner_evidence_license",
+        "item_id": "state:C9_completion_cancellation_reopen:matter.outcome_owner_evidence_license",
         "item_type": "state",
         "owner_model_id": "C9_completion_cancellation_reopen",
         "ownership": "child"
@@ -19553,6 +20309,14 @@
         "allowed_shared_with": [],
         "description": "unique writer for analysis.world_model_miss_outbox",
         "item_id": "state:C11_guard_artifact_prediction:analysis.world_model_miss_outbox",
+        "item_type": "state",
+        "owner_model_id": "C11_guard_artifact_prediction",
+        "ownership": "child"
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "unique writer for analysis.current_phase_inference_registry",
+        "item_id": "state:C11_guard_artifact_prediction:analysis.current_phase_inference_registry",
         "item_type": "state",
         "owner_model_id": "C11_guard_artifact_prediction",
         "ownership": "child"
@@ -19951,6 +20715,22 @@
       },
       {
         "allowed_shared_with": [],
+        "description": "unique writer for projection.state_terminality",
+        "item_id": "state:C12_projection_bilingual_ui:projection.state_terminality",
+        "item_type": "state",
+        "owner_model_id": "C12_projection_bilingual_ui",
+        "ownership": "child"
+      },
+      {
+        "allowed_shared_with": [],
+        "description": "unique writer for projection.semantic_contract_status",
+        "item_id": "state:C12_projection_bilingual_ui:projection.semantic_contract_status",
+        "item_type": "state",
+        "owner_model_id": "C12_projection_bilingual_ui",
+        "ownership": "child"
+      },
+      {
+        "allowed_shared_with": [],
         "description": "unique writer for projection.lifecycle_visual_state",
         "item_id": "state:C12_projection_bilingual_ui:projection.lifecycle_visual_state",
         "item_type": "state",
@@ -20271,6 +21051,14 @@
       },
       {
         "allowed_shared_with": [],
+        "description": "unique writer for ui.material_stage_nodes",
+        "item_id": "state:C12_projection_bilingual_ui:ui.material_stage_nodes",
+        "item_type": "state",
+        "owner_model_id": "C12_projection_bilingual_ui",
+        "ownership": "child"
+      },
+      {
+        "allowed_shared_with": [],
         "description": "unique side-effect owner for projection_publish",
         "item_id": "side_effect:C12_projection_bilingual_ui:projection_publish",
         "item_type": "side_effect",
@@ -20521,7 +21309,8 @@
           "C11_guard_artifact_prediction:HeroNotApplicable",
           "C11_guard_artifact_prediction:HumanMatterNarrative",
           "C11_guard_artifact_prediction:NonEmptySupplementalInformation",
-          "C11_guard_artifact_prediction:MatterScopedSemanticDepth"
+          "C11_guard_artifact_prediction:MatterScopedSemanticDepth",
+          "C11_guard_artifact_prediction:CurrentPhaseInference"
         ],
         "expected_outputs": [
           "A2_matters_maintenance_orchestrator_operation:MaintenanceOrchestratorCurrent",
@@ -20892,7 +21681,7 @@
         "allow_extra_inputs": false,
         "allow_extra_outputs": false,
         "child_model_id": "C5_event_temporal_trace",
-        "consumed_evidence_id": "evidence:C5_event_temporal_trace:a9636cba74a284fc",
+        "consumed_evidence_id": "evidence:C5_event_temporal_trace:2d7eeeeddc5be7df",
         "consumed_runtime_path_evidence_ids": [],
         "expected_contracts_out": [
           "guarantee:C5_event_temporal_trace:finite_relation"
@@ -20923,6 +21712,7 @@
           "C5_event_temporal_trace:ParentNarrativeRefreshRequired",
           "C5_event_temporal_trace:SituationGraphEventNode",
           "C5_event_temporal_trace:EventCertainty",
+          "C5_event_temporal_trace:ReportedTemporalDirectionPreserved",
           "C5_event_temporal_trace:InferenceAlternatives",
           "C5_event_temporal_trace:StaleTemporalOwnerOutputExcluded",
           "C5_event_temporal_trace:AnalysisOutputReplacementPending",
@@ -20957,6 +21747,7 @@
           "trace.parent_narrative_refresh_trigger_revision",
           "trace.situation_graph_event_revision",
           "event.certainty_class",
+          "event.temporal_assertion",
           "event.inference_confidence",
           "event.alternative_interpretations"
         ],
@@ -20966,7 +21757,7 @@
         "allow_extra_inputs": false,
         "allow_extra_outputs": false,
         "child_model_id": "C6_matter_formation_admission",
-        "consumed_evidence_id": "evidence:C6_matter_formation_admission:cbb76081a7a7054e",
+        "consumed_evidence_id": "evidence:C6_matter_formation_admission:e67d30bee9284522",
         "consumed_runtime_path_evidence_ids": [],
         "expected_contracts_out": [
           "guarantee:C6_matter_formation_admission:finite_relation"
@@ -21018,6 +21809,8 @@
           "C6_matter_formation_admission:CanonicalMatterIdentityCurrent",
           "C6_matter_formation_admission:CanonicalMatterIdentityRejected",
           "C6_matter_formation_admission:MatterOnlyHierarchyProjection",
+          "C6_matter_formation_admission:MaterialWorkItemStage",
+          "C6_matter_formation_admission:GranularityConflictPreserved",
           "C6_matter_formation_admission:CrossDomainMatterRelation",
           "C6_matter_formation_admission:TravelHierarchyReconciled",
           "C6_matter_formation_admission:SoftwarePortfolioHierarchyReconciled",
@@ -21026,7 +21819,14 @@
           "C6_matter_formation_admission:MatterSourceRevisionTargetAdopted",
           "C6_matter_formation_admission:SourceRevisionStalePackageRejected",
           "C6_matter_formation_admission:SourceRevisionCurrentSuccessorRequired",
-          "C6_matter_formation_admission:OldRevisionEvidenceRetired"
+          "C6_matter_formation_admission:OldRevisionEvidenceRetired",
+          "C6_matter_formation_admission:SourceRevisionSecondaryC6FindingDispatched",
+          "C6_matter_formation_admission:MatterSemanticRefreshIdentityPreserved",
+          "C6_matter_formation_admission:MatterSemanticRefreshCrossSourceBound",
+          "C6_matter_formation_admission:SemanticWorkItemIdentityCurrent",
+          "C6_matter_formation_admission:SituationGraphConflictPreserved",
+          "C6_matter_formation_admission:SingleReconciliationOwnerPath",
+          "C6_matter_formation_admission:PreEvidenceSourceRetained"
         ],
         "expected_side_effects_owned": [
           "matter_registry_write",
@@ -21063,7 +21863,11 @@
           "matter.parent_narrative_child_projection_revisions",
           "matter.parent_narrative_evidence_revisions",
           "matter.root_granularity",
+          "matter.reconciliation_owner_path",
           "work_item.membership",
+          "work_item.material_stage_eligibility",
+          "work_item.semantic_role_identity",
+          "work_item.supersession",
           "matter.situation_graph_revision",
           "matter.situation_graph_primary_edges",
           "matter.situation_graph_secondary_edges",
@@ -21078,7 +21882,7 @@
         "allow_extra_inputs": false,
         "allow_extra_outputs": false,
         "child_model_id": "C7_lifecycle_board_state",
-        "consumed_evidence_id": "evidence:C7_lifecycle_board_state:48dbb364b6c25605",
+        "consumed_evidence_id": "evidence:C7_lifecycle_board_state:21186cb360aefdee",
         "consumed_runtime_path_evidence_ids": [],
         "expected_contracts_out": [
           "guarantee:C7_lifecycle_board_state:finite_relation"
@@ -21107,7 +21911,10 @@
           "C7_lifecycle_board_state:AIInferredLifecycle",
           "C7_lifecycle_board_state:InferenceAlternatives",
           "C7_lifecycle_board_state:LifecycleDisplayContract",
-          "C7_lifecycle_board_state:LifecycleModalitySeparated"
+          "C7_lifecycle_board_state:LifecycleModalitySeparated",
+          "C7_lifecycle_board_state:CurrentPhaseInference",
+          "C7_lifecycle_board_state:ProvisionalTerminality",
+          "C7_lifecycle_board_state:CurrentPhaseContradictionPreserved"
         ],
         "expected_side_effects_owned": [
           "lifecycle_registry_write"
@@ -21123,7 +21930,14 @@
           "matter.lifecycle_inference_alternatives",
           "matter.lifecycle_inference_expiry",
           "matter.lifecycle_display_key",
-          "matter.lifecycle_basis_modality"
+          "matter.lifecycle_basis_modality",
+          "matter.lifecycle_basis_scope",
+          "matter.lifecycle_temporal_assertion",
+          "matter.lifecycle_terminality",
+          "matter.lifecycle_confidence",
+          "matter.lifecycle_coverage_boundary",
+          "matter.lifecycle_contradiction_triggers",
+          "matter.lifecycle_counter_signals"
         ],
         "rationale": "M0 consumes this exact current hazard-green child boundary; fingerprint and affected siblings are retained in the blueprint-complete project projection."
       },
@@ -21131,7 +21945,7 @@
         "allow_extra_inputs": false,
         "allow_extra_outputs": false,
         "child_model_id": "C8_open_loop_waiting_blocking",
-        "consumed_evidence_id": "evidence:C8_open_loop_waiting_blocking:87ab92d77bb88b87",
+        "consumed_evidence_id": "evidence:C8_open_loop_waiting_blocking:35fb1bc35def79c1",
         "consumed_runtime_path_evidence_ids": [],
         "expected_contracts_out": [
           "guarantee:C8_open_loop_waiting_blocking:finite_relation"
@@ -21152,13 +21966,16 @@
           "C8_open_loop_waiting_blocking:LoopClosed",
           "C8_open_loop_waiting_blocking:OpenLoopGap",
           "C8_open_loop_waiting_blocking:ChildBlockingCurrent",
-          "C8_open_loop_waiting_blocking:AncestorBlockingRollupCurrent"
+          "C8_open_loop_waiting_blocking:AncestorBlockingRollupCurrent",
+          "C8_open_loop_waiting_blocking:SemanticOpenLoopIdentityCurrent"
         ],
         "expected_side_effects_owned": [
           "open_loop_registry_write"
         ],
         "expected_state_owned": [
           "open_loop.identity",
+          "open_loop.semantic_role_identity",
+          "open_loop.supersession",
           "open_loop.wait_target",
           "open_loop.closure_condition",
           "matter.blocking_axis",
@@ -21171,7 +21988,7 @@
         "allow_extra_inputs": false,
         "allow_extra_outputs": false,
         "child_model_id": "C9_completion_cancellation_reopen",
-        "consumed_evidence_id": "evidence:C9_completion_cancellation_reopen:7e567c24f8a5704a",
+        "consumed_evidence_id": "evidence:C9_completion_cancellation_reopen:eb4b5dced0a9acf3",
         "consumed_runtime_path_evidence_ids": [],
         "expected_contracts_out": [
           "guarantee:C9_completion_cancellation_reopen:finite_relation"
@@ -21202,7 +22019,10 @@
           "C9_completion_cancellation_reopen:OutcomeUncertainty",
           "C9_completion_cancellation_reopen:ChildOutcomeCurrent",
           "C9_completion_cancellation_reopen:AncestorOutcomeRollupCurrent",
-          "C9_completion_cancellation_reopen:ParentCompletionUnproven"
+          "C9_completion_cancellation_reopen:ParentCompletionUnproven",
+          "C9_completion_cancellation_reopen:ProvisionalHistoricalCompletion",
+          "C9_completion_cancellation_reopen:OwnerEvidenceLicenseRejected",
+          "C9_completion_cancellation_reopen:ReportedCancellationLicensed"
         ],
         "expected_side_effects_owned": [
           "outcome_registry_write"
@@ -21212,7 +22032,12 @@
           "matter.outcome_criteria",
           "matter.reopen_revision",
           "matter.child_outcome_summary",
-          "matter.ancestor_outcome_rollup"
+          "matter.ancestor_outcome_rollup",
+          "matter.outcome_basis_modality",
+          "matter.outcome_basis_scope",
+          "matter.outcome_terminality",
+          "matter.outcome_inference_contract",
+          "matter.outcome_owner_evidence_license"
         ],
         "rationale": "M0 consumes this exact current hazard-green child boundary; fingerprint and affected siblings are retained in the blueprint-complete project projection."
       },
@@ -21296,7 +22121,7 @@
         "allow_extra_inputs": false,
         "allow_extra_outputs": false,
         "child_model_id": "C11_guard_artifact_prediction",
-        "consumed_evidence_id": "evidence:C11_guard_artifact_prediction:c11c7badfced8e30",
+        "consumed_evidence_id": "evidence:C11_guard_artifact_prediction:d8ca19b34486df41",
         "consumed_runtime_path_evidence_ids": [],
         "expected_contracts_out": [
           "guarantee:C11_guard_artifact_prediction:finite_relation"
@@ -21360,7 +22185,8 @@
           "C11_guard_artifact_prediction:HeroNotApplicable",
           "C11_guard_artifact_prediction:HumanMatterNarrative",
           "C11_guard_artifact_prediction:NonEmptySupplementalInformation",
-          "C11_guard_artifact_prediction:MatterScopedSemanticDepth"
+          "C11_guard_artifact_prediction:MatterScopedSemanticDepth",
+          "C11_guard_artifact_prediction:CurrentPhaseInference"
         ],
         "expected_side_effects_owned": [
           "agent_work_package_write",
@@ -21391,6 +22217,7 @@
           "analysis.situation_inference_dependency_registry",
           "analysis.world_model_feedback_registry",
           "analysis.world_model_miss_outbox",
+          "analysis.current_phase_inference_registry",
           "research.provider_status",
           "analysis.depth_registry",
           "forecast_registry"
@@ -21401,7 +22228,7 @@
         "allow_extra_inputs": false,
         "allow_extra_outputs": false,
         "child_model_id": "C12_projection_bilingual_ui",
-        "consumed_evidence_id": "evidence:C12_projection_bilingual_ui:c28a74c07f26dc67",
+        "consumed_evidence_id": "evidence:C12_projection_bilingual_ui:158d7c0456bf432d",
         "consumed_runtime_path_evidence_ids": [],
         "expected_contracts_out": [
           "guarantee:C12_projection_bilingual_ui:finite_relation"
@@ -21532,7 +22359,10 @@
           "C12_projection_bilingual_ui:CompactCoverageIndicator",
           "C12_projection_bilingual_ui:CoverageFirstGapDrilldown",
           "C12_projection_bilingual_ui:LifecycleVisualLanguage",
-          "C12_projection_bilingual_ui:FilesInformationReadableTypography"
+          "C12_projection_bilingual_ui:FilesInformationReadableTypography",
+          "C12_projection_bilingual_ui:MaterialWorkItemStage",
+          "C12_projection_bilingual_ui:ProvisionalStateBasis",
+          "C12_projection_bilingual_ui:LegacySemanticRecomputePending"
         ],
         "expected_side_effects_owned": [
           "projection_publish",
@@ -21576,6 +22406,8 @@
           "projection.analysis_owner_currentness",
           "projection.state_basis_modality",
           "projection.state_basis_scope",
+          "projection.state_terminality",
+          "projection.semantic_contract_status",
           "projection.lifecycle_visual_state",
           "ui.selected_locale",
           "ui.locale_preference",
@@ -21615,7 +22447,8 @@
           "ui.node_quick_view_state",
           "ui.node_quick_view_facts",
           "ui.node_quick_view_source_groups",
-          "ui.source_group_window"
+          "ui.source_group_window",
+          "ui.material_stage_nodes"
         ],
         "rationale": "M0 consumes this exact current hazard-green child boundary; fingerprint and affected siblings are retained in the blueprint-complete project projection."
       }
@@ -21916,6 +22749,7 @@
         "state:C5_event_temporal_trace:trace.parent_narrative_refresh_trigger_revision",
         "state:C5_event_temporal_trace:trace.situation_graph_event_revision",
         "state:C5_event_temporal_trace:event.certainty_class",
+        "state:C5_event_temporal_trace:event.temporal_assertion",
         "state:C5_event_temporal_trace:event.inference_confidence",
         "state:C5_event_temporal_trace:event.alternative_interpretations",
         "side_effect:C5_event_temporal_trace:event_registry_write",
@@ -21951,7 +22785,11 @@
         "state:C6_matter_formation_admission:matter.parent_narrative_child_projection_revisions",
         "state:C6_matter_formation_admission:matter.parent_narrative_evidence_revisions",
         "state:C6_matter_formation_admission:matter.root_granularity",
+        "state:C6_matter_formation_admission:matter.reconciliation_owner_path",
         "state:C6_matter_formation_admission:work_item.membership",
+        "state:C6_matter_formation_admission:work_item.material_stage_eligibility",
+        "state:C6_matter_formation_admission:work_item.semantic_role_identity",
+        "state:C6_matter_formation_admission:work_item.supersession",
         "state:C6_matter_formation_admission:matter.situation_graph_revision",
         "state:C6_matter_formation_admission:matter.situation_graph_primary_edges",
         "state:C6_matter_formation_admission:matter.situation_graph_secondary_edges",
@@ -21980,6 +22818,13 @@
         "state:C7_lifecycle_board_state:matter.lifecycle_inference_expiry",
         "state:C7_lifecycle_board_state:matter.lifecycle_display_key",
         "state:C7_lifecycle_board_state:matter.lifecycle_basis_modality",
+        "state:C7_lifecycle_board_state:matter.lifecycle_basis_scope",
+        "state:C7_lifecycle_board_state:matter.lifecycle_temporal_assertion",
+        "state:C7_lifecycle_board_state:matter.lifecycle_terminality",
+        "state:C7_lifecycle_board_state:matter.lifecycle_confidence",
+        "state:C7_lifecycle_board_state:matter.lifecycle_coverage_boundary",
+        "state:C7_lifecycle_board_state:matter.lifecycle_contradiction_triggers",
+        "state:C7_lifecycle_board_state:matter.lifecycle_counter_signals",
         "side_effect:C7_lifecycle_board_state:lifecycle_registry_write",
         "invariant:C7_lifecycle_board_state:declared_transition_contract",
         "invariant:C7_lifecycle_board_state:owned_writes_only",
@@ -21987,6 +22832,8 @@
         "invariant:C7_lifecycle_board_state:canonical_write_at_most_once",
         "function:C8_open_loop_waiting_blocking:finite_transition",
         "state:C8_open_loop_waiting_blocking:open_loop.identity",
+        "state:C8_open_loop_waiting_blocking:open_loop.semantic_role_identity",
+        "state:C8_open_loop_waiting_blocking:open_loop.supersession",
         "state:C8_open_loop_waiting_blocking:open_loop.wait_target",
         "state:C8_open_loop_waiting_blocking:open_loop.closure_condition",
         "state:C8_open_loop_waiting_blocking:matter.blocking_axis",
@@ -22003,6 +22850,11 @@
         "state:C9_completion_cancellation_reopen:matter.reopen_revision",
         "state:C9_completion_cancellation_reopen:matter.child_outcome_summary",
         "state:C9_completion_cancellation_reopen:matter.ancestor_outcome_rollup",
+        "state:C9_completion_cancellation_reopen:matter.outcome_basis_modality",
+        "state:C9_completion_cancellation_reopen:matter.outcome_basis_scope",
+        "state:C9_completion_cancellation_reopen:matter.outcome_terminality",
+        "state:C9_completion_cancellation_reopen:matter.outcome_inference_contract",
+        "state:C9_completion_cancellation_reopen:matter.outcome_owner_evidence_license",
         "side_effect:C9_completion_cancellation_reopen:outcome_registry_write",
         "invariant:C9_completion_cancellation_reopen:declared_transition_contract",
         "invariant:C9_completion_cancellation_reopen:owned_writes_only",
@@ -22050,6 +22902,7 @@
         "state:C11_guard_artifact_prediction:analysis.situation_inference_dependency_registry",
         "state:C11_guard_artifact_prediction:analysis.world_model_feedback_registry",
         "state:C11_guard_artifact_prediction:analysis.world_model_miss_outbox",
+        "state:C11_guard_artifact_prediction:analysis.current_phase_inference_registry",
         "state:C11_guard_artifact_prediction:research.provider_status",
         "state:C11_guard_artifact_prediction:analysis.depth_registry",
         "state:C11_guard_artifact_prediction:forecast_registry",
@@ -22099,6 +22952,8 @@
         "state:C12_projection_bilingual_ui:projection.analysis_owner_currentness",
         "state:C12_projection_bilingual_ui:projection.state_basis_modality",
         "state:C12_projection_bilingual_ui:projection.state_basis_scope",
+        "state:C12_projection_bilingual_ui:projection.state_terminality",
+        "state:C12_projection_bilingual_ui:projection.semantic_contract_status",
         "state:C12_projection_bilingual_ui:projection.lifecycle_visual_state",
         "state:C12_projection_bilingual_ui:ui.selected_locale",
         "state:C12_projection_bilingual_ui:ui.locale_preference",
@@ -22139,6 +22994,7 @@
         "state:C12_projection_bilingual_ui:ui.node_quick_view_facts",
         "state:C12_projection_bilingual_ui:ui.node_quick_view_source_groups",
         "state:C12_projection_bilingual_ui:ui.source_group_window",
+        "state:C12_projection_bilingual_ui:ui.material_stage_nodes",
         "side_effect:C12_projection_bilingual_ui:projection_publish",
         "side_effect:C12_projection_bilingual_ui:ui_preference_write",
         "side_effect:C12_projection_bilingual_ui:ui_window_write",
@@ -22334,6 +23190,7 @@
         "trace.parent_narrative_refresh_trigger_revision",
         "trace.situation_graph_event_revision",
         "event.certainty_class",
+        "event.temporal_assertion",
         "event.inference_confidence",
         "event.alternative_interpretations",
         "matter.identity",
@@ -22363,7 +23220,11 @@
         "matter.parent_narrative_child_projection_revisions",
         "matter.parent_narrative_evidence_revisions",
         "matter.root_granularity",
+        "matter.reconciliation_owner_path",
         "work_item.membership",
+        "work_item.material_stage_eligibility",
+        "work_item.semantic_role_identity",
+        "work_item.supersession",
         "matter.situation_graph_revision",
         "matter.situation_graph_primary_edges",
         "matter.situation_graph_secondary_edges",
@@ -22382,7 +23243,16 @@
         "matter.lifecycle_inference_expiry",
         "matter.lifecycle_display_key",
         "matter.lifecycle_basis_modality",
+        "matter.lifecycle_basis_scope",
+        "matter.lifecycle_temporal_assertion",
+        "matter.lifecycle_terminality",
+        "matter.lifecycle_confidence",
+        "matter.lifecycle_coverage_boundary",
+        "matter.lifecycle_contradiction_triggers",
+        "matter.lifecycle_counter_signals",
         "open_loop.identity",
+        "open_loop.semantic_role_identity",
+        "open_loop.supersession",
         "open_loop.wait_target",
         "open_loop.closure_condition",
         "matter.blocking_axis",
@@ -22393,6 +23263,11 @@
         "matter.reopen_revision",
         "matter.child_outcome_summary",
         "matter.ancestor_outcome_rollup",
+        "matter.outcome_basis_modality",
+        "matter.outcome_basis_scope",
+        "matter.outcome_terminality",
+        "matter.outcome_inference_contract",
+        "matter.outcome_owner_evidence_license",
         "revision_graph",
         "invalidation_plan",
         "recompute_request",
@@ -22425,6 +23300,7 @@
         "analysis.situation_inference_dependency_registry",
         "analysis.world_model_feedback_registry",
         "analysis.world_model_miss_outbox",
+        "analysis.current_phase_inference_registry",
         "research.provider_status",
         "analysis.depth_registry",
         "forecast_registry",
@@ -22457,6 +23333,8 @@
         "projection.analysis_owner_currentness",
         "projection.state_basis_modality",
         "projection.state_basis_scope",
+        "projection.state_terminality",
+        "projection.semantic_contract_status",
         "projection.lifecycle_visual_state",
         "ui.selected_locale",
         "ui.locale_preference",
@@ -22496,7 +23374,8 @@
         "ui.node_quick_view_state",
         "ui.node_quick_view_facts",
         "ui.node_quick_view_source_groups",
-        "ui.source_group_window"
+        "ui.source_group_window",
+        "ui.material_stage_nodes"
       ],
       "target_child_model_ids": [
         "A0_matters_source_analysis_operation",

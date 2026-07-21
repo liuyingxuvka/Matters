@@ -6,7 +6,7 @@
     "abstract_green",
     "hazard_green"
   ],
-  "generated_at": "2026-07-21T09:45:51.003101+00:00",
+  "generated_at": "2026-07-21T11:35:29.589946+00:00",
   "known_bad_proofs": [
     {
       "evidence_id": "C10_correction_revocation:known-bad:H-C10-017-observation-correction-leaves-canonical-stale",

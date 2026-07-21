@@ -613,9 +613,11 @@ class SituationGraphBuilder:
             return incoming
         if prior.node_type != incoming.node_type:
             raise ValueError("one situation identity cannot have two node types")
-        certainty = max(
-            (prior.certainty, incoming.certainty),
-            key=_CERTAINTY_RANK.__getitem__,
+        certainty_conflict = prior.certainty != incoming.certainty
+        certainty = (
+            "unknown"
+            if certainty_conflict
+            else prior.certainty
         )
         coverage = max(
             (prior.coverage, incoming.coverage),
@@ -626,6 +628,9 @@ class SituationGraphBuilder:
             key=_CURRENTNESS_RANK.__getitem__,
         )
         attributes = dict(prior.attributes)
+        conflicting_attributes = dict(
+            attributes.get("conflicting_attributes", {})
+        )
         for key, value in incoming.attributes.items():
             if (
                 key not in attributes
@@ -633,16 +638,46 @@ class SituationGraphBuilder:
                 or attributes[key] is None
             ):
                 attributes[key] = value
+            elif attributes[key] != value:
+                conflicting_attributes[key] = tuple(
+                    dict.fromkeys(
+                        (
+                            repr(attributes[key]),
+                            repr(value),
+                        )
+                    )
+                )
+        if certainty_conflict:
+            attributes["certainty_conflict"] = tuple(
+                dict.fromkeys((prior.certainty, incoming.certainty))
+            )
+        if conflicting_attributes:
+            attributes["conflicting_attributes"] = conflicting_attributes
         return SituationNode(
             node_id=prior.node_id,
             node_type=prior.node_type,
             certainty=certainty,
-            confidence=max(prior.confidence, incoming.confidence),
+            confidence=(
+                min(prior.confidence, incoming.confidence)
+                if certainty_conflict or conflicting_attributes
+                else max(prior.confidence, incoming.confidence)
+            ),
             evidence_ids=_identities(
                 (*prior.evidence_ids, *incoming.evidence_ids)
             ),
             alternatives=_identities(
-                (*prior.alternatives, *incoming.alternatives)
+                (
+                    *prior.alternatives,
+                    *incoming.alternatives,
+                    *(
+                        (
+                            f"certainty:{prior.certainty}",
+                            f"certainty:{incoming.certainty}",
+                        )
+                        if certainty_conflict
+                        else ()
+                    ),
+                )
             ),
             coverage=coverage,
             expires_at=min(
@@ -797,16 +832,12 @@ class SituationGraphBuilder:
             status = str(item.get("status", "uncertain")).strip()
             if item.get("certainty"):
                 default_certainty = str(item["certainty"])
-            elif status == "planned":
-                default_certainty = "planned"
-            elif status == "completed" and (
-                item.get("actual_end") or item.get("actual_start")
-            ):
-                default_certainty = "confirmed_observed"
-            elif status in {"in_progress", "waiting", "blocked", "completed"}:
-                default_certainty = "reported"
+            elif item.get("basis_modality"):
+                default_certainty = str(item["basis_modality"])
             else:
-                default_certainty = "ai_inferred"
+                # Legacy WorkItems predate the orthogonal basis contract.
+                # Their lifecycle status cannot be reused as evidence modality.
+                default_certainty = "unknown"
             node = self._node(
                 node_id=item_id,
                 node_type="work_item",
@@ -834,6 +865,39 @@ class SituationGraphBuilder:
                     "planned_end": str(item.get("planned_end", "")),
                     "actual_start": str(item.get("actual_start", "")),
                     "actual_end": str(item.get("actual_end", "")),
+                    "required_for_parent": bool(
+                        item.get("required_for_parent", False)
+                    ),
+                    "material_stage": bool(
+                        item.get("material_stage", False)
+                    ),
+                    "basis_modality": str(
+                        item.get("basis_modality", "")
+                    ),
+                    "basis_scope": str(item.get("basis_scope", "")),
+                    "temporal_assertion": str(
+                        item.get("temporal_assertion", "unknown")
+                    ),
+                    "terminality": str(
+                        item.get("terminality", "confirmed")
+                    ),
+                    "prerequisite_evidence_ids": tuple(
+                        item.get("prerequisite_evidence_ids", ())
+                    ),
+                    "remaining_obligation_ids": tuple(
+                        item.get("remaining_obligation_ids", ())
+                    ),
+                    "active_window_start": str(
+                        item.get("active_window_start", "")
+                    ),
+                    "active_window_end": str(
+                        item.get("active_window_end", "")
+                    ),
+                    "semantic_contract_status": (
+                        "current"
+                        if str(item.get("basis_modality", "")).strip()
+                        else "legacy_pending_recompute"
+                    ),
                 },
             )
             add_node(node)

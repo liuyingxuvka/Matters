@@ -1,4 +1,5 @@
 import json
+from hashlib import sha256
 from pathlib import Path
 import shutil
 import subprocess
@@ -11,6 +12,47 @@ from matters.infrastructure.capability_status.status import validate_private_roo
 from scripts.jira_slice_preflight import build_preflight
 import scripts.check_public_boundary as public_boundary
 from scripts.check_public_boundary import _git_executable, _scan_text, check
+
+
+def _sha256_bytes(value: bytes) -> str:
+    return "sha256:" + sha256(value).hexdigest()
+
+
+def _desktop_manifest(files: dict[str, bytes], toolchain: bytes) -> bytes:
+    rows = [
+        f"{path.removeprefix('Matters/')}\t{sha256(content).hexdigest()}"
+        for path, content in sorted(files.items())
+    ]
+    payload = {
+        "application_id": "matters.desktop",
+        "matters_version": "0.3.0",
+        "shell_kind": "packaged_windows_webview",
+        "package_sha256": _sha256_bytes("\n".join(rows).encode("utf-8")),
+        "executable_sha256": _sha256_bytes(files["Matters/Matters.exe"]),
+        "build_toolchain_sha256": _sha256_bytes(toolchain),
+        "ui_bundle_sha256": _sha256_bytes(b"synthetic-ui"),
+        "icon_sha256": _sha256_bytes(b"synthetic-icon"),
+        "service_contract_identity": "matters.service.contract:0.3.0",
+        "worker_contract_identity": "matters.worker.contract:0.3.0",
+        "skill_pack_identity": "matters.skill-pack.synthetic",
+        "available_locales": ["en", "zh-CN"],
+        "loopback_only": True,
+        "owns_application_window": True,
+        "packaged_ui": True,
+        "private_shell_profile": True,
+        "persists_locale_density_window_state": True,
+        "startup_health_gate": True,
+        "in_shell_recovery_surface": True,
+        "clean_owned_process_shutdown": True,
+    }
+    canonical = json.dumps(
+        payload,
+        sort_keys=True,
+        separators=(",", ":"),
+        ensure_ascii=True,
+    ).encode("utf-8")
+    payload["manifest_fingerprint"] = _sha256_bytes(canonical)
+    return (json.dumps(payload, sort_keys=True) + "\n").encode("utf-8")
 
 
 def test_private_roots_must_be_external_and_public_inventory_is_clean():
@@ -401,6 +443,167 @@ def test_generated_package_text_is_scanned_for_private_home_paths(tmp_path):
     )
 
 
+def test_desktop_zip_has_its_own_inventory_and_vendor_metadata_boundary(tmp_path):
+    _write_boundary_fixture(tmp_path, ignore_required=False)
+    executable = b"\0synthetic-windows-executable"
+    vendor_metadata = (
+        "Author-email: dependency-author@" + "vendor.invalid\n"
+    ).encode("utf-8")
+    files = {
+        "Matters/Matters.exe": executable,
+        "Matters/_internal/pywebview-1.0.dist-info/METADATA": vendor_metadata,
+    }
+    toolchain = b'{"schema":"synthetic.desktop-toolchain"}\n'
+    desktop_zip = tmp_path / "Matters-0.3.0-windows-x64.zip"
+    with zipfile.ZipFile(desktop_zip, "w") as archive:
+        for path, content in files.items():
+            archive.writestr(path, content)
+        archive.writestr("desktop-build-toolchain.json", toolchain)
+        archive.writestr(
+            "desktop-manifest.json",
+            _desktop_manifest(files, toolchain),
+        )
+
+    report = check(
+        tmp_path,
+        tmp_path / "policy.json",
+        package_artifacts=(desktop_zip,),
+    )
+
+    artifact = report["inventories"]["package"]["artifacts"][0]
+    assert artifact["kind"] == "desktop"
+    assert artifact["status"] == "pass"
+    assert not artifact["missing_required"]
+    assert not artifact["unexpected_public"]
+    assert not artifact["privacy_findings"]
+
+
+def test_desktop_zip_rejects_self_test_and_machine_local_direct_url(tmp_path):
+    _write_boundary_fixture(tmp_path, ignore_required=False)
+    executable = b"\0synthetic-windows-executable"
+    private_path = (
+        "C:" + "\\\\" + "Users" + "\\\\private-user\\\\wheel.whl"
+    )
+    files = {
+        "Matters/Matters.exe": executable,
+        "Matters/_internal/matters-0.3.0.dist-info/direct_url.json": (
+            json.dumps({"url": "file:///" + private_path}).encode("utf-8")
+        ),
+    }
+    toolchain = b'{"schema":"synthetic.desktop-toolchain"}\n'
+    desktop_zip = tmp_path / "Matters-0.3.0-windows-x64.zip"
+    with zipfile.ZipFile(desktop_zip, "w") as archive:
+        for path, content in files.items():
+            archive.writestr(path, content)
+        archive.writestr("desktop-build-toolchain.json", toolchain)
+        archive.writestr(
+            "desktop-manifest.json",
+            _desktop_manifest(files, toolchain),
+        )
+        archive.writestr(
+            "desktop-self-test.json",
+            json.dumps({"application_icon": private_path}),
+        )
+
+    report = check(
+        tmp_path,
+        tmp_path / "policy.json",
+        package_artifacts=(desktop_zip,),
+    )
+
+    artifact = report["inventories"]["package"]["artifacts"][0]
+    assert artifact["kind"] == "desktop"
+    assert artifact["status"] == "fail"
+    assert any("direct_url.json" in row for row in artifact["package_errors"])
+    assert any("desktop-self-test.json" in row for row in artifact["package_errors"])
+    assert {
+        row["code"] for row in artifact["privacy_findings"]
+    } >= {"absolute_home_path_leak"}
+
+
+def test_desktop_vendor_exemptions_are_narrow(tmp_path):
+    _write_boundary_fixture(tmp_path, ignore_required=False)
+    executable = b"\0synthetic-windows-executable"
+    portable_example = "/" + "home" + "/" + "user/file.txt"
+    private_example = "/" + "home" + "/" + "private-person/records.txt"
+    files = {
+        "Matters/Matters.exe": executable,
+        "Matters/_internal/webview/platforms/gtk.py": (
+            f"# portable example: {portable_example}\n"
+            f"PRIVATE = '{private_example}'\n"
+        ).encode("utf-8"),
+    }
+    toolchain = b'{"schema":"synthetic.desktop-toolchain"}\n'
+    desktop_zip = tmp_path / "Matters-0.3.0-windows-x64.zip"
+    with zipfile.ZipFile(desktop_zip, "w") as archive:
+        for path, content in files.items():
+            archive.writestr(path, content)
+        archive.writestr("desktop-build-toolchain.json", toolchain)
+        archive.writestr(
+            "desktop-manifest.json",
+            _desktop_manifest(files, toolchain),
+        )
+
+    report = check(
+        tmp_path,
+        tmp_path / "policy.json",
+        package_artifacts=(desktop_zip,),
+    )
+
+    assert any(
+        row["code"] == "absolute_home_path_leak"
+        and row["path"].endswith("webview/platforms/gtk.py")
+        for row in report["inventories"]["package"]["artifacts"][0][
+            "privacy_findings"
+        ]
+    )
+
+
+def test_desktop_matters_metadata_and_manifest_hashes_fail_closed(tmp_path):
+    _write_boundary_fixture(tmp_path, ignore_required=False)
+    private_address = "private-person@" + "nonreserved" + ".synthetic"
+    executable = b"\0synthetic-windows-executable"
+    matters_metadata = f"Author-email: {private_address}\n".encode("utf-8")
+    original_files = {
+        "Matters/Matters.exe": executable,
+        "Matters/_internal/matters-0.3.0.dist-info/METADATA": matters_metadata,
+    }
+    original_toolchain = b'{"schema":"synthetic.desktop-toolchain"}\n'
+    desktop_zip = tmp_path / "Matters-0.3.0-windows-x64.zip"
+    with zipfile.ZipFile(desktop_zip, "w") as archive:
+        archive.writestr("Matters/Matters.exe", executable + b"-changed")
+        archive.writestr(
+            "Matters/_internal/matters-0.3.0.dist-info/METADATA",
+            matters_metadata,
+        )
+        archive.writestr(
+            "desktop-build-toolchain.json",
+            original_toolchain + b" ",
+        )
+        archive.writestr(
+            "desktop-manifest.json",
+            _desktop_manifest(original_files, original_toolchain),
+        )
+
+    report = check(
+        tmp_path,
+        tmp_path / "policy.json",
+        package_artifacts=(desktop_zip,),
+    )
+
+    artifact = report["inventories"]["package"]["artifacts"][0]
+    assert {
+        "desktop_package_sha256_stale",
+        "desktop_executable_sha256_stale",
+        "desktop_build_toolchain_sha256_stale",
+    } <= set(artifact["package_errors"])
+    assert any(
+        row["code"] == "personal_email_identifier_leak"
+        and row["path"].endswith("matters-0.3.0.dist-info/METADATA")
+        for row in artifact["privacy_findings"]
+    )
+
+
 def test_release_manifest_prunes_receipts_and_wheel_carries_standard_plugin():
     manifest = Path("MANIFEST.in").read_text(encoding="utf-8")
     inventory = json.loads(
@@ -413,8 +616,12 @@ def test_release_manifest_prunes_receipts_and_wheel_carries_standard_plugin():
         for row in inventory["wheel_data_projection"]
     }
 
-    assert "prune .flowguard/evidence" in manifest
-    assert "exclude .flowguard/adoption_log.jsonl" in manifest
+    assert "graft .agents" not in manifest
+    assert "graft .codex" not in manifest
+    assert "graft .flowguard" not in manifest
+    assert "prune .agents" in manifest
+    assert "prune .codex" in manifest
+    assert "prune .flowguard" in manifest
     assert "graft synthetic_fixtures" in manifest
     assert projected["plugins/matters/.mcp.json"] == (
         "share/matters/plugins/matters/.mcp.json"
@@ -422,10 +629,12 @@ def test_release_manifest_prunes_receipts_and_wheel_carries_standard_plugin():
     assert projected["plugins/matters/.codex-plugin/plugin.json"] == (
         "share/matters/plugins/matters/.codex-plugin/plugin.json"
     )
-    assert {
-        ".flowguard/adoption_log.jsonl",
-        ".flowguard/evidence/**",
-    } <= set(inventory["sdist_excluded_patterns"])
+    assert {".agents/**", ".codex/**", ".flowguard/**"} <= set(
+        inventory["sdist_excluded_patterns"]
+    )
+    assert {".agents/**", ".codex/**", ".flowguard/**"} <= set(
+        inventory["package_forbidden_patterns"]
+    )
     assert {
         ".flowguard/evidence/ui/screenshots/**",
         ".flowguard/evidence/ui/**/screenshots/**",

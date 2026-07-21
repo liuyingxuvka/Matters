@@ -106,7 +106,8 @@ def test_graph_projects_primary_containment_and_typed_secondary_edges() -> None:
 
     nodes = {node.node_id: node for node in graph.nodes}
     assert nodes["event:flight-confirmed"].certainty == "confirmed_observed"
-    assert nodes["work:book-hotel"].certainty == "planned"
+    assert nodes["work:book-hotel"].certainty == "reported"
+    assert nodes["work:book-hotel"].attributes["status"] == "planned"
     assert all(node.canonical_write_allowed is False for node in graph.nodes)
     assert all(edge.canonical_write_allowed is False for edge in graph.edges)
 
@@ -187,7 +188,7 @@ def test_graph_reports_expired_without_mutating_the_snapshot() -> None:
     assert graph.currentness == "current"
 
 
-def test_matter_state_basis_preserves_historical_inference_and_unknown() -> None:
+def test_matter_state_basis_preserves_historical_gap_and_unknown() -> None:
     graph = SituationGraphBuilder().build(
         root_matter_id="matter:trip",
         matter_records=(
@@ -195,7 +196,7 @@ def test_matter_state_basis_preserves_historical_inference_and_unknown() -> None
                 "matter_id": "matter:trip",
                 "state": "completed",
                 "state_basis_modality": "inferred",
-                "state_basis_scope": "historical_inference",
+                "state_basis_scope": "historical_gap",
                 "evidence_ids": ("e-ticket",),
             },
             {
@@ -220,6 +221,50 @@ def test_matter_state_basis_preserves_historical_inference_and_unknown() -> None
     assert nodes["matter:trip"].certainty == "ai_inferred"
     assert (
         nodes["matter:trip"].attributes["state_basis_scope"]
-        == "historical_inference"
+        == "historical_gap"
     )
     assert nodes["matter:unmigrated"].certainty == "unknown"
+
+
+def test_graph_preserves_conflicting_certainty_instead_of_picking_a_winner():
+    graph = SituationGraphBuilder().build(
+        root_matter_id="matter:build-week",
+        matter_records=(
+            {
+                "matter_id": "matter:build-week",
+                "certainty": "reported",
+                "confidence": "high",
+                "state": "planned",
+                "evidence_ids": ("evidence:registration",),
+            },
+            {
+                "matter_id": "matter:build-week",
+                "certainty": "ai_inferred",
+                "confidence": "bounded",
+                "state": "in_progress",
+                "evidence_ids": ("evidence:workspace-activity",),
+                "alternative_explanations": (
+                    "Preparation may be paused.",
+                ),
+            },
+        ),
+        generated_at=NOW,
+        expires_at=NOW + timedelta(days=1),
+    )
+
+    node = graph.nodes[0]
+    assert node.certainty == "unknown"
+    assert node.confidence == 0.65
+    assert node.attributes["certainty_conflict"] == (
+        "reported",
+        "ai_inferred",
+    )
+    assert set(node.attributes["conflicting_attributes"]["state"]) == {
+        "'planned'",
+        "'in_progress'",
+    }
+    assert set(node.evidence_ids) == {
+        "evidence:registration",
+        "evidence:workspace-activity",
+    }
+    assert "Preparation may be paused." in node.alternatives

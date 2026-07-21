@@ -105,7 +105,7 @@ Every finding contains:
 - `uncertainty_codes`
 - `alternative_explanations`
 
-For an inferred `event_candidate`, `work_item_candidate`,
+For a historical inferred `event_candidate`, `work_item_candidate`,
 `lifecycle_candidate`, or `outcome_candidate`, `attributes` additionally
 contains:
 
@@ -115,8 +115,26 @@ contains:
 - `target_time`, an ISO-8601 time not later than `inference_as_of`
 - `revisable: true`
 - one or more `contradiction_triggers`
+- bounded `inference_confidence`, `supporting_signals`,
+  `coverage_boundary`, `alternative_explanations`, and `expires_at`
 
 No future target may use this inferred canonical-candidate route.
+
+An inferred `work_item_candidate` or `lifecycle_candidate` may instead
+describe the current phase, never a future occurrence or completion. It
+contains:
+
+- `temporal_direction: present`
+- `temporal_assertion: ongoing`
+- `inference_purpose: current_phase`
+- `inference_as_of`, exactly equal to package `analysis_as_of`
+- `revisable: true`
+- one or more `prerequisite_evidence_ids`
+- one or more `remaining_obligation_ids`
+- `active_window_start` and `active_window_end` containing `inference_as_of`
+- `contradiction_checked: true`
+- bounded confidence, support, coverage, alternatives, expiry, and one or
+  more contradiction triggers
 
 Every finding type must be present in the package
 `requested_output_types`. Allowed finding-to-owner routes are:
@@ -182,20 +200,27 @@ A `matter_modeler` package may request:
 For every requested type, return every evidence-supported candidate needed for
 the bounded input and omit unsupported candidates without fabrication.
 
-Matter granularity follows human purpose:
+Matter granularity follows human purpose and a strict scale contract:
 
-- a large goal, obligation, or outcome is a Matter;
+- a Matter has a stable semantic identity, an independently useful goal or
+  obligation, and at least one independently useful lifecycle state, outcome,
+  or next step;
 - an independently trackable sub-goal or obligation with its own lifecycle or
   outcome may be a child Matter;
 - a smaller action or milestone that only advances a Matter is a work item;
+- a single message, payment, upload, reminder, check-in, or one-time
+  occurrence is a WorkItem or Event, never a Matter by itself;
 - parent-child edges require evidence of containment, not mere similarity,
 shared folder, shared person, shared time, shared filename, or co-occurrence.
 
 `matter_candidate.attributes.context_signals` carries only evidence-bound
 goal, subject, outcome, person, time, source-neighborhood, provider-thread,
 repository/project, or Codex-workspace signals. Its `granularity` distinguishes
-Matter, WorkItem, Event, and source. One weak signal never licenses merge or
-containment.
+Matter, WorkItem, Event, source, and uncertain. It explicitly records the goal
+or obligation dimension, each independent lifecycle/outcome/next-step
+dimension, and why the candidate is not a WorkItem, Event, source, or the same
+Matter as a current candidate. One weak signal never licenses merge or
+containment; contradictory scale signals remain uncertain.
 
 `material_clue_candidate` declares `material`, `nonmaterial`, or `uncertain`,
 one user-world timestamp, a clue kind, evidence, and the bilingual summary
@@ -213,16 +238,30 @@ accepting another correction.
 `matter_hierarchy_candidate` declares an evidence-supported attach, reparent,
 detach, role change, split, or merge. `work_item_candidate` includes a
 bilingual title, bounded status, result or next step, relevant dates,
-required-for-parent flag, and evidence references when supported.
+required-for-parent flag, material-stage flag, the independent basis modality,
+temporal assertion, terminality, and evidence references when supported.
+During `matter_semantic_refresh`, every WorkItem and open loop also has one
+stable language-neutral `semantic_role_key`. The current semantic-state
+snapshot supplies existing ids and role keys. Reuse an existing id; if exact
+legacy duplicates exist, name them in `supersedes_item_ids` or
+`supersedes_loop_ids`. The owner rejects an unlisted same-role collision and
+records accepted replacements as append-only retired revisions.
 The original hierarchy owner, not the modeler, emits the current hierarchy
 audit after validation.
 
-Temporal direction is explicit:
+Object kind, temporal assertion, basis modality, workflow state, and
+terminality are independent fields. Temporal direction is explicit:
 
 - evidence-recorded facts remain `observed` or `reported`;
 - scheduled future facts remain `planned`;
-- AI inference in the Event/WorkItem/lifecycle/outcome lanes fills only
-  necessary historical gaps and remains visibly revisable;
+- AI inference in the Event/outcome lanes fills only necessary historical
+  gaps and remains visibly revisable;
+- AI inference in the WorkItem/lifecycle lanes may also describe a bounded
+  current phase when a completed prerequisite, remaining obligation, active
+  window, contradiction review, and complete inference contract are present;
+- a future flight, submission, or trip remains planned; a ticket,
+  registration, or boarding-pass issuance may be a completed Event without
+  completing the future activity;
 - future expectations and predictions are emitted only by the separate C11
   Situation/World Model operation with a verification condition, contradiction
   condition, expiry, and model-miss feedback contract. They never become

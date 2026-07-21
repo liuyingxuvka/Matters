@@ -41,6 +41,7 @@ SPEC = FiniteModelSpec(
         "trace.parent_narrative_refresh_trigger_revision",
         "trace.situation_graph_event_revision",
         "event.certainty_class",
+        "event.temporal_assertion",
         "event.inference_confidence",
         "event.alternative_interpretations",
     ),
@@ -70,6 +71,7 @@ SPEC = FiniteModelSpec(
         "trace.parent_narrative_refresh_trigger_revision",
         "trace.situation_graph_event_revision",
         "event.certainty_class",
+        "event.temporal_assertion",
         "event.inference_confidence",
         "event.alternative_interpretations",
     ),
@@ -95,6 +97,7 @@ SPEC = FiniteModelSpec(
         "ParentNarrativeRefreshRequired",
         "SituationGraphEventNode",
         "EventCertainty",
+        "ReportedTemporalDirectionPreserved",
         "InferenceAlternatives",
         "StaleTemporalOwnerOutputExcluded",
         "AnalysisOutputReplacementPending",
@@ -363,6 +366,24 @@ SPEC = FiniteModelSpec(
             ),
         ),
         CaseRule(
+            case_id="reported_event_declares_past_temporal_direction",
+            decision="reported_temporal_direction_preserved",
+            label="reported_temporal_direction_preserved",
+            writes=("event.identity", "event.temporal_fields"),
+            side_effects=("event_registry_write",),
+            emitted_tokens=(
+                "TypedEvent",
+                "EventCertainty",
+                "ReportedTemporalDirectionPreserved",
+            ),
+            reason=(
+                "past, present, future, or unknown temporal direction is an "
+                "orthogonal event-time axis available to reported, observed, "
+                "planned, and inferred records; declaring that axis never "
+                "relabels a reported record as an inference"
+            ),
+        ),
+        CaseRule(
             case_id="necessary_past_gap_supported",
             decision="revisable_historical_gap_inference",
             label="revisable_historical_gap_inference",
@@ -543,8 +564,41 @@ SPEC = FiniteModelSpec(
                 "Matter activity time"
             ),
         ),
+        CaseRule(
+            case_id="future_transport_action_already_recorded",
+            decision="occurred_action_and_planned_transport_separated",
+            label="occurred_action_and_planned_transport_separated",
+            writes=(
+                "event.temporal_fields",
+                "event.temporal_assertion",
+                "event.certainty_class",
+            ),
+            side_effects=("event_registry_write",),
+            emitted_tokens=("TypedEvent", "TimelineCandidate", "TemporalFieldsSeparated"),
+            reason=(
+                "ticket purchase or boarding-pass issuance may already have "
+                "occurred while the future flight remains planned; the occurred "
+                "action never completes boarding, flight, arrival, or the trip"
+            ),
+        ),
     ),
     hazards=(
+        HazardSpec(
+            failure_id="H-C5-023-future-flight-completed-by-ticket",
+            protected_error_class="future_occurrence_completion_conflation",
+            description=(
+                "a completed ticket or boarding-pass action is used to mark a "
+                "future flight, arrival, or journey completed"
+            ),
+            protected_harm=(
+                "the human timeline reports future travel as already occurred"
+            ),
+            case_id="future_transport_action_already_recorded",
+            broken_decision="future_transport_completed",
+            broken_writes=("event.temporal_fields", "event.temporal_assertion"),
+            broken_side_effects=("event_registry_write",),
+            broken_tokens=("Completed",),
+        ),
         HazardSpec(
             failure_id="H-C5-016-restart-revives-superseded-event",
             protected_error_class="durable_event_registry_not_restored",
@@ -806,6 +860,23 @@ SPEC = FiniteModelSpec(
             broken_writes=("event.temporal_fields", "event.certainty_class"),
             broken_side_effects=("event_registry_write",),
             broken_tokens=("EventCertainty",),
+        ),
+        HazardSpec(
+            failure_id="H-C5-014-reported-temporal-direction-rejected-as-inference-metadata",
+            protected_error_class="temporal_axis_modality_conflation",
+            description=(
+                "a reported event is rejected merely because it declares that "
+                "the reported event time lies in the past"
+            ),
+            protected_harm=(
+                "valid ticket purchase, registration, payment, and issuance "
+                "events disappear even though their evidence modality is not "
+                "AI inference"
+            ),
+            case_id="reported_event_declares_past_temporal_direction",
+            broken_decision="reported_event_rejected_as_inferred_metadata",
+            broken_writes=("event.temporal_fields",),
+            broken_tokens=("TemporalGap",),
         ),
         HazardSpec(
             failure_id="H-C5-010-future-ai-inference-enters-occurred-trace",

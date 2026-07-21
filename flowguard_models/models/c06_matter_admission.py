@@ -14,7 +14,8 @@ SPEC = FiniteModelSpec(
         "classification with one acyclic primary-parent containment edge and "
         "required/optional/critical role semantics, plus one bounded internal "
         "SituationGraph and one ordinary UI MatterHierarchyProjection whose "
-        "nodes are admitted Matters only, with primary containment and typed "
+        "large nodes are admitted Matters, whose bounded small stage nodes are "
+        "material WorkItems, with primary containment and typed "
         "Matter-to-Matter secondary edges"
     ),
     state_fields=(
@@ -45,7 +46,11 @@ SPEC = FiniteModelSpec(
         "matter.parent_narrative_child_projection_revisions",
         "matter.parent_narrative_evidence_revisions",
         "matter.root_granularity",
+        "matter.reconciliation_owner_path",
         "work_item.membership",
+        "work_item.material_stage_eligibility",
+        "work_item.semantic_role_identity",
+        "work_item.supersession",
         "matter.situation_graph_revision",
         "matter.situation_graph_primary_edges",
         "matter.situation_graph_secondary_edges",
@@ -82,7 +87,11 @@ SPEC = FiniteModelSpec(
         "matter.parent_narrative_child_projection_revisions",
         "matter.parent_narrative_evidence_revisions",
         "matter.root_granularity",
+        "matter.reconciliation_owner_path",
         "work_item.membership",
+        "work_item.material_stage_eligibility",
+        "work_item.semantic_role_identity",
+        "work_item.supersession",
         "matter.situation_graph_revision",
         "matter.situation_graph_primary_edges",
         "matter.situation_graph_secondary_edges",
@@ -135,6 +144,8 @@ SPEC = FiniteModelSpec(
         "CanonicalMatterIdentityCurrent",
         "CanonicalMatterIdentityRejected",
         "MatterOnlyHierarchyProjection",
+        "MaterialWorkItemStage",
+        "GranularityConflictPreserved",
         "CrossDomainMatterRelation",
         "TravelHierarchyReconciled",
         "SoftwarePortfolioHierarchyReconciled",
@@ -144,6 +155,13 @@ SPEC = FiniteModelSpec(
         "SourceRevisionStalePackageRejected",
         "SourceRevisionCurrentSuccessorRequired",
         "OldRevisionEvidenceRetired",
+        "SourceRevisionSecondaryC6FindingDispatched",
+        "MatterSemanticRefreshIdentityPreserved",
+        "MatterSemanticRefreshCrossSourceBound",
+        "SemanticWorkItemIdentityCurrent",
+        "SituationGraphConflictPreserved",
+        "SingleReconciliationOwnerPath",
+        "PreEvidenceSourceRetained",
     ),
     rules=(
         CaseRule(
@@ -169,6 +187,26 @@ SPEC = FiniteModelSpec(
                 "bounded graph; the existing single acyclic primary parent "
                 "remains authoritative while related, precedes, depends-on, "
                 "supports, contradicts, and inferred edges remain typed secondary edges"
+            ),
+        ),
+        CaseRule(
+            case_id="same_graph_identity_has_current_conflicting_records",
+            decision="situation_graph_conflict_preserved",
+            label="situation_graph_conflict_preserved",
+            writes=(
+                "matter.situation_graph_revision",
+                "matter.situation_graph_secondary_edges",
+            ),
+            side_effects=("situation_graph_projection_write",),
+            emitted_tokens=(
+                "SituationGraph",
+                "SituationGraphConflictPreserved",
+            ),
+            reason=(
+                "one graph identity with conflicting certainty or material "
+                "attributes keeps both evidence sets and alternatives, exposes "
+                "unknown certainty plus the conflict, and uses the weaker "
+                "confidence instead of choosing a winner"
             ),
         ),
         CaseRule(
@@ -263,6 +301,45 @@ SPEC = FiniteModelSpec(
             ),
         ),
         CaseRule(
+            case_id="exact_existing_matter_cross_source_semantic_refresh",
+            decision="cross_source_refresh_preserves_exact_matter_identity",
+            label="cross_source_refresh_preserves_exact_matter_identity",
+            writes=(
+                "matter.source_revision_target_identity",
+                "matter.source_revision_reconciliation_status",
+            ),
+            side_effects=("matter_registry_write",),
+            emitted_tokens=(
+                "MatterSemanticRefreshIdentityPreserved",
+                "MatterSemanticRefreshCrossSourceBound",
+            ),
+            reason=(
+                "one target-bound matter semantic refresh aggregates every "
+                "registry-current non-tombstoned source, current annotation, "
+                "and whitelisted anchor for one admitted Matter; its "
+                "matter_candidate verifies the exact identity without creating "
+                "a root or mutating source membership"
+            ),
+        ),
+        CaseRule(
+            case_id="same_semantic_work_item_role_reanalyzed",
+            decision="one_work_item_identity_reused_or_exactly_superseded",
+            label="one_work_item_identity_reused_or_exactly_superseded",
+            writes=(
+                "work_item.membership",
+                "work_item.semantic_role_identity",
+                "work_item.supersession",
+            ),
+            side_effects=("matter_registry_write",),
+            emitted_tokens=("SemanticWorkItemIdentityCurrent",),
+            reason=(
+                "one language-neutral role is unique within its Matter; a "
+                "later refresh reuses the current WorkItem identity or names "
+                "every exact legacy duplicate for append-only retirement, "
+                "while title similarity alone cannot replace an object"
+            ),
+        ),
+        CaseRule(
             case_id="admitted_source_revision_is_behind_registry_current",
             decision="current_source_revision_analysis_required",
             label="current_source_revision_analysis_required",
@@ -272,6 +349,27 @@ SPEC = FiniteModelSpec(
                 "a newer registry revision cannot replace the admitted revision "
                 "until current evidence anchors and semantic owner results exist, "
                 "even when content fingerprints appear equivalent"
+            ),
+        ),
+        CaseRule(
+            case_id="source_revision_result_contains_secondary_c6_finding",
+            decision="finding_type_specific_c6_dispatch",
+            label="finding_type_specific_c6_dispatch",
+            writes=(
+                "work_item.membership",
+                "matter.hierarchy_revision",
+            ),
+            side_effects=(
+                "matter_registry_write",
+                "hierarchy_batch_write",
+            ),
+            emitted_tokens=("SourceRevisionSecondaryC6FindingDispatched",),
+            reason=(
+                "only the matter_candidate in a source-revision refresh uses the "
+                "exact target-bound source-membership branch; a work-item or "
+                "hierarchy finding continues through its own canonical C6 "
+                "finding-type owner instead of being swallowed as another Matter "
+                "source refresh"
             ),
         ),
         CaseRule(
@@ -819,8 +917,193 @@ SPEC = FiniteModelSpec(
                 "an identical batch retry reuses the same hierarchy revision"
             ),
         ),
+        CaseRule(
+            case_id="single_bounded_next_step_without_independent_outcome",
+            decision="work_item_not_matter",
+            label="work_item_not_matter",
+            writes=("matter.object_kind", "work_item.membership"),
+            side_effects=("matter_registry_write",),
+            emitted_tokens=("WorkItem",),
+            reason=(
+                "a named step, reminder, upload, booking, or submission action "
+                "with only one bounded next step cannot become a Matter without "
+                "a stable independent goal plus a lifecycle/outcome surface"
+            ),
+        ),
+        CaseRule(
+            case_id="contradictory_granularity_flags",
+            decision="granularity_uncertain_preserved",
+            label="granularity_uncertain_preserved",
+            writes=("matter.object_kind", "matter.rationale"),
+            side_effects=("matter_registry_write",),
+            emitted_tokens=("MatterUncertain", "GranularityConflictPreserved"),
+            reason=(
+                "a candidate that is simultaneously claimed to be one occurrence "
+                "and an independent Matter is not promoted until the conflict is resolved"
+            ),
+        ),
+        CaseRule(
+            case_id="required_stage_with_distinct_state_time_and_result",
+            decision="material_work_item_stage_projectable",
+            label="material_work_item_stage_projectable",
+            writes=("work_item.material_stage_eligibility",),
+            side_effects=("situation_graph_projection_write",),
+            emitted_tokens=("WorkItem", "MaterialWorkItemStage"),
+            reason=(
+                "a required stage-changing WorkItem with its own status and "
+                "time/result boundary may be projected as a small stage node "
+                "without changing its object kind or Matter counts"
+            ),
+        ),
+        CaseRule(
+            case_id="qualified_candidate_enters_production_c6",
+            decision="placement_and_admission_resolved_by_single_c6_owner",
+            label="placement_and_admission_resolved_by_single_c6_owner",
+            writes=(
+                "matter.reconciliation_context",
+                "matter.reconciliation_owner_path",
+                "matter.admission_status",
+                "matter.identity",
+                "matter.object_kind",
+            ),
+            side_effects=("matter_registry_write",),
+            emitted_tokens=(
+                "ContextReconciliationDecision",
+                "SingleReconciliationOwnerPath",
+            ),
+            reason=(
+                "the accepted analysis dispatcher and direct source facade both "
+                "obtain placement plus admission from one MatterReconciliationOwner "
+                "before any admission, hierarchy, relation, coverage, or projection write"
+            ),
+        ),
+        CaseRule(
+            case_id="registered_source_has_no_qualified_evidence",
+            decision="pre_evidence_source_retained_without_matter_admission",
+            label="pre_evidence_source_retained_without_matter_admission",
+            writes=(
+                "matter.reconciliation_owner_path",
+                "matter.admission_status",
+                "matter.rationale",
+            ),
+            emitted_tokens=(
+                "SourceOnly",
+                "PreEvidenceSourceRetained",
+                "SingleReconciliationOwnerPath",
+            ),
+            reason=(
+                "the same C6 boundary retains the registered source as source-only "
+                "or uncertain and creates no Matter, merge, relation, or containment "
+                "until a later request supplies current qualified evidence"
+            ),
+        ),
     ),
     hazards=(
+        HazardSpec(
+            failure_id="H-C6-033-direct-admission-bypasses-reconciliation",
+            protected_error_class="c6_dual_production_owner_path",
+            description=(
+                "a production caller invokes the lower-level admission decider "
+                "without the current C6 placement and granularity decision"
+            ),
+            protected_harm=(
+                "the same source can be admitted, merged, or retained differently "
+                "depending on which runtime path processed it"
+            ),
+            case_id="qualified_candidate_enters_production_c6",
+            broken_decision="direct_admission_path_selected",
+            broken_writes=(
+                "matter.reconciliation_owner_path",
+                "matter.admission_status",
+                "matter.identity",
+            ),
+            broken_side_effects=("matter_registry_write",),
+            broken_tokens=("SingleReconciliationOwnerPath",),
+        ),
+        HazardSpec(
+            failure_id="H-C6-034-unqualified-source-becomes-matter",
+            protected_error_class="pre_evidence_matter_admission",
+            description=(
+                "a newly registered source with no qualified evidence is promoted "
+                "or attached as a Matter from metadata alone"
+            ),
+            protected_harm=(
+                "source clutter becomes phantom Matters before evidence and semantic "
+                "owners can establish identity or granularity"
+            ),
+            case_id="registered_source_has_no_qualified_evidence",
+            broken_decision="metadata_only_matter_admitted",
+            broken_writes=(
+                "matter.reconciliation_owner_path",
+                "matter.admission_status",
+                "matter.identity",
+            ),
+            broken_side_effects=("matter_registry_write",),
+            broken_tokens=("AdmittedMatter",),
+        ),
+        HazardSpec(
+            failure_id="H-C6-035-source-refresh-swallows-secondary-c6-finding",
+            protected_error_class="source_revision_finding_type_dispatch_bypass",
+            description=(
+                "a WorkItem or hierarchy finding carried by a source-revision "
+                "result is consumed by the Matter source-membership refresh branch"
+            ),
+            protected_harm=(
+                "the source and timeline can appear current while required "
+                "sub-matters, work items, or hierarchy edges silently disappear "
+                "from the canonical model and UI"
+            ),
+            case_id="source_revision_result_contains_secondary_c6_finding",
+            broken_decision="secondary_finding_treated_as_matter_source_refresh",
+            broken_writes=(
+                "matter.membership",
+                "matter.source_revision_reconciliation_status",
+            ),
+            broken_side_effects=("matter_registry_write",),
+            broken_tokens=("MatterSourceRevisionTargetAdopted",),
+        ),
+        HazardSpec(
+            failure_id="H-C6-036-graph-conflict-picks-stronger-record",
+            protected_error_class="situation_graph_conflict_overwrite",
+            description=(
+                "conflicting current records for one graph identity are merged "
+                "by selecting the highest certainty or confidence"
+            ),
+            protected_harm=(
+                "the user sees one falsely certain state while contrary current "
+                "evidence disappears"
+            ),
+            case_id="same_graph_identity_has_current_conflicting_records",
+            broken_decision="highest_certainty_record_wins",
+            broken_writes=("matter.situation_graph_revision",),
+            broken_side_effects=("situation_graph_projection_write",),
+            broken_tokens=("SituationGraph",),
+        ),
+        HazardSpec(
+            failure_id="H-C6-031-single-action-promoted-to-matter",
+            protected_error_class="granularity_over_split",
+            description="one bounded next step is promoted to a child Matter",
+            protected_harm=(
+                "the hierarchy becomes an infinite tree of reminders, uploads, "
+                "tickets, payments, and messages"
+            ),
+            case_id="single_bounded_next_step_without_independent_outcome",
+            broken_decision="child_matter_admitted",
+            broken_writes=("matter.object_kind", "matter.membership"),
+            broken_side_effects=("matter_registry_write",),
+            broken_tokens=("ChildMatter",),
+        ),
+        HazardSpec(
+            failure_id="H-C6-032-work-item-stage-counted-as-matter",
+            protected_error_class="stage_matter_identity_conflation",
+            description="a material WorkItem stage enters Matter counts or accepts descendants",
+            protected_harm="the UI projection mutates canonical hierarchy meaning",
+            case_id="required_stage_with_distinct_state_time_and_result",
+            broken_decision="stage_promoted_to_matter",
+            broken_writes=("matter.object_kind", "matter.membership"),
+            broken_side_effects=("matter_registry_write",),
+            broken_tokens=("AdmittedMatter",),
+        ),
         HazardSpec(
             failure_id="H-C6-024-new-source-revision-bypasses-analysis",
             protected_error_class="source_revision_semantic_owner_bypass",
@@ -862,6 +1145,49 @@ SPEC = FiniteModelSpec(
             ),
             broken_side_effects=("matter_registry_write",),
             broken_tokens=("AdmittedMatter",),
+        ),
+        HazardSpec(
+            failure_id="H-C6-037-cross-source-refresh-fragments-or-mutates-membership",
+            protected_error_class="matter_semantic_refresh_cross_source_identity_escape",
+            description=(
+                "a cross-source semantic refresh uses only one current source, "
+                "creates a new Matter, or mutates Matter source membership "
+                "while processing an identity-preservation candidate"
+            ),
+            protected_harm=(
+                "registration, preparation, and submission evidence remains "
+                "fragmented or a broad real situation forks into duplicate roots"
+            ),
+            case_id="exact_existing_matter_cross_source_semantic_refresh",
+            broken_decision="single_source_or_membership_mutating_refresh",
+            broken_writes=(
+                "matter.identity",
+                "matter.membership",
+                "matter.source_revision_target_identity",
+            ),
+            broken_side_effects=("matter_registry_write",),
+            broken_tokens=("MatterSourceRevisionTargetAdopted",),
+        ),
+        HazardSpec(
+            failure_id="H-C6-038-same-semantic-role-creates-peer-work-items",
+            protected_error_class="work_item_semantic_identity_duplication",
+            description=(
+                "a repeated preparation or submission role creates another "
+                "active peer WorkItem or retires an unlisted identity"
+            ),
+            protected_harm=(
+                "one real stage appears several times in the graph, timeline, "
+                "counts, and UI, or valid history is silently replaced"
+            ),
+            case_id="same_semantic_work_item_role_reanalyzed",
+            broken_decision="duplicate_peer_created_or_heuristic_replacement",
+            broken_writes=(
+                "work_item.membership",
+                "work_item.semantic_role_identity",
+                "work_item.supersession",
+            ),
+            broken_side_effects=("matter_registry_write",),
+            broken_tokens=("WorkItem",),
         ),
         HazardSpec(
             failure_id="H-C6-026-old-revision-evidence-remains-current",
@@ -1297,7 +1623,8 @@ SPEC = FiniteModelSpec(
         "multi-signal context reconciliation, full-library indexed candidate "
         "recall before bounded AI context, broad-root/object-kind "
         "classification, single-parent acyclic containment, role, revision, and "
-        "bounded-depth hazards, atomic parent composition, and singular "
+        "bounded-depth hazards, atomic parent composition, stable semantic "
+        "WorkItem identity with exact append-only supersession, and singular "
         "append-only same-Matter canonicalization whose downstream identity is the "
         "exact admitted matter_id. It rejects source, candidate, package, title, "
         "or projection identities as canonical substitutes. It does not prove the "

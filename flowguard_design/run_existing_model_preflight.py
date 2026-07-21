@@ -43,21 +43,21 @@ SOURCE_ANALYSIS_OWNER_ID = "A0_matters_source_analysis_operation"
 RESEARCH_OWNER_ID = "A1_matters_research_operation"
 MAINTENANCE_ORCHESTRATOR_OWNER_ID = "A2_matters_maintenance_orchestrator_operation"
 AI_GATEWAY_OWNER_ID = "A3_matters_ai_gateway_operation"
-SCOPE_REVISION = "v0.3.0-matter-browser-semantic-reset-v8"
+SCOPE_REVISION = "v0.3.0-matter-browser-semantic-reset-v9"
 REUSE_MAP = {
     "M0_matters_end_to_end_authority": "extend_with_source_in_place_migration_situation_graph_world_model_and_ui_reachability_join",
     "C1_authorization_coverage": "extend_with_source_in_place_storage_cleanup_group_graph_world_model_and_ui_stage_coverage",
     "C2_source_registry": "extend_with_external_original_locator_fingerprint_storage_class_transient_cleanup_and_source_group_projection",
     "C3_evidence_qualification": "replace_visual_eligibility_with_gallery_display_eligibility",
     "C4_person_entity_resolution": "preserve_separate_uncertain_identities_without_confirmation",
-    "C5_event_temporal_trace": "extend_with_situation_event_nodes_primary_containment_secondary_typed_edges_and_source_group_time",
-    "C6_matter_formation_admission": "extend_with_root_catalog_bounded_situation_graph_and_single_layer_descendant_quick_view",
-    "C7_lifecycle_board_state": "extend_with_confirmed_reported_planned_and_ai_inferred_lifecycle_certainty",
+    "C5_event_temporal_trace": "extend_with_orthogonal_time_basis_state_terminality_complete_historical_inference_and_future_activity_separation",
+    "C6_matter_formation_admission": "extend_with_strict_scale_contract_material_workitem_stage_projection_and_single_layer_quick_view",
+    "C7_lifecycle_board_state": "extend_with_orthogonal_state_basis_terminality_and_complete_current_phase_inference",
     "C8_open_loop_waiting_blocking": "replace_review_with_gap_and_not_applicable_terminals",
-    "C9_completion_cancellation_reopen": "replace_review_with_completion_gap_and_outcome_conflict_terminals",
+    "C9_completion_cancellation_reopen": "extend_with_confirmed_versus_provisional_historical_completion_and_future_ai_rejection",
     "C10_correction_revocation": "extend_with_locator_derived_group_graph_world_model_hero_and_projection_invalidation",
     "C11_guard_artifact_prediction": "extend_with_persistent_advisory_world_model_and_root_only_photoreal_hero_disposition",
-    "C12_projection_bilingual_ui": "extend_with_summary_free_root_cards_situation_graph_single_layer_quick_view_grouped_sources_root_only_photoreal_hero_and_automatic_root_supplemental_queue",
+    "C12_projection_bilingual_ui": "extend_with_owner_state_projection_material_stage_graph_single_layer_quick_view_grouped_sources_root_only_photoreal_hero_and_automatic_root_supplemental_queue",
     "DPF_matters_delivery_gate": "extend_with_generic_v030_release_before_post_release_private_first_run_plus_source_in_place_migration_order_coverage_scan_desktop_visual_qa_install_and_release_gates",
     "S0_matters_skill_runtime": "add_auxiliary_non_product_skill_runtime_boundary",
     "A0_matters_source_analysis_operation": "add_agent_operation_boundary",
@@ -596,7 +596,7 @@ def build_preflight() -> ExistingModelPreflight:
             "pack without machine-global overlays, one separate public Matters AI "
             "gateway for bounded model-map/context/history access and typed feedback, "
             "event-driven progressive private maintenance through one shared path "
-            "after one separately verified generic private-repository v0.3.0 release, "
+            "after one separately verified generic public source-available v0.3.0 release, "
             "with daily scheduling opt-in only, and bounded Model Miss handoff "
             "without app-owned API keys, Jira/Rovo, Guard vendoring, or legacy "
             "Guard fallbacks."
@@ -636,7 +636,7 @@ def build_preflight() -> ExistingModelPreflight:
                 primary_owner_model_id=PROCESS_OWNER_ID,
                 score=99,
                 match_reasons=(
-                    "generic v0.3.0 private-repository release must close before the private first run",
+                    "generic v0.3.0 public source-available release must close before the private first run",
                     "release evidence excludes private aggregate consumption and completion claims",
                 ),
                 hit_role="validation_target",

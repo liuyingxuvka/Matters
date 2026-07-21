@@ -1,13 +1,49 @@
 {
   "artifact_type": "matters.flowguard-model-receipt.v1",
-  "claim_boundary": "This receipt can establish C6 abstract source-first admission, bounded multi-signal context reconciliation, full-library indexed candidate recall before bounded AI context, broad-root/object-kind classification, single-parent acyclic containment, role, revision, and bounded-depth hazards, atomic parent composition, and singular append-only same-Matter canonicalization whose downstream identity is the exact admitted matter_id. It rejects source, candidate, package, title, or projection identities as canonical substitutes. It does not prove the substantive admission or merge policy, statistics implementation, production persistence, ancestor rollup, or parent closure.",
-  "evidence_id": "evidence:C6_matter_formation_admission:cbb76081a7a7054e",
+  "claim_boundary": "This receipt can establish C6 abstract source-first admission, bounded multi-signal context reconciliation, full-library indexed candidate recall before bounded AI context, broad-root/object-kind classification, single-parent acyclic containment, role, revision, and bounded-depth hazards, atomic parent composition, stable semantic WorkItem identity with exact append-only supersession, and singular append-only same-Matter canonicalization whose downstream identity is the exact admitted matter_id. It rejects source, candidate, package, title, or projection identities as canonical substitutes. It does not prove the substantive admission or merge policy, statistics implementation, production persistence, ancestor rollup, or parent closure.",
+  "evidence_id": "evidence:C6_matter_formation_admission:e67d30bee9284522",
   "evidence_tiers": [
     "abstract_green",
     "hazard_green"
   ],
-  "generated_at": "2026-07-21T09:45:41.085900+00:00",
+  "generated_at": "2026-07-21T17:13:52.373783+00:00",
   "known_bad_proofs": [
+    {
+      "evidence_id": "C6_matter_formation_admission:known-bad:H-C6-033-direct-admission-bypasses-reconciliation",
+      "failure_id": "H-C6-033-direct-admission-bypasses-reconciliation",
+      "observed_status": "failed",
+      "protected_error_class": "c6_dual_production_owner_path"
+    },
+    {
+      "evidence_id": "C6_matter_formation_admission:known-bad:H-C6-034-unqualified-source-becomes-matter",
+      "failure_id": "H-C6-034-unqualified-source-becomes-matter",
+      "observed_status": "failed",
+      "protected_error_class": "pre_evidence_matter_admission"
+    },
+    {
+      "evidence_id": "C6_matter_formation_admission:known-bad:H-C6-035-source-refresh-swallows-secondary-c6-finding",
+      "failure_id": "H-C6-035-source-refresh-swallows-secondary-c6-finding",
+      "observed_status": "failed",
+      "protected_error_class": "source_revision_finding_type_dispatch_bypass"
+    },
+    {
+      "evidence_id": "C6_matter_formation_admission:known-bad:H-C6-036-graph-conflict-picks-stronger-record",
+      "failure_id": "H-C6-036-graph-conflict-picks-stronger-record",
+      "observed_status": "failed",
+      "protected_error_class": "situation_graph_conflict_overwrite"
+    },
+    {
+      "evidence_id": "C6_matter_formation_admission:known-bad:H-C6-031-single-action-promoted-to-matter",
+      "failure_id": "H-C6-031-single-action-promoted-to-matter",
+      "observed_status": "failed",
+      "protected_error_class": "granularity_over_split"
+    },
+    {
+      "evidence_id": "C6_matter_formation_admission:known-bad:H-C6-032-work-item-stage-counted-as-matter",
+      "failure_id": "H-C6-032-work-item-stage-counted-as-matter",
+      "observed_status": "failed",
+      "protected_error_class": "stage_matter_identity_conflation"
+    },
     {
       "evidence_id": "C6_matter_formation_admission:known-bad:H-C6-024-new-source-revision-bypasses-analysis",
       "failure_id": "H-C6-024-new-source-revision-bypasses-analysis",
@@ -19,6 +55,18 @@
       "failure_id": "H-C6-025-target-bound-revision-escapes-to-similar-matter",
       "observed_status": "failed",
       "protected_error_class": "source_revision_exact_target_bypass"
+    },
+    {
+      "evidence_id": "C6_matter_formation_admission:known-bad:H-C6-037-cross-source-refresh-fragments-or-mutates-membership",
+      "failure_id": "H-C6-037-cross-source-refresh-fragments-or-mutates-membership",
+      "observed_status": "failed",
+      "protected_error_class": "matter_semantic_refresh_cross_source_identity_escape"
+    },
+    {
+      "evidence_id": "C6_matter_formation_admission:known-bad:H-C6-038-same-semantic-role-creates-peer-work-items",
+      "failure_id": "H-C6-038-same-semantic-role-creates-peer-work-items",
+      "observed_status": "failed",
+      "protected_error_class": "work_item_semantic_identity_duplication"
     },
     {
       "evidence_id": "C6_matter_formation_admission:known-bad:H-C6-026-old-revision-evidence-remains-current",
@@ -171,7 +219,7 @@
       "protected_error_class": "matter_context_candidate_window_truncation"
     }
   ],
-  "model_fingerprint": "sha256:cbb76081a7a7054ee1ca08e212c04ee7ec4a0a386936fd4e7823b0f139a27aae",
+  "model_fingerprint": "sha256:e67d30bee92845227249299316a3c04f0a2ade6628fe34f41af4548a2a7dd3ad",
   "model_id": "C6_matter_formation_admission",
   "model_title": "C6 Matter Formation & Admission",
   "overall_status": "pass_with_gaps",

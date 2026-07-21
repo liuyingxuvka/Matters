@@ -472,7 +472,7 @@ def test_exact_target_refresh_adopts_current_revision_without_new_root(
         },
     )
     assert imported["status"] == "passed"
-    assert imported["auto_apply_status"] == "auto_applied"
+    assert imported["auto_apply_status"] == "auto_applied", imported
     current = service.store.current("admission_decision", matter_id)["matter"]
     assert current["source_ids"] == [old_ref, current_ref]
     assert current["evidence_ids"] == [
@@ -783,3 +783,335 @@ def test_same_matter_refreshes_rebase_stale_sibling_to_one_current_successor(
         *current_refs,
     }
     assert service.store.count_current("admission_decision") == 1
+
+
+def test_cross_source_matter_semantic_refresh_keeps_identity_and_dispatches_work_item(
+    tmp_path,
+):
+    repository = tmp_path / "repo"
+    repository.mkdir()
+    service = MatterService(
+        repository_root=repository,
+        private_root=tmp_path / "private",
+    )
+    matter_id = "matter:build-week"
+    source_ids = ("source:registration", "source:deadline")
+    source_refs = tuple(f"{source_id}:v1" for source_id in source_ids)
+    evidence_ids = tuple(
+        f"evidence:{source_id}:1:current" for source_id in source_ids
+    )
+    for index, source_id in enumerate(source_ids):
+        service.store.append(
+            "source_version",
+            source_id,
+            1,
+            _source(
+                source_id,
+                1,
+                content_hash=f"hash:{index}",
+                body_fingerprint=f"body:{index}",
+                body_length=20 + index,
+            ),
+        )
+        service.store.append(
+            "evidence_anchor",
+            evidence_ids[index],
+            1,
+            _anchor(source_id, 1, evidence_ids[index]),
+        )
+    service.store.append(
+        "admission_decision",
+        matter_id,
+        1,
+        _admission(matter_id, list(source_refs), evidence_ids=list(evidence_ids)),
+    )
+    service.store.append(
+        "projection",
+        matter_id,
+        1,
+        {
+            "matter_id": matter_id,
+            "semantic_revision": source_refs[0],
+            "state": "in_progress",
+            "evidence_ids": list(evidence_ids),
+            "localized_values": {"en": "Build Week", "zh-CN": "Build Week"},
+            "localized_rationale": {
+                "en": "Registration is complete and submission preparation remains active.",
+                "zh-CN": "报名已完成，参赛作品仍在准备中。",
+            },
+            "locale_revisions": {"en": source_refs[0], "zh-CN": source_refs[0]},
+            "locales": ["en", "zh-CN"],
+            "equivalence_status": "equivalent",
+        },
+    )
+    for loop_id in (
+        "loop:legacy-submission-a",
+        "loop:legacy-submission-b",
+    ):
+        service.store.append(
+            "open_loop",
+            loop_id,
+            1,
+            {
+                "loop_id": loop_id,
+                "matter_id": matter_id,
+                "wait_target": "Build Week project submission",
+                "closure_condition": "A submission receipt is recorded.",
+                "critical": True,
+                "status": "open",
+                "evidence_ids": list(evidence_ids),
+            },
+        )
+    for source_ref, evidence_id in zip(source_refs, evidence_ids, strict=True):
+        annotation = AnalysisWorkPackage.create(
+            operation_type="text_analysis",
+            task_kind="source_annotation",
+            capability_role="low_cost_annotator",
+            requested_output_types=("source_annotation",),
+            source_revision_ids=(source_ref,),
+            model_revision="matters-source-annotation:v1",
+            allowed_evidence_ids=(evidence_id,),
+            private_evidence={"evidence": [{"evidence_id": evidence_id, "text": source_ref}]},
+            prompt_contract_id="matters.source-annotation",
+        )
+        service.operations.queue(annotation)
+        imported_annotation = service.import_autonomous_result(
+            package_id=annotation.package_id,
+            provider_id=annotation.required_runner_id,
+            provider_version=annotation.required_runner_version,
+            result={
+                "status": "passed",
+                "input_dispositions": [{"input_id": evidence_id, "disposition": "used", "reason": "annotated"}],
+                "findings": [{
+                    "finding_type": "source_annotation",
+                    "owner_model_id": "A0_matters_source_analysis_operation",
+                    "statement": source_ref,
+                    "localized_statement": {"en": source_ref, "zh-CN": source_ref},
+                    "semantic_revision": source_ref,
+                    "evidence_ids": [evidence_id],
+                    "confidence": "bounded",
+                    "modality": "reported",
+                    "attributes": {"content_kind": "mail", "user_relevance": "relevant"},
+                }],
+            },
+        )
+        assert imported_annotation["status"] == "passed"
+
+    planned = service.matter_semantic_analysis_plan(
+        matter_id=matter_id,
+        queue=True,
+    )
+    assert planned["status"] == "current"
+    assert planned["status_counts"] == {"queued": 1}
+    package = service.operations.package(planned["items"][0]["semantic_package_id"])
+    assert package.task_kind == "matter_semantic_refresh"
+    assert package.model_revision == "matters-matter-semantic-refresh:v2"
+    assert package.prompt_contract_revision == "v5"
+    assert package.source_revision_ids == tuple(sorted(source_refs))
+    assert package.allowed_evidence_ids == tuple(sorted(evidence_ids))
+    assert len(package.dependency_package_ids) == 2
+    assert len(
+        package.untrusted_evidence["current_semantic_state"][
+            "open_loops"
+        ]
+    ) == 2
+    analysis_as_of = str(package.untrusted_evidence["analysis_as_of"])
+
+    admission_before = service.store.current("admission_decision", matter_id)
+    imported = service.import_autonomous_result(
+        package_id=package.package_id,
+        provider_id=package.required_runner_id,
+        provider_version=package.required_runner_version,
+        result={
+            "status": "passed",
+            "input_dispositions": [
+                {"input_id": evidence_id, "disposition": "used", "reason": "cross-source understanding"}
+                for evidence_id in evidence_ids
+            ],
+            "findings": [
+                {
+                    "finding_type": "matter_candidate",
+                    "owner_model_id": "C6_matter_admission",
+                    "statement": "Preserve Build Week participation.",
+                    "localized_statement": {"en": "Build Week participation", "zh-CN": "Build Week 参赛"},
+                    "semantic_revision": source_refs[0],
+                    "evidence_ids": list(evidence_ids),
+                    "confidence": "bounded",
+                    "modality": "reported",
+                    "attributes": {"matter_id": matter_id, "semantic_identity_key": "semantic:1"},
+                },
+                {
+                    "finding_type": "work_item_candidate",
+                    "owner_model_id": "C6_matter_admission",
+                    "statement": "Prepare the project submission.",
+                    "localized_statement": {"en": "Prepare the project submission", "zh-CN": "准备提交参赛项目"},
+                    "semantic_revision": source_refs[1],
+                    "evidence_ids": list(evidence_ids),
+                    "confidence": "bounded",
+                    "modality": "inferred",
+                    "attributes": {
+                        "matter_id": matter_id,
+                        "item_id": "work-item:build-week-preparation",
+                        "semantic_role_key": "preparation",
+                        "kind": "milestone",
+                        "status": "in_progress",
+                        "basis_scope": "current_phase",
+                        "temporal_direction": "present",
+                        "temporal_assertion": "ongoing",
+                        "inference_purpose": "current_phase",
+                        "inference_as_of": analysis_as_of,
+                        "target_time": analysis_as_of,
+                        "revisable": True,
+                        "terminality": "provisional",
+                        "required_for_parent": True,
+                        "material_stage": True,
+                        "prerequisite_evidence_ids": [evidence_ids[0]],
+                        "remaining_obligation_ids": ["submit-project"],
+                        "active_window_start": "2026-01-01T00:00:00+00:00",
+                        "active_window_end": "2027-01-01T00:00:00+00:00",
+                        "contradiction_checked": True,
+                        "coverage_boundary": "registration and deadline messages",
+                        "supporting_signals": [
+                            "registration is confirmed and submission remains open"
+                        ],
+                        "alternative_explanations": [
+                            "preparation may be paused or already submitted"
+                        ],
+                        "contradiction_triggers": [
+                            "submission receipt, withdrawal, or deadline change"
+                        ],
+                        "expires_at": "2027-01-01T00:00:00+00:00",
+                        "localized_result": {"en": "Preparation is in progress.", "zh-CN": "准备工作正在进行中。"},
+                    },
+                },
+                {
+                    "finding_type": "open_loop_candidate",
+                    "owner_model_id": "C8_open_loop_waiting_blocking",
+                    "statement": "Wait for a submission receipt.",
+                    "localized_statement": {
+                        "en": "Wait for a submission receipt",
+                        "zh-CN": "等待提交回执",
+                    },
+                    "semantic_revision": source_refs[1],
+                    "evidence_ids": list(evidence_ids),
+                    "confidence": "bounded",
+                    "modality": "planned",
+                    "attributes": {
+                        "matter_id": matter_id,
+                        "loop_id": "loop:build-week-submission",
+                        "semantic_role_key": "submission-receipt",
+                        "wait_target": "Build Week project submission",
+                        "closure_condition": (
+                            "A submission receipt is recorded."
+                        ),
+                        "critical": True,
+                        "supersedes_loop_ids": [
+                            "loop:legacy-submission-a",
+                            "loop:legacy-submission-b",
+                        ],
+                    },
+                },
+                {
+                    "finding_type": "event_candidate",
+                    "owner_model_id": "C5_event_temporal_trace",
+                    "statement": "Registration was confirmed.",
+                    "localized_statement": {
+                        "en": "Registration was confirmed.",
+                        "zh-CN": "报名已经确认。",
+                    },
+                    "semantic_revision": source_refs[0],
+                    "evidence_ids": [evidence_ids[0]],
+                    "confidence": "bounded",
+                    "modality": "reported",
+                    "alternative_explanations": [
+                        "The registration could later be withdrawn."
+                    ],
+                    "attributes": {
+                        "matter_id": matter_id,
+                        "object_ref": matter_id,
+                        "event_kind": "registration_confirmed",
+                        "logical_event_key": "build-week:registration-confirmed",
+                        "occurrence_boundary": "the registration confirmation message",
+                        "claimed_time": "2026-07-01T10:00:00+00:00",
+                        "record_time": "2026-07-01T10:00:00+00:00",
+                        "actor": "OpenAI",
+                        "temporal_direction": "past",
+                        "temporal_assertion": "occurred",
+                    },
+                },
+                {
+                    "finding_type": "bounded_summary",
+                    "owner_model_id": "C12_projection_bilingual_ui",
+                    "statement": (
+                        "Registration is complete and project preparation "
+                        "remains active."
+                    ),
+                    "localized_statement": {
+                        "en": (
+                            "Registration is complete and project "
+                            "preparation remains active."
+                        ),
+                        "zh-CN": "报名已完成，参赛项目仍在准备中。",
+                    },
+                    "semantic_revision": source_refs[1],
+                    "evidence_ids": list(evidence_ids),
+                    "confidence": "bounded",
+                    "modality": "reported",
+                    "attributes": {
+                        "matter_id": matter_id,
+                        "workflow_state": "in_progress",
+                        "terminality": "provisional",
+                        "completion_licensed": False,
+                    },
+                },
+            ],
+        },
+    )
+    assert imported["auto_apply_status"] == "auto_applied", imported
+    assert imported["dispatch_statuses"] == (
+        "auto_applied",
+        "auto_applied",
+        "auto_applied",
+        "auto_applied",
+        "auto_applied",
+    ), imported
+    assert service.store.current("admission_decision", matter_id) == admission_before
+    work_items = service.matter_work_items(matter_id=matter_id)
+    assert work_items["total_count"] == 1
+    assert work_items["items"][0]["item_id"] == "work-item:build-week-preparation"
+    assert work_items["items"][0]["semantic_role_key"] == "preparation"
+    projection = service.store.current("projection", matter_id)
+    assert projection["localized_values"]["en"] == "Build Week participation"
+    assert projection["localized_rationale"]["en"] == (
+        "Registration is complete and project preparation remains active."
+    )
+    successor = service.matter_semantic_analysis_plan(
+        matter_id=matter_id,
+        queue=False,
+    )
+    assert successor["status_counts"] == {"rebase_required": 1}
+    assert successor["items"][0]["current_semantic_state"][
+        "work_items"
+    ][0]["item_id"] == "work-item:build-week-preparation"
+    assert [
+        item["loop_id"]
+        for item in successor["items"][0][
+            "current_semantic_state"
+        ]["open_loops"]
+    ] == ["loop:build-week-submission"]
+    detail = service.matter_detail(
+        matter_id=matter_id,
+        locale="en",
+    )
+    assert len(detail["open_loops"]) == 1
+    assert detail["open_loops"][0]["wait_target"] == (
+        "Build Week project submission"
+    )
+    timeline = tuple(service.store.iter_current("temporal_event"))
+    registration = next(
+        item
+        for item in timeline
+        if item["kind"] == "registration_confirmed"
+    )
+    assert registration["modality"] == "reported"
+    assert registration["alternative_explanations"] == []

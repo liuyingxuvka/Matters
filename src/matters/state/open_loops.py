@@ -4,6 +4,8 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field, replace
 
+from matters.domain.hierarchy import normalize_semantic_role_key
+
 
 @dataclass(frozen=True)
 class OpenLoop:
@@ -14,6 +16,23 @@ class OpenLoop:
     critical: bool = False
     status: str = "open"
     evidence_ids: tuple[str, ...] = ()
+    semantic_role_key: str = ""
+    deleted: bool = False
+    superseded_by: str = ""
+    retirement_reason: str = ""
+
+    def __post_init__(self) -> None:
+        object.__setattr__(
+            self,
+            "semantic_role_key",
+            normalize_semantic_role_key(self.semantic_role_key),
+        )
+        if self.deleted and (
+            not self.superseded_by or not self.retirement_reason.strip()
+        ):
+            raise ValueError(
+                "retired open loop requires its replacement and reason"
+            )
 
 
 @dataclass(frozen=True)
@@ -27,6 +46,34 @@ class BlockingDecision:
 class OpenLoopOwner:
     _loops: dict[str, OpenLoop] = field(default_factory=dict)
 
+    @staticmethod
+    def build(
+        *,
+        loop_id: str,
+        matter_id: str,
+        wait_target: str,
+        closure_condition: str,
+        critical: bool = False,
+        evidence_ids: tuple[str, ...] = (),
+        semantic_role_key: str = "",
+    ) -> OpenLoop | None:
+        if not wait_target or not closure_condition:
+            return None
+        return OpenLoop(
+            loop_id,
+            matter_id,
+            wait_target,
+            closure_condition,
+            critical,
+            "open",
+            evidence_ids,
+            semantic_role_key,
+        )
+
+    def remember(self, loop: OpenLoop) -> OpenLoop:
+        self._loops[loop.loop_id] = loop
+        return loop
+
     def create(
         self,
         *,
@@ -36,20 +83,20 @@ class OpenLoopOwner:
         closure_condition: str,
         critical: bool = False,
         evidence_ids: tuple[str, ...] = (),
+        semantic_role_key: str = "",
     ) -> OpenLoop | None:
-        if not wait_target or not closure_condition:
-            return None
-        loop = OpenLoop(
-            loop_id,
-            matter_id,
-            wait_target,
-            closure_condition,
-            critical,
-            "open",
-            evidence_ids,
+        loop = self.build(
+            loop_id=loop_id,
+            matter_id=matter_id,
+            wait_target=wait_target,
+            closure_condition=closure_condition,
+            critical=critical,
+            evidence_ids=evidence_ids,
+            semantic_role_key=semantic_role_key,
         )
-        self._loops[loop_id] = loop
-        return loop
+        if loop is None:
+            return None
+        return self.remember(loop)
 
     @staticmethod
     def blocking(loop: OpenLoop | None) -> BlockingDecision:
@@ -81,6 +128,23 @@ class OpenLoopOwner:
         )
         self._loops[loop_id] = closed
         return closed
+
+    def retire(
+        self,
+        loop_id: str,
+        *,
+        superseded_by: str,
+        reason: str,
+    ) -> OpenLoop:
+        loop = self._loops[loop_id]
+        retired = replace(
+            loop,
+            deleted=True,
+            superseded_by=superseded_by,
+            retirement_reason=reason,
+        )
+        self._loops[loop_id] = retired
+        return retired
 
 
 __all__ = ["BlockingDecision", "OpenLoop", "OpenLoopOwner"]

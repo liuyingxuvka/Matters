@@ -12,6 +12,8 @@ SPEC = FiniteModelSpec(
     ),
     state_fields=(
         "open_loop.identity",
+        "open_loop.semantic_role_identity",
+        "open_loop.supersession",
         "open_loop.wait_target",
         "open_loop.closure_condition",
         "matter.blocking_axis",
@@ -20,6 +22,8 @@ SPEC = FiniteModelSpec(
     ),
     owned_write_fields=(
         "open_loop.identity",
+        "open_loop.semantic_role_identity",
+        "open_loop.supersession",
         "open_loop.wait_target",
         "open_loop.closure_condition",
         "matter.blocking_axis",
@@ -36,6 +40,7 @@ SPEC = FiniteModelSpec(
         "OpenLoopGap",
         "ChildBlockingCurrent",
         "AncestorBlockingRollupCurrent",
+        "SemanticOpenLoopIdentityCurrent",
     ),
     rules=(
         CaseRule(
@@ -50,6 +55,23 @@ SPEC = FiniteModelSpec(
             side_effects=("open_loop_registry_write",),
             emitted_tokens=("OpenLoop", "Waiting"),
             reason="request names what is awaited and how it closes",
+        ),
+        CaseRule(
+            case_id="same_semantic_open_loop_role_reanalyzed",
+            decision="one_open_loop_identity_reused_or_exactly_superseded",
+            label="one_open_loop_identity_reused_or_exactly_superseded",
+            writes=(
+                "open_loop.identity",
+                "open_loop.semantic_role_identity",
+                "open_loop.supersession",
+            ),
+            side_effects=("open_loop_registry_write",),
+            emitted_tokens=("SemanticOpenLoopIdentityCurrent",),
+            reason=(
+                "one language-neutral waiting role is unique within its "
+                "Matter; reanalysis reuses it or retires only exact named "
+                "legacy duplicates while preserving append-only history"
+            ),
         ),
         CaseRule(
             case_id="vague_waiting_text",
@@ -211,6 +233,27 @@ SPEC = FiniteModelSpec(
             broken_side_effects=("open_loop_registry_write",),
             broken_tokens=("FullBlock",),
         ),
+        HazardSpec(
+            failure_id="H-C8-006-same-semantic-role-duplicates-open-loop",
+            protected_error_class="open_loop_semantic_identity_duplication",
+            description=(
+                "a repeated submission-receipt wait creates another active "
+                "loop or retires an unlisted loop by title similarity"
+            ),
+            protected_harm=(
+                "the user sees duplicate outstanding waits or loses a valid "
+                "independent closure obligation"
+            ),
+            case_id="same_semantic_open_loop_role_reanalyzed",
+            broken_decision="duplicate_loop_or_heuristic_replacement",
+            broken_writes=(
+                "open_loop.identity",
+                "open_loop.semantic_role_identity",
+                "open_loop.supersession",
+            ),
+            broken_side_effects=("open_loop_registry_write",),
+            broken_tokens=("OpenLoop",),
+        ),
     ),
     risk_classes=("state_transition", "liveness", "ownership", "side_effect"),
     template_no_match_reason=(
@@ -221,8 +264,9 @@ SPEC = FiniteModelSpec(
         "human follow-up timing and notification behavior are outside this child",
     ),
     claim_boundary=(
-        "This receipt can establish C8 abstract wait, closure, child-role, and "
-        "blocking-scope rollup hazards. It does not establish real dependency "
+        "This receipt can establish C8 abstract wait, closure, stable semantic "
+        "open-loop identity, exact supersession, child-role, and blocking-scope "
+        "rollup hazards. It does not establish real dependency "
         "criticality, notification delivery, hierarchy completeness, or parent liveness."
     ),
 )

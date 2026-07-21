@@ -122,12 +122,29 @@ def _suite_inputs(suite_id: str, test_files: tuple[Path, ...]) -> tuple[Path, ..
         paths.update(_files_under(Path("src/matters/revisions")))
         paths.add(Path("src/matters/application/orchestrator.py"))
     elif suite_id == "TM18_privacy_public_boundary":
-        paths.add(Path("scripts/check_public_boundary.py"))
+        paths.update(
+            {
+                Path("scripts/build_desktop_manifest.py"),
+                Path("scripts/build_desktop_package.ps1"),
+                Path("scripts/build_desktop_release_archive.py"),
+                Path("scripts/check_public_boundary.py"),
+            }
+        )
         paths.add(Path("docs/security/public-file-policy.json"))
         paths.add(Path("docs/security/required-public-inventory.json"))
         paths.add(Path("docs/security/scope-manifest.yaml"))
         paths.update(
             _files_under(Path("src/matters/infrastructure/capability_status"))
+        )
+    elif suite_id == "TM19_clean_install_release":
+        paths.update(
+            {
+                Path("scripts/build_desktop_manifest.py"),
+                Path("scripts/build_desktop_package.ps1"),
+                Path("scripts/build_desktop_release_archive.py"),
+                Path("scripts/install_desktop_package.ps1"),
+                Path("scripts/install_local.ps1"),
+            }
         )
     elif suite_id == "TM21_object_coverage_worker":
         paths.update(

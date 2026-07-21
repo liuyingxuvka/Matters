@@ -20,6 +20,13 @@ $SourcePath = Join-Path $RepositoryRoot "src"
 $BundledSkillsPath = Join-Path $SourcePath "matters\bundled_skills"
 $UiPath = Join-Path $RepositoryRoot "ui"
 $EntryPath = Join-Path $RepositoryRoot "scripts\matters_desktop_entry.py"
+$VersionPath = Join-Path $SourcePath "matters\_version.py"
+$VersionSource = Get-Content -LiteralPath $VersionPath -Raw -Encoding UTF8
+$VersionMatch = [regex]::Match($VersionSource, 'VERSION\s*=\s*"([^"]+)"')
+if (-not $VersionMatch.Success) {
+    throw "Matters version authority is unavailable."
+}
+$MattersVersion = $VersionMatch.Groups[1].Value
 $PreviousPythonPath = $env:PYTHONPATH
 
 Push-Location $RepositoryRoot
@@ -37,7 +44,28 @@ try {
         --windowed `
         --icon $IconPath `
         --paths $SourcePath `
-        --collect-all "webview" `
+        --hidden-import "webview.platforms.winforms" `
+        --hidden-import "webview.platforms.edgechromium" `
+        --exclude-module "webview.platforms.android" `
+        --exclude-module "webview.platforms.cef" `
+        --exclude-module "webview.platforms.cocoa" `
+        --exclude-module "webview.platforms.gtk" `
+        --exclude-module "webview.platforms.qt" `
+        --exclude-module "torch" `
+        --exclude-module "torchvision" `
+        --exclude-module "torchaudio" `
+        --exclude-module "tensorflow" `
+        --exclude-module "jax" `
+        --exclude-module "jaxlib" `
+        --exclude-module "pandas" `
+        --exclude-module "scipy" `
+        --exclude-module "matplotlib" `
+        --exclude-module "sympy" `
+        --exclude-module "numba" `
+        --exclude-module "llvmlite" `
+        --exclude-module "sklearn" `
+        --exclude-module "pytest" `
+        --exclude-module "IPython" `
         --collect-data "matters" `
         --add-data "$BundledSkillsPath;matters\bundled_skills" `
         --add-data "$UiPath;ui" `
@@ -51,6 +79,20 @@ try {
     $Executable = Join-Path $OutputPath "Matters\Matters.exe"
     if (-not (Test-Path -LiteralPath $Executable -PathType Leaf)) {
         throw "Matters desktop executable was not produced."
+    }
+    $PackageRoot = Join-Path $OutputPath "Matters"
+    $DirectUrlReceipts = @(
+        Get-ChildItem -LiteralPath $PackageRoot -Recurse -File `
+            -Filter "direct_url.json" -ErrorAction Stop
+    )
+    if ($DirectUrlReceipts.Count -gt 0) {
+        $DirectUrlReceipts | Remove-Item -Force
+    }
+    if (
+        Get-ChildItem -LiteralPath $PackageRoot -Recurse -File `
+            -Filter "direct_url.json" -ErrorAction Stop
+    ) {
+        throw "Matters desktop package retained a machine-local direct_url receipt."
     }
     $SelfTestPath = Join-Path $OutputPath "desktop-self-test.json"
     $SelfTestStdoutPath = Join-Path $OutputPath "desktop-self-test.stdout.tmp"
@@ -92,9 +134,19 @@ try {
     if ($LASTEXITCODE -ne 0) {
         throw "Matters desktop manifest build failed."
     }
+    $ReleaseArchivePath = Join-Path $OutputPath (
+        "Matters-{0}-windows-x64.zip" -f $MattersVersion
+    )
+    python scripts\build_desktop_release_archive.py `
+        --desktop-root $OutputPath `
+        --output $ReleaseArchivePath
+    if ($LASTEXITCODE -ne 0) {
+        throw "Matters desktop release archive build failed."
+    }
     Write-Output $Executable
     Write-Output $ManifestPath
     Write-Output $ToolchainPath
+    Write-Output $ReleaseArchivePath
 }
 finally {
     if ($null -eq $PreviousPythonPath) {

@@ -12,6 +12,7 @@ import shutil
 import subprocess
 import sys
 import tomllib
+import zipfile
 
 from flowguard import (
     DevelopmentProcessPlan,
@@ -647,6 +648,7 @@ def _release_artifacts(root: Path) -> tuple[Path, ...]:
         for value in (
             os.environ.get("MATTERS_RELEASE_WHEEL", ""),
             os.environ.get("MATTERS_RELEASE_SDIST", ""),
+            os.environ.get("MATTERS_RELEASE_DESKTOP", ""),
         )
         if value
     )
@@ -658,6 +660,7 @@ def _release_artifacts(root: Path) -> tuple[Path, ...]:
             (
                 *candidate_root.glob("matters-*.whl"),
                 *candidate_root.glob("matters-*.tar.gz"),
+                *candidate_root.glob("Matters-*-windows-x64.zip"),
             )
         )
     )
@@ -665,11 +668,11 @@ def _release_artifacts(root: Path) -> tuple[Path, ...]:
 
 def _public_release_gate(root: Path) -> dict:
     artifacts = _release_artifacts(root)
-    if len(artifacts) != 2 or not all(path.is_file() for path in artifacts):
+    if len(artifacts) != 3 or not all(path.is_file() for path in artifacts):
         return {
             "ok": False,
             "status": "not_run",
-            "reason": "frozen_package_pair_not_supplied",
+            "reason": "frozen_release_artifact_trio_not_supplied",
             "artifact_count": len(artifacts),
         }
     configured_clone = os.environ.get("MATTERS_CLEAN_CLONE_ROOT", "")
@@ -704,7 +707,9 @@ def _public_release_gate(root: Path) -> dict:
         == "pass"
         and report.get("inventories", {}).get("clean_clone", {}).get("status")
         == "pass"
-        and len(package_rows) == 2
+        and len(package_rows) == 3
+        and {str(row.get("kind", "")) for row in package_rows}
+        == {"wheel", "sdist", "desktop"}
         and all(row.get("status") == "pass" for row in package_rows)
     )
     return {
@@ -882,12 +887,30 @@ def _desktop_install_gate(root: Path) -> dict:
             "ok": False,
             "reason": "desktop_manifest_or_install_receipt_unavailable",
         }
+    desktop_archive_path = Path(
+        os.environ.get("MATTERS_RELEASE_DESKTOP", "")
+    ).expanduser()
+    try:
+        with zipfile.ZipFile(desktop_archive_path) as archive:
+            archived_manifest = json.loads(
+                archive.read("desktop-manifest.json")
+            )
+    except (
+        OSError,
+        TypeError,
+        ValueError,
+        KeyError,
+        zipfile.BadZipFile,
+        json.JSONDecodeError,
+    ):
+        archived_manifest = {}
     launcher = Path(str(receipt.get("launcher", ""))).expanduser()
     launcher_hash = _file_hash(launcher) if launcher.is_file() else ""
     checks = {
         "manifest_version": manifest.get("matters_version") == VERSION,
         "manifest_fingerprint": bool(manifest.get("manifest_fingerprint")),
         "manifest_executable_hash": bool(manifest.get("executable_sha256")),
+        "release_archive_manifest": archived_manifest == manifest,
         "toolchain_schema": (
             toolchain.get("schema") == "matters.desktop-build-toolchain.v1"
         ),
@@ -911,6 +934,9 @@ def _desktop_install_gate(root: Path) -> dict:
         ),
         "receipt_package": (
             receipt.get("package_sha256") == manifest.get("package_sha256")
+        ),
+        "prior_process_shutdown": (
+            receipt.get("prior_process_shutdown_verified") is True
         ),
     }
     return {
@@ -1088,7 +1114,8 @@ def _frozen_release_gate(
             "wheel/install, M0/C1-C12 product, A0/A1/A2/A3 agent-operation, and "
             "S0-S5 skill-runtime model evidence from separate roots, complete "
             "TestMesh including TM19, current installed UI, public package "
-            "boundary, explicit private-first-run separation, and the frozen "
+            "boundary including the desktop release archive, explicit "
+            "private-first-run separation, and the frozen "
             "ResearchGuard currentness identity. It does not claim GitHub "
             "publication, Linux CI, Figma evidence, or complete private "
             "semantic coverage."

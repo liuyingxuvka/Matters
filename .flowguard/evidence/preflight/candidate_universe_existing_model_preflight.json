@@ -2,8 +2,8 @@
   "artifact_type": "matters.existing-model-preflight.v2",
   "blockers": [],
   "claim_boundary": "This current receipt proves plane-first lookup, source/model discovery, ownership, reuse/extension, same-intent surface inventory, OpenSpec read-only context, and explicit legacy disposition only. It does not prove model execution, mesh closure, field lifecycle, agent operations, ResearchGuard availability, Skill Pack validation, TestMesh, runtime, private first run, install, or release. Model source edits after this fingerprint stale this receipt.",
-  "evidence_id": "evidence:existing-model-preflight:0edaba82ba9b8db0",
-  "generated_at": "2026-07-21T10:49:00.558191+00:00",
+  "evidence_id": "evidence:existing-model-preflight:e7e4fc8461b3dded",
+  "generated_at": "2026-07-21T20:55:20.055790+00:00",
   "native_report": {
     "behavior_commitment_id": "BC-DP-004",
     "business_intent_id": "BI-DP-004-progressive-private-first-run",
@@ -23,7 +23,7 @@
           "child_model_ids": [],
           "child_reattachment_status": "",
           "evidence_current": false,
-          "evidence_id": "source:sha256:bcd66f0ced2ec98868a3a23ffc7d26f7d4f7b7c53bd61dd7c6473b3602c32adb",
+          "evidence_id": "source:sha256:cf7be1c4acb966cca719b013578e0b1a600b71a69dca3c47d21631d96ae22732",
           "evidence_tier": "candidate_only",
           "fields_owned": [
             "development_gate.status",
@@ -756,7 +756,7 @@
           "child_model_ids": [],
           "child_reattachment_status": "",
           "evidence_current": false,
-          "evidence_id": "source:sha256:22b23f21ae91ed21dff179531d7c7a77481f7b36a974d1e952a3838ddff6dbe5",
+          "evidence_id": "source:sha256:6aa72cc529795315e8394b35a24d15815ac5f843d7baf95230552615ead81881",
           "evidence_tier": "candidate_only",
           "fields_owned": [
             "event.identity",
@@ -784,6 +784,7 @@
             "trace.parent_narrative_refresh_trigger_revision",
             "trace.situation_graph_event_revision",
             "event.certainty_class",
+            "event.temporal_assertion",
             "event.inference_confidence",
             "event.alternative_interpretations"
           ],
@@ -802,6 +803,7 @@
             "explicit_actual_start",
             "future_meeting",
             "explicit_source_modality_preserved",
+            "reported_event_declares_past_temporal_direction",
             "necessary_past_gap_supported",
             "future_candidate_marked_ai_inferred",
             "rebased_stale_temporal_owner_output",
@@ -811,7 +813,8 @@
             "bounded_child_activity_event",
             "material_user_world_clue",
             "material_child_clue_changes_parent_understanding",
-            "scan_retry_or_reword_without_semantic_change"
+            "scan_retry_or_reword_without_semantic_change",
+            "future_transport_action_already_recorded"
           ],
           "layered_proof_evidence_id": "",
           "leaf_boundary_matrix_status": "",
@@ -820,7 +823,7 @@
           "parent_coverage_status": "",
           "parent_model_id": "M0_matters_end_to_end_authority",
           "public_entrypoints": [],
-          "rationale": "extend_with_situation_event_nodes_primary_containment_secondary_typed_edges_and_source_group_time",
+          "rationale": "extend_with_orthogonal_time_basis_state_terminality_complete_historical_inference_and_future_activity_separation",
           "responsibilities": [
             "typed events, record/claimed time, modality, supersession, contradiction, logical-event identity and revision projection, gaps, Start-time versus meaningful-clue-time separation, canonical material-clue dispositions, explicit observed/reported/planned/ai-inferred certainty, SituationGraph event-node revision, and bounded Matter-link candidates that never promote an Event into a Matter, plus current-projection exclusion of rebased stale analysis-owner outputs"
           ],
@@ -853,6 +856,7 @@
             "trace.parent_narrative_refresh_trigger_revision",
             "trace.situation_graph_event_revision",
             "event.certainty_class",
+            "event.temporal_assertion",
             "event.inference_confidence",
             "event.alternative_interpretations"
           ],
@@ -873,7 +877,7 @@
           "child_model_ids": [],
           "child_reattachment_status": "",
           "evidence_current": false,
-          "evidence_id": "source:sha256:a10400043d5d349b807b75c6b12decfa348dc8871707b5041a2df90b855848e0",
+          "evidence_id": "source:sha256:7a95cc6e4e1d8a530360293b2b24aefe11354d84450bb5accbf3ecc0434dcf29",
           "evidence_tier": "candidate_only",
           "fields_owned": [
             "matter.identity",
@@ -903,7 +907,11 @@
             "matter.parent_narrative_child_projection_revisions",
             "matter.parent_narrative_evidence_revisions",
             "matter.root_granularity",
+            "matter.reconciliation_owner_path",
             "work_item.membership",
+            "work_item.material_stage_eligibility",
+            "work_item.semantic_role_identity",
+            "work_item.supersession",
             "matter.situation_graph_revision",
             "matter.situation_graph_primary_edges",
             "matter.situation_graph_secondary_edges",
@@ -914,11 +922,15 @@
           ],
           "function_blocks": [
             "root_matter_situation_graph_requested",
+            "same_graph_identity_has_current_conflicting_records",
             "ordinary_submatters_projection_requested",
             "travel_and_software_fragments_reconciled",
             "same_matter_already_admits_current_source_revision",
             "exact_existing_matter_current_revision_processed",
+            "exact_existing_matter_cross_source_semantic_refresh",
+            "same_semantic_work_item_role_reanalyzed",
             "admitted_source_revision_is_behind_registry_current",
+            "source_revision_result_contains_secondary_c6_finding",
             "same_matter_sibling_refresh_stales_after_prior_admission",
             "matter_participates_in_multiple_domains",
             "situation_graph_has_more_descendants",
@@ -950,7 +962,12 @@
             "reparent_split_or_merge",
             "hierarchy_depth_budget_exhausted",
             "bounded_containment_batch_valid",
-            "batch_publication_interrupted"
+            "batch_publication_interrupted",
+            "single_bounded_next_step_without_independent_outcome",
+            "contradictory_granularity_flags",
+            "required_stage_with_distinct_state_time_and_result",
+            "qualified_candidate_enters_production_c6",
+            "registered_source_has_no_qualified_evidence"
           ],
           "layered_proof_evidence_id": "",
           "leaf_boundary_matrix_status": "",
@@ -959,9 +976,9 @@
           "parent_coverage_status": "",
           "parent_model_id": "M0_matters_end_to_end_authority",
           "public_entrypoints": [],
-          "rationale": "extend_with_root_catalog_bounded_situation_graph_and_single_layer_descendant_quick_view",
+          "rationale": "extend_with_strict_scale_contract_material_workitem_stage_projection_and_single_layer_quick_view",
           "responsibilities": [
-            "source-first Matter formation, autonomous admitted/source-only/not-applicable/uncertain/blocked outcomes, context-aware semantic reconciliation, Matter-source gallery relations, admitted statistics, and recursive broad-root/child-Matter/WorkItem/Event/Source classification with one acyclic primary-parent containment edge and required/optional/critical role semantics, plus one bounded internal SituationGraph and one ordinary UI MatterHierarchyProjection whose nodes are admitted Matters only, with primary containment and typed Matter-to-Matter secondary edges"
+            "source-first Matter formation, autonomous admitted/source-only/not-applicable/uncertain/blocked outcomes, context-aware semantic reconciliation, Matter-source gallery relations, admitted statistics, and recursive broad-root/child-Matter/WorkItem/Event/Source classification with one acyclic primary-parent containment edge and required/optional/critical role semantics, plus one bounded internal SituationGraph and one ordinary UI MatterHierarchyProjection whose large nodes are admitted Matters, whose bounded small stage nodes are material WorkItems, with primary containment and typed Matter-to-Matter secondary edges"
           ],
           "side_effects_owned": [
             "matter_registry_write",
@@ -998,7 +1015,11 @@
             "matter.parent_narrative_child_projection_revisions",
             "matter.parent_narrative_evidence_revisions",
             "matter.root_granularity",
+            "matter.reconciliation_owner_path",
             "work_item.membership",
+            "work_item.material_stage_eligibility",
+            "work_item.semantic_role_identity",
+            "work_item.supersession",
             "matter.situation_graph_revision",
             "matter.situation_graph_primary_edges",
             "matter.situation_graph_secondary_edges",
@@ -1024,7 +1045,7 @@
           "child_model_ids": [],
           "child_reattachment_status": "",
           "evidence_current": false,
-          "evidence_id": "source:sha256:4d00a23b45bbac664f3ed0849c92b287677ed986d3cb741e24b9d1a6a26b637f",
+          "evidence_id": "source:sha256:7a6ea39aaccbd462caf40bd39090dcfed66782d217b473f8c03fef31a4f80bde",
           "evidence_tier": "candidate_only",
           "fields_owned": [
             "matter.lifecycle_axes",
@@ -1037,7 +1058,14 @@
             "matter.lifecycle_inference_alternatives",
             "matter.lifecycle_inference_expiry",
             "matter.lifecycle_display_key",
-            "matter.lifecycle_basis_modality"
+            "matter.lifecycle_basis_modality",
+            "matter.lifecycle_basis_scope",
+            "matter.lifecycle_temporal_assertion",
+            "matter.lifecycle_terminality",
+            "matter.lifecycle_confidence",
+            "matter.lifecycle_coverage_boundary",
+            "matter.lifecycle_contradiction_triggers",
+            "matter.lifecycle_counter_signals"
           ],
           "function_blocks": [
             "elapsed_planned_activity_with_supporting_trace_but_no_confirmation",
@@ -1050,7 +1078,9 @@
             "required_children_mixed_state",
             "completed_child_parent_evidence_unchanged",
             "related_matter_state_changed",
-            "known_children_with_depth_pending"
+            "known_children_with_depth_pending",
+            "completed_prerequisite_required_next_step_active_window",
+            "current_phase_has_cancellation_or_postponement_evidence"
           ],
           "layered_proof_evidence_id": "",
           "leaf_boundary_matrix_status": "",
@@ -1059,7 +1089,7 @@
           "parent_coverage_status": "",
           "parent_model_id": "M0_matters_end_to_end_authority",
           "public_entrypoints": [],
-          "rationale": "extend_with_confirmed_reported_planned_and_ai_inferred_lifecycle_certainty",
+          "rationale": "extend_with_orthogonal_state_basis_terminality_and_complete_current_phase_inference",
           "responsibilities": [
             "evidence-licensed lifecycle axes, canonical board placement, current child-state snapshots, visible certainty class, advisory inference basis and alternatives, non-mechanical ancestor lifecycle rollup, and a stable lifecycle display key kept separate from evidence modality"
           ],
@@ -1077,7 +1107,14 @@
             "matter.lifecycle_inference_alternatives",
             "matter.lifecycle_inference_expiry",
             "matter.lifecycle_display_key",
-            "matter.lifecycle_basis_modality"
+            "matter.lifecycle_basis_modality",
+            "matter.lifecycle_basis_scope",
+            "matter.lifecycle_temporal_assertion",
+            "matter.lifecycle_terminality",
+            "matter.lifecycle_confidence",
+            "matter.lifecycle_coverage_boundary",
+            "matter.lifecycle_contradiction_triggers",
+            "matter.lifecycle_counter_signals"
           ],
           "validation_evidence": [
             "prior Jira-shaped model and mesh receipts are stale",
@@ -1096,10 +1133,12 @@
           "child_model_ids": [],
           "child_reattachment_status": "",
           "evidence_current": false,
-          "evidence_id": "source:sha256:8697b73320800948e8af49698c9d4a11b7cf1ee1aca7ba86549034e4fa6aaef3",
+          "evidence_id": "source:sha256:1da1e170f24b6d47d0cbd9ea570f1f33deb17494c45f4e5e312ef55ece1c22fb",
           "evidence_tier": "candidate_only",
           "fields_owned": [
             "open_loop.identity",
+            "open_loop.semantic_role_identity",
+            "open_loop.supersession",
             "open_loop.wait_target",
             "open_loop.closure_condition",
             "matter.blocking_axis",
@@ -1108,6 +1147,7 @@
           ],
           "function_blocks": [
             "request_with_target_and_condition",
+            "same_semantic_open_loop_role_reanalyzed",
             "vague_waiting_text",
             "researchguard_blocker_without_closure",
             "noncritical_subtask_failure",
@@ -1132,6 +1172,8 @@
           ],
           "state_owned": [
             "open_loop.identity",
+            "open_loop.semantic_role_identity",
+            "open_loop.supersession",
             "open_loop.wait_target",
             "open_loop.closure_condition",
             "matter.blocking_axis",
@@ -1155,23 +1197,31 @@
           "child_model_ids": [],
           "child_reattachment_status": "",
           "evidence_current": false,
-          "evidence_id": "source:sha256:becb6b64f1af8e498dc0325fade2b38a022e32f64494a6cb76e3ab19b4ce655b",
+          "evidence_id": "source:sha256:f9e75b322755bf9a358c2d107588ed0a0a531a77cfcc421f006131327d600443",
           "evidence_tier": "candidate_only",
           "fields_owned": [
             "matter.outcome",
             "matter.outcome_criteria",
             "matter.reopen_revision",
             "matter.child_outcome_summary",
-            "matter.ancestor_outcome_rollup"
+            "matter.ancestor_outcome_rollup",
+            "matter.outcome_basis_modality",
+            "matter.outcome_basis_scope",
+            "matter.outcome_terminality",
+            "matter.outcome_inference_contract",
+            "matter.outcome_owner_evidence_license"
           ],
           "function_blocks": [
             "all_completion_criteria_evidenced",
             "terminal_label_or_final_file_only",
+            "ai_self_declares_completion_evidence_licensed",
             "user_cancels_with_open_loop",
+            "reported_cancellation_event_with_loop_dispositions",
             "new_obligation_after_completion",
             "source_revision_or_ai_reopen_proposal",
             "conflicting_termination_evidence",
-            "all_known_children_completed_parent_criteria_unmet"
+            "all_known_children_completed_parent_criteria_unmet",
+            "elapsed_bounded_phase_historical_completion_inferred"
           ],
           "layered_proof_evidence_id": "",
           "leaf_boundary_matrix_status": "",
@@ -1180,7 +1230,7 @@
           "parent_coverage_status": "",
           "parent_model_id": "M0_matters_end_to_end_authority",
           "public_entrypoints": [],
-          "rationale": "replace_review_with_completion_gap_and_outcome_conflict_terminals",
+          "rationale": "extend_with_confirmed_versus_provisional_historical_completion_and_future_ai_rejection",
           "responsibilities": [
             "explicit completion and termination criteria, independent-loop disposition, reopening, and non-mechanical child-outcome rollup"
           ],
@@ -1192,7 +1242,12 @@
             "matter.outcome_criteria",
             "matter.reopen_revision",
             "matter.child_outcome_summary",
-            "matter.ancestor_outcome_rollup"
+            "matter.ancestor_outcome_rollup",
+            "matter.outcome_basis_modality",
+            "matter.outcome_basis_scope",
+            "matter.outcome_terminality",
+            "matter.outcome_inference_contract",
+            "matter.outcome_owner_evidence_license"
           ],
           "validation_evidence": [
             "prior Jira-shaped model and mesh receipts are stale",
@@ -1304,7 +1359,7 @@
           "child_model_ids": [],
           "child_reattachment_status": "",
           "evidence_current": false,
-          "evidence_id": "source:sha256:75c3a65117f3a4b5766deafee854d7634dde71eb0e653b3a95ca108b3ebe8f8d",
+          "evidence_id": "source:sha256:2bc5016adbd05d290e92a510d0bc4c49a4c5ccd5f5303c267b506a81b3a14bca",
           "evidence_tier": "candidate_only",
           "fields_owned": [
             "agent.work_package_v2_registry",
@@ -1321,6 +1376,7 @@
             "analysis.situation_inference_dependency_registry",
             "analysis.world_model_feedback_registry",
             "analysis.world_model_miss_outbox",
+            "analysis.current_phase_inference_registry",
             "research.provider_status",
             "analysis.depth_registry",
             "forecast_registry"
@@ -1353,7 +1409,7 @@
             "hierarchy_trace_advisory_current",
             "stale_operation_result",
             "scope_escape_attempt",
-            "forecast_delay",
+            "weak_forecast_entrypoint_requested",
             "future_prediction_contract_current",
             "later_observation_confirms_prediction",
             "later_observation_contradicts_prediction",
@@ -1361,7 +1417,8 @@
             "current_situation_graph_supports_advisory_inference",
             "situation_world_model_dependency_changed_or_expired",
             "research_direct_canonical_write",
-            "skipped_or_progress_receipt"
+            "skipped_or_progress_receipt",
+            "completed_prerequisite_and_future_required_obligation"
           ],
           "layered_proof_evidence_id": "",
           "leaf_boundary_matrix_status": "",
@@ -1403,6 +1460,7 @@
             "analysis.situation_inference_dependency_registry",
             "analysis.world_model_feedback_registry",
             "analysis.world_model_miss_outbox",
+            "analysis.current_phase_inference_registry",
             "research.provider_status",
             "analysis.depth_registry",
             "forecast_registry"
@@ -1424,7 +1482,7 @@
           "child_model_ids": [],
           "child_reattachment_status": "",
           "evidence_current": false,
-          "evidence_id": "source:sha256:52f74e28cdf53b9f4c214e51c42de35ca606368f96e753832d1ca3b913d062d7",
+          "evidence_id": "source:sha256:895eecf9b11c58443f010a0dec89672dac7142914727204517bbb290ffd4e6b9",
           "evidence_tier": "candidate_only",
           "fields_owned": [
             "projection.localized_values",
@@ -1456,6 +1514,8 @@
             "projection.analysis_owner_currentness",
             "projection.state_basis_modality",
             "projection.state_basis_scope",
+            "projection.state_terminality",
+            "projection.semantic_contract_status",
             "projection.lifecycle_visual_state",
             "ui.selected_locale",
             "ui.locale_preference",
@@ -1495,7 +1555,8 @@
             "ui.node_quick_view_state",
             "ui.node_quick_view_facts",
             "ui.node_quick_view_source_groups",
-            "ui.source_group_window"
+            "ui.source_group_window",
+            "ui.material_stage_nodes"
           ],
           "function_blocks": [
             "indexed_catalog_page_requested",
@@ -1555,7 +1616,10 @@
             "catalog_transport_recovered",
             "recompute_not_terminal",
             "ui_infers_state",
-            "internal_identifier_requested_by_default"
+            "internal_identifier_requested_by_default",
+            "material_work_item_stage_projected",
+            "provisional_inferred_state_projected",
+            "legacy_semantic_basis_missing"
           ],
           "layered_proof_evidence_id": "",
           "leaf_boundary_matrix_status": "",
@@ -1564,9 +1628,9 @@
           "parent_coverage_status": "",
           "parent_model_id": "M0_matters_end_to_end_authority",
           "public_entrypoints": [],
-          "rationale": "extend_with_summary_free_root_cards_situation_graph_single_layer_quick_view_grouped_sources_root_only_photoreal_hero_and_automatic_root_supplemental_queue",
+          "rationale": "extend_with_owner_state_projection_material_stage_graph_single_layer_quick_view_grouped_sources_root_only_photoreal_hero_and_automatic_root_supplemental_queue",
           "responsibilities": [
-            "one-revision Matter catalog and detail projection, English-default and Chinese locale selection, distinct human-readable localized root-card title with no card summary or key-person row, day-only visible Start projection, plain status/date metadata parity, visible brand/heading visual-center alignment with transparent-icon compensation plus independent search/first-card-row top alignment, human-readable timelines, latest-material-clue activity ordering, one presentation-only photoreal generated hero per root Matter, Standard/Compact density, preserved search/filter/selection/scroll state, coverage and worker status, exactly eight ordinary detail sections, one bounded flat Files and information row set with folder, Gmail thread, Codex project/workspace, or provider retained as a SourceGroup column, one compact single-line truthful coverage indicator with indexed first-gap drilldown, a pannable bounded multi-depth Matter-only hierarchy graph and one reusable single-layer descendant quick view that keeps itemized facts, events, work, waits, and node-specific sources inside the selected Matter, an operable Images evidence gallery, labeled AI supplemental information, optional on-demand correction outside primary navigation, root-only catalog, descendant-aware timeline, transport-error preservation, internal-data hiding, and projection-only desktop UI"
+            "one-revision Matter catalog and detail projection, English-default and Chinese locale selection, distinct human-readable localized root-card title with no card summary or key-person row, day-only visible Start projection, plain status/date metadata parity, visible brand/heading visual-center alignment with transparent-icon compensation plus independent search/first-card-row top alignment, human-readable timelines, latest-material-clue activity ordering, one presentation-only photoreal generated hero per root Matter, Standard/Compact density, preserved search/filter/selection/scroll state, coverage and worker status, exactly eight ordinary detail sections, one bounded flat Files and information row set with folder, Gmail thread, Codex project/workspace, or provider retained as a SourceGroup column, one compact single-line truthful coverage indicator with indexed first-gap drilldown, a pannable bounded multi-depth Matter hierarchy graph with smaller material WorkItem stage nodes and one reusable single-layer descendant quick view that keeps itemized facts, events, work, waits, and node-specific sources inside the selected Matter, an operable Images evidence gallery, labeled AI supplemental information, optional on-demand correction outside primary navigation, root-only catalog, descendant-aware timeline, transport-error preservation, internal-data hiding, and projection-only desktop UI"
           ],
           "side_effects_owned": [
             "projection_publish",
@@ -1610,6 +1674,8 @@
             "projection.analysis_owner_currentness",
             "projection.state_basis_modality",
             "projection.state_basis_scope",
+            "projection.state_terminality",
+            "projection.semantic_contract_status",
             "projection.lifecycle_visual_state",
             "ui.selected_locale",
             "ui.locale_preference",
@@ -1649,7 +1715,8 @@
             "ui.node_quick_view_state",
             "ui.node_quick_view_facts",
             "ui.node_quick_view_source_groups",
-            "ui.source_group_window"
+            "ui.source_group_window",
+            "ui.material_stage_nodes"
           ],
           "validation_evidence": [
             "prior Jira-shaped model and mesh receipts are stale",
@@ -1668,7 +1735,7 @@
           "child_model_ids": [],
           "child_reattachment_status": "",
           "evidence_current": false,
-          "evidence_id": "source:sha256:bcd66f0ced2ec98868a3a23ffc7d26f7d4f7b7c53bd61dd7c6473b3602c32adb",
+          "evidence_id": "source:sha256:cf7be1c4acb966cca719b013578e0b1a600b71a69dca3c47d21631d96ae22732",
           "evidence_tier": "candidate_only",
           "fields_owned": [
             "skill_runtime.bundle_identity",
@@ -2076,6 +2143,7 @@
       "trace.parent_narrative_refresh_trigger_revision",
       "trace.situation_graph_event_revision",
       "event.certainty_class",
+      "event.temporal_assertion",
       "event.inference_confidence",
       "event.alternative_interpretations",
       "matter.identity",
@@ -2105,7 +2173,11 @@
       "matter.parent_narrative_child_projection_revisions",
       "matter.parent_narrative_evidence_revisions",
       "matter.root_granularity",
+      "matter.reconciliation_owner_path",
       "work_item.membership",
+      "work_item.material_stage_eligibility",
+      "work_item.semantic_role_identity",
+      "work_item.supersession",
       "matter.situation_graph_revision",
       "matter.situation_graph_primary_edges",
       "matter.situation_graph_secondary_edges",
@@ -2124,7 +2196,16 @@
       "matter.lifecycle_inference_expiry",
       "matter.lifecycle_display_key",
       "matter.lifecycle_basis_modality",
+      "matter.lifecycle_basis_scope",
+      "matter.lifecycle_temporal_assertion",
+      "matter.lifecycle_terminality",
+      "matter.lifecycle_confidence",
+      "matter.lifecycle_coverage_boundary",
+      "matter.lifecycle_contradiction_triggers",
+      "matter.lifecycle_counter_signals",
       "open_loop.identity",
+      "open_loop.semantic_role_identity",
+      "open_loop.supersession",
       "open_loop.wait_target",
       "open_loop.closure_condition",
       "matter.blocking_axis",
@@ -2135,6 +2216,11 @@
       "matter.reopen_revision",
       "matter.child_outcome_summary",
       "matter.ancestor_outcome_rollup",
+      "matter.outcome_basis_modality",
+      "matter.outcome_basis_scope",
+      "matter.outcome_terminality",
+      "matter.outcome_inference_contract",
+      "matter.outcome_owner_evidence_license",
       "revision_graph",
       "invalidation_plan",
       "recompute_request",
@@ -2167,6 +2253,7 @@
       "analysis.situation_inference_dependency_registry",
       "analysis.world_model_feedback_registry",
       "analysis.world_model_miss_outbox",
+      "analysis.current_phase_inference_registry",
       "research.provider_status",
       "analysis.depth_registry",
       "forecast_registry",
@@ -2199,6 +2286,8 @@
       "projection.analysis_owner_currentness",
       "projection.state_basis_modality",
       "projection.state_basis_scope",
+      "projection.state_terminality",
+      "projection.semantic_contract_status",
       "projection.lifecycle_visual_state",
       "ui.selected_locale",
       "ui.locale_preference",
@@ -2239,6 +2328,7 @@
       "ui.node_quick_view_facts",
       "ui.node_quick_view_source_groups",
       "ui.source_group_window",
+      "ui.material_stage_nodes",
       "skill_runtime.bundle_identity",
       "skill_runtime.active_view_identity",
       "skill_runtime.managed_projection_identity",
@@ -2313,8 +2403,8 @@
         "disposition": "materialized",
         "evidence_current": true,
         "evidence_ids": [
-          "sha256:03b1d0c7b22e9f4c0058c83f4f4ebd62285f71919e9809902d921e2b4c0187aa",
-          "sha256:c5dc5534997b356ebd2dac2b3b2a1e9dc30582c3352c62c30d42389ee61eb5b9"
+          "sha256:1bca030c8495530f67d87d9f1b5710b3fc6b7cfbd52bae5a3673cf04a9e7ff2f",
+          "sha256:96b7daf55b72d77aff772bd3d1eeb80dc5731126112484eb2240944a024b0d57"
         ],
         "expected_terminal": "complete, researchguard_pending_integration, or blocked with typed next actions",
         "in_scope": true,
@@ -2342,7 +2432,7 @@
         "evidence_current": true,
         "evidence_ids": [
           "sha256:f69ae31a1b48da4cabad199358dd9c17aa008ae5ac9f1a4a754cecb9513ba498",
-          "sha256:c5dc5534997b356ebd2dac2b3b2a1e9dc30582c3352c62c30d42389ee61eb5b9"
+          "sha256:96b7daf55b72d77aff772bd3d1eeb80dc5731126112484eb2240944a024b0d57"
         ],
         "expected_terminal": "complete, researchguard_pending_integration, or blocked with typed next actions",
         "in_scope": true,
@@ -2366,8 +2456,8 @@
         "disposition": "materialized",
         "evidence_current": true,
         "evidence_ids": [
-          "sha256:bcd66f0ced2ec98868a3a23ffc7d26f7d4f7b7c53bd61dd7c6473b3602c32adb",
-          "sha256:c5dc5534997b356ebd2dac2b3b2a1e9dc30582c3352c62c30d42389ee61eb5b9"
+          "sha256:cf7be1c4acb966cca719b013578e0b1a600b71a69dca3c47d21631d96ae22732",
+          "sha256:96b7daf55b72d77aff772bd3d1eeb80dc5731126112484eb2240944a024b0d57"
         ],
         "expected_terminal": "complete, researchguard_pending_integration, or blocked with typed next actions",
         "in_scope": true,
@@ -2395,7 +2485,7 @@
         "evidence_current": true,
         "evidence_ids": [
           "sha256:10090da4fc19284ece20aa7c9fd58826ebb8a442e1b680008cda62b5d84d4ffb",
-          "sha256:c5dc5534997b356ebd2dac2b3b2a1e9dc30582c3352c62c30d42389ee61eb5b9"
+          "sha256:96b7daf55b72d77aff772bd3d1eeb80dc5731126112484eb2240944a024b0d57"
         ],
         "expected_terminal": "",
         "in_scope": false,
@@ -2413,7 +2503,7 @@
         "validation_boundary": "source-only dormant adapter with zero required runtime, install, acceptance, or release authority"
       }
     ],
-    "ledger_fingerprint": "sha256:c5dc5534997b356ebd2dac2b3b2a1e9dc30582c3352c62c30d42389ee61eb5b9",
+    "ledger_fingerprint": "sha256:96b7daf55b72d77aff772bd3d1eeb80dc5731126112484eb2240944a024b0d57",
     "mode": "full",
     "model_angle_deliberations": [],
     "model_angle_gap_ids": [],
@@ -3147,6 +3237,10 @@
           "C5_event_temporal_trace"
         ],
         [
+          "event.temporal_assertion",
+          "C5_event_temporal_trace"
+        ],
+        [
           "event.inference_confidence",
           "C5_event_temporal_trace"
         ],
@@ -3263,7 +3357,23 @@
           "C6_matter_formation_admission"
         ],
         [
+          "matter.reconciliation_owner_path",
+          "C6_matter_formation_admission"
+        ],
+        [
           "work_item.membership",
+          "C6_matter_formation_admission"
+        ],
+        [
+          "work_item.material_stage_eligibility",
+          "C6_matter_formation_admission"
+        ],
+        [
+          "work_item.semantic_role_identity",
+          "C6_matter_formation_admission"
+        ],
+        [
+          "work_item.supersession",
           "C6_matter_formation_admission"
         ],
         [
@@ -3339,7 +3449,43 @@
           "C7_lifecycle_board_state"
         ],
         [
+          "matter.lifecycle_basis_scope",
+          "C7_lifecycle_board_state"
+        ],
+        [
+          "matter.lifecycle_temporal_assertion",
+          "C7_lifecycle_board_state"
+        ],
+        [
+          "matter.lifecycle_terminality",
+          "C7_lifecycle_board_state"
+        ],
+        [
+          "matter.lifecycle_confidence",
+          "C7_lifecycle_board_state"
+        ],
+        [
+          "matter.lifecycle_coverage_boundary",
+          "C7_lifecycle_board_state"
+        ],
+        [
+          "matter.lifecycle_contradiction_triggers",
+          "C7_lifecycle_board_state"
+        ],
+        [
+          "matter.lifecycle_counter_signals",
+          "C7_lifecycle_board_state"
+        ],
+        [
           "open_loop.identity",
+          "C8_open_loop_waiting_blocking"
+        ],
+        [
+          "open_loop.semantic_role_identity",
+          "C8_open_loop_waiting_blocking"
+        ],
+        [
+          "open_loop.supersession",
           "C8_open_loop_waiting_blocking"
         ],
         [
@@ -3380,6 +3526,26 @@
         ],
         [
           "matter.ancestor_outcome_rollup",
+          "C9_completion_cancellation_reopen"
+        ],
+        [
+          "matter.outcome_basis_modality",
+          "C9_completion_cancellation_reopen"
+        ],
+        [
+          "matter.outcome_basis_scope",
+          "C9_completion_cancellation_reopen"
+        ],
+        [
+          "matter.outcome_terminality",
+          "C9_completion_cancellation_reopen"
+        ],
+        [
+          "matter.outcome_inference_contract",
+          "C9_completion_cancellation_reopen"
+        ],
+        [
+          "matter.outcome_owner_evidence_license",
           "C9_completion_cancellation_reopen"
         ],
         [
@@ -3511,6 +3677,10 @@
           "C11_guard_artifact_prediction"
         ],
         [
+          "analysis.current_phase_inference_registry",
+          "C11_guard_artifact_prediction"
+        ],
+        [
           "research.provider_status",
           "C11_guard_artifact_prediction"
         ],
@@ -3636,6 +3806,14 @@
         ],
         [
           "projection.state_basis_scope",
+          "C12_projection_bilingual_ui"
+        ],
+        [
+          "projection.state_terminality",
+          "C12_projection_bilingual_ui"
+        ],
+        [
+          "projection.semantic_contract_status",
           "C12_projection_bilingual_ui"
         ],
         [
@@ -3796,6 +3974,10 @@
         ],
         [
           "ui.source_group_window",
+          "C12_projection_bilingual_ui"
+        ],
+        [
+          "ui.material_stage_nodes",
           "C12_projection_bilingual_ui"
         ],
         [
@@ -4493,6 +4675,10 @@
           "C5_event_temporal_trace"
         ],
         [
+          "reported_event_declares_past_temporal_direction",
+          "C5_event_temporal_trace"
+        ],
+        [
           "necessary_past_gap_supported",
           "C5_event_temporal_trace"
         ],
@@ -4533,7 +4719,15 @@
           "C5_event_temporal_trace"
         ],
         [
+          "future_transport_action_already_recorded",
+          "C5_event_temporal_trace"
+        ],
+        [
           "root_matter_situation_graph_requested",
+          "C6_matter_formation_admission"
+        ],
+        [
+          "same_graph_identity_has_current_conflicting_records",
           "C6_matter_formation_admission"
         ],
         [
@@ -4553,7 +4747,19 @@
           "C6_matter_formation_admission"
         ],
         [
+          "exact_existing_matter_cross_source_semantic_refresh",
+          "C6_matter_formation_admission"
+        ],
+        [
+          "same_semantic_work_item_role_reanalyzed",
+          "C6_matter_formation_admission"
+        ],
+        [
           "admitted_source_revision_is_behind_registry_current",
+          "C6_matter_formation_admission"
+        ],
+        [
+          "source_revision_result_contains_secondary_c6_finding",
           "C6_matter_formation_admission"
         ],
         [
@@ -4685,6 +4891,26 @@
           "C6_matter_formation_admission"
         ],
         [
+          "single_bounded_next_step_without_independent_outcome",
+          "C6_matter_formation_admission"
+        ],
+        [
+          "contradictory_granularity_flags",
+          "C6_matter_formation_admission"
+        ],
+        [
+          "required_stage_with_distinct_state_time_and_result",
+          "C6_matter_formation_admission"
+        ],
+        [
+          "qualified_candidate_enters_production_c6",
+          "C6_matter_formation_admission"
+        ],
+        [
+          "registered_source_has_no_qualified_evidence",
+          "C6_matter_formation_admission"
+        ],
+        [
           "elapsed_planned_activity_with_supporting_trace_but_no_confirmation",
           "C7_lifecycle_board_state"
         ],
@@ -4729,7 +4955,19 @@
           "C7_lifecycle_board_state"
         ],
         [
+          "completed_prerequisite_required_next_step_active_window",
+          "C7_lifecycle_board_state"
+        ],
+        [
+          "current_phase_has_cancellation_or_postponement_evidence",
+          "C7_lifecycle_board_state"
+        ],
+        [
           "request_with_target_and_condition",
+          "C8_open_loop_waiting_blocking"
+        ],
+        [
+          "same_semantic_open_loop_role_reanalyzed",
           "C8_open_loop_waiting_blocking"
         ],
         [
@@ -4769,7 +5007,15 @@
           "C9_completion_cancellation_reopen"
         ],
         [
+          "ai_self_declares_completion_evidence_licensed",
+          "C9_completion_cancellation_reopen"
+        ],
+        [
           "user_cancels_with_open_loop",
+          "C9_completion_cancellation_reopen"
+        ],
+        [
+          "reported_cancellation_event_with_loop_dispositions",
           "C9_completion_cancellation_reopen"
         ],
         [
@@ -4786,6 +5032,10 @@
         ],
         [
           "all_known_children_completed_parent_criteria_unmet",
+          "C9_completion_cancellation_reopen"
+        ],
+        [
+          "elapsed_bounded_phase_historical_completion_inferred",
           "C9_completion_cancellation_reopen"
         ],
         [
@@ -4957,7 +5207,7 @@
           "C11_guard_artifact_prediction"
         ],
         [
-          "forecast_delay",
+          "weak_forecast_entrypoint_requested",
           "C11_guard_artifact_prediction"
         ],
         [
@@ -4990,6 +5240,10 @@
         ],
         [
           "skipped_or_progress_receipt",
+          "C11_guard_artifact_prediction"
+        ],
+        [
+          "completed_prerequisite_and_future_required_obligation",
           "C11_guard_artifact_prediction"
         ],
         [
@@ -5225,6 +5479,18 @@
           "C12_projection_bilingual_ui"
         ],
         [
+          "material_work_item_stage_projected",
+          "C12_projection_bilingual_ui"
+        ],
+        [
+          "provisional_inferred_state_projected",
+          "C12_projection_bilingual_ui"
+        ],
+        [
+          "legacy_semantic_basis_missing",
+          "C12_projection_bilingual_ui"
+        ],
+        [
           "capture_delivery_snapshot",
           "DPF_matters_delivery_gate"
         ],
@@ -5264,7 +5530,7 @@
           "C5_event_temporal_trace"
         ],
         [
-          "source-first Matter formation, autonomous admitted/source-only/not-applicable/uncertain/blocked outcomes, context-aware semantic reconciliation, Matter-source gallery relations, admitted statistics, and recursive broad-root/child-Matter/WorkItem/Event/Source classification with one acyclic primary-parent containment edge and required/optional/critical role semantics, plus one bounded internal SituationGraph and one ordinary UI MatterHierarchyProjection whose nodes are admitted Matters only, with primary containment and typed Matter-to-Matter secondary edges",
+          "source-first Matter formation, autonomous admitted/source-only/not-applicable/uncertain/blocked outcomes, context-aware semantic reconciliation, Matter-source gallery relations, admitted statistics, and recursive broad-root/child-Matter/WorkItem/Event/Source classification with one acyclic primary-parent containment edge and required/optional/critical role semantics, plus one bounded internal SituationGraph and one ordinary UI MatterHierarchyProjection whose large nodes are admitted Matters, whose bounded small stage nodes are material WorkItems, with primary containment and typed Matter-to-Matter secondary edges",
           "C6_matter_formation_admission"
         ],
         [
@@ -5288,7 +5554,7 @@
           "C11_guard_artifact_prediction"
         ],
         [
-          "one-revision Matter catalog and detail projection, English-default and Chinese locale selection, distinct human-readable localized root-card title with no card summary or key-person row, day-only visible Start projection, plain status/date metadata parity, visible brand/heading visual-center alignment with transparent-icon compensation plus independent search/first-card-row top alignment, human-readable timelines, latest-material-clue activity ordering, one presentation-only photoreal generated hero per root Matter, Standard/Compact density, preserved search/filter/selection/scroll state, coverage and worker status, exactly eight ordinary detail sections, one bounded flat Files and information row set with folder, Gmail thread, Codex project/workspace, or provider retained as a SourceGroup column, one compact single-line truthful coverage indicator with indexed first-gap drilldown, a pannable bounded multi-depth Matter-only hierarchy graph and one reusable single-layer descendant quick view that keeps itemized facts, events, work, waits, and node-specific sources inside the selected Matter, an operable Images evidence gallery, labeled AI supplemental information, optional on-demand correction outside primary navigation, root-only catalog, descendant-aware timeline, transport-error preservation, internal-data hiding, and projection-only desktop UI",
+          "one-revision Matter catalog and detail projection, English-default and Chinese locale selection, distinct human-readable localized root-card title with no card summary or key-person row, day-only visible Start projection, plain status/date metadata parity, visible brand/heading visual-center alignment with transparent-icon compensation plus independent search/first-card-row top alignment, human-readable timelines, latest-material-clue activity ordering, one presentation-only photoreal generated hero per root Matter, Standard/Compact density, preserved search/filter/selection/scroll state, coverage and worker status, exactly eight ordinary detail sections, one bounded flat Files and information row set with folder, Gmail thread, Codex project/workspace, or provider retained as a SourceGroup column, one compact single-line truthful coverage indicator with indexed first-gap drilldown, a pannable bounded multi-depth Matter hierarchy graph with smaller material WorkItem stage nodes and one reusable single-layer descendant quick view that keeps itemized facts, events, work, waits, and node-specific sources inside the selected Matter, an operable Images evidence gallery, labeled AI supplemental information, optional on-demand correction outside primary navigation, root-only catalog, descendant-aware timeline, transport-error preservation, internal-data hiding, and projection-only desktop UI",
           "C12_projection_bilingual_ui"
         ],
         [
@@ -6336,6 +6602,10 @@
           "C5_event_temporal_trace"
         ],
         [
+          "event.temporal_assertion",
+          "C5_event_temporal_trace"
+        ],
+        [
           "event.inference_confidence",
           "C5_event_temporal_trace"
         ],
@@ -6452,7 +6722,23 @@
           "C6_matter_formation_admission"
         ],
         [
+          "matter.reconciliation_owner_path",
+          "C6_matter_formation_admission"
+        ],
+        [
           "work_item.membership",
+          "C6_matter_formation_admission"
+        ],
+        [
+          "work_item.material_stage_eligibility",
+          "C6_matter_formation_admission"
+        ],
+        [
+          "work_item.semantic_role_identity",
+          "C6_matter_formation_admission"
+        ],
+        [
+          "work_item.supersession",
           "C6_matter_formation_admission"
         ],
         [
@@ -6528,7 +6814,43 @@
           "C7_lifecycle_board_state"
         ],
         [
+          "matter.lifecycle_basis_scope",
+          "C7_lifecycle_board_state"
+        ],
+        [
+          "matter.lifecycle_temporal_assertion",
+          "C7_lifecycle_board_state"
+        ],
+        [
+          "matter.lifecycle_terminality",
+          "C7_lifecycle_board_state"
+        ],
+        [
+          "matter.lifecycle_confidence",
+          "C7_lifecycle_board_state"
+        ],
+        [
+          "matter.lifecycle_coverage_boundary",
+          "C7_lifecycle_board_state"
+        ],
+        [
+          "matter.lifecycle_contradiction_triggers",
+          "C7_lifecycle_board_state"
+        ],
+        [
+          "matter.lifecycle_counter_signals",
+          "C7_lifecycle_board_state"
+        ],
+        [
           "open_loop.identity",
+          "C8_open_loop_waiting_blocking"
+        ],
+        [
+          "open_loop.semantic_role_identity",
+          "C8_open_loop_waiting_blocking"
+        ],
+        [
+          "open_loop.supersession",
           "C8_open_loop_waiting_blocking"
         ],
         [
@@ -6569,6 +6891,26 @@
         ],
         [
           "matter.ancestor_outcome_rollup",
+          "C9_completion_cancellation_reopen"
+        ],
+        [
+          "matter.outcome_basis_modality",
+          "C9_completion_cancellation_reopen"
+        ],
+        [
+          "matter.outcome_basis_scope",
+          "C9_completion_cancellation_reopen"
+        ],
+        [
+          "matter.outcome_terminality",
+          "C9_completion_cancellation_reopen"
+        ],
+        [
+          "matter.outcome_inference_contract",
+          "C9_completion_cancellation_reopen"
+        ],
+        [
+          "matter.outcome_owner_evidence_license",
           "C9_completion_cancellation_reopen"
         ],
         [
@@ -6700,6 +7042,10 @@
           "C11_guard_artifact_prediction"
         ],
         [
+          "analysis.current_phase_inference_registry",
+          "C11_guard_artifact_prediction"
+        ],
+        [
           "research.provider_status",
           "C11_guard_artifact_prediction"
         ],
@@ -6825,6 +7171,14 @@
         ],
         [
           "projection.state_basis_scope",
+          "C12_projection_bilingual_ui"
+        ],
+        [
+          "projection.state_terminality",
+          "C12_projection_bilingual_ui"
+        ],
+        [
+          "projection.semantic_contract_status",
           "C12_projection_bilingual_ui"
         ],
         [
@@ -6985,6 +7339,10 @@
         ],
         [
           "ui.source_group_window",
+          "C12_projection_bilingual_ui"
+        ],
+        [
+          "ui.material_stage_nodes",
           "C12_projection_bilingual_ui"
         ],
         [
@@ -7219,7 +7577,7 @@
         "child_model_ids": [],
         "child_reattachment_status": "",
         "evidence_current": false,
-        "evidence_id": "source:sha256:bcd66f0ced2ec98868a3a23ffc7d26f7d4f7b7c53bd61dd7c6473b3602c32adb",
+        "evidence_id": "source:sha256:cf7be1c4acb966cca719b013578e0b1a600b71a69dca3c47d21631d96ae22732",
         "evidence_tier": "candidate_only",
         "fields_owned": [
           "development_gate.status",
@@ -7910,7 +8268,7 @@
         "child_model_ids": [],
         "child_reattachment_status": "",
         "evidence_current": false,
-        "evidence_id": "source:sha256:22b23f21ae91ed21dff179531d7c7a77481f7b36a974d1e952a3838ddff6dbe5",
+        "evidence_id": "source:sha256:6aa72cc529795315e8394b35a24d15815ac5f843d7baf95230552615ead81881",
         "evidence_tier": "candidate_only",
         "fields_owned": [
           "event.identity",
@@ -7938,6 +8296,7 @@
           "trace.parent_narrative_refresh_trigger_revision",
           "trace.situation_graph_event_revision",
           "event.certainty_class",
+          "event.temporal_assertion",
           "event.inference_confidence",
           "event.alternative_interpretations"
         ],
@@ -7956,6 +8315,7 @@
           "explicit_actual_start",
           "future_meeting",
           "explicit_source_modality_preserved",
+          "reported_event_declares_past_temporal_direction",
           "necessary_past_gap_supported",
           "future_candidate_marked_ai_inferred",
           "rebased_stale_temporal_owner_output",
@@ -7965,7 +8325,8 @@
           "bounded_child_activity_event",
           "material_user_world_clue",
           "material_child_clue_changes_parent_understanding",
-          "scan_retry_or_reword_without_semantic_change"
+          "scan_retry_or_reword_without_semantic_change",
+          "future_transport_action_already_recorded"
         ],
         "layered_proof_evidence_id": "",
         "leaf_boundary_matrix_status": "",
@@ -7974,7 +8335,7 @@
         "parent_coverage_status": "",
         "parent_model_id": "M0_matters_end_to_end_authority",
         "public_entrypoints": [],
-        "rationale": "extend_with_situation_event_nodes_primary_containment_secondary_typed_edges_and_source_group_time",
+        "rationale": "extend_with_orthogonal_time_basis_state_terminality_complete_historical_inference_and_future_activity_separation",
         "responsibilities": [
           "typed events, record/claimed time, modality, supersession, contradiction, logical-event identity and revision projection, gaps, Start-time versus meaningful-clue-time separation, canonical material-clue dispositions, explicit observed/reported/planned/ai-inferred certainty, SituationGraph event-node revision, and bounded Matter-link candidates that never promote an Event into a Matter, plus current-projection exclusion of rebased stale analysis-owner outputs"
         ],
@@ -8007,6 +8368,7 @@
           "trace.parent_narrative_refresh_trigger_revision",
           "trace.situation_graph_event_revision",
           "event.certainty_class",
+          "event.temporal_assertion",
           "event.inference_confidence",
           "event.alternative_interpretations"
         ],
@@ -8020,7 +8382,7 @@
         "child_model_ids": [],
         "child_reattachment_status": "",
         "evidence_current": false,
-        "evidence_id": "source:sha256:a10400043d5d349b807b75c6b12decfa348dc8871707b5041a2df90b855848e0",
+        "evidence_id": "source:sha256:7a95cc6e4e1d8a530360293b2b24aefe11354d84450bb5accbf3ecc0434dcf29",
         "evidence_tier": "candidate_only",
         "fields_owned": [
           "matter.identity",
@@ -8050,7 +8412,11 @@
           "matter.parent_narrative_child_projection_revisions",
           "matter.parent_narrative_evidence_revisions",
           "matter.root_granularity",
+          "matter.reconciliation_owner_path",
           "work_item.membership",
+          "work_item.material_stage_eligibility",
+          "work_item.semantic_role_identity",
+          "work_item.supersession",
           "matter.situation_graph_revision",
           "matter.situation_graph_primary_edges",
           "matter.situation_graph_secondary_edges",
@@ -8061,11 +8427,15 @@
         ],
         "function_blocks": [
           "root_matter_situation_graph_requested",
+          "same_graph_identity_has_current_conflicting_records",
           "ordinary_submatters_projection_requested",
           "travel_and_software_fragments_reconciled",
           "same_matter_already_admits_current_source_revision",
           "exact_existing_matter_current_revision_processed",
+          "exact_existing_matter_cross_source_semantic_refresh",
+          "same_semantic_work_item_role_reanalyzed",
           "admitted_source_revision_is_behind_registry_current",
+          "source_revision_result_contains_secondary_c6_finding",
           "same_matter_sibling_refresh_stales_after_prior_admission",
           "matter_participates_in_multiple_domains",
           "situation_graph_has_more_descendants",
@@ -8097,7 +8467,12 @@
           "reparent_split_or_merge",
           "hierarchy_depth_budget_exhausted",
           "bounded_containment_batch_valid",
-          "batch_publication_interrupted"
+          "batch_publication_interrupted",
+          "single_bounded_next_step_without_independent_outcome",
+          "contradictory_granularity_flags",
+          "required_stage_with_distinct_state_time_and_result",
+          "qualified_candidate_enters_production_c6",
+          "registered_source_has_no_qualified_evidence"
         ],
         "layered_proof_evidence_id": "",
         "leaf_boundary_matrix_status": "",
@@ -8106,9 +8481,9 @@
         "parent_coverage_status": "",
         "parent_model_id": "M0_matters_end_to_end_authority",
         "public_entrypoints": [],
-        "rationale": "extend_with_root_catalog_bounded_situation_graph_and_single_layer_descendant_quick_view",
+        "rationale": "extend_with_strict_scale_contract_material_workitem_stage_projection_and_single_layer_quick_view",
         "responsibilities": [
-          "source-first Matter formation, autonomous admitted/source-only/not-applicable/uncertain/blocked outcomes, context-aware semantic reconciliation, Matter-source gallery relations, admitted statistics, and recursive broad-root/child-Matter/WorkItem/Event/Source classification with one acyclic primary-parent containment edge and required/optional/critical role semantics, plus one bounded internal SituationGraph and one ordinary UI MatterHierarchyProjection whose nodes are admitted Matters only, with primary containment and typed Matter-to-Matter secondary edges"
+          "source-first Matter formation, autonomous admitted/source-only/not-applicable/uncertain/blocked outcomes, context-aware semantic reconciliation, Matter-source gallery relations, admitted statistics, and recursive broad-root/child-Matter/WorkItem/Event/Source classification with one acyclic primary-parent containment edge and required/optional/critical role semantics, plus one bounded internal SituationGraph and one ordinary UI MatterHierarchyProjection whose large nodes are admitted Matters, whose bounded small stage nodes are material WorkItems, with primary containment and typed Matter-to-Matter secondary edges"
         ],
         "side_effects_owned": [
           "matter_registry_write",
@@ -8145,7 +8520,11 @@
           "matter.parent_narrative_child_projection_revisions",
           "matter.parent_narrative_evidence_revisions",
           "matter.root_granularity",
+          "matter.reconciliation_owner_path",
           "work_item.membership",
+          "work_item.material_stage_eligibility",
+          "work_item.semantic_role_identity",
+          "work_item.supersession",
           "matter.situation_graph_revision",
           "matter.situation_graph_primary_edges",
           "matter.situation_graph_secondary_edges",
@@ -8164,7 +8543,7 @@
         "child_model_ids": [],
         "child_reattachment_status": "",
         "evidence_current": false,
-        "evidence_id": "source:sha256:4d00a23b45bbac664f3ed0849c92b287677ed986d3cb741e24b9d1a6a26b637f",
+        "evidence_id": "source:sha256:7a6ea39aaccbd462caf40bd39090dcfed66782d217b473f8c03fef31a4f80bde",
         "evidence_tier": "candidate_only",
         "fields_owned": [
           "matter.lifecycle_axes",
@@ -8177,7 +8556,14 @@
           "matter.lifecycle_inference_alternatives",
           "matter.lifecycle_inference_expiry",
           "matter.lifecycle_display_key",
-          "matter.lifecycle_basis_modality"
+          "matter.lifecycle_basis_modality",
+          "matter.lifecycle_basis_scope",
+          "matter.lifecycle_temporal_assertion",
+          "matter.lifecycle_terminality",
+          "matter.lifecycle_confidence",
+          "matter.lifecycle_coverage_boundary",
+          "matter.lifecycle_contradiction_triggers",
+          "matter.lifecycle_counter_signals"
         ],
         "function_blocks": [
           "elapsed_planned_activity_with_supporting_trace_but_no_confirmation",
@@ -8190,7 +8576,9 @@
           "required_children_mixed_state",
           "completed_child_parent_evidence_unchanged",
           "related_matter_state_changed",
-          "known_children_with_depth_pending"
+          "known_children_with_depth_pending",
+          "completed_prerequisite_required_next_step_active_window",
+          "current_phase_has_cancellation_or_postponement_evidence"
         ],
         "layered_proof_evidence_id": "",
         "leaf_boundary_matrix_status": "",
@@ -8199,7 +8587,7 @@
         "parent_coverage_status": "",
         "parent_model_id": "M0_matters_end_to_end_authority",
         "public_entrypoints": [],
-        "rationale": "extend_with_confirmed_reported_planned_and_ai_inferred_lifecycle_certainty",
+        "rationale": "extend_with_orthogonal_state_basis_terminality_and_complete_current_phase_inference",
         "responsibilities": [
           "evidence-licensed lifecycle axes, canonical board placement, current child-state snapshots, visible certainty class, advisory inference basis and alternatives, non-mechanical ancestor lifecycle rollup, and a stable lifecycle display key kept separate from evidence modality"
         ],
@@ -8217,7 +8605,14 @@
           "matter.lifecycle_inference_alternatives",
           "matter.lifecycle_inference_expiry",
           "matter.lifecycle_display_key",
-          "matter.lifecycle_basis_modality"
+          "matter.lifecycle_basis_modality",
+          "matter.lifecycle_basis_scope",
+          "matter.lifecycle_temporal_assertion",
+          "matter.lifecycle_terminality",
+          "matter.lifecycle_confidence",
+          "matter.lifecycle_coverage_boundary",
+          "matter.lifecycle_contradiction_triggers",
+          "matter.lifecycle_counter_signals"
         ],
         "validation_evidence": [
           "prior Jira-shaped model and mesh receipts are stale",
@@ -8229,10 +8624,12 @@
         "child_model_ids": [],
         "child_reattachment_status": "",
         "evidence_current": false,
-        "evidence_id": "source:sha256:8697b73320800948e8af49698c9d4a11b7cf1ee1aca7ba86549034e4fa6aaef3",
+        "evidence_id": "source:sha256:1da1e170f24b6d47d0cbd9ea570f1f33deb17494c45f4e5e312ef55ece1c22fb",
         "evidence_tier": "candidate_only",
         "fields_owned": [
           "open_loop.identity",
+          "open_loop.semantic_role_identity",
+          "open_loop.supersession",
           "open_loop.wait_target",
           "open_loop.closure_condition",
           "matter.blocking_axis",
@@ -8241,6 +8638,7 @@
         ],
         "function_blocks": [
           "request_with_target_and_condition",
+          "same_semantic_open_loop_role_reanalyzed",
           "vague_waiting_text",
           "researchguard_blocker_without_closure",
           "noncritical_subtask_failure",
@@ -8265,6 +8663,8 @@
         ],
         "state_owned": [
           "open_loop.identity",
+          "open_loop.semantic_role_identity",
+          "open_loop.supersession",
           "open_loop.wait_target",
           "open_loop.closure_condition",
           "matter.blocking_axis",
@@ -8281,23 +8681,31 @@
         "child_model_ids": [],
         "child_reattachment_status": "",
         "evidence_current": false,
-        "evidence_id": "source:sha256:becb6b64f1af8e498dc0325fade2b38a022e32f64494a6cb76e3ab19b4ce655b",
+        "evidence_id": "source:sha256:f9e75b322755bf9a358c2d107588ed0a0a531a77cfcc421f006131327d600443",
         "evidence_tier": "candidate_only",
         "fields_owned": [
           "matter.outcome",
           "matter.outcome_criteria",
           "matter.reopen_revision",
           "matter.child_outcome_summary",
-          "matter.ancestor_outcome_rollup"
+          "matter.ancestor_outcome_rollup",
+          "matter.outcome_basis_modality",
+          "matter.outcome_basis_scope",
+          "matter.outcome_terminality",
+          "matter.outcome_inference_contract",
+          "matter.outcome_owner_evidence_license"
         ],
         "function_blocks": [
           "all_completion_criteria_evidenced",
           "terminal_label_or_final_file_only",
+          "ai_self_declares_completion_evidence_licensed",
           "user_cancels_with_open_loop",
+          "reported_cancellation_event_with_loop_dispositions",
           "new_obligation_after_completion",
           "source_revision_or_ai_reopen_proposal",
           "conflicting_termination_evidence",
-          "all_known_children_completed_parent_criteria_unmet"
+          "all_known_children_completed_parent_criteria_unmet",
+          "elapsed_bounded_phase_historical_completion_inferred"
         ],
         "layered_proof_evidence_id": "",
         "leaf_boundary_matrix_status": "",
@@ -8306,7 +8714,7 @@
         "parent_coverage_status": "",
         "parent_model_id": "M0_matters_end_to_end_authority",
         "public_entrypoints": [],
-        "rationale": "replace_review_with_completion_gap_and_outcome_conflict_terminals",
+        "rationale": "extend_with_confirmed_versus_provisional_historical_completion_and_future_ai_rejection",
         "responsibilities": [
           "explicit completion and termination criteria, independent-loop disposition, reopening, and non-mechanical child-outcome rollup"
         ],
@@ -8318,7 +8726,12 @@
           "matter.outcome_criteria",
           "matter.reopen_revision",
           "matter.child_outcome_summary",
-          "matter.ancestor_outcome_rollup"
+          "matter.ancestor_outcome_rollup",
+          "matter.outcome_basis_modality",
+          "matter.outcome_basis_scope",
+          "matter.outcome_terminality",
+          "matter.outcome_inference_contract",
+          "matter.outcome_owner_evidence_license"
         ],
         "validation_evidence": [
           "prior Jira-shaped model and mesh receipts are stale",
@@ -8416,7 +8829,7 @@
         "child_model_ids": [],
         "child_reattachment_status": "",
         "evidence_current": false,
-        "evidence_id": "source:sha256:75c3a65117f3a4b5766deafee854d7634dde71eb0e653b3a95ca108b3ebe8f8d",
+        "evidence_id": "source:sha256:2bc5016adbd05d290e92a510d0bc4c49a4c5ccd5f5303c267b506a81b3a14bca",
         "evidence_tier": "candidate_only",
         "fields_owned": [
           "agent.work_package_v2_registry",
@@ -8433,6 +8846,7 @@
           "analysis.situation_inference_dependency_registry",
           "analysis.world_model_feedback_registry",
           "analysis.world_model_miss_outbox",
+          "analysis.current_phase_inference_registry",
           "research.provider_status",
           "analysis.depth_registry",
           "forecast_registry"
@@ -8465,7 +8879,7 @@
           "hierarchy_trace_advisory_current",
           "stale_operation_result",
           "scope_escape_attempt",
-          "forecast_delay",
+          "weak_forecast_entrypoint_requested",
           "future_prediction_contract_current",
           "later_observation_confirms_prediction",
           "later_observation_contradicts_prediction",
@@ -8473,7 +8887,8 @@
           "current_situation_graph_supports_advisory_inference",
           "situation_world_model_dependency_changed_or_expired",
           "research_direct_canonical_write",
-          "skipped_or_progress_receipt"
+          "skipped_or_progress_receipt",
+          "completed_prerequisite_and_future_required_obligation"
         ],
         "layered_proof_evidence_id": "",
         "leaf_boundary_matrix_status": "",
@@ -8515,6 +8930,7 @@
           "analysis.situation_inference_dependency_registry",
           "analysis.world_model_feedback_registry",
           "analysis.world_model_miss_outbox",
+          "analysis.current_phase_inference_registry",
           "research.provider_status",
           "analysis.depth_registry",
           "forecast_registry"
@@ -8529,7 +8945,7 @@
         "child_model_ids": [],
         "child_reattachment_status": "",
         "evidence_current": false,
-        "evidence_id": "source:sha256:52f74e28cdf53b9f4c214e51c42de35ca606368f96e753832d1ca3b913d062d7",
+        "evidence_id": "source:sha256:895eecf9b11c58443f010a0dec89672dac7142914727204517bbb290ffd4e6b9",
         "evidence_tier": "candidate_only",
         "fields_owned": [
           "projection.localized_values",
@@ -8561,6 +8977,8 @@
           "projection.analysis_owner_currentness",
           "projection.state_basis_modality",
           "projection.state_basis_scope",
+          "projection.state_terminality",
+          "projection.semantic_contract_status",
           "projection.lifecycle_visual_state",
           "ui.selected_locale",
           "ui.locale_preference",
@@ -8600,7 +9018,8 @@
           "ui.node_quick_view_state",
           "ui.node_quick_view_facts",
           "ui.node_quick_view_source_groups",
-          "ui.source_group_window"
+          "ui.source_group_window",
+          "ui.material_stage_nodes"
         ],
         "function_blocks": [
           "indexed_catalog_page_requested",
@@ -8660,7 +9079,10 @@
           "catalog_transport_recovered",
           "recompute_not_terminal",
           "ui_infers_state",
-          "internal_identifier_requested_by_default"
+          "internal_identifier_requested_by_default",
+          "material_work_item_stage_projected",
+          "provisional_inferred_state_projected",
+          "legacy_semantic_basis_missing"
         ],
         "layered_proof_evidence_id": "",
         "leaf_boundary_matrix_status": "",
@@ -8669,9 +9091,9 @@
         "parent_coverage_status": "",
         "parent_model_id": "M0_matters_end_to_end_authority",
         "public_entrypoints": [],
-        "rationale": "extend_with_summary_free_root_cards_situation_graph_single_layer_quick_view_grouped_sources_root_only_photoreal_hero_and_automatic_root_supplemental_queue",
+        "rationale": "extend_with_owner_state_projection_material_stage_graph_single_layer_quick_view_grouped_sources_root_only_photoreal_hero_and_automatic_root_supplemental_queue",
         "responsibilities": [
-          "one-revision Matter catalog and detail projection, English-default and Chinese locale selection, distinct human-readable localized root-card title with no card summary or key-person row, day-only visible Start projection, plain status/date metadata parity, visible brand/heading visual-center alignment with transparent-icon compensation plus independent search/first-card-row top alignment, human-readable timelines, latest-material-clue activity ordering, one presentation-only photoreal generated hero per root Matter, Standard/Compact density, preserved search/filter/selection/scroll state, coverage and worker status, exactly eight ordinary detail sections, one bounded flat Files and information row set with folder, Gmail thread, Codex project/workspace, or provider retained as a SourceGroup column, one compact single-line truthful coverage indicator with indexed first-gap drilldown, a pannable bounded multi-depth Matter-only hierarchy graph and one reusable single-layer descendant quick view that keeps itemized facts, events, work, waits, and node-specific sources inside the selected Matter, an operable Images evidence gallery, labeled AI supplemental information, optional on-demand correction outside primary navigation, root-only catalog, descendant-aware timeline, transport-error preservation, internal-data hiding, and projection-only desktop UI"
+          "one-revision Matter catalog and detail projection, English-default and Chinese locale selection, distinct human-readable localized root-card title with no card summary or key-person row, day-only visible Start projection, plain status/date metadata parity, visible brand/heading visual-center alignment with transparent-icon compensation plus independent search/first-card-row top alignment, human-readable timelines, latest-material-clue activity ordering, one presentation-only photoreal generated hero per root Matter, Standard/Compact density, preserved search/filter/selection/scroll state, coverage and worker status, exactly eight ordinary detail sections, one bounded flat Files and information row set with folder, Gmail thread, Codex project/workspace, or provider retained as a SourceGroup column, one compact single-line truthful coverage indicator with indexed first-gap drilldown, a pannable bounded multi-depth Matter hierarchy graph with smaller material WorkItem stage nodes and one reusable single-layer descendant quick view that keeps itemized facts, events, work, waits, and node-specific sources inside the selected Matter, an operable Images evidence gallery, labeled AI supplemental information, optional on-demand correction outside primary navigation, root-only catalog, descendant-aware timeline, transport-error preservation, internal-data hiding, and projection-only desktop UI"
         ],
         "side_effects_owned": [
           "projection_publish",
@@ -8715,6 +9137,8 @@
           "projection.analysis_owner_currentness",
           "projection.state_basis_modality",
           "projection.state_basis_scope",
+          "projection.state_terminality",
+          "projection.semantic_contract_status",
           "projection.lifecycle_visual_state",
           "ui.selected_locale",
           "ui.locale_preference",
@@ -8754,7 +9178,8 @@
           "ui.node_quick_view_state",
           "ui.node_quick_view_facts",
           "ui.node_quick_view_source_groups",
-          "ui.source_group_window"
+          "ui.source_group_window",
+          "ui.material_stage_nodes"
         ],
         "validation_evidence": [
           "prior Jira-shaped model and mesh receipts are stale",
@@ -8766,7 +9191,7 @@
         "child_model_ids": [],
         "child_reattachment_status": "",
         "evidence_current": false,
-        "evidence_id": "source:sha256:bcd66f0ced2ec98868a3a23ffc7d26f7d4f7b7c53bd61dd7c6473b3602c32adb",
+        "evidence_id": "source:sha256:cf7be1c4acb966cca719b013578e0b1a600b71a69dca3c47d21631d96ae22732",
         "evidence_tier": "candidate_only",
         "fields_owned": [
           "skill_runtime.bundle_identity",
@@ -8968,37 +9393,37 @@
     "skip_reason": "",
     "spec_context": {
       "artifact_ids": {
-        "openspec/changes/build-matters-model-driven-core/design.md": "sha256:05b667c2aaa80e97d654efdae14a101c6708dcf34b9933aa1a41a2e70ee741e4",
+        "openspec/changes/build-matters-model-driven-core/design.md": "sha256:f565dc302075e6872000febfe96d21c54b0e7c3c15cf04d85f398a7703a9067d",
         "openspec/changes/build-matters-model-driven-core/proposal.md": "sha256:f69ae31a1b48da4cabad199358dd9c17aa008ae5ac9f1a4a754cecb9513ba498",
         "openspec/changes/build-matters-model-driven-core/specs/authorization-coverage/spec.md": "sha256:e06f6ca8c4cfda67c9ac75b0643fa7ac267b0a756e71a2d5b558c54b55b68252",
-        "openspec/changes/build-matters-model-driven-core/specs/bilingual-projection-ui/spec.md": "sha256:6fdeafc86a288b501e5cab963e2fbdada77a3dcb64efe48b9ee091603bd33562",
+        "openspec/changes/build-matters-model-driven-core/specs/bilingual-projection-ui/spec.md": "sha256:5e1bf758448f75f105ac310e90294120ffe795b2d24bd5562796652931468aa7",
         "openspec/changes/build-matters-model-driven-core/specs/bundled-skill-runtime-and-maintenance/spec.md": "sha256:723314cd76d29cae902429975f09e59b7d643b0ebddffba5f809640ae3c966b7",
         "openspec/changes/build-matters-model-driven-core/specs/correction-invalidation/spec.md": "sha256:4943b50c4d64103e86f01d772a0e544c6c52a6bcd129365654b54564a6fc01a5",
         "openspec/changes/build-matters-model-driven-core/specs/evidence-qualification/spec.md": "sha256:b50b340cc94c89ce93b8911487eecd3a50d0edd40add69bc7a20f07a1392534a",
-        "openspec/changes/build-matters-model-driven-core/specs/guard-prediction-boundary/spec.md": "sha256:cace2fded35602aabb7bd0135f91b8e32ba171146e66a5ad0276f634ed294100",
+        "openspec/changes/build-matters-model-driven-core/specs/guard-prediction-boundary/spec.md": "sha256:f7f2fa3f669aa8de74c2ef3dddd27ec6c2c167fdd6f7db043345ac41ac87f4f8",
         "openspec/changes/build-matters-model-driven-core/specs/identity-resolution/spec.md": "sha256:0e42b45b2af03bfb463dc3741d3a704e6b3a7194a861d1a9f99e8e0fc0a2e8dd",
-        "openspec/changes/build-matters-model-driven-core/specs/lifecycle-board-state/spec.md": "sha256:b77b6a10ae16035747eed03977012fccfdd4e91061f34426ecb6b2178a885746",
-        "openspec/changes/build-matters-model-driven-core/specs/matter-admission/spec.md": "sha256:1ac45c7f7cc52db797bac33f21cdb17b702a7996202dd82d80145f4e7ccbc55d",
+        "openspec/changes/build-matters-model-driven-core/specs/lifecycle-board-state/spec.md": "sha256:2c8cefef84c74ad5ae4d0345b3bc4e4c39d7e2db1f9366eb72eff39706669713",
+        "openspec/changes/build-matters-model-driven-core/specs/matter-admission/spec.md": "sha256:a54bb0c1ff4ba8842ec5c9d6288c7ff8a91f7e1b6b79201e9dd49f9714a4867d",
         "openspec/changes/build-matters-model-driven-core/specs/open-loop-blocking/spec.md": "sha256:f7ff9323cade5e0aaa02ca0957bf1431a5c19f6f25448cb0d9f0604fb3c9ca9e",
-        "openspec/changes/build-matters-model-driven-core/specs/outcomes-reopen/spec.md": "sha256:1492e585d87aad1055290b5983ec2c597f148a145d54595ca0ba831a11e468ef",
+        "openspec/changes/build-matters-model-driven-core/specs/outcomes-reopen/spec.md": "sha256:f5a3ba3207f1610eaefe61716b8d8d0a2809b52766bae04ad819589afe5b6ef0",
         "openspec/changes/build-matters-model-driven-core/specs/privacy-release-boundary/spec.md": "sha256:0519aa0cedf547971c1df97e0449016ee758a45b6e326bdb0f4af8f48054b6c7",
         "openspec/changes/build-matters-model-driven-core/specs/source-provenance/spec.md": "sha256:eb704496b2d3388d089e8c73a17eb0b9e2c5cbc6658fbc0bc92f63bff09eb084",
-        "openspec/changes/build-matters-model-driven-core/specs/temporal-trace/spec.md": "sha256:ed05acfb7cc0130a30dbe6aefa9981894fa0c4695b10b9d50254f0c84adacc21",
-        "openspec/changes/build-matters-model-driven-core/tasks.md": "sha256:03b1d0c7b22e9f4c0058c83f4f4ebd62285f71919e9809902d921e2b4c0187aa"
+        "openspec/changes/build-matters-model-driven-core/specs/temporal-trace/spec.md": "sha256:b9718d2d7df4c1e7517d3a743f5842fd93f35d57b7bd7f9a8ab6e46faf53fad1",
+        "openspec/changes/build-matters-model-driven-core/tasks.md": "sha256:1bca030c8495530f67d87d9f1b5710b3fc6b7cfbd52bae5a3673cf04a9e7ff2f"
       },
       "behavior_plane": "development_process",
       "change_id": "build-matters-model-driven-core",
-      "context_hash": "sha256:55a045c03c73568e5f346d36299f4416821dfbc2e2ab6fe7d69aac504e32eece",
-      "context_id": "openspec:build-matters-model-driven-core:v0.3.0-matter-browser-semantic-reset-v8",
+      "context_hash": "sha256:44f74cf1157ac997f25329a34e716d7a068e741e4b0d265b83e11b18db367ba2",
+      "context_id": "openspec:build-matters-model-driven-core:v0.3.0-matter-browser-semantic-reset-v9",
       "current": true,
       "execution_bridge": false,
-      "ledger_fingerprint": "sha256:c5dc5534997b356ebd2dac2b3b2a1e9dc30582c3352c62c30d42389ee61eb5b9",
+      "ledger_fingerprint": "sha256:96b7daf55b72d77aff772bd3d1eeb80dc5731126112484eb2240944a024b0d57",
       "provider_id": "openspec",
       "provider_owns_product_behavior": false,
       "read_only": true,
       "receipt_bridge": false,
       "reconciliation_current": true,
-      "reconciliation_fingerprint": "sha256:575bf223185edb0c31f5791b6307b00e90a2c5375954740899ee776635e72b24",
+      "reconciliation_fingerprint": "sha256:4730da60ef9689481c19f7b455fa3fde8f17ea48b5535bea37be6c998aee4ffc",
       "target_commitment_ids": [
         "BC-DP-003",
         "BC-DP-004",
@@ -9027,17 +9452,17 @@
         "BC-DP-004:requires_evidence_from:BC-PR-001",
         "BC-DP-009:requires_evidence_from:BC-PR-010"
       ],
-      "work_package_id": "openspec:build-matters-model-driven-core:v0.3.0-matter-browser-semantic-reset-v8"
+      "work_package_id": "openspec:build-matters-model-driven-core:v0.3.0-matter-browser-semantic-reset-v9"
     },
     "surface_inventory_evidence_ids": [
-      "sha256:fa2a165ddbfb7e2ed13ca51d99f7c852efbd3d16b3c9fe393edc1ee18619914e",
-      "sha256:c5dc5534997b356ebd2dac2b3b2a1e9dc30582c3352c62c30d42389ee61eb5b9"
+      "sha256:daba521d122447bf44977e82a23cc7bed2f0a7c7a21b4cf2d5f9a9d33717b4f6",
+      "sha256:96b7daf55b72d77aff772bd3d1eeb80dc5731126112484eb2240944a024b0d57"
     ],
-    "surface_inventory_revision": "sha256:fa2a165ddbfb7e2ed13ca51d99f7c852efbd3d16b3c9fe393edc1ee18619914e",
+    "surface_inventory_revision": "sha256:daba521d122447bf44977e82a23cc7bed2f0a7c7a21b4cf2d5f9a9d33717b4f6",
     "task_summary": "Extend Matters v0.3.0 for a frozen candidate source universe, automatic reversible terminal dispositions, durable inventory and ObjectCoverageLedger freshness/depth and exact per-object stage audit, context-aware root/child reconciliation, source-in-place storage with durable pointer/fingerprint and derived understanding, transient raw cleanup and grouped source locations, a bounded multi-depth SituationGraph plus advisory Situation/World Model inference with visible certainty, MaterialClue activity and atomic bilingual summaries, model-agnostic capability-routed WorkPackageV2 execution with replaceable private Codex profiles, strongest-compatible primary Codex maintenance planning plus bounded low-cost delegation, generated presentation-only root-only photorealistic heroes, summary-free standard and compact root cards, the eight-section Databank-authority bilingual desktop object browser with one reusable single-layer descendant quick view, one abstract ResearchOperation with the single ResearchGuard provider plus automatic idempotent root-only supplemental queuing and descendant not-applicable disposition, an exact eleven-skill app-local pack without machine-global overlays, one separate public Matters AI gateway for bounded model-map/context/history access and typed feedback, event-driven progressive private maintenance through one shared path after one separately verified generic private-repository v0.3.0 release, with daily scheduling opt-in only, and bounded Model Miss handoff without app-owned API keys, Jira/Rovo, Guard vendoring, or legacy Guard fallbacks.",
     "typed_external_difference_ids": []
   },
-  "preflight_fingerprint": "sha256:0edaba82ba9b8db05c5c988cce497d7af3fd3eb72117341fa18bcbf0504d8f8f",
+  "preflight_fingerprint": "sha256:e7e4fc8461b3dded46f91ba3b7245770c4befee7a2afbd31440d4eb8c699f124",
   "researchguard_status": "researchguard_pending_integration",
   "retired_runtime_bindings": {
     "LogicGuard": "stale_source_only",
@@ -9051,16 +9476,16 @@
     "A3_matters_ai_gateway_operation": "add_bounded_ai_information_map_and_feedback_gateway_boundary",
     "C10_correction_revocation": "extend_with_locator_derived_group_graph_world_model_hero_and_projection_invalidation",
     "C11_guard_artifact_prediction": "extend_with_persistent_advisory_world_model_and_root_only_photoreal_hero_disposition",
-    "C12_projection_bilingual_ui": "extend_with_summary_free_root_cards_situation_graph_single_layer_quick_view_grouped_sources_root_only_photoreal_hero_and_automatic_root_supplemental_queue",
+    "C12_projection_bilingual_ui": "extend_with_owner_state_projection_material_stage_graph_single_layer_quick_view_grouped_sources_root_only_photoreal_hero_and_automatic_root_supplemental_queue",
     "C1_authorization_coverage": "extend_with_source_in_place_storage_cleanup_group_graph_world_model_and_ui_stage_coverage",
     "C2_source_registry": "extend_with_external_original_locator_fingerprint_storage_class_transient_cleanup_and_source_group_projection",
     "C3_evidence_qualification": "replace_visual_eligibility_with_gallery_display_eligibility",
     "C4_person_entity_resolution": "preserve_separate_uncertain_identities_without_confirmation",
-    "C5_event_temporal_trace": "extend_with_situation_event_nodes_primary_containment_secondary_typed_edges_and_source_group_time",
-    "C6_matter_formation_admission": "extend_with_root_catalog_bounded_situation_graph_and_single_layer_descendant_quick_view",
-    "C7_lifecycle_board_state": "extend_with_confirmed_reported_planned_and_ai_inferred_lifecycle_certainty",
+    "C5_event_temporal_trace": "extend_with_orthogonal_time_basis_state_terminality_complete_historical_inference_and_future_activity_separation",
+    "C6_matter_formation_admission": "extend_with_strict_scale_contract_material_workitem_stage_projection_and_single_layer_quick_view",
+    "C7_lifecycle_board_state": "extend_with_orthogonal_state_basis_terminality_and_complete_current_phase_inference",
     "C8_open_loop_waiting_blocking": "replace_review_with_gap_and_not_applicable_terminals",
-    "C9_completion_cancellation_reopen": "replace_review_with_completion_gap_and_outcome_conflict_terminals",
+    "C9_completion_cancellation_reopen": "extend_with_confirmed_versus_provisional_historical_completion_and_future_ai_rejection",
     "DPF_matters_delivery_gate": "extend_with_generic_v030_release_before_post_release_private_first_run_plus_source_in_place_migration_order_coverage_scan_desktop_visual_qa_install_and_release_gates",
     "M0_matters_end_to_end_authority": "extend_with_source_in_place_migration_situation_graph_world_model_and_ui_reachability_join",
     "S0_matters_skill_runtime": "add_auxiliary_non_product_skill_runtime_boundary"

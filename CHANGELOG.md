@@ -2,10 +2,12 @@
 
 All notable changes to Matters are recorded in this file.
 
-## 0.3.0 — 2026-07-20
+## 0.3.0 — 2026-07-21
 
-First generic private GitHub release. The owner's private Gmail, local-file,
-and Codex first run remains a separate post-release acceptance domain.
+Prepared as the first generic public, source-available GitHub release. Until the remote tag
+target and GitHub Release are verified, this source state remains a release
+candidate. The owner's private Gmail, local-file, and Codex first run remains
+a separate post-release acceptance domain.
 
 - Established `matters._version.VERSION` as the single editable version
   authority for packaging, runtime reports, plugin metadata, installer wheel
@@ -34,9 +36,23 @@ and Codex first run remains a separate post-release acceptance domain.
 - Added the public `matters-mcp` AI gateway and standard Codex plugin while
   keeping the exactly eleven app-local maintenance skills separate from the
   external ResearchGuard provider.
+- Added a deterministic Windows release ZIP whose portable manifest is
+  independently reconciled with the application tree, executable, and build
+  toolchain; machine-local `direct_url.json` provenance and packaged self-test
+  observations are excluded from the release asset.
+- Required the installed 0.3 distribution to expose the same `matters-mcp`
+  console entrypoint and bounded AI tool inventory as the source candidate,
+  closing the stale 0.2 installed-runtime gap.
 - Split the generic release gate from private first-run coverage so package,
   model, UI, privacy, clean-install, and desktop evidence can close without
   exporting or claiming completion of private user data.
+- Kept `.agents`, `.codex`, and `.flowguard` visible in the public GitHub
+  source for review while excluding them from source-distribution, wheel, and
+  desktop runtime payloads.
+- Replaced the private-repository license with a public source-available,
+  personal non-commercial license and added a full bilingual public README
+  with a synthetic concept hero, desktop download, AI gateway, privacy, and
+  repository-boundary guidance.
 
 ## 0.2.0 — 2026-07-19
 

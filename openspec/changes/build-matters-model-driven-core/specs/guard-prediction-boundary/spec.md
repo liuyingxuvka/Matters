@@ -19,13 +19,23 @@ scope-incompatible ResearchGuard receipts as promotion evidence.
 - **WHEN** a ResearchGuard receipt references an older source or model revision
 - **THEN** the artifact SHALL become stale and SHALL NOT support a current canonical decision
 
-### Requirement: Forecasts do not change current state
-The system SHALL preserve forecasts separately from current facts, events, and
-lifecycle decisions.
+### Requirement: Future predictions use the unique World Model owner
+The system SHALL preserve future predictions separately from current facts,
+events, and lifecycle decisions. The lightweight `Forecast` value and
+`GuardBridge.register_forecast` SHALL be retired as successful registration
+paths. They SHALL explicitly reject use and direct callers to the unique C11
+`PersistentAdvisoryWorldModel.publish` owner, which freezes the prediction's
+evidence, verification condition, contradiction condition, observation horizon,
+expiry, uncertainty, and alternatives before it is retained.
 
-#### Scenario: Forecast predicts delay
-- **WHEN** a forecast indicates a future delay
-- **THEN** the system SHALL display it as a forecast and SHALL NOT mark the Matter currently blocked
+#### Scenario: Retired forecast shortcut is invoked
+- **WHEN** a caller constructs `Forecast` or calls `GuardBridge.register_forecast`
+- **THEN** the call SHALL fail visibly with `forecast_entrypoint_retired` and identify `PersistentAdvisoryWorldModel.publish` as the only prediction owner
+- **AND** no forecast, current lifecycle state, Event, or canonical field SHALL be written
+
+#### Scenario: World Model predicts delay
+- **WHEN** `PersistentAdvisoryWorldModel.publish` receives a complete frozen prediction contract that indicates a future delay
+- **THEN** the system SHALL display it only on the World Model or AI supplemental-information surface and SHALL NOT mark the Matter currently blocked
 
 ### Requirement: Agent operations are versioned executable work
 Every AI or local-skill operation SHALL bind an operation id, runner identity,
@@ -205,11 +215,24 @@ in AI supplemental information or the World Model surface and SHALL NOT be
 written into the occurred timeline, lifecycle, outcome, or primary graph as a
 fact.
 
+A current-phase inference is a third, narrowly bounded advisory basis. It MAY
+support `in_progress` only when a completed prerequisite, a still-required
+next obligation, a current active window, and no current
+completion/cancellation/postponement contradiction are all present. It
+describes the most likely current workflow phase and SHALL NOT claim observed
+activity or predict that the future outcome will succeed. C7 remains the only
+lifecycle owner and SHALL preserve the inference as provisional.
+
 #### Scenario: Expected event time has passed
 - **WHEN** current evidence supports an expected event and its time has passed but no licensed observed-completion evidence exists
 - **THEN** C11 MAY return `likely_occurred`, `likely_not_occurred`,
   `conflict_preserved`, or `insufficient` with confidence and alternatives
 - **AND** the original lifecycle/outcome owners SHALL NOT convert that result into confirmed completion without their declared evidence
+
+#### Scenario: Registration is complete and preparation is now the active phase
+- **WHEN** a confirmed registration precedes a future required submission and the current-phase policy is satisfied
+- **THEN** C11 MAY propose `current_phase_in_progress` with confidence, alternatives, coverage, expiry, and contradiction triggers
+- **AND** C7 MAY accept it only as a provisional `in_progress` basis while submission remains planned and future success remains a separate prediction
 
 #### Scenario: Inference depends on no contrary message
 - **WHEN** the inference uses current covered mail or file scope and finds no cancellation, refund, or contrary record

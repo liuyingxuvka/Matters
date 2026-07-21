@@ -709,7 +709,7 @@
     "hazard_green"
   ],
   "function_signature": "S3_active_skill_resolution: CaseInput x ModelState -> Set(DecisionOutput x ModelState)",
-  "generated_at": "2026-07-21T09:47:32.601308+00:00",
+  "generated_at": "2026-07-21T11:36:55.069641+00:00",
   "known_bad_proofs": [
     {
       "evidence_id": "S3_active_skill_resolution:known-bad:H-S3-001-stale-view-accepted",

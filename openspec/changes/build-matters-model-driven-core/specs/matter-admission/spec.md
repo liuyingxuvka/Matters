@@ -131,10 +131,15 @@ primary parents SHALL be rejected. Other links SHALL remain Related Matters.
 - **THEN** the system SHALL reject the edge, preserve the proposal in history, and keep the current hierarchy unchanged
 
 ### Requirement: Matter, WorkItem, and Event are distinct levels
-A candidate SHALL become a Matter only when it has an independently useful
-goal, state, outcome boundary, or next-step surface. A bounded task MAY become
-a WorkItem/Action. A one-time occurrence SHALL remain an Event. Sources and
-evidence SHALL never become Matters solely because they exist.
+A candidate SHALL become a Matter only when it has a stable independent
+identity and at least two independent dimensions: an independently useful
+goal/obligation plus at least one independently useful lifecycle, outcome
+boundary, or next-step surface. A single bounded next step SHALL become a
+WorkItem/Action, not a Matter. A one-time occurrence SHALL remain an Event.
+Sources and evidence SHALL never become Matters solely because they exist.
+Contradictory granularity flags SHALL preserve uncertainty rather than choose
+the highest apparent type. Every recursive level SHALL pass the same admission
+threshold; deeper placement never lowers the threshold.
 
 #### Scenario: A reply email is received
 - **WHEN** an email only records that a reply arrived for a current child Matter
@@ -143,6 +148,34 @@ evidence SHALL never become Matters solely because they exist.
 #### Scenario: Company application is independently trackable
 - **WHEN** a job-search source set supports a company-specific goal, state, next step, and outcome boundary
 - **THEN** the system MAY admit a company-application child Matter under the broader job-search Matter
+
+#### Scenario: One upload action has a name and deadline
+- **WHEN** an upload advances a parent project but has no independent goal or outcome world
+- **THEN** it SHALL remain a WorkItem even if it has its own title, status, and deadline
+
+#### Scenario: Candidate claims to be both one occurrence and a Matter
+- **WHEN** a granularity proposal marks the same identity as a one-time occurrence and an independently trackable Matter without resolving the contradiction
+- **THEN** C6 SHALL preserve `granularity_uncertain` and SHALL NOT admit or attach the candidate
+
+### Requirement: All production admission uses one C6 reconciliation boundary
+Every production path that may retain a Matter candidate, admit or append a
+Matter, or select its placement SHALL call the same C6 reconciliation owner.
+The dispatcher and direct source-processing facade SHALL NOT independently
+call a lower-level admission decider with a different granularity
+interpretation. A registered source with no current qualified evidence SHALL
+enter the same owner through the pre-evidence retention operation, remain a
+source or uncertain candidate, and SHALL NOT create, merge, or attach a Matter
+until a later qualified request returns through the ordinary reconciliation
+operation.
+
+#### Scenario: Qualified AI result proposes a Matter
+- **WHEN** an accepted analysis result contains current evidence, semantic identity, granularity, and candidate context
+- **THEN** the single C6 owner SHALL produce both the placement decision and canonical admission decision before any admission, hierarchy, relation, coverage, or projection write
+
+#### Scenario: Newly registered source has no qualified evidence
+- **WHEN** source registration succeeds but evidence qualification produces no current anchor
+- **THEN** the same C6 boundary SHALL retain the source as source-only or uncertain according to its bounded disposition
+- **AND** it SHALL NOT infer a Matter, merge target, parent, relation, or current semantic state from source metadata alone
 
 ### Requirement: Root catalog admission follows current containment
 The ordinary Matter catalog SHALL contain only Matters with no current primary
@@ -170,18 +203,27 @@ or outcome owner.
 - **WHEN** a current C11 result proposes an evidence-bound likely event or outcome hypothesis that no C5/C9 owner has confirmed
 - **THEN** the graph MAY include an `ai_inferred` advisory node or edge with confidence, alternatives, expiry, and gaps, but SHALL NOT add it to confirmed Event, lifecycle, or outcome counts
 
+#### Scenario: Current records disagree about one graph identity
+- **WHEN** two current owner records for the same node disagree on certainty or a material attribute
+- **THEN** the graph SHALL preserve both evidence sets and alternatives, mark the node certainty `unknown`, expose the conflicting values, and lower confidence to the weaker current record
+- **AND** it SHALL NOT select the apparently stronger certainty or higher confidence as the winner
+
 #### Scenario: A graph page is incomplete
 - **WHEN** the requested descendant/edge set exceeds the bounded payload
 - **THEN** the system SHALL return a stable continuation plus exact pending branch/edge counts and SHALL NOT serialize the entire private catalog or claim graph completeness
 
-### Requirement: The ordinary Sub-matters projection contains Matters only
+### Requirement: The ordinary Sub-matters projection separates Matters and material stages
 The internal SituationGraph MAY retain owned WorkItems, Events, sources, and
-advisory inferences, but C12 SHALL project only admitted Matter nodes,
-containment edges, and typed Matter-to-Matter relations as boxes and lines in
-the ordinary Sub-matters graph. WorkItems, Events, sources, and inference
-details SHALL remain itemized under their owning Matter's quick view. This
-projection boundary SHALL NOT change C5/C6/C7-C11 ownership or delete internal
-objects.
+advisory inferences. C12 SHALL project admitted Matter nodes, containment
+edges, and typed Matter-to-Matter relations as the large hierarchy boxes. It
+MAY additionally project a bounded set of material WorkItems as visually
+smaller stage nodes when they are required, stage-changing, and carry a
+distinct status plus time/result boundary. These stage nodes SHALL retain
+`node_type=work_item`, SHALL NOT enter Matter counts/search paths as Matters,
+and SHALL NOT accept child containment. Events, sources, ordinary actions, and
+inference details SHALL remain itemized under their owning Matter's quick view.
+This projection boundary SHALL NOT change C5/C6/C7-C11 ownership or delete
+internal objects.
 
 #### Scenario: Travel contains two journeys and several records
 - **WHEN** one 2026 travel root contains an independently useful Japan journey, an independently useful Australia journey, outbound and return travel children, plus ticket, authorization, boarding, entry, and inferred-completion facts
@@ -189,10 +231,43 @@ objects.
 - **AND** outbound and return SHALL be siblings when neither contains the other
 - **AND** ticket, authorization, boarding, entry, and inferred-completion records SHALL remain itemized facts rather than deeper graph nodes
 
+#### Scenario: Build Week has no independent project child yet
+- **WHEN** the current evidence supports registration confirmation, a required preparation phase, and a future submission deadline but does not yet support an independent project Matter
+- **THEN** the Sub-matters surface SHALL show material stage nodes for registration, preparation, and submission under the Build Week Matter
+- **AND** registration MAY be completed/reported, preparation MAY be in-progress/AI-inferred under the current-phase policy, and submission SHALL remain planned
+- **AND** none of those stage nodes SHALL be counted or opened as a child Matter
+
+#### Scenario: Two independent competition projects are later evidenced
+- **WHEN** current local/Codex evidence establishes two stable project identities with their own goals, lifecycle, results, and next steps
+- **THEN** C6 SHALL admit them as sibling child Matters under Build Week while retaining registration/preparation/submission as the appropriate WorkItems or Events
+
 #### Scenario: Software projects also support human-domain Matters
 - **WHEN** SkillGuard, FlowPilot, FlowGuard, a heating-assessment application, and a job-search application are current software projects, and the last two also support heating and job-search situations
 - **THEN** the software projects MAY be children of one broad Software Development root while the heating and job-search Matters retain typed cross-domain relationships
 - **AND** the shared relationship SHALL NOT duplicate cards or force the human-domain Matters under Software Development
+
+### Requirement: Matter-internal semantic members have one stable identity
+Every cross-source WorkItem and open loop SHALL declare one stable,
+language-neutral semantic role within its owning Matter. The C6/C8 owner SHALL
+reuse the current identity for that role or require an exact supersession list.
+Title similarity, translation similarity, chronology alone, and finding ids
+SHALL NOT authorize automatic replacement.
+
+#### Scenario: Reanalysis emits the same preparation stage
+- **WHEN** a later semantic refresh emits the same `preparation` role for the same Matter
+- **THEN** the owner SHALL revise or reuse the one current preparation WorkItem and SHALL NOT create a second peer stage
+
+#### Scenario: Legacy analysis created two submission stages
+- **WHEN** a current refresh names one surviving submission identity and the exact current duplicate ids in `supersedes_item_ids`
+- **THEN** the owner SHALL append retired revisions for those exact duplicates, preserve their evidence and history, and expose only the survivor in WorkItem indexes and UI
+
+#### Scenario: A same-role collision is not fully named
+- **WHEN** a proposed WorkItem or open loop collides with another active object carrying the same semantic role but the proposal does not explicitly supersede it
+- **THEN** the complete write SHALL fail without retiring or adding any object
+
+#### Scenario: Semantic state changes after one analysis pass
+- **WHEN** a cross-source result changes current WorkItems, open loops, lifecycle, or outcome state
+- **THEN** the previous semantic-state fingerprint SHALL become stale and one successor refresh SHALL receive the complete bounded current semantic state so the pipeline can converge without duplicate revisions
 
 ### Requirement: Bounded containment batches are atomic and recoverable
 The system SHALL support one evidence-bound containment batch for one parent
@@ -283,6 +358,22 @@ anchors and decisions.
 #### Scenario: The registry-current revision is processed for one exact existing Matter
 - **WHEN** one target-bound semantic package names the exact existing Matter id, registry-current SourceVersion, current admission fingerprint, and exact current evidence anchors
 - **THEN** C6 SHALL preserve that Matter's identity and semantic identity, append the current source and anchors to that Matter, and SHALL NOT use title similarity, choose another Matter, or create a duplicate root
+
+#### Scenario: One Matter semantic refresh needs multiple current sources
+- **WHEN** one exact existing Matter cites multiple source ids and each has one registry-current non-tombstoned SourceVersion, a current source-annotation WorkPackage/Result, and current EvidenceAnchor coverage
+- **THEN** the system SHALL issue exactly one `matter_semantic_refresh` package bound to the complete sorted current-source set, complete current annotation dependency set, exact allowed evidence and assets, current admission fingerprint, and semantic identity; it SHALL append-only supersede an older package when any bound input changes and SHALL NOT silently fall back to per-source packages
+
+#### Scenario: A cross-source semantic candidate preserves Matter identity
+- **WHEN** a current `matter_semantic_refresh` result emits a `matter_candidate` for its exact existing Matter
+- **THEN** C6 SHALL treat that candidate as an identity-preservation no-op after validating the exact Matter id, semantic identity, admission fingerprint, registry-current source set, and anchor whitelist; it SHALL NOT create a root, select a similar Matter, or mutate source membership
+
+#### Scenario: Cross-source semantic output distinguishes time axes
+- **WHEN** a `matter_semantic_refresh` package returns historical gaps, a current phase, or future planned obligations
+- **THEN** its required output SHALL preserve the `historical_gap`, `current_phase`, and `future_planned` axes separately; a future obligation SHALL remain planned and SHALL NOT be emitted as completed merely because a prerequisite or registration is completed
+
+#### Scenario: A source-revision result also contains another C6 finding type
+- **WHEN** one `source_revision_matter_refresh` result contains a `work_item_candidate`, `matter_hierarchy_candidate`, or another declared C6 finding in addition to its `matter_candidate`
+- **THEN** only the `matter_candidate` SHALL use the exact target-bound source-revision admission branch; every other finding SHALL continue through its own canonical finding-type owner, and SHALL NOT be consumed, discarded, or rewritten as a Matter source-membership refresh
 
 #### Scenario: A same-Matter sibling package becomes stale after an earlier refresh commits
 - **WHEN** one source-revision package changes the exact Matter admission fingerprint and a sibling package still binds the prior fingerprint

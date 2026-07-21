@@ -1247,11 +1247,13 @@ function graphNodeTitle(node) {
 
 function situationGraphLayout(graph) {
   const allNodes = (Array.isArray(graph?.nodes) ? graph.nodes : [])
-    .filter((node) => String(node.node_type || "").toLowerCase() === "matter");
-  const matterIds = new Set(allNodes.map((node) => String(node.node_id)));
+    .filter((node) => ["matter", "work_item"].includes(
+      String(node.node_type || "").toLowerCase(),
+    ));
+  const visibleIds = new Set(allNodes.map((node) => String(node.node_id)));
   const allEdges = (Array.isArray(graph?.edges) ? graph.edges : []).filter(
-    (edge) => matterIds.has(String(edge.source_node_id))
-      && matterIds.has(String(edge.target_node_id)),
+    (edge) => visibleIds.has(String(edge.source_node_id))
+      && visibleIds.has(String(edge.target_node_id)),
   );
   const byId = new Map(allNodes.map((node) => [String(node.node_id), node]));
   const rootId = String(graph?.root_matter_id || "");
@@ -1262,7 +1264,6 @@ function situationGraphLayout(graph) {
     primaryChildren.get(source).push(String(edge.target_node_id));
   });
   const nodes = allNodes;
-  const visibleIds = new Set(nodes.map((node) => String(node.node_id)));
   const edges = allEdges.filter(
     (edge) => visibleIds.has(String(edge.source_node_id))
       && visibleIds.has(String(edge.target_node_id)),
@@ -1298,9 +1299,12 @@ function situationGraphLayout(graph) {
   const positions = new Map();
   levels.forEach((items, nodeDepth) => {
     items.forEach((node, index) => {
+      const isStage = String(node.node_type || "").toLowerCase() === "work_item";
       positions.set(String(node.node_id), {
         x: 42 + nodeDepth * 272,
         y: 42 + index * 112,
+        width: isStage ? 184 : 214,
+        height: isStage ? 66 : 76,
       });
     });
   });
@@ -1433,10 +1437,12 @@ function detailSituationGraph() {
     return `<div class="db-error-state" role="alert"><strong>${escapeHtml(t("graphUnavailable"))}</strong><p>${escapeHtml(state.graphError)}</p><button class="db-primary-button" data-retry-graph>${escapeHtml(t("retry"))}</button></div>`;
   }
   const graph = state.situationGraph;
-  const matterNodeCount = (graph?.nodes || []).filter(
-    (node) => String(node.node_type || "").toLowerCase() === "matter",
+  const visibleNodeCount = (graph?.nodes || []).filter(
+    (node) => ["matter", "work_item"].includes(
+      String(node.node_type || "").toLowerCase(),
+    ),
   ).length;
-  if ((!matterNodeCount || matterNodeCount === 1) && !graph?.has_more) {
+  if ((!visibleNodeCount || visibleNodeCount === 1) && !graph?.has_more) {
     return `<div class="db-empty-state">${escapeHtml(t("noSubMatters"))}</div>`;
   }
   const layout = situationGraphLayout(graph);
@@ -1444,10 +1450,10 @@ function detailSituationGraph() {
     const source = layout.positions.get(String(edge.source_node_id));
     const target = layout.positions.get(String(edge.target_node_id));
     if (!source || !target) return "";
-    const x1 = source.x + 214;
-    const y1 = source.y + 38;
+    const x1 = source.x + source.width;
+    const y1 = source.y + source.height / 2;
     const x2 = target.x;
-    const y2 = target.y + 38;
+    const y2 = target.y + target.height / 2;
     const mid = (x1 + x2) / 2;
     return `<path d="M ${x1} ${y1} C ${mid} ${y1}, ${mid} ${y2}, ${x2} ${y2}" class="${edge.primary_containment ? "is-primary" : "is-secondary"}"></path>`;
   }).join("");
@@ -1763,9 +1769,11 @@ function detailHtml() {
   const detail = state.detail;
   const card = detail.matter;
   const childTotal = state.situationGraph?.nodes
-    ? Math.max(0, state.situationGraph.nodes.filter(
-      (node) => String(node.node_type || "").toLowerCase() === "matter",
-    ).length - 1)
+    ? state.situationGraph.nodes.filter((node) => {
+      const nodeType = String(node.node_type || "").toLowerCase();
+      return ["matter", "work_item"].includes(nodeType)
+        && String(node.node_id || "") !== String(state.selectedMatterId);
+    }).length
     : detail.children_summary?.total_count
       ?? detail.children_summary?.total
       ?? 0;

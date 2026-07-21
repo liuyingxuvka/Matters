@@ -28,6 +28,9 @@ class MatterProjection:
     available_locales: tuple[str, ...]
     default_locale: str
     equivalence_status: str
+    state_basis_modality: str = "unknown"
+    state_basis_scope: str = ""
+    state_terminality: str = "confirmed"
 
     def resolve(self, locale: str) -> str:
         if locale not in self.available_locales:
@@ -84,6 +87,9 @@ class ProjectionOwner:
         localized_rationale: Mapping[str, str] | None = None,
         localized_state_labels: Mapping[str, str] | None = None,
         localized_values: Mapping[str, str] | None = None,
+        state_basis_modality: str = "unknown",
+        state_basis_scope: str = "",
+        state_terminality: str = "confirmed",
     ) -> MatterProjection:
         revisions = dict(
             locale_revisions
@@ -163,6 +169,9 @@ class ProjectionOwner:
             available_locales=self.registry.available_locales,
             default_locale=self.registry.default_locale,
             equivalence_status="equivalent",
+            state_basis_modality=state_basis_modality,
+            state_basis_scope=state_basis_scope,
+            state_terminality=state_terminality,
         )
 
     @staticmethod

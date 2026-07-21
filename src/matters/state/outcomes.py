@@ -10,6 +10,13 @@ class CompletionCriterion:
     criterion_id: str
     satisfied: bool
     evidence_ids: tuple[str, ...] = ()
+    basis_modality: str = "reported"
+    temporal_direction: str = "past"
+    freshness: str = "current"
+    completion_licensed: bool = True
+    owner_evidence_licensed: bool = False
+    terminality: str = "confirmed"
+    inference_contract_valid: bool = False
 
 
 @dataclass(frozen=True)
@@ -19,6 +26,8 @@ class OutcomeDecision:
     criterion_ids: tuple[str, ...] = ()
     revision: int = 1
     open_loop_dispositions: tuple[str, ...] = ()
+    basis_modality: str = "unknown"
+    terminality: str = "confirmed"
 
 
 @dataclass
@@ -34,9 +43,53 @@ class OutcomeOwner:
         result_attachment_only: bool = False,
     ) -> OutcomeDecision:
         history = self._history.setdefault(matter_id, [])
-        if criteria and all(item.satisfied and item.evidence_ids for item in criteria):
+        confirmed_complete = bool(criteria) and all(
+            item.satisfied
+            and item.evidence_ids
+            and item.freshness == "current"
+            and item.completion_licensed
+            and item.owner_evidence_licensed
+            and item.temporal_direction != "future"
+            and item.basis_modality in {"observed", "reported"}
+            and item.terminality == "confirmed"
+            for item in criteria
+        )
+        provisional_complete = bool(criteria) and all(
+            item.satisfied
+            and item.evidence_ids
+            and item.freshness == "current"
+            and item.completion_licensed
+            and item.owner_evidence_licensed
+            and item.temporal_direction == "past"
+            and (
+                (
+                    item.basis_modality in {"observed", "reported"}
+                    and item.terminality == "confirmed"
+                )
+                or (
+                    item.basis_modality in {"inferred", "ai_inferred"}
+                    and item.terminality == "provisional"
+                    and item.inference_contract_valid
+                )
+            )
+            for item in criteria
+        ) and any(
+            item.basis_modality in {"inferred", "ai_inferred"}
+            for item in criteria
+        )
+        if confirmed_complete:
             status = "completed"
             rationale = "all explicit completion criteria have current evidence"
+            basis_modality = "reported"
+            terminality = "confirmed"
+        elif provisional_complete:
+            status = "completed"
+            rationale = (
+                "all bounded elapsed-phase criteria are supported by a "
+                "revisable historical inference contract"
+            )
+            basis_modality = "ai_inferred"
+            terminality = "provisional"
         else:
             status = "completion_unproven"
             rationale = (
@@ -44,11 +97,15 @@ class OutcomeOwner:
                 if provider_done or result_attachment_only
                 else "completion criteria are incomplete"
             )
+            basis_modality = "unknown"
+            terminality = "provisional"
         decision = OutcomeDecision(
             status,
             rationale,
             tuple(item.criterion_id for item in criteria),
             len(history) + 1,
+            basis_modality=basis_modality,
+            terminality=terminality,
         )
         history.append(decision)
         return decision
@@ -59,6 +116,8 @@ class OutcomeOwner:
         *,
         rationale: str,
         loop_dispositions: tuple[str, ...],
+        basis_modality: str = "reported",
+        terminality: str = "confirmed",
     ) -> OutcomeDecision:
         history = self._history.setdefault(matter_id, [])
         decision = OutcomeDecision(
@@ -66,6 +125,8 @@ class OutcomeOwner:
             rationale,
             revision=len(history) + 1,
             open_loop_dispositions=loop_dispositions,
+            basis_modality=basis_modality,
+            terminality=terminality,
         )
         history.append(decision)
         return decision

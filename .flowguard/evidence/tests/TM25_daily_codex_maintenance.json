@@ -1,6 +1,6 @@
 {
   "artifact_type": "matters.test-suite-receipt.v1",
-  "generated_at": "2026-07-21T10:48:13.984891+00:00",
+  "generated_at": "2026-07-21T20:41:23.597414+00:00",
   "pytest_observation": {
     "errors": 0,
     "failed": 0,
@@ -10,17 +10,17 @@
     "xfailed": 0,
     "xpassed": 0
   },
-  "source_fingerprint": "sha256:0b4273292fe350fc0988a972c6ec0f03750ed0f55a0e7b78270f96b785886df3",
+  "source_fingerprint": "sha256:79dfc86d3b2e50857f6b2ddf27d11e06ce707265720d90708875670e5d177538",
   "source_fingerprints": {
     "src/matters/application/maintenance.py": "sha256:ff47df531d12543a4d1d0f536e301171dafcd8eef120459b6165255f2e8c4f6a",
-    "src/matters/application/orchestrator.py": "sha256:f94b4cde6ece35e498f917ae2edf73cc28f21088b2d190ad0bf4a383b4d80e93",
+    "src/matters/application/orchestrator.py": "sha256:62da28725875a304ad024ab77c6d3b021371c10c5085274eb9d53ad140227eec",
     "tests/test_autonomous_maintenance.py": "sha256:372f64818acdaeb610d3ac7251aca430ae45dfb061a53635e4dcf92ce18d4c82"
   },
   "source_paths": [
     "tests/test_autonomous_maintenance.py"
   ],
   "stderr_tail": "",
-  "stdout_tail": "...                                                                      [100%]\n3 passed in 0.15s\n",
+  "stdout_tail": "...                                                                      [100%]\n3 passed in 0.20s\n",
   "suite_id": "TM25_daily_codex_maintenance",
   "test_suite_evidence": {
     "artifact_version": "matters.test-suite-receipt.v1",
@@ -41,7 +41,7 @@
     "finding_ids": [],
     "has_exit_artifact": true,
     "has_result_artifact": true,
-    "inventory_revision": "g4-testmesh-v15-exact-source-and-install-closure",
+    "inventory_revision": "g4-testmesh-v18-release-candidate-closure",
     "layer": "child",
     "log_root": "",
     "not_run_count": 0,
@@ -59,10 +59,10 @@
     "proof_artifact": {
       "artifact_fingerprints": {
         "src/matters/application/maintenance.py": "sha256:ff47df531d12543a4d1d0f536e301171dafcd8eef120459b6165255f2e8c4f6a",
-        "src/matters/application/orchestrator.py": "sha256:f94b4cde6ece35e498f917ae2edf73cc28f21088b2d190ad0bf4a383b4d80e93",
+        "src/matters/application/orchestrator.py": "sha256:62da28725875a304ad024ab77c6d3b021371c10c5085274eb9d53ad140227eec",
         "tests/test_autonomous_maintenance.py": "sha256:372f64818acdaeb610d3ac7251aca430ae45dfb061a53635e4dcf92ce18d4c82"
       },
-      "artifact_id": "artifact:run:TM25_daily_codex_maintenance:0087c5f6523bb660",
+      "artifact_id": "artifact:run:TM25_daily_codex_maintenance:933a56642ca99bd2",
       "assertion_scope": "external_contract",
       "command": "python -m pytest -q -o addopts= tests/test_autonomous_maintenance.py",
       "covered_obligation_ids": [
@@ -71,7 +71,7 @@
       ],
       "current": true,
       "exit_code": 0,
-      "finished_at": "2026-07-21T10:48:13.984891+00:00",
+      "finished_at": "2026-07-21T20:41:23.597414+00:00",
       "metadata": {},
       "producer_route": "test_mesh",
       "progress_only": false,
@@ -80,15 +80,15 @@
       "route_evidence_current": true,
       "route_gap_codes": [],
       "stale_reasons": [],
-      "started_at": "2026-07-21T10:48:11.895078+00:00"
+      "started_at": "2026-07-21T20:41:21.099527+00:00"
     },
     "release_required": false,
-    "result_fingerprint": "sha256:0b4273292fe350fc0988a972c6ec0f03750ed0f55a0e7b78270f96b785886df3",
+    "result_fingerprint": "sha256:79dfc86d3b2e50857f6b2ddf27d11e06ce707265720d90708875670e5d177538",
     "result_path": ".flowguard/evidence/tests/TM25_daily_codex_maintenance.json",
     "result_reused": false,
     "result_status": "passed",
     "reuse_ticket": null,
-    "run_id": "run:TM25_daily_codex_maintenance:0087c5f6523bb660",
+    "run_id": "run:TM25_daily_codex_maintenance:933a56642ca99bd2",
     "selected_count": 3,
     "skipped_count": 0,
     "skipped_visible": true,

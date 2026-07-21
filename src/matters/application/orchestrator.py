@@ -16,6 +16,9 @@ from matters.application.coverage_ledger import (
     bounded_stage_output_set_ref,
 )
 from matters.application.coverage_audit import CoverageAuditService
+from matters.application.gmail_coverage_audit import (
+    GmailManifestCoverageAuditService,
+)
 from matters.application.current_scope_reconciliation import (
     GmailCurrentScopeReconciliationOwner,
 )
@@ -42,6 +45,7 @@ from matters.application.source_revision_reconciliation import (
     MatterSourceRevisionReconciliationOwner,
 )
 from matters.application.source_revision_analysis import (
+    MatterSemanticAnalysisOwner,
     MatterSourceRevisionAnalysisOwner,
 )
 from matters.application.source_group_projection import SourceGroupProjection
@@ -79,6 +83,12 @@ from matters.bundled_skills import build_bundle, load_projections
 from matters.config import RuntimeConfig
 from matters.domain.admission import AdmissionPacket, MatterAdmission
 from matters.domain.activity import MaterialClue
+from matters.domain.context import (
+    ContextSignal,
+    GranularityAssessment,
+    MatterReconciliationRequest,
+    ProjectContext,
+)
 from matters.domain.hierarchy import (
     HierarchyMemberDisposition,
     MatterChildAttachment,
@@ -484,6 +494,15 @@ class MatterService:
             )
             if self.store is not None
             and self.source_revision_reconciliation is not None
+            else None
+        )
+        self.matter_semantic_analysis = (
+            MatterSemanticAnalysisOwner(
+                store=self.store,
+                operations=self.operations,
+                locale_registry_revision=DEFAULT_LOCALE_REGISTRY.revision,
+            )
+            if self.store is not None
             else None
         )
         self.visuals = (
@@ -1166,6 +1185,61 @@ class MatterService:
                 if queue
                 else self.source_revision_analysis.plan(current_matter_id)
             )
+        )
+        status_counts: dict[str, int] = {}
+        for item in items:
+            status = str(item.get("status", "blocked"))
+            status_counts[status] = status_counts.get(status, 0) + 1
+        next_cursor = (
+            matter_ids[-1] if matter_ids and has_more and not matter_id else ""
+        )
+        return {
+            "scanned_matter_count": len(matter_ids),
+            "item_count": len(items),
+            "status_counts": status_counts,
+            "items": items,
+            "next_cursor": next_cursor,
+            "has_more": has_more,
+            "queue_requested": queue,
+            "status": (
+                "blocked"
+                if status_counts.get("blocked", 0)
+                else "partial"
+                if has_more
+                else "current"
+            ),
+        }
+
+    def matter_semantic_analysis_plan(
+        self,
+        *,
+        matter_id: str = "",
+        after_matter_id: str = "",
+        limit: int = 100,
+        queue: bool = False,
+    ) -> dict[str, Any]:
+        """Plan or queue one exact cross-source semantic refresh per Matter."""
+
+        if self.store is None or self.matter_semantic_analysis is None:
+            raise RuntimeError(
+                "MATTERS_HOME is required for Matter semantic analysis"
+            )
+        if limit < 1 or limit > 500:
+            raise ValueError("Matter semantic analysis limit is invalid")
+        if matter_id:
+            matter_ids = (matter_id,)
+            has_more = False
+        else:
+            rows, has_more = self.store.canonical_matter_presentation_page(
+                after_matter_id=after_matter_id,
+                limit=limit,
+            )
+            matter_ids = tuple(str(item["matter_id"]) for item in rows)
+        items = tuple(
+            self.matter_semantic_analysis.queue(current_matter_id)
+            if queue
+            else self.matter_semantic_analysis.plan(current_matter_id)
+            for current_matter_id in matter_ids
         )
         status_counts: dict[str, int] = {}
         for item in items:
@@ -3027,16 +3101,23 @@ class MatterService:
                 "provider_resolution",
                 bool(payload.get("resolution")),
                 tuple(by_field.get("resolution", ())),
+                owner_evidence_licensed=bool(
+                    by_field.get("resolution", ())
+                ),
             ),
             CompletionCriterion(
                 "result_attachment",
                 bool(payload.get("attachments")),
                 tuple(by_field.get("attachments", ())),
+                owner_evidence_licensed=bool(
+                    by_field.get("attachments", ())
+                ),
             ),
             CompletionCriterion(
                 "explicit_confirmation",
                 bool(confirmation),
                 confirmation,
+                owner_evidence_licensed=bool(confirmation),
             ),
         )
 
@@ -3122,25 +3203,102 @@ class MatterService:
         possibility_only = summary.lower().startswith(("maybe ", "perhaps "))
         semantic_hierarchy_review = bool(envelope.payload.get("children"))
         access_blocked = coverage.status != "complete"
-        admission = self.admission.decide(
-            AdmissionPacket(
-                source_ids=(source.source_id,),
-                evidence_ids=tuple(item.evidence_id for item in anchors),
-                explicit_goal_or_obligation=bool(
-                    envelope.payload.get("explicit_goal_or_obligation", False)
-                ),
-                useful_content=bool(summary or envelope.payload.get("links")),
-                conflict=bool(trace.conflicts) or semantic_hierarchy_review,
-                access_blocked=access_blocked,
-                possibility_only=possibility_only,
-                semantic_identity_key=str(
-                    envelope.payload.get("semantic_identity_key") or summary
-                ),
-            )
-        )
-
         evidence_ids = tuple(item.evidence_id for item in anchors)
         provider_status = str(envelope.payload.get("status", ""))
+        semantic_identity_key = str(
+            envelope.payload.get("semantic_identity_key") or summary
+        )
+        if evidence_ids:
+            context_signals = []
+            if semantic_identity_key:
+                context_signals.append(
+                    ContextSignal(
+                        kind=(
+                            "goal"
+                            if bool(
+                                envelope.payload.get(
+                                    "explicit_goal_or_obligation",
+                                    False,
+                                )
+                            )
+                            else "subject"
+                        ),
+                        value=semantic_identity_key,
+                        evidence_ids=evidence_ids,
+                    )
+                )
+            reconciliation_execution = self.reconciliation.resolve(
+                MatterReconciliationRequest(
+                    source_ids=(source.source_id,),
+                    evidence_ids=evidence_ids,
+                    semantic_identity_key=semantic_identity_key,
+                    context=ProjectContext(signals=tuple(context_signals)),
+                    granularity=GranularityAssessment(
+                        independently_useful_goal=bool(
+                            envelope.payload.get(
+                                "explicit_goal_or_obligation",
+                                False,
+                            )
+                        ),
+                        independently_useful_state=bool(
+                            provider_status
+                            or envelope.payload.get("change_items")
+                            or envelope.payload.get("worklog")
+                        ),
+                        independently_useful_outcome=bool(
+                            envelope.payload.get("resolution")
+                            or envelope.payload.get("attachments")
+                        ),
+                        independently_useful_next_step=bool(
+                            envelope.payload.get("due_date")
+                            or envelope.payload.get("assignee")
+                            or envelope.payload.get("sprint")
+                        ),
+                        bounded_task=bool(
+                            provider_status
+                            or envelope.payload.get("due_date")
+                            or envelope.payload.get("assignee")
+                        ),
+                        one_time_occurrence=bool(
+                            envelope.payload.get(
+                                "one_time_occurrence",
+                                False,
+                            )
+                        ),
+                    ),
+                    access_blocked=access_blocked,
+                    conflict=(
+                        bool(trace.conflicts)
+                        or semantic_hierarchy_review
+                    ),
+                ),
+                useful_content=bool(
+                    summary or envelope.payload.get("links")
+                ),
+                possibility_only=possibility_only,
+            )
+        else:
+            reconciliation_execution = (
+                self.reconciliation.retain_unqualified_source(
+                    source_ids=(source.source_id,),
+                    semantic_identity_key=semantic_identity_key,
+                    useful_content=bool(
+                        summary or envelope.payload.get("links")
+                    ),
+                    possibility_only=possibility_only,
+                    conflict=(
+                        bool(trace.conflicts)
+                        or semantic_hierarchy_review
+                    ),
+                    access_blocked=access_blocked,
+                )
+            )
+        admission = reconciliation_execution.admission
+        if admission is None:
+            raise RuntimeError(
+                "C6 reconciliation did not produce an admission decision"
+            )
+
         scheduled = bool(
             envelope.payload.get("due_date")
             or envelope.payload.get("sprint")
@@ -5456,6 +5614,21 @@ class MatterService:
             )
         )
 
+    def gmail_manifest_coverage_audit(
+        self,
+        *,
+        receipt_path: str = "",
+        page_paths: Sequence[str] = (),
+    ) -> dict[str, Any]:
+        """Audit one verified Gmail manifest using local indexes only."""
+
+        if self.store is None:
+            raise RuntimeError("MATTERS_HOME is required for Gmail coverage audit")
+        return GmailManifestCoverageAuditService(self.store).audit(
+            receipt_path=receipt_path,
+            page_paths=page_paths,
+        )
+
     def matter_hierarchy_coverage_page(
         self,
         *,
@@ -5961,14 +6134,23 @@ class MatterService:
             (
                 item
                 for item in graph.nodes
-                if item.node_id == node_id and item.node_type == "matter"
+                if item.node_id == node_id
+                and item.node_type in {"matter", "work_item"}
             ),
             None,
         )
         if node is None:
-            raise KeyError("Matter graph node is unavailable")
+            raise KeyError("Matter or stage graph node is unavailable")
+        quick_view = (
+            self.browser.node_quick_view(node.node_id, locale=locale)
+            if node.node_type == "matter"
+            else self.browser.work_item_quick_view(
+                node.node_id,
+                locale=locale,
+            )
+        )
         return {
-            **self.browser.node_quick_view(node.node_id, locale=locale),
+            **quick_view,
             "root_matter_id": graph.root_matter_id,
             "requested_root_matter_id": matter_id,
         }

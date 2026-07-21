@@ -46,7 +46,10 @@ def _request(
         context=_context(*signals),
         candidates=tuple(candidates),
         granularity=granularity
-        or GranularityAssessment(independently_useful_goal=True),
+        or GranularityAssessment(
+            independently_useful_goal=True,
+            independently_useful_next_step=True,
+        ),
         conflict=conflict,
     )
 
@@ -176,6 +179,21 @@ def test_small_occurrence_stays_event_and_appends_only_with_licensed_host():
     assert decision.target_matter_id == "matter:trip"
 
 
+def test_single_step_and_conflicting_scale_never_become_a_matter():
+    task = GranularityAssessment(
+        independently_useful_next_step=True,
+        bounded_task=True,
+    )
+    conflict = GranularityAssessment(
+        independently_useful_goal=True,
+        independently_useful_state=True,
+        one_time_occurrence=True,
+    )
+
+    assert task.object_kind == "work_item"
+    assert conflict.object_kind == "uncertain"
+
+
 def test_equal_candidate_support_preserves_uncertain_alternative():
     signals_a = (
         _signal("goal", "Find a job", "evidence:a-goal"),
@@ -274,3 +292,47 @@ def test_stale_or_unbounded_candidate_window_blocks_without_owner_writes():
     assert bounded_decision.status == "blocked"
     assert len(bounded_decision.candidate_matter_ids) == MAX_RECONCILIATION_CANDIDATES
     assert admission.admitted_count == 0
+
+
+def test_resolve_is_the_single_placement_and_admission_boundary():
+    owner = MatterReconciliationOwner(MatterAdmission())
+    resolution = owner.resolve(
+        _request(
+            _signal("goal", "Prepare Build Week", "evidence:goal"),
+            _signal("outcome", "Submit project", "evidence:outcome"),
+            semantic_identity_key="OpenAI Build Week participation",
+        )
+    )
+
+    assert resolution.decision.status == "admit_root"
+    assert resolution.decision.granularity == "matter"
+    assert resolution.admission is not None
+    assert resolution.admission.status == "admitted"
+    assert resolution.admission.matter is not None
+
+    small_step = owner.resolve(
+        _request(
+            _signal("subject", "Upload final archive", "evidence:step"),
+            semantic_identity_key="Upload final archive",
+            granularity=GranularityAssessment(
+                bounded_task=True,
+                independently_useful_next_step=True,
+            ),
+        )
+    )
+    assert small_step.decision.granularity == "work_item"
+    assert small_step.decision.status == "preserve_uncertain_alternative"
+    assert small_step.admission is not None
+    assert small_step.admission.status == "uncertain"
+    assert small_step.admission.matter is None
+
+    unqualified = owner.retain_unqualified_source(
+        source_ids=("source:metadata-only",),
+        semantic_identity_key="Metadata-only source",
+        useful_content=True,
+    )
+    assert unqualified.decision.status == "blocked"
+    assert unqualified.decision.granularity == "source"
+    assert unqualified.admission is not None
+    assert unqualified.admission.status == "uncertain"
+    assert unqualified.admission.matter is None

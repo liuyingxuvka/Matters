@@ -84,12 +84,29 @@ as advisory candidates until current evidence licenses the modality and
 ordering.
 
 Observed, reported, and planned source statements SHALL retain those exact
-modalities. An `ai_inferred` Event, WorkItem, lifecycle, or outcome candidate
-MAY fill only a necessary gap whose target time is not later than the frozen
-analysis time. It SHALL bind the analysis time, past target time, confidence,
-supporting and counter-signals, alternatives, contradiction triggers, and a
-revisable disposition. A future expectation SHALL NOT enter the temporal trace
-as an occurred or AI-inferred Event; it belongs only to the separate,
+modalities. Evidence modality, temporal assertion, workflow state, and
+terminality SHALL remain orthogonal fields:
+
+- evidence modality records how the system knows: `observed`, `reported`,
+  `planned`, or `ai_inferred`;
+- temporal assertion records what is claimed in time: `planned`, `ongoing`,
+  `occurred`, or `unknown`;
+- workflow state records the current human state: `planned`, `in_progress`,
+  `completed`, `cancelled`, or `uncertain`;
+- terminality records whether that state is `confirmed` or `provisional`.
+
+An `ai_inferred` Event or completion candidate MAY fill only a necessary gap
+whose target time is not later than the frozen analysis time. An
+`ai_inferred` WorkItem/lifecycle candidate MAY also describe the current
+required phase as `ongoing` when a completed prerequisite, a still-required
+next obligation, a bounded active window, and the absence of a current
+completion/cancellation/postponement contradiction are all evidenced. It SHALL
+state only that the phase is the current best explanation; it SHALL NOT claim
+that work was directly observed. Every inference SHALL bind the analysis time,
+target/window time, confidence, supporting and counter-signals, coverage
+boundary, alternatives, contradiction triggers, expiry, and a revisable
+disposition. A future expectation SHALL NOT enter the temporal trace as an
+occurred or completed Event; a future outcome belongs only to the separate,
 advisory Situation/World Model prediction lane.
 
 #### Scenario: Trace analysis proposes an ordering
@@ -106,10 +123,20 @@ advisory Situation/World Model prediction lane.
 - **THEN** C11 MAY project a localized, confidence-bearing `ai_inferred` historical-gap candidate
 - **AND** it SHALL remain revisable, visibly distinct from observed completion, and bounded by the exact covered evidence scope
 
-#### Scenario: Candidate target lies after analysis time
-- **WHEN** an Event, WorkItem, lifecycle, or outcome candidate marked `ai_inferred` targets a future time
+#### Scenario: Candidate claims future occurrence or completion
+- **WHEN** an Event or outcome candidate marked `ai_inferred` claims that a future activity has occurred or completed
 - **THEN** result validation SHALL reject the candidate from the canonical temporal lanes
-- **AND** the caller MAY re-express it only as a testable Situation/World Model prediction
+- **AND** the caller MAY re-express a future outcome only as a testable Situation/World Model prediction
+
+#### Scenario: Confirmed registration licenses a current preparation-phase hypothesis
+- **WHEN** registration is currently evidenced as completed, submission remains a required future obligation, the frozen analysis time lies within the bounded preparation window, and covered evidence contains no current completion, cancellation, or postponement contradiction
+- **THEN** C7 MAY publish `in_progress` with `basis_modality=ai_inferred`, `temporal_assertion=ongoing`, and `terminality=provisional`
+- **AND** the human explanation SHALL say that preparation is the current best explanation rather than claim observed work
+
+#### Scenario: A future flight has already been ticketed
+- **WHEN** ticket purchase or boarding-pass issuance has occurred but the departure is still later than the frozen analysis time
+- **THEN** the purchase or issuance MAY be a completed reported/observed Event while the flight WorkItem remains `planned`
+- **AND** no inference SHALL mark boarding, flight, arrival, or the containing journey completed
 
 ### Requirement: Current-contract rebase invalidates stale temporal owner outputs
 When a persisted analysis package is replaced by the current analysis

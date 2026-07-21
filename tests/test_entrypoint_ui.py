@@ -221,6 +221,8 @@ def test_entrypoint_ui_supports_standard_and_compact_cards_with_same_hero():
     assert "data-load-more" in javascript
     assert "catalog.next_offset" in javascript
     assert "items: [...existing, ...appended]" in javascript
+    assert '["matter", "work_item"].includes(nodeType)' in javascript
+    assert 'String(node.node_id || "") !== String(state.selectedMatterId)' in javascript
 
     assert "grid-template-columns: 264px minmax(0, 1fr)" in css
     assert "grid-template-columns: repeat(3, minmax(0, 360px))" in css
@@ -410,7 +412,7 @@ def test_entrypoint_ui_detail_is_a_bounded_keyboard_operable_object_view():
     assert 'class="db-graph-viewport"' in javascript
     assert 'data-graph-node="${escapeHtml(id)}"' in javascript
     assert 'data-graph-collapse="${escapeHtml(id)}"' not in javascript
-    assert '.filter((node) => String(node.node_type || "").toLowerCase() === "matter")' in javascript
+    assert '["matter", "work_item"].includes(' in javascript
     assert 'class="db-graph-minimap"' in javascript
     assert "loadNodeQuickView(graphNode, { originNodeId: graphNode })" in javascript
     assert 'class="db-node-quick-view"' in javascript

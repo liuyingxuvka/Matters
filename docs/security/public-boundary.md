@@ -8,10 +8,14 @@ MATTERS_HOME/         private live user workspace outside the repository
 MATTERS_EVAL_VAULT/   private frozen evaluation workspace outside the repository
 ```
 
-The source repository may consume only synthetic fixtures during normal
-tests, even while repository access is private. Here, `public-safe` describes
-the data boundary; it does not imply public GitHub visibility or an
-open-source license.
+The public source repository may consume only synthetic fixtures during normal
+tests. Here, `public-safe` describes the data boundary and does not by itself
+grant an OSI-approved open-source license or broader commercial rights.
+The public GitHub source checkout may retain development-only `.agents`,
+`.codex`, and `.flowguard` governance records for reproducibility. They are
+source-review material only and are excluded from the wheel, source
+distribution, Windows desktop ZIP, installed runtime, public AI gateway, and
+app-local Matters skill pack.
 The private workspace may read explicitly authorized real sources but must
 never copy them automatically into Git or the evaluation vault. Transfer from
 the private workspace to the vault requires explicit user selection. Transfer
@@ -47,6 +51,14 @@ the package view reports `not_run`. Those states are visible gaps, not passes.
 Package checks fail on both missing required projections and unexpected
 runtime or data payload, so a deleted source file cannot silently return from
 stale build output.
+Wheel, source-distribution, and Windows desktop archives are distinct package
+kinds. A desktop ZIP must carry exactly one `Matters/` application tree plus
+the portable desktop manifest and build-toolchain identity. It cannot carry
+the external self-test receipt or `direct_url.json`, and its canonical tree,
+executable, toolchain, manifest fingerprint, bilingual runtime gates, and
+privacy scan are rechecked independently. Large executable, DLL, and Python
+extension binaries are admitted as desktop payload; oversized text remains a
+failure.
 All paths written to the report use `repo://`, `private://`, `clone://`, or
 `package://` identifiers rather than machine-local paths.
 

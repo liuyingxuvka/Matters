@@ -36,6 +36,38 @@ def _digest(value: Any) -> str:
     return "sha256:" + sha256(encoded).hexdigest()
 
 
+def gmail_account_ref(account: str) -> str:
+    """Return the private-runtime opaque identity for one Gmail account."""
+
+    normalized = str(account)
+    if not normalized:
+        raise ValueError("Gmail account identity is required")
+    return "sha256:" + sha256(normalized.encode("utf-8")).hexdigest()
+
+
+def gmail_scope_id(query: str) -> str:
+    """Return the deterministic scope identity for one exact Gmail query."""
+
+    normalized = str(query)
+    if not normalized:
+        raise ValueError("Gmail query is required")
+    return "gmail-scope:" + sha256(normalized.encode("utf-8")).hexdigest()[:24]
+
+
+def gmail_message_object_id(account_ref: str, message_id: str) -> str:
+    """Project a provider message id into the canonical opaque object id."""
+
+    normalized_account = str(account_ref)
+    normalized_message = str(message_id)
+    if not normalized_account.startswith("sha256:") or not normalized_message:
+        raise ValueError("Gmail opaque account and message identities are required")
+    value = f"{normalized_account}\0message\0{normalized_message}"
+    return (
+        "gmail:message:"
+        + sha256(value.encode("utf-8")).hexdigest()[:24]
+    )
+
+
 @dataclass(frozen=True)
 class GmailReadManifest:
     scope_id: str
@@ -305,6 +337,11 @@ class GmailReadOnlyAdapter:
         return page
 
     def _opaque_id(self, object_type: str, provider_id: str) -> str:
+        if object_type == "message":
+            return gmail_message_object_id(
+                self._manifest.account_ref,
+                provider_id,
+            )
         value = (
             f"{self._manifest.account_ref}\0{object_type}\0{provider_id}"
         )
@@ -884,4 +921,7 @@ __all__ = [
     "GmailReadOnlyAdapter",
     "GmailReadResult",
     "GmailSourceUnavailable",
+    "gmail_account_ref",
+    "gmail_message_object_id",
+    "gmail_scope_id",
 ]

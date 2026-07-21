@@ -108,6 +108,11 @@ def test_install_version_authority_remains_dynamic():
     assert '$ExpectedWheelPattern = "matters-$ExpectedVersion-*.whl"' in installer
     assert 'matters_version = $ExpectedVersion' in installer
     assert "matters-0.3.0-*.whl" not in installer
+    assert '$ExpectedVersionScript | & $PythonPath - $VersionSource' in installer
+    assert '$WheelIdentityScript | & $PythonPath - ([string]$Wheel.FullName) $ExpectedVersion' in installer
+    assert '$McpValidationScript | & $PythonPath - $McpLauncher $ExpectedVersion' in installer
+    assert '$DistributionIdentityScript | & $PythonPath -' in installer
+    assert '$PythonPath -c @"' not in installer
 
 
 def test_install_build_removes_exact_repository_build_residue_first():

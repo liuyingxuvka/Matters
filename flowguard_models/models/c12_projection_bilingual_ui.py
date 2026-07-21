@@ -68,7 +68,8 @@ SPEC = FiniteModelSpec(
         "Files and information row set with folder, Gmail thread, Codex project/"
         "workspace, or provider retained as a SourceGroup column, one compact "
         "single-line truthful coverage indicator with indexed first-gap drilldown, "
-        "a pannable bounded multi-depth Matter-only hierarchy graph and one "
+        "a pannable bounded multi-depth Matter hierarchy graph with smaller "
+        "material WorkItem stage nodes and one "
         "reusable single-layer descendant quick view that keeps itemized facts, "
         "events, work, waits, and node-specific sources inside the selected Matter, an operable "
         "Images evidence gallery, labeled AI supplemental "
@@ -107,6 +108,8 @@ SPEC = FiniteModelSpec(
         "projection.analysis_owner_currentness",
         "projection.state_basis_modality",
         "projection.state_basis_scope",
+        "projection.state_terminality",
+        "projection.semantic_contract_status",
         "projection.lifecycle_visual_state",
         "ui.selected_locale",
         "ui.locale_preference",
@@ -147,6 +150,7 @@ SPEC = FiniteModelSpec(
         "ui.node_quick_view_facts",
         "ui.node_quick_view_source_groups",
         "ui.source_group_window",
+        "ui.material_stage_nodes",
     ),
     owned_write_fields=(
         "projection.localized_values",
@@ -178,6 +182,8 @@ SPEC = FiniteModelSpec(
         "projection.analysis_owner_currentness",
         "projection.state_basis_modality",
         "projection.state_basis_scope",
+        "projection.state_terminality",
+        "projection.semantic_contract_status",
         "projection.lifecycle_visual_state",
         "ui.selected_locale",
         "ui.locale_preference",
@@ -218,6 +224,7 @@ SPEC = FiniteModelSpec(
         "ui.node_quick_view_facts",
         "ui.node_quick_view_source_groups",
         "ui.source_group_window",
+        "ui.material_stage_nodes",
     ),
     side_effect_classes=(
         "projection_publish",
@@ -295,6 +302,9 @@ SPEC = FiniteModelSpec(
         "CoverageFirstGapDrilldown",
         "LifecycleVisualLanguage",
         "FilesInformationReadableTypography",
+        "MaterialWorkItemStage",
+        "ProvisionalStateBasis",
+        "LegacySemanticRecomputePending",
     ),
     rules=(
         CaseRule(
@@ -603,8 +613,10 @@ SPEC = FiniteModelSpec(
             reason=(
                 "when a finding does not declare a Matter id, its card title and "
                 "detail-only summary bind only to the unique current C6 admission owner "
-                "from the same accepted result and semantic revision; source "
-                "overlap with another Matter never selects the projection owner"
+                "from the same accepted result and canonical Matter; title and "
+                "summary may cite different current SourceVersions in a cross-source "
+                "Matter, while source overlap with another Matter never selects "
+                "the projection owner"
             ),
         ),
         CaseRule(
@@ -1336,8 +1348,98 @@ SPEC = FiniteModelSpec(
             emitted_tokens=("ExplanationView",),
             reason="paths, message ids, hashes, receipts, tokens, and internal model ids are hidden",
         ),
+        CaseRule(
+            case_id="material_work_item_stage_projected",
+            decision="small_stage_node_rendered_without_matter_promotion",
+            label="small_stage_node_rendered_without_matter_promotion",
+            writes=("ui.situation_graph_view_state", "ui.material_stage_nodes"),
+            side_effects=("ui_window_write",),
+            emitted_tokens=("SituationGraphView", "MaterialWorkItemStage"),
+            reason=(
+                "a required stage-changing WorkItem with distinct status and "
+                "time/result is rendered as a smaller node while retaining "
+                "node_type=work_item, staying out of Matter counts, and accepting no descendants"
+            ),
+        ),
+        CaseRule(
+            case_id="provisional_inferred_state_projected",
+            decision="state_and_ai_basis_rendered_separately",
+            label="state_and_ai_basis_rendered_separately",
+            writes=(
+                "projection.state_basis_modality",
+                "projection.state_basis_scope",
+                "projection.state_terminality",
+                "projection.lifecycle_visual_state",
+            ),
+            side_effects=("projection_publish",),
+            emitted_tokens=("LifecycleVisualLanguage", "ProvisionalStateBasis"),
+            reason=(
+                "in-progress current-phase inference and completed historical "
+                "inference retain human lifecycle wording while AI basis and "
+                "provisional terminality remain visible and revisable"
+            ),
+        ),
+        CaseRule(
+            case_id="legacy_semantic_basis_missing",
+            decision="legacy_row_visible_pending_original_owner_recompute",
+            label="legacy_row_visible_pending_original_owner_recompute",
+            writes=(
+                "projection.state_basis_modality",
+                "projection.state_basis_scope",
+                "projection.state_terminality",
+                "projection.semantic_contract_status",
+                "projection.lifecycle_visual_state",
+                "ui.node_quick_view_state",
+            ),
+            side_effects=("projection_publish", "ui_window_write"),
+            emitted_tokens=(
+                "LifecycleVisualLanguage",
+                "ProvisionalStateBasis",
+                "LegacySemanticRecomputePending",
+                "NodeQuickView",
+            ),
+            reason=(
+                "an older visible Matter or WorkItem with missing orthogonal "
+                "semantic fields keeps its available lifecycle value, projects "
+                "the missing basis as unknown and terminality as provisional, "
+                "and remains pending append-only recomputation by the original "
+                "owners; C12 never derives modality from lifecycle state"
+            ),
+        ),
     ),
     hazards=(
+        HazardSpec(
+            failure_id="H-C12-061-legacy-lifecycle-invents-modality",
+            protected_error_class="legacy_semantic_basis_invention",
+            description=(
+                "a restored legacy row with no evidence-basis field is labeled "
+                "reported, observed, planned, or AI-inferred from its lifecycle state"
+            ),
+            protected_harm=(
+                "old data appears fully current and the user cannot distinguish "
+                "preserved history from a recomputed semantic revision"
+            ),
+            case_id="legacy_semantic_basis_missing",
+            broken_decision="legacy_lifecycle_reused_as_modality",
+            broken_writes=(
+                "projection.state_basis_modality",
+                "projection.semantic_contract_status",
+                "ui.node_quick_view_state",
+            ),
+            broken_side_effects=("projection_publish", "ui_window_write"),
+            broken_tokens=("LegacySemanticRecomputePending",),
+        ),
+        HazardSpec(
+            failure_id="H-C12-049-bounded-summary-writes-state",
+            protected_error_class="projection_state_owner_bypass",
+            description="a bounded summary or UI payload writes canonical lifecycle state",
+            protected_harm="AI wording bypasses C7/C9 and moves cards between state groups",
+            case_id="provisional_inferred_state_projected",
+            broken_decision="summary_state_accepted",
+            broken_writes=("projection.lifecycle_visual_state",),
+            broken_side_effects=("projection_publish",),
+            broken_tokens=("ProjectionWriteAccepted",),
+        ),
         HazardSpec(
             failure_id="H-C12-042-projection-id-becomes-canonical-matter",
             protected_error_class="projection_identity_canonicalization_escape",
@@ -2117,6 +2219,28 @@ SPEC = FiniteModelSpec(
             ),
             broken_side_effects=("supplemental_research_queue",),
             broken_tokens=("SupplementalResearchQueued",),
+        ),
+        HazardSpec(
+            failure_id="H-C12-063-cross-source-title-summary-false-block",
+            protected_error_class="cross_source_projection_owner_false_block",
+            description=(
+                "a valid same-result title and bounded summary for one canonical "
+                "Matter are rejected only because they cite different current "
+                "SourceVersions"
+            ),
+            protected_harm=(
+                "multi-source Matters reach every semantic owner but remain absent "
+                "or stale in the object browser"
+            ),
+            case_id="matter_card_same_result_owner_binding_current",
+            broken_decision="same_source_revision_join_required",
+            broken_writes=(
+                "projection.localized_values",
+                "projection.equivalence_status",
+                "ui.catalog_window",
+            ),
+            broken_side_effects=("projection_publish", "ui_window_write"),
+            broken_tokens=("MatterCard",),
         ),
         HazardSpec(
             failure_id="H-C12-058-coverage-green-with-unprocessed-ui-gap",

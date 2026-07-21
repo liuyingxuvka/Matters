@@ -837,7 +837,7 @@
     "hazard_green"
   ],
   "function_signature": "S2_skill_compatibility: CaseInput x ModelState -> Set(DecisionOutput x ModelState)",
-  "generated_at": "2026-07-21T09:47:32.489253+00:00",
+  "generated_at": "2026-07-21T11:36:54.963091+00:00",
   "known_bad_proofs": [
     {
       "evidence_id": "S2_skill_compatibility:known-bad:H-S2-001-hash-collision-accepted",

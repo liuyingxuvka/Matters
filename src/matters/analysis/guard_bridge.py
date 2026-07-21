@@ -3,8 +3,9 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
+from typing import NoReturn
 
-from matters.analysis.forecasts import Forecast
+from matters.analysis.forecasts import reject_weak_forecast_entrypoint
 from matters.analysis.guard_receipts import GuardReceipt
 
 
@@ -22,7 +23,6 @@ class GuardArtifact:
 @dataclass
 class GuardBridge:
     _artifacts: list[GuardArtifact] = field(default_factory=list)
-    _forecasts: list[Forecast] = field(default_factory=list)
 
     def register(
         self,
@@ -45,9 +45,9 @@ class GuardBridge:
         self._artifacts.append(artifact)
         return artifact
 
-    def register_forecast(self, forecast: Forecast) -> Forecast:
-        self._forecasts.append(forecast)
-        return forecast
+    def register_forecast(self, _forecast: object) -> NoReturn:
+        """Reject the retired shortcut instead of keeping a second prediction owner."""
+        reject_weak_forecast_entrypoint()
 
     @staticmethod
     def write_canonical(*_args, **_kwargs) -> None:

@@ -1,12 +1,12 @@
 {
   "artifact_type": "matters.flowguard-model-receipt.v1",
-  "claim_boundary": "This receipt can establish C8 abstract wait, closure, child-role, and blocking-scope rollup hazards. It does not establish real dependency criticality, notification delivery, hierarchy completeness, or parent liveness.",
-  "evidence_id": "evidence:C8_open_loop_waiting_blocking:87ab92d77bb88b87",
+  "claim_boundary": "This receipt can establish C8 abstract wait, closure, stable semantic open-loop identity, exact supersession, child-role, and blocking-scope rollup hazards. It does not establish real dependency criticality, notification delivery, hierarchy completeness, or parent liveness.",
+  "evidence_id": "evidence:C8_open_loop_waiting_blocking:35fb1bc35def79c1",
   "evidence_tiers": [
     "abstract_green",
     "hazard_green"
   ],
-  "generated_at": "2026-07-21T09:45:45.632641+00:00",
+  "generated_at": "2026-07-21T17:13:55.892981+00:00",
   "known_bad_proofs": [
     {
       "evidence_id": "C8_open_loop_waiting_blocking:known-bad:H-C8-001-wait-without-closure-condition",
@@ -37,9 +37,15 @@
       "failure_id": "H-C8-005-optional-child-fully-blocks-parent",
       "observed_status": "failed",
       "protected_error_class": "optional_child_blocking_scope_expansion"
+    },
+    {
+      "evidence_id": "C8_open_loop_waiting_blocking:known-bad:H-C8-006-same-semantic-role-duplicates-open-loop",
+      "failure_id": "H-C8-006-same-semantic-role-duplicates-open-loop",
+      "observed_status": "failed",
+      "protected_error_class": "open_loop_semantic_identity_duplication"
     }
   ],
-  "model_fingerprint": "sha256:87ab92d77bb88b87bad1476e4fcf6456cb4a415beaba35ddb2f336ba7860431c",
+  "model_fingerprint": "sha256:35fb1bc35def79c1cdfc7557aba17803cf13eb7ac0cc52e23428a0162af5e560",
   "model_id": "C8_open_loop_waiting_blocking",
   "model_title": "C8 Open Loop / Waiting / Blocking",
   "overall_status": "pass_with_gaps",

@@ -597,6 +597,17 @@ class SQLiteStore:
             self._connection_state.connection = None
             connection.close()
 
+    def in_atomic_transaction(self) -> bool:
+        return bool(
+            getattr(self._connection_state, "connection", None)
+            is not None
+            and getattr(
+                self._connection_state,
+                "atomic_transaction",
+                False,
+            )
+        )
+
     @contextmanager
     def connection_session(self) -> Iterator[None]:
         """Reuse one connection across many individually committed methods."""
@@ -5345,6 +5356,243 @@ class SQLiteStore:
         return {
             "status": "appended" if receipt_changed else "current",
             "coverage_revision": next_coverage_revision,
+        }
+
+    def gmail_manifest_coverage_snapshot(
+        self,
+        *,
+        object_ids: Iterable[str],
+        scope_ids: Iterable[str],
+        stage_order: Iterable[str],
+        batch_size: int = 200,
+    ) -> dict[str, Any]:
+        """Aggregate one manifest membership set through indexed owners.
+
+        This read-only projection deliberately returns no object, scope, source,
+        Matter, or provider message identifiers.  Callers receive only counts
+        and deterministic set fingerprints.
+        """
+
+        objects = tuple(dict.fromkeys(str(item) for item in object_ids if str(item)))
+        scopes = tuple(dict.fromkeys(str(item) for item in scope_ids if str(item)))
+        stages = tuple(dict.fromkeys(str(item) for item in stage_order if str(item)))
+        if (
+            not objects
+            or not scopes
+            or len(objects) > 100_000
+            or len(scopes) > 100
+            or batch_size < 1
+            or batch_size > 500
+            or any(not item.startswith("gmail:message:") for item in objects)
+        ):
+            raise ValueError("Gmail manifest coverage audit bounds are invalid")
+
+        def batches(values: tuple[str, ...]) -> Iterator[tuple[str, ...]]:
+            for start in range(0, len(values), batch_size):
+                yield values[start : start + batch_size]
+
+        def fingerprint(values: Iterable[str]) -> str:
+            return "sha256:" + sha256(
+                _canonical_json(sorted(set(values))).encode("utf-8")
+            ).hexdigest()
+
+        expected = set(objects)
+        fixed_hits: set[str] = set()
+        fixed_occurrences = 0
+        inventory_scopes: dict[str, set[str]] = {}
+        inventory_dispositions: dict[str, dict[str, int]] = {}
+        coverage_hits: set[str] = set()
+        coverage_dispositions: dict[str, int] = {}
+        next_stage_counts: dict[str, int] = {}
+        terminal_count = ui_ready_count = blocked_count = 0
+        stage_counts: dict[str, dict[str, int]] = {
+            stage_id: {} for stage_id in stages
+        }
+        matter_linked: set[str] = set()
+        matter_ids: set[str] = set()
+        matter_stage_counts: dict[str, int] = {}
+
+        with self.connection() as connection:
+            for scope_id in scopes:
+                for batch in batches(objects):
+                    placeholders = ",".join("?" for _ in batch)
+                    rows = connection.execute(
+                        "SELECT object_id FROM inventory_occurrence_current "
+                        "WHERE scope_id=? AND object_id IN ("
+                        + placeholders
+                        + ")",
+                        (scope_id, *batch),
+                    ).fetchall()
+                    fixed_occurrences += len(rows)
+                    fixed_hits.update(str(row[0]) for row in rows)
+
+            for batch in batches(objects):
+                placeholders = ",".join("?" for _ in batch)
+                inventory_rows = connection.execute(
+                    "SELECT object_id, scope_id, disposition "
+                    "FROM inventory_occurrence_current WHERE object_id IN ("
+                    + placeholders
+                    + ")",
+                    batch,
+                ).fetchall()
+                for object_id, scope_id, disposition in inventory_rows:
+                    normalized_id = str(object_id)
+                    inventory_scopes.setdefault(normalized_id, set()).add(
+                        str(scope_id)
+                    )
+                    per_object = inventory_dispositions.setdefault(
+                        normalized_id,
+                        {},
+                    )
+                    normalized_disposition = str(disposition)
+                    per_object[normalized_disposition] = (
+                        per_object.get(normalized_disposition, 0) + 1
+                    )
+
+                coverage_rows = connection.execute(
+                    "SELECT object_id, disposition, next_stage, terminal, "
+                    "ui_ready, blocked, active FROM coverage_stage_index "
+                    "WHERE object_id IN ("
+                    + placeholders
+                    + ")",
+                    batch,
+                ).fetchall()
+                for (
+                    object_id,
+                    disposition,
+                    next_stage,
+                    terminal,
+                    ui_ready,
+                    blocked,
+                    active,
+                ) in coverage_rows:
+                    if not bool(active):
+                        continue
+                    normalized_id = str(object_id)
+                    coverage_hits.add(normalized_id)
+                    normalized_disposition = str(disposition)
+                    coverage_dispositions[normalized_disposition] = (
+                        coverage_dispositions.get(normalized_disposition, 0) + 1
+                    )
+                    normalized_next = str(next_stage) or "terminal"
+                    next_stage_counts[normalized_next] = (
+                        next_stage_counts.get(normalized_next, 0) + 1
+                    )
+                    terminal_count += int(bool(terminal))
+                    ui_ready_count += int(bool(ui_ready))
+                    blocked_count += int(bool(blocked))
+
+                status_rows = connection.execute(
+                    "SELECT object_id, stage_id, status "
+                    "FROM coverage_stage_status_index WHERE object_id IN ("
+                    + placeholders
+                    + ")",
+                    batch,
+                ).fetchall()
+                for object_id, stage_id, status in status_rows:
+                    if str(object_id) not in coverage_hits:
+                        continue
+                    normalized_stage = str(stage_id)
+                    if normalized_stage not in stage_counts:
+                        continue
+                    normalized_status = str(status)
+                    counts = stage_counts[normalized_stage]
+                    counts[normalized_status] = counts.get(normalized_status, 0) + 1
+
+                link_rows = connection.execute(
+                    "SELECT object_id, matter_id FROM coverage_matter_index "
+                    "WHERE object_id IN (" + placeholders + ")",
+                    batch,
+                ).fetchall()
+                for object_id, matter_id in link_rows:
+                    if str(object_id) not in coverage_hits:
+                        continue
+                    matter_linked.add(str(object_id))
+                    matter_ids.add(str(matter_id))
+
+            for batch in batches(tuple(sorted(matter_ids))):
+                placeholders = ",".join("?" for _ in batch)
+                rows = connection.execute(
+                    "SELECT next_stage, terminal, ui_reachable, blocked "
+                    "FROM matter_hierarchy_stage_index WHERE matter_id IN ("
+                    + placeholders
+                    + ")",
+                    batch,
+                ).fetchall()
+                for next_stage, terminal, ui_reachable, blocked in rows:
+                    key = "|".join(
+                        (
+                            str(next_stage) or "terminal",
+                            "terminal" if bool(terminal) else "open",
+                            "ui_reachable" if bool(ui_reachable) else "ui_pending",
+                            "blocked" if bool(blocked) else "unblocked",
+                        )
+                    )
+                    matter_stage_counts[key] = matter_stage_counts.get(key, 0) + 1
+
+        inventory_hits = set(inventory_scopes)
+        manifest_only = expected - coverage_hits
+        for stage_id, counts in stage_counts.items():
+            indexed = sum(counts.values())
+            not_required = len(coverage_hits) - indexed
+            if not_required:
+                counts["not_required"] = not_required
+            if manifest_only:
+                counts["manifest_only"] = len(manifest_only)
+            stage_counts[stage_id] = dict(sorted(counts.items()))
+
+        ambiguous_inventory = {
+            object_id
+            for object_id, bound_scopes in inventory_scopes.items()
+            if len(bound_scopes) > 1
+        }
+        conflicting_dispositions = {
+            object_id
+            for object_id, dispositions in inventory_dispositions.items()
+            if len(dispositions) > 1
+        }
+        return {
+            "expected_identity_count": len(expected),
+            "fixed_scope": {
+                "scope_count": len(scopes),
+                "inventory_identity_count": len(fixed_hits),
+                "inventory_occurrence_count": fixed_occurrences,
+                "missing_identity_count": len(expected - fixed_hits),
+                "set_equal": fixed_hits == expected,
+            },
+            "cross_scope": {
+                "inventory_identity_count": len(inventory_hits),
+                "cross_scope_only_identity_count": len(inventory_hits - fixed_hits),
+                "missing_identity_count": len(expected - inventory_hits),
+                "ambiguous_identity_count": len(ambiguous_inventory),
+                "conflicting_disposition_identity_count": len(
+                    conflicting_dispositions
+                ),
+            },
+            "coverage": {
+                "identity_count": len(coverage_hits),
+                "missing_identity_count": len(expected - coverage_hits),
+                "set_equal": coverage_hits == expected,
+                "disposition_counts": dict(sorted(coverage_dispositions.items())),
+                "next_stage_counts": dict(sorted(next_stage_counts.items())),
+                "terminal_identity_count": terminal_count,
+                "ui_ready_identity_count": ui_ready_count,
+                "blocked_identity_count": blocked_count,
+            },
+            "stage_counts": stage_counts,
+            "matter_modeling": {
+                "linked_identity_count": len(matter_linked),
+                "distinct_matter_count": len(matter_ids),
+                "stage_counts": dict(sorted(matter_stage_counts.items())),
+            },
+            "set_fingerprints": {
+                "expected": fingerprint(expected),
+                "fixed_scope_inventory": fingerprint(fixed_hits),
+                "cross_scope_inventory": fingerprint(inventory_hits),
+                "cross_scope_ambiguous": fingerprint(ambiguous_inventory),
+                "coverage": fingerprint(coverage_hits),
+                "manifest_only": fingerprint(manifest_only),
+            },
         }
 
     def coverage_index_page(

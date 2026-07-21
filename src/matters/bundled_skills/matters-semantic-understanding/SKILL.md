@@ -70,26 +70,66 @@ folder, person, date, or filename is context, not by itself proof of a
 parent-child relationship. The original owner validates every proposed edge
 and emits the hierarchy audit.
 
+For every `work_item_candidate` and `open_loop_candidate` in a cross-source
+Matter refresh, emit one stable, language-neutral `semantic_role_key` such as
+`registration`, `preparation`, `submission`, or `submission-receipt`. Reuse the
+current object identity for that role. When earlier analysis created duplicate
+identities, list only the exact current duplicates in `supersedes_item_ids` or
+`supersedes_loop_ids`; never infer replacement from title similarity. A later
+refresh revises the one surviving object and leaves append-only retirement
+history instead of creating another peer row.
+
 Every `matter_candidate` must provide evidence-bound `context_signals` using
 only goal, subject, outcome, person, time, source-neighborhood,
 provider-thread, repository/project, or Codex-workspace kinds, plus an explicit
-granularity assessment. One weak signal never licenses merge or containment.
+granularity assessment. A Matter requires a stable semantic identity, an
+independently useful goal or obligation, and at least one independently useful
+lifecycle state, outcome, or next step. The assessment must explain why the
+candidate is not merely a WorkItem, Event, source, or the same Matter as a
+current candidate. A single message, payment, upload, reminder, check-in, or
+other one-step occurrence is never a Matter by itself. One weak signal never
+licenses merge or containment. If the scale signals conflict, return an
+uncertain granularity disposition instead of admitting a Matter.
 Every `material_clue_candidate` must separate `user_world_at` from backend
 processing time; scans, retries, translation, hero generation, and rewording
 are never material activity.
 
-Separate historical inference from future forecasting:
+Model five orthogonal axes instead of deriving one from another:
+
+- `object_kind`: Matter, WorkItem, Event, or Evidence;
+- `temporal_assertion`: planned, ongoing, occurred, or unknown;
+- `basis_modality`: observed, reported, planned, or AI inferred;
+- `workflow_state`: planned, in progress, completed, cancelled, or uncertain;
+- `terminality`: confirmed or provisional.
+
+Separate historical inference, current-phase inference, and future forecasting:
 
 - `observed` and `reported` facts stay observed/reported; never relabel a
   boarding-pass issue, purchase receipt, or recorded message as AI inference.
 - `planned` future events stay planned. Never emit an inferred event,
   WorkItem, lifecycle, or outcome whose target time is after the package
   `analysis_as_of`.
-- An inferred event, WorkItem, lifecycle, or outcome is allowed only to fill a
-  necessary gap in the past. It must declare
+- An inferred Event or outcome is allowed only to fill a necessary gap in the
+  past. An inferred historical WorkItem or lifecycle state follows the same
+  rule. It must declare
   `temporal_direction=past`, `inference_purpose=historical_gap_fill`, the exact
   package `inference_as_of`, a past `target_time`, `revisable=true`, and one or
-  more `contradiction_triggers`.
+  more `contradiction_triggers`, together with bounded confidence, supporting
+  signals, counter-signals when present, a coverage boundary, alternatives,
+  and an expiry. A historical completion remains
+  `terminality=provisional` and must be visibly labeled as AI historical
+  inference.
+- A current WorkItem or lifecycle phase may be inferred only when a completed
+  prerequisite is evidenced, required work remains, the package analysis time
+  lies inside an explicit active window, and cancellation, completion, or
+  postponement contradictions have been checked. It declares
+  `temporal_direction=present`, `temporal_assertion=ongoing`,
+  `inference_purpose=current_phase`, `revisable=true`, prerequisite evidence
+  ids, remaining obligation ids, active-window bounds, support, coverage,
+  alternatives, expiry, `contradiction_checked=true`, and contradiction
+  triggers. This is a provisional
+  estimate of the current phase, never an assertion that future work already
+  happened.
 - A future forecast belongs to the separate C11 Situation/World Model lane.
   It is advisory, explicitly testable, expiring, and unable to write Matter,
   Event, WorkItem, lifecycle, or outcome state. A later contradiction triggers
@@ -123,6 +163,11 @@ or visual images remain in the Images evidence gallery. Mail screenshots,
 rendered email bodies, TXT/document previews, forms, tickets rendered as text
 pages, and generic file screenshots are not Images. Generated Heroes remain
 presentation assets and never enter the source Images gallery.
+
+The Matter graph may promote a bounded WorkItem to a smaller material-stage
+node when it is required for the parent and has a meaningful lifecycle or time
+boundary. That promotion is presentation only: it never changes the WorkItem
+into a Matter. Minor actions remain inside the one-layer quick view.
 
 ## Hard boundaries
 

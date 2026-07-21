@@ -7,15 +7,16 @@ configured `MATTERS_HOME` outside the source checkout and package build roots.
 
 ## Supported version
 
-The private-repository 0.3.x release line is the only supported line.
+The public source-available 0.3.x release line is the only supported line.
 
 ## Reporting a vulnerability
 
 Do not put private data into an issue, release, log, or reproduction fixture.
-Report a vulnerability through a private channel agreed with the repository
-owner and include only the minimum synthetic information needed to reproduce
-the issue. The repository and releases remain private and proprietary unless a
-later decision explicitly establishes a public security and license policy.
+Open a GitHub security advisory for the repository owner and include only the
+minimum synthetic information needed to reproduce the issue. Do not open a
+public issue when a report contains an unpatched vulnerability, credentials, or
+private data. The repository is public and source-available but remains
+proprietary under `LICENSE`.
 
 ## Security boundaries
 

@@ -24,7 +24,7 @@ from flowguard_design.inventory import MODELS
 
 
 LEDGER_PATH = Path(".flowguard/behavior_commitment_ledger/ledger.json")
-REVISION = "v0.3.0-matter-browser-semantic-reset-v8"
+REVISION = "v0.3.0-matter-browser-semantic-reset-v9"
 
 UPDATES: dict[str, dict[str, object]] = {
     "BC-PR-000": {
@@ -133,8 +133,12 @@ UPDATES: dict[str, dict[str, object]] = {
     "BC-PR-005": {
         "label": "reconstruct a human-readable logical-event trace and current MaterialClue activity while preserving conflict",
         "expected_result": (
-            "typed planned, reported, observed, or inferred events with record/occurred "
-            "times separated, conflicts retained, plus materiality disposition, rationale, "
+            "typed planned, reported, observed, or AI-inferred events with object kind, "
+            "temporal assertion, basis modality, workflow state, and terminality kept "
+            "independent; record/occurred times stay separated, future ticket or "
+            "boarding-pass issuance never completes its future activity, historical "
+            "gap fills retain their full revisable inference contract and conflicts, "
+            "plus materiality disposition, rationale, "
             "latest_meaningful_clue_at, logical_event_key, one current revision with "
             "supersession history, and bounded ancestor activity propagation; events "
             "enter one versioned internal SituationGraph projection without changing C5 "
@@ -145,11 +149,16 @@ UPDATES: dict[str, dict[str, object]] = {
         "label": "autonomously admit, relate, graph, exclude, or preserve uncertainty for Matters",
         "expected_result": (
             "admitted, source_only, not_applicable, uncertain, or blocked Matter disposition "
+            "under a strict scale contract requiring stable identity, an independent goal "
+            "or obligation, and at least one independent lifecycle, outcome, or next-step "
+            "dimension; single messages, payments, uploads, reminders, check-ins, and "
+            "one-time occurrences remain WorkItems or Events; "
             "plus current Matter-source relations; hierarchy, coverage, lifecycle, activity, "
             "and projection use only the exact current C6-admitted matter_id; one bounded "
             "internal SituationGraphSnapshot may include WorkItems, Events, and inference, "
-            "while the ordinary UI MatterHierarchyProjection contains Matter nodes only "
-            "with primary containment and typed Matter-to-Matter secondary relations; "
+            "while the ordinary UI MatterHierarchyProjection contains all Matter nodes plus "
+            "only bounded required material WorkItem stage nodes, with primary Matter "
+            "containment and typed secondary relations; "
             "travel/software portfolio roots and cross-domain relations are reconciled; "
             "when one same-Matter source refresh makes a sibling package stale, that "
             "package is append-only superseded and exactly one exact-current successor "
@@ -165,9 +174,12 @@ UPDATES: dict[str, dict[str, object]] = {
     "BC-PR-007": {
         "label": "autonomously maintain evidence-licensed lifecycle and board placement",
         "expected_result": (
-            "planned, in_progress, completed, provisional/ai_inferred, uncertain, or blocked "
-            "lifecycle axes with rationale, coverage-bounded gaps, a stable lifecycle "
-            "display key separate from reported/observed/inferred modality, and no UI-owned write path"
+            "planned, in_progress, completed, cancelled, uncertain, or blocked workflow "
+            "state with independent basis modality, temporal assertion, and confirmed or "
+            "provisional terminality; a current-phase inference is licensed only by an "
+            "evidenced completed prerequisite, remaining obligation, active window, "
+            "contradiction review, and complete expiring inference contract; rationale, "
+            "coverage-bounded gaps, a stable lifecycle display key, and no UI-owned write path"
         ),
     },
     "BC-PR-008": {
@@ -180,7 +192,10 @@ UPDATES: dict[str, dict[str, object]] = {
         "label": "autonomously maintain outcomes while preserving completion gaps and conflict",
         "expected_result": (
             "completed, cancelled, abandoned, reopened, completion_unproven, or "
-            "outcome_conflict terminal disposition"
+            "outcome_conflict disposition; confirmed completion requires current licensed "
+            "observed/reported criteria, while a fully licensed past gap fill may display "
+            "completed only as provisional AI historical inference and can never close a "
+            "parent or authorize irreversible effects"
         ),
     },
     "BC-PR-010": {
@@ -196,7 +211,9 @@ UPDATES: dict[str, dict[str, object]] = {
         "label": "validate typed AI findings and automatically dispatch them to original owners",
         "expected_result": (
             "WorkPackageV2 results with complete input accounting, bilingual typed "
-            "findings, no-finding/policy-rejected outcomes, human Matter narratives, "
+            "findings, strict Matter-versus-WorkItem/Event/source granularity explanations, "
+            "orthogonal time/basis/state/terminality fields, complete historical-gap or "
+            "current-phase inference contracts, no-finding/policy-rejected outcomes, human Matter narratives, "
             "privacy-minimized root-only photographic Hero briefs/results, Situation/World "
             "Model hypotheses with confidence/alternatives/expiry, nonempty-or-explicitly-"
             "unavailable supplemental-information, one idempotent root-only "
@@ -215,10 +232,13 @@ UPDATES: dict[str, dict[str, object]] = {
             "every search/filter, with en/zh-CN atomic summary/activity content, Start-time "
             "filter, summary-free Standard/Compact cards retaining the same visible root "
             "photographic Hero (with metrics only in Standard), exactly eight detail sections "
-            "with a minimal human Overview, one multi-depth Matter-only Sub-matters graph, "
+            "with a minimal human Overview, one multi-depth Matter graph that may include "
+            "smaller bounded material WorkItem stage nodes without promoting them to Matters, "
             "one reusable node quick view containing itemized facts/events/work/waits and "
             "node-specific flat sources, grouped folder/Gmail-thread/Codex-project/provider "
-            "source locations, logical-event-deduplicated timeline, nonempty-or-explicitly-"
+            "source locations, logical-event-deduplicated timeline, visible provisional "
+            "AI historical/current-phase labels, C7/C9-owned card state that ignores summary "
+            "wording as state authority, nonempty-or-explicitly-"
             "unavailable AI supplemental information with automatic root-only A1 "
             "queuing and descendant not-applicable disposition, an evidence-only Images gallery, "
             "separate lifecycle and reported/observed/inferred modality labels, compact "
@@ -296,7 +316,7 @@ UPDATES: dict[str, dict[str, object]] = {
             "before the private first run"
         ),
         "expected_result": (
-            "one private GitHub repository release whose commit, v0.3.0 tag, "
+            "one public source-available GitHub repository release whose commit, v0.3.0 tag, "
             "wheel, source distribution, Windows desktop package, installed "
             "Python and desktop identities, matters-mcp AI gateway, model/test "
             "receipts, public-safe inventory, and anonymous recheck agree "
@@ -309,7 +329,7 @@ UPDATES: dict[str, dict[str, object]] = {
         "trigger": (
             "generic source, model, TestMesh, UI, privacy, package, desktop, "
             "MCP, bundled-skill, and ResearchGuard identities are current and "
-            "the user authorizes liuyingxuvka/Matters as a private v0.3.0 release"
+            "the user authorizes liuyingxuvka/Matters as a public source-available v0.3.0 release"
         ),
         "failure_boundary": (
             "private Gmail, filesystem, Codex-project, aggregate, receipt, "
@@ -753,11 +773,12 @@ def main() -> int:
             )
         elif commitment_id == "BC-DP-003":
             row["rationale"] = (
-                "This is the single generic private-repository publication path. "
+                "This is the single generic public source-available repository publication path. "
                 "It closes before, and never consumes, the separate private first run."
             )
             row["side_effects"] = [
-                "push approved generic public-safe source to the private remote",
+                "stop only the exact prior Matters-managed desktop process tree",
+                "push approved generic public-safe source to the public remote",
                 "create the v0.3.0 tag and GitHub Release",
                 "publish the wheel, source distribution, Windows desktop package, and checksums",
             ]
@@ -772,6 +793,7 @@ def main() -> int:
                 "release.private_first_run_separation",
                 "release.package_identity",
                 "release.desktop_identity",
+                "release.desktop_process_handoff",
                 "release.ai_gateway_identity",
                 "release.git_identity",
                 "release.status",
@@ -781,6 +803,9 @@ def main() -> int:
                     "installed_version_stale",
                     "matters_mcp_missing",
                     "desktop_package_incomplete",
+                    "desktop_release_archive_privacy_invalid",
+                    "desktop_release_archive_identity_mismatch",
+                    "prior_desktop_process_tree_still_running_after_install",
                     "private_aggregate_must_not_be_consumed_by_generic_release",
                 ],
                 "metadata": {},
@@ -789,13 +814,15 @@ def main() -> int:
                     "docs/security/public-boundary.md",
                     "plugins/matters/**",
                     "scripts/build_desktop_package.ps1",
+                    "scripts/build_desktop_release_archive.py",
+                    "scripts/check_public_boundary.py",
                     "scripts/install_desktop_package.ps1",
                     ".github/**",
                     "SECURITY.md",
                 ],
                 "task_terms": [
                     "generic release",
-                    "private GitHub",
+                    "public GitHub",
                     "v0.3.0",
                     "tag",
                     "wheel",
@@ -807,7 +834,7 @@ def main() -> int:
                     "anonymous download",
                 ],
                 "tool_ids": ["git", "github-release", "matters-mcp"],
-                "workflow_families": ["generic_private_repository_release"],
+                "workflow_families": ["generic_public_source_available_release"],
             }
             authority["business_intent"] = (
                 "publish generic v0.3.0 before the private first run"
@@ -820,6 +847,20 @@ def main() -> int:
                 "desktop/MCP, TestMesh, Git/tag, privacy, and publication evidence; "
                 "private-first-run completion is explicitly not required"
             )
+            row["failure_boundary"] = (
+                "private Gmail, filesystem, Codex-project, aggregate, receipt, "
+                "screenshot, identifier, or first-run completion evidence cannot "
+                "enter or gate the generic release; candidate drift, unexpected "
+                "build-environment packages, missing matters-mcp, incomplete "
+                "bundled skills, a surviving prior managed desktop process tree, "
+                "mismatched tag/install/assets, a non-public remote, or a "
+                "README/license boundary mismatch blocks publication"
+            )
+            row["validation_boundary"] = (
+                "public inventory, history/privacy/license scans, clean-clone CI, "
+                "frozen full verification, exact prior managed desktop process-tree "
+                "shutdown, release identity, and anonymous post-release recheck"
+            )
         elif commitment_id == "BC-DP-004":
             _append_unique(
                 row,
@@ -830,16 +871,12 @@ def main() -> int:
                         "The authorized private first run starts against the "
                         "already released generic v0.3.0 contract."
                     ),
-                    "relation_type": "requires_evidence_from",
+                    "relation_type": "depends_on",
                     "target_commitment_id": "BC-DP-003",
                 },
             )
         elif commitment_id == "BC-PR-002":
-            row["state_writes"] = [
-                value
-                for value in row.get("state_writes", ())
-                if not str(value).startswith("visual_asset.")
-            ] + [
+            current_source_writes = {
                 "gallery_asset.identity",
                 "gallery_asset.derivative_revision",
                 "gallery_asset.renderer_identity",
@@ -858,7 +895,13 @@ def main() -> int:
                 "source.unavailable_status",
                 "source.source_group_identity",
                 "source.source_group_membership_revision",
-            ]
+            }
+            row["state_writes"] = [
+                value
+                for value in row.get("state_writes", ())
+                if not str(value).startswith("visual_asset.")
+                and value not in current_source_writes
+            ] + sorted(current_source_writes)
         elif commitment_id == "BC-PR-003":
             row["state_writes"] = [
                 value
@@ -1023,6 +1066,22 @@ def main() -> int:
         }:
             owner_model_id = str(row.get("primary_owner_model_id", ""))
             row["state_writes"] = list(MODELS[owner_model_id].owned_write_fields)
+
+    for surface in ledger["source_surfaces"]:
+        if "BC-DP-003" in surface.get("commitment_ids", ()):
+            surface["primary_path_id"] = (
+                "path:dpf-generic-v030-release-before-private-first-run"
+            )
+
+    for row in ledger["commitments"]:
+        if row.get("commitment_id") != "BC-AO-004":
+            continue
+        for relation in row.get("relations", ()):
+            if relation.get("target_commitment_id") in {
+                "BC-PR-012",
+                "BC-AO-003",
+            }:
+                relation["relation_type"] = "invokes"
 
     payload = behavior_commitment_ledger_to_mapping(
         BehaviorCommitmentLedger(**payload["ledger"])

@@ -75,7 +75,10 @@ def _require_external_path(
 
 def _tree_sha256(root: Path) -> str:
     rows: list[str] = []
-    for path in sorted(item for item in root.rglob("*") if item.is_file()):
+    for path in sorted(
+        (item for item in root.rglob("*") if item.is_file()),
+        key=lambda item: PurePosixPath(item.relative_to(root).as_posix()).as_posix(),
+    ):
         relative = PurePosixPath(path.relative_to(root).as_posix())
         rows.append(f"{relative}\t{_sha256_file(path)[7:]}")
     if not rows:

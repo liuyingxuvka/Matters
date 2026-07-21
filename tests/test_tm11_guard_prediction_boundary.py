@@ -1,4 +1,8 @@
-from matters.analysis.forecasts import Forecast
+from matters.analysis.forecasts import (
+    Forecast,
+    ForecastEntryPointRetiredError,
+    WORLD_MODEL_PREDICTION_OWNER,
+)
 from matters.analysis.guard_bridge import GuardBridge
 from matters.analysis.guard_receipts import GuardReceipt
 from matters.analysis.operations import (
@@ -22,7 +26,7 @@ def _receipt(**changes):
     return GuardReceipt(**values)
 
 
-def test_guard_is_advisory_stale_is_rejected_and_forecast_is_separate():
+def test_guard_is_advisory_and_stale_is_rejected():
     bridge = GuardBridge()
     current = bridge.register(
         artifact_id="a",
@@ -38,10 +42,8 @@ def test_guard_is_advisory_stale_is_rejected_and_forecast_is_separate():
         statement="old blocker",
         receipt=_receipt(current_source_revision="s2"),
     )
-    forecast = bridge.register_forecast(Forecast("f", "m", "possible delay", "30d"))
     assert current.status == "accepted" and current.advisory_only
     assert stale.status == "stale_or_nonterminal"
-    assert forecast.statement == "possible delay"
     progress = bridge.register(
         artifact_id="c",
         matter_id="m",
@@ -52,6 +54,17 @@ def test_guard_is_advisory_stale_is_rejected_and_forecast_is_separate():
     assert progress.status == "stale_or_nonterminal"
     with pytest.raises(PermissionError):
         bridge.write_canonical("m", "blocked")
+
+
+def test_weak_forecast_entry_points_are_retired_in_favor_of_world_model_owner():
+    error = "forecast_entrypoint_retired"
+    with pytest.raises(ForecastEntryPointRetiredError, match=error) as construction:
+        Forecast("f", "m", "possible delay", "30d")
+    assert WORLD_MODEL_PREDICTION_OWNER in str(construction.value)
+
+    with pytest.raises(ForecastEntryPointRetiredError, match=error) as registration:
+        GuardBridge().register_forecast(object())
+    assert WORLD_MODEL_PREDICTION_OWNER in str(registration.value)
 
 
 class LegacySourceGuardRunner:

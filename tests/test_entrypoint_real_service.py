@@ -99,7 +99,13 @@ def _service(tmp_path):
                     "evidence_ids": [evidence_id],
                     "confidence": "bounded",
                     "modality": "observed",
-                    "attributes": {"explicit_goal_or_obligation": True},
+                    "attributes": {
+                        "explicit_goal_or_obligation": True,
+                        "granularity": {
+                            "independently_useful_goal": True,
+                            "independently_useful_next_step": True,
+                        },
+                    },
                 },
                 {
                     "finding_type": "bounded_summary",
@@ -345,7 +351,7 @@ def test_real_service_object_browser_contract_flows_through_mcp(tmp_path):
     mcp = MattersMCP(service)
 
     browser = mcp.call_tool("get_browser", {"locale": "en"})
-    matters = mcp.call_tool("list_matters", {"status": "in_progress"})
+    matters = mcp.call_tool("list_matters", {"status": "planned"})
     matter_id = matters["result"]["items"][0]["matter_id"]
     detail = mcp.call_tool(
         "get_matter",

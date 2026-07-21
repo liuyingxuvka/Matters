@@ -161,6 +161,15 @@ CURRENT_ANALYSIS_CONTRACTS = {
         prompt_contract_revision="v4",
         output_schema_id="matters.agent-operation-result.v4",
     ),
+    "matter_semantic_refresh": CurrentAnalysisContract(
+        task_kind="matter_semantic_refresh",
+        capability_role="matter_modeler",
+        requested_output_types=CURRENT_SEMANTIC_OUTPUT_TYPES,
+        model_revision="matters-matter-semantic-refresh:v2",
+        prompt_contract_id="matters.semantic-understanding",
+        prompt_contract_revision="v5",
+        output_schema_id="matters.agent-operation-result.v4",
+    ),
     "matter_projection_repair": CurrentAnalysisContract(
         task_kind="matter_projection_repair",
         capability_role="matter_modeler",
@@ -933,7 +942,7 @@ class AgentOperationOwner:
         if modality not in {"observed", "reported", "planned", "inferred"}:
             raise ValueError("finding modality is unsupported")
         if (
-            package.prompt_contract_revision == "v4"
+            package.prompt_contract_revision in {"v4", "v5"}
             and modality == "inferred"
             and finding_type
             in {
@@ -943,15 +952,23 @@ class AgentOperationOwner:
                 "outcome_candidate",
             }
         ):
-            if (
-                str(attributes.get("temporal_direction", "")) != "past"
-                or str(attributes.get("inference_purpose", ""))
-                != "historical_gap_fill"
-                or attributes.get("revisable") is not True
+            inference_purpose = str(
+                attributes.get("inference_purpose", "")
+            )
+            current_phase = (
+                finding_type in {"work_item_candidate", "lifecycle_candidate"}
+                and inference_purpose == "current_phase"
+            )
+            historical_gap = (
+                str(attributes.get("temporal_direction", "")) == "past"
+                and inference_purpose == "historical_gap_fill"
+            )
+            if attributes.get("revisable") is not True or not (
+                current_phase or historical_gap
             ):
                 raise ValueError(
-                    "canonical temporal inference is restricted to revisable "
-                    "historical gap filling"
+                    "canonical temporal inference is restricted to a complete "
+                    "revisable historical-gap or current-phase contract"
                 )
             expected_as_of = str(
                 package.untrusted_evidence.get("analysis_as_of", "")
@@ -962,28 +979,121 @@ class AgentOperationOwner:
             target_time = str(attributes.get("target_time", "")).strip()
             if not expected_as_of or inference_as_of != expected_as_of:
                 raise ValueError(
-                    "historical inference must bind the package analysis time"
+                    "temporal inference must bind the package analysis time"
                 )
             try:
                 parsed_as_of = datetime.fromisoformat(
                     inference_as_of.replace("Z", "+00:00")
                 )
-                parsed_target = datetime.fromisoformat(
-                    target_time.replace("Z", "+00:00")
-                )
             except ValueError as exc:
                 raise ValueError(
-                    "historical inference times must be ISO-8601"
+                    "temporal inference analysis time must be ISO-8601"
                 ) from exc
-            if (
-                parsed_as_of.tzinfo is None
-                or parsed_target.tzinfo is None
-                or parsed_target.astimezone(timezone.utc)
-                > parsed_as_of.astimezone(timezone.utc)
-            ):
+            if parsed_as_of.tzinfo is None:
                 raise ValueError(
-                    "historical inference cannot target a future time"
+                    "temporal inference analysis time requires a timezone"
                 )
+            if historical_gap:
+                if (
+                    finding_type in {"event_candidate", "work_item_candidate"}
+                    and str(attributes.get("temporal_assertion", ""))
+                    != "occurred"
+                ):
+                    raise ValueError(
+                        "historical event or WorkItem inference must describe "
+                        "an occurred past target"
+                    )
+                if (
+                    finding_type == "work_item_candidate"
+                    and str(attributes.get("status", "")) != "completed"
+                ):
+                    raise ValueError(
+                        "historical WorkItem inference may only propose a "
+                        "provisional completed stage"
+                    )
+                try:
+                    parsed_target = datetime.fromisoformat(
+                        target_time.replace("Z", "+00:00")
+                    )
+                except ValueError as exc:
+                    raise ValueError(
+                        "historical inference target time must be ISO-8601"
+                    ) from exc
+                if (
+                    parsed_target.tzinfo is None
+                    or parsed_target.astimezone(timezone.utc)
+                    > parsed_as_of.astimezone(timezone.utc)
+                ):
+                    raise ValueError(
+                        "historical inference cannot target a future time"
+                    )
+            else:
+                prerequisite_evidence_ids = tuple(
+                    str(item)
+                    for item in attributes.get(
+                        "prerequisite_evidence_ids",
+                        (),
+                    )
+                    if str(item).strip()
+                )
+                if (
+                    (
+                        finding_type == "work_item_candidate"
+                        and str(attributes.get("status", ""))
+                        != "in_progress"
+                    )
+                    or str(attributes.get("temporal_direction", ""))
+                    != "present"
+                    or str(attributes.get("temporal_assertion", "")) != "ongoing"
+                    or not prerequisite_evidence_ids
+                    or not set(prerequisite_evidence_ids).issubset(
+                        evidence_ids
+                    )
+                    or not tuple(
+                        attributes.get("remaining_obligation_ids", ())
+                    )
+                    or not str(
+                        attributes.get("active_window_start", "")
+                    ).strip()
+                    or not str(
+                        attributes.get("active_window_end", "")
+                    ).strip()
+                    or attributes.get("contradiction_checked") is not True
+                ):
+                    raise ValueError(
+                        "current-phase inference requires a completed "
+                        "prerequisite, remaining obligation, active window, "
+                        "and explicit contradiction review"
+                    )
+                try:
+                    active_start = datetime.fromisoformat(
+                        str(attributes["active_window_start"]).replace(
+                            "Z",
+                            "+00:00",
+                        )
+                    )
+                    active_end = datetime.fromisoformat(
+                        str(attributes["active_window_end"]).replace(
+                            "Z",
+                            "+00:00",
+                        )
+                    )
+                except ValueError as exc:
+                    raise ValueError(
+                        "current-phase active window must be ISO-8601"
+                    ) from exc
+                if (
+                    active_start.tzinfo is None
+                    or active_end.tzinfo is None
+                    or not (
+                        active_start.astimezone(timezone.utc)
+                        <= parsed_as_of.astimezone(timezone.utc)
+                        <= active_end.astimezone(timezone.utc)
+                    )
+                ):
+                    raise ValueError(
+                        "analysis time must lie inside the current-phase window"
+                    )
             contradiction_triggers = attributes.get(
                 "contradiction_triggers",
                 (),
@@ -993,8 +1103,52 @@ class AgentOperationOwner:
                 or not tuple(contradiction_triggers)
             ):
                 raise ValueError(
-                    "historical inference requires contradiction triggers"
+                    "temporal inference requires contradiction triggers"
                 )
+            if (
+                not str(attributes.get("coverage_boundary", "")).strip()
+                or not str(attributes.get("expires_at", "")).strip()
+                or not tuple(
+                    attributes.get("supporting_signals", ())
+                )
+                or not (
+                    tuple(attributes.get("alternative_explanations", ()))
+                    or tuple(raw.get("alternative_explanations", ()))
+                )
+            ):
+                raise ValueError(
+                    "temporal inference requires support, coverage, "
+                    "alternatives, and expiry"
+                )
+            try:
+                parsed_expiry = datetime.fromisoformat(
+                    str(attributes["expires_at"]).replace("Z", "+00:00")
+                )
+            except ValueError as exc:
+                raise ValueError(
+                    "temporal inference expiry must be ISO-8601"
+                ) from exc
+            if (
+                parsed_expiry.tzinfo is None
+                or parsed_expiry.astimezone(timezone.utc)
+                < parsed_as_of.astimezone(timezone.utc)
+            ):
+                raise ValueError(
+                    "temporal inference expiry cannot predate analysis time"
+                )
+        if (
+            package.task_kind == "matter_semantic_refresh"
+            and package.prompt_contract_revision == "v5"
+            and finding_type
+            in {"work_item_candidate", "open_loop_candidate"}
+            and not str(
+                attributes.get("semantic_role_key", "")
+            ).strip()
+        ):
+            raise ValueError(
+                "cross-source WorkItems and open loops require one stable "
+                "semantic_role_key"
+            )
         identity = _fingerprint(
             {
                 "package_id": package.package_id,
@@ -1209,7 +1363,7 @@ class AgentOperationOwner:
         if not isinstance(resource_budget, Mapping):
             raise ValueError("analysis package resource budget must be an object")
         current_private_evidence = dict(private_evidence)
-        if contract.prompt_contract_revision == "v4":
+        if contract.prompt_contract_revision in {"v4", "v5"}:
             current_private_evidence.setdefault(
                 "analysis_as_of",
                 datetime.now(timezone.utc).isoformat(),

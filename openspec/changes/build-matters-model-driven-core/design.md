@@ -143,8 +143,8 @@ repository.
 - Multiple compatibility success paths or UI/provider-owned canonical state.
 - Publishing renamed, pseudonymized, hashed, embedded, summarized, screenshotted,
   or otherwise derived real private material as synthetic data.
-- Public remote publication or an open-source license choice without a separate
-  explicit user decision.
+- An OSI-approved open-source license or broader commercial redistribution
+  right without a separate explicit user decision.
 
 ## Decisions
 
@@ -473,6 +473,29 @@ Root Matter
             -> SourceVersion/EvidenceAnchor
 ```
 
+Object kind, time, evidence basis, workflow state, and terminality are
+orthogonal. A Matter or WorkItem may therefore be `in_progress` while its
+basis is `ai_inferred`, or `completed` while its historical-gap terminality is
+still `provisional`. Projection code never derives one axis from another.
+Future work remains planned; a completed registration, purchase, or boarding
+pass is a separate occurred Event and does not complete the future submission
+or flight.
+
+The dispatcher and direct source-processing facade converge on one
+`MatterReconciliationOwner` boundary for placement plus admission. No
+production caller invokes the lower-level admission decider independently. A
+newly registered source with zero qualified anchors enters a bounded
+pre-evidence retention operation on that same owner, remains source-only or
+uncertain, and cannot create, merge, relate, or attach a Matter until qualified
+evidence returns through the ordinary reconciliation operation.
+
+C11 may propose a bounded current-phase inference when a completed
+prerequisite, a still-required next obligation, a current active window, and
+no current completion/cancellation/postponement contradiction are present. C7
+is the sole lifecycle decision owner. Historical inferred completion is
+licensed only by C9, remains visibly provisional, and cannot close ancestors,
+independent loops, or irreversible effects.
+
 Source parent-child provenance, such as message-to-attachment or
 document-to-page, never implies Matter containment. Shared people, shared
 sources, temporal proximity, and Related Matter links are also insufficient.
@@ -526,10 +549,13 @@ acyclicity, or the single-primary-parent rule.
 The internal `SituationGraphSnapshot` joins the hierarchy with C5 Events,
 WorkItems, typed C6 Related Matter edges, and explicit inference nodes without
 becoming a second owner. The ordinary Sub-matters UI consumes a narrower
-`MatterHierarchyProjection`: its visible boxes are admitted Matters only,
-primary lines are containment, and secondary lines are typed Matter-to-Matter
-relations. Events, WorkItems, sources, and inferences are attached to their
-owning Matter as itemized quick-view facts instead of visible graph nodes.
+`MatterHierarchyProjection`: its large boxes are admitted Matters, primary
+lines are containment, secondary lines are typed Matter-to-Matter relations,
+and a bounded set of smaller material WorkItem stage nodes may hang from their
+owning Matter. A stage node remains a WorkItem, never enters Matter counts,
+and cannot accept descendants. Events, ordinary WorkItems, sources, and
+inferences are attached to their owning Matter or stage as itemized quick-view
+facts instead of visible graph nodes.
 Every graph and quick-view row still binds its canonical owner revision,
 evidence or inference identity, modality, freshness, and bounded source-group
 references. C12 may page and render these projections but cannot infer new
@@ -719,6 +745,19 @@ durable deterministic service to the declared original C4-C9/C12 owner. The
 owner validates and writes its own state; no user confirmation or AI-owned
 canonical path exists.
 
+When one admitted Matter has several current source threads, Matters uses one
+bounded `matter_semantic_refresh` package rather than independently guessing
+from each thread. The package aggregates only the Matter's exact
+registry-current, non-tombstoned source revisions, their current annotation
+packages/results, and their whitelisted current anchors/assets. Its package
+identity includes the complete sorted input set, current admission fingerprint,
+and existing semantic identity. Input changes append-only supersede/rebase the
+older package. A returned `matter_candidate` is an identity-preserving C6
+no-op; WorkItems, events, lifecycle, outcomes, people, and projections still
+go to their own original owners. Its output contract explicitly separates
+historical gaps, current-phase reasoning, and future planned obligations, so a
+future flight or submission cannot be rendered as completed.
+
 The resolver has exactly three layers: the immutable bundled pack, the
 machine-installed inventory, and the resolved active view. A
 Matters-managed installed projection is a managed ownership subtype within the
@@ -885,6 +924,16 @@ application window and never asks the user to operate a development URL. The
 browser-development surface remains verification evidence only and cannot
 close the desktop installation or release gate.
 
+The release ZIP is a distinct public projection of that frozen desktop
+package. It contains the `Matters/` application tree, the portable desktop
+manifest, and the path-free build-toolchain identity. Machine-local
+`direct_url.json` installation provenance is removed before the package
+manifest is frozen. The packaged self-test receipt remains external build
+evidence and is never copied into the release ZIP because its observations
+may contain build-machine paths. Desktop archive privacy and integrity are
+verified with desktop-specific inventory, manifest-fingerprint, package-tree,
+executable, toolchain, text-size, and path scans rather than wheel rules.
+
 Separate “demo” and “real” business routes were rejected. Synthetic behavior
 is obtained by injecting synthetic providers and runners into the same facade.
 
@@ -979,16 +1028,22 @@ hidden.
 Sub-matters use a handoff-styled interactive graph rather than another card
 grid, status-only table, or recursive reader. Primary edges render the complete
 bounded single-parent Matter hierarchy; styled secondary edges render typed
-related Matter links without becoming containment. Only admitted Matters are
-graph boxes. WorkItems, Events, facts, sources, and inferences are itemized
-inside the owning Matter's quick view. The graph supports pan, 0.5x-5x zoom,
-reset, minimap, keyboard traversal, and bounded continuation for deep or large
+related Matter links without becoming containment. Admitted Matters are the
+large graph boxes, and a bounded set of material, stage-changing WorkItems may
+appear as smaller leaf stage boxes under their owning Matter. Ordinary
+WorkItems, Events, facts, sources, and inferences remain itemized inside the
+owning Matter's quick view. When every visible material stage is owned directly
+by the root, that stage set becomes the visible decomposition and competing
+legacy first-level child-Matter boxes are suppressed without deleting their
+canonical records. A genuine child Matter that owns its own material stages
+remains visible with those stages. The graph supports pan, 0.5x-5x zoom, reset,
+minimap, keyboard traversal, and bounded continuation for deep or large
 branches, with no per-node collapse/expand buttons. Every node displays its
 localized title, one human lifecycle state, Start/important date when useful,
 and a separate inferred/confirmed marker without an independent hero.
 
-Activating any Matter node opens one reusable quick-view dialog above the root
-detail. The quick view keeps two primary regions: its first region contains
+Activating any Matter or material stage node opens one reusable quick-view
+dialog above the root detail. The quick view keeps two primary regions: its first region contains
 the human summary/current state plus itemized facts, events, work, and waits
 with time and evidence basis; its second region contains only the sources
 directly related to that selected node in one flat files/information list.
@@ -1320,11 +1375,12 @@ terminate current before the complete-release claim.
 - **The current FlowGuard project audit has an external suite-inventory
   blocker** → Keep it visible, run target-owned model checks directly, and
   never convert the disposition into broad project-audit green evidence.
-- **The v0.3.0 GitHub publication identity is private and proprietary** →
-  Freeze `liuyingxuvka/Matters`, private visibility, the proprietary
-  private-repository license, the approved generic inventory, and tag
-  `v0.3.0`; do not widen that decision into public visibility, open-source
-  licensing, or private-data publication.
+- **The v0.3.0 GitHub publication identity is public and source-available** →
+  Freeze `liuyingxuvka/Matters`, public visibility, the proprietary
+  source-available personal non-commercial license, the approved generic
+  inventory, and tag `v0.3.0`; do not widen that decision into an OSI-approved
+  open-source license, unrestricted commercial redistribution, or private-data
+  publication.
 
 ## Migration Plan
 
@@ -1511,9 +1567,8 @@ but cannot run or complete A2 on its own.
 
 ## Open Questions
 
-- Should a later change make `liuyingxuvka/Matters` public, and if so which
-  open-source license and public security/reporting policy should replace the
-  current private-repository boundary?
+- Should a later change replace the public source-available license with an
+  OSI-approved open-source license or grant broader commercial rights?
 - Which cloud providers beyond already reachable filesystem placeholders need
   product connectors in a later change?
 - Which audio/video/archive/database formats should move from `metadata_only` or

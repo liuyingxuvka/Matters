@@ -24,6 +24,13 @@ SPEC = FiniteModelSpec(
         "matter.lifecycle_inference_expiry",
         "matter.lifecycle_display_key",
         "matter.lifecycle_basis_modality",
+        "matter.lifecycle_basis_scope",
+        "matter.lifecycle_temporal_assertion",
+        "matter.lifecycle_terminality",
+        "matter.lifecycle_confidence",
+        "matter.lifecycle_coverage_boundary",
+        "matter.lifecycle_contradiction_triggers",
+        "matter.lifecycle_counter_signals",
     ),
     owned_write_fields=(
         "matter.lifecycle_axes",
@@ -37,6 +44,13 @@ SPEC = FiniteModelSpec(
         "matter.lifecycle_inference_expiry",
         "matter.lifecycle_display_key",
         "matter.lifecycle_basis_modality",
+        "matter.lifecycle_basis_scope",
+        "matter.lifecycle_temporal_assertion",
+        "matter.lifecycle_terminality",
+        "matter.lifecycle_confidence",
+        "matter.lifecycle_coverage_boundary",
+        "matter.lifecycle_contradiction_triggers",
+        "matter.lifecycle_counter_signals",
     ),
     side_effect_classes=("lifecycle_registry_write",),
     completion_evidence=(
@@ -55,6 +69,9 @@ SPEC = FiniteModelSpec(
         "InferenceAlternatives",
         "LifecycleDisplayContract",
         "LifecycleModalitySeparated",
+        "CurrentPhaseInference",
+        "ProvisionalTerminality",
+        "CurrentPhaseContradictionPreserved",
     ),
     rules=(
         CaseRule(
@@ -245,8 +262,98 @@ SPEC = FiniteModelSpec(
                 "labeled bounded and never converted into an authoritative percentage"
             ),
         ),
+        CaseRule(
+            case_id="completed_prerequisite_required_next_step_active_window",
+            decision="current_phase_in_progress_ai_inferred",
+            label="current_phase_in_progress_ai_inferred",
+            writes=(
+                "matter.lifecycle_axes",
+                "matter.board_placement",
+                "matter.state_rationale",
+                "matter.lifecycle_basis_modality",
+                "matter.lifecycle_basis_scope",
+                "matter.lifecycle_temporal_assertion",
+                "matter.lifecycle_terminality",
+                "matter.lifecycle_confidence",
+                "matter.lifecycle_inference_alternatives",
+                "matter.lifecycle_inference_expiry",
+                "matter.lifecycle_coverage_boundary",
+                "matter.lifecycle_contradiction_triggers",
+            ),
+            side_effects=("lifecycle_registry_write",),
+            emitted_tokens=(
+                "LifecycleState",
+                "AIInferredLifecycle",
+                "CurrentPhaseInference",
+                "ProvisionalTerminality",
+            ),
+            reason=(
+                "a completed prerequisite plus a still-required next step, "
+                "bounded active window, and no current completion, cancellation, "
+                "or postponement contradiction licenses an in-progress current "
+                "phase estimate without claiming observed activity"
+            ),
+        ),
+        CaseRule(
+            case_id="current_phase_has_cancellation_or_postponement_evidence",
+            decision="current_phase_inference_withheld_as_uncertain",
+            label="current_phase_inference_withheld_as_uncertain",
+            writes=(
+                "matter.lifecycle_axes",
+                "matter.board_placement",
+                "matter.state_rationale",
+                "matter.lifecycle_basis_modality",
+                "matter.lifecycle_basis_scope",
+                "matter.lifecycle_temporal_assertion",
+                "matter.lifecycle_terminality",
+                "matter.lifecycle_counter_signals",
+            ),
+            side_effects=("lifecycle_registry_write",),
+            emitted_tokens=(
+                "LifecycleUncertainty",
+                "CurrentPhaseContradictionPreserved",
+                "ProvisionalTerminality",
+            ),
+            reason=(
+                "a current cancellation, completion, withdrawal, or postponement "
+                "signal prevents an in-progress current-phase inference even when "
+                "the prerequisite, remaining obligation, and time window otherwise match"
+            ),
+        ),
     ),
     hazards=(
+        HazardSpec(
+            failure_id="H-C7-011-current-contradiction-ignored",
+            protected_error_class="current_phase_contradiction_bypass",
+            description=(
+                "current cancellation, completion, withdrawal, or postponement "
+                "evidence is ignored and the Matter is inferred in progress"
+            ),
+            protected_harm=(
+                "the UI shows active preparation after current evidence says the "
+                "activity stopped, completed, or moved"
+            ),
+            case_id="current_phase_has_cancellation_or_postponement_evidence",
+            broken_decision="current_phase_in_progress_ai_inferred",
+            broken_writes=(
+                "matter.lifecycle_axes",
+                "matter.board_placement",
+                "matter.lifecycle_counter_signals",
+            ),
+            broken_side_effects=("lifecycle_registry_write",),
+            broken_tokens=("CurrentPhaseInference",),
+        ),
+        HazardSpec(
+            failure_id="H-C7-010-deadline-alone-infers-active-work",
+            protected_error_class="current_phase_inference_under_supported",
+            description="a future deadline alone marks the Matter in progress",
+            protected_harm="the UI claims the user is working without a licensed phase basis",
+            case_id="completed_prerequisite_required_next_step_active_window",
+            broken_decision="in_progress_from_deadline_only",
+            broken_writes=("matter.lifecycle_axes", "matter.board_placement"),
+            broken_side_effects=("lifecycle_registry_write",),
+            broken_tokens=("LifecycleState",),
+        ),
         HazardSpec(
             failure_id="H-C7-008-modality-replaces-lifecycle-state",
             protected_error_class="lifecycle_modality_conflation",

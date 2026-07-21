@@ -20,6 +20,7 @@ from flowguard import (
 )
 
 from flowguard_design.inventory import (
+    AGENT_OPERATION_TEST_SUITES,
     MODEL_CODE_CONTRACTS,
     MODEL_TEST_SUITES,
     PARENT_ID,
@@ -55,6 +56,8 @@ def _suite_for_commitment(commitment_id: str, model_id: str) -> str:
         return "TM14_end_to_end_conformance"
     if commitment_id == "BC-PR-013":
         return "TM18_privacy_public_boundary"
+    if commitment_id.startswith("BC-AO-"):
+        return AGENT_OPERATION_TEST_SUITES[model_id]
     return MODEL_TEST_SUITES[model_id]
 
 
@@ -67,7 +70,11 @@ def _contract_for_model(model_id: str) -> str:
 
 
 def _model_evidence_id(model_id: str) -> str:
-    path = MODEL_ROOT / f"{model_id}.json"
+    path = (
+        Path(".flowguard/evidence/agent_operations/models")
+        if model_id.startswith("A")
+        else MODEL_ROOT
+    ) / f"{model_id}.json"
     payload = json.loads(path.read_text(encoding="utf-8"))
     evidence_id = str(payload.get("evidence_id", ""))
     if not evidence_id:
@@ -96,7 +103,7 @@ def main() -> int:
     updated = []
     for row in ledger["commitments"]:
         commitment_id = str(row["commitment_id"])
-        if not commitment_id.startswith("BC-PR-"):
+        if not commitment_id.startswith(("BC-PR-", "BC-AO-")):
             continue
         model_id = _model_for_commitment(commitment_id, row)
         suite_id = _suite_for_commitment(commitment_id, model_id)
@@ -116,7 +123,12 @@ def main() -> int:
                 "boundary_observations", ()
             )
         ]
-        contract_id = _contract_for_model(model_id)
+        contract_ids = tuple(model_alignment["plan"]["code_contract_ids"])
+        if len(contract_ids) != 1:
+            raise RuntimeError(
+                f"{model_id} must bind exactly one primary code contract"
+            )
+        contract_id = contract_ids[0]
         model_evidence_id = _model_evidence_id(model_id)
         evidence = row.setdefault("evidence", {})
         evidence["code_contract_ids"] = [contract_id]

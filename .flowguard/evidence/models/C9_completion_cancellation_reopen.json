@@ -1,13 +1,25 @@
 {
   "artifact_type": "matters.flowguard-model-receipt.v1",
   "claim_boundary": "This receipt can establish C9 abstract completion-evidence, cancellation, reopen, conflict, and child/parent completion-separation hazards. It does not establish Matter-specific criteria, hierarchy completeness, C8 loop closure, or production outcomes.",
-  "evidence_id": "evidence:C9_completion_cancellation_reopen:7e567c24f8a5704a",
+  "evidence_id": "evidence:C9_completion_cancellation_reopen:eb4b5dced0a9acf3",
   "evidence_tiers": [
     "abstract_green",
     "hazard_green"
   ],
-  "generated_at": "2026-07-21T09:45:47.852773+00:00",
+  "generated_at": "2026-07-21T15:22:01.967205+00:00",
   "known_bad_proofs": [
+    {
+      "evidence_id": "C9_completion_cancellation_reopen:known-bad:H-C9-007-unlicensed-ai-satisfied-completes",
+      "failure_id": "H-C9-007-unlicensed-ai-satisfied-completes",
+      "observed_status": "failed",
+      "protected_error_class": "completion_evidence_license_bypass"
+    },
+    {
+      "evidence_id": "C9_completion_cancellation_reopen:known-bad:H-C9-008-ai-cancels-without-reported-termination",
+      "failure_id": "H-C9-008-ai-cancels-without-reported-termination",
+      "observed_status": "failed",
+      "protected_error_class": "cancellation_evidence_license_bypass"
+    },
     {
       "evidence_id": "C9_completion_cancellation_reopen:known-bad:H-C9-001-false-completion-proof",
       "failure_id": "H-C9-001-false-completion-proof",
@@ -45,7 +57,7 @@
       "protected_error_class": "child_parent_completion_conflation"
     }
   ],
-  "model_fingerprint": "sha256:7e567c24f8a5704a831cf00478b06ce1b8e3d07c49698512017773db8ef96714",
+  "model_fingerprint": "sha256:eb4b5dced0a9acf3364793649c55281cb4a6b5599e8411b23aa2ff2da61c29b8",
   "model_id": "C9_completion_cancellation_reopen",
   "model_title": "C9 Completion / Cancellation / Reopen",
   "overall_status": "pass_with_gaps",

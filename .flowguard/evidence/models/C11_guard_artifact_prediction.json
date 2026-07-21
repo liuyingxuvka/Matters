@@ -1,13 +1,19 @@
 {
   "artifact_type": "matters.flowguard-model-receipt.v1",
   "claim_boundary": "This model establishes the extracted-anchor to bounded work-package, terminal bilingual typed findings, full input accounting, automatic idempotent original-owner dispatch, advisory-only research output, ResearchGuard gate, legacy-fallback rejection, freshness, semantic-depth, scope, generated-hero registration, labeled supplemental information, and forecast transitions. It does not prove factual truth, ResearchGuard installation, concrete Codex model availability, model quality, or private first-run usefulness.",
-  "evidence_id": "evidence:C11_guard_artifact_prediction:c11c7badfced8e30",
+  "evidence_id": "evidence:C11_guard_artifact_prediction:d8ca19b34486df41",
   "evidence_tiers": [
     "abstract_green",
     "hazard_green"
   ],
-  "generated_at": "2026-07-21T09:46:01.412107+00:00",
+  "generated_at": "2026-07-21T14:55:47.366239+00:00",
   "known_bad_proofs": [
+    {
+      "evidence_id": "C11_guard_artifact_prediction:known-bad:H-C11-030-current-phase-predicts-future-success",
+      "failure_id": "H-C11-030-current-phase-predicts-future-success",
+      "observed_status": "failed",
+      "protected_error_class": "current_phase_future_outcome_conflation"
+    },
     {
       "evidence_id": "C11_guard_artifact_prediction:known-bad:H-C11-024-empty-supplemental-claimed-current",
       "failure_id": "H-C11-024-empty-supplemental-claimed-current",
@@ -33,10 +39,10 @@
       "protected_error_class": "stale_research_evidence_reuse"
     },
     {
-      "evidence_id": "C11_guard_artifact_prediction:known-bad:H-C11-003-forecast-changes-current-state",
-      "failure_id": "H-C11-003-forecast-changes-current-state",
+      "evidence_id": "C11_guard_artifact_prediction:known-bad:H-C11-003-weak-forecast-entrypoint-remains-successful",
+      "failure_id": "H-C11-003-weak-forecast-entrypoint-remains-successful",
       "observed_status": "failed",
-      "protected_error_class": "forecast_fact_conflation"
+      "protected_error_class": "parallel_prediction_owner"
     },
     {
       "evidence_id": "C11_guard_artifact_prediction:known-bad:H-C11-004-progress-receipt-promoted",
@@ -165,7 +171,7 @@
       "protected_error_class": "generated_hero_visual_specificity_gap"
     }
   ],
-  "model_fingerprint": "sha256:c11c7badfced8e3095d1fa2a0804385019d2675e006052cbbdf1551f4b7f846d",
+  "model_fingerprint": "sha256:d8ca19b34486df41669afe39ee1fa494a7acd2a50753c4b4425d851f77d3bf49",
   "model_id": "C11_guard_artifact_prediction",
   "model_title": "C11 AI, Research & Prediction Boundary",
   "overall_status": "pass_with_gaps",

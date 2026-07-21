@@ -389,7 +389,7 @@
 
 - [x] 12.1 Recheck the complete required-public inventory before the first Git commit
 - [x] 12.2 Add package metadata, CLI entrypoint, UI/package data, build configuration, changelog, security policy, and deterministic SBOM
-- [x] 12.3 Freeze the proprietary private-repository license for `liuyingxuvka/Matters`; keep public visibility, public redistribution, and open-source licensing out of scope until a separate explicit authorization
+- [x] 12.3 Freeze `liuyingxuvka/Matters` as a public repository under the proprietary source-available personal non-commercial license; keep OSI-approved open-source licensing and broader commercial redistribution out of scope until a separate explicit authorization
 - [x] 12.4 Run tracked/ignored/history/staging/link/path/secret/package/metadata scans on the candidate
 - [x] 12.5 Create an isolated clean clone or archive and run synthetic tests with empty private roots and fake runners
 - [x] 12.6 Verify Windows local install/start and record Linux CI as not run unless an actual Linux owner executes it
@@ -405,7 +405,7 @@
 - [ ] 12.16 Close the current Risk Evidence Ledger, DPF synchronization domains, OpenSpec validation, and final claim boundary
 - [ ] 12.17 Verify one portable frozen ResearchGuard currentness receipt or keep the local candidate blocked; no separate SourceGuard/TraceGuard/LogicGuard fallback may close the final complete-release gate
 - [ ] 12.18 Verify source, local package install, immutable bundled layer, machine-installed inventory and managed subtype, resolved active-view layer, local repository, commit, tag, and local release artifact as distinct synchronized identities
-- [ ] 12.19 Build and install the frozen Windows desktop package with one application shell around the packaged Web UI, installed application/desktop shortcut and icon, loopback-only service, bounded worker, private shell profile, persisted locale/density/window state, startup/recovery surface, and clean owned-process shutdown; verify desktop/service/worker/UI/skill/version identities against source, prove a browser-development URL alone cannot satisfy this gate, and restore the prior installed application transactionally on failure
+- [ ] 12.19 Build and install the frozen Windows desktop package with one application shell around the packaged Web UI, installed application/desktop shortcut and icon, loopback-only service, bounded worker, private shell profile, persisted locale/density/window state, startup/recovery surface, and clean owned-process shutdown; verify desktop/service/worker/UI/skill/version identities against source, produce a desktop-specific public release ZIP that excludes self-test and `direct_url.json` build provenance and revalidates manifest/package/executable/toolchain identities, prove a browser-development URL alone cannot satisfy this gate, and restore the prior installed application transactionally on failure
 - [ ] 12.20 Freeze the exact GitHub repository, visibility, license disposition, public inventory, commit, tag, and release notes; then push and publish generic v0.3.0 without private data or a private-first-run completion claim
 - [ ] 12.21 Continue the private Gmail/local/Codex first run against released v0.3.0, reproduce reusable defects with public-safe synthetic evidence, and publish a separately frozen patch release only when accumulated generic fixes justify it
 
@@ -413,4 +413,20 @@
 
 - [x] 13.1 Keep the generic Jira read adapter disabled, source-only, and excluded from every v0.2 required gate
 - [ ] 13.2 Keep Gmail v0.2 strictly user-authorized and read-only; allow only bounded Codex-hosted daily read/reconcile/model maintenance through the existing grant, while mailbox mutation, unattended non-Codex background sync, and general outbound-mail automation remain separate future-change decisions
-- [x] 13.3 Record Jira, Rovo, advanced audio/video/archive/database/model extractors, calendar or additional cloud-provider connectors, public licensing, and remote publication as separate future-change decisions
+- [x] 13.3 Record Jira, Rovo, advanced audio/video/archive/database/model extractors, calendar or additional cloud-provider connectors, OSI-approved open-source licensing, and broader commercial redistribution as separate future-change decisions
+
+## 14. Semantic State and Hierarchy Stabilization
+
+- [x] 14.1 Freeze the orthogonal object-kind, temporal-assertion, evidence-modality, workflow-state, and terminality contract across C5-C12
+- [x] 14.2 Add current-phase inference with prerequisite, active-window, remaining-obligation, contradiction, confidence, alternatives, coverage, expiry, and revisability gates
+- [x] 14.3 Add provisional historical completion that is visibly AI-inferred and cannot mechanically close ancestors, independent loops, or irreversible effects
+- [x] 14.4 Tighten Matter admission to stable identity plus at least two independent dimensions; reject contradictory granularity and keep single bounded steps as WorkItems
+- [x] 14.5 Preserve inference basis and terminality on WorkItems, lifecycle decisions, outcomes, projections, Situation Graph nodes, and bilingual UI
+- [x] 14.6 Make C7/C9 the only state/outcome owners and prohibit bounded summaries or C12 from writing canonical state
+- [x] 14.7 Converge C6 reconciliation decision and canonical application onto one production owner path
+- [x] 14.8 Project admitted Matters as large graph nodes and material required WorkItems as smaller stage nodes without changing Matter counts or allowing nested stage descendants
+- [x] 14.9 Add Build Week registration/preparation/submission and travel purchase/boarding/flight/arrival/cancellation/postponement counterexample regressions
+- [x] 14.10 Preserve graph conflicts instead of selecting maximum certainty/confidence and retire the weak secondary forecast authority
+- [x] 14.11 Recompute the minimum affected private Build Week and travel objects, then prove the corrected state/basis hierarchy on port 8766
+- [ ] 14.12 Rerun C5-C12, ModelMesh, TestMesh, DPF, bilingual UI, install, MCP, privacy, Git, and release gates against one frozen source identity
+- [x] 14.13 Prefer one root-owned material-stage decomposition over competing legacy first-level child-Matter boxes, count the visible stages accurately, and prove Build Week three-stage and travel five-stage graphs plus one-layer quick views in the live desktop UI

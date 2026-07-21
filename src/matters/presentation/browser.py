@@ -509,11 +509,7 @@ def _event_interpretation_signature(event: Mapping[str, Any]) -> tuple[Any, ...]
 
 
 def project_matter_only_graph(snapshot: object) -> dict[str, Any]:
-    """Project an internal SituationGraph page to the ordinary Matter graph.
-
-    Internal WorkItem, Event, source, person, and advisory nodes remain owned
-    and queryable, but they are not second-class boxes in the user hierarchy.
-    """
+    """Project Matters plus bounded material WorkItem stages for the UI graph."""
 
     if is_dataclass(snapshot):
         payload = asdict(snapshot)
@@ -521,13 +517,63 @@ def project_matter_only_graph(snapshot: object) -> dict[str, Any]:
         payload = dict(snapshot)
     else:
         raise TypeError("Matter-only graph projection requires a graph payload")
-    nodes = tuple(
+    def visible_node(node: Mapping[str, Any]) -> bool:
+        node_type = str(node.get("node_type", ""))
+        if node_type == "matter":
+            return True
+        if node_type != "work_item":
+            return False
+        attributes = dict(node.get("attributes", {}))
+        status = str(attributes.get("status", "")).strip()
+        has_boundary = any(
+            str(attributes.get(field, "")).strip()
+            for field in (
+                "planned_start",
+                "planned_end",
+                "actual_start",
+                "actual_end",
+            )
+        ) or str(attributes.get("kind", "")) == "milestone"
+        return bool(
+            attributes.get("material_stage", False)
+            or (
+                attributes.get("required_for_parent", False)
+                and status
+                and has_boundary
+            )
+        )
+
+    candidate_nodes = tuple(
         dict(node)
         for node in payload.get("nodes", ())
-        if isinstance(node, Mapping)
-        and str(node.get("node_type", "")) == "matter"
+        if isinstance(node, Mapping) and visible_node(node)
     )
-    matter_node_ids = {
+    root_matter_id = str(payload.get("root_matter_id", ""))
+    material_stage_ids = {
+        str(node.get("node_id", ""))
+        for node in candidate_nodes
+        if str(node.get("node_type", "")) == "work_item"
+    }
+    direct_root_stage_ids = {
+        str(edge.get("target_node_id", ""))
+        for edge in payload.get("edges", ())
+        if isinstance(edge, Mapping)
+        and str(edge.get("source_node_id", "")) == root_matter_id
+        and str(edge.get("relation_type", "")) == "has_work_item"
+    }
+    prefer_direct_stage_projection = bool(material_stage_ids) and (
+        material_stage_ids <= direct_root_stage_ids
+    )
+    nodes = tuple(
+        node
+        for node in candidate_nodes
+        if not (
+            prefer_direct_stage_projection
+            and str(node.get("node_type", "")) == "matter"
+            and str(node.get("node_id", "")) != root_matter_id
+        )
+    )
+    visible_node_ids = {
         str(node.get("node_id", ""))
         for node in nodes
         if str(node.get("node_id", ""))
@@ -536,12 +582,12 @@ def project_matter_only_graph(snapshot: object) -> dict[str, Any]:
         dict(edge)
         for edge in payload.get("edges", ())
         if isinstance(edge, Mapping)
-        and str(edge.get("source_node_id", "")) in matter_node_ids
-        and str(edge.get("target_node_id", "")) in matter_node_ids
+        and str(edge.get("source_node_id", "")) in visible_node_ids
+        and str(edge.get("target_node_id", "")) in visible_node_ids
         and (
             bool(edge.get("primary_containment", False))
             or str(edge.get("relation_type", ""))
-            not in {"has_event", "has_work_item", "has_source", "has_person"}
+            not in {"has_event", "has_source", "has_person"}
         )
     )
     return {
@@ -550,7 +596,8 @@ def project_matter_only_graph(snapshot: object) -> dict[str, Any]:
         "edges": edges,
         "visible_node_count": len(nodes),
         "visible_edge_count": len(edges),
-        "projection_kind": "matter_only",
+        "projection_kind": "matter_and_material_stages",
+        "competing_child_matters_suppressed": prefer_direct_stage_projection,
         "non_matter_details_in_quick_view": True,
         "per_node_collapse_allowed": False,
     }
@@ -745,6 +792,8 @@ class ObjectBrowserProjection:
             row
             for row in self.store.iter_current("open_loop")
             if str(row.get("matter_id", "")) == matter_id
+            and not bool(row.get("deleted", False))
+            and str(row.get("status", "open")) == "open"
         )
 
     def _source_versions_for_admission(
@@ -1512,8 +1561,17 @@ class ObjectBrowserProjection:
             for item_id in path_ids
         )
         semantic_revision = str(projection.get("semantic_revision", ""))
-        state_basis_modality = "reported"
-        state_basis_scope = ""
+        state_basis_modality = str(
+            projection.get("state_basis_modality", "reported")
+        ).strip() or "reported"
+        if state_basis_modality == "inferred":
+            state_basis_modality = "ai_inferred"
+        state_basis_scope = str(
+            projection.get("state_basis_scope", "")
+        ).strip()
+        state_terminality = str(
+            projection.get("state_terminality", "confirmed")
+        ).strip() or "confirmed"
         if (
             isinstance(outcome, Mapping)
             and str(outcome.get("status", "")) == state
@@ -1525,6 +1583,9 @@ class ObjectBrowserProjection:
             state_basis_scope = str(
                 outcome.get("basis_scope", "")
             ).strip()
+            state_terminality = str(
+                outcome.get("terminality", "confirmed")
+            ).strip() or "confirmed"
         coverage_source_ids = {
             str(item.get("object_id", ""))
             for item in coverage
@@ -1576,6 +1637,7 @@ class ObjectBrowserProjection:
             "state": state,
             "state_basis_modality": state_basis_modality,
             "state_basis_scope": state_basis_scope,
+            "state_terminality": state_terminality,
             "status_group": _status_group(state),
             "title": title,
             "summary": summary,
@@ -2657,9 +2719,44 @@ class ObjectBrowserProjection:
                         or ""
                     ),
                     "basis_label": (
-                        _localized("Observed", "已观察")
-                        if str(item.get("status", "")) == "completed"
-                        else _localized("Planned", "计划")
+                        _localized(
+                            "AI historical inference",
+                            "AI 历史推断",
+                        )
+                        if str(item.get("basis_modality", ""))
+                        in {"ai_inferred", "inferred"}
+                        and str(item.get("basis_scope", ""))
+                        in {"historical_gap", "historical_inference"}
+                        else (
+                            _localized("AI inference", "AI 推断")
+                            if str(item.get("basis_modality", ""))
+                            in {"ai_inferred", "inferred"}
+                            else (
+                                _localized("Observed", "已观察")
+                                if str(
+                                    item.get(
+                                        "basis_modality",
+                                        "",
+                                    )
+                                )
+                                == "observed"
+                                else (
+                                    _localized("Source record", "来源记录")
+                                    if str(
+                                        item.get(
+                                            "basis_modality",
+                                            "",
+                                        )
+                                    )
+                                    == "reported"
+                                    else _localized("Planned", "计划")
+                                )
+                            )
+                        )
+                    ),
+                    "basis_scope": str(item.get("basis_scope", "")),
+                    "terminality": str(
+                        item.get("terminality", "confirmed")
                     ),
                 }
             )
@@ -2712,12 +2809,15 @@ class ObjectBrowserProjection:
                 "AI historical inference",
                 "AI 历史推断",
             )
-            if card["state_basis_modality"] == "inferred"
-            and card["state_basis_scope"] == "historical_inference"
+            if card["state_basis_modality"]
+            in {"inferred", "ai_inferred"}
+            and card["state_basis_scope"]
+            in {"historical_inference", "historical_gap"}
             else {
                 "observed": _localized("Observed", "已观察"),
                 "reported": _localized("Source record", "来源记录"),
                 "planned": _localized("Planned", "计划"),
+                "ai_inferred": _localized("AI inference", "AI 推断"),
             }.get(
                 card["state_basis_modality"],
                 _localized("", ""),
@@ -2731,6 +2831,7 @@ class ObjectBrowserProjection:
             "start_time": card["start_time"],
             "state_basis_modality": card["state_basis_modality"],
             "state_basis_scope": card["state_basis_scope"],
+            "state_terminality": card["state_terminality"],
             "state_basis_label": state_basis_label,
             "facts": tuple(facts),
             "fact_count": len(facts),
@@ -2743,6 +2844,116 @@ class ObjectBrowserProjection:
         }
         return {
             "node_id": matter_id,
+            "selected_locale": locale,
+            "regions": (
+                {
+                    "region_id": "summary_current_state",
+                    "content": summary_region,
+                },
+                {
+                    "region_id": "files_and_information",
+                    "content": flat_files,
+                },
+            ),
+            "summary_current_state": summary_region,
+            "files_and_information": flat_files,
+            "recursive_navigation_allowed": False,
+        }
+
+    def work_item_quick_view(
+        self,
+        item_id: str,
+        *,
+        locale: str = "en",
+    ) -> dict[str, Any]:
+        """Return the same one-layer quick view for a material WorkItem stage."""
+
+        DEFAULT_LOCALE_REGISTRY.require(locale)
+        item = self.store.current("matter_work_item", item_id)
+        if item is None or str(item.get("freshness", "current")) != "current":
+            raise KeyError("WorkItem stage is unavailable")
+        evidence_ids = tuple(
+            str(value)
+            for value in item.get("evidence_ids", ())
+            if str(value)
+        )
+        source_versions = self._source_versions_for_admission(
+            {"matter": {"source_ids": tuple(item.get("source_ids", ()))}}  # type: ignore[arg-type]
+        )
+        files_and_information = self._files_and_information(
+            source_versions=source_versions,
+            evidence_ids=evidence_ids,
+        )
+        flat_files = {
+            "groups": (),
+            "items": tuple(files_and_information["items"]),
+            "total_count": int(files_and_information["total_count"]),
+            "limit": int(files_and_information["limit"]),
+            "has_more": bool(files_and_information["has_more"]),
+        }
+        basis_modality = str(item.get("basis_modality", "")).strip() or (
+            "unknown"
+        )
+        basis_scope = str(item.get("basis_scope", "")).strip()
+        if (
+            basis_modality in {"inferred", "ai_inferred"}
+            and basis_scope in {"historical_gap", "historical_inference"}
+        ):
+            basis_label = _localized(
+                "AI historical inference",
+                "AI 历史推断",
+            )
+        elif basis_modality in {"inferred", "ai_inferred"}:
+            basis_label = _localized("AI inference", "AI 推断")
+        else:
+            basis_label = {
+                "observed": _localized("Observed", "已观察"),
+                "reported": _localized("Source record", "来源记录"),
+                "planned": _localized("Planned", "计划"),
+            }.get(basis_modality, _localized("", ""))
+        summary_region = {
+            "title": _text_map(item, "localized_title"),
+            "summary": _text_map(item, "localized_result"),
+            "summary_status": "current",
+            "state": str(item.get("status", "uncertain")),
+            "start_time": str(
+                item.get("actual_start")
+                or item.get("planned_start")
+                or item.get("actual_end")
+                or item.get("planned_end")
+                or ""
+            ),
+            "state_basis_modality": (
+                "ai_inferred"
+                if basis_modality == "inferred"
+                else basis_modality
+            ),
+            "state_basis_scope": basis_scope,
+            "state_basis_label": basis_label,
+            "state_terminality": str(
+                item.get(
+                    "terminality",
+                    (
+                        "confirmed"
+                        if basis_modality != "unknown"
+                        else "provisional"
+                    ),
+                )
+            ),
+            "semantic_contract_status": (
+                "current"
+                if basis_modality != "unknown"
+                else "legacy_pending_recompute"
+            ),
+            "facts": (),
+            "fact_count": 0,
+            "work_item_total": 1,
+            "facts_truncated": False,
+        }
+        return {
+            "node_id": item_id,
+            "node_type": "work_item",
+            "owning_matter_id": str(item.get("matter_id", "")),
             "selected_locale": locale,
             "regions": (
                 {

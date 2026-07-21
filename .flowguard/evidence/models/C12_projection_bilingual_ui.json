@@ -1,13 +1,25 @@
 {
   "artifact_type": "matters.flowguard-model-receipt.v1",
   "claim_boundary": "This model establishes bounded C12 localization, root catalog, child table, single-shell hierarchy navigation, descendant-aware timeline, exactly eight ordinary detail sections, bounded Files and information, operable Images evidence gallery, labeled AI supplemental information, density, search-state, latest-material-clue order, generated hero, explicit loading/processing/ready/honest-empty/no-filter-results/ready-stale/transport-error states, automatic reconnect recovery, on-demand correction, projection-only rendering that preserves the exact C6-admitted matter_id and excludes noncanonical source/candidate rows, and privacy transitions. It does not prove pixel parity, factual truth, hierarchy completeness, desktop installation, or private-run usefulness.",
-  "evidence_id": "evidence:C12_projection_bilingual_ui:c28a74c07f26dc67",
+  "evidence_id": "evidence:C12_projection_bilingual_ui:158d7c0456bf432d",
   "evidence_tiers": [
     "abstract_green",
     "hazard_green"
   ],
-  "generated_at": "2026-07-21T09:46:56.118972+00:00",
+  "generated_at": "2026-07-21T17:38:54.734239+00:00",
   "known_bad_proofs": [
+    {
+      "evidence_id": "C12_projection_bilingual_ui:known-bad:H-C12-061-legacy-lifecycle-invents-modality",
+      "failure_id": "H-C12-061-legacy-lifecycle-invents-modality",
+      "observed_status": "failed",
+      "protected_error_class": "legacy_semantic_basis_invention"
+    },
+    {
+      "evidence_id": "C12_projection_bilingual_ui:known-bad:H-C12-049-bounded-summary-writes-state",
+      "failure_id": "H-C12-049-bounded-summary-writes-state",
+      "observed_status": "failed",
+      "protected_error_class": "projection_state_owner_bypass"
+    },
     {
       "evidence_id": "C12_projection_bilingual_ui:known-bad:H-C12-042-projection-id-becomes-canonical-matter",
       "failure_id": "H-C12-042-projection-id-becomes-canonical-matter",
@@ -321,6 +333,12 @@
       "protected_error_class": "supplemental_descendant_duplicate_queue"
     },
     {
+      "evidence_id": "C12_projection_bilingual_ui:known-bad:H-C12-063-cross-source-title-summary-false-block",
+      "failure_id": "H-C12-063-cross-source-title-summary-false-block",
+      "observed_status": "failed",
+      "protected_error_class": "cross_source_projection_owner_false_block"
+    },
+    {
       "evidence_id": "C12_projection_bilingual_ui:known-bad:H-C12-058-coverage-green-with-unprocessed-ui-gap",
       "failure_id": "H-C12-058-coverage-green-with-unprocessed-ui-gap",
       "observed_status": "failed",
@@ -375,7 +393,7 @@
       "protected_error_class": "world_model_prediction_fact_projection"
     }
   ],
-  "model_fingerprint": "sha256:c28a74c07f26dc6757b115e00657da8f703dfc825df8228f7d569210248acbd3",
+  "model_fingerprint": "sha256:158d7c0456bf432d1a5f9a49920197b0cac67f01e50548c414401bee86cd8b33",
   "model_id": "C12_projection_bilingual_ui",
   "model_title": "C12 Bilingual Desktop Matter Object Browser",
   "overall_status": "pass_with_gaps",

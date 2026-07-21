@@ -1,6 +1,6 @@
 {
   "artifact_type": "matters.test-suite-receipt.v1",
-  "generated_at": "2026-07-21T10:47:55.550155+00:00",
+  "generated_at": "2026-07-21T20:41:02.853732+00:00",
   "pytest_observation": {
     "errors": 0,
     "failed": 0,
@@ -10,12 +10,12 @@
     "xfailed": 0,
     "xpassed": 0
   },
-  "source_fingerprint": "sha256:774ced039880695bae22cf79df79ba4bed5a7c3d9c1f17a77f362bfa479e3b19",
+  "source_fingerprint": "sha256:e7429bb88032922d31e926fbb39949d08d061f0c13e821ed5c873dd8ef0b9a11",
   "source_fingerprints": {
     "src/matters/application/coverage_audit.py": "sha256:272aaf65a3dc27b9a10d4278f403af913f5fe83c61733045c32393ff8907f1e8",
     "src/matters/application/coverage_ledger.py": "sha256:6ddaeb0a8d80820984d8d18c35cdd940a2179d56a04c71ddeb8d4159e1a35d43",
     "src/matters/application/source_workflows.py": "sha256:5e3b75101cba505bdd3db3d09aa2e0914dbeb66b4e08db29fbc02e10412e9c3a",
-    "src/matters/infrastructure/sqlite/store.py": "sha256:9f96260c84b251c672b405c3a62b20a86807b4c9a7c832cdef4be1fb3f87c278",
+    "src/matters/infrastructure/sqlite/store.py": "sha256:1975324ba766a51390bb993f2729813521c38a195c62ff042de94fea385933e9",
     "tests/test_coverage_audit.py": "sha256:a03d719209c29771cc6b1a0b880a8ebc8677ed2d4919fe09ddb79faab0f670b5",
     "tests/test_runtime_persistence_inventory.py": "sha256:4c8da7db8ce0debb965442ece45387c59cab61c4851a10d08b61c689b5b230fa",
     "tests/test_sqlite_store_scale_kernel.py": "sha256:ab371b5651b6d308d809b05433d8730019fb2549072a00c7efec532ce3823515"
@@ -26,7 +26,7 @@
     "tests/test_sqlite_store_scale_kernel.py"
   ],
   "stderr_tail": "",
-  "stdout_tail": "..........................................................               [100%]\n58 passed in 33.42s\n",
+  "stdout_tail": "..........................................................               [100%]\n58 passed in 43.96s\n",
   "suite_id": "TM21_object_coverage_worker",
   "test_suite_evidence": {
     "artifact_version": "matters.test-suite-receipt.v1",
@@ -49,7 +49,7 @@
     "finding_ids": [],
     "has_exit_artifact": true,
     "has_result_artifact": true,
-    "inventory_revision": "g4-testmesh-v15-exact-source-and-install-closure",
+    "inventory_revision": "g4-testmesh-v18-release-candidate-closure",
     "layer": "child",
     "log_root": "",
     "not_run_count": 0,
@@ -71,12 +71,12 @@
         "src/matters/application/coverage_audit.py": "sha256:272aaf65a3dc27b9a10d4278f403af913f5fe83c61733045c32393ff8907f1e8",
         "src/matters/application/coverage_ledger.py": "sha256:6ddaeb0a8d80820984d8d18c35cdd940a2179d56a04c71ddeb8d4159e1a35d43",
         "src/matters/application/source_workflows.py": "sha256:5e3b75101cba505bdd3db3d09aa2e0914dbeb66b4e08db29fbc02e10412e9c3a",
-        "src/matters/infrastructure/sqlite/store.py": "sha256:9f96260c84b251c672b405c3a62b20a86807b4c9a7c832cdef4be1fb3f87c278",
+        "src/matters/infrastructure/sqlite/store.py": "sha256:1975324ba766a51390bb993f2729813521c38a195c62ff042de94fea385933e9",
         "tests/test_coverage_audit.py": "sha256:a03d719209c29771cc6b1a0b880a8ebc8677ed2d4919fe09ddb79faab0f670b5",
         "tests/test_runtime_persistence_inventory.py": "sha256:4c8da7db8ce0debb965442ece45387c59cab61c4851a10d08b61c689b5b230fa",
         "tests/test_sqlite_store_scale_kernel.py": "sha256:ab371b5651b6d308d809b05433d8730019fb2549072a00c7efec532ce3823515"
       },
-      "artifact_id": "artifact:run:TM21_object_coverage_worker:3d0ed8ba0202b60c",
+      "artifact_id": "artifact:run:TM21_object_coverage_worker:a9ba122ec34e45bb",
       "assertion_scope": "external_contract",
       "command": "python -m pytest -q -o addopts= tests/test_runtime_persistence_inventory.py tests/test_coverage_audit.py tests/test_sqlite_store_scale_kernel.py",
       "covered_obligation_ids": [
@@ -87,7 +87,7 @@
       ],
       "current": true,
       "exit_code": 0,
-      "finished_at": "2026-07-21T10:47:55.550155+00:00",
+      "finished_at": "2026-07-21T20:41:02.853732+00:00",
       "metadata": {},
       "producer_route": "test_mesh",
       "progress_only": false,
@@ -96,15 +96,15 @@
       "route_evidence_current": true,
       "route_gap_codes": [],
       "stale_reasons": [],
-      "started_at": "2026-07-21T10:47:20.094812+00:00"
+      "started_at": "2026-07-21T20:40:16.563470+00:00"
     },
     "release_required": false,
-    "result_fingerprint": "sha256:774ced039880695bae22cf79df79ba4bed5a7c3d9c1f17a77f362bfa479e3b19",
+    "result_fingerprint": "sha256:e7429bb88032922d31e926fbb39949d08d061f0c13e821ed5c873dd8ef0b9a11",
     "result_path": ".flowguard/evidence/tests/TM21_object_coverage_worker.json",
     "result_reused": false,
     "result_status": "passed",
     "reuse_ticket": null,
-    "run_id": "run:TM21_object_coverage_worker:3d0ed8ba0202b60c",
+    "run_id": "run:TM21_object_coverage_worker:a9ba122ec34e45bb",
     "selected_count": 58,
     "skipped_count": 0,
     "skipped_visible": true,

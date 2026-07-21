@@ -16,6 +16,11 @@ SPEC = FiniteModelSpec(
         "matter.reopen_revision",
         "matter.child_outcome_summary",
         "matter.ancestor_outcome_rollup",
+        "matter.outcome_basis_modality",
+        "matter.outcome_basis_scope",
+        "matter.outcome_terminality",
+        "matter.outcome_inference_contract",
+        "matter.outcome_owner_evidence_license",
     ),
     owned_write_fields=(
         "matter.outcome",
@@ -23,6 +28,11 @@ SPEC = FiniteModelSpec(
         "matter.reopen_revision",
         "matter.child_outcome_summary",
         "matter.ancestor_outcome_rollup",
+        "matter.outcome_basis_modality",
+        "matter.outcome_basis_scope",
+        "matter.outcome_terminality",
+        "matter.outcome_inference_contract",
+        "matter.outcome_owner_evidence_license",
     ),
     side_effect_classes=("outcome_registry_write",),
     completion_evidence=(
@@ -37,6 +47,9 @@ SPEC = FiniteModelSpec(
         "ChildOutcomeCurrent",
         "AncestorOutcomeRollupCurrent",
         "ParentCompletionUnproven",
+        "ProvisionalHistoricalCompletion",
+        "OwnerEvidenceLicenseRejected",
+        "ReportedCancellationLicensed",
     ),
     rules=(
         CaseRule(
@@ -58,6 +71,24 @@ SPEC = FiniteModelSpec(
             reason="filename, meeting end, provider Done, or AI language cannot alone prove completion",
         ),
         CaseRule(
+            case_id="ai_self_declares_completion_evidence_licensed",
+            decision="completion_unproven",
+            label="completion_unproven",
+            writes=(
+                "matter.outcome_criteria",
+                "matter.outcome_owner_evidence_license",
+            ),
+            side_effects=("outcome_registry_write",),
+            emitted_tokens=(
+                "CompletionUnproven",
+                "OwnerEvidenceLicenseRejected",
+            ),
+            reason=(
+                "C9, not the AI payload, must match every criterion evidence "
+                "identifier to a compatible current C5 event for the same Matter"
+            ),
+        ),
+        CaseRule(
             case_id="user_cancels_with_open_loop",
             decision="cancelled_with_loop_disposition",
             label="cancelled_with_loop_disposition",
@@ -65,6 +96,23 @@ SPEC = FiniteModelSpec(
             side_effects=("outcome_registry_write",),
             emitted_tokens=("Cancelled", "OpenLoopDispositionRequired"),
             reason="user cancellation is recorded and independent loops require separate disposition",
+        ),
+        CaseRule(
+            case_id="reported_cancellation_event_with_loop_dispositions",
+            decision="cancelled",
+            label="cancelled",
+            writes=(
+                "matter.outcome",
+                "matter.outcome_criteria",
+                "matter.outcome_owner_evidence_license",
+            ),
+            side_effects=("outcome_registry_write",),
+            emitted_tokens=("Cancelled", "ReportedCancellationLicensed"),
+            reason=(
+                "a current reported or observed C5 termination event for the "
+                "same Matter licenses cancellation only after every current "
+                "OpenLoop has an explicit disposition"
+            ),
         ),
         CaseRule(
             case_id="new_obligation_after_completion",
@@ -121,8 +169,59 @@ SPEC = FiniteModelSpec(
                 "remain; child outcomes update the summary but never complete the parent"
             ),
         ),
+        CaseRule(
+            case_id="elapsed_bounded_phase_historical_completion_inferred",
+            decision="completed_provisional_ai_inferred",
+            label="completed_provisional_ai_inferred",
+            writes=(
+                "matter.outcome",
+                "matter.outcome_criteria",
+                "matter.outcome_basis_modality",
+                "matter.outcome_basis_scope",
+                "matter.outcome_terminality",
+                "matter.outcome_inference_contract",
+            ),
+            side_effects=("outcome_registry_write",),
+            emitted_tokens=("Completed", "ProvisionalHistoricalCompletion"),
+            reason=(
+                "an elapsed bounded phase may display completed when every "
+                "criterion is licensed by the historical-gap policy, but the "
+                "decision remains AI-inferred, provisional, revisable, and "
+                "cannot close ancestors, independent loops, or irreversible effects"
+            ),
+        ),
     ),
     hazards=(
+        HazardSpec(
+            failure_id="H-C9-007-unlicensed-ai-satisfied-completes",
+            protected_error_class="completion_evidence_license_bypass",
+            description=(
+                "an AI supplied satisfied boolean with planned, future, stale, "
+                "generic-summary, or unlicensed evidence completes the Matter"
+            ),
+            protected_harm="the user sees a false completed state",
+            case_id="ai_self_declares_completion_evidence_licensed",
+            broken_decision="completed_confirmed",
+            broken_writes=("matter.outcome", "matter.outcome_criteria"),
+            broken_side_effects=("outcome_registry_write",),
+            broken_tokens=("Completed",),
+        ),
+        HazardSpec(
+            failure_id="H-C9-008-ai-cancels-without-reported-termination",
+            protected_error_class="cancellation_evidence_license_bypass",
+            description=(
+                "an AI cancellation statement, unrelated event, or incomplete "
+                "OpenLoop disposition cancels the Matter"
+            ),
+            protected_harm=(
+                "a live Matter and its unresolved responsibilities disappear"
+            ),
+            case_id="reported_cancellation_event_with_loop_dispositions",
+            broken_decision="cancelled",
+            broken_writes=("matter.outcome", "matter.outcome_criteria"),
+            broken_side_effects=("outcome_registry_write",),
+            broken_tokens=("Cancelled",),
+        ),
         HazardSpec(
             failure_id="H-C9-001-false-completion-proof",
             protected_error_class="premature_completion",

@@ -1020,6 +1020,412 @@ def test_root_catalog_child_page_breadcrumb_work_items_and_http(tmp_path):
     assert payload["result"]["items"][0]["title"]["zh-CN"] == "Company A（中文）"
 
 
+def test_build_week_projects_material_stages_without_inventing_child_matters(
+    tmp_path,
+):
+    service = _service(tmp_path)
+    _seed_matter(
+        service,
+        "matter:build-week",
+        "OpenAI Build Week participation",
+        state="in_progress",
+    )
+    service.hierarchy.save_work_item(
+        MatterWorkItem(
+            item_id="work-item:build-week-preparation",
+            matter_id="matter:build-week",
+            kind="milestone",
+            status="in_progress",
+            localized_title={
+                "en": "Prepare the competition project",
+                "zh-CN": "准备参赛项目",
+            },
+            localized_result={
+                "en": "Registration is confirmed and submission work remains.",
+                "zh-CN": "报名已确认，仍需完成并提交参赛项目。",
+            },
+            evidence_ids=("evidence:registration-confirmed",),
+            planned_start="2026-07-16T00:00:00+00:00",
+            planned_end="2026-07-21T23:59:59+00:00",
+            required_for_parent=True,
+            material_stage=True,
+            basis_modality="ai_inferred",
+            basis_scope="current_phase",
+            temporal_assertion="ongoing",
+            terminality="provisional",
+            confidence="bounded",
+            inference_as_of="2026-07-20T12:00:00+00:00",
+            prerequisite_evidence_ids=("evidence:registration-confirmed",),
+            remaining_obligation_ids=("submit-project",),
+            active_window_start="2026-07-16T00:00:00+00:00",
+            active_window_end="2026-07-21T23:59:59+00:00",
+            contradiction_checked=True,
+            coverage_boundary="No direct editor activity is available.",
+            supporting_signals=(
+                "registration is confirmed and the submission deadline is open",
+            ),
+            alternative_explanations=("Preparation may be paused.",),
+            contradiction_triggers=(
+                "withdrawal, submitted result, or postponement",
+            ),
+            expires_at="2026-07-21T23:59:59+00:00",
+        )
+    )
+    service.hierarchy.save_work_item(
+        MatterWorkItem(
+            item_id="work-item:build-week-submit",
+            matter_id="matter:build-week",
+            kind="milestone",
+            status="planned",
+            localized_title={
+                "en": "Submit the competition result",
+                "zh-CN": "提交参赛成果",
+            },
+            localized_result={
+                "en": "The deadline is confirmed but submission has not occurred.",
+                "zh-CN": "截止时间已确认，但尚未提交。",
+            },
+            evidence_ids=("evidence:submission-deadline",),
+            planned_end="2026-07-21T17:00:00-07:00",
+            required_for_parent=True,
+            material_stage=True,
+            basis_modality="reported",
+            basis_scope="source_record",
+            temporal_assertion="planned",
+        )
+    )
+
+    graph = service.matter_situation_graph(matter_id="matter:build-week")
+    quick_view = service.matter_node_quick_view(
+        matter_id="matter:build-week",
+        node_id="work-item:build-week-preparation",
+    )
+
+    assert {node["node_id"] for node in graph["nodes"]} == {
+        "matter:build-week",
+        "work-item:build-week-preparation",
+        "work-item:build-week-submit",
+    }
+    assert all(
+        node["node_type"] != "matter"
+        for node in graph["nodes"]
+        if node["node_id"].startswith("work-item:")
+    )
+    assert quick_view["node_type"] == "work_item"
+    assert quick_view["summary_current_state"]["state"] == "in_progress"
+    assert quick_view["summary_current_state"]["state_basis_modality"] == (
+        "ai_inferred"
+    )
+    assert quick_view["recursive_navigation_allowed"] is False
+
+
+def test_legacy_work_item_without_semantic_basis_remains_readable_after_restart(
+    tmp_path,
+):
+    service = _service(tmp_path)
+    _seed_matter(
+        service,
+        "matter:legacy-project",
+        "Legacy project",
+        state="in_progress",
+    )
+    service.store.append(
+        "matter_work_item",
+        "work-item:legacy-required-stage",
+        1,
+        {
+            "item_id": "work-item:legacy-required-stage",
+            "matter_id": "matter:legacy-project",
+            "kind": "milestone",
+            "status": "planned",
+            "localized_title": {
+                "en": "Legacy required stage",
+                "zh-CN": "旧版必要阶段",
+            },
+            "localized_result": {
+                "en": "The old record predates semantic-basis fields.",
+                "zh-CN": "这条旧记录早于语义依据字段。",
+            },
+            "evidence_ids": ("evidence:legacy-stage",),
+            "source_ids": (),
+            "planned_start": "",
+            "planned_end": "2026-08-01T00:00:00+00:00",
+            "actual_start": "",
+            "actual_end": "",
+            "required_for_parent": True,
+            "freshness": "current",
+            "revision": 1,
+            "updated_at": "2026-07-01T00:00:00+00:00",
+        },
+    )
+
+    restarted = MatterService(
+        private_root=service.config.private_root,
+        repository_root=service.config.repository_root,
+    )
+    graph = restarted.matter_situation_graph(
+        matter_id="matter:legacy-project"
+    )
+    quick_view = restarted.matter_node_quick_view(
+        matter_id="matter:legacy-project",
+        node_id="work-item:legacy-required-stage",
+    )
+
+    assert {node["node_id"] for node in graph["nodes"]} == {
+        "matter:legacy-project",
+        "work-item:legacy-required-stage",
+    }
+    assert quick_view["summary_current_state"]["state"] == "planned"
+    assert quick_view["summary_current_state"]["state_basis_modality"] == (
+        "unknown"
+    )
+    assert quick_view["summary_current_state"]["state_terminality"] == (
+        "provisional"
+    )
+    assert quick_view["summary_current_state"]["semantic_contract_status"] == (
+        "legacy_pending_recompute"
+    )
+
+
+def test_travel_leg_is_a_supported_material_work_item_kind():
+    item = MatterWorkItem(
+        item_id="work-item:flight-leg",
+        matter_id="matter:trip",
+        kind="travel_leg",
+        status="planned",
+        localized_title={
+            "en": "Planned flight leg",
+            "zh-CN": "计划航段",
+        },
+        localized_result={
+            "en": "The flight leg remains planned.",
+            "zh-CN": "该航段仍处于计划中。",
+        },
+        evidence_ids=("evidence:flight-plan",),
+        source_ids=("source:flight-plan:v1",),
+        planned_start="2026-09-30",
+        required_for_parent=True,
+        material_stage=True,
+        basis_modality="planned",
+        basis_scope="source_record",
+        temporal_assertion="planned",
+        terminality="provisional",
+    )
+
+    assert item.kind == "travel_leg"
+    assert item.status == "planned"
+    assert item.material_stage is True
+
+
+def test_semantic_role_reconciliation_retires_exact_work_item_duplicates(
+    tmp_path,
+):
+    service = _service(tmp_path)
+    _seed_matter(
+        service,
+        "matter:build-week",
+        "Build Week",
+        state="in_progress",
+    )
+    common = {
+        "matter_id": "matter:build-week",
+        "kind": "milestone",
+        "status": "planned",
+        "localized_title": {
+            "en": "Submit the project",
+            "zh-CN": "提交参赛项目",
+        },
+        "localized_result": {
+            "en": "Submission remains planned.",
+            "zh-CN": "参赛作品仍待提交。",
+        },
+        "evidence_ids": ("evidence:submission",),
+        "basis_modality": "planned",
+        "basis_scope": "",
+        "temporal_assertion": "planned",
+        "terminality": "provisional",
+    }
+    service.hierarchy.save_work_item(
+        MatterWorkItem(
+            **common,
+            item_id="work-item:legacy-submission-a",
+        )
+    )
+    service.hierarchy.save_work_item(
+        MatterWorkItem(
+            **common,
+            item_id="work-item:legacy-submission-b",
+        )
+    )
+
+    canonical = MatterWorkItem(
+        **common,
+        item_id="work-item:submission",
+        semantic_role_key="submission",
+    )
+    service.hierarchy.save_work_item(
+        canonical,
+        supersedes_item_ids=(
+            "work-item:legacy-submission-a",
+            "work-item:legacy-submission-b",
+        ),
+    )
+    page = service.matter_work_items(
+        matter_id="matter:build-week"
+    )
+    assert [item["item_id"] for item in page["items"]] == [
+        "work-item:submission"
+    ]
+    for retired_id in (
+        "work-item:legacy-submission-a",
+        "work-item:legacy-submission-b",
+    ):
+        retired = service.store.current(
+            "matter_work_item",
+            retired_id,
+        )
+        assert retired["deleted"] is True
+        assert retired["superseded_by"] == "work-item:submission"
+        assert retired["retirement_reason"] == (
+            "semantic_identity_reconciliation"
+        )
+
+    history_count = len(
+        service.store.history(
+            "matter_work_item",
+            "work-item:submission",
+        )
+    )
+    service.hierarchy.save_work_item(
+        canonical,
+        supersedes_item_ids=(
+            "work-item:legacy-submission-a",
+            "work-item:legacy-submission-b",
+        ),
+    )
+    assert len(
+        service.store.history(
+            "matter_work_item",
+            "work-item:submission",
+        )
+    ) == history_count
+
+
+def test_same_semantic_role_requires_exact_work_item_supersession(
+    tmp_path,
+):
+    service = _service(tmp_path)
+    _seed_matter(service, "matter:project", "Project")
+    common = {
+        "matter_id": "matter:project",
+        "kind": "action",
+        "status": "planned",
+        "localized_title": {
+            "en": "Prepare",
+            "zh-CN": "准备",
+        },
+        "localized_result": {
+            "en": "Preparation is planned.",
+            "zh-CN": "准备工作处于计划中。",
+        },
+        "evidence_ids": ("evidence:prepare",),
+        "semantic_role_key": "preparation",
+    }
+    service.hierarchy.save_work_item(
+        MatterWorkItem(
+            **common,
+            item_id="work-item:preparation-a",
+        )
+    )
+
+    with pytest.raises(
+        ValueError,
+        match="same semantic role",
+    ):
+        service.hierarchy.save_work_item(
+            MatterWorkItem(
+                **common,
+                item_id="work-item:preparation-b",
+            )
+        )
+
+    page = service.matter_work_items(matter_id="matter:project")
+    assert [item["item_id"] for item in page["items"]] == [
+        "work-item:preparation-a"
+    ]
+
+
+def test_ai_inferred_work_item_status_must_match_its_inference_scope():
+    common = {
+        "item_id": "work-item:inference-scope",
+        "matter_id": "matter:scope",
+        "kind": "milestone",
+        "localized_title": {
+            "en": "Inferred stage",
+            "zh-CN": "推断阶段",
+        },
+        "localized_result": {
+            "en": "A bounded inference.",
+            "zh-CN": "一项有边界的推断。",
+        },
+        "evidence_ids": ("evidence:scope",),
+        "basis_modality": "ai_inferred",
+        "terminality": "provisional",
+        "confidence": "bounded",
+        "inference_as_of": "2026-07-20T12:00:00+00:00",
+        "coverage_boundary": "Only the authorized evidence was checked.",
+        "supporting_signals": ("one current support",),
+        "alternative_explanations": ("the activity may be paused",),
+        "contradiction_triggers": ("a cancellation or completion record",),
+        "expires_at": "2026-07-21T23:59:59+00:00",
+    }
+
+    with pytest.raises(
+        ValueError,
+        match="complete revisable inference contract",
+    ):
+        MatterWorkItem(
+            **common,
+            status="planned",
+            basis_scope="current_phase",
+            temporal_assertion="ongoing",
+            prerequisite_evidence_ids=("evidence:scope",),
+            remaining_obligation_ids=("submit-result",),
+            active_window_start="2026-07-16T00:00:00+00:00",
+            active_window_end="2026-07-21T23:59:59+00:00",
+            contradiction_checked=True,
+        )
+
+    with pytest.raises(
+        ValueError,
+        match="complete revisable inference contract",
+    ):
+        MatterWorkItem(
+            **common,
+            status="in_progress",
+            basis_scope="current_phase",
+            temporal_assertion="ongoing",
+            prerequisite_evidence_ids=("evidence:scope",),
+            remaining_obligation_ids=("submit-result",),
+            active_window_start="2026-07-16T00:00:00+00:00",
+            active_window_end="2026-07-21T23:59:59+00:00",
+            contradiction_checked=True,
+            counter_signals=("current cancellation evidence",),
+        )
+
+    with pytest.raises(
+        ValueError,
+        match="complete revisable inference contract",
+    ):
+        MatterWorkItem(
+            **common,
+            status="in_progress",
+            basis_scope="historical_gap",
+            temporal_assertion="occurred",
+            target_time="2026-07-19T12:00:00+00:00",
+        )
+
+
 def test_hierarchy_timeline_projects_one_child_logical_event_once(tmp_path):
     service = _service(tmp_path)
     _seed_matter(service, "matter:trip", "Trip", state="in_progress")
@@ -1168,7 +1574,7 @@ def test_situation_graph_excludes_work_owned_by_superseded_child_projection(
     assert "analysis_output_replacement_pending" not in (
         rebuilt["coverage_gaps"]
     )
-    assert rebuilt["projection_kind"] == "matter_only"
+    assert rebuilt["projection_kind"] == "matter_and_material_stages"
     assert {node["node_id"] for node in rebuilt["nodes"]} == {
         "matter:parent",
         "matter:child",

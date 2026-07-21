@@ -1,13 +1,19 @@
 {
   "artifact_type": "matters.flowguard-model-receipt.v1",
   "claim_boundary": "This receipt can establish C5 abstract modality, record/reality, Start/clue/processing separation, material-clue admission, supersession, and Event/Matter separation hazards. It does not establish factual occurrence, clock accuracy, canonical Matter hierarchy, ResearchGuard coverage, or production replay.",
-  "evidence_id": "evidence:C5_event_temporal_trace:a9636cba74a284fc",
+  "evidence_id": "evidence:C5_event_temporal_trace:2d7eeeeddc5be7df",
   "evidence_tiers": [
     "abstract_green",
     "hazard_green"
   ],
-  "generated_at": "2026-07-21T09:45:30.353520+00:00",
+  "generated_at": "2026-07-21T15:03:09.502773+00:00",
   "known_bad_proofs": [
+    {
+      "evidence_id": "C5_event_temporal_trace:known-bad:H-C5-023-future-flight-completed-by-ticket",
+      "failure_id": "H-C5-023-future-flight-completed-by-ticket",
+      "observed_status": "failed",
+      "protected_error_class": "future_occurrence_completion_conflation"
+    },
     {
       "evidence_id": "C5_event_temporal_trace:known-bad:H-C5-016-restart-revives-superseded-event",
       "failure_id": "H-C5-016-restart-revives-superseded-event",
@@ -111,13 +117,19 @@
       "protected_error_class": "source_modality_authority_loss"
     },
     {
+      "evidence_id": "C5_event_temporal_trace:known-bad:H-C5-014-reported-temporal-direction-rejected-as-inference-metadata",
+      "failure_id": "H-C5-014-reported-temporal-direction-rejected-as-inference-metadata",
+      "observed_status": "failed",
+      "protected_error_class": "temporal_axis_modality_conflation"
+    },
+    {
       "evidence_id": "C5_event_temporal_trace:known-bad:H-C5-010-future-ai-inference-enters-occurred-trace",
       "failure_id": "H-C5-010-future-ai-inference-enters-occurred-trace",
       "observed_status": "failed",
       "protected_error_class": "future_prediction_temporal_backwrite"
     }
   ],
-  "model_fingerprint": "sha256:a9636cba74a284fc3a2512b5bcfadbc004405f6a306bff3b918ddb56c55cfdf4",
+  "model_fingerprint": "sha256:2d7eeeeddc5be7df05cebda4ad3a17e2e257dc6b7216c16fc499699a8d3e6a11",
   "model_id": "C5_event_temporal_trace",
   "model_title": "C5 Event & Temporal Trace",
   "overall_status": "pass_with_gaps",

@@ -364,10 +364,12 @@ The existing generic Jira adapter remains source-only and disabled. Gmail and
 private local data are required for the user's private first-run acceptance,
 but never for clean-clone, package, installation, or public release
 verification. No Jira login, Rovo installation, or automatic external action
-is required for the generic release. The user has now authorized a GitHub
-software release before the private first run completes, but the exact remote,
-visibility, license disposition, and public inventory remain frozen release
-inputs rather than assumptions.
+is required for the generic release. The user has now authorized a public
+GitHub software release before the private first run completes. The remote is
+frozen as `liuyingxuvka/Matters`, visibility is public, the license is
+proprietary source-available for personal non-commercial use, and only the
+approved generic public-safe inventory may be published. This authorization
+does not include private data or establish an OSI-approved open-source license.
 
 The release sequence therefore has two independent acceptance domains. First,
 v0.3.0 freezes the generic hierarchy, people, timeline, summary,

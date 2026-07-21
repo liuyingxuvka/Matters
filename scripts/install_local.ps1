@@ -55,7 +55,7 @@ function Remove-RepositoryBuildResidue {
 }
 
 function Get-InstalledMattersDistribution {
-    $DistributionJsonLines = @(& $PythonPath -c @"
+    $DistributionIdentityScript = @"
 # matters-installed-distribution-identity-v1
 import importlib.metadata as metadata
 import json
@@ -85,7 +85,8 @@ else:
             sort_keys=True,
         )
     )
-"@)
+"@
+    $DistributionJsonLines = @($DistributionIdentityScript | & $PythonPath -)
     if ($LASTEXITCODE -ne 0) {
         throw "The installed Matters distribution identity could not be frozen."
     }
@@ -249,7 +250,7 @@ function Restore-DistributionSnapshot {
     }
 }
 
-$ExpectedVersion = (& $PythonPath -c @"
+$ExpectedVersionScript = @"
 import ast
 import pathlib
 import sys
@@ -266,7 +267,9 @@ for node in tree.body:
         break
 else:
     raise SystemExit("Matters VERSION authority is unavailable.")
-"@ $VersionSource).Trim()
+"@
+$ExpectedVersionLines = @($ExpectedVersionScript | & $PythonPath - $VersionSource)
+$ExpectedVersion = ($ExpectedVersionLines -join "`n").Trim()
 if ($LASTEXITCODE -ne 0 -or [string]::IsNullOrWhiteSpace($ExpectedVersion)) {
     throw "The Matters source version authority is unavailable."
 }
@@ -302,7 +305,7 @@ if ($null -eq $Wheel) {
     throw "The Matters $ExpectedVersion wheel is unavailable."
 }
 
-$WheelIdentityLines = @(& $PythonPath -c @"
+$WheelIdentityScript = @"
 # matters-wheel-identity-v2
 import configparser
 import email
@@ -445,7 +448,10 @@ print(
         sort_keys=True,
     )
 )
-"@ $Wheel.FullName $ExpectedVersion)
+"@
+$WheelIdentityLines = @(
+    $WheelIdentityScript | & $PythonPath - ([string]$Wheel.FullName) $ExpectedVersion
+)
 if ($LASTEXITCODE -ne 0 -or $WheelIdentityLines.Count -eq 0) {
     throw "The candidate Matters wheel identity could not be verified."
 }
@@ -527,7 +533,7 @@ try {
         throw "The installed Matters distribution does not match the candidate version."
     }
 
-    $InstalledContractLines = @(& $PythonPath -c @"
+    $InstalledContractScript = @"
 # matters-installed-contract-identity-v1
 import hashlib
 import importlib.metadata as metadata
@@ -671,7 +677,11 @@ print(
         sort_keys=True,
     )
 )
-"@ $ExpectedVersion $WheelIdentity.skill_pack_identity)
+"@
+    $InstalledContractLines = @(
+        $InstalledContractScript |
+            & $PythonPath - $ExpectedVersion ([string]$WheelIdentity.skill_pack_identity)
+    )
     if ($LASTEXITCODE -ne 0 -or $InstalledContractLines.Count -eq 0) {
         throw "The installed Matters distribution contract could not be verified."
     }
@@ -695,7 +705,7 @@ print(
         throw "The installed Matters MCP launcher is unavailable."
     }
     $McpLauncher = (Resolve-Path -LiteralPath $McpLauncher).Path
-    & $PythonPath -c @"
+    $McpValidationScript = @"
 import json
 import subprocess
 import sys
@@ -754,7 +764,8 @@ required_tools = {
 }
 if not required_tools.issubset(tool_names):
     raise SystemExit("The installed Matters MCP tool contract is incomplete.")
-"@ $McpLauncher $ExpectedVersion
+"@
+    $McpValidationScript | & $PythonPath - $McpLauncher $ExpectedVersion
     if ($LASTEXITCODE -ne 0) {
         throw "The installed Matters MCP currentness check failed."
     }

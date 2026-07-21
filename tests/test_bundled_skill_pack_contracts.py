@@ -279,6 +279,13 @@ def test_semantic_understanding_is_two_stage_model_independent_and_complete():
     assert "allowed_asset_ids" in contract_text
     assert "input_dispositions" in contract_text
     assert "raw filename" in contract_text
+    assert "stable semantic identity" in combined
+    assert "independently useful goal or obligation" in combined
+    assert "current_phase" in combined
+    assert "temporal_assertion" in combined
+    assert "basis_modality" in combined
+    assert "terminality" in combined
+    assert "material-stage" in skill_text
 
     for forbidden_model_binding in ("luna", "terra", "gpt-"):
         assert forbidden_model_binding not in combined

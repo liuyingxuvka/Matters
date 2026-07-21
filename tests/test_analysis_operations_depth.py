@@ -182,6 +182,165 @@ def test_low_cost_annotator_cannot_promote_a_matter():
     assert result.failure_class == "invalid_agent_operation_output"
 
 
+def test_current_phase_finding_requires_complete_nonfuture_inference_contract():
+    package = AnalysisWorkPackage.create(
+        operation_type="text_analysis",
+        task_kind="semantic_understanding",
+        capability_role="matter_modeler",
+        requested_output_types=("lifecycle_candidate",),
+        source_revision_ids=("source:v1",),
+        model_revision="semantic:v4",
+        allowed_evidence_ids=("evidence:registration-confirmed",),
+        private_evidence={
+            "analysis_as_of": "2026-07-20T12:00:00+00:00",
+            "statement": "Registration is confirmed and submission remains.",
+        },
+        prompt_contract_revision="v4",
+    )
+    finding = {
+        "finding_type": "lifecycle_candidate",
+        "owner_model_id": "C7_lifecycle_board_state",
+        "statement": "Preparation is the best current phase estimate.",
+        "localized_statement": {
+            "en": "Preparation is the best current phase estimate.",
+            "zh-CN": "目前最合理的阶段判断是正在准备。",
+        },
+        "semantic_revision": "source:v1",
+        "evidence_ids": ["evidence:registration-confirmed"],
+        "confidence": "medium",
+        "modality": "inferred",
+        "alternative_explanations": ["Preparation may be paused."],
+        "attributes": {
+            "temporal_direction": "present",
+            "temporal_assertion": "ongoing",
+            "inference_purpose": "current_phase",
+            "inference_as_of": "2026-07-20T12:00:00+00:00",
+            "revisable": True,
+            "prerequisite_evidence_ids": [
+                "evidence:registration-confirmed"
+            ],
+            "remaining_obligation_ids": ["submit-project"],
+            "active_window_start": "2026-07-16T00:00:00+00:00",
+            "active_window_end": "2026-07-21T23:59:59+00:00",
+            "contradiction_checked": True,
+            "supporting_signals": [
+                "registration is confirmed and submission remains"
+            ],
+            "coverage_boundary": "No direct editor activity is available.",
+            "expires_at": "2026-07-21T23:59:59+00:00",
+            "contradiction_triggers": [
+                "withdrawal, submitted result, or postponement"
+            ],
+        },
+    }
+
+    parsed = AgentOperationOwner._finding(package, finding)
+    invalid = {
+        **finding,
+        "attributes": {
+            **finding["attributes"],
+            "contradiction_checked": False,
+        },
+    }
+
+    assert parsed.attributes["inference_purpose"] == "current_phase"
+    with pytest.raises(ValueError, match="contradiction review"):
+        AgentOperationOwner._finding(package, invalid)
+
+    work_package = AnalysisWorkPackage.create(
+        operation_type="text_analysis",
+        task_kind="semantic_understanding",
+        capability_role="matter_modeler",
+        requested_output_types=("work_item_candidate",),
+        source_revision_ids=("source:v1",),
+        model_revision="semantic:v4",
+        allowed_evidence_ids=("evidence:registration-confirmed",),
+        private_evidence={
+            "analysis_as_of": "2026-07-20T12:00:00+00:00",
+        },
+        prompt_contract_revision="v4",
+    )
+    work_finding = {
+        **finding,
+        "finding_type": "work_item_candidate",
+        "owner_model_id": "C6_matter_admission",
+        "attributes": {
+            **finding["attributes"],
+            "status": "in_progress",
+        },
+    }
+    AgentOperationOwner._finding(work_package, work_finding)
+    with pytest.raises(
+        ValueError,
+        match="remaining obligation",
+    ):
+        AgentOperationOwner._finding(
+            work_package,
+            {
+                **work_finding,
+                "attributes": {
+                    **work_finding["attributes"],
+                    "status": "planned",
+                },
+            },
+        )
+
+
+def test_cross_source_semantic_members_require_stable_role_identity():
+    package = AnalysisWorkPackage.create(
+        operation_type="text_analysis",
+        task_kind="matter_semantic_refresh",
+        capability_role="matter_modeler",
+        requested_output_types=(
+            "work_item_candidate",
+            "open_loop_candidate",
+        ),
+        source_revision_ids=("source:v1",),
+        model_revision="matters-matter-semantic-refresh:v2",
+        matter_id="matter:project",
+        matter_revision="sha256:current",
+        allowed_evidence_ids=("evidence:project",),
+        private_evidence={
+            "analysis_as_of": "2026-07-20T12:00:00+00:00",
+            "semantic_state_fingerprint": "sha256:current",
+        },
+        prompt_contract_revision="v5",
+        output_schema_id="matters.agent-operation-result.v4",
+    )
+    work_item = {
+        "finding_type": "work_item_candidate",
+        "owner_model_id": "C6_matter_admission",
+        "statement": "Submit the project.",
+        "localized_statement": {
+            "en": "Submit the project",
+            "zh-CN": "提交项目",
+        },
+        "semantic_revision": "source:v1",
+        "evidence_ids": ["evidence:project"],
+        "confidence": "bounded",
+        "modality": "planned",
+        "attributes": {
+            "matter_id": "matter:project",
+            "status": "planned",
+            "kind": "milestone",
+        },
+    }
+    with pytest.raises(ValueError, match="semantic_role_key"):
+        AgentOperationOwner._finding(package, work_item)
+
+    parsed = AgentOperationOwner._finding(
+        package,
+        {
+            **work_item,
+            "attributes": {
+                **work_item["attributes"],
+                "semantic_role_key": "submission",
+            },
+        },
+    )
+    assert parsed.attributes["semantic_role_key"] == "submission"
+
+
 def test_legacy_named_runner_package_is_directly_migrated(tmp_path):
     repo = tmp_path / "repo"
     home = tmp_path / "home"

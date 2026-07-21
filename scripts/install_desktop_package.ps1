@@ -121,6 +121,78 @@ function Assert-ShortcutCurrent {
     }
 }
 
+function Stop-PriorInstalledMattersProcesses {
+    param(
+        [Parameter(Mandatory = $true)][string]$Launcher,
+        [Parameter(Mandatory = $true)][string]$InstalledRoot
+    )
+    $ResolvedInstallRoot = [System.IO.Path]::GetFullPath($InstallRoot).TrimEnd(
+        [System.IO.Path]::DirectorySeparatorChar,
+        [System.IO.Path]::AltDirectorySeparatorChar
+    ) + [System.IO.Path]::DirectorySeparatorChar
+    $ResolvedPriorRoot = [System.IO.Path]::GetFullPath($InstalledRoot)
+    $ResolvedLauncher = [System.IO.Path]::GetFullPath($Launcher)
+    $ExpectedLauncher = [System.IO.Path]::GetFullPath(
+        (Join-Path $ResolvedPriorRoot "Matters.exe")
+    )
+    if (
+        -not $ResolvedPriorRoot.StartsWith(
+            $ResolvedInstallRoot,
+            [System.StringComparison]::OrdinalIgnoreCase
+        ) -or
+        -not [string]::Equals(
+            $ResolvedLauncher,
+            $ExpectedLauncher,
+            [System.StringComparison]::OrdinalIgnoreCase
+        )
+    ) {
+        throw "The prior Matters process owner is outside the managed desktop installation."
+    }
+
+    $AllProcesses = @(Get-CimInstance Win32_Process)
+    $OwnedIds = [System.Collections.Generic.HashSet[int]]::new()
+    foreach ($Process in $AllProcesses) {
+        if (
+            -not [string]::IsNullOrWhiteSpace([string]$Process.ExecutablePath) -and
+            [string]::Equals(
+                [System.IO.Path]::GetFullPath([string]$Process.ExecutablePath),
+                $ResolvedLauncher,
+                [System.StringComparison]::OrdinalIgnoreCase
+            )
+        ) {
+            $null = $OwnedIds.Add([int]$Process.ProcessId)
+        }
+    }
+    if ($OwnedIds.Count -eq 0) {
+        return
+    }
+
+    $Added = $true
+    while ($Added) {
+        $Added = $false
+        foreach ($Process in $AllProcesses) {
+            if (
+                $OwnedIds.Contains([int]$Process.ParentProcessId) -and
+                -not $OwnedIds.Contains([int]$Process.ProcessId)
+            ) {
+                $null = $OwnedIds.Add([int]$Process.ProcessId)
+                $Added = $true
+            }
+        }
+    }
+    foreach ($ProcessId in @($OwnedIds)) {
+        Stop-Process -Id $ProcessId -Force -ErrorAction SilentlyContinue
+    }
+    Start-Sleep -Milliseconds 500
+    $Remaining = @(
+        Get-CimInstance Win32_Process |
+            Where-Object { $OwnedIds.Contains([int]$_.ProcessId) }
+    )
+    if ($Remaining.Count -ne 0) {
+        throw "The prior Matters desktop process tree did not stop cleanly."
+    }
+}
+
 $env:PYTHONPATH = Join-Path $RepositoryRoot "src"
 $CandidateVerificationLines = @(
     python scripts\build_desktop_manifest.py `
@@ -169,6 +241,7 @@ $ShortcutStates = @()
 $ReceiptState = $null
 $EnvironmentChanged = $false
 $FinalReceiptJson = ""
+$PriorProcessShutdownVerified = $false
 $PriorUserMattersHome = [Environment]::GetEnvironmentVariable("MATTERS_HOME", "User")
 try {
     New-Item -ItemType Directory -Force -Path $StageRoot, $PriorRoot, $VersionsRoot | Out-Null
@@ -179,6 +252,7 @@ try {
         -Path $ReceiptPath `
         -SnapshotPath (Join-Path $PriorRoot "active-install.json")
     $PriorPackageIdentity = ""
+    $ExistingReceipt = $null
     if ($ReceiptState.existed) {
         $ExistingReceipt = (
             Get-Content -LiteralPath $ReceiptPath -Raw -Encoding UTF8 |
@@ -295,6 +369,12 @@ try {
     ) {
         throw "The installed Matters desktop package self-test gates are incomplete."
     }
+    if ($null -ne $ExistingReceipt) {
+        Stop-PriorInstalledMattersProcesses `
+            -Launcher ([string]$ExistingReceipt.launcher) `
+            -InstalledRoot ([string]$ExistingReceipt.installed_root)
+    }
+    $PriorProcessShutdownVerified = $true
     New-Item -ItemType Directory -Force -Path $ShortcutRoot | Out-Null
     $Shell = New-Object -ComObject WScript.Shell
     foreach ($ShortcutPath in $ShortcutPaths) {
@@ -327,6 +407,7 @@ try {
         shortcuts = $ShortcutPaths
         private_root = $PrivateRoot
         transaction_id = $TransactionId
+        prior_process_shutdown_verified = $PriorProcessShutdownVerified
         installed_at = [DateTimeOffset]::UtcNow.ToString("o")
     }
     New-Item -ItemType Directory -Force -Path $InstallRoot | Out-Null

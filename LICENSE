@@ -1,20 +1,29 @@
-Matters Private Repository License
+Matters Public Source License
 
 Copyright (c) 2026 Matters contributors. All rights reserved.
 
-Permission is granted to the authorized owner and explicitly authorized
-collaborators to use, copy, modify, build, install, and store this software in
-private, access-controlled repositories and private release storage.
+The source code in this repository is made publicly available for inspection,
+security review, education, and personal evaluation.
 
-No permission is granted to publish or redistribute the software publicly,
-sublicense or sell it, host it as a service for third parties, or make the
-software or any private user data publicly available.
+Permission is granted, without charge, to individuals to download, install,
+run, copy, and modify this software for personal, non-commercial use. Public
+forking on GitHub for inspection, issue reproduction, and personal
+non-commercial modification is permitted subject to GitHub's terms of service.
+
+No permission is granted to sell, sublicense, commercially exploit, host the
+software as a service for third parties, redistribute compiled or modified
+versions outside the official Matters repository and its official Releases, or
+represent a derivative as an official Matters release without prior written
+permission from the copyright holder.
+
+This license grants no permission to publish or redistribute private user data,
+including messages, local files, identifiers, screenshots, derived models,
+embeddings, receipts, or other private runtime material. Those materials are
+outside the licensed public repository and release boundary.
 
 The software is provided "as is", without warranty of any kind, express or
 implied, including warranties of merchantability, fitness for a particular
 purpose, and noninfringement. In no event shall the contributors be liable for
 any claim, damages, or other liability arising from use of the software.
 
-A private source release under this license is not an open-source release.
-Any future public license or public repository requires separate explicit
-authorization.
+This is a source-available license, not an OSI-approved open-source license.

@@ -694,3 +694,25 @@ This record contains only public failure classes, repairs, and evidence routes. 
 - The isolated desktop package is approximately 95 MB, passes its manifest and self-test, contains the exact eleven-skill pack, and is installed transactionally behind matching Desktop and Start Menu shortcuts.
 - Focused desktop/release and DPF projection regressions pass.
 - Final refrozen model owners, full TestMesh, final source packages, Git/tag/GitHub Release, and the post-release private first run remain separate required owners.
+
+## matters-v030-windows-install-process-handoff-miss - Close real Windows upgrade handoff gaps
+
+- Project: matters
+- Trigger reason: a real 0.3.0 installation failed under Windows PowerShell quoting, and a later successful desktop activation left the prior Matters window running
+- Status: observed and same-class repair verified against a real installed process; final frozen release owner remains pending
+- Skill decision: existing-model preflight + model-miss review + development process flow
+- Claim boundary: BC-DP-003 / DPF installation handoff, PowerShell-to-Python invocation, exact managed process ownership, focused tests, and real local upgrade replay only
+
+### Finding and repair
+
+- Miss type: `code_boundary_mismatch`. The prior self-test proved that one packaged process could shut down its own children, but the installer did not actually stop the prior installed process tree during an upgrade.
+- Windows PowerShell 5.1 also removed quotes from multiline `python -c` programs, so source-version and installed-distribution checks could fail before activation. Every multiline installer program that needs Python is now passed through standard input, and the old invocation shape is forbidden by regression.
+- The desktop installer now accepts only the exact launcher from the prior managed install receipt, verifies that it remains under the Matters desktop install root, expands only that launcher's descendant tree, stops it, confirms zero remaining process ids, and records `prior_process_shutdown_verified=true`.
+- The DPF desktop-install gate rejects a receipt without that explicit process-handoff evidence. A foreign or unmanaged launcher path fails closed instead of widening process authority.
+
+### Evidence and remaining boundary
+
+- `25` focused desktop package, install, and TM19 contract tests passed, including the missing-process-handoff receipt counterexample.
+- A real installed Matters desktop process was left running before the repaired installer replay; the installer itself reduced the owned tree to zero, published the current receipt, and the exact current launcher was then started successfully.
+- The same-class scan covers absent prior process, one or more exact prior launcher processes, their descendant processes, a foreign launcher path, and every former multiline PowerShell `python -c` call.
+- Final ModelMesh, Alignment, full release TestMesh, clean-clone package/privacy checks, Git/tag/GitHub Release, and post-release private first-run evidence remain separate owners.

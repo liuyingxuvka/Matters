@@ -54,7 +54,10 @@ def _request(
         context=_context(*signals),
         candidates=candidates,
         relationship_hints=relationship_hints,
-        granularity=GranularityAssessment(independently_useful_goal=True),
+        granularity=GranularityAssessment(
+            independently_useful_goal=True,
+            independently_useful_next_step=True,
+        ),
     )
 
 
@@ -334,7 +337,16 @@ def test_inferred_canonical_event_is_only_a_revisable_past_gap_fill():
         inference_as_of="2026-07-20T12:00:00+00:00",
         target_time="2026-06-30T12:00:00+00:00",
         revisable=True,
+        inference_confidence="bounded",
+        supporting_signals=(
+            "the dated ticket and entry reservation are both in the past",
+        ),
+        coverage_boundary="No direct gate-entry record is available.",
+        alternative_explanations=(
+            "The traveler may have cancelled without a captured refund.",
+        ),
         contradiction_triggers=("cancellation or refund evidence",),
+        expires_at="2026-08-20T12:00:00+00:00",
     )
 
     assert event.inference_purpose == "historical_gap_fill"
@@ -352,7 +364,12 @@ def test_inferred_canonical_event_is_only_a_revisable_past_gap_fill():
             inference_as_of="2026-07-20T12:00:00+00:00",
             target_time="2026-09-30T12:00:00+00:00",
             revisable=True,
+            inference_confidence="bounded",
+            supporting_signals=("a future itinerary was issued",),
+            coverage_boundary="The flight has not occurred yet.",
+            alternative_explanations=("The itinerary may later change.",),
             contradiction_triggers=("flight cancellation",),
+            expires_at="2026-09-30T12:00:00+00:00",
         )
 
 
@@ -436,7 +453,23 @@ def test_matter_only_graph_keeps_matter_relations_and_hides_fact_nodes():
                 {"node_id": "matter:travel", "node_type": "matter"},
                 {"node_id": "matter:japan", "node_type": "matter"},
                 {"node_id": "event:ticket", "node_type": "event"},
-                {"node_id": "work:check-in", "node_type": "work_item"},
+                {
+                    "node_id": "work:check-in",
+                    "node_type": "work_item",
+                    "attributes": {
+                        "material_stage": True,
+                        "status": "planned",
+                        "planned_start": "2026-09-30",
+                    },
+                },
+                {
+                    "node_id": "work:download",
+                    "node_type": "work_item",
+                    "attributes": {
+                        "material_stage": False,
+                        "status": "planned",
+                    },
+                },
             ),
             "edges": (
                 {
@@ -460,6 +493,20 @@ def test_matter_only_graph_keeps_matter_relations_and_hides_fact_nodes():
                     "relation_type": "supports",
                     "primary_containment": False,
                 },
+                {
+                    "edge_id": "edge:stage",
+                    "source_node_id": "matter:japan",
+                    "target_node_id": "work:check-in",
+                    "relation_type": "has_work_item",
+                    "primary_containment": False,
+                },
+                {
+                    "edge_id": "edge:minor-task",
+                    "source_node_id": "matter:japan",
+                    "target_node_id": "work:download",
+                    "relation_type": "has_work_item",
+                    "primary_containment": False,
+                },
             ),
         }
     )
@@ -467,12 +514,60 @@ def test_matter_only_graph_keeps_matter_relations_and_hides_fact_nodes():
     assert [item["node_id"] for item in projected["nodes"]] == [
         "matter:travel",
         "matter:japan",
+        "work:check-in",
     ]
     assert {item["edge_id"] for item in projected["edges"]} == {
         "edge:contains",
         "edge:related",
+        "edge:stage",
     }
     assert projected["per_node_collapse_allowed"] is False
+
+
+def test_matter_only_graph_prefers_root_owned_stages_over_competing_children():
+    projected = project_matter_only_graph(
+        {
+            "root_matter_id": "matter:travel",
+            "nodes": (
+                {"node_id": "matter:travel", "node_type": "matter"},
+                {"node_id": "matter:legacy-flight", "node_type": "matter"},
+                {
+                    "node_id": "work:outbound",
+                    "node_type": "work_item",
+                    "attributes": {
+                        "material_stage": True,
+                        "status": "planned",
+                        "planned_start": "2026-09-30",
+                    },
+                },
+            ),
+            "edges": (
+                {
+                    "edge_id": "edge:legacy-child",
+                    "source_node_id": "matter:travel",
+                    "target_node_id": "matter:legacy-flight",
+                    "relation_type": "contains",
+                    "primary_containment": True,
+                },
+                {
+                    "edge_id": "edge:current-stage",
+                    "source_node_id": "matter:travel",
+                    "target_node_id": "work:outbound",
+                    "relation_type": "has_work_item",
+                    "primary_containment": False,
+                },
+            ),
+        }
+    )
+
+    assert [item["node_id"] for item in projected["nodes"]] == [
+        "matter:travel",
+        "work:outbound",
+    ]
+    assert [item["edge_id"] for item in projected["edges"]] == [
+        "edge:current-stage",
+    ]
+    assert projected["competing_child_matters_suppressed"] is True
 
 
 def test_timeline_dedupes_one_logical_event_and_labels_historical_inference(
@@ -626,7 +721,7 @@ def test_lifecycle_projection_keeps_historical_inference_separate_from_state(
             "matter_id": matter_id,
             "status": "completed",
             "basis_modality": "inferred",
-            "basis_scope": "historical_inference",
+            "basis_scope": "historical_gap",
             "evidence_ids": ("evidence:past-booking",),
         },
     )
@@ -636,7 +731,7 @@ def test_lifecycle_projection_keeps_historical_inference_separate_from_state(
 
     assert current["state"] == "completed"
     assert current["state_basis_modality"] == "inferred"
-    assert current["state_basis_scope"] == "historical_inference"
+    assert current["state_basis_scope"] == "historical_gap"
     assert current["state_basis_label"] == {
         "en": "AI historical inference",
         "zh-CN": "AI 历史推断",

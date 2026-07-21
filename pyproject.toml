@@ -8,7 +8,7 @@ dynamic = ["version"]
 description = "Model-first personal situation intelligence with explicit evidence and correction boundaries"
 readme = "README.md"
 requires-python = ">=3.11"
-license = "LicenseRef-Proprietary-Private-Repository-Release"
+license = "LicenseRef-Proprietary-Source-Available"
 license-files = ["LICENSE"]
 authors = [{name = "Matters contributors"}]
 dependencies = [

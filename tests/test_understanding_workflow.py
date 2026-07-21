@@ -3,6 +3,7 @@ from dataclasses import asdict
 from pathlib import Path
 
 from matters.analysis.operations import AnalysisWorkPackage
+from matters.application.dispatcher import _payload_fingerprint
 from matters.application.orchestrator import MatterService
 from matters.application.source_workflows import SourceWorkflow
 from matters.providers.filesystem import FilesystemReadOnlyAdapter
@@ -71,6 +72,10 @@ def _autonomous_result(package: dict) -> dict:
                 "modality": "observed",
                 "attributes": {
                     "explicit_goal_or_obligation": True,
+                    "granularity": {
+                        "independently_useful_goal": True,
+                        "independently_useful_next_step": True,
+                    },
                 },
             },
             {
@@ -300,7 +305,9 @@ def test_bilingual_ai_result_auto_dispatches_to_original_owners(
     )
     assert detail["matter"]["title"] == card["title"]
     assert detail["matter"]["summary"] == card["summary"]
-    assert card["status_group"] == "in_progress"
+    # A bounded summary may describe work as "under way", but C12 must not
+    # promote lifecycle state without a C7/C9 owner decision.
+    assert card["status_group"] == "planned"
     assert card["hero"]["status"] == "generation_pending_placeholder"
     assert card["hero"]["preview_token"] == ""
     assert set(card["hero"]["alt"]) == {"en", "zh-CN"}
@@ -1373,6 +1380,16 @@ def test_blocked_owner_dispatch_recovers_without_rerunning_ai(tmp_path: Path):
     )
     assert first["auto_apply_status"] == "blocked"
     assert service.pending_analysis_packages()["total_count"] == 1
+    blocked_result = service.store.current(
+        "agent_operation_result",
+        package["package_id"],
+    )
+    blocked_finding = service.store.current(
+        "autonomous_finding",
+        blocked_result["findings"][0]["finding_id"],
+    )
+    assert blocked_finding["failure_class"]
+    assert blocked_finding["failure_detail"]
 
     service.store.append(
         "admission_decision",
@@ -1448,3 +1465,137 @@ def test_blocked_owner_dispatch_recovers_without_rerunning_ai(tmp_path: Path):
         "generated_hero_record",
         matter_id,
     )["status"] == "generation_pending_placeholder"
+
+
+def test_source_revision_refresh_dispatches_work_items_through_c6(
+    tmp_path: Path,
+):
+    service = _service(tmp_path)
+    matter_id = "matter:source-refresh-work-items"
+    source_id = "source:source-refresh-work-items"
+    source_revision = f"{source_id}:v1"
+    evidence_id = (
+        "evidence:source:source-refresh-work-items:1:registration"
+    )
+    semantic_identity_id = "semantic:source-refresh-work-items"
+    admission = {
+        "status": "admitted",
+        "matter": {
+            "matter_id": matter_id,
+            "source_ids": [source_revision],
+            "rationale": "Current source supports the existing Matter.",
+            "evidence_ids": [evidence_id],
+            "admitted": True,
+            "semantic_identity_id": semantic_identity_id,
+            "object_kind": "matter",
+        },
+        "candidate": None,
+    }
+    service.store.append("admission_decision", matter_id, 1, admission)
+    service.store.append(
+        "source_version",
+        source_id,
+        1,
+        {
+            "source_id": source_id,
+            "version": 1,
+            "tombstone": False,
+        },
+    )
+    service.store.append(
+        "evidence_anchor",
+        evidence_id,
+        1,
+        {
+            "evidence_id": evidence_id,
+            "source_id": source_id,
+            "source_version": 1,
+            "current": True,
+        },
+    )
+    package = AnalysisWorkPackage.create(
+        operation_type="text_analysis",
+        task_kind="source_revision_matter_refresh",
+        requested_output_types=(
+            "matter_candidate",
+            "work_item_candidate",
+        ),
+        source_revision_ids=(source_revision,),
+        model_revision="matters-source-revision-matter-refresh:v1",
+        matter_id=matter_id,
+        matter_revision=_payload_fingerprint(admission),
+        allowed_evidence_ids=(evidence_id,),
+        private_evidence={
+            "analysis_as_of": "2026-07-21T12:00:00+00:00",
+        },
+        prompt_contract_revision="v4",
+        output_schema_id="matters.agent-operation-result.v4",
+    )
+    service.operations._save_package(package)
+    payload = asdict(package)
+
+    imported = service.import_autonomous_result(
+        package_id=package.package_id,
+        provider_id=package.required_runner_id,
+        provider_version=package.required_runner_version,
+        result={
+            "status": "passed",
+            "input_dispositions": _input_dispositions(payload),
+            "findings": [
+                {
+                    "finding_type": "matter_candidate",
+                    "owner_model_id": "C6_matter_admission",
+                    "statement": "Preserve the existing participation Matter.",
+                    "localized_statement": {
+                        "en": "Participation",
+                        "zh-CN": "参赛事项",
+                    },
+                    "semantic_revision": source_revision,
+                    "evidence_ids": [evidence_id],
+                    "confidence": "bounded",
+                    "modality": "reported",
+                    "attributes": {
+                        "matter_id": matter_id,
+                        "semantic_identity_key": semantic_identity_id,
+                    },
+                },
+                {
+                    "finding_type": "work_item_candidate",
+                    "owner_model_id": "C6_matter_admission",
+                    "statement": "Submit the project before the deadline.",
+                    "localized_statement": {
+                        "en": "Submit the project",
+                        "zh-CN": "提交参赛项目",
+                    },
+                    "semantic_revision": source_revision,
+                    "evidence_ids": [evidence_id],
+                    "confidence": "bounded",
+                    "modality": "planned",
+                    "attributes": {
+                        "matter_id": matter_id,
+                        "item_id": "work-item:build-week-submission",
+                        "kind": "milestone",
+                        "status": "planned",
+                        "required_for_parent": True,
+                        "material_stage": True,
+                        "planned_end": "2026-07-22T02:00:00+02:00",
+                        "localized_result": {
+                            "en": "Submission remains planned.",
+                            "zh-CN": "参赛作品仍待提交。",
+                        },
+                    },
+                },
+            ],
+        },
+    )
+
+    assert imported["auto_apply_status"] == "auto_applied"
+    assert imported["dispatch_statuses"] == (
+        "auto_applied",
+        "auto_applied",
+    )
+    work_items = service.matter_work_items(matter_id=matter_id)
+    assert work_items["total_count"] == 1
+    assert work_items["items"][0]["item_id"] == (
+        "work-item:build-week-submission"
+    )

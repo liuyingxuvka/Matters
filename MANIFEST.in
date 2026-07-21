@@ -6,11 +6,9 @@ include README.md
 include SECURITY.md
 include sbom.json
 
-graft .agents
-graft .codex
-graft .flowguard
-prune .flowguard/evidence
-exclude .flowguard/adoption_log.jsonl
+prune .agents
+prune .codex
+prune .flowguard
 graft docs
 graft flowguard_design
 graft flowguard_models

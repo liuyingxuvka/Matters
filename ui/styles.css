@@ -1047,6 +1047,17 @@ button:disabled { cursor: not-allowed; opacity: .55; }
 }
 
 .db-graph-node[data-node-type="matter"] { border-left-color: var(--signal-red); }
+.db-graph-node[data-node-type="work_item"] {
+  width: 184px;
+  min-height: 66px;
+  margin-top: 5px;
+  border-left-width: 3px;
+  border-radius: 9px;
+  box-shadow: 0 3px 11px rgba(16, 47, 72, .08);
+}
+.db-graph-node[data-node-type="work_item"] .db-graph-node-main strong {
+  font-size: 11px;
+}
 .db-graph-node[data-status="planned"] { border-left-color: var(--success); }
 .db-graph-node[data-status="in_progress"] { border-left-color: var(--signal-red); }
 .db-graph-node[data-status="completed"] { border-left-color: var(--info); }

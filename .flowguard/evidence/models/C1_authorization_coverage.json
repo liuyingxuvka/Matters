@@ -6,7 +6,7 @@
     "abstract_green",
     "hazard_green"
   ],
-  "generated_at": "2026-07-21T09:45:15.180678+00:00",
+  "generated_at": "2026-07-21T11:34:20.038723+00:00",
   "known_bad_proofs": [
     {
       "evidence_id": "C1_authorization_coverage:known-bad:H-C1-024-coverage-archive-deletes-before-verification",

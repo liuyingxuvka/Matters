@@ -91,7 +91,13 @@ class Event:
     inference_as_of: str = ""
     target_time: str = ""
     revisable: bool = False
+    inference_confidence: str = ""
+    supporting_signals: tuple[str, ...] = ()
+    counter_signals: tuple[str, ...] = ()
+    coverage_boundary: str = ""
+    alternative_explanations: tuple[str, ...] = ()
     contradiction_triggers: tuple[str, ...] = ()
+    expires_at: str = ""
 
 
 @dataclass(frozen=True)
@@ -164,7 +170,13 @@ class EventRegistry:
         inference_as_of: str = "",
         target_time: str = "",
         revisable: bool = False,
+        inference_confidence: str = "",
+        supporting_signals: tuple[str, ...] = (),
+        counter_signals: tuple[str, ...] = (),
+        coverage_boundary: str = "",
+        alternative_explanations: tuple[str, ...] = (),
         contradiction_triggers: tuple[str, ...] = (),
+        expires_at: str = "",
     ) -> Event:
         """Append one C5-owned correction to an existing durable event id."""
 
@@ -184,6 +196,15 @@ class EventRegistry:
         normalized_triggers = tuple(
             item.strip() for item in contradiction_triggers if item.strip()
         )
+        normalized_support = tuple(
+            item.strip() for item in supporting_signals if item.strip()
+        )
+        normalized_counter = tuple(
+            item.strip() for item in counter_signals if item.strip()
+        )
+        normalized_alternatives = tuple(
+            item.strip() for item in alternative_explanations if item.strip()
+        )
         self._validate_inference_boundary(
             modality=modality,
             temporal_direction=temporal_direction,
@@ -191,7 +212,12 @@ class EventRegistry:
             inference_as_of=inference_as_of,
             target_time=target_time,
             revisable=revisable,
+            inference_confidence=inference_confidence,
+            supporting_signals=normalized_support,
+            coverage_boundary=coverage_boundary,
+            alternative_explanations=normalized_alternatives,
             contradiction_triggers=normalized_triggers,
+            expires_at=expires_at,
         )
         stable_logical_key = _logical_event_key(
             explicit_key=logical_event_key,
@@ -238,7 +264,13 @@ class EventRegistry:
             inference_as_of=inference_as_of,
             target_time=target_time,
             revisable=revisable,
+            inference_confidence=inference_confidence,
+            supporting_signals=normalized_support,
+            counter_signals=normalized_counter,
+            coverage_boundary=coverage_boundary,
+            alternative_explanations=normalized_alternatives,
             contradiction_triggers=normalized_triggers,
+            expires_at=expires_at,
         )
         self._events[target_index] = revised
         return revised
@@ -290,45 +322,55 @@ class EventRegistry:
         inference_as_of: str,
         target_time: str,
         revisable: bool,
+        inference_confidence: str,
+        supporting_signals: tuple[str, ...],
+        coverage_boundary: str,
+        alternative_explanations: tuple[str, ...],
         contradiction_triggers: tuple[str, ...],
+        expires_at: str,
     ) -> None:
         if modality != "inferred":
+            if temporal_direction not in {
+                "",
+                "past",
+                "present",
+                "future",
+                "unknown",
+            }:
+                raise ValueError("unsupported temporal direction")
             if any(
                 (
-                    temporal_direction,
                     inference_purpose,
                     inference_as_of,
                     target_time,
                     revisable,
+                    inference_confidence,
+                    supporting_signals,
+                    coverage_boundary,
+                    alternative_explanations,
                     contradiction_triggers,
+                    expires_at,
                 )
             ):
                 raise ValueError(
-                    "historical-inference metadata requires inferred modality"
+                    "inference-only metadata requires inferred modality"
                 )
-            return
-        supplied = any(
-            (
-                temporal_direction,
-                inference_purpose,
-                inference_as_of,
-                target_time,
-                revisable,
-                contradiction_triggers,
-            )
-        )
-        if not supplied:
             return
         if (
             temporal_direction != "past"
             or inference_purpose != "historical_gap_fill"
             or not revisable
+            or not inference_confidence
+            or not supporting_signals
+            or not coverage_boundary
+            or not alternative_explanations
             or not contradiction_triggers
             or not inference_as_of
             or not target_time
+            or not expires_at
         ):
             raise ValueError(
-                "inferred canonical events must be revisable historical gap fills"
+                "inferred canonical events require a complete revisable historical-gap contract"
             )
         if _parse_aware_time(target_time) > _parse_aware_time(inference_as_of):
             raise ValueError(
@@ -354,7 +396,13 @@ class EventRegistry:
         inference_as_of: str = "",
         target_time: str = "",
         revisable: bool = False,
+        inference_confidence: str = "",
+        supporting_signals: tuple[str, ...] = (),
+        counter_signals: tuple[str, ...] = (),
+        coverage_boundary: str = "",
+        alternative_explanations: tuple[str, ...] = (),
         contradiction_triggers: tuple[str, ...] = (),
+        expires_at: str = "",
     ) -> Event:
         """Record one owner-validated, evidence-bound semantic event."""
 
@@ -369,6 +417,27 @@ class EventRegistry:
                 if str(item).strip()
             )
         )
+        normalized_support = tuple(
+            dict.fromkeys(
+                str(item).strip()
+                for item in supporting_signals
+                if str(item).strip()
+            )
+        )
+        normalized_counter = tuple(
+            dict.fromkeys(
+                str(item).strip()
+                for item in counter_signals
+                if str(item).strip()
+            )
+        )
+        normalized_alternatives = tuple(
+            dict.fromkeys(
+                str(item).strip()
+                for item in alternative_explanations
+                if str(item).strip()
+            )
+        )
         self._validate_inference_boundary(
             modality=modality,
             temporal_direction=temporal_direction,
@@ -376,7 +445,12 @@ class EventRegistry:
             inference_as_of=inference_as_of,
             target_time=target_time,
             revisable=revisable,
+            inference_confidence=inference_confidence,
+            supporting_signals=normalized_support,
+            coverage_boundary=coverage_boundary,
+            alternative_explanations=normalized_alternatives,
             contradiction_triggers=normalized_triggers,
+            expires_at=expires_at,
         )
         stable_logical_key = _logical_event_key(
             explicit_key=logical_event_key,
@@ -410,7 +484,13 @@ class EventRegistry:
             inference_as_of=inference_as_of,
             target_time=target_time,
             revisable=revisable,
+            inference_confidence=inference_confidence,
+            supporting_signals=normalized_support,
+            counter_signals=normalized_counter,
+            coverage_boundary=coverage_boundary,
+            alternative_explanations=normalized_alternatives,
             contradiction_triggers=normalized_triggers,
+            expires_at=expires_at,
         )
         return self._record_revision(event)
 

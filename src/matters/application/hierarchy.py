@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from contextlib import nullcontext
 from dataclasses import asdict, replace
 from hashlib import sha256
 import json
@@ -618,22 +619,134 @@ class MatterHierarchyOwner:
             self._invalidate((matter_id,), change_ref=change_ref)
             self._publish((matter_id,), change_ref=change_ref)
 
-    def save_work_item(self, item: MatterWorkItem) -> MatterWorkItem:
+    @staticmethod
+    def _work_item_semantics(payload: Mapping[str, Any]) -> dict[str, Any]:
+        return {
+            str(key): value
+            for key, value in payload.items()
+            if str(key) not in {"revision", "updated_at"}
+        }
+
+    def save_work_item(
+        self,
+        item: MatterWorkItem,
+        *,
+        supersedes_item_ids: tuple[str, ...] = (),
+    ) -> MatterWorkItem:
         with self._lock:
             self._require_matter(item.matter_id)
-            revision = self.store.next_revision("matter_work_item", item.item_id)
-            persisted = replace(item, revision=revision)
-            self.store.append(
-                "matter_work_item",
-                persisted.item_id,
-                revision,
-                asdict(persisted),
+            if item.deleted:
+                raise ValueError(
+                    "save_work_item accepts only the active replacement"
+                )
+            supersedes = tuple(
+                dict.fromkeys(
+                    str(value).strip()
+                    for value in supersedes_item_ids
+                    if str(value).strip()
+                )
             )
+            if item.item_id in supersedes:
+                raise ValueError(
+                    "a WorkItem cannot supersede its own identity"
+                )
+            transaction = (
+                nullcontext()
+                if self.store.in_atomic_transaction()
+                else self.store.immediate_transaction()
+            )
+            with transaction:
+                current_rows = tuple(
+                    row
+                    for row in self.store.iter_current(
+                        "matter_work_item"
+                    )
+                    if str(row.get("matter_id", "")) == item.matter_id
+                )
+                if item.semantic_role_key:
+                    conflicting_ids = {
+                        str(row.get("item_id", ""))
+                        for row in current_rows
+                        if not bool(row.get("deleted", False))
+                        and str(
+                            row.get("semantic_role_key", "")
+                        ).strip().casefold()
+                        == item.semantic_role_key
+                        and str(row.get("item_id", "")) != item.item_id
+                    }
+                    if not conflicting_ids.issubset(set(supersedes)):
+                        raise ValueError(
+                            "active WorkItems with the same semantic role "
+                            "must be explicitly superseded"
+                        )
+                for retired_id in supersedes:
+                    current = self.store.current(
+                        "matter_work_item",
+                        retired_id,
+                    )
+                    if current is None:
+                        raise ValueError(
+                            "superseded WorkItem is unavailable"
+                        )
+                    if str(current.get("matter_id", "")) != item.matter_id:
+                        raise ValueError(
+                            "superseded WorkItem belongs to another Matter"
+                        )
+                    if bool(current.get("deleted", False)):
+                        if (
+                            str(current.get("superseded_by", ""))
+                            != item.item_id
+                        ):
+                            raise ValueError(
+                                "WorkItem was already retired by another "
+                                "replacement"
+                            )
+                        continue
+                    retired_revision = self.store.next_revision(
+                        "matter_work_item",
+                        retired_id,
+                    )
+                    self.store.append(
+                        "matter_work_item",
+                        retired_id,
+                        retired_revision,
+                        {
+                            **current,
+                            "revision": retired_revision,
+                            "deleted": True,
+                            "superseded_by": item.item_id,
+                            "retirement_reason": (
+                                "semantic_identity_reconciliation"
+                            ),
+                        },
+                    )
+                candidate_payload = asdict(item)
+                write = self.store.compare_current_and_append(
+                    "matter_work_item",
+                    item.item_id,
+                    is_equivalent=lambda current: (
+                        current is not None
+                        and not bool(current.get("deleted", False))
+                        and _fingerprint(
+                            self._work_item_semantics(current)
+                        )
+                        == _fingerprint(
+                            self._work_item_semantics(candidate_payload)
+                        )
+                    ),
+                    payload_factory=lambda revision, _current: asdict(
+                        replace(item, revision=revision)
+                    ),
+                )
+            persisted = MatterWorkItem(**dict(write["payload"]))
             affected = (
                 persisted.matter_id,
                 *self.ancestors(persisted.matter_id, current_only=False),
             )
-            change_ref = f"work-item:{persisted.item_id}:v{revision}"
+            change_ref = (
+                f"work-item:{persisted.item_id}:v"
+                f"{int(write['revision'])}"
+            )
             self._invalidate(affected, change_ref=change_ref)
             self._publish(affected, change_ref=change_ref)
             return persisted

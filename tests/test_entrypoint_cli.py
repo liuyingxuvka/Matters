@@ -140,6 +140,22 @@ class FakeService:
             },
         )
 
+    def gmail_manifest_coverage_audit(self, **kwargs):
+        return self._record(
+            "gmail_manifest_coverage_audit",
+            kwargs,
+            {
+                "artifact_type": "matters.gmail-manifest-coverage-audit.v1",
+                "status": "partial",
+                "expected_identity_count": 3,
+                "fixed_scope": {
+                    "inventory_identity_count": 0,
+                    "missing_identity_count": 3,
+                    "set_equal": False,
+                },
+            },
+        )
+
     def rebase_coverage_stage_schema(
         self,
         *,
@@ -404,6 +420,25 @@ class FakeService:
                 "task_kind": task_kind,
             },
             {"items": [], "offset": offset, "limit": limit},
+        )
+
+    def matter_semantic_analysis_plan(
+        self,
+        *,
+        matter_id: str,
+        after_matter_id: str,
+        limit: int,
+        queue: bool,
+    ):
+        return self._record(
+            "matter_semantic_analysis_plan",
+            {
+                "matter_id": matter_id,
+                "after_matter_id": after_matter_id,
+                "limit": limit,
+                "queue": queue,
+            },
+            {"status": "current", "item_count": 1},
         )
 
     def rebase_analysis_contracts(
@@ -1219,6 +1254,37 @@ def test_entrypoint_cli_filters_analysis_packages_by_exact_private_selectors():
     ]
 
 
+def test_entrypoint_cli_plans_one_bounded_cross_source_matter_refresh():
+    service = FakeService()
+
+    result = invoke(
+        [
+            "matter-semantic-analysis-plan",
+            "--matter-id",
+            "matter:build-week",
+            "--limit",
+            "1",
+            "--queue",
+        ],
+        service,
+    )
+
+    assert result[0] == 0
+    assert result[2] == ""
+    assert json.loads(result[1])["result"]["item_count"] == 1
+    assert service.calls == [
+        (
+            "matter_semantic_analysis_plan",
+            {
+                "matter_id": "matter:build-week",
+                "after_matter_id": "",
+                "limit": 1,
+                "queue": True,
+            },
+        )
+    ]
+
+
 def test_entrypoint_cli_exposes_bounded_codex_generated_hero_handoff(tmp_path):
     image_file = tmp_path / "hero.png"
     image_file.write_bytes(b"\x89PNG\r\n\x1a\nprivate-test-image")
@@ -1379,6 +1445,48 @@ def test_entrypoint_cli_exposes_bounded_read_only_stage_audit():
     ]
 
     rejected = invoke(["coverage-audit", "--limit", "201"], service)
+    assert rejected[0] == 4
+    assert json.loads(rejected[2])["error"]["code"] == "invalid_request"
+    assert len(service.calls) == 1
+
+
+def test_entrypoint_cli_exposes_read_only_manifest_scoped_gmail_audit():
+    service = FakeService()
+
+    result = invoke(
+        [
+            "gmail-manifest-coverage-audit",
+            "--receipt",
+            "private-receipt.json",
+            "--page",
+            "private-page-001.json",
+            "--page",
+            "private-page-002.json",
+        ],
+        service,
+    )
+
+    assert result[0] == 0
+    assert result[2] == ""
+    payload = json.loads(result[1])["result"]
+    assert payload["artifact_type"] == (
+        "matters.gmail-manifest-coverage-audit.v1"
+    )
+    assert payload["fixed_scope"]["set_equal"] is False
+    assert service.calls == [
+        (
+            "gmail_manifest_coverage_audit",
+            {
+                "receipt_path": "private-receipt.json",
+                "page_paths": (
+                    "private-page-001.json",
+                    "private-page-002.json",
+                ),
+            },
+        )
+    ]
+
+    rejected = invoke(["gmail-manifest-coverage-audit"], service)
     assert rejected[0] == 4
     assert json.loads(rejected[2])["error"]["code"] == "invalid_request"
     assert len(service.calls) == 1

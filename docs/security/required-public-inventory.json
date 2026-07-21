@@ -102,10 +102,14 @@
     }
   ],
   "sdist_excluded_patterns": [
-    ".flowguard/adoption_log.jsonl",
-    ".flowguard/evidence/**"
+    ".agents/**",
+    ".codex/**",
+    ".flowguard/**"
   ],
   "package_forbidden_patterns": [
+    ".agents/**",
+    ".codex/**",
+    ".flowguard/**",
     ".flowguard/adoption_log.jsonl",
     ".flowguard/evidence/**",
     "**/.flowguard/evidence/**",

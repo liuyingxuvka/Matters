@@ -394,35 +394,26 @@ class MatterReconciliationOwner:
     def execute(
         self,
         request: MatterReconciliationRequest,
+        *,
+        useful_content: bool = True,
+        possibility_only: bool = False,
     ) -> ReconciliationExecution:
         """Apply a placement through injected existing-owner boundaries."""
 
-        decision = self.reconcile(request)
-        if decision.status in {"blocked", "preserve_uncertain_alternative"}:
-            return ReconciliationExecution(decision)
+        resolution = self.resolve(
+            request,
+            useful_content=useful_content,
+            possibility_only=possibility_only,
+        )
+        decision = resolution.decision
+        admission = resolution.admission
+        if admission is None or admission.status != "admitted":
+            return resolution
         if decision.status == "admit_child" and self._attach_child is None:
             raise RuntimeError("child placement requires the hierarchy owner callback")
         if decision.status == "admit_related" and self._relate_matters is None:
             raise RuntimeError("related placement requires the relation owner callback")
 
-        semantic_identity_key = request.semantic_identity_key
-        existing_matter_id = ""
-        if decision.status == "append_to_current":
-            existing_matter_id = decision.target_matter_id
-            semantic_identity_key = self._candidate(
-                request,
-                existing_matter_id,
-            ).semantic_identity_key
-        admission = self._admission_owner.decide(
-            AdmissionPacket(
-                source_ids=request.source_ids,
-                evidence_ids=request.evidence_ids,
-                explicit_goal_or_obligation=True,
-                conflict=request.conflict,
-                semantic_identity_key=semantic_identity_key,
-                existing_matter_id=existing_matter_id,
-            )
-        )
         matter_id = self._require_admitted(admission)
 
         if decision.status == "append_to_current":
@@ -460,6 +451,96 @@ class MatterReconciliationOwner:
             hierarchy_result=hierarchy_result,
             relation_result=relation_result,
         )
+
+    def resolve(
+        self,
+        request: MatterReconciliationRequest,
+        *,
+        useful_content: bool = True,
+        possibility_only: bool = False,
+    ) -> ReconciliationExecution:
+        """Produce one placement plus its canonical C6 admission decision.
+
+        Every production caller uses this boundary before persisting admission,
+        hierarchy, relation, coverage, or projection state.  It prevents one
+        path from using reconciliation while another calls ``MatterAdmission``
+        with a different granularity interpretation.
+        """
+
+        decision = self.reconcile(request)
+        semantic_identity_key = request.semantic_identity_key
+        existing_matter_id = ""
+        if decision.status == "append_to_current":
+            existing_matter_id = decision.target_matter_id
+            semantic_identity_key = self._candidate(
+                request,
+                existing_matter_id,
+            ).semantic_identity_key
+        admission = self._admission_owner.decide(
+            AdmissionPacket(
+                source_ids=request.source_ids,
+                evidence_ids=request.evidence_ids,
+                explicit_goal_or_obligation=(
+                    request.granularity.object_kind == "matter"
+                ),
+                useful_content=useful_content,
+                conflict=(
+                    request.conflict
+                    or (
+                        decision.status == "preserve_uncertain_alternative"
+                        and not possibility_only
+                    )
+                ),
+                access_blocked=(
+                    request.access_blocked or decision.status == "blocked"
+                ),
+                possibility_only=possibility_only,
+                semantic_identity_key=semantic_identity_key,
+                existing_matter_id=existing_matter_id,
+            )
+        )
+        return ReconciliationExecution(decision=decision, admission=admission)
+
+    def retain_unqualified_source(
+        self,
+        *,
+        source_ids: tuple[str, ...],
+        semantic_identity_key: str = "",
+        useful_content: bool = True,
+        possibility_only: bool = False,
+        conflict: bool = False,
+        access_blocked: bool = False,
+        revision: int = 1,
+    ) -> ReconciliationExecution:
+        """Retain a registered source that has no current qualified evidence.
+
+        This is the only pre-evidence C6 entry.  It deliberately emits no
+        admitted Matter or hierarchy write; a later qualified analysis must
+        return through ``resolve`` with current evidence.
+        """
+
+        decision = MatterPlacementDecision(
+            status="blocked",
+            granularity="source",
+            candidate_matter_ids=(),
+            rationale=(
+                "qualified evidence is not yet available for Matter reconciliation"
+            ),
+            evidence_ids=(),
+            revision=revision,
+            freshness="blocked",
+        )
+        admission = self._admission_owner.decide(
+            AdmissionPacket(
+                source_ids=source_ids,
+                useful_content=useful_content,
+                conflict=conflict,
+                access_blocked=access_blocked,
+                possibility_only=possibility_only,
+                semantic_identity_key=semantic_identity_key,
+            )
+        )
+        return ReconciliationExecution(decision=decision, admission=admission)
 
 
 __all__ = [

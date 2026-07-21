@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from contextlib import nullcontext
 from dataclasses import asdict, dataclass, replace
 from hashlib import sha256
 import json
@@ -16,7 +17,7 @@ from matters.application.coverage_ledger import ObjectCoverageLedger
 from matters.application.activity import MatterActivityOwner
 from matters.application.hierarchy import MatterHierarchyOwner
 from matters.application.reconciliation import MatterReconciliationOwner
-from matters.domain.admission import AdmissionPacket, MatterAdmission
+from matters.domain.admission import MatterAdmission
 from matters.domain.activity import MaterialClue
 from matters.domain.context import (
     ContextSignal,
@@ -84,6 +85,7 @@ class DispatchOutcome:
     status: str
     owner_output_ref: str = ""
     failure_class: str = ""
+    failure_detail: str = ""
 
 
 class AutonomousFindingDispatcher:
@@ -598,6 +600,7 @@ class AutonomousFindingDispatcher:
                 status=str(prior["status"]),
                 owner_output_ref=str(prior.get("owner_output_ref", "")),
                 failure_class=str(prior.get("failure_class", "")),
+                failure_detail=str(prior.get("failure_detail", "")),
             )
         try:
             outcome = self._invoke_owner(
@@ -611,6 +614,7 @@ class AutonomousFindingDispatcher:
                 finding.owner_model_id,
                 "blocked",
                 failure_class=type(exc).__name__,
+                failure_detail=str(exc),
             )
         self.store.append(
             "autonomous_finding",
@@ -625,6 +629,7 @@ class AutonomousFindingDispatcher:
                 "status": outcome.status,
                 "owner_output_ref": outcome.owner_output_ref,
                 "failure_class": outcome.failure_class,
+                "failure_detail": outcome.failure_detail,
             },
         )
         return outcome
@@ -637,7 +642,8 @@ class AutonomousFindingDispatcher:
         result_findings: tuple[AdvisoryFinding, ...] = (),
     ) -> DispatchOutcome:
         if (
-            package.task_kind == "source_revision_matter_refresh"
+            package.task_kind
+            in {"source_revision_matter_refresh", "matter_semantic_refresh"}
             and finding.finding_type == "matter_candidate"
         ):
             declared_matter_id = str(
@@ -651,7 +657,7 @@ class AutonomousFindingDispatcher:
                 )
             ):
                 raise ValueError(
-                    "source revision refresh finding escaped its exact Matter"
+                    "Matter semantic refresh finding escaped its exact Matter"
                 )
         owner = finding.owner_model_id
         if owner == "C4_person_entity_resolution":
@@ -880,6 +886,30 @@ class AutonomousFindingDispatcher:
         inference_as_of = str(attributes.get("inference_as_of", ""))
         target_time = str(attributes.get("target_time", ""))
         revisable = bool(attributes.get("revisable", False))
+        inference_confidence = (
+            str(attributes.get("inference_confidence", finding.confidence))
+            if finding.modality == "inferred"
+            else ""
+        )
+        supporting_signals = tuple(
+            str(item)
+            for item in attributes.get("supporting_signals", ())
+            if str(item).strip()
+        )
+        counter_signals = tuple(
+            str(item)
+            for item in attributes.get("counter_signals", ())
+            if str(item).strip()
+        )
+        coverage_boundary = str(attributes.get("coverage_boundary", ""))
+        alternative_explanations = tuple(
+            str(item)
+            for item in (
+                attributes.get("alternative_explanations")
+                or finding.alternative_explanations
+            )
+            if str(item).strip()
+        )
         contradiction_triggers = tuple(
             str(item)
             for item in attributes.get(
@@ -887,6 +917,22 @@ class AutonomousFindingDispatcher:
                 (),
             )
         )
+        expires_at = str(attributes.get("expires_at", ""))
+        if finding.modality != "inferred":
+            # Alternative interpretations may accompany a reported or observed
+            # finding for review, but C5 inference-contract fields must never
+            # turn that source-reported occurrence into an inferred Event.
+            inference_purpose = ""
+            inference_as_of = ""
+            target_time = ""
+            revisable = False
+            inference_confidence = ""
+            supporting_signals = ()
+            counter_signals = ()
+            coverage_boundary = ""
+            alternative_explanations = ()
+            contradiction_triggers = ()
+            expires_at = ""
         revision_event_id = str(
             attributes.get("revision_event_id", "")
         ).strip()
@@ -918,7 +964,13 @@ class AutonomousFindingDispatcher:
                 inference_as_of=inference_as_of,
                 target_time=target_time,
                 revisable=revisable,
+                inference_confidence=inference_confidence,
+                supporting_signals=supporting_signals,
+                counter_signals=counter_signals,
+                coverage_boundary=coverage_boundary,
+                alternative_explanations=alternative_explanations,
                 contradiction_triggers=contradiction_triggers,
+                expires_at=expires_at,
             )
         else:
             event = self.events.from_understanding(
@@ -938,7 +990,13 @@ class AutonomousFindingDispatcher:
                 inference_as_of=inference_as_of,
                 target_time=target_time,
                 revisable=revisable,
+                inference_confidence=inference_confidence,
+                supporting_signals=supporting_signals,
+                counter_signals=counter_signals,
+                coverage_boundary=coverage_boundary,
+                alternative_explanations=alternative_explanations,
                 contradiction_triggers=contradiction_triggers,
+                expires_at=expires_at,
             )
         self.store.append(
             "temporal_event",
@@ -964,7 +1022,87 @@ class AutonomousFindingDispatcher:
         result_findings: tuple[AdvisoryFinding, ...] = (),
     ) -> DispatchOutcome:
         attributes = dict(finding.attributes)
-        if package.task_kind == "source_revision_matter_refresh":
+        if (
+            package.task_kind == "matter_semantic_refresh"
+            and finding.finding_type == "matter_candidate"
+        ):
+            matter_id = package.matter_id.strip()
+            admission = self.store.current("admission_decision", matter_id)
+            admitted_matter = (
+                admission.get("matter")
+                if isinstance(admission, Mapping)
+                else None
+            )
+            semantic_identity_key = str(
+                attributes.get("semantic_identity_key", "")
+            ).strip()
+            current_source_refs = tuple(sorted(package.source_revision_ids))
+            if (
+                not matter_id
+                or not isinstance(admission, Mapping)
+                or str(admission.get("status", "")) != "admitted"
+                or not isinstance(admitted_matter, Mapping)
+                or str(admitted_matter.get("matter_id", "")) != matter_id
+                or admitted_matter.get("admitted") is False
+                or not semantic_identity_key
+                or semantic_identity_key
+                != str(admitted_matter.get("semantic_identity_id", ""))
+                or package.matter_revision != _payload_fingerprint(admission)
+                or len(current_source_refs) < 2
+                or tuple(package.source_revision_ids) != current_source_refs
+                or not set(finding.evidence_ids).issubset(
+                    set(package.allowed_evidence_ids)
+                )
+            ):
+                raise ValueError(
+                    "Matter semantic refresh requires the exact current "
+                    "admitted Matter identity"
+                )
+            source_ids = set()
+            for source_ref in current_source_refs:
+                source_id, separator, raw_version = source_ref.rpartition(":v")
+                if (
+                    not separator
+                    or not source_id
+                    or not raw_version.isdigit()
+                ):
+                    raise ValueError("Matter semantic refresh source is invalid")
+                current_source = self.store.current("source_version", source_id)
+                if (
+                    current_source is None
+                    or int(current_source.get("version", 0)) != int(raw_version)
+                    or bool(current_source.get("tombstone", False))
+                ):
+                    raise ValueError(
+                        "Matter semantic refresh is not registry-current"
+                    )
+                source_ids.add(source_id)
+            evidence_source_ids = set()
+            for evidence_id in package.allowed_evidence_ids:
+                anchor = self.store.current("evidence_anchor", evidence_id)
+                if (
+                    anchor is None
+                    or not bool(anchor.get("current", True))
+                    or str(anchor.get("source_id", "")) not in source_ids
+                ):
+                    raise ValueError(
+                        "Matter semantic refresh evidence is not current"
+                    )
+                evidence_source_ids.add(str(anchor.get("source_id", "")))
+            if evidence_source_ids != source_ids:
+                raise ValueError(
+                    "Matter semantic refresh lacks current evidence for a source"
+                )
+            return DispatchOutcome(
+                finding.finding_id,
+                finding.owner_model_id,
+                "auto_applied",
+                f"admission_decision:{matter_id}",
+            )
+        if (
+            package.task_kind == "source_revision_matter_refresh"
+            and finding.finding_type == "matter_candidate"
+        ):
             matter_id = package.matter_id.strip()
             admission = self.store.current("admission_decision", matter_id)
             admitted_matter = (
@@ -1129,12 +1267,22 @@ class AutonomousFindingDispatcher:
                 finding,
                 result_findings=result_findings,
             )
-            item_id = str(attributes.get("item_id", "")).strip() or (
-                "work-item:"
-                + sha256(
-                    f"{matter_id}\0{finding.finding_id}".encode("utf-8")
-                ).hexdigest()[:24]
-            )
+            semantic_role_key = str(
+                attributes.get("semantic_role_key", "")
+            ).strip().casefold()
+            item_id = str(attributes.get("item_id", "")).strip()
+            if not item_id:
+                identity_seed = (
+                    f"semantic-role:{semantic_role_key}"
+                    if semantic_role_key
+                    else f"finding:{finding.finding_id}"
+                )
+                item_id = (
+                    "work-item:"
+                    + sha256(
+                        f"{matter_id}\0{identity_seed}".encode("utf-8")
+                    ).hexdigest()[:24]
+                )
             localized_result = attributes.get("localized_result")
             if not isinstance(localized_result, Mapping):
                 localized_result = finding.localized_statement
@@ -1149,6 +1297,7 @@ class AutonomousFindingDispatcher:
                         str(key): str(value)
                         for key, value in localized_result.items()
                     },
+                    semantic_role_key=semantic_role_key,
                     evidence_ids=finding.evidence_ids,
                     source_ids=package.source_revision_ids,
                     planned_start=str(attributes.get("planned_start", "")),
@@ -1158,8 +1307,136 @@ class AutonomousFindingDispatcher:
                     required_for_parent=bool(
                         attributes.get("required_for_parent", False)
                     ),
+                    material_stage=bool(
+                        attributes.get(
+                            "material_stage",
+                            attributes.get("required_for_parent", False),
+                        )
+                    ),
+                    basis_modality=(
+                        "ai_inferred"
+                        if finding.modality == "inferred"
+                        else finding.modality
+                    ),
+                    basis_scope=str(
+                        attributes.get(
+                            "basis_scope",
+                            (
+                                attributes.get("inference_purpose", "")
+                                if finding.modality == "inferred"
+                                else (
+                                    "source_record"
+                                    if finding.modality
+                                    in {"observed", "reported"}
+                                    else ""
+                                )
+                            ),
+                        )
+                    ).replace("historical_gap_fill", "historical_gap"),
+                    temporal_assertion=str(
+                        attributes.get(
+                            "temporal_assertion",
+                            (
+                                "planned"
+                                if str(attributes.get("status", ""))
+                                == "planned"
+                                else (
+                                    "ongoing"
+                                    if str(attributes.get("status", ""))
+                                    == "in_progress"
+                                    else (
+                                        "occurred"
+                                        if str(attributes.get("status", ""))
+                                        in {"completed", "cancelled"}
+                                        else "unknown"
+                                    )
+                                )
+                            ),
+                        )
+                    ),
+                    terminality=str(
+                        attributes.get(
+                            "terminality",
+                            (
+                                "provisional"
+                                if finding.modality == "inferred"
+                                else "confirmed"
+                            ),
+                        )
+                    ),
+                    confidence=finding.confidence,
+                    inference_as_of=str(
+                        attributes.get("inference_as_of", "")
+                    ),
+                    target_time=str(attributes.get("target_time", "")),
+                    prerequisite_evidence_ids=tuple(
+                        str(value)
+                        for value in attributes.get(
+                            "prerequisite_evidence_ids",
+                            (),
+                        )
+                        if str(value).strip()
+                    ),
+                    remaining_obligation_ids=tuple(
+                        str(value)
+                        for value in attributes.get(
+                            "remaining_obligation_ids",
+                            (),
+                        )
+                        if str(value).strip()
+                    ),
+                    active_window_start=str(
+                        attributes.get("active_window_start", "")
+                    ),
+                    active_window_end=str(
+                        attributes.get("active_window_end", "")
+                    ),
+                    contradiction_checked=bool(
+                        attributes.get("contradiction_checked", False)
+                    ),
+                    coverage_boundary=str(
+                        attributes.get("coverage_boundary", "")
+                    ),
+                    supporting_signals=tuple(
+                        str(value)
+                        for value in attributes.get(
+                            "supporting_signals",
+                            finding.evidence_ids,
+                        )
+                        if str(value).strip()
+                    ),
+                    counter_signals=tuple(
+                        str(value)
+                        for value in attributes.get("counter_signals", ())
+                        if str(value).strip()
+                    ),
+                    alternative_explanations=tuple(
+                        str(value)
+                        for value in (
+                            attributes.get("alternative_explanations")
+                            or finding.alternative_explanations
+                        )
+                        if str(value).strip()
+                    ),
+                    contradiction_triggers=tuple(
+                        str(value)
+                        for value in attributes.get(
+                            "contradiction_triggers",
+                            (),
+                        )
+                        if str(value).strip()
+                    ),
+                    expires_at=str(attributes.get("expires_at", "")),
                     freshness="current",
-                )
+                ),
+                supersedes_item_ids=tuple(
+                    str(value).strip()
+                    for value in attributes.get(
+                        "supersedes_item_ids",
+                        (),
+                    )
+                    if str(value).strip()
+                ),
             )
             return DispatchOutcome(
                 finding.finding_id,
@@ -1317,9 +1594,20 @@ class AutonomousFindingDispatcher:
             conflict=bool(attributes.get("conflict", False)),
             revision=int(attributes.get("reconciliation_revision", 1)),
         )
-        placement = (
-            self.reconciliation.reconcile(reconciliation_request)
+        reconciliation_execution = (
+            self.reconciliation.resolve(
+                reconciliation_request,
+                useful_content=bool(attributes.get("useful_content", True)),
+                possibility_only=bool(
+                    attributes.get("possibility_only", False)
+                ),
+            )
             if self.reconciliation is not None
+            else None
+        )
+        placement = (
+            reconciliation_execution.decision
+            if reconciliation_execution is not None
             else None
         )
         if placement is not None:
@@ -1332,36 +1620,11 @@ class AutonomousFindingDispatcher:
                 ),
                 asdict(placement),
             )
-        existing_matter_id = str(package.matter_id or "")
-        conflict = bool(attributes.get("conflict", False))
-        access_blocked = bool(attributes.get("access_blocked", False))
-        if placement is not None:
-            if placement.status == "append_to_current":
-                existing_matter_id = placement.target_matter_id
-                semantic_identity_key = next(
-                    candidate.semantic_identity_key
-                    for candidate in candidates
-                    if candidate.matter_id == existing_matter_id
-                )
-            elif placement.status == "preserve_uncertain_alternative":
-                conflict = True
-            elif placement.status == "blocked":
-                access_blocked = True
-        decision = self.admission.decide(
-            AdmissionPacket(
-                source_ids=package.source_revision_ids,
-                evidence_ids=finding.evidence_ids,
-                explicit_goal_or_obligation=(
-                    granularity.object_kind == "matter"
-                ),
-                useful_content=bool(attributes.get("useful_content", True)),
-                conflict=conflict,
-                access_blocked=access_blocked,
-                possibility_only=bool(attributes.get("possibility_only", False)),
-                semantic_identity_key=semantic_identity_key,
-                existing_matter_id=existing_matter_id,
-            )
-        )
+        if reconciliation_execution is None:
+            raise ValueError("C6 reconciliation owner is unavailable")
+        decision = reconciliation_execution.admission
+        if decision is None:
+            raise ValueError("C6 reconciliation did not produce an admission decision")
         object_id = (
             decision.matter.matter_id
             if decision.matter is not None
@@ -2051,6 +2314,91 @@ class AutonomousFindingDispatcher:
                     attributes.get("completion_licensed", False)
                 ),
                 evidence_ids=finding.evidence_ids,
+                basis_modality=(
+                    "ai_inferred"
+                    if finding.modality == "inferred"
+                    else finding.modality
+                ),
+                basis_scope=str(
+                    attributes.get(
+                        "basis_scope",
+                        (
+                            "current_phase"
+                            if str(
+                                attributes.get("inference_purpose", "")
+                            )
+                            == "current_phase"
+                            else (
+                                "source_record"
+                                if finding.modality
+                                in {"observed", "reported", "planned"}
+                                else ""
+                            )
+                        ),
+                    )
+                ),
+                temporal_assertion=str(
+                    attributes.get("temporal_assertion", "unknown")
+                ),
+                current_phase_requested=(
+                    finding.modality == "inferred"
+                    and str(attributes.get("inference_purpose", ""))
+                    == "current_phase"
+                ),
+                prerequisite_evidence_ids=tuple(
+                    str(item)
+                    for item in attributes.get(
+                        "prerequisite_evidence_ids",
+                        (),
+                    )
+                    if str(item).strip()
+                ),
+                remaining_obligation_ids=tuple(
+                    str(item)
+                    for item in attributes.get(
+                        "remaining_obligation_ids",
+                        (),
+                    )
+                    if str(item).strip()
+                ),
+                analysis_as_of=str(
+                    attributes.get("inference_as_of", "")
+                ),
+                active_window_start=str(
+                    attributes.get("active_window_start", "")
+                ),
+                active_window_end=str(
+                    attributes.get("active_window_end", "")
+                ),
+                contradiction_checked=bool(
+                    attributes.get("contradiction_checked", False)
+                ),
+                counter_signals=tuple(
+                    str(item)
+                    for item in attributes.get("counter_signals", ())
+                    if str(item).strip()
+                ),
+                confidence=finding.confidence,
+                alternatives=tuple(
+                    str(item)
+                    for item in (
+                        attributes.get("alternative_explanations")
+                        or finding.alternative_explanations
+                    )
+                    if str(item).strip()
+                ),
+                coverage_boundary=str(
+                    attributes.get("coverage_boundary", "")
+                ),
+                expires_at=str(attributes.get("expires_at", "")),
+                contradiction_triggers=tuple(
+                    str(item)
+                    for item in attributes.get(
+                        "contradiction_triggers",
+                        (),
+                    )
+                    if str(item).strip()
+                ),
             )
         )
         matter_id = self._matter_id(
@@ -2093,29 +2441,151 @@ class AutonomousFindingDispatcher:
             finding,
             result_findings=result_findings,
         )
-        loop_id = "loop:" + sha256(
-            f"{finding.finding_id}\0{matter_id}".encode("utf-8")
-        ).hexdigest()[:24]
-        loop = self.open_loops.create(
+        semantic_role_key = str(
+            attributes.get("semantic_role_key", "")
+        ).strip().casefold()
+        loop_id = str(attributes.get("loop_id", "")).strip()
+        if not loop_id:
+            identity_seed = (
+                f"semantic-role:{semantic_role_key}"
+                if semantic_role_key
+                else f"finding:{finding.finding_id}"
+            )
+            loop_id = "loop:" + sha256(
+                f"{matter_id}\0{identity_seed}".encode("utf-8")
+            ).hexdigest()[:24]
+        loop = self.open_loops.build(
             loop_id=loop_id,
             matter_id=matter_id,
             wait_target=wait_target,
             closure_condition=closure_condition,
             critical=bool(attributes.get("critical", False)),
             evidence_ids=finding.evidence_ids,
+            semantic_role_key=semantic_role_key,
         )
         if loop is None:
             raise ValueError("open-loop owner rejected incomplete finding")
-        self.store.append(
-            "open_loop",
-            loop.loop_id,
-            self.store.next_revision("open_loop", loop.loop_id),
-            asdict(loop),
+        supersedes_loop_ids = tuple(
+            dict.fromkeys(
+                str(value).strip()
+                for value in attributes.get(
+                    "supersedes_loop_ids",
+                    (),
+                )
+                if str(value).strip()
+            )
         )
+        if loop.loop_id in supersedes_loop_ids:
+            raise ValueError(
+                "an open loop cannot supersede its own identity"
+            )
+        loop_payload = asdict(loop)
+        transaction = (
+            nullcontext()
+            if self.store.in_atomic_transaction()
+            else self.store.immediate_transaction()
+        )
+        with transaction:
+            current_rows = tuple(
+                row
+                for row in self.store.iter_current("open_loop")
+                if str(row.get("matter_id", "")) == matter_id
+            )
+            if semantic_role_key:
+                conflicting_ids = {
+                    str(row.get("loop_id", ""))
+                    for row in current_rows
+                    if not bool(row.get("deleted", False))
+                    and str(row.get("status", "open")) == "open"
+                    and str(
+                        row.get("semantic_role_key", "")
+                    ).strip().casefold()
+                    == semantic_role_key
+                    and str(row.get("loop_id", "")) != loop.loop_id
+                }
+                if not conflicting_ids.issubset(
+                    set(supersedes_loop_ids)
+                ):
+                    raise ValueError(
+                        "active open loops with the same semantic role must "
+                        "be explicitly superseded"
+                    )
+            for retired_id in supersedes_loop_ids:
+                current = self.store.current("open_loop", retired_id)
+                if current is None:
+                    raise ValueError(
+                        "superseded open loop is unavailable"
+                    )
+                if str(current.get("matter_id", "")) != matter_id:
+                    raise ValueError(
+                        "superseded open loop belongs to another Matter"
+                    )
+                if bool(current.get("deleted", False)):
+                    if (
+                        str(current.get("superseded_by", ""))
+                        != loop.loop_id
+                    ):
+                        raise ValueError(
+                            "open loop was already retired by another "
+                            "replacement"
+                        )
+                    continue
+                revision = self.store.next_revision(
+                    "open_loop",
+                    retired_id,
+                )
+                self.store.append(
+                    "open_loop",
+                    retired_id,
+                    revision,
+                    {
+                        **current,
+                        "deleted": True,
+                        "superseded_by": loop.loop_id,
+                        "retirement_reason": (
+                            "semantic_identity_reconciliation"
+                        ),
+                    },
+                )
+            write = self.store.compare_current_and_append(
+                "open_loop",
+                loop.loop_id,
+                is_equivalent=lambda current: (
+                    current is not None
+                    and not bool(current.get("deleted", False))
+                    and _payload_fingerprint(
+                        {
+                            key: value
+                            for key, value in current.items()
+                            if key not in {
+                                "deleted",
+                                "superseded_by",
+                                "retirement_reason",
+                            }
+                        }
+                    )
+                    == _payload_fingerprint(
+                        {
+                            key: value
+                            for key, value in loop_payload.items()
+                            if key not in {
+                                "deleted",
+                                "superseded_by",
+                                "retirement_reason",
+                            }
+                        }
+                    )
+                ),
+                payload_factory=lambda _revision, _current: loop_payload,
+            )
+        self.open_loops.remember(loop)
         if self.hierarchy is not None:
             self.hierarchy.mark_dependency_changed(
                 matter_id,
-                change_ref=f"open-loop:{loop.loop_id}",
+                change_ref=(
+                    f"open-loop:{loop.loop_id}:v"
+                    f"{int(write['revision'])}"
+                ),
                 refresh=False,
             )
         return DispatchOutcome(
@@ -2124,6 +2594,142 @@ class AutonomousFindingDispatcher:
             "auto_applied",
             f"open_loop:{loop.loop_id}",
         )
+
+    @staticmethod
+    def _historical_event_contract_valid(
+        event: Mapping[str, Any],
+    ) -> bool:
+        return bool(
+            str(event.get("modality", "")) == "inferred"
+            and str(event.get("temporal_direction", "")) == "past"
+            and str(event.get("inference_purpose", ""))
+            == "historical_gap_fill"
+            and bool(event.get("revisable", False))
+            and str(event.get("inference_as_of", "")).strip()
+            and str(event.get("target_time", "")).strip()
+            and str(event.get("inference_confidence", "")).strip()
+            and tuple(event.get("supporting_signals", ()))
+            and not tuple(event.get("counter_signals", ()))
+            and str(event.get("coverage_boundary", "")).strip()
+            and tuple(event.get("alternative_explanations", ()))
+            and tuple(event.get("contradiction_triggers", ()))
+            and str(event.get("expires_at", "")).strip()
+        )
+
+    @staticmethod
+    def _historical_finding_contract_valid(
+        finding: AdvisoryFinding,
+        attributes: Mapping[str, Any],
+    ) -> bool:
+        alternatives = (
+            tuple(attributes.get("alternative_explanations", ()))
+            or finding.alternative_explanations
+        )
+        return bool(
+            finding.modality == "inferred"
+            and str(attributes.get("temporal_direction", "")) == "past"
+            and str(attributes.get("inference_purpose", ""))
+            == "historical_gap_fill"
+            and bool(attributes.get("revisable", False))
+            and str(attributes.get("inference_as_of", "")).strip()
+            and str(attributes.get("target_time", "")).strip()
+            and tuple(attributes.get("supporting_signals", ()))
+            and not tuple(attributes.get("counter_signals", ()))
+            and str(attributes.get("coverage_boundary", "")).strip()
+            and tuple(alternatives)
+            and tuple(attributes.get("contradiction_triggers", ()))
+            and str(attributes.get("expires_at", "")).strip()
+        )
+
+    def _criterion_owner_evidence_licensed(
+        self,
+        *,
+        matter_id: str,
+        evidence_ids: tuple[str, ...],
+        basis_modality: str,
+        temporal_direction: str,
+    ) -> bool:
+        required_evidence = {
+            str(item).strip() for item in evidence_ids if str(item).strip()
+        }
+        if not required_evidence or temporal_direction == "future":
+            return False
+        normalized_modality = (
+            "inferred"
+            if basis_modality in {"inferred", "ai_inferred"}
+            else basis_modality
+        )
+        licensed_evidence: set[str] = set()
+        for event in self.store.iter_current("temporal_event"):
+            if (
+                not bool(event.get("current_revision", True))
+                or str(event.get("object_ref", "")) != matter_id
+            ):
+                continue
+            event_modality = str(event.get("modality", ""))
+            if normalized_modality == "reported":
+                modality_matches = event_modality in {
+                    "observed",
+                    "reported",
+                }
+            else:
+                modality_matches = event_modality == normalized_modality
+            if not modality_matches:
+                continue
+            event_direction = str(event.get("temporal_direction", ""))
+            if temporal_direction == "past" and event_direction != "past":
+                continue
+            if event_direction == "future":
+                continue
+            if (
+                normalized_modality == "inferred"
+                and not self._historical_event_contract_valid(event)
+            ):
+                continue
+            licensed_evidence.update(
+                str(item).strip()
+                for item in event.get("evidence_ids", ())
+                if str(item).strip()
+            )
+        return required_evidence.issubset(licensed_evidence)
+
+    def _reported_termination_evidence_licensed(
+        self,
+        *,
+        matter_id: str,
+        evidence_ids: tuple[str, ...],
+    ) -> bool:
+        required_evidence = {
+            str(item).strip() for item in evidence_ids if str(item).strip()
+        }
+        if not required_evidence:
+            return False
+        licensed_evidence: set[str] = set()
+        markers = (
+            "cancel",
+            "withdraw",
+            "refund",
+            "abandon",
+            "terminat",
+        )
+        for event in self.store.iter_current("temporal_event"):
+            event_kind = str(event.get("kind", "")).casefold()
+            if (
+                not bool(event.get("current_revision", True))
+                or str(event.get("object_ref", "")) != matter_id
+                or str(event.get("modality", ""))
+                not in {"observed", "reported"}
+                or str(event.get("temporal_direction", ""))
+                not in {"past", "present"}
+                or not any(marker in event_kind for marker in markers)
+            ):
+                continue
+            licensed_evidence.update(
+                str(item).strip()
+                for item in event.get("evidence_ids", ())
+                if str(item).strip()
+            )
+        return required_evidence.issubset(licensed_evidence)
 
     def _c9(
         self,
@@ -2139,12 +2745,61 @@ class AutonomousFindingDispatcher:
             result_findings=result_findings,
         )
         criteria: tuple[CompletionCriterion, ...] = ()
+        requested_status = str(
+            attributes.get("requested_status", "")
+        ).strip()
         if finding.finding_type == "conflict":
             decision = self.outcomes.record_conflict(
                 matter_id,
                 rationale=finding.statement,
             )
-        elif str(attributes.get("requested_status", "")) == "reopened":
+        elif requested_status == "cancelled":
+            loop_dispositions = tuple(
+                str(item).strip()
+                for item in attributes.get(
+                    "open_loop_dispositions",
+                    attributes.get("loop_dispositions", ()),
+                )
+                if str(item).strip()
+            )
+            open_loop_ids = tuple(
+                str(loop.get("loop_id", ""))
+                for loop in self.store.iter_current("open_loop")
+                if (
+                    str(loop.get("matter_id", "")) == matter_id
+                    and str(loop.get("status", "open")) == "open"
+                )
+            )
+            loop_dispositions_complete = all(
+                any(loop_id in disposition for disposition in loop_dispositions)
+                for loop_id in open_loop_ids
+            )
+            cancellation_licensed = bool(
+                finding.modality in {"observed", "reported"}
+                and self._reported_termination_evidence_licensed(
+                    matter_id=matter_id,
+                    evidence_ids=finding.evidence_ids,
+                )
+                and loop_dispositions_complete
+            )
+            if cancellation_licensed:
+                decision = self.outcomes.cancel(
+                    matter_id,
+                    rationale=finding.statement,
+                    loop_dispositions=loop_dispositions,
+                    basis_modality=finding.modality,
+                    terminality="confirmed",
+                )
+            else:
+                decision = self.outcomes.record_conflict(
+                    matter_id,
+                    rationale=(
+                        "cancellation remains unproven until a current "
+                        "reported/observed termination event and every open-loop "
+                        "disposition are licensed"
+                    ),
+                )
+        elif requested_status == "reopened":
             obligation_id = str(attributes.get("new_obligation_id", "")).strip()
             if not obligation_id:
                 raise ValueError("reopen requires a new obligation id")
@@ -2153,15 +2808,76 @@ class AutonomousFindingDispatcher:
                 new_obligation_id=obligation_id,
             )
         else:
-            criteria = tuple(
-                CompletionCriterion(
-                    criterion_id=str(item.get("criterion_id", "")),
-                    satisfied=bool(item.get("satisfied", False)),
-                    evidence_ids=tuple(item.get("evidence_ids", ())),
+            criteria_items: list[CompletionCriterion] = []
+            finding_inference_contract_valid = (
+                self._historical_finding_contract_valid(
+                    finding,
+                    attributes,
                 )
-                for item in attributes.get("criteria", ())
-                if isinstance(item, Mapping)
             )
+            for item in attributes.get("criteria", ()):
+                if not isinstance(item, Mapping):
+                    continue
+                evidence_ids = tuple(
+                    str(value).strip()
+                    for value in item.get("evidence_ids", ())
+                    if str(value).strip()
+                )
+                basis_modality = str(
+                    item.get("basis_modality", finding.modality)
+                )
+                if basis_modality == "inferred":
+                    basis_modality = "ai_inferred"
+                temporal_direction = str(
+                    item.get(
+                        "temporal_direction",
+                        attributes.get("temporal_direction", "past"),
+                    )
+                )
+                owner_evidence_licensed = (
+                    self._criterion_owner_evidence_licensed(
+                        matter_id=matter_id,
+                        evidence_ids=evidence_ids,
+                        basis_modality=basis_modality,
+                        temporal_direction=temporal_direction,
+                    )
+                )
+                criteria_items.append(
+                    CompletionCriterion(
+                        criterion_id=str(item.get("criterion_id", "")),
+                        satisfied=bool(item.get("satisfied", False)),
+                        evidence_ids=evidence_ids,
+                        basis_modality=basis_modality,
+                        temporal_direction=temporal_direction,
+                        freshness=str(item.get("freshness", "current")),
+                        completion_licensed=bool(
+                            item.get(
+                                "completion_licensed",
+                                finding.modality in {
+                                    "observed",
+                                    "reported",
+                                },
+                            )
+                        ),
+                        owner_evidence_licensed=owner_evidence_licensed,
+                        terminality=str(
+                            item.get(
+                                "terminality",
+                                (
+                                    "provisional"
+                                    if finding.modality == "inferred"
+                                    else "confirmed"
+                                ),
+                            )
+                        ),
+                        inference_contract_valid=bool(
+                            basis_modality == "ai_inferred"
+                            and finding_inference_contract_valid
+                            and owner_evidence_licensed
+                        ),
+                    )
+                )
+            criteria = tuple(criteria_items)
             decision = self.outcomes.decide_completion(
                 matter_id,
                 criteria,
@@ -2184,23 +2900,50 @@ class AutonomousFindingDispatcher:
             )
         )
         basis_scope = str(
-            attributes.get("inference_scope", "")
+            attributes.get(
+                "basis_scope",
+                attributes.get("inference_scope", ""),
+            )
         ).strip()
         if (
             not basis_scope
             and finding.modality == "inferred"
             and decision.status == "completed"
         ):
-            basis_scope = "historical_inference"
+            basis_scope = "historical_gap"
         self.store.append(
             "outcome_decision",
             object_id,
             self.store.next_revision("outcome_decision", object_id),
             {
                 **asdict(decision),
+                "criteria": tuple(asdict(item) for item in criteria),
                 "basis_finding_id": finding.finding_id,
-                "basis_modality": finding.modality,
+                "basis_modality": (
+                    decision.basis_modality
+                    if decision.basis_modality != "unknown"
+                    else (
+                        "ai_inferred"
+                        if finding.modality == "inferred"
+                        else finding.modality
+                    )
+                ),
                 "basis_scope": basis_scope,
+                "terminality": decision.terminality,
+                "confidence": finding.confidence,
+                "alternative_explanations": (
+                    tuple(
+                        attributes.get("alternative_explanations", ())
+                    )
+                    or finding.alternative_explanations
+                ),
+                "coverage_boundary": str(
+                    attributes.get("coverage_boundary", "")
+                ),
+                "expires_at": str(attributes.get("expires_at", "")),
+                "contradiction_triggers": tuple(
+                    attributes.get("contradiction_triggers", ())
+                ),
                 "basis_evidence_ids": basis_evidence_ids,
                 "basis_semantic_revision": finding.semantic_revision,
             },
@@ -2443,14 +3186,72 @@ class AutonomousFindingDispatcher:
             semantic_revision=finding.semantic_revision,
             result_findings=result_findings,
         )
+        lifecycle = self.store.current(
+            "lifecycle_decision",
+            f"{matter_id}:lifecycle",
+        ) or {}
+        outcome = self.store.current(
+            "outcome_decision",
+            f"{matter_id}:outcome",
+        ) or {}
+        current_projection = self.store.current("projection", matter_id) or {}
+        outcome_status = str(outcome.get("status", "")).strip()
+        lifecycle_state = str(lifecycle.get("state", "")).strip()
+        if outcome_status in {"completed", "cancelled", "abandoned"}:
+            state = outcome_status
+            state_owner = outcome
+        elif outcome_status == "reopened":
+            state = lifecycle_state or "in_progress"
+            state_owner = lifecycle or outcome
+        elif lifecycle_state:
+            state = lifecycle_state
+            state_owner = lifecycle
+        else:
+            state = str(
+                current_projection.get("state", "uncertain")
+            ).strip() or "uncertain"
+            state_owner = current_projection
+        state_basis_modality = str(
+            state_owner.get(
+                "basis_modality",
+                state_owner.get("state_basis_modality", "unknown"),
+            )
+        ).strip() or "unknown"
+        if state_basis_modality == "inferred":
+            state_basis_modality = "ai_inferred"
+        state_basis_scope = str(
+            state_owner.get(
+                "basis_scope",
+                state_owner.get("state_basis_scope", ""),
+            )
+        ).strip()
+        state_terminality = str(
+            state_owner.get(
+                "terminality",
+                state_owner.get("state_terminality", "confirmed"),
+            )
+        ).strip() or "confirmed"
+        state_evidence_ids = tuple(
+            str(item)
+            for item in state_owner.get(
+                "basis_evidence_ids",
+                state_owner.get("evidence_ids", ()),
+            )
+            if str(item)
+        )
         projection = self.projections.publish(
             matter_id=matter_id,
             semantic_revision=finding.semantic_revision,
-            state=str(finding.attributes.get("state", "uncertain")),
+            state=state,
             rationale=finding.statement,
-            evidence_ids=finding.evidence_ids,
+            evidence_ids=tuple(
+                dict.fromkeys((*finding.evidence_ids, *state_evidence_ids))
+            ),
             localized_values=title_finding.localized_statement,
             localized_rationale=finding.localized_statement,
+            state_basis_modality=state_basis_modality,
+            state_basis_scope=state_basis_scope,
+            state_terminality=state_terminality,
         )
         self.store.append(
             "projection",
@@ -2550,7 +3351,6 @@ class AutonomousFindingDispatcher:
             for item in result_findings
             if item.finding_type == "matter_candidate"
             and item.owner_model_id == "C6_matter_admission"
-            and item.semantic_revision == semantic_revision
             and (
                 (
                     self.store.current(
@@ -2565,7 +3365,9 @@ class AutonomousFindingDispatcher:
         if len(title_findings) != 1:
             raise ValueError(
                 "bounded summary requires exactly one current "
-                "owner-dispatched localized Matter title"
+                "owner-dispatched localized Matter title for the same "
+                "canonical Matter; title and summary may use different "
+                "current source revisions"
             )
         return title_findings[0]
 

@@ -834,7 +834,7 @@
     "hazard_green"
   ],
   "function_signature": "S5_skill_validation_rollback: CaseInput x ModelState -> Set(DecisionOutput x ModelState)",
-  "generated_at": "2026-07-21T09:47:32.776846+00:00",
+  "generated_at": "2026-07-21T11:36:55.207707+00:00",
   "known_bad_proofs": [
     {
       "evidence_id": "S5_skill_validation_rollback:known-bad:H-S5-001-post-failure-no-rollback",

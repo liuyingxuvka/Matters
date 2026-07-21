@@ -37,7 +37,9 @@ PLACEMENT_OUTCOMES = frozenset(
         "blocked",
     }
 )
-GRANULARITY_KINDS = frozenset({"matter", "work_item", "event", "source"})
+GRANULARITY_KINDS = frozenset(
+    {"matter", "work_item", "event", "source", "uncertain"}
+)
 RELATED_MATTER_TYPES = frozenset(
     {
         "related",
@@ -149,19 +151,38 @@ class GranularityAssessment:
 
     @property
     def object_kind(self) -> str:
-        if any(
+        independent_support_count = sum(
+            bool(item)
+            for item in (
+                self.independently_useful_state,
+                self.independently_useful_outcome,
+                self.independently_useful_next_step,
+            )
+        )
+        matter_supported = (
+            self.independently_useful_goal
+            and independent_support_count >= 1
+        )
+        if self.one_time_occurrence and (
+            matter_supported
+            or self.bounded_task
+            or self.independently_useful_goal
+        ):
+            return "uncertain"
+        if matter_supported:
+            return "matter"
+        if self.one_time_occurrence:
+            return "event"
+        if self.bounded_task or any(
             (
-                self.independently_useful_goal,
                 self.independently_useful_state,
                 self.independently_useful_outcome,
                 self.independently_useful_next_step,
             )
         ):
-            return "matter"
-        if self.one_time_occurrence:
-            return "event"
-        if self.bounded_task:
             return "work_item"
+        if self.independently_useful_goal:
+            return "uncertain"
         return "source"
 
 

@@ -30,6 +30,7 @@ SPEC = FiniteModelSpec(
         "analysis.situation_inference_dependency_registry",
         "analysis.world_model_feedback_registry",
         "analysis.world_model_miss_outbox",
+        "analysis.current_phase_inference_registry",
         "research.provider_status",
         "analysis.depth_registry",
         "forecast_registry",
@@ -49,6 +50,7 @@ SPEC = FiniteModelSpec(
         "analysis.situation_inference_dependency_registry",
         "analysis.world_model_feedback_registry",
         "analysis.world_model_miss_outbox",
+        "analysis.current_phase_inference_registry",
         "research.provider_status",
         "analysis.depth_registry",
         "forecast_registry",
@@ -102,6 +104,7 @@ SPEC = FiniteModelSpec(
         "HumanMatterNarrative",
         "NonEmptySupplementalInformation",
         "MatterScopedSemanticDepth",
+        "CurrentPhaseInference",
     ),
     rules=(
         CaseRule(
@@ -521,13 +524,17 @@ SPEC = FiniteModelSpec(
             reason="adjacent-source read, undeclared tool, or external action is rejected",
         ),
         CaseRule(
-            case_id="forecast_delay",
-            decision="forecast_registered_only",
-            label="forecast_registered_only",
-            writes=("forecast_registry",),
-            side_effects=("finding_history_write",),
-            emitted_tokens=("Forecast",),
-            reason="future forecast remains separate from current lifecycle state",
+            case_id="weak_forecast_entrypoint_requested",
+            decision="weak_forecast_entrypoint_rejected",
+            label="weak_forecast_entrypoint_rejected",
+            writes=(),
+            side_effects=(),
+            emitted_tokens=("ArtifactRejected",),
+            reason=(
+                "the lightweight Forecast and GuardBridge.register_forecast "
+                "paths are retired; only the complete PersistentAdvisoryWorldModel "
+                "prediction contract may write a frozen advisory forecast"
+            ),
         ),
         CaseRule(
             case_id="future_prediction_contract_current",
@@ -647,8 +654,40 @@ SPEC = FiniteModelSpec(
             emitted_tokens=("ArtifactRejected", "Gap"),
             reason="skipped, not-run, or progress-only evidence cannot be promoted",
         ),
+        CaseRule(
+            case_id="completed_prerequisite_and_future_required_obligation",
+            decision="current_phase_inference_proposed",
+            label="current_phase_inference_proposed",
+            writes=(
+                "analysis.situation_world_model_registry",
+                "analysis.situation_inference_dependency_registry",
+                "analysis.current_phase_inference_registry",
+            ),
+            side_effects=("world_model_write",),
+            emitted_tokens=("AdvisoryInference", "CurrentPhaseInference"),
+            reason=(
+                "C11 may propose the most likely current workflow phase only "
+                "with a completed prerequisite, still-required next obligation, "
+                "bounded active window, coverage, alternatives, expiry, and "
+                "contradiction triggers; C7 remains the lifecycle owner"
+            ),
+        ),
     ),
     hazards=(
+        HazardSpec(
+            failure_id="H-C11-030-current-phase-predicts-future-success",
+            protected_error_class="current_phase_future_outcome_conflation",
+            description=(
+                "a current preparation-phase inference is rewritten as a "
+                "prediction that submission or another future outcome succeeded"
+            ),
+            protected_harm="advisory phase reasoning becomes a false future fact",
+            case_id="completed_prerequisite_and_future_required_obligation",
+            broken_decision="future_outcome_completed",
+            broken_writes=("analysis.situation_world_model_registry",),
+            broken_side_effects=("world_model_write",),
+            broken_tokens=("Completed",),
+        ),
         HazardSpec(
             failure_id="H-C11-024-empty-supplemental-claimed-current",
             protected_error_class="supplemental_zero_item_false_current",
@@ -705,14 +744,21 @@ SPEC = FiniteModelSpec(
             broken_tokens=("Finding", "Proposal"),
         ),
         HazardSpec(
-            failure_id="H-C11-003-forecast-changes-current-state",
-            protected_error_class="forecast_fact_conflation",
-            description="a forecasted delay marks the Matter currently blocked",
-            protected_harm="predicted future conditions are presented as present facts",
-            case_id="forecast_delay",
-            broken_decision="current_blocked",
-            broken_writes=("matter.blocking_axis",),
-            broken_tokens=("FullBlock",),
+            failure_id="H-C11-003-weak-forecast-entrypoint-remains-successful",
+            protected_error_class="parallel_prediction_owner",
+            description=(
+                "the retired lightweight Forecast or GuardBridge.register_forecast "
+                "path accepts a future prediction"
+            ),
+            protected_harm=(
+                "an untestable forecast can bypass World Model evidence, "
+                "verification, contradiction, expiry, and feedback obligations"
+            ),
+            case_id="weak_forecast_entrypoint_requested",
+            broken_decision="forecast_registered_only",
+            broken_writes=("forecast_registry",),
+            broken_side_effects=("finding_history_write",),
+            broken_tokens=("Forecast",),
         ),
         HazardSpec(
             failure_id="H-C11-004-progress-receipt-promoted",

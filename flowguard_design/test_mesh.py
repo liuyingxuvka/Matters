@@ -27,7 +27,7 @@ from flowguard_design.transition_coverage import build_matrices
 
 
 PARENT_SUITE_ID = "TM0_matters_whole_flow_gate"
-INVENTORY_REVISION = "g4-testmesh-v15-exact-source-and-install-closure"
+INVENTORY_REVISION = "g4-testmesh-v18-release-candidate-closure"
 REPOSITORY_ROOT = Path(__file__).resolve().parents[1]
 
 HIERARCHY_MODEL_IDS = {
@@ -81,6 +81,9 @@ SUITE_EXTRA_TEST_PATHS = {
         "tests/test_semantic_data_layer_projection.py",
         "tests/test_source_group_projection.py",
     ),
+    "TM13_model_mesh_closure": (
+        "tests/test_semantic_state_counterexamples.py",
+    ),
     "TM14_end_to_end_conformance": (
         "tests/test_entrypoint_cli.py",
         "tests/test_entrypoint_http.py",
@@ -88,6 +91,7 @@ SUITE_EXTRA_TEST_PATHS = {
         "tests/test_entrypoint_real_service.py",
     ),
     "TM15_connector_pagination_retry": (
+        "tests/test_gmail_manifest_coverage_audit.py",
         "tests/test_gmail_body_continuation.py",
         "tests/test_gmail_ingest_safety.py",
         "tests/test_source_cloud_adapter.py",
@@ -152,25 +156,32 @@ SUITE_PURPOSES = {
         "latest meaningful clue time, ancestor activity propagation, and "
         "parent-narrative refresh triggers that never replace clue-time authority, "
         "logical-event revision/supersession deduplication, plus "
-        "Event-never-mechanically-becomes-Matter contracts"
+        "Event-never-mechanically-becomes-Matter contracts, complete historical "
+        "inference contracts, and future-ticket/future-activity separation"
     ),
     "TM06_matter_admission": (
-        "C6 root/child Matter, WorkItem/Event/Source classification; one acyclic "
+        "C6 strict stable-identity plus goal/obligation plus independent-dimension "
+        "Matter scale, single-step WorkItem/Event classification, conflicting-scale "
+        "uncertainty; one acyclic "
         "primary parent; role; depth; complete parent-narrative scope; "
         "split/merge/reparent contracts; and rejection of projection/source/"
         "candidate identities unless C6 supplies the exact admitted matter_id; "
-        "ordinary Sub-matters projects Matter nodes only, reconciles travel/software "
-        "portfolio roots, and preserves typed cross-domain relations"
+        "ordinary Sub-matters projects Matter nodes plus only bounded material "
+        "WorkItem stage nodes, reconciles travel/software portfolio roots, and "
+        "preserves typed cross-domain relations"
     ),
     "TM07_lifecycle_board_state": (
         "C7 child-state snapshots, non-mechanical lifecycle rollup, related-edge "
-        "exclusion, unknown-denominator contracts, and lifecycle/modality separation"
+        "exclusion, unknown-denominator contracts, lifecycle/modality/terminality "
+        "separation, and complete active-window current-phase inference"
     ),
     "TM08_open_loop_blocking": (
         "C8 required/optional/critical child blocking and ancestor rollup contracts"
     ),
     "TM09_completion_reopen": (
-        "C9 child-outcome rollup and parent-completion non-mechanical contracts"
+        "C9 child-outcome rollup, parent-completion non-mechanical contracts, "
+        "confirmed observed/reported completion, provisional historical inferred "
+        "completion, and rejection of future or unlicensed AI completion"
     ),
     "TM10_correction_invalidation": (
         "C10 old/new ancestor invalidation, exact observation-time correction "
@@ -190,13 +201,15 @@ SUITE_PURPOSES = {
         "qualified exact child search, a minimal human Overview, eight exact detail sections, generated hero "
         "outside evidence, AI supplemental information, Files & information columns/"
         "wrapped subordinate typography/disclosure, Images evidence gallery zoom/reset/"
-        "pan/keyboard, truthful compact indexed coverage, Matter-only hierarchy with "
-        "one reusable node quick view, logical-event timeline deduplication, lifecycle/"
-        "modality visual separation, and bilingual projection"
+        "pan/keyboard, truthful compact indexed coverage, Matter plus bounded material "
+        "stage hierarchy with one reusable node quick view, logical-event timeline "
+        "deduplication, C7/C9-owned card state that ignores summary wording, lifecycle/"
+        "modality/terminality visual separation, and bilingual projection"
     ),
     "TM13_model_mesh_closure": (
-        "M0/C1-C12 plus A0/A1/A2 reattachment, orchestration joins, hierarchy/"
-        "MaterialClue/hero token consumers, finite retry, and closure"
+        "M0/C1-C12 plus A0/A1/A2/A3 reattachment, orchestration joins, hierarchy/"
+        "MaterialClue/hero token consumers, temporal/lifecycle/terminality semantic "
+        "counterexamples, finite retry, and closure"
     ),
     "TM14_end_to_end_conformance": (
         "synthetic whole-flow and ordered M0 per-object source/Matter stage authority "
@@ -222,11 +235,14 @@ SUITE_PURPOSES = {
     ),
     "TM18_privacy_public_boundary": (
         "external private roots, public inventory, privacy-minimized generated-hero briefs, "
-        "private generated assets, and zero local/Gmail payload publication"
+        "private generated assets, desktop-specific release-archive inventory, "
+        "portable tree/executable/toolchain identities, and zero local/Gmail "
+        "payload or machine-local build-provenance publication"
     ),
     "TM19_clean_install_release": (
         "clean clone/package, immutable Skill Pack, active view, optional "
-        "managed projection, ResearchGuard gate, Git, and local release proof"
+        "managed projection, deterministic Windows release ZIP, ResearchGuard "
+        "gate, Git, and local release proof"
     ),
     "TM20_autonomous_owner_dispatch": (
         "A0 one bounded model-agnostic WorkPackageV2 capability role, replaceable private "

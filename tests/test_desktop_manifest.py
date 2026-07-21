@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+from hashlib import sha256
 from pathlib import Path
 import shutil
 import sys
@@ -11,10 +12,27 @@ from matters.assets import asset_path
 from matters._version import VERSION
 from matters.bundled_skills import bundle as bundled
 from scripts.build_desktop_manifest import (
+    _tree_sha256,
     build_manifest,
     main as manifest_main,
     verify_manifest,
 )
+
+
+def test_desktop_tree_hash_uses_portable_relative_path_order(tmp_path):
+    root = tmp_path / "Matters"
+    internal = root / "_internal"
+    internal.mkdir(parents=True)
+    (root / "Matters.exe").write_bytes(b"exe")
+    (internal / "payload.txt").write_bytes(b"payload")
+    rows = (
+        f"Matters.exe\t{sha256(b'exe').hexdigest()}",
+        f"_internal/payload.txt\t{sha256(b'payload').hexdigest()}",
+    )
+
+    assert _tree_sha256(root) == (
+        "sha256:" + sha256("\n".join(rows).encode("utf-8")).hexdigest()
+    )
 
 
 def _candidate(tmp_path: Path) -> tuple[Path, Path, Path]:

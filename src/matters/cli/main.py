@@ -30,6 +30,7 @@ class EntrypointService(Protocol):
     def matter_world_model(self, **kwargs: object) -> object: ...
     def object_coverage_summary(self) -> object: ...
     def object_stage_audit(self, **kwargs: object) -> object: ...
+    def gmail_manifest_coverage_audit(self, **kwargs: object) -> object: ...
     def object_coverage_page(self, **kwargs: object) -> object: ...
     def matter_hierarchy_coverage_page(self, **kwargs: object) -> object: ...
     def rebase_coverage_stage_schema(
@@ -59,6 +60,14 @@ class EntrypointService(Protocol):
         limit: int,
     ) -> object: ...
     def source_revision_analysis_plan(
+        self,
+        *,
+        matter_id: str,
+        after_matter_id: str,
+        limit: int,
+        queue: bool,
+    ) -> object: ...
+    def matter_semantic_analysis_plan(
         self,
         *,
         matter_id: str,
@@ -333,6 +342,20 @@ def build_parser() -> argparse.ArgumentParser:
         default="",
         choices=("", "true", "false"),
     )
+    gmail_manifest_audit = commands.add_parser(
+        "gmail-manifest-coverage-audit",
+        help=(
+            "Read one verified Gmail page set through private coverage indexes "
+            "without provider access or state writes."
+        ),
+    )
+    gmail_manifest_audit.add_argument("--receipt", type=Path)
+    gmail_manifest_audit.add_argument(
+        "--page",
+        action="append",
+        type=Path,
+        default=[],
+    )
     coverage_page = commands.add_parser("coverage-page")
     coverage_page.add_argument("--offset", type=int, default=0)
     coverage_page.add_argument("--limit", type=int, default=100)
@@ -394,6 +417,21 @@ def build_parser() -> argparse.ArgumentParser:
     source_revision_analysis.add_argument("--after-matter-id", default="")
     source_revision_analysis.add_argument("--limit", type=int, default=100)
     source_revision_analysis.add_argument("--queue", action="store_true")
+    matter_semantic_analysis = commands.add_parser(
+        "matter-semantic-analysis-plan",
+        help=(
+            "Plan or queue one exact cross-source semantic refresh for each "
+            "admitted Matter."
+        ),
+        description=(
+            "Plan or queue one exact cross-source semantic refresh for each "
+            "admitted Matter."
+        ),
+    )
+    matter_semantic_analysis.add_argument("--matter-id", default="")
+    matter_semantic_analysis.add_argument("--after-matter-id", default="")
+    matter_semantic_analysis.add_argument("--limit", type=int, default=100)
+    matter_semantic_analysis.add_argument("--queue", action="store_true")
     gmail_scope_reconcile = commands.add_parser(
         "gmail-current-scope-reconcile",
         help=(
@@ -1002,6 +1040,15 @@ def run(
                 limit=args.limit,
                 queue=args.queue,
             )
+        elif command == "matter-semantic-analysis-plan":
+            result = _invoke(
+                service,
+                "matter_semantic_analysis_plan",
+                matter_id=args.matter_id,
+                after_matter_id=args.after_matter_id,
+                limit=args.limit,
+                queue=args.queue,
+            )
         elif command == "gmail-current-scope-reconcile":
             result = _invoke(
                 service,
@@ -1113,6 +1160,15 @@ def run(
                 service,
                 "object_stage_audit",
                 **audit_kwargs,
+            )
+        elif command == "gmail-manifest-coverage-audit":
+            if args.receipt is None and not args.page:
+                raise ValueError("gmail_manifest_coverage_input_required")
+            result = _invoke(
+                service,
+                "gmail_manifest_coverage_audit",
+                receipt_path=(str(args.receipt) if args.receipt else ""),
+                page_paths=tuple(str(path) for path in args.page),
             )
         elif command == "hierarchy-coverage":
             result = _invoke(

@@ -127,20 +127,20 @@
             "TC-M0_matters_end_to_end_authority-parent_attempts_child_write-retry"
           ],
           "coverage_receipt_ids": [
-            "run:TM14_end_to_end_conformance:6bcf16424d4c8cc9"
+            "run:TM14_end_to_end_conformance:7baa22910b54e3c6"
           ],
           "coverage_shard_ids": [
             "TM14_end_to_end_conformance"
           ],
-          "current": true,
-          "evidence_state": "current_pass",
+          "current": false,
+          "evidence_state": "stale",
           "metadata": {
-            "alignment_evidence_id": "evidence:model-code-test-alignment:4305d1cafc5b07f3",
-            "g8_evidence_id": "evidence:G8-fully-synthetic:ffe0563f16dabefc",
+            "alignment_evidence_id": "evidence:model-code-test-alignment:8ff13b9ed936187b",
+            "g8_evidence_id": "evidence:G8-fully-synthetic:9545f7fd2b98e390",
             "live_provider_evidence": false,
-            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v8",
+            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v9",
             "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed",
-            "test_receipt_fingerprint": "sha256:613e7b14383f265d44ac6a33ff20d35ba9caed8e2a555431ae895b81aedfd126",
+            "test_receipt_fingerprint": "sha256:813124f6c94063a8b798d5f465d317b9097a835da85a0eccd05a7af7464fff1e",
             "test_receipt_path": ".flowguard/evidence/tests/TM14_end_to_end_conformance.json",
             "through_gate": "G8"
           },
@@ -149,9 +149,9 @@
           ],
           "proof_artifact_ids": [
             "evidence:M0_matters_end_to_end_authority:4abae21e2657e0bc",
-            "artifact:run:TM14_end_to_end_conformance:6bcf16424d4c8cc9",
-            "evidence:model-code-test-alignment:4305d1cafc5b07f3",
-            "evidence:G8-fully-synthetic:ffe0563f16dabefc"
+            "artifact:run:TM14_end_to_end_conformance:7baa22910b54e3c6",
+            "evidence:model-code-test-alignment:8ff13b9ed936187b",
+            "evidence:G8-fully-synthetic:9545f7fd2b98e390"
           ],
           "risk_gate_ids": [
             "G3-model-mesh-closure",
@@ -159,9 +159,9 @@
             "G8-fully-synthetic"
           ],
           "test_evidence_ids": [
-            "run:TM14_end_to_end_conformance:6bcf16424d4c8cc9"
+            "run:TM14_end_to_end_conformance:7baa22910b54e3c6"
           ],
-          "test_mesh_state": "shard_current"
+          "test_mesh_state": "stale"
         },
         "excluded_behavior_ids": [],
         "expected_result": "a current per-occurrence and per-Matter stage ledger plus evidence-backed Matter, source-only, not-applicable, uncertain, no-finding, blocked, or UI-ready terminal results; source originals remain in place while pointer/fingerprint and durable-derived stages, SourceGroup, a Matter-only hierarchy projection, logical-event timeline, people/relations, human narrative, Situation/World Model, root-only photographic Hero, materialized first-gap index, and actual UI reachability remain independently auditable; a passed result awaiting only original-owner redispatch is recovered as one isolated phase that defers new AI work to the next maintenance cycle",
@@ -203,7 +203,7 @@
           "behavior_commitment_id": "BC-PR-000",
           "business_intent": "autonomously maintain an authorized situation",
           "business_intent_id": "BI-PR-000-review-authorized-situation",
-          "evidence_current": true,
+          "evidence_current": false,
           "evidence_refs": [
             ".flowguard/evidence/tests/TM14_end_to_end_conformance.json",
             ".flowguard/evidence/alignment/model_code_test.json",
@@ -212,15 +212,15 @@
           "fallback_candidate_ids": [],
           "metadata": {},
           "path_sensitive": true,
-          "ppa_confidence": "full",
+          "ppa_confidence": "blocked",
           "ppa_coverage_receipt_ids": [
-            "run:TM14_end_to_end_conformance:6bcf16424d4c8cc9"
+            "run:TM14_end_to_end_conformance:7baa22910b54e3c6"
           ],
           "ppa_coverage_shard_ids": [
             "TM14_end_to_end_conformance"
           ],
-          "ppa_decision": "primary_path_authority_green",
-          "ppa_ok": true,
+          "ppa_decision": "primary_path_authority_blocked",
+          "ppa_ok": false,
           "ppa_report_id": "PPA-BC-PR-000-G8",
           "ppa_risk_gate_ids": [
             "authority",
@@ -230,9 +230,9 @@
           "primary_path_id": "path:matters-end-to-end-authority",
           "proof_artifact_ids": [
             "evidence:M0_matters_end_to_end_authority:4abae21e2657e0bc",
-            "artifact:run:TM14_end_to_end_conformance:6bcf16424d4c8cc9",
-            "evidence:model-code-test-alignment:4305d1cafc5b07f3",
-            "evidence:G8-fully-synthetic:ffe0563f16dabefc"
+            "artifact:run:TM14_end_to_end_conformance:7baa22910b54e3c6",
+            "evidence:model-code-test-alignment:8ff13b9ed936187b",
+            "evidence:G8-fully-synthetic:9545f7fd2b98e390"
           ],
           "runtime_observation_ids": [
             "BO-TC-M0_matters_end_to_end_authority-source_in_place_migration_and_retention_current",
@@ -621,20 +621,20 @@
             "TC-C1_authorization_coverage-private_root_inside_git-retry"
           ],
           "coverage_receipt_ids": [
-            "run:TM01_authorization_coverage:634e04fb428df72b"
+            "run:TM01_authorization_coverage:7f61bea2d9613b98"
           ],
           "coverage_shard_ids": [
             "TM01_authorization_coverage"
           ],
-          "current": true,
-          "evidence_state": "current_pass",
+          "current": false,
+          "evidence_state": "stale",
           "metadata": {
-            "alignment_evidence_id": "evidence:model-code-test-alignment:4305d1cafc5b07f3",
-            "g8_evidence_id": "evidence:G8-fully-synthetic:ffe0563f16dabefc",
+            "alignment_evidence_id": "evidence:model-code-test-alignment:8ff13b9ed936187b",
+            "g8_evidence_id": "evidence:G8-fully-synthetic:9545f7fd2b98e390",
             "live_provider_evidence": false,
-            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v8",
+            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v9",
             "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed",
-            "test_receipt_fingerprint": "sha256:b82bb8724da0aa8c210903e02a03e63c88e73cca79dfbdad834ab7667b2cd3b3",
+            "test_receipt_fingerprint": "sha256:ed80ac29c5fec8e3871cd85b173f20220323382d408e55ff60715da232570804",
             "test_receipt_path": ".flowguard/evidence/tests/TM01_authorization_coverage.json",
             "through_gate": "G8"
           },
@@ -645,9 +645,9 @@
           ],
           "proof_artifact_ids": [
             "evidence:C1_authorization_coverage:fb63cdbfa75fc982",
-            "artifact:run:TM01_authorization_coverage:634e04fb428df72b",
-            "evidence:model-code-test-alignment:4305d1cafc5b07f3",
-            "evidence:G8-fully-synthetic:ffe0563f16dabefc"
+            "artifact:run:TM01_authorization_coverage:7f61bea2d9613b98",
+            "evidence:model-code-test-alignment:8ff13b9ed936187b",
+            "evidence:G8-fully-synthetic:9545f7fd2b98e390"
           ],
           "risk_gate_ids": [
             "G2-C1",
@@ -655,9 +655,9 @@
             "G8-fully-synthetic"
           ],
           "test_evidence_ids": [
-            "run:TM01_authorization_coverage:634e04fb428df72b"
+            "run:TM01_authorization_coverage:7f61bea2d9613b98"
           ],
-          "test_mesh_state": "shard_current"
+          "test_mesh_state": "stale"
         },
         "excluded_behavior_ids": [],
         "expected_result": "a versioned candidate-scope grant plus tracked, not_tracked, hard_excluded, metadata_only, blocked, or unavailable terminal disposition with reason and confidence; a Gmail body continuation additionally requires one raw-manifest hash, exact at-most-20 batch membership, status-specific minimal result projection, current metadata owners, and a recomputed canonical-row proof for no_text_body",
@@ -697,7 +697,7 @@
           "behavior_commitment_id": "BC-PR-001",
           "business_intent": "",
           "business_intent_id": "BI-PR-001-read-authorized-sources",
-          "evidence_current": true,
+          "evidence_current": false,
           "evidence_refs": [
             ".flowguard/evidence/tests/TM01_authorization_coverage.json",
             ".flowguard/evidence/alignment/model_code_test.json",
@@ -706,15 +706,15 @@
           "fallback_candidate_ids": [],
           "metadata": {},
           "path_sensitive": true,
-          "ppa_confidence": "full",
+          "ppa_confidence": "blocked",
           "ppa_coverage_receipt_ids": [
-            "run:TM01_authorization_coverage:634e04fb428df72b"
+            "run:TM01_authorization_coverage:7f61bea2d9613b98"
           ],
           "ppa_coverage_shard_ids": [
             "TM01_authorization_coverage"
           ],
-          "ppa_decision": "primary_path_authority_green",
-          "ppa_ok": true,
+          "ppa_decision": "primary_path_authority_blocked",
+          "ppa_ok": false,
           "ppa_report_id": "PPA-BC-PR-001-G8",
           "ppa_risk_gate_ids": [
             "authority",
@@ -724,9 +724,9 @@
           "primary_path_id": "path:c1-freeze-and-classify-candidate-universe",
           "proof_artifact_ids": [
             "evidence:C1_authorization_coverage:fb63cdbfa75fc982",
-            "artifact:run:TM01_authorization_coverage:634e04fb428df72b",
-            "evidence:model-code-test-alignment:4305d1cafc5b07f3",
-            "evidence:G8-fully-synthetic:ffe0563f16dabefc"
+            "artifact:run:TM01_authorization_coverage:7f61bea2d9613b98",
+            "evidence:model-code-test-alignment:8ff13b9ed936187b",
+            "evidence:G8-fully-synthetic:9545f7fd2b98e390"
           ],
           "runtime_observation_ids": [
             "BO-TC-C1_authorization_coverage-active_tracked_legacy_coverage_rebased",
@@ -921,20 +921,20 @@
             "TC-C2_source_registry-ai_rewrite_attempt-retry"
           ],
           "coverage_receipt_ids": [
-            "run:TM02_source_registry:7e1ca517f935ed39"
+            "run:TM02_source_registry:f9b829a4fc488633"
           ],
           "coverage_shard_ids": [
             "TM02_source_registry"
           ],
-          "current": true,
-          "evidence_state": "current_pass",
+          "current": false,
+          "evidence_state": "stale",
           "metadata": {
-            "alignment_evidence_id": "evidence:model-code-test-alignment:4305d1cafc5b07f3",
-            "g8_evidence_id": "evidence:G8-fully-synthetic:ffe0563f16dabefc",
+            "alignment_evidence_id": "evidence:model-code-test-alignment:8ff13b9ed936187b",
+            "g8_evidence_id": "evidence:G8-fully-synthetic:9545f7fd2b98e390",
             "live_provider_evidence": false,
-            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v8",
+            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v9",
             "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed",
-            "test_receipt_fingerprint": "sha256:e00e48e9b51978b3ab2839c243f74692a25973f9fdc6f2ee8e85f5b422e06f9f",
+            "test_receipt_fingerprint": "sha256:bb3d8c3ff07fcd1a59b738525e5dd531ef98d67aab12bed536af2d70b2347634",
             "test_receipt_path": ".flowguard/evidence/tests/TM02_source_registry.json",
             "through_gate": "G8"
           },
@@ -946,9 +946,9 @@
           ],
           "proof_artifact_ids": [
             "evidence:C2_source_registry:db58fa066dbdbc05",
-            "artifact:run:TM02_source_registry:7e1ca517f935ed39",
-            "evidence:model-code-test-alignment:4305d1cafc5b07f3",
-            "evidence:G8-fully-synthetic:ffe0563f16dabefc"
+            "artifact:run:TM02_source_registry:f9b829a4fc488633",
+            "evidence:model-code-test-alignment:8ff13b9ed936187b",
+            "evidence:G8-fully-synthetic:9545f7fd2b98e390"
           ],
           "risk_gate_ids": [
             "G2-C2",
@@ -956,9 +956,9 @@
             "G8-fully-synthetic"
           ],
           "test_evidence_ids": [
-            "run:TM02_source_registry:7e1ca517f935ed39"
+            "run:TM02_source_registry:f9b829a4fc488633"
           ],
-          "test_mesh_state": "shard_current"
+          "test_mesh_state": "stale"
         },
         "excluded_behavior_ids": [],
         "expected_result": "immutable locator/fingerprint occurrence observations, change sets, tombstones, durable derived understanding, and safe private evidence-gallery caches with renderer identity, retention class, references, quota, TTL, and freshness; complete local/Gmail/image originals remain external and transient reads are removed after derived-state commit; content-selection semantic identity excludes scan-only inventory revision, generated heroes never become sources or evidence, and an exact Gmail body continuation writes either a locator/fingerprint receipt, exact anchor coordinates/digests, and declared derived outputs or one no-text content disposition over unchanged metadata, then removes complete staging bodies; every current metadata-only/identity-only Gmail message also retains one minimal SourceVersion under an exact current inventory/coverage-owner gate",
@@ -997,7 +997,7 @@
           "behavior_commitment_id": "BC-PR-002",
           "business_intent": "",
           "business_intent_id": "BI-PR-002-preserve-source-provenance",
-          "evidence_current": true,
+          "evidence_current": false,
           "evidence_refs": [
             ".flowguard/evidence/tests/TM02_source_registry.json",
             ".flowguard/evidence/alignment/model_code_test.json",
@@ -1006,15 +1006,15 @@
           "fallback_candidate_ids": [],
           "metadata": {},
           "path_sensitive": true,
-          "ppa_confidence": "full",
+          "ppa_confidence": "blocked",
           "ppa_coverage_receipt_ids": [
-            "run:TM02_source_registry:7e1ca517f935ed39"
+            "run:TM02_source_registry:f9b829a4fc488633"
           ],
           "ppa_coverage_shard_ids": [
             "TM02_source_registry"
           ],
-          "ppa_decision": "primary_path_authority_green",
-          "ppa_ok": true,
+          "ppa_decision": "primary_path_authority_blocked",
+          "ppa_ok": false,
           "ppa_report_id": "PPA-BC-PR-002-G8",
           "ppa_risk_gate_ids": [
             "authority",
@@ -1024,9 +1024,9 @@
           "primary_path_id": "path:c2-register-source-version",
           "proof_artifact_ids": [
             "evidence:C2_source_registry:db58fa066dbdbc05",
-            "artifact:run:TM02_source_registry:7e1ca517f935ed39",
-            "evidence:model-code-test-alignment:4305d1cafc5b07f3",
-            "evidence:G8-fully-synthetic:ffe0563f16dabefc"
+            "artifact:run:TM02_source_registry:f9b829a4fc488633",
+            "evidence:model-code-test-alignment:8ff13b9ed936187b",
+            "evidence:G8-fully-synthetic:9545f7fd2b98e390"
           ],
           "runtime_observation_ids": [
             "BO-TC-C2_source_registry-authorized_original_registered_in_place",
@@ -1109,228 +1109,24 @@
           "inventory_change_set",
           "source_tombstone",
           "deduplication_binding",
-          "gallery_asset.identity",
           "gallery_asset.derivative_revision",
+          "gallery_asset.identity",
           "gallery_asset.renderer_identity",
           "gallery_asset.safety_disposition",
-          "gallery_asset.identity",
-          "gallery_asset.derivative_revision",
-          "gallery_asset.renderer_identity",
-          "gallery_asset.safety_disposition",
-          "source.content_selection_semantic_identity",
+          "source.cache_reference_status",
+          "source.cache_retention_policy",
+          "source.content_fingerprint",
           "source.content_selection_inventory_revision_context",
-          "gallery_asset.identity",
-          "gallery_asset.derivative_revision",
-          "gallery_asset.renderer_identity",
-          "gallery_asset.safety_disposition",
           "source.content_selection_semantic_identity",
-          "source.content_selection_inventory_revision_context",
-          "gallery_asset.identity",
-          "gallery_asset.derivative_revision",
-          "gallery_asset.renderer_identity",
-          "gallery_asset.safety_disposition",
-          "source.content_selection_semantic_identity",
-          "source.content_selection_inventory_revision_context",
-          "gallery_asset.identity",
-          "gallery_asset.derivative_revision",
-          "gallery_asset.renderer_identity",
-          "gallery_asset.safety_disposition",
-          "source.content_selection_semantic_identity",
-          "source.content_selection_inventory_revision_context",
-          "gallery_asset.identity",
-          "gallery_asset.derivative_revision",
-          "gallery_asset.renderer_identity",
-          "gallery_asset.safety_disposition",
-          "source.content_selection_semantic_identity",
-          "source.content_selection_inventory_revision_context",
-          "gallery_asset.identity",
-          "gallery_asset.derivative_revision",
-          "gallery_asset.renderer_identity",
-          "gallery_asset.safety_disposition",
-          "source.content_selection_semantic_identity",
-          "source.content_selection_inventory_revision_context",
-          "source.gmail_metadata_owner_status",
-          "source.gmail_metadata_reconciliation_cursor",
-          "gallery_asset.identity",
-          "gallery_asset.derivative_revision",
-          "gallery_asset.renderer_identity",
-          "gallery_asset.safety_disposition",
-          "source.content_selection_semantic_identity",
-          "source.content_selection_inventory_revision_context",
           "source.gmail_metadata_owner_status",
           "source.gmail_metadata_reconciliation_cursor",
           "source.locator",
-          "source.content_fingerprint",
           "source.metadata_fingerprint",
-          "source.storage_class",
-          "source.transient_cleanup_status",
-          "source.cache_retention_policy",
-          "source.cache_reference_status",
-          "source.unavailable_status",
           "source.source_group_identity",
           "source.source_group_membership_revision",
-          "gallery_asset.identity",
-          "gallery_asset.derivative_revision",
-          "gallery_asset.renderer_identity",
-          "gallery_asset.safety_disposition",
-          "source.content_selection_semantic_identity",
-          "source.content_selection_inventory_revision_context",
-          "source.gmail_metadata_owner_status",
-          "source.gmail_metadata_reconciliation_cursor",
-          "source.locator",
-          "source.content_fingerprint",
-          "source.metadata_fingerprint",
           "source.storage_class",
           "source.transient_cleanup_status",
-          "source.cache_retention_policy",
-          "source.cache_reference_status",
-          "source.unavailable_status",
-          "source.source_group_identity",
-          "source.source_group_membership_revision",
-          "gallery_asset.identity",
-          "gallery_asset.derivative_revision",
-          "gallery_asset.renderer_identity",
-          "gallery_asset.safety_disposition",
-          "source.content_selection_semantic_identity",
-          "source.content_selection_inventory_revision_context",
-          "source.gmail_metadata_owner_status",
-          "source.gmail_metadata_reconciliation_cursor",
-          "source.locator",
-          "source.content_fingerprint",
-          "source.metadata_fingerprint",
-          "source.storage_class",
-          "source.transient_cleanup_status",
-          "source.cache_retention_policy",
-          "source.cache_reference_status",
-          "source.unavailable_status",
-          "source.source_group_identity",
-          "source.source_group_membership_revision",
-          "gallery_asset.identity",
-          "gallery_asset.derivative_revision",
-          "gallery_asset.renderer_identity",
-          "gallery_asset.safety_disposition",
-          "source.content_selection_semantic_identity",
-          "source.content_selection_inventory_revision_context",
-          "source.gmail_metadata_owner_status",
-          "source.gmail_metadata_reconciliation_cursor",
-          "source.locator",
-          "source.content_fingerprint",
-          "source.metadata_fingerprint",
-          "source.storage_class",
-          "source.transient_cleanup_status",
-          "source.cache_retention_policy",
-          "source.cache_reference_status",
-          "source.unavailable_status",
-          "source.source_group_identity",
-          "source.source_group_membership_revision",
-          "gallery_asset.identity",
-          "gallery_asset.derivative_revision",
-          "gallery_asset.renderer_identity",
-          "gallery_asset.safety_disposition",
-          "source.content_selection_semantic_identity",
-          "source.content_selection_inventory_revision_context",
-          "source.gmail_metadata_owner_status",
-          "source.gmail_metadata_reconciliation_cursor",
-          "source.locator",
-          "source.content_fingerprint",
-          "source.metadata_fingerprint",
-          "source.storage_class",
-          "source.transient_cleanup_status",
-          "source.cache_retention_policy",
-          "source.cache_reference_status",
-          "source.unavailable_status",
-          "source.source_group_identity",
-          "source.source_group_membership_revision",
-          "gallery_asset.identity",
-          "gallery_asset.derivative_revision",
-          "gallery_asset.renderer_identity",
-          "gallery_asset.safety_disposition",
-          "source.content_selection_semantic_identity",
-          "source.content_selection_inventory_revision_context",
-          "source.gmail_metadata_owner_status",
-          "source.gmail_metadata_reconciliation_cursor",
-          "source.locator",
-          "source.content_fingerprint",
-          "source.metadata_fingerprint",
-          "source.storage_class",
-          "source.transient_cleanup_status",
-          "source.cache_retention_policy",
-          "source.cache_reference_status",
-          "source.unavailable_status",
-          "source.source_group_identity",
-          "source.source_group_membership_revision",
-          "gallery_asset.identity",
-          "gallery_asset.derivative_revision",
-          "gallery_asset.renderer_identity",
-          "gallery_asset.safety_disposition",
-          "source.content_selection_semantic_identity",
-          "source.content_selection_inventory_revision_context",
-          "source.gmail_metadata_owner_status",
-          "source.gmail_metadata_reconciliation_cursor",
-          "source.locator",
-          "source.content_fingerprint",
-          "source.metadata_fingerprint",
-          "source.storage_class",
-          "source.transient_cleanup_status",
-          "source.cache_retention_policy",
-          "source.cache_reference_status",
-          "source.unavailable_status",
-          "source.source_group_identity",
-          "source.source_group_membership_revision",
-          "gallery_asset.identity",
-          "gallery_asset.derivative_revision",
-          "gallery_asset.renderer_identity",
-          "gallery_asset.safety_disposition",
-          "source.content_selection_semantic_identity",
-          "source.content_selection_inventory_revision_context",
-          "source.gmail_metadata_owner_status",
-          "source.gmail_metadata_reconciliation_cursor",
-          "source.locator",
-          "source.content_fingerprint",
-          "source.metadata_fingerprint",
-          "source.storage_class",
-          "source.transient_cleanup_status",
-          "source.cache_retention_policy",
-          "source.cache_reference_status",
-          "source.unavailable_status",
-          "source.source_group_identity",
-          "source.source_group_membership_revision",
-          "gallery_asset.identity",
-          "gallery_asset.derivative_revision",
-          "gallery_asset.renderer_identity",
-          "gallery_asset.safety_disposition",
-          "source.content_selection_semantic_identity",
-          "source.content_selection_inventory_revision_context",
-          "source.gmail_metadata_owner_status",
-          "source.gmail_metadata_reconciliation_cursor",
-          "source.locator",
-          "source.content_fingerprint",
-          "source.metadata_fingerprint",
-          "source.storage_class",
-          "source.transient_cleanup_status",
-          "source.cache_retention_policy",
-          "source.cache_reference_status",
-          "source.unavailable_status",
-          "source.source_group_identity",
-          "source.source_group_membership_revision",
-          "gallery_asset.identity",
-          "gallery_asset.derivative_revision",
-          "gallery_asset.renderer_identity",
-          "gallery_asset.safety_disposition",
-          "source.content_selection_semantic_identity",
-          "source.content_selection_inventory_revision_context",
-          "source.gmail_metadata_owner_status",
-          "source.gmail_metadata_reconciliation_cursor",
-          "source.locator",
-          "source.content_fingerprint",
-          "source.metadata_fingerprint",
-          "source.storage_class",
-          "source.transient_cleanup_status",
-          "source.cache_retention_policy",
-          "source.cache_reference_status",
-          "source.unavailable_status",
-          "source.source_group_identity",
-          "source.source_group_membership_revision"
+          "source.unavailable_status"
         ],
         "supporting_model_ids": [],
         "surface_delegation_only": false,
@@ -1385,20 +1181,20 @@
             "TC-C3_evidence_qualification-superseded_anchor-retry"
           ],
           "coverage_receipt_ids": [
-            "run:TM03_evidence_qualification:ea3eca0e1bac101f"
+            "run:TM03_evidence_qualification:93e32bc8c37d7def"
           ],
           "coverage_shard_ids": [
             "TM03_evidence_qualification"
           ],
-          "current": true,
-          "evidence_state": "current_pass",
+          "current": false,
+          "evidence_state": "stale",
           "metadata": {
-            "alignment_evidence_id": "evidence:model-code-test-alignment:4305d1cafc5b07f3",
-            "g8_evidence_id": "evidence:G8-fully-synthetic:ffe0563f16dabefc",
+            "alignment_evidence_id": "evidence:model-code-test-alignment:8ff13b9ed936187b",
+            "g8_evidence_id": "evidence:G8-fully-synthetic:9545f7fd2b98e390",
             "live_provider_evidence": false,
-            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v8",
+            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v9",
             "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed",
-            "test_receipt_fingerprint": "sha256:aad80d12a68af8b7341b43b3e4d852d4854ff04c6a72b5eda160280aca8b4446",
+            "test_receipt_fingerprint": "sha256:8047a83912205528c7abdc3e79689d6b4276d3aa750980c34609f76ae77ab0c7",
             "test_receipt_path": ".flowguard/evidence/tests/TM03_evidence_qualification.json",
             "through_gate": "G8"
           },
@@ -1409,18 +1205,18 @@
           ],
           "proof_artifact_ids": [
             "evidence:C3_evidence_qualification:652d9df4c2157123",
-            "artifact:run:TM03_evidence_qualification:ea3eca0e1bac101f",
-            "evidence:model-code-test-alignment:4305d1cafc5b07f3",
-            "evidence:G8-fully-synthetic:ffe0563f16dabefc"
+            "artifact:run:TM03_evidence_qualification:93e32bc8c37d7def",
+            "evidence:model-code-test-alignment:8ff13b9ed936187b",
+            "evidence:G8-fully-synthetic:9545f7fd2b98e390"
           ],
           "risk_gate_ids": [
             "G2-C3",
             "G8-fully-synthetic"
           ],
           "test_evidence_ids": [
-            "run:TM03_evidence_qualification:ea3eca0e1bac101f"
+            "run:TM03_evidence_qualification:93e32bc8c37d7def"
           ],
-          "test_mesh_state": "shard_current"
+          "test_mesh_state": "stale"
         },
         "excluded_behavior_ids": [],
         "expected_result": "exact current textual or visual anchors with modality, display permission, gallery display eligibility, or an explicit evidence gap; downstream owners receive only a bounded SourceVersion/count/digest anchor-set pointer while C3 retains every exact anchor; accepted Gmail continuation bodies receive exact current-version line anchors without model use, while proof-bound no_text_body terminates as not_applicable with no invented anchor; no evidence anchor authorizes generated-hero selection",
@@ -1458,7 +1254,7 @@
           "behavior_commitment_id": "BC-PR-003",
           "business_intent": "",
           "business_intent_id": "BI-PR-003-use-anchored-evidence",
-          "evidence_current": true,
+          "evidence_current": false,
           "evidence_refs": [
             ".flowguard/evidence/tests/TM03_evidence_qualification.json",
             ".flowguard/evidence/alignment/model_code_test.json",
@@ -1467,15 +1263,15 @@
           "fallback_candidate_ids": [],
           "metadata": {},
           "path_sensitive": true,
-          "ppa_confidence": "full",
+          "ppa_confidence": "blocked",
           "ppa_coverage_receipt_ids": [
-            "run:TM03_evidence_qualification:ea3eca0e1bac101f"
+            "run:TM03_evidence_qualification:93e32bc8c37d7def"
           ],
           "ppa_coverage_shard_ids": [
             "TM03_evidence_qualification"
           ],
-          "ppa_decision": "primary_path_authority_green",
-          "ppa_ok": true,
+          "ppa_decision": "primary_path_authority_blocked",
+          "ppa_ok": false,
           "ppa_report_id": "PPA-BC-PR-003-G8",
           "ppa_risk_gate_ids": [
             "authority",
@@ -1485,9 +1281,9 @@
           "primary_path_id": "path:c3-qualify-evidence",
           "proof_artifact_ids": [
             "evidence:C3_evidence_qualification:652d9df4c2157123",
-            "artifact:run:TM03_evidence_qualification:ea3eca0e1bac101f",
-            "evidence:model-code-test-alignment:4305d1cafc5b07f3",
-            "evidence:G8-fully-synthetic:ffe0563f16dabefc"
+            "artifact:run:TM03_evidence_qualification:93e32bc8c37d7def",
+            "evidence:model-code-test-alignment:8ff13b9ed936187b",
+            "evidence:G8-fully-synthetic:9545f7fd2b98e390"
           ],
           "runtime_observation_ids": [
             "BO-TC-C3_evidence_qualification-complete_anchor_set_batched",
@@ -1582,20 +1378,20 @@
             "TC-C4_person_entity_resolution-researchguard_identity_proposal-retry"
           ],
           "coverage_receipt_ids": [
-            "run:TM04_identity_resolution:5eb2e4bec4f95e3b"
+            "run:TM04_identity_resolution:ac0ba090a7cdcdee"
           ],
           "coverage_shard_ids": [
             "TM04_identity_resolution"
           ],
-          "current": true,
-          "evidence_state": "current_pass",
+          "current": false,
+          "evidence_state": "stale",
           "metadata": {
-            "alignment_evidence_id": "evidence:model-code-test-alignment:4305d1cafc5b07f3",
-            "g8_evidence_id": "evidence:G8-fully-synthetic:ffe0563f16dabefc",
+            "alignment_evidence_id": "evidence:model-code-test-alignment:8ff13b9ed936187b",
+            "g8_evidence_id": "evidence:G8-fully-synthetic:9545f7fd2b98e390",
             "live_provider_evidence": false,
-            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v8",
+            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v9",
             "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed",
-            "test_receipt_fingerprint": "sha256:a593f82d0836b44962e82c5731981e24d528c4b378f316c9d0a62ebbb245e74a",
+            "test_receipt_fingerprint": "sha256:e495ba09c5c903d0b35a4bc1b0500c359bb68c215385660d35f3ae4667b9d195",
             "test_receipt_path": ".flowguard/evidence/tests/TM04_identity_resolution.json",
             "through_gate": "G8"
           },
@@ -1606,18 +1402,18 @@
           ],
           "proof_artifact_ids": [
             "evidence:C4_person_entity_resolution:603526a339d987e3",
-            "artifact:run:TM04_identity_resolution:5eb2e4bec4f95e3b",
-            "evidence:model-code-test-alignment:4305d1cafc5b07f3",
-            "evidence:G8-fully-synthetic:ffe0563f16dabefc"
+            "artifact:run:TM04_identity_resolution:ac0ba090a7cdcdee",
+            "evidence:model-code-test-alignment:8ff13b9ed936187b",
+            "evidence:G8-fully-synthetic:9545f7fd2b98e390"
           ],
           "risk_gate_ids": [
             "G2-C4",
             "G8-fully-synthetic"
           ],
           "test_evidence_ids": [
-            "run:TM04_identity_resolution:5eb2e4bec4f95e3b"
+            "run:TM04_identity_resolution:ac0ba090a7cdcdee"
           ],
-          "test_mesh_state": "shard_current"
+          "test_mesh_state": "stale"
         },
         "excluded_behavior_ids": [],
         "expected_result": "current identity assertions, separate uncertain identities, scoped roles, or explicit identity uncertainty with evidence",
@@ -1657,7 +1453,7 @@
           "behavior_commitment_id": "BC-PR-004",
           "business_intent": "",
           "business_intent_id": "BI-PR-004-resolve-identities-safely",
-          "evidence_current": true,
+          "evidence_current": false,
           "evidence_refs": [
             ".flowguard/evidence/tests/TM04_identity_resolution.json",
             ".flowguard/evidence/alignment/model_code_test.json",
@@ -1666,15 +1462,15 @@
           "fallback_candidate_ids": [],
           "metadata": {},
           "path_sensitive": true,
-          "ppa_confidence": "full",
+          "ppa_confidence": "blocked",
           "ppa_coverage_receipt_ids": [
-            "run:TM04_identity_resolution:5eb2e4bec4f95e3b"
+            "run:TM04_identity_resolution:ac0ba090a7cdcdee"
           ],
           "ppa_coverage_shard_ids": [
             "TM04_identity_resolution"
           ],
-          "ppa_decision": "primary_path_authority_green",
-          "ppa_ok": true,
+          "ppa_decision": "primary_path_authority_blocked",
+          "ppa_ok": false,
           "ppa_report_id": "PPA-BC-PR-004-G8",
           "ppa_risk_gate_ids": [
             "authority",
@@ -1684,9 +1480,9 @@
           "primary_path_id": "path:c4-resolve-identity",
           "proof_artifact_ids": [
             "evidence:C4_person_entity_resolution:603526a339d987e3",
-            "artifact:run:TM04_identity_resolution:5eb2e4bec4f95e3b",
-            "evidence:model-code-test-alignment:4305d1cafc5b07f3",
-            "evidence:G8-fully-synthetic:ffe0563f16dabefc"
+            "artifact:run:TM04_identity_resolution:ac0ba090a7cdcdee",
+            "evidence:model-code-test-alignment:8ff13b9ed936187b",
+            "evidence:G8-fully-synthetic:9545f7fd2b98e390"
           ],
           "runtime_observation_ids": [
             "BO-TC-C4_person_entity_resolution-same_name_no_link",
@@ -1769,6 +1565,8 @@
             "TC-C5_event_temporal_trace-future_meeting-retry",
             "TC-C5_event_temporal_trace-explicit_source_modality_preserved",
             "TC-C5_event_temporal_trace-explicit_source_modality_preserved-retry",
+            "TC-C5_event_temporal_trace-reported_event_declares_past_temporal_direction",
+            "TC-C5_event_temporal_trace-reported_event_declares_past_temporal_direction-retry",
             "TC-C5_event_temporal_trace-necessary_past_gap_supported",
             "TC-C5_event_temporal_trace-necessary_past_gap_supported-retry",
             "TC-C5_event_temporal_trace-future_candidate_marked_ai_inferred",
@@ -1788,23 +1586,25 @@
             "TC-C5_event_temporal_trace-material_child_clue_changes_parent_understanding",
             "TC-C5_event_temporal_trace-material_child_clue_changes_parent_understanding-retry",
             "TC-C5_event_temporal_trace-scan_retry_or_reword_without_semantic_change",
-            "TC-C5_event_temporal_trace-scan_retry_or_reword_without_semantic_change-retry"
+            "TC-C5_event_temporal_trace-scan_retry_or_reword_without_semantic_change-retry",
+            "TC-C5_event_temporal_trace-future_transport_action_already_recorded",
+            "TC-C5_event_temporal_trace-future_transport_action_already_recorded-retry"
           ],
           "coverage_receipt_ids": [
-            "run:TM05_event_trace:825add36374e3076"
+            "run:TM05_event_trace:faf9981e3b39f511"
           ],
           "coverage_shard_ids": [
             "TM05_event_trace"
           ],
-          "current": true,
-          "evidence_state": "current_pass",
+          "current": false,
+          "evidence_state": "stale",
           "metadata": {
-            "alignment_evidence_id": "evidence:model-code-test-alignment:4305d1cafc5b07f3",
-            "g8_evidence_id": "evidence:G8-fully-synthetic:ffe0563f16dabefc",
+            "alignment_evidence_id": "evidence:model-code-test-alignment:8ff13b9ed936187b",
+            "g8_evidence_id": "evidence:G8-fully-synthetic:9545f7fd2b98e390",
             "live_provider_evidence": false,
-            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v8",
+            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v9",
             "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed",
-            "test_receipt_fingerprint": "sha256:22e5da41459eed05f2871b737814d670fdf69f339c98d93800ef68cba96edeb8",
+            "test_receipt_fingerprint": "sha256:d4683c1f24e745d4f6ec2f69bc0493795d70ff01c0f82e1223382adf3d7b3f88",
             "test_receipt_path": ".flowguard/evidence/tests/TM05_event_trace.json",
             "through_gate": "G8"
           },
@@ -1814,22 +1614,22 @@
             "OB-C5-003"
           ],
           "proof_artifact_ids": [
-            "evidence:C5_event_temporal_trace:a9636cba74a284fc",
-            "artifact:run:TM05_event_trace:825add36374e3076",
-            "evidence:model-code-test-alignment:4305d1cafc5b07f3",
-            "evidence:G8-fully-synthetic:ffe0563f16dabefc"
+            "evidence:C5_event_temporal_trace:2d7eeeeddc5be7df",
+            "artifact:run:TM05_event_trace:faf9981e3b39f511",
+            "evidence:model-code-test-alignment:8ff13b9ed936187b",
+            "evidence:G8-fully-synthetic:9545f7fd2b98e390"
           ],
           "risk_gate_ids": [
             "G2-C5",
             "G8-fully-synthetic"
           ],
           "test_evidence_ids": [
-            "run:TM05_event_trace:825add36374e3076"
+            "run:TM05_event_trace:faf9981e3b39f511"
           ],
-          "test_mesh_state": "shard_current"
+          "test_mesh_state": "stale"
         },
         "excluded_behavior_ids": [],
-        "expected_result": "typed planned, reported, observed, or inferred events with record/occurred times separated, conflicts retained, plus materiality disposition, rationale, latest_meaningful_clue_at, logical_event_key, one current revision with supersession history, and bounded ancestor activity propagation; events enter one versioned internal SituationGraph projection without changing C5 ownership; scan/retry/localization/hero work never bubbles catalog order",
+        "expected_result": "typed planned, reported, observed, or AI-inferred events with object kind, temporal assertion, basis modality, workflow state, and terminality kept independent; record/occurred times stay separated, future ticket or boarding-pass issuance never completes its future activity, historical gap fills retain their full revisable inference contract and conflicts, plus materiality disposition, rationale, latest_meaningful_clue_at, logical_event_key, one current revision with supersession history, and bounded ancestor activity propagation; events enter one versioned internal SituationGraph projection without changing C5 ownership; scan/retry/localization/hero work never bubbles catalog order",
         "expected_terminal": "typed trace, temporal gap, or review_required conflict",
         "external_differences": [],
         "failure_boundary": "planned is never occurred, future is never past, the first nonempty or preferred field never hides an earlier traceable Start candidate, processing/due/deadline/Hero time never fills Start, latest fields never erase supersession or contrary evidence, and one Event never mechanically becomes a Matter",
@@ -1867,7 +1667,7 @@
           "behavior_commitment_id": "BC-PR-005",
           "business_intent": "",
           "business_intent_id": "BI-PR-005-reconstruct-temporal-trace",
-          "evidence_current": true,
+          "evidence_current": false,
           "evidence_refs": [
             ".flowguard/evidence/tests/TM05_event_trace.json",
             ".flowguard/evidence/alignment/model_code_test.json",
@@ -1876,15 +1676,15 @@
           "fallback_candidate_ids": [],
           "metadata": {},
           "path_sensitive": true,
-          "ppa_confidence": "full",
+          "ppa_confidence": "blocked",
           "ppa_coverage_receipt_ids": [
-            "run:TM05_event_trace:825add36374e3076"
+            "run:TM05_event_trace:faf9981e3b39f511"
           ],
           "ppa_coverage_shard_ids": [
             "TM05_event_trace"
           ],
-          "ppa_decision": "primary_path_authority_green",
-          "ppa_ok": true,
+          "ppa_decision": "primary_path_authority_blocked",
+          "ppa_ok": false,
           "ppa_report_id": "PPA-BC-PR-005-G8",
           "ppa_risk_gate_ids": [
             "authority",
@@ -1893,10 +1693,10 @@
           ],
           "primary_path_id": "path:c5-build-temporal-trace",
           "proof_artifact_ids": [
-            "evidence:C5_event_temporal_trace:a9636cba74a284fc",
-            "artifact:run:TM05_event_trace:825add36374e3076",
-            "evidence:model-code-test-alignment:4305d1cafc5b07f3",
-            "evidence:G8-fully-synthetic:ffe0563f16dabefc"
+            "evidence:C5_event_temporal_trace:2d7eeeeddc5be7df",
+            "artifact:run:TM05_event_trace:faf9981e3b39f511",
+            "evidence:model-code-test-alignment:8ff13b9ed936187b",
+            "evidence:G8-fully-synthetic:9545f7fd2b98e390"
           ],
           "runtime_observation_ids": [
             "BO-TC-C5_event_temporal_trace-same_logical_event_multiple_source_revisions",
@@ -1927,6 +1727,8 @@
             "BO-TC-C5_event_temporal_trace-future_meeting-retry",
             "BO-TC-C5_event_temporal_trace-explicit_source_modality_preserved",
             "BO-TC-C5_event_temporal_trace-explicit_source_modality_preserved-retry",
+            "BO-TC-C5_event_temporal_trace-reported_event_declares_past_temporal_direction",
+            "BO-TC-C5_event_temporal_trace-reported_event_declares_past_temporal_direction-retry",
             "BO-TC-C5_event_temporal_trace-necessary_past_gap_supported",
             "BO-TC-C5_event_temporal_trace-necessary_past_gap_supported-retry",
             "BO-TC-C5_event_temporal_trace-future_candidate_marked_ai_inferred",
@@ -1947,6 +1749,8 @@
             "BO-TC-C5_event_temporal_trace-material_child_clue_changes_parent_understanding-retry",
             "BO-TC-C5_event_temporal_trace-scan_retry_or_reword_without_semantic_change",
             "BO-TC-C5_event_temporal_trace-scan_retry_or_reword_without_semantic_change-retry",
+            "BO-TC-C5_event_temporal_trace-future_transport_action_already_recorded",
+            "BO-TC-C5_event_temporal_trace-future_transport_action_already_recorded-retry",
             "BO-C5_event_temporal_trace-foreign_owner_write",
             "BO-C5_event_temporal_trace-undeclared_provider_field"
           ],
@@ -1991,6 +1795,7 @@
           "trace.parent_narrative_refresh_trigger_revision",
           "trace.situation_graph_event_revision",
           "event.certainty_class",
+          "event.temporal_assertion",
           "event.inference_confidence",
           "event.alternative_interpretations"
         ],
@@ -2015,6 +1820,8 @@
           "coverage_case_ids": [
             "TC-C6_matter_formation_admission-root_matter_situation_graph_requested",
             "TC-C6_matter_formation_admission-root_matter_situation_graph_requested-retry",
+            "TC-C6_matter_formation_admission-same_graph_identity_has_current_conflicting_records",
+            "TC-C6_matter_formation_admission-same_graph_identity_has_current_conflicting_records-retry",
             "TC-C6_matter_formation_admission-ordinary_submatters_projection_requested",
             "TC-C6_matter_formation_admission-ordinary_submatters_projection_requested-retry",
             "TC-C6_matter_formation_admission-travel_and_software_fragments_reconciled",
@@ -2023,8 +1830,14 @@
             "TC-C6_matter_formation_admission-same_matter_already_admits_current_source_revision-retry",
             "TC-C6_matter_formation_admission-exact_existing_matter_current_revision_processed",
             "TC-C6_matter_formation_admission-exact_existing_matter_current_revision_processed-retry",
+            "TC-C6_matter_formation_admission-exact_existing_matter_cross_source_semantic_refresh",
+            "TC-C6_matter_formation_admission-exact_existing_matter_cross_source_semantic_refresh-retry",
+            "TC-C6_matter_formation_admission-same_semantic_work_item_role_reanalyzed",
+            "TC-C6_matter_formation_admission-same_semantic_work_item_role_reanalyzed-retry",
             "TC-C6_matter_formation_admission-admitted_source_revision_is_behind_registry_current",
             "TC-C6_matter_formation_admission-admitted_source_revision_is_behind_registry_current-retry",
+            "TC-C6_matter_formation_admission-source_revision_result_contains_secondary_c6_finding",
+            "TC-C6_matter_formation_admission-source_revision_result_contains_secondary_c6_finding-retry",
             "TC-C6_matter_formation_admission-same_matter_sibling_refresh_stales_after_prior_admission",
             "TC-C6_matter_formation_admission-same_matter_sibling_refresh_stales_after_prior_admission-retry",
             "TC-C6_matter_formation_admission-matter_participates_in_multiple_domains",
@@ -2088,23 +1901,33 @@
             "TC-C6_matter_formation_admission-bounded_containment_batch_valid",
             "TC-C6_matter_formation_admission-bounded_containment_batch_valid-retry",
             "TC-C6_matter_formation_admission-batch_publication_interrupted",
-            "TC-C6_matter_formation_admission-batch_publication_interrupted-retry"
+            "TC-C6_matter_formation_admission-batch_publication_interrupted-retry",
+            "TC-C6_matter_formation_admission-single_bounded_next_step_without_independent_outcome",
+            "TC-C6_matter_formation_admission-single_bounded_next_step_without_independent_outcome-retry",
+            "TC-C6_matter_formation_admission-contradictory_granularity_flags",
+            "TC-C6_matter_formation_admission-contradictory_granularity_flags-retry",
+            "TC-C6_matter_formation_admission-required_stage_with_distinct_state_time_and_result",
+            "TC-C6_matter_formation_admission-required_stage_with_distinct_state_time_and_result-retry",
+            "TC-C6_matter_formation_admission-qualified_candidate_enters_production_c6",
+            "TC-C6_matter_formation_admission-qualified_candidate_enters_production_c6-retry",
+            "TC-C6_matter_formation_admission-registered_source_has_no_qualified_evidence",
+            "TC-C6_matter_formation_admission-registered_source_has_no_qualified_evidence-retry"
           ],
           "coverage_receipt_ids": [
-            "run:TM06_matter_admission:9df730ccb15fef05"
+            "run:TM06_matter_admission:fa2e9e000c63fb15"
           ],
           "coverage_shard_ids": [
             "TM06_matter_admission"
           ],
-          "current": true,
-          "evidence_state": "current_pass",
+          "current": false,
+          "evidence_state": "stale",
           "metadata": {
-            "alignment_evidence_id": "evidence:model-code-test-alignment:4305d1cafc5b07f3",
-            "g8_evidence_id": "evidence:G8-fully-synthetic:ffe0563f16dabefc",
+            "alignment_evidence_id": "evidence:model-code-test-alignment:8ff13b9ed936187b",
+            "g8_evidence_id": "evidence:G8-fully-synthetic:9545f7fd2b98e390",
             "live_provider_evidence": false,
-            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v8",
+            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v9",
             "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed",
-            "test_receipt_fingerprint": "sha256:d03e78fe380e90e4fd38103c1b19c03af812fae77862bdcf05940ced95dfa6a3",
+            "test_receipt_fingerprint": "sha256:29cb4066766cc71974c0084b6e59173469a13b758e27e4845f73cda2229718cb",
             "test_receipt_path": ".flowguard/evidence/tests/TM06_matter_admission.json",
             "through_gate": "G8"
           },
@@ -2114,10 +1937,10 @@
             "OB-C6-003"
           ],
           "proof_artifact_ids": [
-            "evidence:C6_matter_formation_admission:cbb76081a7a7054e",
-            "artifact:run:TM06_matter_admission:9df730ccb15fef05",
-            "evidence:model-code-test-alignment:4305d1cafc5b07f3",
-            "evidence:G8-fully-synthetic:ffe0563f16dabefc"
+            "evidence:C6_matter_formation_admission:e67d30bee9284522",
+            "artifact:run:TM06_matter_admission:fa2e9e000c63fb15",
+            "evidence:model-code-test-alignment:8ff13b9ed936187b",
+            "evidence:G8-fully-synthetic:9545f7fd2b98e390"
           ],
           "risk_gate_ids": [
             "G2-C6",
@@ -2125,12 +1948,12 @@
             "G8-fully-synthetic"
           ],
           "test_evidence_ids": [
-            "run:TM06_matter_admission:9df730ccb15fef05"
+            "run:TM06_matter_admission:fa2e9e000c63fb15"
           ],
-          "test_mesh_state": "shard_current"
+          "test_mesh_state": "stale"
         },
         "excluded_behavior_ids": [],
-        "expected_result": "admitted, source_only, not_applicable, uncertain, or blocked Matter disposition plus current Matter-source relations; hierarchy, coverage, lifecycle, activity, and projection use only the exact current C6-admitted matter_id; one bounded internal SituationGraphSnapshot may include WorkItems, Events, and inference, while the ordinary UI MatterHierarchyProjection contains Matter nodes only with primary containment and typed Matter-to-Matter secondary relations; travel/software portfolio roots and cross-domain relations are reconciled; when one same-Matter source refresh makes a sibling package stale, that package is append-only superseded and exactly one exact-current successor is required",
+        "expected_result": "admitted, source_only, not_applicable, uncertain, or blocked Matter disposition under a strict scale contract requiring stable identity, an independent goal or obligation, and at least one independent lifecycle, outcome, or next-step dimension; single messages, payments, uploads, reminders, check-ins, and one-time occurrences remain WorkItems or Events; plus current Matter-source relations; hierarchy, coverage, lifecycle, activity, and projection use only the exact current C6-admitted matter_id; one bounded internal SituationGraphSnapshot may include WorkItems, Events, and inference, while the ordinary UI MatterHierarchyProjection contains all Matter nodes plus only bounded required material WorkItem stage nodes, with primary Matter containment and typed secondary relations; travel/software portfolio roots and cross-domain relations are reconciled; when one same-Matter source refresh makes a sibling package stale, that package is append-only superseded and exactly one exact-current successor is required",
         "expected_terminal": "source_only, event_only, work_item, related_only, root_matter, child_matter, hierarchy_depth_pending, hierarchy_conflict, candidate, admitted, review_required, or blocked",
         "external_differences": [],
         "failure_boundary": "projection, source, candidate, package, title, or source-overlap identity cannot become canonical Matter authority; zero or multiple admitted owners block; a stale refresh cannot be retried or loosen its fingerprint, and a missing or duplicate current successor blocks",
@@ -2166,7 +1989,7 @@
           "behavior_commitment_id": "BC-PR-006",
           "business_intent": "",
           "business_intent_id": "BI-PR-006-admit-matter-conservatively",
-          "evidence_current": true,
+          "evidence_current": false,
           "evidence_refs": [
             ".flowguard/evidence/tests/TM06_matter_admission.json",
             ".flowguard/evidence/alignment/model_code_test.json",
@@ -2175,15 +1998,15 @@
           "fallback_candidate_ids": [],
           "metadata": {},
           "path_sensitive": true,
-          "ppa_confidence": "full",
+          "ppa_confidence": "blocked",
           "ppa_coverage_receipt_ids": [
-            "run:TM06_matter_admission:9df730ccb15fef05"
+            "run:TM06_matter_admission:fa2e9e000c63fb15"
           ],
           "ppa_coverage_shard_ids": [
             "TM06_matter_admission"
           ],
-          "ppa_decision": "primary_path_authority_green",
-          "ppa_ok": true,
+          "ppa_decision": "primary_path_authority_blocked",
+          "ppa_ok": false,
           "ppa_report_id": "PPA-BC-PR-006-G8",
           "ppa_risk_gate_ids": [
             "authority",
@@ -2192,14 +2015,16 @@
           ],
           "primary_path_id": "path:c6-admit-matter",
           "proof_artifact_ids": [
-            "evidence:C6_matter_formation_admission:cbb76081a7a7054e",
-            "artifact:run:TM06_matter_admission:9df730ccb15fef05",
-            "evidence:model-code-test-alignment:4305d1cafc5b07f3",
-            "evidence:G8-fully-synthetic:ffe0563f16dabefc"
+            "evidence:C6_matter_formation_admission:e67d30bee9284522",
+            "artifact:run:TM06_matter_admission:fa2e9e000c63fb15",
+            "evidence:model-code-test-alignment:8ff13b9ed936187b",
+            "evidence:G8-fully-synthetic:9545f7fd2b98e390"
           ],
           "runtime_observation_ids": [
             "BO-TC-C6_matter_formation_admission-root_matter_situation_graph_requested",
             "BO-TC-C6_matter_formation_admission-root_matter_situation_graph_requested-retry",
+            "BO-TC-C6_matter_formation_admission-same_graph_identity_has_current_conflicting_records",
+            "BO-TC-C6_matter_formation_admission-same_graph_identity_has_current_conflicting_records-retry",
             "BO-TC-C6_matter_formation_admission-ordinary_submatters_projection_requested",
             "BO-TC-C6_matter_formation_admission-ordinary_submatters_projection_requested-retry",
             "BO-TC-C6_matter_formation_admission-travel_and_software_fragments_reconciled",
@@ -2208,8 +2033,14 @@
             "BO-TC-C6_matter_formation_admission-same_matter_already_admits_current_source_revision-retry",
             "BO-TC-C6_matter_formation_admission-exact_existing_matter_current_revision_processed",
             "BO-TC-C6_matter_formation_admission-exact_existing_matter_current_revision_processed-retry",
+            "BO-TC-C6_matter_formation_admission-exact_existing_matter_cross_source_semantic_refresh",
+            "BO-TC-C6_matter_formation_admission-exact_existing_matter_cross_source_semantic_refresh-retry",
+            "BO-TC-C6_matter_formation_admission-same_semantic_work_item_role_reanalyzed",
+            "BO-TC-C6_matter_formation_admission-same_semantic_work_item_role_reanalyzed-retry",
             "BO-TC-C6_matter_formation_admission-admitted_source_revision_is_behind_registry_current",
             "BO-TC-C6_matter_formation_admission-admitted_source_revision_is_behind_registry_current-retry",
+            "BO-TC-C6_matter_formation_admission-source_revision_result_contains_secondary_c6_finding",
+            "BO-TC-C6_matter_formation_admission-source_revision_result_contains_secondary_c6_finding-retry",
             "BO-TC-C6_matter_formation_admission-same_matter_sibling_refresh_stales_after_prior_admission",
             "BO-TC-C6_matter_formation_admission-same_matter_sibling_refresh_stales_after_prior_admission-retry",
             "BO-TC-C6_matter_formation_admission-matter_participates_in_multiple_domains",
@@ -2274,6 +2105,16 @@
             "BO-TC-C6_matter_formation_admission-bounded_containment_batch_valid-retry",
             "BO-TC-C6_matter_formation_admission-batch_publication_interrupted",
             "BO-TC-C6_matter_formation_admission-batch_publication_interrupted-retry",
+            "BO-TC-C6_matter_formation_admission-single_bounded_next_step_without_independent_outcome",
+            "BO-TC-C6_matter_formation_admission-single_bounded_next_step_without_independent_outcome-retry",
+            "BO-TC-C6_matter_formation_admission-contradictory_granularity_flags",
+            "BO-TC-C6_matter_formation_admission-contradictory_granularity_flags-retry",
+            "BO-TC-C6_matter_formation_admission-required_stage_with_distinct_state_time_and_result",
+            "BO-TC-C6_matter_formation_admission-required_stage_with_distinct_state_time_and_result-retry",
+            "BO-TC-C6_matter_formation_admission-qualified_candidate_enters_production_c6",
+            "BO-TC-C6_matter_formation_admission-qualified_candidate_enters_production_c6-retry",
+            "BO-TC-C6_matter_formation_admission-registered_source_has_no_qualified_evidence",
+            "BO-TC-C6_matter_formation_admission-registered_source_has_no_qualified_evidence-retry",
             "BO-C6_matter_formation_admission-foreign_owner_write",
             "BO-C6_matter_formation_admission-undeclared_provider_field"
           ],
@@ -2320,7 +2161,11 @@
           "matter.parent_narrative_child_projection_revisions",
           "matter.parent_narrative_evidence_revisions",
           "matter.root_granularity",
+          "matter.reconciliation_owner_path",
           "work_item.membership",
+          "work_item.material_stage_eligibility",
+          "work_item.semantic_role_identity",
+          "work_item.supersession",
           "matter.situation_graph_revision",
           "matter.situation_graph_primary_edges",
           "matter.situation_graph_secondary_edges",
@@ -2369,23 +2214,27 @@
             "TC-C7_lifecycle_board_state-related_matter_state_changed",
             "TC-C7_lifecycle_board_state-related_matter_state_changed-retry",
             "TC-C7_lifecycle_board_state-known_children_with_depth_pending",
-            "TC-C7_lifecycle_board_state-known_children_with_depth_pending-retry"
+            "TC-C7_lifecycle_board_state-known_children_with_depth_pending-retry",
+            "TC-C7_lifecycle_board_state-completed_prerequisite_required_next_step_active_window",
+            "TC-C7_lifecycle_board_state-completed_prerequisite_required_next_step_active_window-retry",
+            "TC-C7_lifecycle_board_state-current_phase_has_cancellation_or_postponement_evidence",
+            "TC-C7_lifecycle_board_state-current_phase_has_cancellation_or_postponement_evidence-retry"
           ],
           "coverage_receipt_ids": [
-            "run:TM07_lifecycle_board_state:4dc4962be8c7bbaa"
+            "run:TM07_lifecycle_board_state:183e2df6d3808a43"
           ],
           "coverage_shard_ids": [
             "TM07_lifecycle_board_state"
           ],
-          "current": true,
-          "evidence_state": "current_pass",
+          "current": false,
+          "evidence_state": "stale",
           "metadata": {
-            "alignment_evidence_id": "evidence:model-code-test-alignment:4305d1cafc5b07f3",
-            "g8_evidence_id": "evidence:G8-fully-synthetic:ffe0563f16dabefc",
+            "alignment_evidence_id": "evidence:model-code-test-alignment:8ff13b9ed936187b",
+            "g8_evidence_id": "evidence:G8-fully-synthetic:9545f7fd2b98e390",
             "live_provider_evidence": false,
-            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v8",
+            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v9",
             "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed",
-            "test_receipt_fingerprint": "sha256:f526877ae64615468de3c832c029facc701dfdd6b4a677e892c8eabd20daac25",
+            "test_receipt_fingerprint": "sha256:c13b3b9938d4b8cd65dbf2a8cb37a9f7c10139213fd98927172c13d7cc8ab4eb",
             "test_receipt_path": ".flowguard/evidence/tests/TM07_lifecycle_board_state.json",
             "through_gate": "G8"
           },
@@ -2395,10 +2244,10 @@
             "OB-C7-003"
           ],
           "proof_artifact_ids": [
-            "evidence:C7_lifecycle_board_state:48dbb364b6c25605",
-            "artifact:run:TM07_lifecycle_board_state:4dc4962be8c7bbaa",
-            "evidence:model-code-test-alignment:4305d1cafc5b07f3",
-            "evidence:G8-fully-synthetic:ffe0563f16dabefc"
+            "evidence:C7_lifecycle_board_state:21186cb360aefdee",
+            "artifact:run:TM07_lifecycle_board_state:183e2df6d3808a43",
+            "evidence:model-code-test-alignment:8ff13b9ed936187b",
+            "evidence:G8-fully-synthetic:9545f7fd2b98e390"
           ],
           "risk_gate_ids": [
             "G2-C7",
@@ -2406,12 +2255,12 @@
             "G8-fully-synthetic"
           ],
           "test_evidence_ids": [
-            "run:TM07_lifecycle_board_state:4dc4962be8c7bbaa"
+            "run:TM07_lifecycle_board_state:183e2df6d3808a43"
           ],
-          "test_mesh_state": "shard_current"
+          "test_mesh_state": "stale"
         },
         "excluded_behavior_ids": [],
-        "expected_result": "planned, in_progress, completed, provisional/ai_inferred, uncertain, or blocked lifecycle axes with rationale, coverage-bounded gaps, a stable lifecycle display key separate from reported/observed/inferred modality, and no UI-owned write path",
+        "expected_result": "planned, in_progress, completed, cancelled, uncertain, or blocked workflow state with independent basis modality, temporal assertion, and confirmed or provisional terminality; a current-phase inference is licensed only by an evidenced completed prerequisite, remaining obligation, active window, contradiction review, and complete expiring inference contract; rationale, coverage-bounded gaps, a stable lifecycle display key, and no UI-owned write path",
         "expected_terminal": "lifecycle_state, review_required, or blocked",
         "external_differences": [],
         "failure_boundary": "assignment, due date, sprint, provider status, missing evidence, one active/completed child, or any non-hierarchical related Matter cannot independently determine parent lifecycle state; unknown depth cannot produce an authoritative percentage",
@@ -2446,7 +2295,7 @@
           "behavior_commitment_id": "BC-PR-007",
           "business_intent": "",
           "business_intent_id": "BI-PR-007-decide-lifecycle-and-board",
-          "evidence_current": true,
+          "evidence_current": false,
           "evidence_refs": [
             ".flowguard/evidence/tests/TM07_lifecycle_board_state.json",
             ".flowguard/evidence/alignment/model_code_test.json",
@@ -2455,15 +2304,15 @@
           "fallback_candidate_ids": [],
           "metadata": {},
           "path_sensitive": true,
-          "ppa_confidence": "full",
+          "ppa_confidence": "blocked",
           "ppa_coverage_receipt_ids": [
-            "run:TM07_lifecycle_board_state:4dc4962be8c7bbaa"
+            "run:TM07_lifecycle_board_state:183e2df6d3808a43"
           ],
           "ppa_coverage_shard_ids": [
             "TM07_lifecycle_board_state"
           ],
-          "ppa_decision": "primary_path_authority_green",
-          "ppa_ok": true,
+          "ppa_decision": "primary_path_authority_blocked",
+          "ppa_ok": false,
           "ppa_report_id": "PPA-BC-PR-007-G8",
           "ppa_risk_gate_ids": [
             "authority",
@@ -2472,10 +2321,10 @@
           ],
           "primary_path_id": "path:c7-decide-lifecycle",
           "proof_artifact_ids": [
-            "evidence:C7_lifecycle_board_state:48dbb364b6c25605",
-            "artifact:run:TM07_lifecycle_board_state:4dc4962be8c7bbaa",
-            "evidence:model-code-test-alignment:4305d1cafc5b07f3",
-            "evidence:G8-fully-synthetic:ffe0563f16dabefc"
+            "evidence:C7_lifecycle_board_state:21186cb360aefdee",
+            "artifact:run:TM07_lifecycle_board_state:183e2df6d3808a43",
+            "evidence:model-code-test-alignment:8ff13b9ed936187b",
+            "evidence:G8-fully-synthetic:9545f7fd2b98e390"
           ],
           "runtime_observation_ids": [
             "BO-TC-C7_lifecycle_board_state-elapsed_planned_activity_with_supporting_trace_but_no_confirmation",
@@ -2500,6 +2349,10 @@
             "BO-TC-C7_lifecycle_board_state-related_matter_state_changed-retry",
             "BO-TC-C7_lifecycle_board_state-known_children_with_depth_pending",
             "BO-TC-C7_lifecycle_board_state-known_children_with_depth_pending-retry",
+            "BO-TC-C7_lifecycle_board_state-completed_prerequisite_required_next_step_active_window",
+            "BO-TC-C7_lifecycle_board_state-completed_prerequisite_required_next_step_active_window-retry",
+            "BO-TC-C7_lifecycle_board_state-current_phase_has_cancellation_or_postponement_evidence",
+            "BO-TC-C7_lifecycle_board_state-current_phase_has_cancellation_or_postponement_evidence-retry",
             "BO-C7_lifecycle_board_state-foreign_owner_write",
             "BO-C7_lifecycle_board_state-undeclared_provider_field"
           ],
@@ -2529,7 +2382,14 @@
           "matter.lifecycle_inference_alternatives",
           "matter.lifecycle_inference_expiry",
           "matter.lifecycle_display_key",
-          "matter.lifecycle_basis_modality"
+          "matter.lifecycle_basis_modality",
+          "matter.lifecycle_basis_scope",
+          "matter.lifecycle_temporal_assertion",
+          "matter.lifecycle_terminality",
+          "matter.lifecycle_confidence",
+          "matter.lifecycle_coverage_boundary",
+          "matter.lifecycle_contradiction_triggers",
+          "matter.lifecycle_counter_signals"
         ],
         "supporting_model_ids": [],
         "surface_delegation_only": false,
@@ -2552,6 +2412,8 @@
           "coverage_case_ids": [
             "TC-C8_open_loop_waiting_blocking-request_with_target_and_condition",
             "TC-C8_open_loop_waiting_blocking-request_with_target_and_condition-retry",
+            "TC-C8_open_loop_waiting_blocking-same_semantic_open_loop_role_reanalyzed",
+            "TC-C8_open_loop_waiting_blocking-same_semantic_open_loop_role_reanalyzed-retry",
             "TC-C8_open_loop_waiting_blocking-vague_waiting_text",
             "TC-C8_open_loop_waiting_blocking-vague_waiting_text-retry",
             "TC-C8_open_loop_waiting_blocking-researchguard_blocker_without_closure",
@@ -2568,20 +2430,20 @@
             "TC-C8_open_loop_waiting_blocking-declared_closure_evidence-retry"
           ],
           "coverage_receipt_ids": [
-            "run:TM08_open_loop_blocking:ce36bee186547183"
+            "run:TM08_open_loop_blocking:a1576d9056868307"
           ],
           "coverage_shard_ids": [
             "TM08_open_loop_blocking"
           ],
-          "current": true,
-          "evidence_state": "current_pass",
+          "current": false,
+          "evidence_state": "stale",
           "metadata": {
-            "alignment_evidence_id": "evidence:model-code-test-alignment:4305d1cafc5b07f3",
-            "g8_evidence_id": "evidence:G8-fully-synthetic:ffe0563f16dabefc",
+            "alignment_evidence_id": "evidence:model-code-test-alignment:8ff13b9ed936187b",
+            "g8_evidence_id": "evidence:G8-fully-synthetic:9545f7fd2b98e390",
             "live_provider_evidence": false,
-            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v8",
+            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v9",
             "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed",
-            "test_receipt_fingerprint": "sha256:655906aa2b40c94c115340e6e21ba4fb3b45a7f5182db61ec301f49bd1bc6227",
+            "test_receipt_fingerprint": "sha256:840b49ed746b9e9a0d860cc8077b1b325c883a3c37d64009253d3f62937913ed",
             "test_receipt_path": ".flowguard/evidence/tests/TM08_open_loop_blocking.json",
             "through_gate": "G8"
           },
@@ -2591,19 +2453,19 @@
             "OB-C8-003"
           ],
           "proof_artifact_ids": [
-            "evidence:C8_open_loop_waiting_blocking:87ab92d77bb88b87",
-            "artifact:run:TM08_open_loop_blocking:ce36bee186547183",
-            "evidence:model-code-test-alignment:4305d1cafc5b07f3",
-            "evidence:G8-fully-synthetic:ffe0563f16dabefc"
+            "evidence:C8_open_loop_waiting_blocking:35fb1bc35def79c1",
+            "artifact:run:TM08_open_loop_blocking:a1576d9056868307",
+            "evidence:model-code-test-alignment:8ff13b9ed936187b",
+            "evidence:G8-fully-synthetic:9545f7fd2b98e390"
           ],
           "risk_gate_ids": [
             "G2-C8",
             "G8-fully-synthetic"
           ],
           "test_evidence_ids": [
-            "run:TM08_open_loop_blocking:ce36bee186547183"
+            "run:TM08_open_loop_blocking:a1576d9056868307"
           ],
-          "test_mesh_state": "shard_current"
+          "test_mesh_state": "stale"
         },
         "excluded_behavior_ids": [],
         "expected_result": "open loop, closed loop, open_loop_gap, partial block, full block, or not-applicable terminal disposition",
@@ -2641,7 +2503,7 @@
           "behavior_commitment_id": "BC-PR-008",
           "business_intent": "",
           "business_intent_id": "BI-PR-008-track-open-loops-and-blocking",
-          "evidence_current": true,
+          "evidence_current": false,
           "evidence_refs": [
             ".flowguard/evidence/tests/TM08_open_loop_blocking.json",
             ".flowguard/evidence/alignment/model_code_test.json",
@@ -2650,15 +2512,15 @@
           "fallback_candidate_ids": [],
           "metadata": {},
           "path_sensitive": true,
-          "ppa_confidence": "full",
+          "ppa_confidence": "blocked",
           "ppa_coverage_receipt_ids": [
-            "run:TM08_open_loop_blocking:ce36bee186547183"
+            "run:TM08_open_loop_blocking:a1576d9056868307"
           ],
           "ppa_coverage_shard_ids": [
             "TM08_open_loop_blocking"
           ],
-          "ppa_decision": "primary_path_authority_green",
-          "ppa_ok": true,
+          "ppa_decision": "primary_path_authority_blocked",
+          "ppa_ok": false,
           "ppa_report_id": "PPA-BC-PR-008-G8",
           "ppa_risk_gate_ids": [
             "authority",
@@ -2667,14 +2529,16 @@
           ],
           "primary_path_id": "path:c8-evaluate-open-loop",
           "proof_artifact_ids": [
-            "evidence:C8_open_loop_waiting_blocking:87ab92d77bb88b87",
-            "artifact:run:TM08_open_loop_blocking:ce36bee186547183",
-            "evidence:model-code-test-alignment:4305d1cafc5b07f3",
-            "evidence:G8-fully-synthetic:ffe0563f16dabefc"
+            "evidence:C8_open_loop_waiting_blocking:35fb1bc35def79c1",
+            "artifact:run:TM08_open_loop_blocking:a1576d9056868307",
+            "evidence:model-code-test-alignment:8ff13b9ed936187b",
+            "evidence:G8-fully-synthetic:9545f7fd2b98e390"
           ],
           "runtime_observation_ids": [
             "BO-TC-C8_open_loop_waiting_blocking-request_with_target_and_condition",
             "BO-TC-C8_open_loop_waiting_blocking-request_with_target_and_condition-retry",
+            "BO-TC-C8_open_loop_waiting_blocking-same_semantic_open_loop_role_reanalyzed",
+            "BO-TC-C8_open_loop_waiting_blocking-same_semantic_open_loop_role_reanalyzed-retry",
             "BO-TC-C8_open_loop_waiting_blocking-vague_waiting_text",
             "BO-TC-C8_open_loop_waiting_blocking-vague_waiting_text-retry",
             "BO-TC-C8_open_loop_waiting_blocking-researchguard_blocker_without_closure",
@@ -2738,8 +2602,12 @@
             "TC-C9_completion_cancellation_reopen-all_completion_criteria_evidenced-retry",
             "TC-C9_completion_cancellation_reopen-terminal_label_or_final_file_only",
             "TC-C9_completion_cancellation_reopen-terminal_label_or_final_file_only-retry",
+            "TC-C9_completion_cancellation_reopen-ai_self_declares_completion_evidence_licensed",
+            "TC-C9_completion_cancellation_reopen-ai_self_declares_completion_evidence_licensed-retry",
             "TC-C9_completion_cancellation_reopen-user_cancels_with_open_loop",
             "TC-C9_completion_cancellation_reopen-user_cancels_with_open_loop-retry",
+            "TC-C9_completion_cancellation_reopen-reported_cancellation_event_with_loop_dispositions",
+            "TC-C9_completion_cancellation_reopen-reported_cancellation_event_with_loop_dispositions-retry",
             "TC-C9_completion_cancellation_reopen-new_obligation_after_completion",
             "TC-C9_completion_cancellation_reopen-new_obligation_after_completion-retry",
             "TC-C9_completion_cancellation_reopen-source_revision_or_ai_reopen_proposal",
@@ -2747,23 +2615,25 @@
             "TC-C9_completion_cancellation_reopen-conflicting_termination_evidence",
             "TC-C9_completion_cancellation_reopen-conflicting_termination_evidence-retry",
             "TC-C9_completion_cancellation_reopen-all_known_children_completed_parent_criteria_unmet",
-            "TC-C9_completion_cancellation_reopen-all_known_children_completed_parent_criteria_unmet-retry"
+            "TC-C9_completion_cancellation_reopen-all_known_children_completed_parent_criteria_unmet-retry",
+            "TC-C9_completion_cancellation_reopen-elapsed_bounded_phase_historical_completion_inferred",
+            "TC-C9_completion_cancellation_reopen-elapsed_bounded_phase_historical_completion_inferred-retry"
           ],
           "coverage_receipt_ids": [
-            "run:TM09_completion_reopen:79e0a77a36a83024"
+            "run:TM09_completion_reopen:befad976d71dffe4"
           ],
           "coverage_shard_ids": [
             "TM09_completion_reopen"
           ],
-          "current": true,
-          "evidence_state": "current_pass",
+          "current": false,
+          "evidence_state": "stale",
           "metadata": {
-            "alignment_evidence_id": "evidence:model-code-test-alignment:4305d1cafc5b07f3",
-            "g8_evidence_id": "evidence:G8-fully-synthetic:ffe0563f16dabefc",
+            "alignment_evidence_id": "evidence:model-code-test-alignment:8ff13b9ed936187b",
+            "g8_evidence_id": "evidence:G8-fully-synthetic:9545f7fd2b98e390",
             "live_provider_evidence": false,
-            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v8",
+            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v9",
             "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed",
-            "test_receipt_fingerprint": "sha256:c431e64c0647faf9362d613bad65e84e4c7fce5ea20155bff3aaf456b2e8bbd0",
+            "test_receipt_fingerprint": "sha256:e39e84eb9fe1b71813730de13abf01777d91bf2e94fc7e7f7764d984e509195e",
             "test_receipt_path": ".flowguard/evidence/tests/TM09_completion_reopen.json",
             "through_gate": "G8"
           },
@@ -2773,22 +2643,22 @@
             "OB-C9-003"
           ],
           "proof_artifact_ids": [
-            "evidence:C9_completion_cancellation_reopen:7e567c24f8a5704a",
-            "artifact:run:TM09_completion_reopen:79e0a77a36a83024",
-            "evidence:model-code-test-alignment:4305d1cafc5b07f3",
-            "evidence:G8-fully-synthetic:ffe0563f16dabefc"
+            "evidence:C9_completion_cancellation_reopen:eb4b5dced0a9acf3",
+            "artifact:run:TM09_completion_reopen:befad976d71dffe4",
+            "evidence:model-code-test-alignment:8ff13b9ed936187b",
+            "evidence:G8-fully-synthetic:9545f7fd2b98e390"
           ],
           "risk_gate_ids": [
             "G2-C9",
             "G8-fully-synthetic"
           ],
           "test_evidence_ids": [
-            "run:TM09_completion_reopen:79e0a77a36a83024"
+            "run:TM09_completion_reopen:befad976d71dffe4"
           ],
-          "test_mesh_state": "shard_current"
+          "test_mesh_state": "stale"
         },
         "excluded_behavior_ids": [],
-        "expected_result": "completed, cancelled, abandoned, reopened, completion_unproven, or outcome_conflict terminal disposition",
+        "expected_result": "completed, cancelled, abandoned, reopened, completion_unproven, or outcome_conflict disposition; confirmed completion requires current licensed observed/reported criteria, while a fully licensed past gap fill may display completed only as provisional AI historical inference and can never close a parent or authorize irreversible effects",
         "expected_terminal": "an explicit outcome with criterion evidence and independent loop dispositions",
         "external_differences": [],
         "failure_boundary": "filename, meeting end, provider Done, user Matter closure, or completion of every currently known child cannot silently prove parent completion or close independent loops",
@@ -2824,7 +2694,7 @@
           "behavior_commitment_id": "BC-PR-009",
           "business_intent": "",
           "business_intent_id": "BI-PR-009-decide-outcome-and-reopen",
-          "evidence_current": true,
+          "evidence_current": false,
           "evidence_refs": [
             ".flowguard/evidence/tests/TM09_completion_reopen.json",
             ".flowguard/evidence/alignment/model_code_test.json",
@@ -2833,15 +2703,15 @@
           "fallback_candidate_ids": [],
           "metadata": {},
           "path_sensitive": true,
-          "ppa_confidence": "full",
+          "ppa_confidence": "blocked",
           "ppa_coverage_receipt_ids": [
-            "run:TM09_completion_reopen:79e0a77a36a83024"
+            "run:TM09_completion_reopen:befad976d71dffe4"
           ],
           "ppa_coverage_shard_ids": [
             "TM09_completion_reopen"
           ],
-          "ppa_decision": "primary_path_authority_green",
-          "ppa_ok": true,
+          "ppa_decision": "primary_path_authority_blocked",
+          "ppa_ok": false,
           "ppa_report_id": "PPA-BC-PR-009-G8",
           "ppa_risk_gate_ids": [
             "authority",
@@ -2850,18 +2720,22 @@
           ],
           "primary_path_id": "path:c9-decide-outcome",
           "proof_artifact_ids": [
-            "evidence:C9_completion_cancellation_reopen:7e567c24f8a5704a",
-            "artifact:run:TM09_completion_reopen:79e0a77a36a83024",
-            "evidence:model-code-test-alignment:4305d1cafc5b07f3",
-            "evidence:G8-fully-synthetic:ffe0563f16dabefc"
+            "evidence:C9_completion_cancellation_reopen:eb4b5dced0a9acf3",
+            "artifact:run:TM09_completion_reopen:befad976d71dffe4",
+            "evidence:model-code-test-alignment:8ff13b9ed936187b",
+            "evidence:G8-fully-synthetic:9545f7fd2b98e390"
           ],
           "runtime_observation_ids": [
             "BO-TC-C9_completion_cancellation_reopen-all_completion_criteria_evidenced",
             "BO-TC-C9_completion_cancellation_reopen-all_completion_criteria_evidenced-retry",
             "BO-TC-C9_completion_cancellation_reopen-terminal_label_or_final_file_only",
             "BO-TC-C9_completion_cancellation_reopen-terminal_label_or_final_file_only-retry",
+            "BO-TC-C9_completion_cancellation_reopen-ai_self_declares_completion_evidence_licensed",
+            "BO-TC-C9_completion_cancellation_reopen-ai_self_declares_completion_evidence_licensed-retry",
             "BO-TC-C9_completion_cancellation_reopen-user_cancels_with_open_loop",
             "BO-TC-C9_completion_cancellation_reopen-user_cancels_with_open_loop-retry",
+            "BO-TC-C9_completion_cancellation_reopen-reported_cancellation_event_with_loop_dispositions",
+            "BO-TC-C9_completion_cancellation_reopen-reported_cancellation_event_with_loop_dispositions-retry",
             "BO-TC-C9_completion_cancellation_reopen-new_obligation_after_completion",
             "BO-TC-C9_completion_cancellation_reopen-new_obligation_after_completion-retry",
             "BO-TC-C9_completion_cancellation_reopen-source_revision_or_ai_reopen_proposal",
@@ -2870,6 +2744,8 @@
             "BO-TC-C9_completion_cancellation_reopen-conflicting_termination_evidence-retry",
             "BO-TC-C9_completion_cancellation_reopen-all_known_children_completed_parent_criteria_unmet",
             "BO-TC-C9_completion_cancellation_reopen-all_known_children_completed_parent_criteria_unmet-retry",
+            "BO-TC-C9_completion_cancellation_reopen-elapsed_bounded_phase_historical_completion_inferred",
+            "BO-TC-C9_completion_cancellation_reopen-elapsed_bounded_phase_historical_completion_inferred-retry",
             "BO-C9_completion_cancellation_reopen-foreign_owner_write",
             "BO-C9_completion_cancellation_reopen-undeclared_provider_field"
           ],
@@ -2946,20 +2822,20 @@
             "TC-C10_correction_revocation-hierarchy_merge_revision-retry"
           ],
           "coverage_receipt_ids": [
-            "run:TM10_correction_invalidation:6606de0a8a24577d"
+            "run:TM10_correction_invalidation:70d7484140f2e11b"
           ],
           "coverage_shard_ids": [
             "TM10_correction_invalidation"
           ],
-          "current": true,
-          "evidence_state": "current_pass",
+          "current": false,
+          "evidence_state": "stale",
           "metadata": {
-            "alignment_evidence_id": "evidence:model-code-test-alignment:4305d1cafc5b07f3",
-            "g8_evidence_id": "evidence:G8-fully-synthetic:ffe0563f16dabefc",
+            "alignment_evidence_id": "evidence:model-code-test-alignment:8ff13b9ed936187b",
+            "g8_evidence_id": "evidence:G8-fully-synthetic:9545f7fd2b98e390",
             "live_provider_evidence": false,
-            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v8",
+            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v9",
             "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed",
-            "test_receipt_fingerprint": "sha256:94fed531151dc0d89df46027b1059346ac0f39c0570c52c3e7f52bae7c2d81de",
+            "test_receipt_fingerprint": "sha256:2efb6192d491943331fb0ba6ed5cc72ea122cc6b3824510123a4dacc8525ba07",
             "test_receipt_path": ".flowguard/evidence/tests/TM10_correction_invalidation.json",
             "through_gate": "G8"
           },
@@ -2970,9 +2846,9 @@
           ],
           "proof_artifact_ids": [
             "evidence:C10_correction_revocation:d20cec9a21b64ad7",
-            "artifact:run:TM10_correction_invalidation:6606de0a8a24577d",
-            "evidence:model-code-test-alignment:4305d1cafc5b07f3",
-            "evidence:G8-fully-synthetic:ffe0563f16dabefc"
+            "artifact:run:TM10_correction_invalidation:70d7484140f2e11b",
+            "evidence:model-code-test-alignment:8ff13b9ed936187b",
+            "evidence:G8-fully-synthetic:9545f7fd2b98e390"
           ],
           "risk_gate_ids": [
             "G2-C10",
@@ -2980,9 +2856,9 @@
             "G8-fully-synthetic"
           ],
           "test_evidence_ids": [
-            "run:TM10_correction_invalidation:6606de0a8a24577d"
+            "run:TM10_correction_invalidation:70d7484140f2e11b"
           ],
-          "test_mesh_state": "shard_current"
+          "test_mesh_state": "stale"
         },
         "excluded_behavior_ids": [],
         "expected_result": "append-only correction or revocation with exact MaterialClue, bilingual summary, ancestor activity, graph, World Model, root-Hero, source-retention, and supplemental-information invalidation, durable owner dispatch, and same-revision terminal join",
@@ -3023,7 +2899,7 @@
           "behavior_commitment_id": "BC-PR-010",
           "business_intent": "",
           "business_intent_id": "BI-PR-010-correct-and-recompute",
-          "evidence_current": true,
+          "evidence_current": false,
           "evidence_refs": [
             ".flowguard/evidence/tests/TM10_correction_invalidation.json",
             ".flowguard/evidence/alignment/model_code_test.json",
@@ -3032,15 +2908,15 @@
           "fallback_candidate_ids": [],
           "metadata": {},
           "path_sensitive": true,
-          "ppa_confidence": "full",
+          "ppa_confidence": "blocked",
           "ppa_coverage_receipt_ids": [
-            "run:TM10_correction_invalidation:6606de0a8a24577d"
+            "run:TM10_correction_invalidation:70d7484140f2e11b"
           ],
           "ppa_coverage_shard_ids": [
             "TM10_correction_invalidation"
           ],
-          "ppa_decision": "primary_path_authority_green",
-          "ppa_ok": true,
+          "ppa_decision": "primary_path_authority_blocked",
+          "ppa_ok": false,
           "ppa_report_id": "PPA-BC-PR-010-G8",
           "ppa_risk_gate_ids": [
             "authority",
@@ -3050,9 +2926,9 @@
           "primary_path_id": "path:c10-invalidate-and-request-recompute",
           "proof_artifact_ids": [
             "evidence:C10_correction_revocation:d20cec9a21b64ad7",
-            "artifact:run:TM10_correction_invalidation:6606de0a8a24577d",
-            "evidence:model-code-test-alignment:4305d1cafc5b07f3",
-            "evidence:G8-fully-synthetic:ffe0563f16dabefc"
+            "artifact:run:TM10_correction_invalidation:70d7484140f2e11b",
+            "evidence:model-code-test-alignment:8ff13b9ed936187b",
+            "evidence:G8-fully-synthetic:9545f7fd2b98e390"
           ],
           "runtime_observation_ids": [
             "BO-TC-C10_correction_revocation-source_locator_or_fingerprint_changed",
@@ -3194,8 +3070,8 @@
             "TC-C11_guard_artifact_prediction-stale_operation_result-retry",
             "TC-C11_guard_artifact_prediction-scope_escape_attempt",
             "TC-C11_guard_artifact_prediction-scope_escape_attempt-retry",
-            "TC-C11_guard_artifact_prediction-forecast_delay",
-            "TC-C11_guard_artifact_prediction-forecast_delay-retry",
+            "TC-C11_guard_artifact_prediction-weak_forecast_entrypoint_requested",
+            "TC-C11_guard_artifact_prediction-weak_forecast_entrypoint_requested-retry",
             "TC-C11_guard_artifact_prediction-future_prediction_contract_current",
             "TC-C11_guard_artifact_prediction-future_prediction_contract_current-retry",
             "TC-C11_guard_artifact_prediction-later_observation_confirms_prediction",
@@ -3211,23 +3087,25 @@
             "TC-C11_guard_artifact_prediction-research_direct_canonical_write",
             "TC-C11_guard_artifact_prediction-research_direct_canonical_write-retry",
             "TC-C11_guard_artifact_prediction-skipped_or_progress_receipt",
-            "TC-C11_guard_artifact_prediction-skipped_or_progress_receipt-retry"
+            "TC-C11_guard_artifact_prediction-skipped_or_progress_receipt-retry",
+            "TC-C11_guard_artifact_prediction-completed_prerequisite_and_future_required_obligation",
+            "TC-C11_guard_artifact_prediction-completed_prerequisite_and_future_required_obligation-retry"
           ],
           "coverage_receipt_ids": [
-            "run:TM11_guard_prediction_boundary:84ca5e39a2c90aca"
+            "run:TM11_guard_prediction_boundary:29f2b638fc342ca5"
           ],
           "coverage_shard_ids": [
             "TM11_guard_prediction_boundary"
           ],
-          "current": true,
-          "evidence_state": "current_pass",
+          "current": false,
+          "evidence_state": "stale",
           "metadata": {
-            "alignment_evidence_id": "evidence:model-code-test-alignment:4305d1cafc5b07f3",
-            "g8_evidence_id": "evidence:G8-fully-synthetic:ffe0563f16dabefc",
+            "alignment_evidence_id": "evidence:model-code-test-alignment:8ff13b9ed936187b",
+            "g8_evidence_id": "evidence:G8-fully-synthetic:9545f7fd2b98e390",
             "live_provider_evidence": false,
-            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v8",
+            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v9",
             "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed",
-            "test_receipt_fingerprint": "sha256:f672a98c4f3813b8b10ad412bc932971206d2e5281064af300a1d14f1d8a4902",
+            "test_receipt_fingerprint": "sha256:754eec2764320353572ba3b53efa549a55e7dd8100ebdf9a2a80669072ab1ad8",
             "test_receipt_path": ".flowguard/evidence/tests/TM11_guard_prediction_boundary.json",
             "through_gate": "G8"
           },
@@ -3237,26 +3115,26 @@
             "OB-C11-003"
           ],
           "proof_artifact_ids": [
-            "evidence:C11_guard_artifact_prediction:c11c7badfced8e30",
-            "artifact:run:TM11_guard_prediction_boundary:84ca5e39a2c90aca",
-            "evidence:model-code-test-alignment:4305d1cafc5b07f3",
-            "evidence:G8-fully-synthetic:ffe0563f16dabefc"
+            "evidence:C11_guard_artifact_prediction:d8ca19b34486df41",
+            "artifact:run:TM11_guard_prediction_boundary:29f2b638fc342ca5",
+            "evidence:model-code-test-alignment:8ff13b9ed936187b",
+            "evidence:G8-fully-synthetic:9545f7fd2b98e390"
           ],
           "risk_gate_ids": [
             "G2-C11",
             "G8-fully-synthetic"
           ],
           "test_evidence_ids": [
-            "run:TM11_guard_prediction_boundary:84ca5e39a2c90aca"
+            "run:TM11_guard_prediction_boundary:29f2b638fc342ca5"
           ],
-          "test_mesh_state": "shard_current"
+          "test_mesh_state": "stale"
         },
         "excluded_behavior_ids": [
           "legacy-runtime-binding:sourceguard",
           "legacy-runtime-binding:traceguard",
           "legacy-runtime-binding:logicguard"
         ],
-        "expected_result": "WorkPackageV2 results with complete input accounting, bilingual typed findings, no-finding/policy-rejected outcomes, human Matter narratives, privacy-minimized root-only photographic Hero briefs/results, Situation/World Model hypotheses with confidence/alternatives/expiry, nonempty-or-explicitly-unavailable supplemental-information, one idempotent root-only ResearchGuard package, explicit descendant not-applicable disposition, suggestions, and idempotent automatic original-owner dispatch",
+        "expected_result": "WorkPackageV2 results with complete input accounting, bilingual typed findings, strict Matter-versus-WorkItem/Event/source granularity explanations, orthogonal time/basis/state/terminality fields, complete historical-gap or current-phase inference contracts, no-finding/policy-rejected outcomes, human Matter narratives, privacy-minimized root-only photographic Hero briefs/results, Situation/World Model hypotheses with confidence/alternatives/expiry, nonempty-or-explicitly-unavailable supplemental-information, one idempotent root-only ResearchGuard package, explicit descendant not-applicable disposition, suggestions, and idempotent automatic original-owner dispatch",
         "expected_terminal": "auto_applied, no_finding, policy_rejected, blocked, failed, unavailable, scope_incompatible, quarantined, superseded, or corrected_by_user",
         "external_differences": [],
         "failure_boundary": "advisory artifacts never write canonical state or containment; non-current or provider-incompatible receipts never support promotion and no legacy three-Guard runtime fallback exists",
@@ -3296,7 +3174,7 @@
           "behavior_commitment_id": "BC-PR-011",
           "business_intent": "",
           "business_intent_id": "BI-PR-011-register-advisory-analysis",
-          "evidence_current": true,
+          "evidence_current": false,
           "evidence_refs": [
             ".flowguard/evidence/tests/TM11_guard_prediction_boundary.json",
             ".flowguard/evidence/alignment/model_code_test.json",
@@ -3305,15 +3183,15 @@
           "fallback_candidate_ids": [],
           "metadata": {},
           "path_sensitive": true,
-          "ppa_confidence": "full",
+          "ppa_confidence": "blocked",
           "ppa_coverage_receipt_ids": [
-            "run:TM11_guard_prediction_boundary:84ca5e39a2c90aca"
+            "run:TM11_guard_prediction_boundary:29f2b638fc342ca5"
           ],
           "ppa_coverage_shard_ids": [
             "TM11_guard_prediction_boundary"
           ],
-          "ppa_decision": "primary_path_authority_green",
-          "ppa_ok": true,
+          "ppa_decision": "primary_path_authority_blocked",
+          "ppa_ok": false,
           "ppa_report_id": "PPA-BC-PR-011-G8",
           "ppa_risk_gate_ids": [
             "authority",
@@ -3322,10 +3200,10 @@
           ],
           "primary_path_id": "path:c11-register-advisory-analysis-artifact",
           "proof_artifact_ids": [
-            "evidence:C11_guard_artifact_prediction:c11c7badfced8e30",
-            "artifact:run:TM11_guard_prediction_boundary:84ca5e39a2c90aca",
-            "evidence:model-code-test-alignment:4305d1cafc5b07f3",
-            "evidence:G8-fully-synthetic:ffe0563f16dabefc"
+            "evidence:C11_guard_artifact_prediction:d8ca19b34486df41",
+            "artifact:run:TM11_guard_prediction_boundary:29f2b638fc342ca5",
+            "evidence:model-code-test-alignment:8ff13b9ed936187b",
+            "evidence:G8-fully-synthetic:9545f7fd2b98e390"
           ],
           "runtime_observation_ids": [
             "BO-TC-C11_guard_artifact_prediction-extracted_anchors_queued",
@@ -3382,8 +3260,8 @@
             "BO-TC-C11_guard_artifact_prediction-stale_operation_result-retry",
             "BO-TC-C11_guard_artifact_prediction-scope_escape_attempt",
             "BO-TC-C11_guard_artifact_prediction-scope_escape_attempt-retry",
-            "BO-TC-C11_guard_artifact_prediction-forecast_delay",
-            "BO-TC-C11_guard_artifact_prediction-forecast_delay-retry",
+            "BO-TC-C11_guard_artifact_prediction-weak_forecast_entrypoint_requested",
+            "BO-TC-C11_guard_artifact_prediction-weak_forecast_entrypoint_requested-retry",
             "BO-TC-C11_guard_artifact_prediction-future_prediction_contract_current",
             "BO-TC-C11_guard_artifact_prediction-future_prediction_contract_current-retry",
             "BO-TC-C11_guard_artifact_prediction-later_observation_confirms_prediction",
@@ -3400,6 +3278,8 @@
             "BO-TC-C11_guard_artifact_prediction-research_direct_canonical_write-retry",
             "BO-TC-C11_guard_artifact_prediction-skipped_or_progress_receipt",
             "BO-TC-C11_guard_artifact_prediction-skipped_or_progress_receipt-retry",
+            "BO-TC-C11_guard_artifact_prediction-completed_prerequisite_and_future_required_obligation",
+            "BO-TC-C11_guard_artifact_prediction-completed_prerequisite_and_future_required_obligation-retry",
             "BO-C11_guard_artifact_prediction-foreign_owner_write",
             "BO-C11_guard_artifact_prediction-undeclared_provider_field"
           ],
@@ -3433,6 +3313,7 @@
           "analysis.situation_inference_dependency_registry",
           "analysis.world_model_feedback_registry",
           "analysis.world_model_miss_outbox",
+          "analysis.current_phase_inference_registry",
           "research.provider_status",
           "analysis.depth_registry",
           "forecast_registry"
@@ -3571,23 +3452,29 @@
             "TC-C12_projection_bilingual_ui-ui_infers_state",
             "TC-C12_projection_bilingual_ui-ui_infers_state-retry",
             "TC-C12_projection_bilingual_ui-internal_identifier_requested_by_default",
-            "TC-C12_projection_bilingual_ui-internal_identifier_requested_by_default-retry"
+            "TC-C12_projection_bilingual_ui-internal_identifier_requested_by_default-retry",
+            "TC-C12_projection_bilingual_ui-material_work_item_stage_projected",
+            "TC-C12_projection_bilingual_ui-material_work_item_stage_projected-retry",
+            "TC-C12_projection_bilingual_ui-provisional_inferred_state_projected",
+            "TC-C12_projection_bilingual_ui-provisional_inferred_state_projected-retry",
+            "TC-C12_projection_bilingual_ui-legacy_semantic_basis_missing",
+            "TC-C12_projection_bilingual_ui-legacy_semantic_basis_missing-retry"
           ],
           "coverage_receipt_ids": [
-            "run:TM12_projection_bilingual_ui:bc59878056f1a7bb"
+            "run:TM12_projection_bilingual_ui:3135c4338937e9aa"
           ],
           "coverage_shard_ids": [
             "TM12_projection_bilingual_ui"
           ],
-          "current": true,
-          "evidence_state": "current_pass",
+          "current": false,
+          "evidence_state": "stale",
           "metadata": {
-            "alignment_evidence_id": "evidence:model-code-test-alignment:4305d1cafc5b07f3",
-            "g8_evidence_id": "evidence:G8-fully-synthetic:ffe0563f16dabefc",
+            "alignment_evidence_id": "evidence:model-code-test-alignment:8ff13b9ed936187b",
+            "g8_evidence_id": "evidence:G8-fully-synthetic:9545f7fd2b98e390",
             "live_provider_evidence": false,
-            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v8",
+            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v9",
             "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed",
-            "test_receipt_fingerprint": "sha256:4144de5206af15761fee08f644de0690f75cf69683e42c15dd9cb2c749ebf4ad",
+            "test_receipt_fingerprint": "sha256:76e98df5ec6f154d1fa4d95e351e415a2b95ee2be6552a31bcffb7707fb9da77",
             "test_receipt_path": ".flowguard/evidence/tests/TM12_projection_bilingual_ui.json",
             "through_gate": "G8"
           },
@@ -3598,10 +3485,10 @@
             "OB-C12-004"
           ],
           "proof_artifact_ids": [
-            "evidence:C12_projection_bilingual_ui:c28a74c07f26dc67",
-            "artifact:run:TM12_projection_bilingual_ui:bc59878056f1a7bb",
-            "evidence:model-code-test-alignment:4305d1cafc5b07f3",
-            "evidence:G8-fully-synthetic:ffe0563f16dabefc"
+            "evidence:C12_projection_bilingual_ui:158d7c0456bf432d",
+            "artifact:run:TM12_projection_bilingual_ui:3135c4338937e9aa",
+            "evidence:model-code-test-alignment:8ff13b9ed936187b",
+            "evidence:G8-fully-synthetic:9545f7fd2b98e390"
           ],
           "risk_gate_ids": [
             "G2-C12",
@@ -3609,12 +3496,12 @@
             "G8-fully-synthetic"
           ],
           "test_evidence_ids": [
-            "run:TM12_projection_bilingual_ui:bc59878056f1a7bb"
+            "run:TM12_projection_bilingual_ui:3135c4338937e9aa"
           ],
-          "test_mesh_state": "shard_current"
+          "test_mesh_state": "stale"
         },
         "excluded_behavior_ids": [],
-        "expected_result": "a current bounded root-Matter catalog ordered by latest meaningful clue after every search/filter, with en/zh-CN atomic summary/activity content, Start-time filter, summary-free Standard/Compact cards retaining the same visible root photographic Hero (with metrics only in Standard), exactly eight detail sections with a minimal human Overview, one multi-depth Matter-only Sub-matters graph, one reusable node quick view containing itemized facts/events/work/waits and node-specific flat sources, grouped folder/Gmail-thread/Codex-project/provider source locations, logical-event-deduplicated timeline, nonempty-or-explicitly-unavailable AI supplemental information with automatic root-only A1 queuing and descendant not-applicable disposition, an evidence-only Images gallery, separate lifecycle and reported/observed/inferred modality labels, compact indexed coverage drilldown, preserved browsing state, exact C6-admitted matter_id projection, and optional correction entry",
+        "expected_result": "a current bounded root-Matter catalog ordered by latest meaningful clue after every search/filter, with en/zh-CN atomic summary/activity content, Start-time filter, summary-free Standard/Compact cards retaining the same visible root photographic Hero (with metrics only in Standard), exactly eight detail sections with a minimal human Overview, one multi-depth Matter graph that may include smaller bounded material WorkItem stage nodes without promoting them to Matters, one reusable node quick view containing itemized facts/events/work/waits and node-specific flat sources, grouped folder/Gmail-thread/Codex-project/provider source locations, logical-event-deduplicated timeline, visible provisional AI historical/current-phase labels, C7/C9-owned card state that ignores summary wording as state authority, nonempty-or-explicitly-unavailable AI supplemental information with automatic root-only A1 queuing and descendant not-applicable disposition, an evidence-only Images gallery, separate lifecycle and reported/observed/inferred modality labels, compact indexed coverage drilldown, preserved browsing state, exact C6-admitted matter_id projection, and optional correction entry",
         "expected_terminal": "projection_current, projection_pending, or blocked with current catalog preserved",
         "external_differences": [],
         "failure_boundary": "projection/source/candidate rows without one exact current C6-admitted matter_id stay outside canonical root/child catalogs and admitted coverage",
@@ -3656,7 +3543,7 @@
           "behavior_commitment_id": "BC-PR-012",
           "business_intent": "",
           "business_intent_id": "BI-PR-012-view-bilingual-projection",
-          "evidence_current": true,
+          "evidence_current": false,
           "evidence_refs": [
             ".flowguard/evidence/tests/TM12_projection_bilingual_ui.json",
             ".flowguard/evidence/alignment/model_code_test.json",
@@ -3665,15 +3552,15 @@
           "fallback_candidate_ids": [],
           "metadata": {},
           "path_sensitive": true,
-          "ppa_confidence": "full",
+          "ppa_confidence": "blocked",
           "ppa_coverage_receipt_ids": [
-            "run:TM12_projection_bilingual_ui:bc59878056f1a7bb"
+            "run:TM12_projection_bilingual_ui:3135c4338937e9aa"
           ],
           "ppa_coverage_shard_ids": [
             "TM12_projection_bilingual_ui"
           ],
-          "ppa_decision": "primary_path_authority_green",
-          "ppa_ok": true,
+          "ppa_decision": "primary_path_authority_blocked",
+          "ppa_ok": false,
           "ppa_report_id": "PPA-BC-PR-012-G8",
           "ppa_risk_gate_ids": [
             "authority",
@@ -3682,10 +3569,10 @@
           ],
           "primary_path_id": "path:c12-project-inventory-freshness-depth-review",
           "proof_artifact_ids": [
-            "evidence:C12_projection_bilingual_ui:c28a74c07f26dc67",
-            "artifact:run:TM12_projection_bilingual_ui:bc59878056f1a7bb",
-            "evidence:model-code-test-alignment:4305d1cafc5b07f3",
-            "evidence:G8-fully-synthetic:ffe0563f16dabefc"
+            "evidence:C12_projection_bilingual_ui:158d7c0456bf432d",
+            "artifact:run:TM12_projection_bilingual_ui:3135c4338937e9aa",
+            "evidence:model-code-test-alignment:8ff13b9ed936187b",
+            "evidence:G8-fully-synthetic:9545f7fd2b98e390"
           ],
           "runtime_observation_ids": [
             "BO-TC-C12_projection_bilingual_ui-indexed_catalog_page_requested",
@@ -3804,6 +3691,12 @@
             "BO-TC-C12_projection_bilingual_ui-ui_infers_state-retry",
             "BO-TC-C12_projection_bilingual_ui-internal_identifier_requested_by_default",
             "BO-TC-C12_projection_bilingual_ui-internal_identifier_requested_by_default-retry",
+            "BO-TC-C12_projection_bilingual_ui-material_work_item_stage_projected",
+            "BO-TC-C12_projection_bilingual_ui-material_work_item_stage_projected-retry",
+            "BO-TC-C12_projection_bilingual_ui-provisional_inferred_state_projected",
+            "BO-TC-C12_projection_bilingual_ui-provisional_inferred_state_projected-retry",
+            "BO-TC-C12_projection_bilingual_ui-legacy_semantic_basis_missing",
+            "BO-TC-C12_projection_bilingual_ui-legacy_semantic_basis_missing-retry",
             "BO-C12_projection_bilingual_ui-foreign_owner_write",
             "BO-C12_projection_bilingual_ui-undeclared_provider_field"
           ],
@@ -3855,6 +3748,8 @@
           "projection.analysis_owner_currentness",
           "projection.state_basis_modality",
           "projection.state_basis_scope",
+          "projection.state_terminality",
+          "projection.semantic_contract_status",
           "projection.lifecycle_visual_state",
           "ui.selected_locale",
           "ui.locale_preference",
@@ -3894,7 +3789,8 @@
           "ui.node_quick_view_state",
           "ui.node_quick_view_facts",
           "ui.node_quick_view_source_groups",
-          "ui.source_group_window"
+          "ui.source_group_window",
+          "ui.material_stage_nodes"
         ],
         "supporting_model_ids": [],
         "surface_delegation_only": false,
@@ -3916,20 +3812,20 @@
           ],
           "coverage_case_ids": [],
           "coverage_receipt_ids": [
-            "run:TM18_privacy_public_boundary:bcea4f9e95765998"
+            "run:TM18_privacy_public_boundary:28cf56933e1e679f"
           ],
           "coverage_shard_ids": [
             "TM18_privacy_public_boundary"
           ],
-          "current": true,
-          "evidence_state": "current_pass",
+          "current": false,
+          "evidence_state": "stale",
           "metadata": {
-            "alignment_evidence_id": "evidence:model-code-test-alignment:4305d1cafc5b07f3",
-            "g8_evidence_id": "evidence:G8-fully-synthetic:ffe0563f16dabefc",
+            "alignment_evidence_id": "evidence:model-code-test-alignment:8ff13b9ed936187b",
+            "g8_evidence_id": "evidence:G8-fully-synthetic:9545f7fd2b98e390",
             "live_provider_evidence": false,
-            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v8",
+            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v9",
             "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed",
-            "test_receipt_fingerprint": "sha256:27538ef8a74381bf7c5f40d192c716ab8f1ce3247a3cb3bb625e347e6a6c31d9",
+            "test_receipt_fingerprint": "sha256:1a24ec5deb341f64f6e198780c0c098c27c5755a2e94ada869f7bf075ba78012",
             "test_receipt_path": ".flowguard/evidence/tests/TM18_privacy_public_boundary.json",
             "through_gate": "G8"
           },
@@ -3938,9 +3834,9 @@
           ],
           "proof_artifact_ids": [
             "evidence:C1_authorization_coverage:fb63cdbfa75fc982",
-            "artifact:run:TM18_privacy_public_boundary:bcea4f9e95765998",
-            "evidence:model-code-test-alignment:4305d1cafc5b07f3",
-            "evidence:G8-fully-synthetic:ffe0563f16dabefc"
+            "artifact:run:TM18_privacy_public_boundary:28cf56933e1e679f",
+            "evidence:model-code-test-alignment:8ff13b9ed936187b",
+            "evidence:G8-fully-synthetic:9545f7fd2b98e390"
           ],
           "risk_gate_ids": [
             "G0-private-root",
@@ -3948,9 +3844,9 @@
             "G8-fully-synthetic"
           ],
           "test_evidence_ids": [
-            "run:TM18_privacy_public_boundary:bcea4f9e95765998"
+            "run:TM18_privacy_public_boundary:28cf56933e1e679f"
           ],
-          "test_mesh_state": "shard_current"
+          "test_mesh_state": "stale"
         },
         "excluded_behavior_ids": [],
         "expected_result": "private roots outside Git are accepted and inside-Git roots fail visibly",
@@ -3987,7 +3883,7 @@
           "behavior_commitment_id": "BC-PR-013",
           "business_intent": "",
           "business_intent_id": "BI-PR-013-keep-private-data-outside-git",
-          "evidence_current": true,
+          "evidence_current": false,
           "evidence_refs": [
             ".flowguard/evidence/tests/TM18_privacy_public_boundary.json",
             ".flowguard/evidence/alignment/model_code_test.json",
@@ -3996,15 +3892,15 @@
           "fallback_candidate_ids": [],
           "metadata": {},
           "path_sensitive": true,
-          "ppa_confidence": "full",
+          "ppa_confidence": "blocked",
           "ppa_coverage_receipt_ids": [
-            "run:TM18_privacy_public_boundary:bcea4f9e95765998"
+            "run:TM18_privacy_public_boundary:28cf56933e1e679f"
           ],
           "ppa_coverage_shard_ids": [
             "TM18_privacy_public_boundary"
           ],
-          "ppa_decision": "primary_path_authority_green",
-          "ppa_ok": true,
+          "ppa_decision": "primary_path_authority_blocked",
+          "ppa_ok": false,
           "ppa_report_id": "PPA-BC-PR-013-G8",
           "ppa_risk_gate_ids": [
             "authority",
@@ -4014,9 +3910,9 @@
           "primary_path_id": "path:c1-activate-external-private-root",
           "proof_artifact_ids": [
             "evidence:C1_authorization_coverage:fb63cdbfa75fc982",
-            "artifact:run:TM18_privacy_public_boundary:bcea4f9e95765998",
-            "evidence:model-code-test-alignment:4305d1cafc5b07f3",
-            "evidence:G8-fully-synthetic:ffe0563f16dabefc"
+            "artifact:run:TM18_privacy_public_boundary:28cf56933e1e679f",
+            "evidence:model-code-test-alignment:8ff13b9ed936187b",
+            "evidence:G8-fully-synthetic:9545f7fd2b98e390"
           ],
           "runtime_observation_ids": [
             "BO-TC-C1_authorization_coverage-active_tracked_legacy_coverage_rebased",
@@ -4146,26 +4042,71 @@
         "commitment_id": "BC-AO-001",
         "commitment_kind": "workflow",
         "evidence": {
-          "code_contract_ids": [],
-          "coverage_case_ids": [],
-          "coverage_receipt_ids": [],
-          "coverage_shard_ids": [],
+          "code_contract_ids": [
+            "CC-A0-agent-operation"
+          ],
+          "coverage_case_ids": [
+            "TC-A0_matters_source_analysis_operation-pending_package_envelope_profile_current",
+            "TC-A0_matters_source_analysis_operation-pending_package_envelope_profile_current-retry",
+            "TC-A0_matters_source_analysis_operation-exact_worker_assignment_selected",
+            "TC-A0_matters_source_analysis_operation-exact_worker_assignment_selected-retry",
+            "TC-A0_matters_source_analysis_operation-valid_work_package_v2",
+            "TC-A0_matters_source_analysis_operation-valid_work_package_v2-retry",
+            "TC-A0_matters_source_analysis_operation-low_cost_annotation_profile_current",
+            "TC-A0_matters_source_analysis_operation-low_cost_annotation_profile_current-retry",
+            "TC-A0_matters_source_analysis_operation-complex_capability_escalated",
+            "TC-A0_matters_source_analysis_operation-complex_capability_escalated-retry",
+            "TC-A0_matters_source_analysis_operation-hero_generation_capability_current",
+            "TC-A0_matters_source_analysis_operation-hero_generation_capability_current-retry",
+            "TC-A0_matters_source_analysis_operation-execution_profile_mapping_changed",
+            "TC-A0_matters_source_analysis_operation-execution_profile_mapping_changed-retry",
+            "TC-A0_matters_source_analysis_operation-capability_mapping_unavailable",
+            "TC-A0_matters_source_analysis_operation-capability_mapping_unavailable-retry",
+            "TC-A0_matters_source_analysis_operation-application_api_key_fallback_attempt",
+            "TC-A0_matters_source_analysis_operation-application_api_key_fallback_attempt-retry",
+            "TC-A0_matters_source_analysis_operation-no_finding",
+            "TC-A0_matters_source_analysis_operation-no_finding-retry",
+            "TC-A0_matters_source_analysis_operation-invalid_schema_or_scope_escape",
+            "TC-A0_matters_source_analysis_operation-invalid_schema_or_scope_escape-retry",
+            "TC-A0_matters_source_analysis_operation-operation_attempts_product_write",
+            "TC-A0_matters_source_analysis_operation-operation_attempts_product_write-retry"
+          ],
+          "coverage_receipt_ids": [
+            "run:TM20_autonomous_owner_dispatch:50982fb343cd4cbe"
+          ],
+          "coverage_shard_ids": [
+            "TM20_autonomous_owner_dispatch"
+          ],
           "current": false,
           "evidence_state": "stale",
           "metadata": {
+            "alignment_evidence_id": "evidence:model-code-test-alignment:8ff13b9ed936187b",
+            "g8_evidence_id": "evidence:G8-fully-synthetic:9545f7fd2b98e390",
+            "live_provider_evidence": false,
             "reason": "owner model, code contract, TestMesh, and runtime evidence not yet current",
-            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v8",
-            "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed"
+            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v9",
+            "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed",
+            "test_receipt_fingerprint": "sha256:9aa544c77dc158b36c6a2cc9a38840595b392e6f60a34a13a89bfb2ad18dfbe1",
+            "test_receipt_path": ".flowguard/evidence/tests/TM20_autonomous_owner_dispatch.json",
+            "through_gate": "G8"
           },
           "model_obligation_ids": [
             "OB-AO-001"
           ],
-          "proof_artifact_ids": [],
+          "proof_artifact_ids": [
+            "evidence:A0_matters_source_analysis_operation:2a6cea6c453f2837",
+            "artifact:run:TM20_autonomous_owner_dispatch:50982fb343cd4cbe",
+            "evidence:model-code-test-alignment:8ff13b9ed936187b",
+            "evidence:G8-fully-synthetic:9545f7fd2b98e390"
+          ],
           "risk_gate_ids": [
             "G6-agent-operation-contract",
-            "G9-synthetic-operation-matrix"
+            "G9-synthetic-operation-matrix",
+            "G8-fully-synthetic"
           ],
-          "test_evidence_ids": [],
+          "test_evidence_ids": [
+            "run:TM20_autonomous_owner_dispatch:50982fb343cd4cbe"
+          ],
           "test_mesh_state": "stale"
         },
         "excluded_behavior_ids": [],
@@ -4222,20 +4163,64 @@
           "business_intent": "",
           "business_intent_id": "BI-AO-001-analyze-tracked-source",
           "evidence_current": false,
-          "evidence_refs": [],
+          "evidence_refs": [
+            ".flowguard/evidence/tests/TM20_autonomous_owner_dispatch.json",
+            ".flowguard/evidence/alignment/model_code_test.json",
+            ".flowguard/evidence/synthetic/G8_fully_synthetic_end_to_end.json"
+          ],
           "fallback_candidate_ids": [],
           "metadata": {},
           "path_sensitive": true,
           "ppa_confidence": "blocked",
-          "ppa_coverage_receipt_ids": [],
-          "ppa_coverage_shard_ids": [],
+          "ppa_coverage_receipt_ids": [
+            "run:TM20_autonomous_owner_dispatch:50982fb343cd4cbe"
+          ],
+          "ppa_coverage_shard_ids": [
+            "TM20_autonomous_owner_dispatch"
+          ],
           "ppa_decision": "primary_path_authority_blocked",
           "ppa_ok": false,
-          "ppa_report_id": "",
-          "ppa_risk_gate_ids": [],
+          "ppa_report_id": "PPA-BC-AO-001-G8",
+          "ppa_risk_gate_ids": [
+            "authority",
+            "cartesian_coverage",
+            "G8-fully-synthetic"
+          ],
           "primary_path_id": "path:ao-source-analysis-work-package",
-          "proof_artifact_ids": [],
-          "runtime_observation_ids": [],
+          "proof_artifact_ids": [
+            "evidence:A0_matters_source_analysis_operation:2a6cea6c453f2837",
+            "artifact:run:TM20_autonomous_owner_dispatch:50982fb343cd4cbe",
+            "evidence:model-code-test-alignment:8ff13b9ed936187b",
+            "evidence:G8-fully-synthetic:9545f7fd2b98e390"
+          ],
+          "runtime_observation_ids": [
+            "BO-TC-A0_matters_source_analysis_operation-pending_package_envelope_profile_current",
+            "BO-TC-A0_matters_source_analysis_operation-pending_package_envelope_profile_current-retry",
+            "BO-TC-A0_matters_source_analysis_operation-exact_worker_assignment_selected",
+            "BO-TC-A0_matters_source_analysis_operation-exact_worker_assignment_selected-retry",
+            "BO-TC-A0_matters_source_analysis_operation-valid_work_package_v2",
+            "BO-TC-A0_matters_source_analysis_operation-valid_work_package_v2-retry",
+            "BO-TC-A0_matters_source_analysis_operation-low_cost_annotation_profile_current",
+            "BO-TC-A0_matters_source_analysis_operation-low_cost_annotation_profile_current-retry",
+            "BO-TC-A0_matters_source_analysis_operation-complex_capability_escalated",
+            "BO-TC-A0_matters_source_analysis_operation-complex_capability_escalated-retry",
+            "BO-TC-A0_matters_source_analysis_operation-hero_generation_capability_current",
+            "BO-TC-A0_matters_source_analysis_operation-hero_generation_capability_current-retry",
+            "BO-TC-A0_matters_source_analysis_operation-execution_profile_mapping_changed",
+            "BO-TC-A0_matters_source_analysis_operation-execution_profile_mapping_changed-retry",
+            "BO-TC-A0_matters_source_analysis_operation-capability_mapping_unavailable",
+            "BO-TC-A0_matters_source_analysis_operation-capability_mapping_unavailable-retry",
+            "BO-TC-A0_matters_source_analysis_operation-application_api_key_fallback_attempt",
+            "BO-TC-A0_matters_source_analysis_operation-application_api_key_fallback_attempt-retry",
+            "BO-TC-A0_matters_source_analysis_operation-no_finding",
+            "BO-TC-A0_matters_source_analysis_operation-no_finding-retry",
+            "BO-TC-A0_matters_source_analysis_operation-invalid_schema_or_scope_escape",
+            "BO-TC-A0_matters_source_analysis_operation-invalid_schema_or_scope_escape-retry",
+            "BO-TC-A0_matters_source_analysis_operation-operation_attempts_product_write",
+            "BO-TC-A0_matters_source_analysis_operation-operation_attempts_product_write-retry",
+            "BO-A0_matters_source_analysis_operation-foreign_owner_write",
+            "BO-A0_matters_source_analysis_operation-undeclared_provider_field"
+          ],
           "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
         },
         "preconditions": [],
@@ -4291,27 +4276,58 @@
         "commitment_id": "BC-AO-002",
         "commitment_kind": "workflow",
         "evidence": {
-          "code_contract_ids": [],
-          "coverage_case_ids": [],
-          "coverage_receipt_ids": [],
-          "coverage_shard_ids": [],
+          "code_contract_ids": [
+            "CC-A1-research-operation"
+          ],
+          "coverage_case_ids": [
+            "TC-A1_matters_research_operation-researchguard_identity_current",
+            "TC-A1_matters_research_operation-researchguard_identity_current-retry",
+            "TC-A1_matters_research_operation-researchguard_current_result_imported",
+            "TC-A1_matters_research_operation-researchguard_current_result_imported-retry",
+            "TC-A1_matters_research_operation-researchguard_not_current",
+            "TC-A1_matters_research_operation-researchguard_not_current-retry",
+            "TC-A1_matters_research_operation-legacy_guard_fallback_attempt",
+            "TC-A1_matters_research_operation-legacy_guard_fallback_attempt-retry",
+            "TC-A1_matters_research_operation-research_attempts_product_write",
+            "TC-A1_matters_research_operation-research_attempts_product_write-retry"
+          ],
+          "coverage_receipt_ids": [
+            "run:TM24_research_operation:e66561d452df60a6"
+          ],
+          "coverage_shard_ids": [
+            "TM24_research_operation"
+          ],
           "current": false,
           "evidence_state": "stale",
           "metadata": {
+            "alignment_evidence_id": "evidence:model-code-test-alignment:8ff13b9ed936187b",
+            "g8_evidence_id": "evidence:G8-fully-synthetic:9545f7fd2b98e390",
+            "live_provider_evidence": false,
             "reason": "owner model, code contract, TestMesh, and runtime evidence not yet current",
-            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v8",
-            "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed"
+            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v9",
+            "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed",
+            "test_receipt_fingerprint": "sha256:dd09d0306c90422d9b545c1f93a09b224472cefa8e2686e6ea0d6b3b13f270c5",
+            "test_receipt_path": ".flowguard/evidence/tests/TM24_research_operation.json",
+            "through_gate": "G8"
           },
           "model_obligation_ids": [
             "OB-AO-002"
           ],
-          "proof_artifact_ids": [],
+          "proof_artifact_ids": [
+            "evidence:A1_matters_research_operation:7c5bb138057fa9fb",
+            "artifact:run:TM24_research_operation:e66561d452df60a6",
+            "evidence:model-code-test-alignment:8ff13b9ed936187b",
+            "evidence:G8-fully-synthetic:9545f7fd2b98e390"
+          ],
           "risk_gate_ids": [
             "G6-research-operation-contract",
             "G9-research-operation-matrix",
-            "G12-researchguard-freeze"
+            "G12-researchguard-freeze",
+            "G8-fully-synthetic"
           ],
-          "test_evidence_ids": [],
+          "test_evidence_ids": [
+            "run:TM24_research_operation:e66561d452df60a6"
+          ],
           "test_mesh_state": "stale"
         },
         "excluded_behavior_ids": [
@@ -4365,20 +4381,50 @@
           "business_intent": "",
           "business_intent_id": "BI-AO-002-execute-research-operation",
           "evidence_current": false,
-          "evidence_refs": [],
+          "evidence_refs": [
+            ".flowguard/evidence/tests/TM24_research_operation.json",
+            ".flowguard/evidence/alignment/model_code_test.json",
+            ".flowguard/evidence/synthetic/G8_fully_synthetic_end_to_end.json"
+          ],
           "fallback_candidate_ids": [],
           "metadata": {},
           "path_sensitive": true,
           "ppa_confidence": "blocked",
-          "ppa_coverage_receipt_ids": [],
-          "ppa_coverage_shard_ids": [],
+          "ppa_coverage_receipt_ids": [
+            "run:TM24_research_operation:e66561d452df60a6"
+          ],
+          "ppa_coverage_shard_ids": [
+            "TM24_research_operation"
+          ],
           "ppa_decision": "primary_path_authority_blocked",
           "ppa_ok": false,
-          "ppa_report_id": "",
-          "ppa_risk_gate_ids": [],
+          "ppa_report_id": "PPA-BC-AO-002-G8",
+          "ppa_risk_gate_ids": [
+            "authority",
+            "cartesian_coverage",
+            "G8-fully-synthetic"
+          ],
           "primary_path_id": "path:ao-research-operation-researchguard",
-          "proof_artifact_ids": [],
-          "runtime_observation_ids": [],
+          "proof_artifact_ids": [
+            "evidence:A1_matters_research_operation:7c5bb138057fa9fb",
+            "artifact:run:TM24_research_operation:e66561d452df60a6",
+            "evidence:model-code-test-alignment:8ff13b9ed936187b",
+            "evidence:G8-fully-synthetic:9545f7fd2b98e390"
+          ],
+          "runtime_observation_ids": [
+            "BO-TC-A1_matters_research_operation-researchguard_identity_current",
+            "BO-TC-A1_matters_research_operation-researchguard_identity_current-retry",
+            "BO-TC-A1_matters_research_operation-researchguard_current_result_imported",
+            "BO-TC-A1_matters_research_operation-researchguard_current_result_imported-retry",
+            "BO-TC-A1_matters_research_operation-researchguard_not_current",
+            "BO-TC-A1_matters_research_operation-researchguard_not_current-retry",
+            "BO-TC-A1_matters_research_operation-legacy_guard_fallback_attempt",
+            "BO-TC-A1_matters_research_operation-legacy_guard_fallback_attempt-retry",
+            "BO-TC-A1_matters_research_operation-research_attempts_product_write",
+            "BO-TC-A1_matters_research_operation-research_attempts_product_write-retry",
+            "BO-A1_matters_research_operation-foreign_owner_write",
+            "BO-A1_matters_research_operation-undeclared_provider_field"
+          ],
           "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
         },
         "preconditions": [],
@@ -4437,7 +4483,7 @@
           "current": false,
           "evidence_state": "stale",
           "metadata": {
-            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v8",
+            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v9",
             "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed"
           },
           "model_obligation_ids": [
@@ -4687,7 +4733,7 @@
           "current": false,
           "evidence_state": "stale",
           "metadata": {
-            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v8",
+            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v9",
             "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed"
           },
           "model_obligation_ids": [
@@ -4705,7 +4751,7 @@
         "expected_result": "one private GitHub repository release whose commit, v0.3.0 tag, wheel, source distribution, Windows desktop package, installed Python and desktop identities, matters-mcp AI gateway, model/test receipts, public-safe inventory, and anonymous recheck agree without consuming or claiming completion of private-first-run data",
         "expected_terminal": "published_and_anonymously_rechecked or blocked with exact package, privacy, install, Git, or publication gaps",
         "external_differences": [],
-        "failure_boundary": "private Gmail, filesystem, Codex-project, aggregate, receipt, screenshot, identifier, or first-run completion evidence cannot enter or gate the generic release; candidate drift, unexpected build-environment packages, missing matters-mcp, incomplete bundled skills, mismatched tag/install/assets, or a non-private remote blocks publication",
+        "failure_boundary": "private Gmail, filesystem, Codex-project, aggregate, receipt, screenshot, identifier, or first-run completion evidence cannot enter or gate the generic release; candidate drift, unexpected build-environment packages, missing matters-mcp, incomplete bundled skills, a surviving prior managed desktop process tree, mismatched tag/install/assets, or a non-private remote blocks publication",
         "in_scope": true,
         "label": "publish generic v0.3.0 source, package, desktop, and AI gateway before the private first run",
         "lookup_binding": {
@@ -4713,6 +4759,9 @@
             "installed_version_stale",
             "matters_mcp_missing",
             "desktop_package_incomplete",
+            "desktop_release_archive_privacy_invalid",
+            "desktop_release_archive_identity_mismatch",
+            "prior_desktop_process_tree_still_running_after_install",
             "private_aggregate_must_not_be_consumed_by_generic_release"
           ],
           "metadata": {},
@@ -4721,6 +4770,8 @@
             "docs/security/public-boundary.md",
             "plugins/matters/**",
             "scripts/build_desktop_package.ps1",
+            "scripts/build_desktop_release_archive.py",
+            "scripts/check_public_boundary.py",
             "scripts/install_desktop_package.ps1",
             ".github/**",
             "SECURITY.md"
@@ -4792,6 +4843,7 @@
         "replacement_state": "active",
         "scoped_out_reason": "",
         "side_effects": [
+          "stop only the exact prior Matters-managed desktop process tree",
           "push approved generic public-safe source to the private remote",
           "create the v0.3.0 tag and GitHub Release",
           "publish the wheel, source distribution, Windows desktop package, and checksums"
@@ -4810,6 +4862,7 @@
           "release.private_first_run_separation",
           "release.package_identity",
           "release.desktop_identity",
+          "release.desktop_process_handoff",
           "release.ai_gateway_identity",
           "release.git_identity",
           "release.status"
@@ -4817,7 +4870,7 @@
         "supporting_model_ids": [],
         "surface_delegation_only": false,
         "trigger": "generic source, model, TestMesh, UI, privacy, package, desktop, MCP, bundled-skill, and ResearchGuard identities are current and the user authorizes liuyingxuvka/Matters as a private v0.3.0 release",
-        "validation_boundary": "public inventory, history/privacy/license scans, clean-clone CI, frozen full verification, release identity, and anonymous post-release recheck",
+        "validation_boundary": "public inventory, history/privacy/license scans, clean-clone CI, frozen full verification, exact prior managed desktop process-tree shutdown, release identity, and anonymous post-release recheck",
         "variant_of_business_intent_id": ""
       },
       {
@@ -4837,7 +4890,7 @@
           "evidence_state": "stale",
           "metadata": {
             "reason": "owner model, code contract, TestMesh, and runtime evidence not yet current",
-            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v8",
+            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v9",
             "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed"
           },
           "model_obligation_ids": [
@@ -4963,7 +5016,7 @@
           {
             "metadata": {},
             "rationale": "The authorized private first run starts against the already released generic v0.3.0 contract.",
-            "relation_type": "requires_evidence_from",
+            "relation_type": "depends_on",
             "target_commitment_id": "BC-DP-003"
           }
         ],
@@ -5010,7 +5063,7 @@
           "evidence_state": "stale",
           "metadata": {
             "reason": "owner model, code contract, TestMesh, and runtime evidence not yet current",
-            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v8",
+            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v9",
             "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed"
           },
           "model_obligation_ids": [
@@ -5119,7 +5172,7 @@
           "evidence_state": "stale",
           "metadata": {
             "reason": "owner model, code contract, TestMesh, and runtime evidence not yet current",
-            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v8",
+            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v9",
             "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed"
           },
           "model_obligation_ids": [
@@ -5233,7 +5286,7 @@
           "evidence_state": "stale",
           "metadata": {
             "reason": "owner model, code contract, TestMesh, and runtime evidence not yet current",
-            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v8",
+            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v9",
             "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed"
           },
           "model_obligation_ids": [
@@ -5350,7 +5403,7 @@
           "evidence_state": "stale",
           "metadata": {
             "reason": "owner model, code contract, TestMesh, and runtime evidence not yet current",
-            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v8",
+            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v9",
             "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed"
           },
           "model_obligation_ids": [
@@ -5469,7 +5522,7 @@
           "evidence_state": "stale",
           "metadata": {
             "reason": "owner model, code contract, TestMesh, and runtime evidence not yet current",
-            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v8",
+            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v9",
             "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed"
           },
           "model_obligation_ids": [
@@ -5583,26 +5636,61 @@
         "commitment_id": "BC-AO-003",
         "commitment_kind": "workflow",
         "evidence": {
-          "code_contract_ids": [],
-          "coverage_case_ids": [],
-          "coverage_receipt_ids": [],
-          "coverage_shard_ids": [],
+          "code_contract_ids": [
+            "CC-A2-maintenance-orchestration"
+          ],
+          "coverage_case_ids": [
+            "TC-A2_matters_maintenance_orchestrator_operation-maintenance_run_started",
+            "TC-A2_matters_maintenance_orchestrator_operation-maintenance_run_started-retry",
+            "TC-A2_matters_maintenance_orchestrator_operation-bounded_maintenance_plan_validated",
+            "TC-A2_matters_maintenance_orchestrator_operation-bounded_maintenance_plan_validated-retry",
+            "TC-A2_matters_maintenance_orchestrator_operation-all_delegated_results_terminal_and_valid",
+            "TC-A2_matters_maintenance_orchestrator_operation-all_delegated_results_terminal_and_valid-retry",
+            "TC-A2_matters_maintenance_orchestrator_operation-pending_ai_user_observation_consumed",
+            "TC-A2_matters_maintenance_orchestrator_operation-pending_ai_user_observation_consumed-retry",
+            "TC-A2_matters_maintenance_orchestrator_operation-maintenance_no_delta",
+            "TC-A2_matters_maintenance_orchestrator_operation-maintenance_no_delta-retry",
+            "TC-A2_matters_maintenance_orchestrator_operation-child_failed_blocked_or_retry_exhausted",
+            "TC-A2_matters_maintenance_orchestrator_operation-child_failed_blocked_or_retry_exhausted-retry",
+            "TC-A2_matters_maintenance_orchestrator_operation-orchestrator_attempts_product_or_final_gate_write",
+            "TC-A2_matters_maintenance_orchestrator_operation-orchestrator_attempts_product_or_final_gate_write-retry"
+          ],
+          "coverage_receipt_ids": [
+            "run:TM26_maintenance_orchestrator:ae33d725fa5fdd51"
+          ],
+          "coverage_shard_ids": [
+            "TM26_maintenance_orchestrator"
+          ],
           "current": false,
           "evidence_state": "stale",
           "metadata": {
+            "alignment_evidence_id": "evidence:model-code-test-alignment:8ff13b9ed936187b",
+            "g8_evidence_id": "evidence:G8-fully-synthetic:9545f7fd2b98e390",
+            "live_provider_evidence": false,
             "reason": "owner model, code contract, TestMesh, and runtime evidence not yet current",
-            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v8",
-            "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed"
+            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v9",
+            "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed",
+            "test_receipt_fingerprint": "sha256:9219033d7d59245d982229327a94402724f11d85b63d71d73b4f29145a99becd",
+            "test_receipt_path": ".flowguard/evidence/tests/TM26_maintenance_orchestrator.json",
+            "through_gate": "G8"
           },
           "model_obligation_ids": [
             "OB-AO-003"
           ],
-          "proof_artifact_ids": [],
+          "proof_artifact_ids": [
+            "evidence:A2_matters_maintenance_orchestrator_operation:80aa61a086bb58da",
+            "artifact:run:TM26_maintenance_orchestrator:ae33d725fa5fdd51",
+            "evidence:model-code-test-alignment:8ff13b9ed936187b",
+            "evidence:G8-fully-synthetic:9545f7fd2b98e390"
+          ],
           "risk_gate_ids": [
             "G6-maintenance-orchestration-contract",
-            "G9-synthetic-maintenance-join-matrix"
+            "G9-synthetic-maintenance-join-matrix",
+            "G8-fully-synthetic"
           ],
-          "test_evidence_ids": [],
+          "test_evidence_ids": [
+            "run:TM26_maintenance_orchestrator:ae33d725fa5fdd51"
+          ],
           "test_mesh_state": "stale"
         },
         "excluded_behavior_ids": [],
@@ -5647,20 +5735,54 @@
           "business_intent": "",
           "business_intent_id": "BI-AO-003-orchestrate-private-maintenance",
           "evidence_current": false,
-          "evidence_refs": [],
+          "evidence_refs": [
+            ".flowguard/evidence/tests/TM26_maintenance_orchestrator.json",
+            ".flowguard/evidence/alignment/model_code_test.json",
+            ".flowguard/evidence/synthetic/G8_fully_synthetic_end_to_end.json"
+          ],
           "fallback_candidate_ids": [],
           "metadata": {},
           "path_sensitive": true,
           "ppa_confidence": "blocked",
-          "ppa_coverage_receipt_ids": [],
-          "ppa_coverage_shard_ids": [],
+          "ppa_coverage_receipt_ids": [
+            "run:TM26_maintenance_orchestrator:ae33d725fa5fdd51"
+          ],
+          "ppa_coverage_shard_ids": [
+            "TM26_maintenance_orchestrator"
+          ],
           "ppa_decision": "primary_path_authority_blocked",
           "ppa_ok": false,
-          "ppa_report_id": "",
-          "ppa_risk_gate_ids": [],
+          "ppa_report_id": "PPA-BC-AO-003-G8",
+          "ppa_risk_gate_ids": [
+            "authority",
+            "cartesian_coverage",
+            "G8-fully-synthetic"
+          ],
           "primary_path_id": "path:ao-private-maintenance-orchestrator",
-          "proof_artifact_ids": [],
-          "runtime_observation_ids": [],
+          "proof_artifact_ids": [
+            "evidence:A2_matters_maintenance_orchestrator_operation:80aa61a086bb58da",
+            "artifact:run:TM26_maintenance_orchestrator:ae33d725fa5fdd51",
+            "evidence:model-code-test-alignment:8ff13b9ed936187b",
+            "evidence:G8-fully-synthetic:9545f7fd2b98e390"
+          ],
+          "runtime_observation_ids": [
+            "BO-TC-A2_matters_maintenance_orchestrator_operation-maintenance_run_started",
+            "BO-TC-A2_matters_maintenance_orchestrator_operation-maintenance_run_started-retry",
+            "BO-TC-A2_matters_maintenance_orchestrator_operation-bounded_maintenance_plan_validated",
+            "BO-TC-A2_matters_maintenance_orchestrator_operation-bounded_maintenance_plan_validated-retry",
+            "BO-TC-A2_matters_maintenance_orchestrator_operation-all_delegated_results_terminal_and_valid",
+            "BO-TC-A2_matters_maintenance_orchestrator_operation-all_delegated_results_terminal_and_valid-retry",
+            "BO-TC-A2_matters_maintenance_orchestrator_operation-pending_ai_user_observation_consumed",
+            "BO-TC-A2_matters_maintenance_orchestrator_operation-pending_ai_user_observation_consumed-retry",
+            "BO-TC-A2_matters_maintenance_orchestrator_operation-maintenance_no_delta",
+            "BO-TC-A2_matters_maintenance_orchestrator_operation-maintenance_no_delta-retry",
+            "BO-TC-A2_matters_maintenance_orchestrator_operation-child_failed_blocked_or_retry_exhausted",
+            "BO-TC-A2_matters_maintenance_orchestrator_operation-child_failed_blocked_or_retry_exhausted-retry",
+            "BO-TC-A2_matters_maintenance_orchestrator_operation-orchestrator_attempts_product_or_final_gate_write",
+            "BO-TC-A2_matters_maintenance_orchestrator_operation-orchestrator_attempts_product_or_final_gate_write-retry",
+            "BO-A2_matters_maintenance_orchestrator_operation-foreign_owner_write",
+            "BO-A2_matters_maintenance_orchestrator_operation-undeclared_provider_field"
+          ],
           "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
         },
         "preconditions": [],
@@ -5720,26 +5842,61 @@
         "commitment_id": "BC-AO-004",
         "commitment_kind": "workflow",
         "evidence": {
-          "code_contract_ids": [],
-          "coverage_case_ids": [],
-          "coverage_receipt_ids": [],
-          "coverage_shard_ids": [],
+          "code_contract_ids": [
+            "CC-A3-ai-gateway"
+          ],
+          "coverage_case_ids": [
+            "TC-A3_matters_ai_gateway_operation-bounded_model_map_requested",
+            "TC-A3_matters_ai_gateway_operation-bounded_model_map_requested-retry",
+            "TC-A3_matters_ai_gateway_operation-bounded_situation_context_requested",
+            "TC-A3_matters_ai_gateway_operation-bounded_situation_context_requested-retry",
+            "TC-A3_matters_ai_gateway_operation-bounded_history_requested",
+            "TC-A3_matters_ai_gateway_operation-bounded_history_requested-retry",
+            "TC-A3_matters_ai_gateway_operation-user_observation_submitted",
+            "TC-A3_matters_ai_gateway_operation-user_observation_submitted-retry",
+            "TC-A3_matters_ai_gateway_operation-correction_prediction_feedback_or_model_miss_submitted",
+            "TC-A3_matters_ai_gateway_operation-correction_prediction_feedback_or_model_miss_submitted-retry",
+            "TC-A3_matters_ai_gateway_operation-researchguard_unavailable_for_mixed_context",
+            "TC-A3_matters_ai_gateway_operation-researchguard_unavailable_for_mixed_context-retry",
+            "TC-A3_matters_ai_gateway_operation-unauthorized_unbounded_or_unsupported_request",
+            "TC-A3_matters_ai_gateway_operation-unauthorized_unbounded_or_unsupported_request-retry"
+          ],
+          "coverage_receipt_ids": [
+            "run:TM27_ai_gateway:a1c457ecd8e5ef87"
+          ],
+          "coverage_shard_ids": [
+            "TM27_ai_gateway"
+          ],
           "current": false,
           "evidence_state": "stale",
           "metadata": {
+            "alignment_evidence_id": "evidence:model-code-test-alignment:8ff13b9ed936187b",
+            "g8_evidence_id": "evidence:G8-fully-synthetic:9545f7fd2b98e390",
+            "live_provider_evidence": false,
             "reason": "owner model, code contract, TestMesh, and runtime evidence not yet current",
-            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v8",
-            "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed"
+            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v9",
+            "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed",
+            "test_receipt_fingerprint": "sha256:72dbdc879617576d53e195f958c454bc34cd9a97c311b8fcec5e1547f06d6b31",
+            "test_receipt_path": ".flowguard/evidence/tests/TM27_ai_gateway.json",
+            "through_gate": "G8"
           },
           "model_obligation_ids": [
             "OB-AO-004"
           ],
-          "proof_artifact_ids": [],
+          "proof_artifact_ids": [
+            "evidence:A3_matters_ai_gateway_operation:291b87317551536e",
+            "artifact:run:TM27_ai_gateway:a1c457ecd8e5ef87",
+            "evidence:model-code-test-alignment:8ff13b9ed936187b",
+            "evidence:G8-fully-synthetic:9545f7fd2b98e390"
+          ],
           "risk_gate_ids": [
             "G6-ai-gateway-operation-contract",
-            "G9-synthetic-ai-gateway-matrix"
+            "G9-synthetic-ai-gateway-matrix",
+            "G8-fully-synthetic"
           ],
-          "test_evidence_ids": [],
+          "test_evidence_ids": [
+            "run:TM27_ai_gateway:a1c457ecd8e5ef87"
+          ],
           "test_mesh_state": "stale"
         },
         "excluded_behavior_ids": [],
@@ -5789,20 +5946,54 @@
           "business_intent": "",
           "business_intent_id": "BI-AO-004-use-matters-ai-information-map",
           "evidence_current": false,
-          "evidence_refs": [],
+          "evidence_refs": [
+            ".flowguard/evidence/tests/TM27_ai_gateway.json",
+            ".flowguard/evidence/alignment/model_code_test.json",
+            ".flowguard/evidence/synthetic/G8_fully_synthetic_end_to_end.json"
+          ],
           "fallback_candidate_ids": [],
           "metadata": {},
           "path_sensitive": true,
           "ppa_confidence": "blocked",
-          "ppa_coverage_receipt_ids": [],
-          "ppa_coverage_shard_ids": [],
+          "ppa_coverage_receipt_ids": [
+            "run:TM27_ai_gateway:a1c457ecd8e5ef87"
+          ],
+          "ppa_coverage_shard_ids": [
+            "TM27_ai_gateway"
+          ],
           "ppa_decision": "primary_path_authority_blocked",
           "ppa_ok": false,
-          "ppa_report_id": "",
-          "ppa_risk_gate_ids": [],
+          "ppa_report_id": "PPA-BC-AO-004-G8",
+          "ppa_risk_gate_ids": [
+            "authority",
+            "cartesian_coverage",
+            "G8-fully-synthetic"
+          ],
           "primary_path_id": "path:ao-matters-ai-gateway",
-          "proof_artifact_ids": [],
-          "runtime_observation_ids": [],
+          "proof_artifact_ids": [
+            "evidence:A3_matters_ai_gateway_operation:291b87317551536e",
+            "artifact:run:TM27_ai_gateway:a1c457ecd8e5ef87",
+            "evidence:model-code-test-alignment:8ff13b9ed936187b",
+            "evidence:G8-fully-synthetic:9545f7fd2b98e390"
+          ],
+          "runtime_observation_ids": [
+            "BO-TC-A3_matters_ai_gateway_operation-bounded_model_map_requested",
+            "BO-TC-A3_matters_ai_gateway_operation-bounded_model_map_requested-retry",
+            "BO-TC-A3_matters_ai_gateway_operation-bounded_situation_context_requested",
+            "BO-TC-A3_matters_ai_gateway_operation-bounded_situation_context_requested-retry",
+            "BO-TC-A3_matters_ai_gateway_operation-bounded_history_requested",
+            "BO-TC-A3_matters_ai_gateway_operation-bounded_history_requested-retry",
+            "BO-TC-A3_matters_ai_gateway_operation-user_observation_submitted",
+            "BO-TC-A3_matters_ai_gateway_operation-user_observation_submitted-retry",
+            "BO-TC-A3_matters_ai_gateway_operation-correction_prediction_feedback_or_model_miss_submitted",
+            "BO-TC-A3_matters_ai_gateway_operation-correction_prediction_feedback_or_model_miss_submitted-retry",
+            "BO-TC-A3_matters_ai_gateway_operation-researchguard_unavailable_for_mixed_context",
+            "BO-TC-A3_matters_ai_gateway_operation-researchguard_unavailable_for_mixed_context-retry",
+            "BO-TC-A3_matters_ai_gateway_operation-unauthorized_unbounded_or_unsupported_request",
+            "BO-TC-A3_matters_ai_gateway_operation-unauthorized_unbounded_or_unsupported_request-retry",
+            "BO-A3_matters_ai_gateway_operation-foreign_owner_write",
+            "BO-A3_matters_ai_gateway_operation-undeclared_provider_field"
+          ],
           "scoped_out_reason": "current autonomy revision requires fresh model, TestMesh, runtime, private-run, installed-desktop, and release evidence"
         },
         "preconditions": [],
@@ -5824,13 +6015,13 @@
           {
             "metadata": {},
             "rationale": "Bounded human-readable context is read from the C12 projection path.",
-            "relation_type": "requires_evidence_from",
+            "relation_type": "invokes",
             "target_commitment_id": "BC-PR-012"
           },
           {
             "metadata": {},
             "rationale": "Pending clues may be consumed by a later A2-owned maintenance run.",
-            "relation_type": "requires_evidence_from",
+            "relation_type": "invokes",
             "target_commitment_id": "BC-AO-003"
           }
         ],
@@ -5861,7 +6052,7 @@
         "variant_of_business_intent_id": ""
       }
     ],
-    "current_revision": "v0.3.0-matter-browser-semantic-reset-v8",
+    "current_revision": "v0.3.0-matter-browser-semantic-reset-v9",
     "expected_business_intent_ids": [
       "BI-PR-000-review-authorized-situation",
       "BI-PR-001-read-authorized-sources",
@@ -6319,7 +6510,7 @@
         "label": "Publication requirements in the privacy and release specification",
         "metadata": {},
         "owner": "OpenSpec",
-        "primary_path_id": "path:dpf-clean-source-release",
+        "primary_path_id": "path:dpf-generic-v030-release-before-private-first-run",
         "rationale": "This plane-specific projection keeps public release ownership separate from runtime storage behavior.",
         "scoped_out_reason": "",
         "similarity_obligation_ids": [],
@@ -6434,7 +6625,7 @@
         "label": "OpenSpec public release tasks",
         "metadata": {},
         "owner": "OpenSpec",
-        "primary_path_id": "path:dpf-clean-source-release",
+        "primary_path_id": "path:dpf-generic-v030-release-before-private-first-run",
         "rationale": "This task projection delegates only the clean-source release intent.",
         "scoped_out_reason": "",
         "similarity_obligation_ids": [],
@@ -6480,7 +6671,7 @@
         "label": "Public/private/vault and publication invalidation policy",
         "metadata": {},
         "owner": "matters-project-maintainer",
-        "primary_path_id": "path:dpf-clean-source-release",
+        "primary_path_id": "path:dpf-generic-v030-release-before-private-first-run",
         "rationale": "This is a release promise surface and delegates to the single clean-source release path.",
         "scoped_out_reason": "",
         "similarity_obligation_ids": [],

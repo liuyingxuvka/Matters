@@ -55,6 +55,8 @@ POSIX_HOME_PATTERN = re.compile(
     r"(?i)(?:file:(?:/{1,3})?)?/(?:home|Users)/[^/\s\"'<>]+"
 )
 PORTABLE_ROOT = "repo://"
+DESKTOP_LARGE_BINARY_SUFFIXES = frozenset({".dll", ".exe", ".pyd"})
+PYWEBVIEW_PORTABLE_HOME_EXAMPLE = "/" + "home" + "/" + "user/file.txt"
 BACKSLASH_ESCAPE_PATTERN = re.compile(
     r"\\(?:u(?P<unicode>[0-9a-fA-F]{4})|x(?P<hex>[0-9a-fA-F]{2})|"
     r"(?P<simple>[\\/\"]|[bfnrt]))"
@@ -381,13 +383,30 @@ def _archive_inventory(path: Path) -> tuple[str, tuple[str, ...]]:
             ]
             if links:
                 raise ValueError("package archive contains a symbolic link")
-            return "wheel", tuple(
+            observed = tuple(
                 sorted(
                     row.filename.replace("\\", "/")
                     for row in archive.infolist()
                     if not row.is_dir()
                 )
             )
+            if path.suffix.casefold() == ".whl":
+                return "wheel", observed
+            desktop_signature = (
+                path.name.startswith("Matters-")
+                and path.name.endswith("-windows-x64.zip")
+            ) or any(
+                name == "Matters/Matters.exe"
+                or name in {
+                    "desktop-build-toolchain.json",
+                    "desktop-manifest.json",
+                }
+                or name.startswith("Matters/")
+                for name in observed
+            )
+            if desktop_signature:
+                return "desktop", observed
+            raise ValueError("unsupported ZIP package artifact")
     if suffixes.endswith(".tar.gz") or path.suffix.casefold() == ".tar":
         with tarfile.open(path) as archive:
             members = archive.getmembers()
@@ -412,6 +431,7 @@ def _archive_inventory(path: Path) -> tuple[str, tuple[str, ...]]:
 def _scan_archive_text(
     path: Path,
     *,
+    kind: str,
     private_roots: tuple[tuple[str, Path], ...],
     max_bytes: int,
 ) -> list[dict[str, str]]:
@@ -428,7 +448,11 @@ def _scan_archive_text(
             private_roots,
         )
         findings.extend(name_findings)
-        if size > max_bytes:
+        large_desktop_binary = (
+            kind == "desktop"
+            and Path(relative).suffix.casefold() in DESKTOP_LARGE_BINARY_SUFFIXES
+        )
+        if size > max_bytes and not large_desktop_binary:
             findings.append(
                 {
                     "code": "package_file_too_large",
@@ -445,9 +469,37 @@ def _scan_archive_text(
             text = content.decode("utf-8")
         except UnicodeDecodeError:
             return
+        scan_text = text
+        if (
+            kind == "desktop"
+            and relative.startswith("Matters/_internal/")
+            and relative.casefold().endswith(".dist-info/metadata")
+            and not re.match(
+                r"^Matters/_internal/matters-[^/]+\.dist-info/METADATA$",
+                relative,
+                flags=re.IGNORECASE,
+            )
+        ):
+            # Dependency metadata owns public maintainer contact addresses.
+            # Strip only those RFC822 header rows; every other path, address,
+            # secret, and identifier remains inside the fail-closed scan.
+            scan_text = re.sub(
+                r"(?im)^(?:author-email|maintainer-email):[^\r\n]*(?:\r?\n|$)",
+                "",
+                scan_text,
+            )
+        if relative.casefold().endswith(
+            "matters/_internal/webview/platforms/gtk.py"
+        ):
+            # pywebview documents two portable, non-identity examples. This
+            # narrow literal exemption must not admit another /home path.
+            scan_text = scan_text.replace(
+                PYWEBVIEW_PORTABLE_HOME_EXAMPLE,
+                "portable-example",
+            )
         for row in _scan_text(
             portable,
-            text,
+            scan_text,
             Path(relative).suffix.casefold(),
             private_roots,
         ):
@@ -545,6 +597,102 @@ def _wheel_generated_metadata_paths(observed: Iterable[str]) -> tuple[str, ...]:
     )
 
 
+def _sha256_identity(value: bytes) -> str:
+    return "sha256:" + hashlib.sha256(value).hexdigest()
+
+
+def _desktop_archive_errors(
+    artifact: Path,
+    observed: Iterable[str],
+) -> tuple[str, ...]:
+    observed_set = set(observed)
+    required = {
+        "Matters/Matters.exe",
+        "desktop-build-toolchain.json",
+        "desktop-manifest.json",
+    }
+    if not required <= observed_set:
+        return ()
+    errors: list[str] = []
+    with zipfile.ZipFile(artifact) as archive:
+        try:
+            manifest = json.loads(archive.read("desktop-manifest.json"))
+        except (json.JSONDecodeError, UnicodeDecodeError, KeyError):
+            return ("desktop_manifest_invalid_json",)
+        if not isinstance(manifest, dict):
+            return ("desktop_manifest_invalid_shape",)
+        fingerprint = manifest.get("manifest_fingerprint")
+        fingerprint_payload = {
+            key: value
+            for key, value in manifest.items()
+            if key != "manifest_fingerprint"
+        }
+        expected_fingerprint = _sha256_identity(
+            json.dumps(
+                fingerprint_payload,
+                sort_keys=True,
+                separators=(",", ":"),
+                ensure_ascii=True,
+            ).encode("utf-8")
+        )
+        if fingerprint != expected_fingerprint:
+            errors.append("desktop_manifest_fingerprint_stale")
+        if manifest.get("application_id") != "matters.desktop":
+            errors.append("desktop_application_identity_invalid")
+        if manifest.get("shell_kind") != "packaged_windows_webview":
+            errors.append("desktop_shell_kind_invalid")
+        locales = manifest.get("available_locales")
+        if (
+            not isinstance(locales, list)
+            or any(not isinstance(item, str) for item in locales)
+            or not {"en", "zh-CN"} <= set(locales)
+        ):
+            errors.append("desktop_required_locales_missing")
+        for flag in (
+            "loopback_only",
+            "owns_application_window",
+            "packaged_ui",
+            "private_shell_profile",
+            "persists_locale_density_window_state",
+            "startup_health_gate",
+            "in_shell_recovery_surface",
+            "clean_owned_process_shutdown",
+        ):
+            if manifest.get(flag) is not True:
+                errors.append(f"desktop_{flag}_missing")
+        version = manifest.get("matters_version")
+        if (
+            not isinstance(version, str)
+            or artifact.name != f"Matters-{version}-windows-x64.zip"
+        ):
+            errors.append("desktop_archive_version_identity_mismatch")
+
+        package_rows: list[str] = []
+        for name in sorted(
+            path for path in observed_set if path.startswith("Matters/")
+        ):
+            relative = name.removeprefix("Matters/")
+            package_rows.append(
+                f"{relative}\t{hashlib.sha256(archive.read(name)).hexdigest()}"
+            )
+        package_sha256 = _sha256_identity(
+            "\n".join(package_rows).encode("utf-8")
+        )
+        if manifest.get("package_sha256") != package_sha256:
+            errors.append("desktop_package_sha256_stale")
+        executable_sha256 = _sha256_identity(
+            archive.read("Matters/Matters.exe")
+        )
+        if manifest.get("executable_sha256") != executable_sha256:
+            errors.append("desktop_executable_sha256_stale")
+        toolchain_sha256 = _sha256_identity(
+            archive.read("desktop-build-toolchain.json")
+        )
+        if manifest.get("build_toolchain_sha256") != toolchain_sha256:
+            errors.append("desktop_build_toolchain_sha256_stale")
+    return tuple(sorted(set(errors)))
+
+
 def _package_comparison(
     required: tuple[str, ...],
     inventory: dict[str, Any],
@@ -573,7 +721,7 @@ def _package_comparison(
                 *expected,
                 *_wheel_generated_metadata_paths(observed),
             }
-        else:
+        elif kind == "sdist":
             expected = tuple(
                 path
                 for path in required
@@ -585,6 +733,34 @@ def _package_comparison(
                 "setup.cfg",
                 "src/matters.egg-info/SOURCES.txt",
             }
+        else:
+            expected = (
+                "Matters/Matters.exe",
+                "desktop-build-toolchain.json",
+                "desktop-manifest.json",
+            )
+            allowed = {
+                path
+                for path in observed
+                if path.startswith("Matters/")
+            } | {
+                "desktop-build-toolchain.json",
+                "desktop-manifest.json",
+            }
+            desktop_forbidden = sorted(
+                path
+                for path in observed
+                if (
+                    path == "desktop-self-test.json"
+                    or Path(path).name.casefold() == "direct_url.json"
+                )
+            )
+            if desktop_forbidden:
+                package_errors = tuple(
+                    f"private_desktop_build_artifact:{path}"
+                    for path in desktop_forbidden
+                )
+            package_errors += _desktop_archive_errors(artifact, observed)
         missing = sorted(set(expected) - set(observed))
         unexpected = sorted(set(observed) - allowed)
         forbidden_payload = sorted(
@@ -592,6 +768,7 @@ def _package_comparison(
         )
         artifact_findings = _scan_archive_text(
             artifact,
+            kind=kind,
             private_roots=private_roots,
             max_bytes=max_bytes,
         )
