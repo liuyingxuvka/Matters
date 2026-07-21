@@ -1,6 +1,6 @@
 {
   "artifact_type": "matters.test-suite-receipt.v1",
-  "generated_at": "2026-07-21T23:02:06.380061+00:00",
+  "generated_at": "2026-07-21T23:38:17.083049+00:00",
   "pytest_observation": {
     "errors": 0,
     "failed": 0,
@@ -172,7 +172,7 @@
         "src/matters/application/source_workflows.py": "sha256:5e3b75101cba505bdd3db3d09aa2e0914dbeb66b4e08db29fbc02e10412e9c3a",
         "tests/test_maintenance_orchestration.py": "sha256:ec1c37b241c5fccdfe79e875079690f7926cc4078343b308b21921fff862f0cd"
       },
-      "artifact_id": "artifact:run:TM26_maintenance_orchestrator:299e5cdc26a94be4",
+      "artifact_id": "artifact:run:TM26_maintenance_orchestrator:a03d16432f55dd7d",
       "assertion_scope": "external_contract",
       "command": "python -m pytest -q -o addopts= tests/test_maintenance_orchestration.py",
       "covered_obligation_ids": [
@@ -223,7 +223,7 @@
       ],
       "current": true,
       "exit_code": 0,
-      "finished_at": "2026-07-21T23:02:06.380061+00:00",
+      "finished_at": "2026-07-21T23:38:17.083049+00:00",
       "metadata": {},
       "producer_route": "test_mesh",
       "progress_only": false,
@@ -232,7 +232,7 @@
       "route_evidence_current": true,
       "route_gap_codes": [],
       "stale_reasons": [],
-      "started_at": "2026-07-21T23:02:05.210561+00:00"
+      "started_at": "2026-07-21T23:38:15.912955+00:00"
     },
     "release_required": false,
     "result_fingerprint": "sha256:4f0c6ad5bdde7eb52bf144fc9bae09705e29eef174e491b57183555d2c95b475",
@@ -240,7 +240,7 @@
     "result_reused": false,
     "result_status": "passed",
     "reuse_ticket": null,
-    "run_id": "run:TM26_maintenance_orchestrator:299e5cdc26a94be4",
+    "run_id": "run:TM26_maintenance_orchestrator:a03d16432f55dd7d",
     "selected_count": 17,
     "skipped_count": 0,
     "skipped_visible": true,

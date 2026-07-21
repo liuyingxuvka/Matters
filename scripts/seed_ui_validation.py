@@ -243,7 +243,10 @@ def seed(target: Path, *, count: int = 230) -> dict[str, object]:
         },
         evidence_ids=("evidence:ui-validation:229",),
         planned_start="2026-12-30T09:00:00Z",
-        required_for_parent=True,
+        # The public runtime must exercise the Matter-only hierarchy branch.
+        # Work items remain readable inside the Matter but do not become graph
+        # nodes that suppress the real child Matter.
+        required_for_parent=False,
         freshness="current",
     )
     if service.activity is None:

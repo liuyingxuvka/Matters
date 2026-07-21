@@ -1,6 +1,6 @@
 {
   "artifact_type": "matters.test-suite-receipt.v1",
-  "generated_at": "2026-07-21T22:59:58.634708+00:00",
+  "generated_at": "2026-07-21T23:36:12.476056+00:00",
   "pytest_observation": {
     "errors": 0,
     "failed": 0,
@@ -170,7 +170,7 @@
     "tests/test_entrypoint_real_service.py"
   ],
   "stderr_tail": "",
-  "stdout_tail": "........................................................................ [ 87%]\n..........                                                               [100%]\n82 passed in 16.95s\n",
+  "stdout_tail": "........................................................................ [ 87%]\n..........                                                               [100%]\n82 passed in 16.60s\n",
   "suite_id": "TM14_end_to_end_conformance",
   "test_suite_evidence": {
     "artifact_version": "matters.test-suite-receipt.v1",
@@ -814,7 +814,7 @@
         "tests/test_entrypoint_real_service.py": "sha256:4024e0d8e6ef4b952fd7f4caa376485d1ce8d95101454fa509f1a090d7152eb2",
         "tests/test_tm14_end_to_end_conformance.py": "sha256:40cb76e5c96bf385559f5daa7f4892d20189604798857e6192cd88a4a5d5ab7f"
       },
-      "artifact_id": "artifact:run:TM14_end_to_end_conformance:1e5f8004b466ab98",
+      "artifact_id": "artifact:run:TM14_end_to_end_conformance:702b29ac15ebe625",
       "assertion_scope": "external_contract",
       "command": "python -m pytest -q -o addopts= tests/test_tm14_end_to_end_conformance.py tests/test_entrypoint_cli.py tests/test_entrypoint_http.py tests/test_entrypoint_mcp.py tests/test_entrypoint_real_service.py",
       "covered_obligation_ids": [
@@ -1109,7 +1109,7 @@
       ],
       "current": true,
       "exit_code": 0,
-      "finished_at": "2026-07-21T22:59:58.634708+00:00",
+      "finished_at": "2026-07-21T23:36:12.476056+00:00",
       "metadata": {},
       "producer_route": "test_mesh",
       "progress_only": false,
@@ -1118,7 +1118,7 @@
       "route_evidence_current": true,
       "route_gap_codes": [],
       "stale_reasons": [],
-      "started_at": "2026-07-21T22:59:40.376711+00:00"
+      "started_at": "2026-07-21T23:35:54.782342+00:00"
     },
     "release_required": false,
     "result_fingerprint": "sha256:f1eba524777614300a54d59a5f0082373db73b5c0eec0d83f5f51fe84ce0ac34",
@@ -1126,7 +1126,7 @@
     "result_reused": false,
     "result_status": "passed",
     "reuse_ticket": null,
-    "run_id": "run:TM14_end_to_end_conformance:1e5f8004b466ab98",
+    "run_id": "run:TM14_end_to_end_conformance:702b29ac15ebe625",
     "selected_count": 82,
     "skipped_count": 0,
     "skipped_visible": true,

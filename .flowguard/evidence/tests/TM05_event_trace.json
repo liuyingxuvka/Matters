@@ -1,6 +1,6 @@
 {
   "artifact_type": "matters.test-suite-receipt.v1",
-  "generated_at": "2026-07-21T22:55:41.277607+00:00",
+  "generated_at": "2026-07-21T23:32:22.289426+00:00",
   "pytest_observation": {
     "errors": 0,
     "failed": 0,
@@ -26,7 +26,7 @@
     "tests/test_start_boundary.py"
   ],
   "stderr_tail": "",
-  "stdout_tail": "...........................                                              [100%]\n27 passed in 0.36s\n",
+  "stdout_tail": "...........................                                              [100%]\n27 passed in 0.35s\n",
   "suite_id": "TM05_event_trace",
   "test_suite_evidence": {
     "artifact_version": "matters.test-suite-receipt.v1",
@@ -316,7 +316,7 @@
         "tests/test_start_boundary.py": "sha256:191553d01fb800b505518cdcee5afc5ccdf12354cde1dd1d046dcf0aaad0c3f9",
         "tests/test_tm05_event_trace.py": "sha256:7aa0e5fdb156a2a014ebd49938caf7e68304960e5b16532af76901cebf44299a"
       },
-      "artifact_id": "artifact:run:TM05_event_trace:9f16a75c80ce08ad",
+      "artifact_id": "artifact:run:TM05_event_trace:f4e934f2cb1480a8",
       "assertion_scope": "external_contract",
       "command": "python -m pytest -q -o addopts= tests/test_tm05_event_trace.py tests/test_matter_activity.py tests/test_start_boundary.py",
       "covered_obligation_ids": [
@@ -483,7 +483,7 @@
       ],
       "current": true,
       "exit_code": 0,
-      "finished_at": "2026-07-21T22:55:41.277607+00:00",
+      "finished_at": "2026-07-21T23:32:22.289426+00:00",
       "metadata": {},
       "producer_route": "test_mesh",
       "progress_only": false,
@@ -492,7 +492,7 @@
       "route_evidence_current": true,
       "route_gap_codes": [],
       "stale_reasons": [],
-      "started_at": "2026-07-21T22:55:39.788044+00:00"
+      "started_at": "2026-07-21T23:32:20.963612+00:00"
     },
     "release_required": false,
     "result_fingerprint": "sha256:09b2bde9abf91f90d39a7d7f8e649a0dd54ce0da2cca7d51bf1de90b78315bb6",
@@ -500,7 +500,7 @@
     "result_reused": false,
     "result_status": "passed",
     "reuse_ticket": null,
-    "run_id": "run:TM05_event_trace:9f16a75c80ce08ad",
+    "run_id": "run:TM05_event_trace:f4e934f2cb1480a8",
     "selected_count": 27,
     "skipped_count": 0,
     "skipped_visible": true,

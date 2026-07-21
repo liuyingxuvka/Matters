@@ -1,6 +1,6 @@
 {
   "artifact_type": "matters.test-suite-receipt.v1",
-  "generated_at": "2026-07-21T22:59:37.166036+00:00",
+  "generated_at": "2026-07-21T23:35:51.005048+00:00",
   "pytest_observation": {
     "errors": 0,
     "failed": 0,
@@ -43,7 +43,7 @@
     "tests/test_source_group_projection.py"
   ],
   "stderr_tail": "",
-  "stdout_tail": "....................................................                     [100%]\n52 passed in 49.24s\n",
+  "stdout_tail": "....................................................                     [100%]\n52 passed in 45.22s\n",
   "suite_id": "TM12_projection_bilingual_ui",
   "test_suite_evidence": {
     "artifact_version": "matters.test-suite-receipt.v1",
@@ -686,7 +686,7 @@
         "ui/index.html": "sha256:5125b7f80c72b6569e3004aab029717dd909c7360c61d30623e6b912db161e07",
         "ui/styles.css": "sha256:25ee970de143ea0d568875d3d416b78157afe767f9b7486bbcb88c4a0a8151bf"
       },
-      "artifact_id": "artifact:run:TM12_projection_bilingual_ui:cc7bd5877a7edb53",
+      "artifact_id": "artifact:run:TM12_projection_bilingual_ui:95377358d20a116c",
       "assertion_scope": "external_contract",
       "command": "python -m pytest -q -o addopts= tests/test_tm12_projection_bilingual_ui.py tests/test_matter_presentation_reconciliation.py tests/test_object_browser_autonomy.py tests/test_object_browser_catalog_query.py tests/test_semantic_data_layer_projection.py tests/test_source_group_projection.py",
       "covered_obligation_ids": [
@@ -1066,7 +1066,7 @@
       ],
       "current": true,
       "exit_code": 0,
-      "finished_at": "2026-07-21T22:59:37.166036+00:00",
+      "finished_at": "2026-07-21T23:35:51.005048+00:00",
       "metadata": {},
       "producer_route": "test_mesh",
       "progress_only": false,
@@ -1075,7 +1075,7 @@
       "route_evidence_current": true,
       "route_gap_codes": [],
       "stale_reasons": [],
-      "started_at": "2026-07-21T22:58:46.426472+00:00"
+      "started_at": "2026-07-21T23:35:04.475335+00:00"
     },
     "release_required": false,
     "result_fingerprint": "sha256:fbb3112513804a3d61fedb1b86880cb7028d9f5086bb949b9210d87bf86444ec",
@@ -1083,7 +1083,7 @@
     "result_reused": false,
     "result_status": "passed",
     "reuse_ticket": null,
-    "run_id": "run:TM12_projection_bilingual_ui:cc7bd5877a7edb53",
+    "run_id": "run:TM12_projection_bilingual_ui:95377358d20a116c",
     "selected_count": 52,
     "skipped_count": 0,
     "skipped_visible": true,

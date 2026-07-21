@@ -1,11 +1,38 @@
 {
   "artifact_type": "matters.test-mesh-receipt.v1",
-  "claim_boundary": "Frozen release evidence covers TM01-TM27, including the release-only TM19 clean-install suite. It proves the declared synthetic, package, installation, skill-runtime, privacy, and UI test inventory only; it does not claim complete private semantic coverage.",
-  "deferred_suite_ids": [],
-  "executed_suite_ids": [
+  "claim_boundary": "Routine evidence covers TM01-TM18 and autonomous operation, coverage, generated-hero, desktop, research, daily-maintenance, maintenance-orchestration, and AI-gateway owners TM20-TM27. TM19 remains release-only until the frozen G12 candidate.",
+  "deferred_suite_ids": [
     "TM19_clean_install_release"
   ],
-  "generated_at": "2026-07-21T23:05:09.387391+00:00",
+  "executed_suite_ids": [
+    "TM01_authorization_coverage",
+    "TM02_source_registry",
+    "TM03_evidence_qualification",
+    "TM04_identity_resolution",
+    "TM05_event_trace",
+    "TM06_matter_admission",
+    "TM07_lifecycle_board_state",
+    "TM08_open_loop_blocking",
+    "TM09_completion_reopen",
+    "TM10_correction_invalidation",
+    "TM11_guard_prediction_boundary",
+    "TM12_projection_bilingual_ui",
+    "TM13_model_mesh_closure",
+    "TM14_end_to_end_conformance",
+    "TM15_connector_pagination_retry",
+    "TM16_bilingual_semantic_equivalence",
+    "TM17_revocation_full_propagation",
+    "TM18_privacy_public_boundary",
+    "TM20_autonomous_owner_dispatch",
+    "TM21_object_coverage_worker",
+    "TM22_generated_hero",
+    "TM23_desktop_object_browser",
+    "TM24_research_operation",
+    "TM25_daily_codex_maintenance",
+    "TM26_maintenance_orchestrator",
+    "TM27_ai_gateway"
+  ],
+  "generated_at": "2026-07-21T23:38:18.808938+00:00",
   "inventory_revision": "g4-testmesh-v18-release-candidate-closure",
   "native_report": {
     "covered_inventory_item_ids": [
@@ -574,7 +601,7 @@
             "tests/test_partitioned_filesystem_runner.py": "sha256:7a43e08bcfddaa8e49370a7420a75dc199b19b02b5f5e468ec95b849c976a65d",
             "tests/test_tm01_authorization_coverage.py": "sha256:2a4e1885ced2cf38dbfcb16a3cdede6bcc1703ec4a5f316e06a0f306f43c2131"
           },
-          "artifact_id": "artifact:run:TM01_authorization_coverage:aa401f4e31e25f6b",
+          "artifact_id": "artifact:run:TM01_authorization_coverage:48b228e313d56ddb",
           "assertion_scope": "external_contract",
           "command": "python -m pytest -q -o addopts= tests/test_tm01_authorization_coverage.py tests/test_current_scope_reconciliation.py tests/test_inventory_policy_rebase.py tests/test_partitioned_filesystem_runner.py",
           "covered_obligation_ids": [
@@ -844,7 +871,7 @@
           ],
           "current": true,
           "exit_code": 0,
-          "finished_at": "2026-07-21T22:55:30.565374+00:00",
+          "finished_at": "2026-07-21T23:32:15.087273+00:00",
           "metadata": {},
           "producer_route": "test_mesh",
           "progress_only": false,
@@ -853,7 +880,7 @@
           "route_evidence_current": true,
           "route_gap_codes": [],
           "stale_reasons": [],
-          "started_at": "2026-07-21T22:54:50.014362+00:00"
+          "started_at": "2026-07-21T23:31:40.535282+00:00"
         },
         "release_required": false,
         "result_fingerprint": "sha256:647b6ce2860d2e594132683840e95e4cd9bf1183162d6f296e6036fe706e65b8",
@@ -861,7 +888,7 @@
         "result_reused": false,
         "result_status": "passed",
         "reuse_ticket": null,
-        "run_id": "run:TM01_authorization_coverage:aa401f4e31e25f6b",
+        "run_id": "run:TM01_authorization_coverage:48b228e313d56ddb",
         "selected_count": 28,
         "skipped_count": 0,
         "skipped_visible": true,
@@ -1203,7 +1230,7 @@
             "tests/test_source_in_place_storage_policy.py": "sha256:3a87bb2550bdbf1c431102e79645e00d13cdd5104ba71689a82137174adba375",
             "tests/test_tm02_source_registry.py": "sha256:b5edd8712b898bfaeef9e9eee472e477443fdc76ef3a06c79a2aba7f88e70ea1"
           },
-          "artifact_id": "artifact:run:TM02_source_registry:15e2d57861f0549f",
+          "artifact_id": "artifact:run:TM02_source_registry:2b94fa3870903cd9",
           "assertion_scope": "external_contract",
           "command": "python -m pytest -q -o addopts= tests/test_tm02_source_registry.py tests/test_source_group_service.py tests/test_source_in_place_migration.py tests/test_source_in_place_storage_policy.py",
           "covered_obligation_ids": [
@@ -1383,7 +1410,7 @@
           ],
           "current": true,
           "exit_code": 0,
-          "finished_at": "2026-07-21T22:55:37.151213+00:00",
+          "finished_at": "2026-07-21T23:32:18.170160+00:00",
           "metadata": {},
           "producer_route": "test_mesh",
           "progress_only": false,
@@ -1392,7 +1419,7 @@
           "route_evidence_current": true,
           "route_gap_codes": [],
           "stale_reasons": [],
-          "started_at": "2026-07-21T22:55:30.635374+00:00"
+          "started_at": "2026-07-21T23:32:15.430326+00:00"
         },
         "release_required": false,
         "result_fingerprint": "sha256:5b162ae98df351f29954f27fbed51de2cdffcad752175b47fefa83b6d9678e7d",
@@ -1400,7 +1427,7 @@
         "result_reused": false,
         "result_status": "passed",
         "reuse_ticket": null,
-        "run_id": "run:TM02_source_registry:15e2d57861f0549f",
+        "run_id": "run:TM02_source_registry:2b94fa3870903cd9",
         "selected_count": 21,
         "skipped_count": 0,
         "skipped_visible": true,
@@ -1606,7 +1633,7 @@
             "tests/test_source_image_adapters.py": "sha256:4938f653c617f5cce35969248c7d6d73acbbdcbea4cdeeeb8e03695c6fd4e8ef",
             "tests/test_tm03_evidence_qualification.py": "sha256:78d6952ea40bd4a6042360213a28c120b511f0b49699946767cef4e6f5f9659a"
           },
-          "artifact_id": "artifact:run:TM03_evidence_qualification:7719c47452cd7871",
+          "artifact_id": "artifact:run:TM03_evidence_qualification:cc10537e862a1dd0",
           "assertion_scope": "external_contract",
           "command": "python -m pytest -q -o addopts= tests/test_tm03_evidence_qualification.py tests/test_source_document_adapters.py tests/test_source_image_adapters.py",
           "covered_obligation_ids": [
@@ -1713,7 +1740,7 @@
           ],
           "current": true,
           "exit_code": 0,
-          "finished_at": "2026-07-21T22:55:38.556933+00:00",
+          "finished_at": "2026-07-21T23:32:19.744320+00:00",
           "metadata": {},
           "producer_route": "test_mesh",
           "progress_only": false,
@@ -1722,7 +1749,7 @@
           "route_evidence_current": true,
           "route_gap_codes": [],
           "stale_reasons": [],
-          "started_at": "2026-07-21T22:55:37.206739+00:00"
+          "started_at": "2026-07-21T23:32:18.336225+00:00"
         },
         "release_required": false,
         "result_fingerprint": "sha256:74a92d280eb3a266af13354c79ed5021a6278a6658bbe8195395b3800f12ed3f",
@@ -1730,7 +1757,7 @@
         "result_reused": false,
         "result_status": "passed",
         "reuse_ticket": null,
-        "run_id": "run:TM03_evidence_qualification:7719c47452cd7871",
+        "run_id": "run:TM03_evidence_qualification:cc10537e862a1dd0",
         "selected_count": 9,
         "skipped_count": 0,
         "skipped_visible": true,
@@ -1829,7 +1856,7 @@
             "src/matters/identity/roles.py": "sha256:34732a96eaf3fde0c68c3440e14f7582d5044995f8d11116306db5b3c6cf9a00",
             "tests/test_tm04_identity_resolution.py": "sha256:6d105eacf1960e3a7215c4f0afd1f9da81635bd4dc25fea0503b4c825e1d3cbd"
           },
-          "artifact_id": "artifact:run:TM04_identity_resolution:2d3f82959f43eac7",
+          "artifact_id": "artifact:run:TM04_identity_resolution:ee70c645ed3216ff",
           "assertion_scope": "external_contract",
           "command": "python -m pytest -q -o addopts= tests/test_tm04_identity_resolution.py",
           "covered_obligation_ids": [
@@ -1868,7 +1895,7 @@
           ],
           "current": true,
           "exit_code": 0,
-          "finished_at": "2026-07-21T22:55:39.735938+00:00",
+          "finished_at": "2026-07-21T23:32:20.873088+00:00",
           "metadata": {},
           "producer_route": "test_mesh",
           "progress_only": false,
@@ -1877,7 +1904,7 @@
           "route_evidence_current": true,
           "route_gap_codes": [],
           "stale_reasons": [],
-          "started_at": "2026-07-21T22:55:38.600438+00:00"
+          "started_at": "2026-07-21T23:32:19.817845+00:00"
         },
         "release_required": false,
         "result_fingerprint": "sha256:ddb68fb9614c40e641574fbf970ddcc19f5c80af3ab17e8a38952398d196d7e0",
@@ -1885,7 +1912,7 @@
         "result_reused": false,
         "result_status": "passed",
         "reuse_ticket": null,
-        "run_id": "run:TM04_identity_resolution:2d3f82959f43eac7",
+        "run_id": "run:TM04_identity_resolution:ee70c645ed3216ff",
         "selected_count": 1,
         "skipped_count": 0,
         "skipped_visible": true,
@@ -2184,7 +2211,7 @@
             "tests/test_start_boundary.py": "sha256:191553d01fb800b505518cdcee5afc5ccdf12354cde1dd1d046dcf0aaad0c3f9",
             "tests/test_tm05_event_trace.py": "sha256:7aa0e5fdb156a2a014ebd49938caf7e68304960e5b16532af76901cebf44299a"
           },
-          "artifact_id": "artifact:run:TM05_event_trace:9f16a75c80ce08ad",
+          "artifact_id": "artifact:run:TM05_event_trace:f4e934f2cb1480a8",
           "assertion_scope": "external_contract",
           "command": "python -m pytest -q -o addopts= tests/test_tm05_event_trace.py tests/test_matter_activity.py tests/test_start_boundary.py",
           "covered_obligation_ids": [
@@ -2351,7 +2378,7 @@
           ],
           "current": true,
           "exit_code": 0,
-          "finished_at": "2026-07-21T22:55:41.277607+00:00",
+          "finished_at": "2026-07-21T23:32:22.289426+00:00",
           "metadata": {},
           "producer_route": "test_mesh",
           "progress_only": false,
@@ -2360,7 +2387,7 @@
           "route_evidence_current": true,
           "route_gap_codes": [],
           "stale_reasons": [],
-          "started_at": "2026-07-21T22:55:39.788044+00:00"
+          "started_at": "2026-07-21T23:32:20.963612+00:00"
         },
         "release_required": false,
         "result_fingerprint": "sha256:09b2bde9abf91f90d39a7d7f8e649a0dd54ce0da2cca7d51bf1de90b78315bb6",
@@ -2368,7 +2395,7 @@
         "result_reused": false,
         "result_status": "passed",
         "reuse_ticket": null,
-        "run_id": "run:TM05_event_trace:9f16a75c80ce08ad",
+        "run_id": "run:TM05_event_trace:f4e934f2cb1480a8",
         "selected_count": 27,
         "skipped_count": 0,
         "skipped_visible": true,
@@ -2862,7 +2889,7 @@
             "tests/test_source_revision_reconciliation.py": "sha256:28957133b799278e6f5ff123a9ca24b98ca9e5bcde0f11bd3616b1801cb3f5a5",
             "tests/test_tm06_matter_admission.py": "sha256:720a8f2f7b18714393dc5c39eb3d4407f69b9b8613f77b0d8fed8729b60c28b5"
           },
-          "artifact_id": "artifact:run:TM06_matter_admission:ab3cede3850e505a",
+          "artifact_id": "artifact:run:TM06_matter_admission:0e592d5d51a111eb",
           "assertion_scope": "external_contract",
           "command": "python -m pytest -q -o addopts= tests/test_tm06_matter_admission.py tests/test_matter_hierarchy.py tests/test_matter_hierarchy_stress.py tests/test_matter_reconciliation.py tests/test_situation_graph.py tests/test_source_revision_reconciliation.py",
           "covered_obligation_ids": [
@@ -3158,7 +3185,7 @@
           ],
           "current": true,
           "exit_code": 0,
-          "finished_at": "2026-07-21T22:58:35.025267+00:00",
+          "finished_at": "2026-07-21T23:34:52.671443+00:00",
           "metadata": {},
           "producer_route": "test_mesh",
           "progress_only": false,
@@ -3167,7 +3194,7 @@
           "route_evidence_current": true,
           "route_gap_codes": [],
           "stale_reasons": [],
-          "started_at": "2026-07-21T22:55:41.329077+00:00"
+          "started_at": "2026-07-21T23:32:22.413983+00:00"
         },
         "release_required": false,
         "result_fingerprint": "sha256:65d6372ac458aca5897292c7a0f26f3ef4ad17f1ba7c765791c3c9c1c95ea4ce",
@@ -3175,7 +3202,7 @@
         "result_reused": false,
         "result_status": "passed",
         "reuse_ticket": null,
-        "run_id": "run:TM06_matter_admission:ab3cede3850e505a",
+        "run_id": "run:TM06_matter_admission:0e592d5d51a111eb",
         "selected_count": 77,
         "skipped_count": 0,
         "skipped_visible": true,
@@ -3355,7 +3382,7 @@
             "src/matters/state/outcomes.py": "sha256:943cc94caa63efc997641331f1e887b47da7332281936db1bf7625ddc2480b22",
             "tests/test_tm07_lifecycle_board_state.py": "sha256:9c616d974098bfc1e2c33219b5af7acfbfd529e4201ca914635c671d80ba5963"
           },
-          "artifact_id": "artifact:run:TM07_lifecycle_board_state:7da79f42c9505265",
+          "artifact_id": "artifact:run:TM07_lifecycle_board_state:6d01ae3046be5c1a",
           "assertion_scope": "external_contract",
           "command": "python -m pytest -q -o addopts= tests/test_tm07_lifecycle_board_state.py",
           "covered_obligation_ids": [
@@ -3442,7 +3469,7 @@
           ],
           "current": true,
           "exit_code": 0,
-          "finished_at": "2026-07-21T22:58:36.247449+00:00",
+          "finished_at": "2026-07-21T23:34:54.092332+00:00",
           "metadata": {},
           "producer_route": "test_mesh",
           "progress_only": false,
@@ -3451,7 +3478,7 @@
           "route_evidence_current": true,
           "route_gap_codes": [],
           "stale_reasons": [],
-          "started_at": "2026-07-21T22:58:35.083535+00:00"
+          "started_at": "2026-07-21T23:34:52.906006+00:00"
         },
         "release_required": false,
         "result_fingerprint": "sha256:1c3240773aaf40f8496284fc05c1b560b90a32e9f6ecf97f6c398e339ceed2bd",
@@ -3459,7 +3486,7 @@
         "result_reused": false,
         "result_status": "passed",
         "reuse_ticket": null,
-        "run_id": "run:TM07_lifecycle_board_state:7da79f42c9505265",
+        "run_id": "run:TM07_lifecycle_board_state:6d01ae3046be5c1a",
         "selected_count": 4,
         "skipped_count": 0,
         "skipped_visible": true,
@@ -3597,7 +3624,7 @@
             "src/matters/state/outcomes.py": "sha256:943cc94caa63efc997641331f1e887b47da7332281936db1bf7625ddc2480b22",
             "tests/test_tm08_open_loop_blocking.py": "sha256:bbcc7d322e0fc8b383aaa8c891ea9db8d6aaf21caf1e8182f4330db31689749e"
           },
-          "artifact_id": "artifact:run:TM08_open_loop_blocking:66cd9305074eec3d",
+          "artifact_id": "artifact:run:TM08_open_loop_blocking:20217a67870cbf8e",
           "assertion_scope": "external_contract",
           "command": "python -m pytest -q -o addopts= tests/test_tm08_open_loop_blocking.py",
           "covered_obligation_ids": [
@@ -3660,7 +3687,7 @@
           ],
           "current": true,
           "exit_code": 0,
-          "finished_at": "2026-07-21T22:58:37.339670+00:00",
+          "finished_at": "2026-07-21T23:34:55.326725+00:00",
           "metadata": {},
           "producer_route": "test_mesh",
           "progress_only": false,
@@ -3669,7 +3696,7 @@
           "route_evidence_current": true,
           "route_gap_codes": [],
           "stale_reasons": [],
-          "started_at": "2026-07-21T22:58:36.286449+00:00"
+          "started_at": "2026-07-21T23:34:54.200855+00:00"
         },
         "release_required": false,
         "result_fingerprint": "sha256:7b1db0d57291c182efd20cc06a9a96e66fa6244ebebf398037079e062021245d",
@@ -3677,7 +3704,7 @@
         "result_reused": false,
         "result_status": "passed",
         "reuse_ticket": null,
-        "run_id": "run:TM08_open_loop_blocking:66cd9305074eec3d",
+        "run_id": "run:TM08_open_loop_blocking:20217a67870cbf8e",
         "selected_count": 1,
         "skipped_count": 0,
         "skipped_visible": true,
@@ -3825,7 +3852,7 @@
             "src/matters/state/outcomes.py": "sha256:943cc94caa63efc997641331f1e887b47da7332281936db1bf7625ddc2480b22",
             "tests/test_tm09_completion_reopen.py": "sha256:a19f790b693d3f01aeb7b6a77e46a6431da71457cae1c90fff5207019656aab4"
           },
-          "artifact_id": "artifact:run:TM09_completion_reopen:d93dfe77f6a3742f",
+          "artifact_id": "artifact:run:TM09_completion_reopen:6d1c85bd31158d1e",
           "assertion_scope": "external_contract",
           "command": "python -m pytest -q -o addopts= tests/test_tm09_completion_reopen.py",
           "covered_obligation_ids": [
@@ -3894,7 +3921,7 @@
           ],
           "current": true,
           "exit_code": 0,
-          "finished_at": "2026-07-21T22:58:38.668502+00:00",
+          "finished_at": "2026-07-21T23:34:56.676307+00:00",
           "metadata": {},
           "producer_route": "test_mesh",
           "progress_only": false,
@@ -3903,7 +3930,7 @@
           "route_evidence_current": true,
           "route_gap_codes": [],
           "stale_reasons": [],
-          "started_at": "2026-07-21T22:58:37.377675+00:00"
+          "started_at": "2026-07-21T23:34:55.376168+00:00"
         },
         "release_required": false,
         "result_fingerprint": "sha256:c5ed8aad92d8c37007c49933c0d09c150e0ea84db66acd39db7f37be4bb94e2a",
@@ -3911,7 +3938,7 @@
         "result_reused": false,
         "result_status": "passed",
         "reuse_ticket": null,
-        "run_id": "run:TM09_completion_reopen:d93dfe77f6a3742f",
+        "run_id": "run:TM09_completion_reopen:6d1c85bd31158d1e",
         "selected_count": 4,
         "skipped_count": 0,
         "skipped_visible": true,
@@ -4110,7 +4137,7 @@
             "src/matters/revisions/recompute.py": "sha256:a695d0258b7db5ac47d1bce7f0040edebad4ee1ff8f549067e6c2af35f41b918",
             "tests/test_tm10_correction_invalidation.py": "sha256:7e8c69b8bec9279dee07b555ef382c2ad43e316e72e78f89b1c5acaf8bb0f588"
           },
-          "artifact_id": "artifact:run:TM10_correction_invalidation:4255a387b46bb6ac",
+          "artifact_id": "artifact:run:TM10_correction_invalidation:16905f51cf78e161",
           "assertion_scope": "external_contract",
           "command": "python -m pytest -q -o addopts= tests/test_tm10_correction_invalidation.py",
           "covered_obligation_ids": [
@@ -4209,7 +4236,7 @@
           ],
           "current": true,
           "exit_code": 0,
-          "finished_at": "2026-07-21T22:58:40.078231+00:00",
+          "finished_at": "2026-07-21T23:34:57.959150+00:00",
           "metadata": {},
           "producer_route": "test_mesh",
           "progress_only": false,
@@ -4218,7 +4245,7 @@
           "route_evidence_current": true,
           "route_gap_codes": [],
           "stale_reasons": [],
-          "started_at": "2026-07-21T22:58:38.718878+00:00"
+          "started_at": "2026-07-21T23:34:56.737307+00:00"
         },
         "release_required": false,
         "result_fingerprint": "sha256:978f97dd8fa36c41613805cee43a67379202c8ceb9b3caf1ab9182cd8467beea",
@@ -4226,7 +4253,7 @@
         "result_reused": false,
         "result_status": "passed",
         "reuse_ticket": null,
-        "run_id": "run:TM10_correction_invalidation:4255a387b46bb6ac",
+        "run_id": "run:TM10_correction_invalidation:16905f51cf78e161",
         "selected_count": 1,
         "skipped_count": 0,
         "skipped_visible": true,
@@ -4619,7 +4646,7 @@
             "tests/test_tm11_guard_prediction_boundary.py": "sha256:f160e1c36e61bab40dd6e041667f4e9d53cdd18bb617be9ac4ba0612b97f316a",
             "tests/test_world_inference.py": "sha256:4b5c38e855d2e81962a788b97d1cd7def0f6aff6c730ab71e6acdef590f6fab7"
           },
-          "artifact_id": "artifact:run:TM11_guard_prediction_boundary:534d84fb4a14fee2",
+          "artifact_id": "artifact:run:TM11_guard_prediction_boundary:a04fe362da28d2a0",
           "assertion_scope": "external_contract",
           "command": "python -m pytest -q -o addopts= tests/test_tm11_guard_prediction_boundary.py tests/test_matter_semantic_depth.py tests/test_world_inference.py",
           "covered_obligation_ids": [
@@ -4852,7 +4879,7 @@
           ],
           "current": true,
           "exit_code": 0,
-          "finished_at": "2026-07-21T22:58:46.373471+00:00",
+          "finished_at": "2026-07-21T23:35:04.279223+00:00",
           "metadata": {},
           "producer_route": "test_mesh",
           "progress_only": false,
@@ -4861,7 +4888,7 @@
           "route_evidence_current": true,
           "route_gap_codes": [],
           "stale_reasons": [],
-          "started_at": "2026-07-21T22:58:40.132237+00:00"
+          "started_at": "2026-07-21T23:34:58.097191+00:00"
         },
         "release_required": false,
         "result_fingerprint": "sha256:4447c22c5a29e1a7d2f57f5e909f4854403865ff7106f5e4381bd7d4593087c8",
@@ -4869,7 +4896,7 @@
         "result_reused": false,
         "result_status": "passed",
         "reuse_ticket": null,
-        "run_id": "run:TM11_guard_prediction_boundary:534d84fb4a14fee2",
+        "run_id": "run:TM11_guard_prediction_boundary:a04fe362da28d2a0",
         "selected_count": 20,
         "skipped_count": 0,
         "skipped_visible": true,
@@ -5521,7 +5548,7 @@
             "ui/index.html": "sha256:5125b7f80c72b6569e3004aab029717dd909c7360c61d30623e6b912db161e07",
             "ui/styles.css": "sha256:25ee970de143ea0d568875d3d416b78157afe767f9b7486bbcb88c4a0a8151bf"
           },
-          "artifact_id": "artifact:run:TM12_projection_bilingual_ui:cc7bd5877a7edb53",
+          "artifact_id": "artifact:run:TM12_projection_bilingual_ui:95377358d20a116c",
           "assertion_scope": "external_contract",
           "command": "python -m pytest -q -o addopts= tests/test_tm12_projection_bilingual_ui.py tests/test_matter_presentation_reconciliation.py tests/test_object_browser_autonomy.py tests/test_object_browser_catalog_query.py tests/test_semantic_data_layer_projection.py tests/test_source_group_projection.py",
           "covered_obligation_ids": [
@@ -5901,7 +5928,7 @@
           ],
           "current": true,
           "exit_code": 0,
-          "finished_at": "2026-07-21T22:59:37.166036+00:00",
+          "finished_at": "2026-07-21T23:35:51.005048+00:00",
           "metadata": {},
           "producer_route": "test_mesh",
           "progress_only": false,
@@ -5910,7 +5937,7 @@
           "route_evidence_current": true,
           "route_gap_codes": [],
           "stale_reasons": [],
-          "started_at": "2026-07-21T22:58:46.426472+00:00"
+          "started_at": "2026-07-21T23:35:04.475335+00:00"
         },
         "release_required": false,
         "result_fingerprint": "sha256:fbb3112513804a3d61fedb1b86880cb7028d9f5086bb949b9210d87bf86444ec",
@@ -5918,7 +5945,7 @@
         "result_reused": false,
         "result_status": "passed",
         "reuse_ticket": null,
-        "run_id": "run:TM12_projection_bilingual_ui:cc7bd5877a7edb53",
+        "run_id": "run:TM12_projection_bilingual_ui:95377358d20a116c",
         "selected_count": 52,
         "skipped_count": 0,
         "skipped_visible": true,
@@ -6015,7 +6042,7 @@
             "tests/test_semantic_state_counterexamples.py": "sha256:a07a9eeceb448dcd54a33e024cfe1e6330ede7fc34bafe5c21f69f674db4d6b6",
             "tests/test_tm13_model_mesh_closure.py": "sha256:9ee9ccb9ba8b318fa360efea2a6e47ce97b80ee3325f6d1f4b48538ee6e990fa"
           },
-          "artifact_id": "artifact:run:TM13_model_mesh_closure:0f5a016283c6ae72",
+          "artifact_id": "artifact:run:TM13_model_mesh_closure:9ed5630186e0add9",
           "assertion_scope": "external_contract",
           "command": "python -m pytest -q -o addopts= tests/test_tm13_model_mesh_closure.py tests/test_semantic_state_counterexamples.py",
           "covered_obligation_ids": [
@@ -6025,7 +6052,7 @@
           ],
           "current": true,
           "exit_code": 0,
-          "finished_at": "2026-07-21T22:59:40.242645+00:00",
+          "finished_at": "2026-07-21T23:35:54.169853+00:00",
           "metadata": {},
           "producer_route": "test_mesh",
           "progress_only": false,
@@ -6034,7 +6061,7 @@
           "route_evidence_current": true,
           "route_gap_codes": [],
           "stale_reasons": [],
-          "started_at": "2026-07-21T22:59:37.232544+00:00"
+          "started_at": "2026-07-21T23:35:51.185674+00:00"
         },
         "release_required": false,
         "result_fingerprint": "sha256:f8385ea5d001a7955e8e6ce80b6f06bdf11244c575f79864a10f6d74fa8353d3",
@@ -6042,7 +6069,7 @@
         "result_reused": false,
         "result_status": "passed",
         "reuse_ticket": null,
-        "run_id": "run:TM13_model_mesh_closure:0f5a016283c6ae72",
+        "run_id": "run:TM13_model_mesh_closure:9ed5630186e0add9",
         "selected_count": 5,
         "skipped_count": 0,
         "skipped_visible": true,
@@ -6695,7 +6722,7 @@
             "tests/test_entrypoint_real_service.py": "sha256:4024e0d8e6ef4b952fd7f4caa376485d1ce8d95101454fa509f1a090d7152eb2",
             "tests/test_tm14_end_to_end_conformance.py": "sha256:40cb76e5c96bf385559f5daa7f4892d20189604798857e6192cd88a4a5d5ab7f"
           },
-          "artifact_id": "artifact:run:TM14_end_to_end_conformance:1e5f8004b466ab98",
+          "artifact_id": "artifact:run:TM14_end_to_end_conformance:702b29ac15ebe625",
           "assertion_scope": "external_contract",
           "command": "python -m pytest -q -o addopts= tests/test_tm14_end_to_end_conformance.py tests/test_entrypoint_cli.py tests/test_entrypoint_http.py tests/test_entrypoint_mcp.py tests/test_entrypoint_real_service.py",
           "covered_obligation_ids": [
@@ -6990,7 +7017,7 @@
           ],
           "current": true,
           "exit_code": 0,
-          "finished_at": "2026-07-21T22:59:58.634708+00:00",
+          "finished_at": "2026-07-21T23:36:12.476056+00:00",
           "metadata": {},
           "producer_route": "test_mesh",
           "progress_only": false,
@@ -6999,7 +7026,7 @@
           "route_evidence_current": true,
           "route_gap_codes": [],
           "stale_reasons": [],
-          "started_at": "2026-07-21T22:59:40.376711+00:00"
+          "started_at": "2026-07-21T23:35:54.782342+00:00"
         },
         "release_required": false,
         "result_fingerprint": "sha256:f1eba524777614300a54d59a5f0082373db73b5c0eec0d83f5f51fe84ce0ac34",
@@ -7007,7 +7034,7 @@
         "result_reused": false,
         "result_status": "passed",
         "reuse_ticket": null,
-        "run_id": "run:TM14_end_to_end_conformance:1e5f8004b466ab98",
+        "run_id": "run:TM14_end_to_end_conformance:702b29ac15ebe625",
         "selected_count": 82,
         "skipped_count": 0,
         "skipped_visible": true,
@@ -7101,7 +7128,7 @@
             "tests/test_source_workflows.py": "sha256:e0ff60d11a57f68e79bb5269f28b216b9d773d94081dacc32a6945652be24af5",
             "tests/test_tm15_connector_pagination_retry.py": "sha256:6c4bdab2d4ce80ed8e0b4c191646a4ddc872acecdbc3697d009d8266bc4c2732"
           },
-          "artifact_id": "artifact:run:TM15_connector_pagination_retry:1c50fed987017041",
+          "artifact_id": "artifact:run:TM15_connector_pagination_retry:0df69a654b8e7cb1",
           "assertion_scope": "external_contract",
           "command": "python -m pytest -q -o addopts= tests/test_tm15_connector_pagination_retry.py tests/test_gmail_manifest_coverage_audit.py tests/test_gmail_body_continuation.py tests/test_gmail_ingest_safety.py tests/test_source_cloud_adapter.py tests/test_source_filesystem_adapter.py tests/test_source_gmail_adapter.py tests/test_source_workflows.py",
           "covered_obligation_ids": [
@@ -7117,7 +7144,7 @@
           ],
           "current": true,
           "exit_code": 0,
-          "finished_at": "2026-07-21T23:00:25.531482+00:00",
+          "finished_at": "2026-07-21T23:36:37.587260+00:00",
           "metadata": {},
           "producer_route": "test_mesh",
           "progress_only": false,
@@ -7126,7 +7153,7 @@
           "route_evidence_current": true,
           "route_gap_codes": [],
           "stale_reasons": [],
-          "started_at": "2026-07-21T22:59:58.809763+00:00"
+          "started_at": "2026-07-21T23:36:13.754880+00:00"
         },
         "release_required": false,
         "result_fingerprint": "sha256:b094d612fdc480b83a1cb308b12429a1aa55b4a0a4682633e5a6bffd6c631fdc",
@@ -7134,7 +7161,7 @@
         "result_reused": false,
         "result_status": "passed",
         "reuse_ticket": null,
-        "run_id": "run:TM15_connector_pagination_retry:1c50fed987017041",
+        "run_id": "run:TM15_connector_pagination_retry:0df69a654b8e7cb1",
         "selected_count": 106,
         "skipped_count": 0,
         "skipped_visible": true,
@@ -7196,7 +7223,7 @@
             "ui/index.html": "sha256:5125b7f80c72b6569e3004aab029717dd909c7360c61d30623e6b912db161e07",
             "ui/styles.css": "sha256:25ee970de143ea0d568875d3d416b78157afe767f9b7486bbcb88c4a0a8151bf"
           },
-          "artifact_id": "artifact:run:TM16_bilingual_semantic_equivalence:67b5415be60c5741",
+          "artifact_id": "artifact:run:TM16_bilingual_semantic_equivalence:cdf4c6b1148317bc",
           "assertion_scope": "external_contract",
           "command": "python -m pytest -q -o addopts= tests/test_tm16_bilingual_semantic_equivalence.py tests/test_localization_registry.py",
           "covered_obligation_ids": [
@@ -7206,7 +7233,7 @@
           ],
           "current": true,
           "exit_code": 0,
-          "finished_at": "2026-07-21T23:00:27.207211+00:00",
+          "finished_at": "2026-07-21T23:36:39.151046+00:00",
           "metadata": {},
           "producer_route": "test_mesh",
           "progress_only": false,
@@ -7215,7 +7242,7 @@
           "route_evidence_current": true,
           "route_gap_codes": [],
           "stale_reasons": [],
-          "started_at": "2026-07-21T23:00:25.597007+00:00"
+          "started_at": "2026-07-21T23:36:37.760972+00:00"
         },
         "release_required": false,
         "result_fingerprint": "sha256:4b8250b072ec255bc550022d2e5d7d0bbaabae23a1ef831ce44ee3d8356a0e4e",
@@ -7223,7 +7250,7 @@
         "result_reused": false,
         "result_status": "passed",
         "reuse_ticket": null,
-        "run_id": "run:TM16_bilingual_semantic_equivalence:67b5415be60c5741",
+        "run_id": "run:TM16_bilingual_semantic_equivalence:cdf4c6b1148317bc",
         "selected_count": 4,
         "skipped_count": 0,
         "skipped_visible": true,
@@ -7278,7 +7305,7 @@
             "src/matters/revisions/recompute.py": "sha256:a695d0258b7db5ac47d1bce7f0040edebad4ee1ff8f549067e6c2af35f41b918",
             "tests/test_tm17_revocation_full_propagation.py": "sha256:df22ac9bf9a3b1ea20f1bad39077ace71a173d99c45b04f441d14308f11d6b17"
           },
-          "artifact_id": "artifact:run:TM17_revocation_full_propagation:c4aa691ff843d93a",
+          "artifact_id": "artifact:run:TM17_revocation_full_propagation:4bb248f0f2e38dbb",
           "assertion_scope": "external_contract",
           "command": "python -m pytest -q -o addopts= tests/test_tm17_revocation_full_propagation.py",
           "covered_obligation_ids": [
@@ -7287,7 +7314,7 @@
           ],
           "current": true,
           "exit_code": 0,
-          "finished_at": "2026-07-21T23:00:29.231391+00:00",
+          "finished_at": "2026-07-21T23:36:41.102090+00:00",
           "metadata": {},
           "producer_route": "test_mesh",
           "progress_only": false,
@@ -7296,7 +7323,7 @@
           "route_evidence_current": true,
           "route_gap_codes": [],
           "stale_reasons": [],
-          "started_at": "2026-07-21T23:00:27.255227+00:00"
+          "started_at": "2026-07-21T23:36:39.231223+00:00"
         },
         "release_required": false,
         "result_fingerprint": "sha256:bca40410b3e879d89895c14cfed35991199fef812905422eb55ca36498440dea",
@@ -7304,7 +7331,7 @@
         "result_reused": false,
         "result_status": "passed",
         "reuse_ticket": null,
-        "run_id": "run:TM17_revocation_full_propagation:c4aa691ff843d93a",
+        "run_id": "run:TM17_revocation_full_propagation:4bb248f0f2e38dbb",
         "selected_count": 1,
         "skipped_count": 0,
         "skipped_visible": true,
@@ -7361,14 +7388,14 @@
             "scripts/build_desktop_manifest.py": "sha256:11b58779f31a62c9f82c6a4d30e59b19bde84bf84d26873251f3b6be4bfae0a5",
             "scripts/build_desktop_package.ps1": "sha256:b4dc9f2d48d0b5deba5d89d6b930230f870c667f87ebf4573781c3e3be759799",
             "scripts/build_desktop_release_archive.py": "sha256:f3572f4e35c60e31091da3e9f2f7cda85eee7e3df4889a4dc9b4e615b9de2a21",
-            "scripts/check_public_boundary.py": "sha256:1a631a615697b92e725f50a4d7827bb73ab2427b1157955a7acf301e1964932b",
+            "scripts/check_public_boundary.py": "sha256:3a73690cb16d75e941845f613139478ea9da747757b4e469498f95403c569358",
             "src/matters/infrastructure/capability_status/__init__.py": "sha256:e1bff3fd22f3b4ffb73ab43807f6ab6ce3b5f28e521d2978e3973bb3ca9d8043",
             "src/matters/infrastructure/capability_status/status.py": "sha256:381cd5a45c1a77a62dd7d5ceb6d2920a6ee33a4e8bf91aaa1515fb2df2979bb3",
             "tests/test_private_aggregate.py": "sha256:889ff1ed220687a32a857326bccb966fad228e13d7c496a5aa2c320f1259c89c",
             "tests/test_public_evidence_generators.py": "sha256:259694359e71afa4638fa35d48c351aed515b1f5dac3345c4d4de7efb069a18f",
-            "tests/test_tm18_privacy_public_boundary.py": "sha256:88c84a1b0230d0a67e7eb83be0a78a7170d75c3594f3cd5ced87063cb37dc6b4"
+            "tests/test_tm18_privacy_public_boundary.py": "sha256:1114bd1d75ad3603362b5cb44bc747a26639ef52f6953b91939b9a20bffe6c35"
           },
-          "artifact_id": "artifact:run:TM18_privacy_public_boundary:412a2600ef217705",
+          "artifact_id": "artifact:run:TM18_privacy_public_boundary:097f04bb8ad416bf",
           "assertion_scope": "external_contract",
           "command": "python -m pytest -q -o addopts= tests/test_tm18_privacy_public_boundary.py tests/test_private_aggregate.py tests/test_public_evidence_generators.py",
           "covered_obligation_ids": [
@@ -7379,7 +7406,7 @@
           ],
           "current": true,
           "exit_code": 0,
-          "finished_at": "2026-07-21T23:00:52.312771+00:00",
+          "finished_at": "2026-07-21T23:37:06.687727+00:00",
           "metadata": {},
           "producer_route": "test_mesh",
           "progress_only": false,
@@ -7388,15 +7415,15 @@
           "route_evidence_current": true,
           "route_gap_codes": [],
           "stale_reasons": [],
-          "started_at": "2026-07-21T23:00:29.280393+00:00"
+          "started_at": "2026-07-21T23:36:41.159605+00:00"
         },
         "release_required": false,
-        "result_fingerprint": "sha256:b16d97cbca7ce69460b22f1c65bc5a5637a142ef50636b02655152435afe34cf",
+        "result_fingerprint": "sha256:51f14333586f2881a990c0054b87d7fc35adf3deed6774299e4cd6bff2681689",
         "result_path": ".flowguard/evidence/tests/TM18_privacy_public_boundary.json",
         "result_reused": false,
         "result_status": "passed",
         "reuse_ticket": null,
-        "run_id": "run:TM18_privacy_public_boundary:412a2600ef217705",
+        "run_id": "run:TM18_privacy_public_boundary:097f04bb8ad416bf",
         "selected_count": 34,
         "skipped_count": 0,
         "skipped_visible": true,
@@ -7703,7 +7730,7 @@
             "tests/test_execution_profiles.py": "sha256:3e9d7ec329982b214e63acb278bb012539aa627e7caf23b9a67055f1c5b77320",
             "tests/test_understanding_workflow.py": "sha256:be3469f8ff108e85c42e6afb6a2b8da7e1cd503b544395f2195f3babe9266dd3"
           },
-          "artifact_id": "artifact:run:TM20_autonomous_owner_dispatch:31f9c73a7a85b18e",
+          "artifact_id": "artifact:run:TM20_autonomous_owner_dispatch:d4c384cfd23b3f77",
           "assertion_scope": "external_contract",
           "command": "python -m pytest -q -o addopts= tests/test_understanding_workflow.py tests/test_analysis_operations_depth.py tests/test_codex_provider.py tests/test_contract_rebase_and_global_recall.py tests/test_durable_work_recompute.py tests/test_execution_profiles.py",
           "covered_obligation_ids": [
@@ -7789,7 +7816,7 @@
           ],
           "current": true,
           "exit_code": 0,
-          "finished_at": "2026-07-21T23:01:32.368296+00:00",
+          "finished_at": "2026-07-21T23:37:41.100136+00:00",
           "metadata": {},
           "producer_route": "test_mesh",
           "progress_only": false,
@@ -7798,7 +7825,7 @@
           "route_evidence_current": true,
           "route_gap_codes": [],
           "stale_reasons": [],
-          "started_at": "2026-07-21T23:00:52.377423+00:00"
+          "started_at": "2026-07-21T23:37:06.733245+00:00"
         },
         "release_required": false,
         "result_fingerprint": "sha256:3015190b439c796d4289cb15b00ddee0a091f8bd704997d0ecfeead70c11eff7",
@@ -7806,7 +7833,7 @@
         "result_reused": false,
         "result_status": "passed",
         "reuse_ticket": null,
-        "run_id": "run:TM20_autonomous_owner_dispatch:31f9c73a7a85b18e",
+        "run_id": "run:TM20_autonomous_owner_dispatch:d4c384cfd23b3f77",
         "selected_count": 58,
         "skipped_count": 0,
         "skipped_visible": true,
@@ -7865,7 +7892,7 @@
             "tests/test_runtime_persistence_inventory.py": "sha256:4c8da7db8ce0debb965442ece45387c59cab61c4851a10d08b61c689b5b230fa",
             "tests/test_sqlite_store_scale_kernel.py": "sha256:ab371b5651b6d308d809b05433d8730019fb2549072a00c7efec532ce3823515"
           },
-          "artifact_id": "artifact:run:TM21_object_coverage_worker:bf9b453924a82e70",
+          "artifact_id": "artifact:run:TM21_object_coverage_worker:67e71029471c461c",
           "assertion_scope": "external_contract",
           "command": "python -m pytest -q -o addopts= tests/test_runtime_persistence_inventory.py tests/test_coverage_audit.py tests/test_sqlite_store_scale_kernel.py",
           "covered_obligation_ids": [
@@ -7876,7 +7903,7 @@
           ],
           "current": true,
           "exit_code": 0,
-          "finished_at": "2026-07-21T23:01:54.402826+00:00",
+          "finished_at": "2026-07-21T23:38:02.732976+00:00",
           "metadata": {},
           "producer_route": "test_mesh",
           "progress_only": false,
@@ -7885,7 +7912,7 @@
           "route_evidence_current": true,
           "route_gap_codes": [],
           "stale_reasons": [],
-          "started_at": "2026-07-21T23:01:32.417369+00:00"
+          "started_at": "2026-07-21T23:37:41.148652+00:00"
         },
         "release_required": false,
         "result_fingerprint": "sha256:e7429bb88032922d31e926fbb39949d08d061f0c13e821ed5c873dd8ef0b9a11",
@@ -7893,7 +7920,7 @@
         "result_reused": false,
         "result_status": "passed",
         "reuse_ticket": null,
-        "run_id": "run:TM21_object_coverage_worker:bf9b453924a82e70",
+        "run_id": "run:TM21_object_coverage_worker:67e71029471c461c",
         "selected_count": 58,
         "skipped_count": 0,
         "skipped_visible": true,
@@ -7944,7 +7971,7 @@
             "src/matters/presentation/visuals.py": "sha256:fdd53ed33bea162f78ef0554cf66b0b5d459302c8ce7be721921df6d3b38d4ad",
             "tests/test_generated_hero.py": "sha256:49a0089d0f2ff6da9fecebf60de6c7fa8394e11664361957cb5ba326b050701d"
           },
-          "artifact_id": "artifact:run:TM22_generated_hero:945474077f477303",
+          "artifact_id": "artifact:run:TM22_generated_hero:2af8a584083396b0",
           "assertion_scope": "external_contract",
           "command": "python -m pytest -q -o addopts= tests/test_generated_hero.py",
           "covered_obligation_ids": [
@@ -7953,7 +7980,7 @@
           ],
           "current": true,
           "exit_code": 0,
-          "finished_at": "2026-07-21T23:01:59.307048+00:00",
+          "finished_at": "2026-07-21T23:38:08.033480+00:00",
           "metadata": {},
           "producer_route": "test_mesh",
           "progress_only": false,
@@ -7962,7 +7989,7 @@
           "route_evidence_current": true,
           "route_gap_codes": [],
           "stale_reasons": [],
-          "started_at": "2026-07-21T23:01:54.449371+00:00"
+          "started_at": "2026-07-21T23:38:02.776993+00:00"
         },
         "release_required": false,
         "result_fingerprint": "sha256:8a58cb8fde31bce9e62bbc553cdd27558c1b274e5e3d672005888ff309d282ef",
@@ -7970,7 +7997,7 @@
         "result_reused": false,
         "result_status": "passed",
         "reuse_ticket": null,
-        "run_id": "run:TM22_generated_hero:945474077f477303",
+        "run_id": "run:TM22_generated_hero:2af8a584083396b0",
         "selected_count": 66,
         "skipped_count": 0,
         "skipped_visible": true,
@@ -8029,7 +8056,7 @@
             "ui/index.html": "sha256:5125b7f80c72b6569e3004aab029717dd909c7360c61d30623e6b912db161e07",
             "ui/styles.css": "sha256:25ee970de143ea0d568875d3d416b78157afe767f9b7486bbcb88c4a0a8151bf"
           },
-          "artifact_id": "artifact:run:TM23_desktop_object_browser:bdcc332edc5f0497",
+          "artifact_id": "artifact:run:TM23_desktop_object_browser:94da3f93aced3382",
           "assertion_scope": "external_contract",
           "command": "python -m pytest -q -o addopts= tests/test_desktop.py tests/test_entrypoint_ui.py",
           "covered_obligation_ids": [
@@ -8039,7 +8066,7 @@
           ],
           "current": true,
           "exit_code": 0,
-          "finished_at": "2026-07-21T23:02:02.187315+00:00",
+          "finished_at": "2026-07-21T23:38:13.191118+00:00",
           "metadata": {},
           "producer_route": "test_mesh",
           "progress_only": false,
@@ -8048,7 +8075,7 @@
           "route_evidence_current": true,
           "route_gap_codes": [],
           "stale_reasons": [],
-          "started_at": "2026-07-21T23:01:59.343557+00:00"
+          "started_at": "2026-07-21T23:38:08.073000+00:00"
         },
         "release_required": false,
         "result_fingerprint": "sha256:0b799919fc7ecfeb6433aa05aff431a9ede568079b178f59e6b2a103f96acbee",
@@ -8056,7 +8083,7 @@
         "result_reused": false,
         "result_status": "passed",
         "reuse_ticket": null,
-        "run_id": "run:TM23_desktop_object_browser:bdcc332edc5f0497",
+        "run_id": "run:TM23_desktop_object_browser:94da3f93aced3382",
         "selected_count": 19,
         "skipped_count": 0,
         "skipped_visible": true,
@@ -8162,7 +8189,7 @@
             "src/matters/analysis/world_inference.py": "sha256:55313d612655ea88e22e9c96600dd5fd72f1ab3f96e61cfdccb0b1b0e192ca40",
             "tests/test_researchguard_installation_probe.py": "sha256:000ab11fa52077d3d3de0f9e71ce5feaa01822616e981a8dafc874eea8684667"
           },
-          "artifact_id": "artifact:run:TM24_research_operation:139bcf201fd79258",
+          "artifact_id": "artifact:run:TM24_research_operation:3010ed474098990c",
           "assertion_scope": "external_contract",
           "command": "python -m pytest -q -o addopts= tests/test_researchguard_installation_probe.py",
           "covered_obligation_ids": [
@@ -8201,7 +8228,7 @@
           ],
           "current": true,
           "exit_code": 0,
-          "finished_at": "2026-07-21T23:02:03.896123+00:00",
+          "finished_at": "2026-07-21T23:38:14.684901+00:00",
           "metadata": {},
           "producer_route": "test_mesh",
           "progress_only": false,
@@ -8210,7 +8237,7 @@
           "route_evidence_current": true,
           "route_gap_codes": [],
           "stale_reasons": [],
-          "started_at": "2026-07-21T23:02:02.238825+00:00"
+          "started_at": "2026-07-21T23:38:13.235124+00:00"
         },
         "release_required": false,
         "result_fingerprint": "sha256:1c32480a5796e81c4b1330b321d82eee87e2b311b45a9857d8d04ee62a91698d",
@@ -8218,7 +8245,7 @@
         "result_reused": false,
         "result_status": "passed",
         "reuse_ticket": null,
-        "run_id": "run:TM24_research_operation:139bcf201fd79258",
+        "run_id": "run:TM24_research_operation:3010ed474098990c",
         "selected_count": 2,
         "skipped_count": 0,
         "skipped_visible": true,
@@ -8269,7 +8296,7 @@
             "src/matters/application/orchestrator.py": "sha256:97b1e1a05937b109c1de0f6585b0631bb5d1fefdb7706778c636f319eae3f1db",
             "tests/test_autonomous_maintenance.py": "sha256:372f64818acdaeb610d3ac7251aca430ae45dfb061a53635e4dcf92ce18d4c82"
           },
-          "artifact_id": "artifact:run:TM25_daily_codex_maintenance:a4cadbdc429d20ae",
+          "artifact_id": "artifact:run:TM25_daily_codex_maintenance:836cb4e3eb53f310",
           "assertion_scope": "external_contract",
           "command": "python -m pytest -q -o addopts= tests/test_autonomous_maintenance.py",
           "covered_obligation_ids": [
@@ -8278,7 +8305,7 @@
           ],
           "current": true,
           "exit_code": 0,
-          "finished_at": "2026-07-21T23:02:05.171561+00:00",
+          "finished_at": "2026-07-21T23:38:15.871756+00:00",
           "metadata": {},
           "producer_route": "test_mesh",
           "progress_only": false,
@@ -8287,7 +8314,7 @@
           "route_evidence_current": true,
           "route_gap_codes": [],
           "stale_reasons": [],
-          "started_at": "2026-07-21T23:02:03.948642+00:00"
+          "started_at": "2026-07-21T23:38:14.729902+00:00"
         },
         "release_required": false,
         "result_fingerprint": "sha256:c8eb14021bcba2c1ebdff3f5576b71f7619d17db5688a43d064375965d0d04ea",
@@ -8295,7 +8322,7 @@
         "result_reused": false,
         "result_status": "passed",
         "reuse_ticket": null,
-        "run_id": "run:TM25_daily_codex_maintenance:a4cadbdc429d20ae",
+        "run_id": "run:TM25_daily_codex_maintenance:836cb4e3eb53f310",
         "selected_count": 3,
         "skipped_count": 0,
         "skipped_visible": true,
@@ -8437,7 +8464,7 @@
             "src/matters/application/source_workflows.py": "sha256:5e3b75101cba505bdd3db3d09aa2e0914dbeb66b4e08db29fbc02e10412e9c3a",
             "tests/test_maintenance_orchestration.py": "sha256:ec1c37b241c5fccdfe79e875079690f7926cc4078343b308b21921fff862f0cd"
           },
-          "artifact_id": "artifact:run:TM26_maintenance_orchestrator:299e5cdc26a94be4",
+          "artifact_id": "artifact:run:TM26_maintenance_orchestrator:a03d16432f55dd7d",
           "assertion_scope": "external_contract",
           "command": "python -m pytest -q -o addopts= tests/test_maintenance_orchestration.py",
           "covered_obligation_ids": [
@@ -8488,7 +8515,7 @@
           ],
           "current": true,
           "exit_code": 0,
-          "finished_at": "2026-07-21T23:02:06.380061+00:00",
+          "finished_at": "2026-07-21T23:38:17.083049+00:00",
           "metadata": {},
           "producer_route": "test_mesh",
           "progress_only": false,
@@ -8497,7 +8524,7 @@
           "route_evidence_current": true,
           "route_gap_codes": [],
           "stale_reasons": [],
-          "started_at": "2026-07-21T23:02:05.210561+00:00"
+          "started_at": "2026-07-21T23:38:15.912955+00:00"
         },
         "release_required": false,
         "result_fingerprint": "sha256:4f0c6ad5bdde7eb52bf144fc9bae09705e29eef174e491b57183555d2c95b475",
@@ -8505,7 +8532,7 @@
         "result_reused": false,
         "result_status": "passed",
         "reuse_ticket": null,
-        "run_id": "run:TM26_maintenance_orchestrator:299e5cdc26a94be4",
+        "run_id": "run:TM26_maintenance_orchestrator:a03d16432f55dd7d",
         "selected_count": 17,
         "skipped_count": 0,
         "skipped_visible": true,
@@ -8647,7 +8674,7 @@
             "tests/test_ai_gateway.py": "sha256:bd9c39d39ed04464cdc52d3600d4352dcfac79983715ca53fdba356742e11dfc",
             "tests/test_mcp_stdio.py": "sha256:66d25754eb8aa7cf64758221841476dc46f5948b600451d5f68710baeb6854b8"
           },
-          "artifact_id": "artifact:run:TM27_ai_gateway:4d771346ecd6a65d",
+          "artifact_id": "artifact:run:TM27_ai_gateway:4192c02113ad7177",
           "assertion_scope": "external_contract",
           "command": "python -m pytest -q -o addopts= tests/test_ai_gateway.py tests/test_mcp_stdio.py",
           "covered_obligation_ids": [
@@ -8699,7 +8726,7 @@
           ],
           "current": true,
           "exit_code": 0,
-          "finished_at": "2026-07-21T23:02:07.899687+00:00",
+          "finished_at": "2026-07-21T23:38:18.621862+00:00",
           "metadata": {},
           "producer_route": "test_mesh",
           "progress_only": false,
@@ -8708,7 +8735,7 @@
           "route_evidence_current": true,
           "route_gap_codes": [],
           "stale_reasons": [],
-          "started_at": "2026-07-21T23:02:06.439570+00:00"
+          "started_at": "2026-07-21T23:38:17.142056+00:00"
         },
         "release_required": false,
         "result_fingerprint": "sha256:bc6086655e0f461e505e76e0208ef9dce8ee09e43481efb306fb672fa6853d28",
@@ -8716,7 +8743,7 @@
         "result_reused": false,
         "result_status": "passed",
         "reuse_ticket": null,
-        "run_id": "run:TM27_ai_gateway:4d771346ecd6a65d",
+        "run_id": "run:TM27_ai_gateway:4192c02113ad7177",
         "selected_count": 7,
         "skipped_count": 0,
         "skipped_visible": true,
@@ -11419,7 +11446,7 @@
       ]
     }
   },
-  "status": "release_green",
+  "status": "routine_green",
   "toolchain": {
     "flowguard": "0.58.5",
     "flowguard_schema": "1.0",

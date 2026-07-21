@@ -1,6 +1,6 @@
 {
   "artifact_type": "matters.test-suite-receipt.v1",
-  "generated_at": "2026-07-21T23:02:07.899687+00:00",
+  "generated_at": "2026-07-21T23:38:18.621862+00:00",
   "pytest_observation": {
     "errors": 0,
     "failed": 0,
@@ -41,7 +41,7 @@
     "tests/test_mcp_stdio.py"
   ],
   "stderr_tail": "",
-  "stdout_tail": ".......                                                                  [100%]\n7 passed in 0.32s\n",
+  "stdout_tail": ".......                                                                  [100%]\n7 passed in 0.28s\n",
   "suite_id": "TM27_ai_gateway",
   "test_suite_evidence": {
     "artifact_version": "matters.test-suite-receipt.v1",
@@ -174,7 +174,7 @@
         "tests/test_ai_gateway.py": "sha256:bd9c39d39ed04464cdc52d3600d4352dcfac79983715ca53fdba356742e11dfc",
         "tests/test_mcp_stdio.py": "sha256:66d25754eb8aa7cf64758221841476dc46f5948b600451d5f68710baeb6854b8"
       },
-      "artifact_id": "artifact:run:TM27_ai_gateway:4d771346ecd6a65d",
+      "artifact_id": "artifact:run:TM27_ai_gateway:4192c02113ad7177",
       "assertion_scope": "external_contract",
       "command": "python -m pytest -q -o addopts= tests/test_ai_gateway.py tests/test_mcp_stdio.py",
       "covered_obligation_ids": [
@@ -226,7 +226,7 @@
       ],
       "current": true,
       "exit_code": 0,
-      "finished_at": "2026-07-21T23:02:07.899687+00:00",
+      "finished_at": "2026-07-21T23:38:18.621862+00:00",
       "metadata": {},
       "producer_route": "test_mesh",
       "progress_only": false,
@@ -235,7 +235,7 @@
       "route_evidence_current": true,
       "route_gap_codes": [],
       "stale_reasons": [],
-      "started_at": "2026-07-21T23:02:06.439570+00:00"
+      "started_at": "2026-07-21T23:38:17.142056+00:00"
     },
     "release_required": false,
     "result_fingerprint": "sha256:bc6086655e0f461e505e76e0208ef9dce8ee09e43481efb306fb672fa6853d28",
@@ -243,7 +243,7 @@
     "result_reused": false,
     "result_status": "passed",
     "reuse_ticket": null,
-    "run_id": "run:TM27_ai_gateway:4d771346ecd6a65d",
+    "run_id": "run:TM27_ai_gateway:4192c02113ad7177",
     "selected_count": 7,
     "skipped_count": 0,
     "skipped_visible": true,

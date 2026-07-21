@@ -3,12 +3,12 @@
   "blockers": [],
   "claim_boundary": "Native FlowGuard reviews admitted content, UI event/state behavior, journeys, capabilities, click-to-output chains, installed desktop runtime, English/zh-CN behavior, Standard/Compact cards, exactly eight detail sections, Files & information, AI supplemental information, a read-only evidence image gallery, truthful transport recovery, generated presentation-only heroes, latest-meaningful-clue catalog ordering, root-only catalog, Matter-only hierarchy graph, one reusable node quick view, logical-event timeline deduplication, no ordinary correction or canonical-write control, recovery, disclosure, approved font tokens, sidebar spacing, non-overlap, and desktop geometry. The separate C10 correction capability remains outside this object browser. Figma design evidence does not substitute for runtime proof.",
   "failures": [],
-  "generated_at": "2026-07-21T12:10:08.641869+00:00",
+  "generated_at": "2026-07-21T23:50:13.495831+00:00",
   "ok": true,
   "residual_risk": [],
   "runtime_evidence": {
     "blockers": [],
-    "evidence_id": "evidence:ui:8afda8cc026783ee",
+    "evidence_id": "evidence:ui:934d1b8fd8354f0b",
     "exact_check_inventory": true,
     "missing_checks": [],
     "ok": true,
@@ -88,6 +88,6 @@
     }
   },
   "typed_next_actions": [],
-  "ui_revision": "sha256:8afda8cc026783eedc4c80c1c36f30a076804378d2b0cedfcc521866b03926ad",
+  "ui_revision": "sha256:934d1b8fd8354f0bd9467404568ee6e3c59e6ebad64b4820d165ebe079ed1750",
   "work_mode": "mixed"
 }

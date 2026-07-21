@@ -5027,12 +5027,6 @@
           },
           {
             "metadata": {},
-            "rationale": "The authorized private first run starts against the already released generic v0.3.0 contract.",
-            "relation_type": "depends_on",
-            "target_commitment_id": "BC-DP-003"
-          },
-          {
-            "metadata": {},
             "rationale": "The authorized private first run starts against the already released generic v0.3.1 contract.",
             "relation_type": "depends_on",
             "target_commitment_id": "BC-DP-003"

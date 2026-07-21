@@ -995,6 +995,14 @@ def main() -> int:
                 "user-supplied source scope",
                 "automation_capability_unavailable",
             )
+            row["relations"] = [
+                relation
+                for relation in row.get("relations", ())
+                if not (
+                    relation.get("relation_type") == "depends_on"
+                    and relation.get("target_commitment_id") == "BC-DP-003"
+                )
+            ]
             _append_unique(
                 row,
                 "relations",

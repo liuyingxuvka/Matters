@@ -1,9 +1,9 @@
 {
   "artifact_type": "matters.live-ui-evidence.v1",
-  "generated_at": "2026-07-21T12:09:23.826Z",
+  "generated_at": "2026-07-21T23:50:09.738Z",
   "status": "passed",
-  "evidence_id": "evidence:ui:8afda8cc026783ee",
-  "ui_revision": "sha256:8afda8cc026783eedc4c80c1c36f30a076804378d2b0cedfcc521866b03926ad",
+  "evidence_id": "evidence:ui:934d1b8fd8354f0b",
+  "ui_revision": "sha256:934d1b8fd8354f0bd9467404568ee6e3c59e6ebad64b4820d165ebe079ed1750",
   "required_check_count": 72,
   "checks": {
     "installed_runtime": true,

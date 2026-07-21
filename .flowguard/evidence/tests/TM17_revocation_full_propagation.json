@@ -1,6 +1,6 @@
 {
   "artifact_type": "matters.test-suite-receipt.v1",
-  "generated_at": "2026-07-21T23:00:29.231391+00:00",
+  "generated_at": "2026-07-21T23:36:41.102090+00:00",
   "pytest_observation": {
     "errors": 0,
     "failed": 0,
@@ -24,7 +24,7 @@
     "tests/test_tm17_revocation_full_propagation.py"
   ],
   "stderr_tail": "",
-  "stdout_tail": ".                                                                        [100%]\n1 passed in 0.79s\n",
+  "stdout_tail": ".                                                                        [100%]\n1 passed in 0.69s\n",
   "suite_id": "TM17_revocation_full_propagation",
   "test_suite_evidence": {
     "artifact_version": "matters.test-suite-receipt.v1",
@@ -70,7 +70,7 @@
         "src/matters/revisions/recompute.py": "sha256:a695d0258b7db5ac47d1bce7f0040edebad4ee1ff8f549067e6c2af35f41b918",
         "tests/test_tm17_revocation_full_propagation.py": "sha256:df22ac9bf9a3b1ea20f1bad39077ace71a173d99c45b04f441d14308f11d6b17"
       },
-      "artifact_id": "artifact:run:TM17_revocation_full_propagation:c4aa691ff843d93a",
+      "artifact_id": "artifact:run:TM17_revocation_full_propagation:4bb248f0f2e38dbb",
       "assertion_scope": "external_contract",
       "command": "python -m pytest -q -o addopts= tests/test_tm17_revocation_full_propagation.py",
       "covered_obligation_ids": [
@@ -79,7 +79,7 @@
       ],
       "current": true,
       "exit_code": 0,
-      "finished_at": "2026-07-21T23:00:29.231391+00:00",
+      "finished_at": "2026-07-21T23:36:41.102090+00:00",
       "metadata": {},
       "producer_route": "test_mesh",
       "progress_only": false,
@@ -88,7 +88,7 @@
       "route_evidence_current": true,
       "route_gap_codes": [],
       "stale_reasons": [],
-      "started_at": "2026-07-21T23:00:27.255227+00:00"
+      "started_at": "2026-07-21T23:36:39.231223+00:00"
     },
     "release_required": false,
     "result_fingerprint": "sha256:bca40410b3e879d89895c14cfed35991199fef812905422eb55ca36498440dea",
@@ -96,7 +96,7 @@
     "result_reused": false,
     "result_status": "passed",
     "reuse_ticket": null,
-    "run_id": "run:TM17_revocation_full_propagation:c4aa691ff843d93a",
+    "run_id": "run:TM17_revocation_full_propagation:4bb248f0f2e38dbb",
     "selected_count": 1,
     "skipped_count": 0,
     "skipped_visible": true,
