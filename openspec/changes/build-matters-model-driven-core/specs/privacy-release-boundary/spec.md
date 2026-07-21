@@ -72,8 +72,11 @@ remote services, or undeclared model/tool providers.
 
 ### Requirement: Publication uses a frozen clean candidate
 The system SHALL freeze commit, version, public inventory, model/test
-inventory, toolchain, dependencies, verifier, package, installed projection,
-and asset list before final release verification.
+inventory, toolchain, dependencies, verifier, candidate packages, isolated
+anonymous-install evidence, and asset list before publication. The user's
+active installed projection SHALL be synchronized and verified from the
+published assets after publication and SHALL NOT block an otherwise current
+generic candidate.
 
 #### Scenario: Candidate file changes after a scan
 - **WHEN** any candidate file changes after privacy, build, or test evidence is created
@@ -109,20 +112,25 @@ private roots, user profiles, hostnames, and local interpreter paths.
 - **WHEN** a public evidence fingerprint inventory contains ignored cache or `.pyc` input
 - **THEN** the evidence SHALL be rejected as non-portable and regenerated from the declared source inventory
 
-### Requirement: Source, package, skill-runtime, installation, and Git identities agree
-The release gate SHALL keep source checkout, built package, installed package,
-immutable bundled Skill Pack, machine-installed skill inventory, resolved
-active skill view, ResearchGuard provider, packaged desktop assets, desktop
-installation, and local Git identities distinct
-and SHALL prove their declared version, compatibility, content, and
-synchronization. A Matters-managed installed projection SHALL be represented as
+### Requirement: Source, candidate, post-release installation, and Git identities remain distinct
+The publication gate SHALL keep source checkout, built package, isolated
+anonymous-install environment, immutable bundled Skill Pack, candidate active
+skill view, ResearchGuard provider, packaged desktop assets, and local Git
+identities distinct and SHALL prove their declared version, compatibility,
+content, and synchronization. After publication, the consumer-install gate
+SHALL separately bind the downloaded GitHub assets, installed package,
+machine-installed skill inventory, resolved active skill view, and desktop
+installation to the published tag and checksums. A Matters-managed installed projection SHALL be represented as
 a managed ownership subtype inside the machine-installed layer, not as a
 fourth skill-runtime layer.
 
-#### Scenario: Installed package differs from frozen source
-- **WHEN** the installed package, bundled pack, active skill view, or managed
-  skill fingerprint differs from its frozen declared projection
-- **THEN** release confidence SHALL remain blocked until the installation is synchronized and rechecked
+#### Scenario: Active local installation is older than the publishable candidate
+- **WHEN** the frozen candidate and isolated anonymous-install evidence are current but the user's active package or desktop is an older released version
+- **THEN** publication SHALL remain allowed and the local difference SHALL become a required post-publication consumer-synchronization action
+
+#### Scenario: Published asset fails consumer synchronization
+- **WHEN** a downloaded published package, bundled pack, active skill view, managed skill fingerprint, or desktop installation differs from the published tag or checksums
+- **THEN** consumer-install confidence SHALL remain blocked until that installation is repaired and rechecked, without rewriting the already published release identity
 
 #### Scenario: ResearchGuard currentness is absent
 - **WHEN** no portable terminal-success ResearchGuard currentness receipt binds the frozen source commit, distribution, command, top-level skill, member projections, manifest, residual state, compatibility, native validation, and installed identity
@@ -160,26 +168,26 @@ Matters MAY publish a generic GitHub release before the user's private Gmail,
 local-file, and Codex first run is complete only when every generic product
 capability promised by the release—including hierarchy, people, timeline,
 summary, inference/correction, bilingual object browser, desktop shell, MCP,
-and bundled-skill behavior—has current model, test, privacy, package, and
-installation evidence on one frozen candidate. The release SHALL describe the
+and bundled-skill behavior—has current model, test, privacy, candidate-package,
+isolated anonymous-install, and desktop-archive evidence on one frozen candidate. The release SHALL describe the
 private first run as separate and not yet completed, and SHALL NOT use private
 coverage progress as generic product proof.
 
-#### Scenario: Generic v0.3.0 is frozen while the private first run remains pending
+#### Scenario: Generic v0.3.1 is frozen while the private first run remains pending
 - **WHEN** the generic candidate, anonymous install, public inventory, privacy scan, model owners, TestMesh, desktop shell, MCP, and bundled skills are current, but private Gmail/local/Codex modeling remains incomplete
-- **THEN** the system MAY publish v0.3.0 without private artifacts or a private-completion claim, SHALL continue the private first run against the released contract, and MAY aggregate later generic defects into a separately verified patch release
+- **THEN** the system MAY publish v0.3.1 without private artifacts or a private-completion claim, SHALL synchronize the user's active installation from the published assets before continuing the private first run against the released contract, and MAY aggregate later generic defects into a separately verified patch release
 
 #### Scenario: A private first run exposes a generic product defect
 - **WHEN** real private operation reveals a reusable implementation defect after v0.3.0
 - **THEN** the defect SHALL be reproduced with public-safe synthetic evidence, fixed and verified as generic behavior, and MAY be published in a later patch release without exporting the private triggering content
 
 ### Requirement: Remote publication requires a separate frozen decision
-Local package installation, local Git commit, and local tag SHALL NOT imply
+Candidate-package verification, local Git commit, and local tag SHALL NOT imply
 authorization to create or push a public remote, choose a license, or publish a
 GitHub release.
 
 #### Scenario: Local release candidate is green
-- **WHEN** the frozen local package, install, model, test, privacy, and Git identities agree
+- **WHEN** the frozen candidate package, isolated anonymous-install, model, test, privacy, and Git identities agree
 - **THEN** remote publication SHALL remain blocked until a separate explicit publication decision supplies the remote, license, and public inventory
 
 #### Scenario: Publication intent is explicit but remote identity is not frozen

@@ -1,6 +1,6 @@
 {
   "artifact_type": "matters.test-suite-receipt.v1",
-  "generated_at": "2026-07-21T20:41:23.597414+00:00",
+  "generated_at": "2026-07-21T23:02:05.171561+00:00",
   "pytest_observation": {
     "errors": 0,
     "failed": 0,
@@ -10,17 +10,17 @@
     "xfailed": 0,
     "xpassed": 0
   },
-  "source_fingerprint": "sha256:79dfc86d3b2e50857f6b2ddf27d11e06ce707265720d90708875670e5d177538",
+  "source_fingerprint": "sha256:c8eb14021bcba2c1ebdff3f5576b71f7619d17db5688a43d064375965d0d04ea",
   "source_fingerprints": {
     "src/matters/application/maintenance.py": "sha256:ff47df531d12543a4d1d0f536e301171dafcd8eef120459b6165255f2e8c4f6a",
-    "src/matters/application/orchestrator.py": "sha256:62da28725875a304ad024ab77c6d3b021371c10c5085274eb9d53ad140227eec",
+    "src/matters/application/orchestrator.py": "sha256:97b1e1a05937b109c1de0f6585b0631bb5d1fefdb7706778c636f319eae3f1db",
     "tests/test_autonomous_maintenance.py": "sha256:372f64818acdaeb610d3ac7251aca430ae45dfb061a53635e4dcf92ce18d4c82"
   },
   "source_paths": [
     "tests/test_autonomous_maintenance.py"
   ],
   "stderr_tail": "",
-  "stdout_tail": "...                                                                      [100%]\n3 passed in 0.20s\n",
+  "stdout_tail": "...                                                                      [100%]\n3 passed in 0.09s\n",
   "suite_id": "TM25_daily_codex_maintenance",
   "test_suite_evidence": {
     "artifact_version": "matters.test-suite-receipt.v1",
@@ -59,10 +59,10 @@
     "proof_artifact": {
       "artifact_fingerprints": {
         "src/matters/application/maintenance.py": "sha256:ff47df531d12543a4d1d0f536e301171dafcd8eef120459b6165255f2e8c4f6a",
-        "src/matters/application/orchestrator.py": "sha256:62da28725875a304ad024ab77c6d3b021371c10c5085274eb9d53ad140227eec",
+        "src/matters/application/orchestrator.py": "sha256:97b1e1a05937b109c1de0f6585b0631bb5d1fefdb7706778c636f319eae3f1db",
         "tests/test_autonomous_maintenance.py": "sha256:372f64818acdaeb610d3ac7251aca430ae45dfb061a53635e4dcf92ce18d4c82"
       },
-      "artifact_id": "artifact:run:TM25_daily_codex_maintenance:933a56642ca99bd2",
+      "artifact_id": "artifact:run:TM25_daily_codex_maintenance:a4cadbdc429d20ae",
       "assertion_scope": "external_contract",
       "command": "python -m pytest -q -o addopts= tests/test_autonomous_maintenance.py",
       "covered_obligation_ids": [
@@ -71,7 +71,7 @@
       ],
       "current": true,
       "exit_code": 0,
-      "finished_at": "2026-07-21T20:41:23.597414+00:00",
+      "finished_at": "2026-07-21T23:02:05.171561+00:00",
       "metadata": {},
       "producer_route": "test_mesh",
       "progress_only": false,
@@ -80,15 +80,15 @@
       "route_evidence_current": true,
       "route_gap_codes": [],
       "stale_reasons": [],
-      "started_at": "2026-07-21T20:41:21.099527+00:00"
+      "started_at": "2026-07-21T23:02:03.948642+00:00"
     },
     "release_required": false,
-    "result_fingerprint": "sha256:79dfc86d3b2e50857f6b2ddf27d11e06ce707265720d90708875670e5d177538",
+    "result_fingerprint": "sha256:c8eb14021bcba2c1ebdff3f5576b71f7619d17db5688a43d064375965d0d04ea",
     "result_path": ".flowguard/evidence/tests/TM25_daily_codex_maintenance.json",
     "result_reused": false,
     "result_status": "passed",
     "reuse_ticket": null,
-    "run_id": "run:TM25_daily_codex_maintenance:933a56642ca99bd2",
+    "run_id": "run:TM25_daily_codex_maintenance:a4cadbdc429d20ae",
     "selected_count": 3,
     "skipped_count": 0,
     "skipped_visible": true,

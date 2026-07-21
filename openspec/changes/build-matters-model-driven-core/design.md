@@ -108,8 +108,10 @@ repository.
   and link/junction escape from entering the analysis path.
 - Make packaging and local installation physically independent of private
   runtime and evaluation data.
-- Freeze and verify source, model, test, package, installed projection, and
-  local Git identities before accepting the v0.2 release candidate.
+- Freeze and verify source, model, test, candidate package/desktop, isolated
+  anonymous-install, and local Git identities before accepting a publishable
+  release candidate. Verify the user's active installed projection separately
+  from the published GitHub assets after publication.
 - Validate safety with synthetic cases, usefulness with per-type real private
   canaries, and coverage through a progressive first run over the authorized
   source universe without publishing any private source or derived user model.
@@ -1292,8 +1294,9 @@ The active sequence is:
    enumerated item has a terminal disposition;
 9. use Model Miss Review to repair model/code/test gaps and rerun affected
    source classes;
-10. validate package, clean clone, installed package/skill, and local Git
-    release identity on one frozen candidate.
+10. validate package, clean clone, isolated anonymous package/skill behavior,
+    and local Git release identity on one frozen candidate; publish that
+    candidate before replacing the user's active local installation.
 
 Affected narrow checks may run in safe parallel only when their mutable state
 and execution ownership are isolated. After source/toolchain/inventory freeze,
@@ -1430,10 +1433,15 @@ terminate current before the complete-release claim.
    active-view, managed-install, ResearchGuard, and Git identities; run one
    foreground M0+C1-C12 model owner, one separate non-overlapping foreground
    S0-S5 model owner, and one final full-test owner. All three are required.
-13. Build/install the local package, verify internal bundled skill use and the
-    optional Matters-managed projection, create the next privacy-audited local
-    Git commit and local release tag, and re-run the portable public-boundary
-    check.
+13. Build and anonymously verify the candidate wheel, source distribution, and
+    Windows desktop ZIP; verify internal bundled-skill behavior, create the
+    next privacy-audited Git commit and release tag, re-run the portable
+    public-boundary check, and publish the GitHub Release without replacing the
+    user's active local installation.
+14. Download the published wheel and Windows desktop ZIP, verify checksums and
+    release provenance, then transactionally synchronize the user's active
+    Python and desktop installations and verify the MCP/desktop/8766 consumer
+    path as post-publication evidence.
 
 ### Direct-current v0.3.0 rebaseline
 

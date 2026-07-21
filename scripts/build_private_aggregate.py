@@ -68,7 +68,10 @@ def _maintenance_projection(path: Path | None) -> dict[str, Any]:
             "shared_service_path": False,
             "app_api_key_required": False,
             "installed": False,
-            "manual_rehearsal_current": False,
+            "ai_setup_current": False,
+            "schedule_count": 0,
+            "source_scope_origin": "",
+            "automation_status": "not_supplied",
             "mutation_attempt_counts": {
                 key: 0 for key in MAINTENANCE_MUTATION_KEYS
             },
@@ -84,7 +87,10 @@ def _maintenance_projection(path: Path | None) -> dict[str, Any]:
             "shared_service_path": False,
             "app_api_key_required": False,
             "installed": False,
-            "manual_rehearsal_current": False,
+            "ai_setup_current": False,
+            "schedule_count": 0,
+            "source_scope_origin": "",
+            "automation_status": "unreadable",
             "mutation_attempt_counts": {
                 key: 0 for key in MAINTENANCE_MUTATION_KEYS
             },
@@ -105,18 +111,15 @@ def _maintenance_projection(path: Path | None) -> dict[str, Any]:
     )
     current = (
         payload.get("artifact_type")
-        == "matters.codex-daily-maintenance-evidence.v1"
+        == "matters.ai-owned-daily-maintenance-evidence.v2"
         and payload.get("status") == "current"
         and _opaque(payload.get("schedule_identity"), prefix="codex-automation:")
         and _opaque(
             payload.get("execution_profile_identity"),
             prefix="execution-profile:",
         )
-        and _opaque(
-            payload.get("manual_rehearsal_receipt_id"),
-            prefix="maintenance-rehearsal:",
-        )
-        and _fingerprint(payload.get("manual_rehearsal_fingerprint"))
+        and _opaque(payload.get("ai_setup_receipt_id"), prefix="ai-setup:")
+        and _fingerprint(payload.get("ai_setup_fingerprint"))
         and _opaque(
             payload.get("install_currentness_receipt_id"),
             prefix="maintenance-install:",
@@ -126,6 +129,9 @@ def _maintenance_projection(path: Path | None) -> dict[str, Any]:
         and run_ids_current
         and payload.get("last_delta_status")
         in {"no_delta", "delta_processed", "open_work_remains"}
+        and payload.get("schedule_count") == 1
+        and payload.get("source_scope_origin") == "user_supplied_during_install"
+        and payload.get("automation_status") == "current"
         and payload.get("model_agnostic") is True
         and payload.get("shared_service_path") is True
         and payload.get("app_api_key_required") is False
@@ -148,17 +154,14 @@ def _maintenance_projection(path: Path | None) -> dict[str, Any]:
             )
             else ""
         ),
-        "manual_rehearsal_receipt_id": (
-            str(payload.get("manual_rehearsal_receipt_id", ""))
-            if _opaque(
-                payload.get("manual_rehearsal_receipt_id"),
-                prefix="maintenance-rehearsal:",
-            )
+        "ai_setup_receipt_id": (
+            str(payload.get("ai_setup_receipt_id", ""))
+            if _opaque(payload.get("ai_setup_receipt_id"), prefix="ai-setup:")
             else ""
         ),
-        "manual_rehearsal_fingerprint": (
-            str(payload.get("manual_rehearsal_fingerprint", ""))
-            if _fingerprint(payload.get("manual_rehearsal_fingerprint"))
+        "ai_setup_fingerprint": (
+            str(payload.get("ai_setup_fingerprint", ""))
+            if _fingerprint(payload.get("ai_setup_fingerprint"))
             else ""
         ),
         "install_currentness_receipt_id": (
@@ -187,7 +190,14 @@ def _maintenance_projection(path: Path | None) -> dict[str, Any]:
         "shared_service_path": payload.get("shared_service_path") is True,
         "app_api_key_required": payload.get("app_api_key_required") is True,
         "installed": current,
-        "manual_rehearsal_current": current,
+        "ai_setup_current": current,
+        "schedule_count": (
+            int(payload.get("schedule_count", 0))
+            if isinstance(payload.get("schedule_count"), int)
+            else 0
+        ),
+        "source_scope_origin": str(payload.get("source_scope_origin", "")),
+        "automation_status": str(payload.get("automation_status", "")),
         "mutation_attempt_counts": counts,
         "unattended_final_verification": (
             payload.get("unattended_final_verification") is True

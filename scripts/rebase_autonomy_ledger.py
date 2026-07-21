@@ -24,7 +24,7 @@ from flowguard_design.inventory import MODELS
 
 
 LEDGER_PATH = Path(".flowguard/behavior_commitment_ledger/ledger.json")
-REVISION = "v0.3.1-mit-public-release-v10"
+REVISION = "v0.3.1-ai-owned-installation-v11"
 
 UPDATES: dict[str, dict[str, object]] = {
     "BC-PR-000": {
@@ -317,10 +317,10 @@ UPDATES: dict[str, dict[str, object]] = {
         ),
         "expected_result": (
             "one public MIT-licensed GitHub repository release whose commit, v0.3.1 tag, "
-            "wheel, source distribution, Windows desktop package, installed "
-            "Python and desktop identities, matters-mcp AI gateway, model/test "
-            "receipts, public-safe inventory, and anonymous recheck agree "
-            "without consuming or claiming completion of private-first-run data"
+            "wheel, source distribution, Windows desktop package, isolated anonymous "
+            "install, matters-mcp AI gateway, model/test receipts, public-safe inventory, "
+            "and package recheck agree without requiring the user's pre-existing active "
+            "installation or consuming or claiming completion of private-first-run data"
         ),
         "expected_terminal": (
             "published_and_anonymously_rechecked or blocked with exact "
@@ -336,14 +336,18 @@ UPDATES: dict[str, dict[str, object]] = {
             "screenshot, identifier, or first-run completion evidence cannot "
             "enter or gate the generic release; candidate drift, unexpected "
             "build-environment packages, missing matters-mcp, incomplete "
-            "bundled skills, mismatched tag/install/assets, or a non-public "
+            "bundled skills, mismatched candidate/tag/assets, or a non-public "
             "remote blocks publication"
         ),
     },
     "BC-DP-004": {
-        "label": "complete an autonomous progressive private first run with truthful object coverage",
+        "actor": "Installing compatible AI host and Matters maintenance orchestrator",
+        "label": "install Matters and complete an autonomous progressive private first run with truthful object coverage",
         "expected_result": (
-            "candidate roots, inventory snapshots, per-object stage rows, context-aware "
+            "one current package/MCP/public-skill/private-root setup, exactly one host-owned "
+            "daily schedule, one user-supplied source grant, an initial bounded maintenance "
+            "receipt, desktop launch status, candidate roots, inventory snapshots, per-object "
+            "stage rows, context-aware "
             "hierarchy, SourceGroups, SituationGraph, World Model, MaterialClue/summary "
             "activity, root-only photographic Heroes, raw/staging cleanup, supplemental "
             "information, localization, and UI reachability reconcile progressively under "
@@ -351,8 +355,15 @@ UPDATES: dict[str, dict[str, object]] = {
             "and no normal human gate"
         ),
         "trigger": (
-            "the generic v0.3.1 release identity is current and the user starts "
-            "or resumes the authorized post-release private first run"
+            "the generic v0.3.1 release identity is current and the user asks a compatible "
+            "AI host to install and use Matters, then supplies the authorized source scope"
+        ),
+        "failure_boundary": (
+            "setup cannot claim completion when package, MCP, public skill, private root, "
+            "exactly-one schedule, initial maintenance, or desktop status is missing; no "
+            "personal source scope may be hard-coded or inferred from install permission; "
+            "automation unavailability is a visible blocker and the scheduled run cannot "
+            "mutate sources, widen grants, or own final model/test/install/Git/tag/release gates"
         ),
     },
     "BC-DP-005": {
@@ -696,6 +707,79 @@ def _ensure_ai_gateway_surface_binding(ledger: dict[str, object]) -> None:
     commitment["source_surface_ids"] = [surface_id]
 
 
+def _ensure_ai_installation_surface_binding(ledger: dict[str, object]) -> None:
+    template_surface = next(
+        row
+        for row in ledger["source_surfaces"]
+        if row.get("surface_id") == "surface:openspec:tasks-private-first-run"
+    )
+    definitions = (
+        (
+            "surface:public-skill:ai-installation",
+            "Matters AI installation contract",
+            "skill",
+            "plugins/matters/skills/matters/references/installation.md",
+            "The public skill delegates complete AI-owned installation and first-run setup to the DPF primary path.",
+        ),
+        (
+            "surface:readme:ai-installation",
+            "README AI installation promise",
+            "doc",
+            "README.md",
+            "The public README summarizes the same installation contract without creating another execution path.",
+        ),
+        (
+            "surface:plugin:ai-installation",
+            "Plugin AI installation metadata",
+            "skill",
+            "plugin/matters-plugin.json",
+            "Plugin metadata identifies the same AI-owned setup guide, unique schedule contract, and default local time.",
+        ),
+    )
+    ids = []
+    for surface_id, label, kind, source_ref, rationale in definitions:
+        surface = next(
+            (
+                row
+                for row in ledger["source_surfaces"]
+                if row.get("surface_id") == surface_id
+            ),
+            None,
+        )
+        if surface is None:
+            surface = deepcopy(template_surface)
+            ledger["source_surfaces"].append(surface)
+        surface.update(
+            {
+                "surface_id": surface_id,
+                "label": label,
+                "surface_kind": kind,
+                "source_ref": source_ref,
+                "owner": "Matters public distribution",
+                "commitment_ids": ["BC-DP-004"],
+                "business_intent_ids": [
+                    "BI-DP-004-progressive-private-first-run"
+                ],
+                "primary_path_id": "path:dpf-progressive-private-first-run",
+                "rationale": rationale,
+                "validation_boundary": (
+                    "strict OpenSpec validation, package-content tests, installed "
+                    "MCP/skill currentness, exactly-one schedule evidence, initial "
+                    "maintenance result, and desktop launch status"
+                ),
+            }
+        )
+        ids.append(surface_id)
+    commitment = next(
+        row
+        for row in ledger["commitments"]
+        if row.get("commitment_id") == "BC-DP-004"
+    )
+    commitment["source_surface_ids"] = list(
+        dict.fromkeys((*commitment.get("source_surface_ids", ()), *ids))
+    )
+
+
 def main() -> int:
     payload = json.loads(LEDGER_PATH.read_text(encoding="utf-8"))
     ledger = payload["ledger"]
@@ -705,6 +789,7 @@ def main() -> int:
     _ensure_maintenance_orchestrator_surface_binding(ledger)
     _ensure_ai_gateway_commitment(ledger)
     _ensure_ai_gateway_surface_binding(ledger)
+    _ensure_ai_installation_surface_binding(ledger)
 
     for row in ledger["commitments"]:
         commitment_id = str(row["commitment_id"])
@@ -724,7 +809,8 @@ def main() -> int:
             "Matter-only hierarchy, logical-event deduplication, human narrative, "
             "people/relations, Situation/World Model inference, root-only photographic Hero, "
             "summary-free cards, single-layer node quick view, grouped source locations, "
-            "first-gap coverage, model fields, and desktop evidence changed"
+            "first-gap coverage, model fields, desktop evidence, and the AI-owned "
+            "installation/schedule/source-authorization contract changed"
         )
 
         authority = row.setdefault("path_authority", {})
@@ -777,7 +863,6 @@ def main() -> int:
                 "It closes before, and never consumes, the separate private first run."
             )
             row["side_effects"] = [
-                "stop only the exact prior Matters-managed desktop process tree",
                 "push approved generic public-safe source to the public remote",
                 "create the v0.3.1 tag and GitHub Release",
                 "publish the wheel, source distribution, Windows desktop package, and checksums",
@@ -793,19 +878,18 @@ def main() -> int:
                 "release.private_first_run_separation",
                 "release.package_identity",
                 "release.desktop_identity",
-                "release.desktop_process_handoff",
                 "release.ai_gateway_identity",
                 "release.git_identity",
                 "release.status",
             ]
             row["lookup_binding"] = {
                 "error_signatures": [
-                    "installed_version_stale",
+                    "candidate_version_stale",
                     "matters_mcp_missing",
                     "desktop_package_incomplete",
                     "desktop_release_archive_privacy_invalid",
                     "desktop_release_archive_identity_mismatch",
-                    "prior_desktop_process_tree_still_running_after_install",
+                    "candidate_desktop_self_test_process_tree_not_clean",
                     "private_aggregate_must_not_be_consumed_by_generic_release",
                 ],
                 "metadata": {},
@@ -816,7 +900,6 @@ def main() -> int:
                     "scripts/build_desktop_package.ps1",
                     "scripts/build_desktop_release_archive.py",
                     "scripts/check_public_boundary.py",
-                    "scripts/install_desktop_package.ps1",
                     ".github/**",
                     "SECURITY.md",
                 ],
@@ -843,25 +926,75 @@ def main() -> int:
                 "path:dpf-generic-v030-release-before-private-first-run"
             )
             authority["scoped_out_reason"] = (
-                "current generic release requires fresh package, installed "
-                "desktop/MCP, TestMesh, Git/tag, privacy, and publication evidence; "
-                "private-first-run completion is explicitly not required"
+                "current generic release requires fresh candidate package/desktop/MCP, "
+                "isolated anonymous-install, TestMesh, Git/tag, privacy, and publication "
+                "evidence; active local installation and private-first-run completion are "
+                "explicitly not required before publication"
             )
             row["failure_boundary"] = (
                 "private Gmail, filesystem, Codex-project, aggregate, receipt, "
                 "screenshot, identifier, or first-run completion evidence cannot "
                 "enter or gate the generic release; candidate drift, unexpected "
                 "build-environment packages, missing matters-mcp, incomplete "
-                "bundled skills, a surviving prior managed desktop process tree, "
-                "mismatched tag/install/assets, a non-public remote, or a "
+                "bundled skills, a surviving candidate self-test process tree, "
+                "mismatched candidate/tag/assets, a non-public remote, or a "
                 "README/license boundary mismatch blocks publication"
             )
             row["validation_boundary"] = (
                 "public inventory, history/privacy/license scans, clean-clone CI, "
-                "frozen full verification, exact prior managed desktop process-tree "
-                "shutdown, release identity, and anonymous post-release recheck"
+                "frozen full verification, isolated candidate package/desktop checks, "
+                "release identity, and anonymous post-release recheck"
             )
         elif commitment_id == "BC-DP-004":
+            row["metadata"] = {
+                **row.get("metadata", {}),
+                "ai_setup_owner": "installing_compatible_ai_host",
+                "daily_schedule_count": 1,
+                "daily_default_local_time": "21:00",
+                "source_scope_origin": "user_supplied_during_install",
+                "software_scope_hard_coded": False,
+                "automation_unavailable_status": "blocked",
+            }
+            row["validation_boundary"] = (
+                "AI-readable package contract, current package/MCP/public skill and "
+                "private-root identity, explicit user-supplied source grant, exactly one "
+                "host schedule, initial bounded maintenance receipt, honest empty-or-current "
+                "desktop state, progressive private coverage, zero scope widening or source "
+                "mutation, and foreground-only final release gates"
+            )
+            row["state_writes"] = list(
+                dict.fromkeys(
+                    (
+                        *row.get("state_writes", ()),
+                        "private_installation.package_identity",
+                        "private_installation.mcp_identity",
+                        "private_installation.public_skill_identity",
+                        "private_installation.private_root_status",
+                        "private_installation.source_grant_identity",
+                        "private_installation.schedule_identity",
+                        "private_installation.initial_maintenance_receipt",
+                        "private_installation.desktop_launch_status",
+                    )
+                )
+            )
+            lookup = row.setdefault("lookup_binding", {})
+            _append_unique(
+                lookup,
+                "path_patterns",
+                "README.md",
+                "plugin/matters-plugin.json",
+                "plugins/matters/skills/matters/**",
+                "scripts/build_desktop_release_archive.py",
+            )
+            _append_unique(
+                lookup,
+                "task_terms",
+                "install and use Matters",
+                "installing AI",
+                "exactly one daily schedule",
+                "user-supplied source scope",
+                "automation_capability_unavailable",
+            )
             _append_unique(
                 row,
                 "relations",

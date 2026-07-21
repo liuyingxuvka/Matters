@@ -4,7 +4,6 @@ from __future__ import annotations
 
 from datetime import datetime, timezone
 from hashlib import sha256
-import importlib.metadata
 import json
 import os
 from pathlib import Path
@@ -465,12 +464,12 @@ def _private_first_run_gate() -> dict:
         and str(maintenance.get("execution_profile_identity", "")).startswith(
             "execution-profile:"
         )
-        and str(
-            maintenance.get("manual_rehearsal_receipt_id", "")
-        ).startswith("maintenance-rehearsal:")
-        and str(
-            maintenance.get("manual_rehearsal_fingerprint", "")
-        ).startswith("sha256:")
+        and str(maintenance.get("ai_setup_receipt_id", "")).startswith(
+            "ai-setup:"
+        )
+        and str(maintenance.get("ai_setup_fingerprint", "")).startswith(
+            "sha256:"
+        )
         and str(
             maintenance.get("install_currentness_receipt_id", "")
         ).startswith("maintenance-install:")
@@ -503,7 +502,11 @@ def _private_first_run_gate() -> dict:
         and maintenance.get("current") is True
         and identity_current
         and maintenance.get("installed") is True
-        and maintenance.get("manual_rehearsal_current") is True
+        and maintenance.get("ai_setup_current") is True
+        and maintenance.get("schedule_count") == 1
+        and maintenance.get("source_scope_origin")
+        == "user_supplied_during_install"
+        and maintenance.get("automation_status") == "current"
         and maintenance.get("shared_service_path") is True
         and maintenance.get("model_agnostic") is True
         and maintenance.get("app_api_key_required") is False
@@ -549,8 +552,15 @@ def _private_first_run_gate() -> dict:
             else -1
         ),
         "codex_daily_maintenance_installed": maintenance.get("installed") is True,
-        "codex_daily_maintenance_rehearsed": (
-            maintenance.get("manual_rehearsal_current") is True
+        "codex_daily_maintenance_ai_setup_current": (
+            maintenance.get("ai_setup_current") is True
+        ),
+        "codex_daily_maintenance_schedule_count": maintenance.get(
+            "schedule_count", 0
+        ),
+        "codex_daily_maintenance_user_scope_supplied": (
+            maintenance.get("source_scope_origin")
+            == "user_supplied_during_install"
         ),
         "codex_daily_maintenance_shared_path": (
             maintenance.get("shared_service_path") is True
@@ -568,7 +578,7 @@ def _private_first_run_gate() -> dict:
             "handle. It proves a bounded real-private first run with exact "
             "inventory/depth/localization accounting, exact ordered bounded "
             "evidence-pointer and coverage-history migrations from a verified "
-            "restorable copy with zero startup/VACUUM attempts, plus one manually rehearsed "
+            "restorable copy with zero startup/VACUUM attempts, plus one installing-AI-owned "
             "model-agnostic Codex-hosted daily maintenance schedule through the "
             "shared service path with zero mailbox/source/outbound mutation and "
             "no unattended final gate; coverage_complete=false remains open work "
@@ -610,7 +620,7 @@ def _installed_ui_gate(root: Path) -> dict:
         return {
             "ok": False,
             "status": "not_run",
-            "reason": "installed_ui_evidence_unavailable",
+            "reason": "candidate_ui_evidence_unavailable",
         }
     revision = ui_revision(root)
     checks = payload.get("checks", {})
@@ -959,39 +969,10 @@ def _frozen_release_gate(
     source_version_identity = _source_version_identity(root)
     version = str(source_version_identity["version"])
     commit = _git_value(root, "rev-parse", "HEAD")
-    tag = _git_value(root, "describe", "--tags", "--exact-match", "HEAD")
     expected_tag = f"v{version}"
     artifacts = _release_artifacts(root)
     wheel = next((path for path in artifacts if path.suffix == ".whl"), None)
-    install_path = Path(
-        os.environ.get(
-            "MATTERS_INSTALL_RECEIPT",
-            str(Path.home() / ".matters" / "install" / "install-receipt.json"),
-        )
-    ).expanduser()
-    try:
-        install = json.loads(install_path.read_text(encoding="utf-8"))
-    except (OSError, json.JSONDecodeError, TypeError, ValueError):
-        install = {}
-    try:
-        installed_version = importlib.metadata.version("matters")
-    except importlib.metadata.PackageNotFoundError:
-        installed_version = ""
-    try:
-        distribution = importlib.metadata.distribution("matters")
-        installed_stdio = distribution.locate_file(
-            "matters/api/mcp/stdio.py"
-        )
-        mcp_entrypoints = tuple(
-            entry
-            for entry in distribution.entry_points
-            if entry.group == "console_scripts" and entry.name == "matters-mcp"
-        )
-    except importlib.metadata.PackageNotFoundError:
-        installed_stdio = Path()
-        mcp_entrypoints = ()
     standard_plugin = _standard_plugin_gate(root)
-    desktop_install = _desktop_install_gate(root)
     tm0_path = (
         root
         / ".flowguard"
@@ -1054,22 +1035,12 @@ def _frozen_release_gate(
         if row.get("behavior_plane") == "agent_operation"
     )
     checks = {
-        "installed_ui": installed_ui.get("ok") is True,
+        "candidate_ui": installed_ui.get("ok") is True,
         "public_release_boundary": public_release.get("ok") is True,
         "git_commit": len(commit) == 40,
-        "exact_release_tag": tag == expected_tag,
         "source_version": source_version_identity.get("ok") is True,
-        "installed_version": installed_version == version,
-        "installed_mcp_module": installed_stdio.is_file(),
-        "installed_mcp_entrypoint": (
-            len(mcp_entrypoints) == 1
-            and mcp_entrypoints[0].value == "matters.api.mcp.stdio:main"
-        ),
-        "install_receipt": (
-            install.get("schema") == "matters.local-install-receipt.v1"
-            and install.get("matters_version") == version
-            and install.get("wheel_sha256") == wheel_hash
-        ),
+        "candidate_wheel": wheel is not None and bool(wheel_hash),
+        "candidate_artifact_trio": len(artifacts) == 3,
         "product_models": models.get("ok") is True,
         "agent_operation_models": (
             models.get("agent_operation_model_count")
@@ -1093,7 +1064,6 @@ def _frozen_release_gate(
         ),
         "researchguard": research.status == "current",
         "standard_plugin": standard_plugin.get("ok") is True,
-        "desktop_install": desktop_install.get("ok") is True,
     }
     ok = all(checks.values())
     return {
@@ -1102,23 +1072,24 @@ def _frozen_release_gate(
         "checks": checks,
         "version": version,
         "commit": commit,
-        "tag": tag,
-        "installed_version": installed_version,
+        "planned_tag": expected_tag,
         "wheel_sha256": wheel_hash,
         "source_version_identity": source_version_identity,
         "researchguard_status": research.status,
         "standard_plugin": standard_plugin,
-        "desktop_install": desktop_install,
         "claim_boundary": (
-            "This frozen local-release gate binds exact Git/tag/version, "
-            "wheel/install, M0/C1-C12 product, A0/A1/A2/A3 agent-operation, and "
+            "This publishable-candidate gate binds exact Git commit/source version, "
+            "candidate wheel/source/desktop artifacts, isolated TM19 anonymous-install, "
+            "M0/C1-C12 product, A0/A1/A2/A3 agent-operation, and "
             "S0-S5 skill-runtime model evidence from separate roots, complete "
-            "TestMesh including TM19, current installed UI, public package "
+            "TestMesh including TM19, current candidate UI, public package "
             "boundary including the desktop release archive, explicit "
             "private-first-run separation, and the frozen "
-            "ResearchGuard currentness identity. It does not claim GitHub "
-            "publication, Linux CI, Figma evidence, or complete private "
-            "semantic coverage."
+            "ResearchGuard currentness identity. The user's active local Python and "
+            "desktop installations are intentionally verified from the published "
+            "GitHub assets after publication. This gate does not claim GitHub "
+            "publication, post-release consumer synchronization, Linux CI, Figma "
+            "evidence, or complete private semantic coverage."
         ),
     }
 
@@ -1231,8 +1202,10 @@ def capture_delivery_snapshot(root: Path) -> dict:
             "private-first-run aggregate. The private Gmail/filesystem/Codex "
             "first run is reported separately as a post-release acceptance "
             "domain and cannot block or widen the generic release claim. G10 current "
-            "installed-browser evidence, G11 clean-clone/package privacy "
-            "evidence, and G12 frozen local-release identities. Open private "
+            "candidate-browser evidence, G11 clean-clone/package privacy "
+            "evidence, and G12 publishable-candidate identities. The user's active "
+            "local installation is synchronized from GitHub assets only after "
+            "publication. Open private "
             "semantic coverage, Linux CI, Figma, GitHub publication, and "
             "licensing authorization remain outside any passed claim."
         ),
@@ -1458,7 +1431,7 @@ def build_plan(
                 "G10",
                 ".flowguard/evidence/ui",
                 ("artifact.g9.generic_private_separation",),
-                "current installed object-browser interaction evidence",
+                "current candidate object-browser interaction evidence",
             ),
             (
                 "artifact.g11.public_release",
@@ -1470,9 +1443,9 @@ def build_plan(
             (
                 "artifact.g12.frozen_release",
                 "G12",
-                f"release://local-v{VERSION}",
+                f"release://publishable-candidate-v{VERSION}",
                 ("artifact.g11.public_release",),
-                "frozen local Git, tag, package, install, model, and test identities",
+                "publishable Git commit, candidate package, anonymous-install, model, and test identities",
             ),
         )
     )
@@ -1569,7 +1542,7 @@ def build_plan(
         (
             "G10",
             "artifact.g10.installed_ui",
-            "installed_ui",
+            "candidate_ui",
             "ui_flow_structure",
             "node scripts/verify_live_ui.js --url <loopback> --ui-revision <current>",
         ),
@@ -1583,7 +1556,7 @@ def build_plan(
         (
             "G12",
             "artifact.g12.frozen_release",
-            "frozen_release",
+            "publishable_candidate",
             "development_process_flow",
             "python -m flowguard_models.run_delivery_flow",
         ),
@@ -1885,14 +1858,14 @@ def build_plan(
                 ),
                 invalidates_evidence_kinds=(
                     "generic_private_separation",
-                    "installed_ui",
+                    "candidate_ui",
                     "public_release_boundary",
-                    "frozen_release",
+                    "publishable_candidate",
                 ),
                 description="synthetic contract drift invalidates every generic release gate",
             ),
             FreshnessRule(
-                "generic-private-separation-invalidates-installed-ui-release",
+                "generic-private-separation-invalidates-candidate-ui-release",
                 upstream_artifact_id="artifact.g9.generic_private_separation",
                 invalidates_artifact_ids=(
                     "artifact.g10.installed_ui",
@@ -1900,14 +1873,14 @@ def build_plan(
                     "artifact.g12.frozen_release",
                 ),
                 invalidates_evidence_kinds=(
-                    "installed_ui",
+                    "candidate_ui",
                     "public_release_boundary",
-                    "frozen_release",
+                    "publishable_candidate",
                 ),
                 description="generic/private claim-boundary drift invalidates downstream release claims",
             ),
             FreshnessRule(
-                "installed-ui-invalidates-public-release",
+                "candidate-ui-invalidates-public-release",
                 upstream_artifact_id="artifact.g10.installed_ui",
                 invalidates_artifact_ids=(
                     "artifact.g11.public_release",
@@ -1915,16 +1888,16 @@ def build_plan(
                 ),
                 invalidates_evidence_kinds=(
                     "public_release_boundary",
-                    "frozen_release",
+                    "publishable_candidate",
                 ),
-                description="installed UI drift invalidates package and frozen-release claims",
+                description="candidate UI drift invalidates package and publishable-candidate claims",
             ),
             FreshnessRule(
-                "public-release-invalidates-frozen-release",
+                "public-release-boundary-invalidates-publishable-candidate",
                 upstream_artifact_id="artifact.g11.public_release",
                 invalidates_artifact_ids=("artifact.g12.frozen_release",),
-                invalidates_evidence_kinds=("frozen_release",),
-                description="candidate package or privacy drift invalidates frozen release",
+                invalidates_evidence_kinds=("publishable_candidate",),
+                description="candidate package or privacy drift invalidates publication readiness",
             ),
         ),
         decision_scope=(
@@ -1971,7 +1944,7 @@ def build_receipt(root: Path) -> dict:
             f"{plan_fingerprint.removeprefix('sha256:')[:16]}"
         ),
         "status": (
-            "frozen_local_release_green"
+            "publishable_candidate_green"
             if current
             else f"{current_gate.lower()}_current"
             if current_gate != "none"
@@ -1986,10 +1959,12 @@ def build_receipt(root: Path) -> dict:
         "native_report": report.to_dict(),
         "claim_boundary": (
             "The receipt proves only consecutive current gates through "
-            f"{current_gate}. A G12 result is a frozen local-release claim "
-            "covering explicit private-first-run separation, installed UI, clean "
-            "clone/packages, Git/tag/version, model, TestMesh, skill, install, "
-            "and ResearchGuard identities. The separate post-release private "
+            f"{current_gate}. A G12 result is a publishable-candidate claim "
+            "covering explicit private-first-run separation, candidate UI, clean "
+            "clone/packages, Git commit/source version, model, TestMesh, skill, "
+            "isolated anonymous-install, and ResearchGuard identities. The user's "
+            "active local Python/desktop installation is a separate post-publication "
+            "consumer check. The separate post-release private "
             "first-run acceptance may later require exact terminal pointer/archive "
             "migration receipts, but G12 does not consume or claim them. It never "
             "claims complete private semantic coverage, Figma evidence, Linux CI, licensing approval, "

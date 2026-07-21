@@ -108,14 +108,12 @@ def _seed(database):
 
 def _maintenance_evidence(path):
     payload = {
-        "artifact_type": "matters.codex-daily-maintenance-evidence.v1",
+        "artifact_type": "matters.ai-owned-daily-maintenance-evidence.v2",
         "status": "current",
         "schedule_identity": "codex-automation:daily-maintenance-test",
         "execution_profile_identity": "execution-profile:private-test",
-        "manual_rehearsal_receipt_id": (
-            "maintenance-rehearsal:private-test"
-        ),
-        "manual_rehearsal_fingerprint": "sha256:" + "1" * 64,
+        "ai_setup_receipt_id": "ai-setup:private-test",
+        "ai_setup_fingerprint": "sha256:" + "1" * 64,
         "install_currentness_receipt_id": (
             "maintenance-install:private-test"
         ),
@@ -123,6 +121,9 @@ def _maintenance_evidence(path):
         "shared_service_entrypoint_fingerprint": "sha256:" + "3" * 64,
         "run_receipt_ids": ["maintenance-run:private-test"],
         "last_delta_status": "no_delta",
+        "schedule_count": 1,
+        "source_scope_origin": "user_supplied_during_install",
+        "automation_status": "current",
         "model_agnostic": True,
         "shared_service_path": True,
         "app_api_key_required": False,
@@ -266,7 +267,9 @@ def test_private_aggregate_projects_current_daily_maintenance_receipts(tmp_path)
     projected = report["codex_daily_maintenance"]
     assert report["artifact_type"] == "matters.private-first-run-aggregate.v2"
     assert projected["current"] is True
-    assert projected["manual_rehearsal_current"] is True
+    assert projected["ai_setup_current"] is True
+    assert projected["schedule_count"] == 1
+    assert projected["source_scope_origin"] == "user_supplied_during_install"
     assert projected["installed"] is True
     assert set(projected["mutation_attempt_counts"]) == {
         "source",

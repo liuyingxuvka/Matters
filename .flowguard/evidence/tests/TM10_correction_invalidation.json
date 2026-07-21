@@ -1,6 +1,6 @@
 {
   "artifact_type": "matters.test-suite-receipt.v1",
-  "generated_at": "2026-07-21T20:33:53.086006+00:00",
+  "generated_at": "2026-07-21T22:58:40.078231+00:00",
   "pytest_observation": {
     "errors": 0,
     "failed": 0,
@@ -23,7 +23,7 @@
     "tests/test_tm10_correction_invalidation.py"
   ],
   "stderr_tail": "",
-  "stdout_tail": ".                                                                        [100%]\n1 passed in 0.15s\n",
+  "stdout_tail": ".                                                                        [100%]\n1 passed in 0.11s\n",
   "suite_id": "TM10_correction_invalidation",
   "test_suite_evidence": {
     "artifact_version": "matters.test-suite-receipt.v1",
@@ -213,7 +213,7 @@
         "src/matters/revisions/recompute.py": "sha256:a695d0258b7db5ac47d1bce7f0040edebad4ee1ff8f549067e6c2af35f41b918",
         "tests/test_tm10_correction_invalidation.py": "sha256:7e8c69b8bec9279dee07b555ef382c2ad43e316e72e78f89b1c5acaf8bb0f588"
       },
-      "artifact_id": "artifact:run:TM10_correction_invalidation:93aa0c52823bfd63",
+      "artifact_id": "artifact:run:TM10_correction_invalidation:4255a387b46bb6ac",
       "assertion_scope": "external_contract",
       "command": "python -m pytest -q -o addopts= tests/test_tm10_correction_invalidation.py",
       "covered_obligation_ids": [
@@ -312,7 +312,7 @@
       ],
       "current": true,
       "exit_code": 0,
-      "finished_at": "2026-07-21T20:33:53.086006+00:00",
+      "finished_at": "2026-07-21T22:58:40.078231+00:00",
       "metadata": {},
       "producer_route": "test_mesh",
       "progress_only": false,
@@ -321,7 +321,7 @@
       "route_evidence_current": true,
       "route_gap_codes": [],
       "stale_reasons": [],
-      "started_at": "2026-07-21T20:33:51.244705+00:00"
+      "started_at": "2026-07-21T22:58:38.718878+00:00"
     },
     "release_required": false,
     "result_fingerprint": "sha256:978f97dd8fa36c41613805cee43a67379202c8ceb9b3caf1ab9182cd8467beea",
@@ -329,7 +329,7 @@
     "result_reused": false,
     "result_status": "passed",
     "reuse_ticket": null,
-    "run_id": "run:TM10_correction_invalidation:93aa0c52823bfd63",
+    "run_id": "run:TM10_correction_invalidation:4255a387b46bb6ac",
     "selected_count": 1,
     "skipped_count": 0,
     "skipped_visible": true,

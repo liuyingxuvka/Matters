@@ -1,6 +1,6 @@
 {
   "artifact_type": "matters.test-suite-receipt.v1",
-  "generated_at": "2026-07-21T20:36:56.968498+00:00",
+  "generated_at": "2026-07-21T22:59:58.634708+00:00",
   "pytest_observation": {
     "errors": 0,
     "failed": 0,
@@ -10,10 +10,10 @@
     "xfailed": 0,
     "xpassed": 0
   },
-  "source_fingerprint": "sha256:0215e20043a864d3b0ed57aeb61a271a8cf5e40cb3bd63a9fa436c0e74db921e",
+  "source_fingerprint": "sha256:f1eba524777614300a54d59a5f0082373db73b5c0eec0d83f5f51fe84ce0ac34",
   "source_fingerprints": {
     "src/matters/__init__.py": "sha256:621dedc5af77bbd27f945a4cccf353a83c1f888cbc2fe4f1c0cb93e7174655f5",
-    "src/matters/_version.py": "sha256:22139526df3740b1a814c7a83b251532cf3d96a462770473a93f2a67ae649eda",
+    "src/matters/_version.py": "sha256:3ed60b9d3dde7f9a5a556bd6815952043274816cb189224ddd2f9b56adb6a6b0",
     "src/matters/analysis/__init__.py": "sha256:4610c328506049750179cae6c44e1bce505b65f9d568cc18a6f70ad27a3282d4",
     "src/matters/analysis/depth.py": "sha256:5d25ca51f287422fb79939e72477e53fdfc0d2b0cacd8b9da017a0a6fb7f61ef",
     "src/matters/analysis/execution_profiles.py": "sha256:5442964fb5380457e3e5dd57dab3408adaa828fc9349bbf02446995c144fbe21",
@@ -43,7 +43,7 @@
     "src/matters/application/hierarchy.py": "sha256:287cb3bb417ced357694ac1d53edd6223e8613afb85dd9d8cc2cb7410006256d",
     "src/matters/application/maintenance.py": "sha256:ff47df531d12543a4d1d0f536e301171dafcd8eef120459b6165255f2e8c4f6a",
     "src/matters/application/maintenance_orchestration.py": "sha256:4a1a741a767f0be2d42816c6b940087320bb924a92af7b910c2e84f8ea806a1e",
-    "src/matters/application/orchestrator.py": "sha256:62da28725875a304ad024ab77c6d3b021371c10c5085274eb9d53ad140227eec",
+    "src/matters/application/orchestrator.py": "sha256:97b1e1a05937b109c1de0f6585b0631bb5d1fefdb7706778c636f319eae3f1db",
     "src/matters/application/partitioned_filesystem.py": "sha256:dbe8d5c67cad6deace4d669c8d3f147cdec0dca463237680f5abc9911d33733f",
     "src/matters/application/reconciliation.py": "sha256:3569a25f37be23df95de2ebf0825797182556b59c1af5444aee2c8cf7a3d1f03",
     "src/matters/application/situation_graph.py": "sha256:b254ea036069b5fd6a268ee79dc2c4d4e2b04836b0f9cb4a43d32ccfc323c9ec",
@@ -170,7 +170,7 @@
     "tests/test_entrypoint_real_service.py"
   ],
   "stderr_tail": "",
-  "stdout_tail": "........................................................................ [ 87%]\n..........                                                               [100%]\n82 passed in 37.22s\n",
+  "stdout_tail": "........................................................................ [ 87%]\n..........                                                               [100%]\n82 passed in 16.95s\n",
   "suite_id": "TM14_end_to_end_conformance",
   "test_suite_evidence": {
     "artifact_version": "matters.test-suite-receipt.v1",
@@ -665,7 +665,7 @@
     "proof_artifact": {
       "artifact_fingerprints": {
         "src/matters/__init__.py": "sha256:621dedc5af77bbd27f945a4cccf353a83c1f888cbc2fe4f1c0cb93e7174655f5",
-        "src/matters/_version.py": "sha256:22139526df3740b1a814c7a83b251532cf3d96a462770473a93f2a67ae649eda",
+        "src/matters/_version.py": "sha256:3ed60b9d3dde7f9a5a556bd6815952043274816cb189224ddd2f9b56adb6a6b0",
         "src/matters/analysis/__init__.py": "sha256:4610c328506049750179cae6c44e1bce505b65f9d568cc18a6f70ad27a3282d4",
         "src/matters/analysis/depth.py": "sha256:5d25ca51f287422fb79939e72477e53fdfc0d2b0cacd8b9da017a0a6fb7f61ef",
         "src/matters/analysis/execution_profiles.py": "sha256:5442964fb5380457e3e5dd57dab3408adaa828fc9349bbf02446995c144fbe21",
@@ -695,7 +695,7 @@
         "src/matters/application/hierarchy.py": "sha256:287cb3bb417ced357694ac1d53edd6223e8613afb85dd9d8cc2cb7410006256d",
         "src/matters/application/maintenance.py": "sha256:ff47df531d12543a4d1d0f536e301171dafcd8eef120459b6165255f2e8c4f6a",
         "src/matters/application/maintenance_orchestration.py": "sha256:4a1a741a767f0be2d42816c6b940087320bb924a92af7b910c2e84f8ea806a1e",
-        "src/matters/application/orchestrator.py": "sha256:62da28725875a304ad024ab77c6d3b021371c10c5085274eb9d53ad140227eec",
+        "src/matters/application/orchestrator.py": "sha256:97b1e1a05937b109c1de0f6585b0631bb5d1fefdb7706778c636f319eae3f1db",
         "src/matters/application/partitioned_filesystem.py": "sha256:dbe8d5c67cad6deace4d669c8d3f147cdec0dca463237680f5abc9911d33733f",
         "src/matters/application/reconciliation.py": "sha256:3569a25f37be23df95de2ebf0825797182556b59c1af5444aee2c8cf7a3d1f03",
         "src/matters/application/situation_graph.py": "sha256:b254ea036069b5fd6a268ee79dc2c4d4e2b04836b0f9cb4a43d32ccfc323c9ec",
@@ -814,7 +814,7 @@
         "tests/test_entrypoint_real_service.py": "sha256:4024e0d8e6ef4b952fd7f4caa376485d1ce8d95101454fa509f1a090d7152eb2",
         "tests/test_tm14_end_to_end_conformance.py": "sha256:40cb76e5c96bf385559f5daa7f4892d20189604798857e6192cd88a4a5d5ab7f"
       },
-      "artifact_id": "artifact:run:TM14_end_to_end_conformance:b635dd09ca61e73d",
+      "artifact_id": "artifact:run:TM14_end_to_end_conformance:1e5f8004b466ab98",
       "assertion_scope": "external_contract",
       "command": "python -m pytest -q -o addopts= tests/test_tm14_end_to_end_conformance.py tests/test_entrypoint_cli.py tests/test_entrypoint_http.py tests/test_entrypoint_mcp.py tests/test_entrypoint_real_service.py",
       "covered_obligation_ids": [
@@ -1109,7 +1109,7 @@
       ],
       "current": true,
       "exit_code": 0,
-      "finished_at": "2026-07-21T20:36:56.968498+00:00",
+      "finished_at": "2026-07-21T22:59:58.634708+00:00",
       "metadata": {},
       "producer_route": "test_mesh",
       "progress_only": false,
@@ -1118,15 +1118,15 @@
       "route_evidence_current": true,
       "route_gap_codes": [],
       "stale_reasons": [],
-      "started_at": "2026-07-21T20:36:17.194899+00:00"
+      "started_at": "2026-07-21T22:59:40.376711+00:00"
     },
     "release_required": false,
-    "result_fingerprint": "sha256:0215e20043a864d3b0ed57aeb61a271a8cf5e40cb3bd63a9fa436c0e74db921e",
+    "result_fingerprint": "sha256:f1eba524777614300a54d59a5f0082373db73b5c0eec0d83f5f51fe84ce0ac34",
     "result_path": ".flowguard/evidence/tests/TM14_end_to_end_conformance.json",
     "result_reused": false,
     "result_status": "passed",
     "reuse_ticket": null,
-    "run_id": "run:TM14_end_to_end_conformance:b635dd09ca61e73d",
+    "run_id": "run:TM14_end_to_end_conformance:1e5f8004b466ab98",
     "selected_count": 82,
     "skipped_count": 0,
     "skipped_visible": true,

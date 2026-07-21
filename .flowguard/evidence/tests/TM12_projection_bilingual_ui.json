@@ -1,6 +1,6 @@
 {
   "artifact_type": "matters.test-suite-receipt.v1",
-  "generated_at": "2026-07-21T20:36:07.521853+00:00",
+  "generated_at": "2026-07-21T22:59:37.166036+00:00",
   "pytest_observation": {
     "errors": 0,
     "failed": 0,
@@ -10,13 +10,13 @@
     "xfailed": 0,
     "xpassed": 0
   },
-  "source_fingerprint": "sha256:415ce643cf68de1a71f8be074c9691c305ffb4df968d30bc8d877e676359b734",
+  "source_fingerprint": "sha256:fbb3112513804a3d61fedb1b86880cb7028d9f5086bb949b9210d87bf86444ec",
   "source_fingerprints": {
     "flowguard_design/run_ui_flow_structure.py": "sha256:9c98a21a8a4aa259bd76d4381b65ac8395f3b618700c6343f383aeb9acee4552",
     "flowguard_design/ui_flow_structure.py": "sha256:375e1b9d67ac818d3c89d3ca67731c99363aab1e11325d0e1d75ce3f32c922c7",
     "src/matters/api/http/app.py": "sha256:716f8a32cfa215962e6f968f2cf72d1d823cb99a99468644ba858152d156db98",
     "src/matters/api/http/static.py": "sha256:1e13b481809e779877d39189ef91d30175f82eadd305df320cec6d70d3297d00",
-    "src/matters/application/orchestrator.py": "sha256:62da28725875a304ad024ab77c6d3b021371c10c5085274eb9d53ad140227eec",
+    "src/matters/application/orchestrator.py": "sha256:97b1e1a05937b109c1de0f6585b0631bb5d1fefdb7706778c636f319eae3f1db",
     "src/matters/presentation/__init__.py": "sha256:73d671b58100e2e04b57cf0f2022b38d0bff19aa3167d765c8bcf7e055d29b12",
     "src/matters/presentation/browser.py": "sha256:b00de6109551e3aeb6b202304012c422362c488bffda710257c31be727f5a663",
     "src/matters/presentation/heroes.py": "sha256:2c25a7e162365c2cf4f055ec6f5208217f2f6def5a0978c438d2d59e938d38d6",
@@ -43,7 +43,7 @@
     "tests/test_source_group_projection.py"
   ],
   "stderr_tail": "",
-  "stdout_tail": "....................................................                     [100%]\n52 passed in 121.55s (0:02:01)\n",
+  "stdout_tail": "....................................................                     [100%]\n52 passed in 49.24s\n",
   "suite_id": "TM12_projection_bilingual_ui",
   "test_suite_evidence": {
     "artifact_version": "matters.test-suite-receipt.v1",
@@ -668,7 +668,7 @@
         "flowguard_design/ui_flow_structure.py": "sha256:375e1b9d67ac818d3c89d3ca67731c99363aab1e11325d0e1d75ce3f32c922c7",
         "src/matters/api/http/app.py": "sha256:716f8a32cfa215962e6f968f2cf72d1d823cb99a99468644ba858152d156db98",
         "src/matters/api/http/static.py": "sha256:1e13b481809e779877d39189ef91d30175f82eadd305df320cec6d70d3297d00",
-        "src/matters/application/orchestrator.py": "sha256:62da28725875a304ad024ab77c6d3b021371c10c5085274eb9d53ad140227eec",
+        "src/matters/application/orchestrator.py": "sha256:97b1e1a05937b109c1de0f6585b0631bb5d1fefdb7706778c636f319eae3f1db",
         "src/matters/presentation/__init__.py": "sha256:73d671b58100e2e04b57cf0f2022b38d0bff19aa3167d765c8bcf7e055d29b12",
         "src/matters/presentation/browser.py": "sha256:b00de6109551e3aeb6b202304012c422362c488bffda710257c31be727f5a663",
         "src/matters/presentation/heroes.py": "sha256:2c25a7e162365c2cf4f055ec6f5208217f2f6def5a0978c438d2d59e938d38d6",
@@ -686,7 +686,7 @@
         "ui/index.html": "sha256:5125b7f80c72b6569e3004aab029717dd909c7360c61d30623e6b912db161e07",
         "ui/styles.css": "sha256:25ee970de143ea0d568875d3d416b78157afe767f9b7486bbcb88c4a0a8151bf"
       },
-      "artifact_id": "artifact:run:TM12_projection_bilingual_ui:5be0782f20159a27",
+      "artifact_id": "artifact:run:TM12_projection_bilingual_ui:cc7bd5877a7edb53",
       "assertion_scope": "external_contract",
       "command": "python -m pytest -q -o addopts= tests/test_tm12_projection_bilingual_ui.py tests/test_matter_presentation_reconciliation.py tests/test_object_browser_autonomy.py tests/test_object_browser_catalog_query.py tests/test_semantic_data_layer_projection.py tests/test_source_group_projection.py",
       "covered_obligation_ids": [
@@ -1066,7 +1066,7 @@
       ],
       "current": true,
       "exit_code": 0,
-      "finished_at": "2026-07-21T20:36:07.521853+00:00",
+      "finished_at": "2026-07-21T22:59:37.166036+00:00",
       "metadata": {},
       "producer_route": "test_mesh",
       "progress_only": false,
@@ -1075,15 +1075,15 @@
       "route_evidence_current": true,
       "route_gap_codes": [],
       "stale_reasons": [],
-      "started_at": "2026-07-21T20:34:03.349817+00:00"
+      "started_at": "2026-07-21T22:58:46.426472+00:00"
     },
     "release_required": false,
-    "result_fingerprint": "sha256:415ce643cf68de1a71f8be074c9691c305ffb4df968d30bc8d877e676359b734",
+    "result_fingerprint": "sha256:fbb3112513804a3d61fedb1b86880cb7028d9f5086bb949b9210d87bf86444ec",
     "result_path": ".flowguard/evidence/tests/TM12_projection_bilingual_ui.json",
     "result_reused": false,
     "result_status": "passed",
     "reuse_ticket": null,
-    "run_id": "run:TM12_projection_bilingual_ui:5be0782f20159a27",
+    "run_id": "run:TM12_projection_bilingual_ui:cc7bd5877a7edb53",
     "selected_count": 52,
     "skipped_count": 0,
     "skipped_visible": true,

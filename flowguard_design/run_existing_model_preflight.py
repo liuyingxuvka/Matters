@@ -43,7 +43,7 @@ SOURCE_ANALYSIS_OWNER_ID = "A0_matters_source_analysis_operation"
 RESEARCH_OWNER_ID = "A1_matters_research_operation"
 MAINTENANCE_ORCHESTRATOR_OWNER_ID = "A2_matters_maintenance_orchestrator_operation"
 AI_GATEWAY_OWNER_ID = "A3_matters_ai_gateway_operation"
-SCOPE_REVISION = "v0.3.1-mit-public-release-v10"
+SCOPE_REVISION = "v0.3.1-ai-owned-installation-v11"
 REUSE_MAP = {
     "M0_matters_end_to_end_authority": "extend_with_source_in_place_migration_situation_graph_world_model_and_ui_reachability_join",
     "C1_authorization_coverage": "extend_with_source_in_place_storage_cleanup_group_graph_world_model_and_ui_stage_coverage",
@@ -567,6 +567,15 @@ def build_preflight() -> ExistingModelPreflight:
         (
             CHANGE_ROOT / "proposal.md",
             CHANGE_ROOT / "tasks.md",
+            ROOT / "README.md",
+            ROOT / "plugin" / "matters-plugin.json",
+            ROOT
+            / "plugins"
+            / "matters"
+            / "skills"
+            / "matters"
+            / "references"
+            / "installation.md",
             ROOT / "flowguard_models" / "delivery_flow.py",
             ROOT / "docs" / "providers" / "jira-discovery-plan.md",
             LEDGER_PATH,
@@ -595,9 +604,11 @@ def build_preflight() -> ExistingModelPreflight:
             "supplemental queuing and descendant not-applicable disposition, an exact eleven-skill app-local "
             "pack without machine-global overlays, one separate public Matters AI "
             "gateway for bounded model-map/context/history access and typed feedback, "
-            "event-driven progressive private maintenance through one shared path "
-            "after one separately verified generic public MIT-licensed v0.3.1 release, "
-            "with daily scheduling opt-in only, and bounded Model Miss handoff "
+            "AI-owned installation with a user-supplied source scope, exactly one "
+            "host-managed daily schedule, an initial bounded maintenance cycle, and "
+            "progressive private maintenance through one shared path after one "
+            "separately verified generic public MIT-licensed v0.3.1 release, with "
+            "visible automation blockers and bounded Model Miss handoff "
             "without app-owned API keys, Jira/Rovo, Guard vendoring, or legacy "
             "Guard fallbacks."
         ),

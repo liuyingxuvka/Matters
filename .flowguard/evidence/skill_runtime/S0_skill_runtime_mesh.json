@@ -9,7 +9,7 @@
   },
   "claim_boundary": "mesh_green proves only the bounded abstract S0/S1-S5 partition, unique auxiliary ownership, current child receipt reattachment, and terminal interface closure. It does not prove product runtime, M0/C1-C12 integration, installed skill bytes, global installation, ResearchGuard execution, or live conformance.",
   "evidence_tier": "mesh_green",
-  "generated_at": "2026-07-21T11:37:30.862560+00:00",
+  "generated_at": "2026-07-21T22:54:16.753565+00:00",
   "mesh_fingerprint": "sha256:9b048d24335eb0f4ab0757c2ad6427eec691eada1e722674fd3f01e23193fc29",
   "mesh_id": "S0_skill_runtime_mesh",
   "native_report": {

@@ -2,8 +2,8 @@
   "artifact_type": "matters.existing-model-preflight.v2",
   "blockers": [],
   "claim_boundary": "This current receipt proves plane-first lookup, source/model discovery, ownership, reuse/extension, same-intent surface inventory, OpenSpec read-only context, and explicit legacy disposition only. It does not prove model execution, mesh closure, field lifecycle, agent operations, ResearchGuard availability, Skill Pack validation, TestMesh, runtime, private first run, install, or release. Model source edits after this fingerprint stale this receipt.",
-  "evidence_id": "evidence:existing-model-preflight:e7e4fc8461b3dded",
-  "generated_at": "2026-07-21T20:55:20.055790+00:00",
+  "evidence_id": "evidence:existing-model-preflight:b99c268a1c8ee680",
+  "generated_at": "2026-07-21T22:51:23.221178+00:00",
   "native_report": {
     "behavior_commitment_id": "BC-DP-004",
     "business_intent_id": "BI-DP-004-progressive-private-first-run",
@@ -23,7 +23,7 @@
           "child_model_ids": [],
           "child_reattachment_status": "",
           "evidence_current": false,
-          "evidence_id": "source:sha256:cf7be1c4acb966cca719b013578e0b1a600b71a69dca3c47d21631d96ae22732",
+          "evidence_id": "source:sha256:dc960e4c1cc60043b21246b2267368c74a7e2af0cddcd4709661f7112ee001d8",
           "evidence_tier": "candidate_only",
           "fields_owned": [
             "development_gate.status",
@@ -46,7 +46,7 @@
           "rationale": "extend_with_generic_v030_release_before_post_release_private_first_run_plus_source_in_place_migration_order_coverage_scan_desktop_visual_qa_install_and_release_gates",
           "responsibilities": [
             "development gate order and evidence freshness",
-            "generic v0.3.0 release before progressive private first-run sequencing",
+            "generic v0.3.1 release before progressive private first-run sequencing",
             "Model Miss handoff into ordinary development"
           ],
           "side_effects_owned": [
@@ -1735,7 +1735,7 @@
           "child_model_ids": [],
           "child_reattachment_status": "",
           "evidence_current": false,
-          "evidence_id": "source:sha256:cf7be1c4acb966cca719b013578e0b1a600b71a69dca3c47d21631d96ae22732",
+          "evidence_id": "source:sha256:dc960e4c1cc60043b21246b2267368c74a7e2af0cddcd4709661f7112ee001d8",
           "evidence_tier": "candidate_only",
           "fields_owned": [
             "skill_runtime.bundle_identity",
@@ -2349,7 +2349,7 @@
       "ai_gateway.researchguard_status",
       "ai_gateway.completion_status"
     ],
-    "behavior_lookup_reason": "The change is primarily a development lifecycle and integration rebase. DPF owns both the generic v0.3.0 release gate and the separate post-release private-first-run sequence; C1-C12 and agent operations are typed evidence targets and never merge into the development-process plane.",
+    "behavior_lookup_reason": "The change is primarily a development lifecycle and integration rebase. DPF owns both the generic v0.3.1 release gate and the separate post-release private-first-run sequence; C1-C12 and agent operations are typed evidence targets and never merge into the development-process plane.",
     "behavior_lookup_required": true,
     "behavior_lookup_status": "performed",
     "candidate_commitment_hits": [],
@@ -2403,8 +2403,8 @@
         "disposition": "materialized",
         "evidence_current": true,
         "evidence_ids": [
-          "sha256:1bca030c8495530f67d87d9f1b5710b3fc6b7cfbd52bae5a3673cf04a9e7ff2f",
-          "sha256:96b7daf55b72d77aff772bd3d1eeb80dc5731126112484eb2240944a024b0d57"
+          "sha256:70e988756892abe9866929eca3f3634fecc1d1e2b7236276cb7ad7ea267a3bf0",
+          "sha256:a535eeb34c76bb1cf707eb3bb0f53ba87f4dc454cc83ec9acea66a62639e1924"
         ],
         "expected_terminal": "complete, researchguard_pending_integration, or blocked with typed next actions",
         "in_scope": true,
@@ -2431,8 +2431,8 @@
         "disposition": "materialized",
         "evidence_current": true,
         "evidence_ids": [
-          "sha256:f69ae31a1b48da4cabad199358dd9c17aa008ae5ac9f1a4a754cecb9513ba498",
-          "sha256:96b7daf55b72d77aff772bd3d1eeb80dc5731126112484eb2240944a024b0d57"
+          "sha256:e8197ad634147514c35e1ebd80b5e88d1bf0e7a864c27e6cbb950fcfd15303ee",
+          "sha256:a535eeb34c76bb1cf707eb3bb0f53ba87f4dc454cc83ec9acea66a62639e1924"
         ],
         "expected_terminal": "complete, researchguard_pending_integration, or blocked with typed next actions",
         "in_scope": true,
@@ -2456,8 +2456,8 @@
         "disposition": "materialized",
         "evidence_current": true,
         "evidence_ids": [
-          "sha256:cf7be1c4acb966cca719b013578e0b1a600b71a69dca3c47d21631d96ae22732",
-          "sha256:96b7daf55b72d77aff772bd3d1eeb80dc5731126112484eb2240944a024b0d57"
+          "sha256:dc960e4c1cc60043b21246b2267368c74a7e2af0cddcd4709661f7112ee001d8",
+          "sha256:a535eeb34c76bb1cf707eb3bb0f53ba87f4dc454cc83ec9acea66a62639e1924"
         ],
         "expected_terminal": "complete, researchguard_pending_integration, or blocked with typed next actions",
         "in_scope": true,
@@ -2485,7 +2485,7 @@
         "evidence_current": true,
         "evidence_ids": [
           "sha256:10090da4fc19284ece20aa7c9fd58826ebb8a442e1b680008cda62b5d84d4ffb",
-          "sha256:96b7daf55b72d77aff772bd3d1eeb80dc5731126112484eb2240944a024b0d57"
+          "sha256:a535eeb34c76bb1cf707eb3bb0f53ba87f4dc454cc83ec9acea66a62639e1924"
         ],
         "expected_terminal": "",
         "in_scope": false,
@@ -2503,7 +2503,7 @@
         "validation_boundary": "source-only dormant adapter with zero required runtime, install, acceptance, or release authority"
       }
     ],
-    "ledger_fingerprint": "sha256:96b7daf55b72d77aff772bd3d1eeb80dc5731126112484eb2240944a024b0d57",
+    "ledger_fingerprint": "sha256:a535eeb34c76bb1cf707eb3bb0f53ba87f4dc454cc83ec9acea66a62639e1924",
     "mode": "full",
     "model_angle_deliberations": [],
     "model_angle_gap_ids": [],
@@ -5562,7 +5562,7 @@
           "DPF_matters_delivery_gate"
         ],
         [
-          "generic v0.3.0 release before progressive private first-run sequencing",
+          "generic v0.3.1 release before progressive private first-run sequencing",
           "DPF_matters_delivery_gate"
         ],
         [
@@ -7454,7 +7454,7 @@
         "commitment_id": "BC-DP-003",
         "hit_role": "validation_target",
         "match_reasons": [
-          "generic v0.3.0 private-repository release must close before the private first run",
+          "generic v0.3.1 public MIT-licensed release must close before the private first run",
           "release evidence excludes private aggregate consumption and completion claims"
         ],
         "primary_owner_model_id": "DPF_matters_delivery_gate",
@@ -7577,7 +7577,7 @@
         "child_model_ids": [],
         "child_reattachment_status": "",
         "evidence_current": false,
-        "evidence_id": "source:sha256:cf7be1c4acb966cca719b013578e0b1a600b71a69dca3c47d21631d96ae22732",
+        "evidence_id": "source:sha256:dc960e4c1cc60043b21246b2267368c74a7e2af0cddcd4709661f7112ee001d8",
         "evidence_tier": "candidate_only",
         "fields_owned": [
           "development_gate.status",
@@ -7600,7 +7600,7 @@
         "rationale": "extend_with_generic_v030_release_before_post_release_private_first_run_plus_source_in_place_migration_order_coverage_scan_desktop_visual_qa_install_and_release_gates",
         "responsibilities": [
           "development gate order and evidence freshness",
-          "generic v0.3.0 release before progressive private first-run sequencing",
+          "generic v0.3.1 release before progressive private first-run sequencing",
           "Model Miss handoff into ordinary development"
         ],
         "side_effects_owned": [
@@ -9191,7 +9191,7 @@
         "child_model_ids": [],
         "child_reattachment_status": "",
         "evidence_current": false,
-        "evidence_id": "source:sha256:cf7be1c4acb966cca719b013578e0b1a600b71a69dca3c47d21631d96ae22732",
+        "evidence_id": "source:sha256:dc960e4c1cc60043b21246b2267368c74a7e2af0cddcd4709661f7112ee001d8",
         "evidence_tier": "candidate_only",
         "fields_owned": [
           "skill_runtime.bundle_identity",
@@ -9393,37 +9393,37 @@
     "skip_reason": "",
     "spec_context": {
       "artifact_ids": {
-        "openspec/changes/build-matters-model-driven-core/design.md": "sha256:f565dc302075e6872000febfe96d21c54b0e7c3c15cf04d85f398a7703a9067d",
-        "openspec/changes/build-matters-model-driven-core/proposal.md": "sha256:f69ae31a1b48da4cabad199358dd9c17aa008ae5ac9f1a4a754cecb9513ba498",
+        "openspec/changes/build-matters-model-driven-core/design.md": "sha256:59a767cf1a99d8239ac06c32c3c928b28a5a5c2903070b4c377f310a1956389d",
+        "openspec/changes/build-matters-model-driven-core/proposal.md": "sha256:e8197ad634147514c35e1ebd80b5e88d1bf0e7a864c27e6cbb950fcfd15303ee",
         "openspec/changes/build-matters-model-driven-core/specs/authorization-coverage/spec.md": "sha256:e06f6ca8c4cfda67c9ac75b0643fa7ac267b0a756e71a2d5b558c54b55b68252",
         "openspec/changes/build-matters-model-driven-core/specs/bilingual-projection-ui/spec.md": "sha256:5e1bf758448f75f105ac310e90294120ffe795b2d24bd5562796652931468aa7",
-        "openspec/changes/build-matters-model-driven-core/specs/bundled-skill-runtime-and-maintenance/spec.md": "sha256:723314cd76d29cae902429975f09e59b7d643b0ebddffba5f809640ae3c966b7",
+        "openspec/changes/build-matters-model-driven-core/specs/bundled-skill-runtime-and-maintenance/spec.md": "sha256:6f5256820ec9bb4228a1d2171b1eb7146faefa26102014d8a4ccfdb2e0006fb4",
         "openspec/changes/build-matters-model-driven-core/specs/correction-invalidation/spec.md": "sha256:4943b50c4d64103e86f01d772a0e544c6c52a6bcd129365654b54564a6fc01a5",
         "openspec/changes/build-matters-model-driven-core/specs/evidence-qualification/spec.md": "sha256:b50b340cc94c89ce93b8911487eecd3a50d0edd40add69bc7a20f07a1392534a",
-        "openspec/changes/build-matters-model-driven-core/specs/guard-prediction-boundary/spec.md": "sha256:f7f2fa3f669aa8de74c2ef3dddd27ec6c2c167fdd6f7db043345ac41ac87f4f8",
+        "openspec/changes/build-matters-model-driven-core/specs/guard-prediction-boundary/spec.md": "sha256:76795a73c837225a9bda7aabcd8e761dff005bfbc0efe48b1d20931b41ce3952",
         "openspec/changes/build-matters-model-driven-core/specs/identity-resolution/spec.md": "sha256:0e42b45b2af03bfb463dc3741d3a704e6b3a7194a861d1a9f99e8e0fc0a2e8dd",
         "openspec/changes/build-matters-model-driven-core/specs/lifecycle-board-state/spec.md": "sha256:2c8cefef84c74ad5ae4d0345b3bc4e4c39d7e2db1f9366eb72eff39706669713",
         "openspec/changes/build-matters-model-driven-core/specs/matter-admission/spec.md": "sha256:a54bb0c1ff4ba8842ec5c9d6288c7ff8a91f7e1b6b79201e9dd49f9714a4867d",
         "openspec/changes/build-matters-model-driven-core/specs/open-loop-blocking/spec.md": "sha256:f7ff9323cade5e0aaa02ca0957bf1431a5c19f6f25448cb0d9f0604fb3c9ca9e",
         "openspec/changes/build-matters-model-driven-core/specs/outcomes-reopen/spec.md": "sha256:f5a3ba3207f1610eaefe61716b8d8d0a2809b52766bae04ad819589afe5b6ef0",
-        "openspec/changes/build-matters-model-driven-core/specs/privacy-release-boundary/spec.md": "sha256:0519aa0cedf547971c1df97e0449016ee758a45b6e326bdb0f4af8f48054b6c7",
+        "openspec/changes/build-matters-model-driven-core/specs/privacy-release-boundary/spec.md": "sha256:da8708242a9c26774d82babb0123e200425e2c17fcaecf0441afb164d46f5c70",
         "openspec/changes/build-matters-model-driven-core/specs/source-provenance/spec.md": "sha256:eb704496b2d3388d089e8c73a17eb0b9e2c5cbc6658fbc0bc92f63bff09eb084",
         "openspec/changes/build-matters-model-driven-core/specs/temporal-trace/spec.md": "sha256:b9718d2d7df4c1e7517d3a743f5842fd93f35d57b7bd7f9a8ab6e46faf53fad1",
-        "openspec/changes/build-matters-model-driven-core/tasks.md": "sha256:1bca030c8495530f67d87d9f1b5710b3fc6b7cfbd52bae5a3673cf04a9e7ff2f"
+        "openspec/changes/build-matters-model-driven-core/tasks.md": "sha256:70e988756892abe9866929eca3f3634fecc1d1e2b7236276cb7ad7ea267a3bf0"
       },
       "behavior_plane": "development_process",
       "change_id": "build-matters-model-driven-core",
-      "context_hash": "sha256:44f74cf1157ac997f25329a34e716d7a068e741e4b0d265b83e11b18db367ba2",
-      "context_id": "openspec:build-matters-model-driven-core:v0.3.0-matter-browser-semantic-reset-v9",
+      "context_hash": "sha256:b8f8f121364c5509c60b6d5781cb9f08fd01fa1ad29ce795ef5688defd1bb7f1",
+      "context_id": "openspec:build-matters-model-driven-core:v0.3.1-ai-owned-installation-v11",
       "current": true,
       "execution_bridge": false,
-      "ledger_fingerprint": "sha256:96b7daf55b72d77aff772bd3d1eeb80dc5731126112484eb2240944a024b0d57",
+      "ledger_fingerprint": "sha256:a535eeb34c76bb1cf707eb3bb0f53ba87f4dc454cc83ec9acea66a62639e1924",
       "provider_id": "openspec",
       "provider_owns_product_behavior": false,
       "read_only": true,
       "receipt_bridge": false,
       "reconciliation_current": true,
-      "reconciliation_fingerprint": "sha256:4730da60ef9689481c19f7b455fa3fde8f17ea48b5535bea37be6c998aee4ffc",
+      "reconciliation_fingerprint": "sha256:e9e56c7477e04decf9eb3b00a788e2ab2660b6d13e38b12c6e9349277022aa60",
       "target_commitment_ids": [
         "BC-DP-003",
         "BC-DP-004",
@@ -9452,17 +9452,17 @@
         "BC-DP-004:requires_evidence_from:BC-PR-001",
         "BC-DP-009:requires_evidence_from:BC-PR-010"
       ],
-      "work_package_id": "openspec:build-matters-model-driven-core:v0.3.0-matter-browser-semantic-reset-v9"
+      "work_package_id": "openspec:build-matters-model-driven-core:v0.3.1-ai-owned-installation-v11"
     },
     "surface_inventory_evidence_ids": [
-      "sha256:daba521d122447bf44977e82a23cc7bed2f0a7c7a21b4cf2d5f9a9d33717b4f6",
-      "sha256:96b7daf55b72d77aff772bd3d1eeb80dc5731126112484eb2240944a024b0d57"
+      "sha256:fc7966ccbe257719ec4b2800a52a7eacc4d700ed8ffd8b8f8983d2bdcee71bae",
+      "sha256:a535eeb34c76bb1cf707eb3bb0f53ba87f4dc454cc83ec9acea66a62639e1924"
     ],
-    "surface_inventory_revision": "sha256:daba521d122447bf44977e82a23cc7bed2f0a7c7a21b4cf2d5f9a9d33717b4f6",
-    "task_summary": "Extend Matters v0.3.0 for a frozen candidate source universe, automatic reversible terminal dispositions, durable inventory and ObjectCoverageLedger freshness/depth and exact per-object stage audit, context-aware root/child reconciliation, source-in-place storage with durable pointer/fingerprint and derived understanding, transient raw cleanup and grouped source locations, a bounded multi-depth SituationGraph plus advisory Situation/World Model inference with visible certainty, MaterialClue activity and atomic bilingual summaries, model-agnostic capability-routed WorkPackageV2 execution with replaceable private Codex profiles, strongest-compatible primary Codex maintenance planning plus bounded low-cost delegation, generated presentation-only root-only photorealistic heroes, summary-free standard and compact root cards, the eight-section Databank-authority bilingual desktop object browser with one reusable single-layer descendant quick view, one abstract ResearchOperation with the single ResearchGuard provider plus automatic idempotent root-only supplemental queuing and descendant not-applicable disposition, an exact eleven-skill app-local pack without machine-global overlays, one separate public Matters AI gateway for bounded model-map/context/history access and typed feedback, event-driven progressive private maintenance through one shared path after one separately verified generic private-repository v0.3.0 release, with daily scheduling opt-in only, and bounded Model Miss handoff without app-owned API keys, Jira/Rovo, Guard vendoring, or legacy Guard fallbacks.",
+    "surface_inventory_revision": "sha256:fc7966ccbe257719ec4b2800a52a7eacc4d700ed8ffd8b8f8983d2bdcee71bae",
+    "task_summary": "Extend Matters v0.3.1 for a frozen candidate source universe, automatic reversible terminal dispositions, durable inventory and ObjectCoverageLedger freshness/depth and exact per-object stage audit, context-aware root/child reconciliation, source-in-place storage with durable pointer/fingerprint and derived understanding, transient raw cleanup and grouped source locations, a bounded multi-depth SituationGraph plus advisory Situation/World Model inference with visible certainty, MaterialClue activity and atomic bilingual summaries, model-agnostic capability-routed WorkPackageV2 execution with replaceable private Codex profiles, strongest-compatible primary Codex maintenance planning plus bounded low-cost delegation, generated presentation-only root-only photorealistic heroes, summary-free standard and compact root cards, the eight-section Databank-authority bilingual desktop object browser with one reusable single-layer descendant quick view, one abstract ResearchOperation with the single ResearchGuard provider plus automatic idempotent root-only supplemental queuing and descendant not-applicable disposition, an exact eleven-skill app-local pack without machine-global overlays, one separate public Matters AI gateway for bounded model-map/context/history access and typed feedback, AI-owned installation with a user-supplied source scope, exactly one host-managed daily schedule, an initial bounded maintenance cycle, and progressive private maintenance through one shared path after one separately verified generic public MIT-licensed v0.3.1 release, with visible automation blockers and bounded Model Miss handoff without app-owned API keys, Jira/Rovo, Guard vendoring, or legacy Guard fallbacks.",
     "typed_external_difference_ids": []
   },
-  "preflight_fingerprint": "sha256:e7e4fc8461b3dded46f91ba3b7245770c4befee7a2afbd31440d4eb8c699f124",
+  "preflight_fingerprint": "sha256:b99c268a1c8ee6806c9e8ce01e73927ed598a6a9bfa29037ef986ca62d869ed6",
   "researchguard_status": "researchguard_pending_integration",
   "retired_runtime_bindings": {
     "LogicGuard": "stale_source_only",

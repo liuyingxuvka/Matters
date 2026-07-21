@@ -6,7 +6,7 @@
     "abstract_green",
     "hazard_green"
   ],
-  "generated_at": "2026-07-21T15:03:09.502773+00:00",
+  "generated_at": "2026-07-21T22:52:30.475206+00:00",
   "known_bad_proofs": [
     {
       "evidence_id": "C5_event_temporal_trace:known-bad:H-C5-023-future-flight-completed-by-ticket",

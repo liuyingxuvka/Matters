@@ -579,7 +579,7 @@
     "hazard_green"
   ],
   "function_signature": "S1_skill_bundle_inventory: CaseInput x ModelState -> Set(DecisionOutput x ModelState)",
-  "generated_at": "2026-07-21T11:36:54.802563+00:00",
+  "generated_at": "2026-07-21T22:53:52.177760+00:00",
   "known_bad_proofs": [
     {
       "evidence_id": "S1_skill_bundle_inventory:known-bad:H-S1-001-global-install-required",

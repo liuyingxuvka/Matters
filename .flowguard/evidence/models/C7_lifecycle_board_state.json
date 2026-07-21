@@ -6,7 +6,7 @@
     "abstract_green",
     "hazard_green"
   ],
-  "generated_at": "2026-07-21T14:26:20.592147+00:00",
+  "generated_at": "2026-07-21T22:52:45.802142+00:00",
   "known_bad_proofs": [
     {
       "evidence_id": "C7_lifecycle_board_state:known-bad:H-C7-011-current-contradiction-ignored",

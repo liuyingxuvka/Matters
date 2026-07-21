@@ -277,7 +277,7 @@ SUITE_PURPOSES = {
     ),
     "TM25_daily_codex_maintenance": (
         "daily Codex adapter using strongest-compatible primary planning and bounded "
-        "low-cost delegation, manual rehearsal, no-delta terminal, interruption "
+        "low-cost delegation, AI-owned setup with one user-scoped schedule, no-delta terminal, interruption "
         "recovery, zero source/mail/outbound/grant/code/model/install/Git/tag/"
         "release mutation, and final-gate ownership remaining foreground-only"
     ),

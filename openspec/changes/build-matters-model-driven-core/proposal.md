@@ -6,7 +6,7 @@ photos, Gmail, and cloud-backed user folders. The current plan covers only
 pasted text, individually selected text files, and a small Gmail sample, so it
 cannot perform or honestly report the requested first private run.
 
-The next Matters v0.3.0 release therefore needs a local-first, AI-autonomous
+The next Matters release therefore needs a source-in-place, AI-autonomous
 source-universe workflow
 that first freezes candidate folders and mailbox policy, separates useful
 tracking candidates from system material, generated clutter, junk, and
@@ -370,11 +370,14 @@ frozen as `liuyingxuvka/Matters`, visibility is public, the license is MIT, and
 only the approved generic public-safe inventory may be published. The license
 change does not include private data or authorize disclosure of user material.
 
-The release sequence therefore has two independent acceptance domains. First,
+The release sequence therefore has three ordered acceptance domains. First,
 v0.3.1 carries the current generic hierarchy, people, timeline, summary,
 inference/correction, bilingual object browser, desktop shell, MCP, bundled
-skills, privacy, package, and anonymous-install behavior without private
-content. Second, the private Gmail/local/Codex first run continues against that
+skills, privacy, candidate package, and isolated anonymous-install behavior
+without private content; this generic candidate is published before replacing
+the user's active local installation. Second, the published wheel and Windows
+desktop ZIP are downloaded and installed as an ordinary consumer to verify the
+real release path. Third, the private Gmail/local/Codex first run continues against that
 released contract. Any reusable product defects found there are reproduced
 with public-safe synthetic evidence and may be accumulated into a later patch
 release; private data and private completion claims never enter the generic
@@ -384,7 +387,8 @@ The hierarchy change affects C5-C12/M0, stable Matter identity and persistence,
 ancestor indexes, coverage-ledger stages, autonomous-maintenance work packages,
 object-browser APIs, search/filter projections, detail navigation, bilingual
 copy, bundled skills, synthetic hierarchy families, private first-run
-acceptance, package/install identities, and the next local Git release.
+acceptance, candidate-package identities, post-release consumer-install
+identities, and the next public Git release.
 
 ## Superseding AI Access and Guard Distribution Decision
 

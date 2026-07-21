@@ -1,6 +1,6 @@
 {
   "artifact_type": "matters.test-suite-receipt.v1",
-  "generated_at": "2026-07-21T20:37:53.685101+00:00",
+  "generated_at": "2026-07-21T23:00:25.531482+00:00",
   "pytest_observation": {
     "errors": 0,
     "failed": 0,
@@ -56,7 +56,7 @@
     "tests/test_source_workflows.py"
   ],
   "stderr_tail": "",
-  "stdout_tail": "........................................................................ [ 67%]\ns.................................                                       [100%]\n105 passed, 1 skipped in 51.43s\n",
+  "stdout_tail": "........................................................................ [ 67%]\ns.................................                                       [100%]\n105 passed, 1 skipped in 25.54s\n",
   "suite_id": "TM15_connector_pagination_retry",
   "test_suite_evidence": {
     "artifact_version": "matters.test-suite-receipt.v1",
@@ -141,7 +141,7 @@
         "tests/test_source_workflows.py": "sha256:e0ff60d11a57f68e79bb5269f28b216b9d773d94081dacc32a6945652be24af5",
         "tests/test_tm15_connector_pagination_retry.py": "sha256:6c4bdab2d4ce80ed8e0b4c191646a4ddc872acecdbc3697d009d8266bc4c2732"
       },
-      "artifact_id": "artifact:run:TM15_connector_pagination_retry:b18a6df32185e5b1",
+      "artifact_id": "artifact:run:TM15_connector_pagination_retry:1c50fed987017041",
       "assertion_scope": "external_contract",
       "command": "python -m pytest -q -o addopts= tests/test_tm15_connector_pagination_retry.py tests/test_gmail_manifest_coverage_audit.py tests/test_gmail_body_continuation.py tests/test_gmail_ingest_safety.py tests/test_source_cloud_adapter.py tests/test_source_filesystem_adapter.py tests/test_source_gmail_adapter.py tests/test_source_workflows.py",
       "covered_obligation_ids": [
@@ -157,7 +157,7 @@
       ],
       "current": true,
       "exit_code": 0,
-      "finished_at": "2026-07-21T20:37:53.685101+00:00",
+      "finished_at": "2026-07-21T23:00:25.531482+00:00",
       "metadata": {},
       "producer_route": "test_mesh",
       "progress_only": false,
@@ -166,7 +166,7 @@
       "route_evidence_current": true,
       "route_gap_codes": [],
       "stale_reasons": [],
-      "started_at": "2026-07-21T20:36:59.575501+00:00"
+      "started_at": "2026-07-21T22:59:58.809763+00:00"
     },
     "release_required": false,
     "result_fingerprint": "sha256:b094d612fdc480b83a1cb308b12429a1aa55b4a0a4682633e5a6bffd6c631fdc",
@@ -174,7 +174,7 @@
     "result_reused": false,
     "result_status": "passed",
     "reuse_ticket": null,
-    "run_id": "run:TM15_connector_pagination_retry:b18a6df32185e5b1",
+    "run_id": "run:TM15_connector_pagination_retry:1c50fed987017041",
     "selected_count": 106,
     "skipped_count": 0,
     "skipped_visible": true,

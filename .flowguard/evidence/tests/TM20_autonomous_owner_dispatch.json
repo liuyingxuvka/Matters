@@ -1,6 +1,6 @@
 {
   "artifact_type": "matters.test-suite-receipt.v1",
-  "generated_at": "2026-07-21T20:40:16.436874+00:00",
+  "generated_at": "2026-07-21T23:01:32.368296+00:00",
   "pytest_observation": {
     "errors": 0,
     "failed": 0,
@@ -37,7 +37,7 @@
     "tests/test_execution_profiles.py"
   ],
   "stderr_tail": "",
-  "stdout_tail": "..........................................................               [100%]\n58 passed in 71.75s (0:01:11)\n",
+  "stdout_tail": "..........................................................               [100%]\n58 passed in 38.82s\n",
   "suite_id": "TM20_autonomous_owner_dispatch",
   "test_suite_evidence": {
     "artifact_version": "matters.test-suite-receipt.v1",
@@ -211,7 +211,7 @@
         "tests/test_execution_profiles.py": "sha256:3e9d7ec329982b214e63acb278bb012539aa627e7caf23b9a67055f1c5b77320",
         "tests/test_understanding_workflow.py": "sha256:be3469f8ff108e85c42e6afb6a2b8da7e1cd503b544395f2195f3babe9266dd3"
       },
-      "artifact_id": "artifact:run:TM20_autonomous_owner_dispatch:8de5ba9fd9c8ba94",
+      "artifact_id": "artifact:run:TM20_autonomous_owner_dispatch:31f9c73a7a85b18e",
       "assertion_scope": "external_contract",
       "command": "python -m pytest -q -o addopts= tests/test_understanding_workflow.py tests/test_analysis_operations_depth.py tests/test_codex_provider.py tests/test_contract_rebase_and_global_recall.py tests/test_durable_work_recompute.py tests/test_execution_profiles.py",
       "covered_obligation_ids": [
@@ -297,7 +297,7 @@
       ],
       "current": true,
       "exit_code": 0,
-      "finished_at": "2026-07-21T20:40:16.436874+00:00",
+      "finished_at": "2026-07-21T23:01:32.368296+00:00",
       "metadata": {},
       "producer_route": "test_mesh",
       "progress_only": false,
@@ -306,7 +306,7 @@
       "route_evidence_current": true,
       "route_gap_codes": [],
       "stale_reasons": [],
-      "started_at": "2026-07-21T20:39:02.313157+00:00"
+      "started_at": "2026-07-21T23:00:52.377423+00:00"
     },
     "release_required": false,
     "result_fingerprint": "sha256:3015190b439c796d4289cb15b00ddee0a091f8bd704997d0ecfeead70c11eff7",
@@ -314,7 +314,7 @@
     "result_reused": false,
     "result_status": "passed",
     "reuse_ticket": null,
-    "run_id": "run:TM20_autonomous_owner_dispatch:8de5ba9fd9c8ba94",
+    "run_id": "run:TM20_autonomous_owner_dispatch:31f9c73a7a85b18e",
     "selected_count": 58,
     "skipped_count": 0,
     "skipped_visible": true,

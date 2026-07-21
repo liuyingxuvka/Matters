@@ -1,6 +1,6 @@
 {
   "artifact_type": "matters.test-suite-receipt.v1",
-  "generated_at": "2026-07-21T20:33:49.175289+00:00",
+  "generated_at": "2026-07-21T22:58:37.339670+00:00",
   "pytest_observation": {
     "errors": 0,
     "failed": 0,
@@ -23,7 +23,7 @@
     "tests/test_tm08_open_loop_blocking.py"
   ],
   "stderr_tail": "",
-  "stdout_tail": ".                                                                        [100%]\n1 passed in 0.13s\n",
+  "stdout_tail": ".                                                                        [100%]\n1 passed in 0.08s\n",
   "suite_id": "TM08_open_loop_blocking",
   "test_suite_evidence": {
     "artifact_version": "matters.test-suite-receipt.v1",
@@ -152,7 +152,7 @@
         "src/matters/state/outcomes.py": "sha256:943cc94caa63efc997641331f1e887b47da7332281936db1bf7625ddc2480b22",
         "tests/test_tm08_open_loop_blocking.py": "sha256:bbcc7d322e0fc8b383aaa8c891ea9db8d6aaf21caf1e8182f4330db31689749e"
       },
-      "artifact_id": "artifact:run:TM08_open_loop_blocking:3c045606b2a90a88",
+      "artifact_id": "artifact:run:TM08_open_loop_blocking:66cd9305074eec3d",
       "assertion_scope": "external_contract",
       "command": "python -m pytest -q -o addopts= tests/test_tm08_open_loop_blocking.py",
       "covered_obligation_ids": [
@@ -215,7 +215,7 @@
       ],
       "current": true,
       "exit_code": 0,
-      "finished_at": "2026-07-21T20:33:49.175289+00:00",
+      "finished_at": "2026-07-21T22:58:37.339670+00:00",
       "metadata": {},
       "producer_route": "test_mesh",
       "progress_only": false,
@@ -224,7 +224,7 @@
       "route_evidence_current": true,
       "route_gap_codes": [],
       "stale_reasons": [],
-      "started_at": "2026-07-21T20:33:47.307061+00:00"
+      "started_at": "2026-07-21T22:58:36.286449+00:00"
     },
     "release_required": false,
     "result_fingerprint": "sha256:7b1db0d57291c182efd20cc06a9a96e66fa6244ebebf398037079e062021245d",
@@ -232,7 +232,7 @@
     "result_reused": false,
     "result_status": "passed",
     "reuse_ticket": null,
-    "run_id": "run:TM08_open_loop_blocking:3c045606b2a90a88",
+    "run_id": "run:TM08_open_loop_blocking:66cd9305074eec3d",
     "selected_count": 1,
     "skipped_count": 0,
     "skipped_visible": true,

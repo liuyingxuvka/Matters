@@ -706,7 +706,7 @@
     "hazard_green"
   ],
   "function_signature": "S4_matters_managed_skill_sync: CaseInput x ModelState -> Set(DecisionOutput x ModelState)",
-  "generated_at": "2026-07-21T11:36:55.127171+00:00",
+  "generated_at": "2026-07-21T22:53:52.394806+00:00",
   "known_bad_proofs": [
     {
       "evidence_id": "S4_matters_managed_skill_sync:known-bad:H-S4-001-bundled-only-global-install",

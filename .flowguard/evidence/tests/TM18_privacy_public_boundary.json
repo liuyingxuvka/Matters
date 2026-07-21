@@ -1,6 +1,6 @@
 {
   "artifact_type": "matters.test-suite-receipt.v1",
-  "generated_at": "2026-07-21T20:39:02.194059+00:00",
+  "generated_at": "2026-07-21T23:00:52.312771+00:00",
   "pytest_observation": {
     "errors": 0,
     "failed": 0,
@@ -10,20 +10,20 @@
     "xfailed": 0,
     "xpassed": 0
   },
-  "source_fingerprint": "sha256:17e58a81bcfc08be398193d744d36230b0f3535b27e31852393def0bead1fcfa",
+  "source_fingerprint": "sha256:b16d97cbca7ce69460b22f1c65bc5a5637a142ef50636b02655152435afe34cf",
   "source_fingerprints": {
     "docs/security/public-file-policy.json": "sha256:f14763aec7bcf2c5c38305f6000a1ab360d5280afe752377dacdabf4b925880e",
-    "docs/security/required-public-inventory.json": "sha256:c0c91b48ebb7344c9a25d23e8a387b5e3af7f77200abbce91c5d71c899a51c83",
-    "docs/security/scope-manifest.yaml": "sha256:b87c5486d06079ab5ad57ee411b10103410be548c8cfb6bff35b763a19007353",
+    "docs/security/required-public-inventory.json": "sha256:5020517dd6d837f3d6575aced5ed644c4a767419aa4dee143d0ef46b630260e5",
+    "docs/security/scope-manifest.yaml": "sha256:82b613af5df8b7bf720f615f61596dcd7edc4d1d153a72ccfe56bc0f42ccf0f1",
     "scripts/build_desktop_manifest.py": "sha256:11b58779f31a62c9f82c6a4d30e59b19bde84bf84d26873251f3b6be4bfae0a5",
-    "scripts/build_desktop_package.ps1": "sha256:ad2446c847f8b6e4a98c6fb6cb0459245b007ebe699787185799c2e7e5f76101",
-    "scripts/build_desktop_release_archive.py": "sha256:567d817db5c6b8d6d675be68c5203f26552139c10ac1a9176912c34e68beffb1",
+    "scripts/build_desktop_package.ps1": "sha256:b4dc9f2d48d0b5deba5d89d6b930230f870c667f87ebf4573781c3e3be759799",
+    "scripts/build_desktop_release_archive.py": "sha256:f3572f4e35c60e31091da3e9f2f7cda85eee7e3df4889a4dc9b4e615b9de2a21",
     "scripts/check_public_boundary.py": "sha256:1a631a615697b92e725f50a4d7827bb73ab2427b1157955a7acf301e1964932b",
     "src/matters/infrastructure/capability_status/__init__.py": "sha256:e1bff3fd22f3b4ffb73ab43807f6ab6ce3b5f28e521d2978e3973bb3ca9d8043",
     "src/matters/infrastructure/capability_status/status.py": "sha256:381cd5a45c1a77a62dd7d5ceb6d2920a6ee33a4e8bf91aaa1515fb2df2979bb3",
-    "tests/test_private_aggregate.py": "sha256:66060320762d0bae66415a60ec57b5c8e3c5784c69d2351557a235b8a4303a01",
-    "tests/test_public_evidence_generators.py": "sha256:5901828c521929c84e8bf3a277d4dc9e843068b4d244c19ccce01ccef9e48c2d",
-    "tests/test_tm18_privacy_public_boundary.py": "sha256:4ee4e43e92e2a4727aeb5a8782e2de65c40e5a9ee7698ba5fe1126ff4c1c9be1"
+    "tests/test_private_aggregate.py": "sha256:889ff1ed220687a32a857326bccb966fad228e13d7c496a5aa2c320f1259c89c",
+    "tests/test_public_evidence_generators.py": "sha256:259694359e71afa4638fa35d48c351aed515b1f5dac3345c4d4de7efb069a18f",
+    "tests/test_tm18_privacy_public_boundary.py": "sha256:88c84a1b0230d0a67e7eb83be0a78a7170d75c3594f3cd5ced87063cb37dc6b4"
   },
   "source_paths": [
     "tests/test_tm18_privacy_public_boundary.py",
@@ -31,7 +31,7 @@
     "tests/test_public_evidence_generators.py"
   ],
   "stderr_tail": "",
-  "stdout_tail": "..................................                                       [100%]\n34 passed in 57.95s\n",
+  "stdout_tail": "..................................                                       [100%]\n34 passed in 21.58s\n",
   "suite_id": "TM18_privacy_public_boundary",
   "test_suite_evidence": {
     "artifact_version": "matters.test-suite-receipt.v1",
@@ -74,19 +74,19 @@
     "proof_artifact": {
       "artifact_fingerprints": {
         "docs/security/public-file-policy.json": "sha256:f14763aec7bcf2c5c38305f6000a1ab360d5280afe752377dacdabf4b925880e",
-        "docs/security/required-public-inventory.json": "sha256:c0c91b48ebb7344c9a25d23e8a387b5e3af7f77200abbce91c5d71c899a51c83",
-        "docs/security/scope-manifest.yaml": "sha256:b87c5486d06079ab5ad57ee411b10103410be548c8cfb6bff35b763a19007353",
+        "docs/security/required-public-inventory.json": "sha256:5020517dd6d837f3d6575aced5ed644c4a767419aa4dee143d0ef46b630260e5",
+        "docs/security/scope-manifest.yaml": "sha256:82b613af5df8b7bf720f615f61596dcd7edc4d1d153a72ccfe56bc0f42ccf0f1",
         "scripts/build_desktop_manifest.py": "sha256:11b58779f31a62c9f82c6a4d30e59b19bde84bf84d26873251f3b6be4bfae0a5",
-        "scripts/build_desktop_package.ps1": "sha256:ad2446c847f8b6e4a98c6fb6cb0459245b007ebe699787185799c2e7e5f76101",
-        "scripts/build_desktop_release_archive.py": "sha256:567d817db5c6b8d6d675be68c5203f26552139c10ac1a9176912c34e68beffb1",
+        "scripts/build_desktop_package.ps1": "sha256:b4dc9f2d48d0b5deba5d89d6b930230f870c667f87ebf4573781c3e3be759799",
+        "scripts/build_desktop_release_archive.py": "sha256:f3572f4e35c60e31091da3e9f2f7cda85eee7e3df4889a4dc9b4e615b9de2a21",
         "scripts/check_public_boundary.py": "sha256:1a631a615697b92e725f50a4d7827bb73ab2427b1157955a7acf301e1964932b",
         "src/matters/infrastructure/capability_status/__init__.py": "sha256:e1bff3fd22f3b4ffb73ab43807f6ab6ce3b5f28e521d2978e3973bb3ca9d8043",
         "src/matters/infrastructure/capability_status/status.py": "sha256:381cd5a45c1a77a62dd7d5ceb6d2920a6ee33a4e8bf91aaa1515fb2df2979bb3",
-        "tests/test_private_aggregate.py": "sha256:66060320762d0bae66415a60ec57b5c8e3c5784c69d2351557a235b8a4303a01",
-        "tests/test_public_evidence_generators.py": "sha256:5901828c521929c84e8bf3a277d4dc9e843068b4d244c19ccce01ccef9e48c2d",
-        "tests/test_tm18_privacy_public_boundary.py": "sha256:4ee4e43e92e2a4727aeb5a8782e2de65c40e5a9ee7698ba5fe1126ff4c1c9be1"
+        "tests/test_private_aggregate.py": "sha256:889ff1ed220687a32a857326bccb966fad228e13d7c496a5aa2c320f1259c89c",
+        "tests/test_public_evidence_generators.py": "sha256:259694359e71afa4638fa35d48c351aed515b1f5dac3345c4d4de7efb069a18f",
+        "tests/test_tm18_privacy_public_boundary.py": "sha256:88c84a1b0230d0a67e7eb83be0a78a7170d75c3594f3cd5ced87063cb37dc6b4"
       },
-      "artifact_id": "artifact:run:TM18_privacy_public_boundary:777c0496e913b5ea",
+      "artifact_id": "artifact:run:TM18_privacy_public_boundary:412a2600ef217705",
       "assertion_scope": "external_contract",
       "command": "python -m pytest -q -o addopts= tests/test_tm18_privacy_public_boundary.py tests/test_private_aggregate.py tests/test_public_evidence_generators.py",
       "covered_obligation_ids": [
@@ -97,7 +97,7 @@
       ],
       "current": true,
       "exit_code": 0,
-      "finished_at": "2026-07-21T20:39:02.194059+00:00",
+      "finished_at": "2026-07-21T23:00:52.312771+00:00",
       "metadata": {},
       "producer_route": "test_mesh",
       "progress_only": false,
@@ -106,15 +106,15 @@
       "route_evidence_current": true,
       "route_gap_codes": [],
       "stale_reasons": [],
-      "started_at": "2026-07-21T20:38:01.238742+00:00"
+      "started_at": "2026-07-21T23:00:29.280393+00:00"
     },
     "release_required": false,
-    "result_fingerprint": "sha256:17e58a81bcfc08be398193d744d36230b0f3535b27e31852393def0bead1fcfa",
+    "result_fingerprint": "sha256:b16d97cbca7ce69460b22f1c65bc5a5637a142ef50636b02655152435afe34cf",
     "result_path": ".flowguard/evidence/tests/TM18_privacy_public_boundary.json",
     "result_reused": false,
     "result_status": "passed",
     "reuse_ticket": null,
-    "run_id": "run:TM18_privacy_public_boundary:777c0496e913b5ea",
+    "run_id": "run:TM18_privacy_public_boundary:412a2600ef217705",
     "selected_count": 34,
     "skipped_count": 0,
     "skipped_visible": true,

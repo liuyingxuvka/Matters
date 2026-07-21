@@ -1,6 +1,6 @@
 {
   "artifact_type": "matters.test-suite-receipt.v1",
-  "generated_at": "2026-07-21T20:34:03.021773+00:00",
+  "generated_at": "2026-07-21T22:58:46.373471+00:00",
   "pytest_observation": {
     "errors": 0,
     "failed": 0,
@@ -31,7 +31,7 @@
     "tests/test_world_inference.py"
   ],
   "stderr_tail": "",
-  "stdout_tail": "....................                                                     [100%]\n20 passed in 8.24s\n",
+  "stdout_tail": "....................                                                     [100%]\n20 passed in 4.97s\n",
   "suite_id": "TM11_guard_prediction_boundary",
   "test_suite_evidence": {
     "artifact_version": "matters.test-suite-receipt.v1",
@@ -415,7 +415,7 @@
         "tests/test_tm11_guard_prediction_boundary.py": "sha256:f160e1c36e61bab40dd6e041667f4e9d53cdd18bb617be9ac4ba0612b97f316a",
         "tests/test_world_inference.py": "sha256:4b5c38e855d2e81962a788b97d1cd7def0f6aff6c730ab71e6acdef590f6fab7"
       },
-      "artifact_id": "artifact:run:TM11_guard_prediction_boundary:aff5a14ef8c26945",
+      "artifact_id": "artifact:run:TM11_guard_prediction_boundary:534d84fb4a14fee2",
       "assertion_scope": "external_contract",
       "command": "python -m pytest -q -o addopts= tests/test_tm11_guard_prediction_boundary.py tests/test_matter_semantic_depth.py tests/test_world_inference.py",
       "covered_obligation_ids": [
@@ -648,7 +648,7 @@
       ],
       "current": true,
       "exit_code": 0,
-      "finished_at": "2026-07-21T20:34:03.021773+00:00",
+      "finished_at": "2026-07-21T22:58:46.373471+00:00",
       "metadata": {},
       "producer_route": "test_mesh",
       "progress_only": false,
@@ -657,7 +657,7 @@
       "route_evidence_current": true,
       "route_gap_codes": [],
       "stale_reasons": [],
-      "started_at": "2026-07-21T20:33:53.171426+00:00"
+      "started_at": "2026-07-21T22:58:40.132237+00:00"
     },
     "release_required": false,
     "result_fingerprint": "sha256:4447c22c5a29e1a7d2f57f5e909f4854403865ff7106f5e4381bd7d4593087c8",
@@ -665,7 +665,7 @@
     "result_reused": false,
     "result_status": "passed",
     "reuse_ticket": null,
-    "run_id": "run:TM11_guard_prediction_boundary:aff5a14ef8c26945",
+    "run_id": "run:TM11_guard_prediction_boundary:534d84fb4a14fee2",
     "selected_count": 20,
     "skipped_count": 0,
     "skipped_visible": true,

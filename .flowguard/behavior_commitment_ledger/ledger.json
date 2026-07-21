@@ -138,8 +138,8 @@
             "alignment_evidence_id": "evidence:model-code-test-alignment:8ff13b9ed936187b",
             "g8_evidence_id": "evidence:G8-fully-synthetic:9545f7fd2b98e390",
             "live_provider_evidence": false,
-            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v9",
-            "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed",
+            "scope_revision": "v0.3.1-ai-owned-installation-v11",
+            "stale_reason": "v0.3.1 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, desktop evidence, and the AI-owned installation/schedule/source-authorization contract changed",
             "test_receipt_fingerprint": "sha256:813124f6c94063a8b798d5f465d317b9097a835da85a0eccd05a7af7464fff1e",
             "test_receipt_path": ".flowguard/evidence/tests/TM14_end_to_end_conformance.json",
             "through_gate": "G8"
@@ -632,8 +632,8 @@
             "alignment_evidence_id": "evidence:model-code-test-alignment:8ff13b9ed936187b",
             "g8_evidence_id": "evidence:G8-fully-synthetic:9545f7fd2b98e390",
             "live_provider_evidence": false,
-            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v9",
-            "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed",
+            "scope_revision": "v0.3.1-ai-owned-installation-v11",
+            "stale_reason": "v0.3.1 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, desktop evidence, and the AI-owned installation/schedule/source-authorization contract changed",
             "test_receipt_fingerprint": "sha256:ed80ac29c5fec8e3871cd85b173f20220323382d408e55ff60715da232570804",
             "test_receipt_path": ".flowguard/evidence/tests/TM01_authorization_coverage.json",
             "through_gate": "G8"
@@ -932,8 +932,8 @@
             "alignment_evidence_id": "evidence:model-code-test-alignment:8ff13b9ed936187b",
             "g8_evidence_id": "evidence:G8-fully-synthetic:9545f7fd2b98e390",
             "live_provider_evidence": false,
-            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v9",
-            "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed",
+            "scope_revision": "v0.3.1-ai-owned-installation-v11",
+            "stale_reason": "v0.3.1 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, desktop evidence, and the AI-owned installation/schedule/source-authorization contract changed",
             "test_receipt_fingerprint": "sha256:bb3d8c3ff07fcd1a59b738525e5dd531ef98d67aab12bed536af2d70b2347634",
             "test_receipt_path": ".flowguard/evidence/tests/TM02_source_registry.json",
             "through_gate": "G8"
@@ -1192,8 +1192,8 @@
             "alignment_evidence_id": "evidence:model-code-test-alignment:8ff13b9ed936187b",
             "g8_evidence_id": "evidence:G8-fully-synthetic:9545f7fd2b98e390",
             "live_provider_evidence": false,
-            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v9",
-            "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed",
+            "scope_revision": "v0.3.1-ai-owned-installation-v11",
+            "stale_reason": "v0.3.1 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, desktop evidence, and the AI-owned installation/schedule/source-authorization contract changed",
             "test_receipt_fingerprint": "sha256:8047a83912205528c7abdc3e79689d6b4276d3aa750980c34609f76ae77ab0c7",
             "test_receipt_path": ".flowguard/evidence/tests/TM03_evidence_qualification.json",
             "through_gate": "G8"
@@ -1389,8 +1389,8 @@
             "alignment_evidence_id": "evidence:model-code-test-alignment:8ff13b9ed936187b",
             "g8_evidence_id": "evidence:G8-fully-synthetic:9545f7fd2b98e390",
             "live_provider_evidence": false,
-            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v9",
-            "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed",
+            "scope_revision": "v0.3.1-ai-owned-installation-v11",
+            "stale_reason": "v0.3.1 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, desktop evidence, and the AI-owned installation/schedule/source-authorization contract changed",
             "test_receipt_fingerprint": "sha256:e495ba09c5c903d0b35a4bc1b0500c359bb68c215385660d35f3ae4667b9d195",
             "test_receipt_path": ".flowguard/evidence/tests/TM04_identity_resolution.json",
             "through_gate": "G8"
@@ -1602,8 +1602,8 @@
             "alignment_evidence_id": "evidence:model-code-test-alignment:8ff13b9ed936187b",
             "g8_evidence_id": "evidence:G8-fully-synthetic:9545f7fd2b98e390",
             "live_provider_evidence": false,
-            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v9",
-            "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed",
+            "scope_revision": "v0.3.1-ai-owned-installation-v11",
+            "stale_reason": "v0.3.1 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, desktop evidence, and the AI-owned installation/schedule/source-authorization contract changed",
             "test_receipt_fingerprint": "sha256:d4683c1f24e745d4f6ec2f69bc0493795d70ff01c0f82e1223382adf3d7b3f88",
             "test_receipt_path": ".flowguard/evidence/tests/TM05_event_trace.json",
             "through_gate": "G8"
@@ -1925,8 +1925,8 @@
             "alignment_evidence_id": "evidence:model-code-test-alignment:8ff13b9ed936187b",
             "g8_evidence_id": "evidence:G8-fully-synthetic:9545f7fd2b98e390",
             "live_provider_evidence": false,
-            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v9",
-            "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed",
+            "scope_revision": "v0.3.1-ai-owned-installation-v11",
+            "stale_reason": "v0.3.1 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, desktop evidence, and the AI-owned installation/schedule/source-authorization contract changed",
             "test_receipt_fingerprint": "sha256:29cb4066766cc71974c0084b6e59173469a13b758e27e4845f73cda2229718cb",
             "test_receipt_path": ".flowguard/evidence/tests/TM06_matter_admission.json",
             "through_gate": "G8"
@@ -2232,8 +2232,8 @@
             "alignment_evidence_id": "evidence:model-code-test-alignment:8ff13b9ed936187b",
             "g8_evidence_id": "evidence:G8-fully-synthetic:9545f7fd2b98e390",
             "live_provider_evidence": false,
-            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v9",
-            "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed",
+            "scope_revision": "v0.3.1-ai-owned-installation-v11",
+            "stale_reason": "v0.3.1 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, desktop evidence, and the AI-owned installation/schedule/source-authorization contract changed",
             "test_receipt_fingerprint": "sha256:c13b3b9938d4b8cd65dbf2a8cb37a9f7c10139213fd98927172c13d7cc8ab4eb",
             "test_receipt_path": ".flowguard/evidence/tests/TM07_lifecycle_board_state.json",
             "through_gate": "G8"
@@ -2441,8 +2441,8 @@
             "alignment_evidence_id": "evidence:model-code-test-alignment:8ff13b9ed936187b",
             "g8_evidence_id": "evidence:G8-fully-synthetic:9545f7fd2b98e390",
             "live_provider_evidence": false,
-            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v9",
-            "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed",
+            "scope_revision": "v0.3.1-ai-owned-installation-v11",
+            "stale_reason": "v0.3.1 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, desktop evidence, and the AI-owned installation/schedule/source-authorization contract changed",
             "test_receipt_fingerprint": "sha256:840b49ed746b9e9a0d860cc8077b1b325c883a3c37d64009253d3f62937913ed",
             "test_receipt_path": ".flowguard/evidence/tests/TM08_open_loop_blocking.json",
             "through_gate": "G8"
@@ -2631,8 +2631,8 @@
             "alignment_evidence_id": "evidence:model-code-test-alignment:8ff13b9ed936187b",
             "g8_evidence_id": "evidence:G8-fully-synthetic:9545f7fd2b98e390",
             "live_provider_evidence": false,
-            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v9",
-            "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed",
+            "scope_revision": "v0.3.1-ai-owned-installation-v11",
+            "stale_reason": "v0.3.1 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, desktop evidence, and the AI-owned installation/schedule/source-authorization contract changed",
             "test_receipt_fingerprint": "sha256:e39e84eb9fe1b71813730de13abf01777d91bf2e94fc7e7f7764d984e509195e",
             "test_receipt_path": ".flowguard/evidence/tests/TM09_completion_reopen.json",
             "through_gate": "G8"
@@ -2833,8 +2833,8 @@
             "alignment_evidence_id": "evidence:model-code-test-alignment:8ff13b9ed936187b",
             "g8_evidence_id": "evidence:G8-fully-synthetic:9545f7fd2b98e390",
             "live_provider_evidence": false,
-            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v9",
-            "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed",
+            "scope_revision": "v0.3.1-ai-owned-installation-v11",
+            "stale_reason": "v0.3.1 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, desktop evidence, and the AI-owned installation/schedule/source-authorization contract changed",
             "test_receipt_fingerprint": "sha256:2efb6192d491943331fb0ba6ed5cc72ea122cc6b3824510123a4dacc8525ba07",
             "test_receipt_path": ".flowguard/evidence/tests/TM10_correction_invalidation.json",
             "through_gate": "G8"
@@ -3103,8 +3103,8 @@
             "alignment_evidence_id": "evidence:model-code-test-alignment:8ff13b9ed936187b",
             "g8_evidence_id": "evidence:G8-fully-synthetic:9545f7fd2b98e390",
             "live_provider_evidence": false,
-            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v9",
-            "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed",
+            "scope_revision": "v0.3.1-ai-owned-installation-v11",
+            "stale_reason": "v0.3.1 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, desktop evidence, and the AI-owned installation/schedule/source-authorization contract changed",
             "test_receipt_fingerprint": "sha256:754eec2764320353572ba3b53efa549a55e7dd8100ebdf9a2a80669072ab1ad8",
             "test_receipt_path": ".flowguard/evidence/tests/TM11_guard_prediction_boundary.json",
             "through_gate": "G8"
@@ -3472,8 +3472,8 @@
             "alignment_evidence_id": "evidence:model-code-test-alignment:8ff13b9ed936187b",
             "g8_evidence_id": "evidence:G8-fully-synthetic:9545f7fd2b98e390",
             "live_provider_evidence": false,
-            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v9",
-            "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed",
+            "scope_revision": "v0.3.1-ai-owned-installation-v11",
+            "stale_reason": "v0.3.1 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, desktop evidence, and the AI-owned installation/schedule/source-authorization contract changed",
             "test_receipt_fingerprint": "sha256:76e98df5ec6f154d1fa4d95e351e415a2b95ee2be6552a31bcffb7707fb9da77",
             "test_receipt_path": ".flowguard/evidence/tests/TM12_projection_bilingual_ui.json",
             "through_gate": "G8"
@@ -3823,8 +3823,8 @@
             "alignment_evidence_id": "evidence:model-code-test-alignment:8ff13b9ed936187b",
             "g8_evidence_id": "evidence:G8-fully-synthetic:9545f7fd2b98e390",
             "live_provider_evidence": false,
-            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v9",
-            "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed",
+            "scope_revision": "v0.3.1-ai-owned-installation-v11",
+            "stale_reason": "v0.3.1 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, desktop evidence, and the AI-owned installation/schedule/source-authorization contract changed",
             "test_receipt_fingerprint": "sha256:1a24ec5deb341f64f6e198780c0c098c27c5755a2e94ada869f7bf075ba78012",
             "test_receipt_path": ".flowguard/evidence/tests/TM18_privacy_public_boundary.json",
             "through_gate": "G8"
@@ -4084,8 +4084,8 @@
             "g8_evidence_id": "evidence:G8-fully-synthetic:9545f7fd2b98e390",
             "live_provider_evidence": false,
             "reason": "owner model, code contract, TestMesh, and runtime evidence not yet current",
-            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v9",
-            "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed",
+            "scope_revision": "v0.3.1-ai-owned-installation-v11",
+            "stale_reason": "v0.3.1 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, desktop evidence, and the AI-owned installation/schedule/source-authorization contract changed",
             "test_receipt_fingerprint": "sha256:9aa544c77dc158b36c6a2cc9a38840595b392e6f60a34a13a89bfb2ad18dfbe1",
             "test_receipt_path": ".flowguard/evidence/tests/TM20_autonomous_owner_dispatch.json",
             "through_gate": "G8"
@@ -4304,8 +4304,8 @@
             "g8_evidence_id": "evidence:G8-fully-synthetic:9545f7fd2b98e390",
             "live_provider_evidence": false,
             "reason": "owner model, code contract, TestMesh, and runtime evidence not yet current",
-            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v9",
-            "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed",
+            "scope_revision": "v0.3.1-ai-owned-installation-v11",
+            "stale_reason": "v0.3.1 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, desktop evidence, and the AI-owned installation/schedule/source-authorization contract changed",
             "test_receipt_fingerprint": "sha256:dd09d0306c90422d9b545c1f93a09b224472cefa8e2686e6ea0d6b3b13f270c5",
             "test_receipt_path": ".flowguard/evidence/tests/TM24_research_operation.json",
             "through_gate": "G8"
@@ -4483,8 +4483,8 @@
           "current": false,
           "evidence_state": "stale",
           "metadata": {
-            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v9",
-            "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed"
+            "scope_revision": "v0.3.1-ai-owned-installation-v11",
+            "stale_reason": "v0.3.1 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, desktop evidence, and the AI-owned installation/schedule/source-authorization contract changed"
           },
           "model_obligation_ids": [
             "OB-DP-001"
@@ -4733,8 +4733,8 @@
           "current": false,
           "evidence_state": "stale",
           "metadata": {
-            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v9",
-            "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed"
+            "scope_revision": "v0.3.1-ai-owned-installation-v11",
+            "stale_reason": "v0.3.1 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, desktop evidence, and the AI-owned installation/schedule/source-authorization contract changed"
           },
           "model_obligation_ids": [
             "OB-DP-003"
@@ -4748,20 +4748,20 @@
           "test_mesh_state": "stale"
         },
         "excluded_behavior_ids": [],
-        "expected_result": "one private GitHub repository release whose commit, v0.3.0 tag, wheel, source distribution, Windows desktop package, installed Python and desktop identities, matters-mcp AI gateway, model/test receipts, public-safe inventory, and anonymous recheck agree without consuming or claiming completion of private-first-run data",
+        "expected_result": "one public MIT-licensed GitHub repository release whose commit, v0.3.1 tag, wheel, source distribution, Windows desktop package, isolated anonymous install, matters-mcp AI gateway, model/test receipts, public-safe inventory, and package recheck agree without requiring the user's pre-existing active installation or consuming or claiming completion of private-first-run data",
         "expected_terminal": "published_and_anonymously_rechecked or blocked with exact package, privacy, install, Git, or publication gaps",
         "external_differences": [],
-        "failure_boundary": "private Gmail, filesystem, Codex-project, aggregate, receipt, screenshot, identifier, or first-run completion evidence cannot enter or gate the generic release; candidate drift, unexpected build-environment packages, missing matters-mcp, incomplete bundled skills, a surviving prior managed desktop process tree, mismatched tag/install/assets, or a non-private remote blocks publication",
+        "failure_boundary": "private Gmail, filesystem, Codex-project, aggregate, receipt, screenshot, identifier, or first-run completion evidence cannot enter or gate the generic release; candidate drift, unexpected build-environment packages, missing matters-mcp, incomplete bundled skills, a surviving candidate self-test process tree, mismatched candidate/tag/assets, a non-public remote, or a README/license boundary mismatch blocks publication",
         "in_scope": true,
-        "label": "publish generic v0.3.0 source, package, desktop, and AI gateway before the private first run",
+        "label": "publish generic v0.3.1 MIT source, package, desktop, and AI gateway before the private first run",
         "lookup_binding": {
           "error_signatures": [
-            "installed_version_stale",
+            "candidate_version_stale",
             "matters_mcp_missing",
             "desktop_package_incomplete",
             "desktop_release_archive_privacy_invalid",
             "desktop_release_archive_identity_mismatch",
-            "prior_desktop_process_tree_still_running_after_install",
+            "candidate_desktop_self_test_process_tree_not_clean",
             "private_aggregate_must_not_be_consumed_by_generic_release"
           ],
           "metadata": {},
@@ -4772,14 +4772,13 @@
             "scripts/build_desktop_package.ps1",
             "scripts/build_desktop_release_archive.py",
             "scripts/check_public_boundary.py",
-            "scripts/install_desktop_package.ps1",
             ".github/**",
             "SECURITY.md"
           ],
           "task_terms": [
             "generic release",
-            "private GitHub",
-            "v0.3.0",
+            "public GitHub",
+            "v0.3.1",
             "tag",
             "wheel",
             "source distribution",
@@ -4795,7 +4794,7 @@
             "matters-mcp"
           ],
           "workflow_families": [
-            "generic_private_repository_release"
+            "generic_public_source_available_release"
           ]
         },
         "metadata": {},
@@ -4804,7 +4803,7 @@
         "owner": "matters-project-maintainer",
         "path_authority": {
           "behavior_commitment_id": "BC-DP-003",
-          "business_intent": "publish generic v0.3.0 before the private first run",
+          "business_intent": "publish generic v0.3.1 before the private first run",
           "business_intent_id": "BI-DP-003-publish-clean-source-release",
           "evidence_current": false,
           "evidence_refs": [],
@@ -4821,11 +4820,11 @@
           "primary_path_id": "path:dpf-generic-v030-release-before-private-first-run",
           "proof_artifact_ids": [],
           "runtime_observation_ids": [],
-          "scoped_out_reason": "current generic release requires fresh package, installed desktop/MCP, TestMesh, Git/tag, privacy, and publication evidence; private-first-run completion is explicitly not required"
+          "scoped_out_reason": "current generic release requires fresh candidate package/desktop/MCP, isolated anonymous-install, TestMesh, Git/tag, privacy, and publication evidence; active local installation and private-first-run completion are explicitly not required before publication"
         },
         "preconditions": [],
         "primary_owner_model_id": "DPF_matters_delivery_gate",
-        "rationale": "This is the single generic private-repository publication path. It closes before, and never consumes, the separate private first run.",
+        "rationale": "This is the single generic public MIT-licensed repository publication path. It closes before, and never consumes, the separate private first run.",
         "relations": [
           {
             "metadata": {},
@@ -4843,9 +4842,8 @@
         "replacement_state": "active",
         "scoped_out_reason": "",
         "side_effects": [
-          "stop only the exact prior Matters-managed desktop process tree",
-          "push approved generic public-safe source to the private remote",
-          "create the v0.3.0 tag and GitHub Release",
+          "push approved generic public-safe source to the public remote",
+          "create the v0.3.1 tag and GitHub Release",
           "publish the wheel, source distribution, Windows desktop package, and checksums"
         ],
         "similarity_obligation_ids": [],
@@ -4862,19 +4860,18 @@
           "release.private_first_run_separation",
           "release.package_identity",
           "release.desktop_identity",
-          "release.desktop_process_handoff",
           "release.ai_gateway_identity",
           "release.git_identity",
           "release.status"
         ],
         "supporting_model_ids": [],
         "surface_delegation_only": false,
-        "trigger": "generic source, model, TestMesh, UI, privacy, package, desktop, MCP, bundled-skill, and ResearchGuard identities are current and the user authorizes liuyingxuvka/Matters as a private v0.3.0 release",
-        "validation_boundary": "public inventory, history/privacy/license scans, clean-clone CI, frozen full verification, exact prior managed desktop process-tree shutdown, release identity, and anonymous post-release recheck",
+        "trigger": "generic source, model, TestMesh, UI, privacy, package, desktop, MCP, bundled-skill, and ResearchGuard identities are current and the user authorizes liuyingxuvka/Matters as a public MIT-licensed v0.3.1 release",
+        "validation_boundary": "public inventory, history/privacy/license scans, clean-clone CI, frozen full verification, isolated candidate package/desktop checks, release identity, and anonymous post-release recheck",
         "variant_of_business_intent_id": ""
       },
       {
-        "actor": "Matters maintenance agent",
+        "actor": "Installing compatible AI host and Matters maintenance orchestrator",
         "actor_kind": "ai_agent",
         "behavior_plane": "development_process",
         "business_intent_id": "BI-DP-004-progressive-private-first-run",
@@ -4890,8 +4887,8 @@
           "evidence_state": "stale",
           "metadata": {
             "reason": "owner model, code contract, TestMesh, and runtime evidence not yet current",
-            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v9",
-            "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed"
+            "scope_revision": "v0.3.1-ai-owned-installation-v11",
+            "stale_reason": "v0.3.1 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, desktop evidence, and the AI-owned installation/schedule/source-authorization contract changed"
           },
           "model_obligation_ids": [
             "OB-DP-004"
@@ -4906,19 +4903,23 @@
           "test_mesh_state": "stale"
         },
         "excluded_behavior_ids": [],
-        "expected_result": "candidate roots, inventory snapshots, per-object stage rows, context-aware hierarchy, SourceGroups, SituationGraph, World Model, MaterialClue/summary activity, root-only photographic Heroes, raw/staging cleanup, supplemental information, localization, and UI reachability reconcile progressively under one strongest-compatible primary Codex plan with bounded low-cost delegation and no normal human gate",
+        "expected_result": "one current package/MCP/public-skill/private-root setup, exactly one host-owned daily schedule, one user-supplied source grant, an initial bounded maintenance receipt, desktop launch status, candidate roots, inventory snapshots, per-object stage rows, context-aware hierarchy, SourceGroups, SituationGraph, World Model, MaterialClue/summary activity, root-only photographic Heroes, raw/staging cleanup, supplemental information, localization, and UI reachability reconcile progressively under one strongest-compatible primary Codex plan with bounded low-cost delegation and no normal human gate",
         "expected_terminal": "complete, researchguard_pending_integration, or blocked with typed next actions",
         "external_differences": [],
-        "failure_boundary": "no complete claim while any required item, page, freshness dependency, depth decision, capability mapping, or UI-reachability stage lacks a declared terminal disposition; a scheduled run cannot mutate source files or Gmail, send outbound messages, expand grants, edit code/models, or own unattended final verification, installation, Git, tag, or release gates",
+        "failure_boundary": "setup cannot claim completion when package, MCP, public skill, private root, exactly-one schedule, initial maintenance, or desktop status is missing; no personal source scope may be hard-coded or inferred from install permission; automation unavailability is a visible blocker and the scheduled run cannot mutate sources, widen grants, or own final model/test/install/Git/tag/release gates",
         "in_scope": true,
-        "label": "complete an autonomous progressive private first run with truthful object coverage",
+        "label": "install Matters and complete an autonomous progressive private first run with truthful object coverage",
         "lookup_binding": {
           "error_signatures": [],
           "metadata": {},
           "path_patterns": [
             "openspec/changes/build-matters-model-driven-core/specs/bundled-skill-runtime-and-maintenance/**",
             "openspec/changes/build-matters-model-driven-core/tasks.md",
-            "plugin/**"
+            "plugin/**",
+            "README.md",
+            "plugin/matters-plugin.json",
+            "plugins/matters/skills/matters/**",
+            "scripts/build_desktop_release_archive.py"
           ],
           "task_terms": [
             "complete",
@@ -4934,7 +4935,12 @@
             "with",
             "truthful",
             "terminal",
-            "coverage"
+            "coverage",
+            "install and use Matters",
+            "installing AI",
+            "exactly one daily schedule",
+            "user-supplied source scope",
+            "automation_capability_unavailable"
           ],
           "tool_ids": [],
           "workflow_families": [
@@ -4942,12 +4948,18 @@
           ]
         },
         "metadata": {
+          "ai_setup_owner": "installing_compatible_ai_host",
+          "automation_unavailable_status": "blocked",
+          "daily_default_local_time": "21:00",
+          "daily_schedule_count": 1,
           "daily_schedule_host": "codex",
           "daily_schedule_path": "shared_cli_or_mcp_facade",
           "direct_api_fallback": false,
           "final_verification_owner": "foreground_only",
           "mailbox_mutation": false,
-          "source_file_mutation": false
+          "software_scope_hard_coded": false,
+          "source_file_mutation": false,
+          "source_scope_origin": "user_supplied_during_install"
         },
         "miss_origin_state": "no_miss",
         "model_sync_state": "owner_model_current",
@@ -5018,6 +5030,12 @@
             "rationale": "The authorized private first run starts against the already released generic v0.3.0 contract.",
             "relation_type": "depends_on",
             "target_commitment_id": "BC-DP-003"
+          },
+          {
+            "metadata": {},
+            "rationale": "The authorized private first run starts against the already released generic v0.3.1 contract.",
+            "relation_type": "depends_on",
+            "target_commitment_id": "BC-DP-003"
           }
         ],
         "replacement_state": "active",
@@ -5030,7 +5048,10 @@
         "source_refs": [],
         "source_surface_ids": [
           "surface:openspec:tasks-private-first-run",
-          "surface:proposal:private-first-run"
+          "surface:proposal:private-first-run",
+          "surface:public-skill:ai-installation",
+          "surface:readme:ai-installation",
+          "surface:plugin:ai-installation"
         ],
         "state_writes": [
           "private_first_run.status",
@@ -5038,12 +5059,20 @@
           "private_first_run.receipt_ids",
           "private_maintenance.schedule_identity",
           "private_maintenance.run_receipt_ids",
-          "private_maintenance.last_delta_status"
+          "private_maintenance.last_delta_status",
+          "private_installation.package_identity",
+          "private_installation.mcp_identity",
+          "private_installation.public_skill_identity",
+          "private_installation.private_root_status",
+          "private_installation.source_grant_identity",
+          "private_installation.schedule_identity",
+          "private_installation.initial_maintenance_receipt",
+          "private_installation.desktop_launch_status"
         ],
         "supporting_model_ids": [],
         "surface_delegation_only": false,
-        "trigger": "the generic v0.3.0 release identity is current and the user starts or resumes the authorized post-release private first run",
-        "validation_boundary": "single shared service path, manual schedule rehearsal, private run/profile receipts, no-delta idempotency, missed/interrupted resume, current source-type synthetic evidence, authorized canaries, durable inventory/freshness/depth ledgers, per-item terminal coverage, zero mailbox/source/outbound mutation, and foreground-only final gates",
+        "trigger": "the generic v0.3.1 release identity is current and the user asks a compatible AI host to install and use Matters, then supplies the authorized source scope",
+        "validation_boundary": "AI-readable package contract, current package/MCP/public skill and private-root identity, explicit user-supplied source grant, exactly one host schedule, initial bounded maintenance receipt, honest empty-or-current desktop state, progressive private coverage, zero scope widening or source mutation, and foreground-only final release gates",
         "variant_of_business_intent_id": ""
       },
       {
@@ -5063,8 +5092,8 @@
           "evidence_state": "stale",
           "metadata": {
             "reason": "owner model, code contract, TestMesh, and runtime evidence not yet current",
-            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v9",
-            "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed"
+            "scope_revision": "v0.3.1-ai-owned-installation-v11",
+            "stale_reason": "v0.3.1 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, desktop evidence, and the AI-owned installation/schedule/source-authorization contract changed"
           },
           "model_obligation_ids": [
             "OB-DP-005"
@@ -5172,8 +5201,8 @@
           "evidence_state": "stale",
           "metadata": {
             "reason": "owner model, code contract, TestMesh, and runtime evidence not yet current",
-            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v9",
-            "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed"
+            "scope_revision": "v0.3.1-ai-owned-installation-v11",
+            "stale_reason": "v0.3.1 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, desktop evidence, and the AI-owned installation/schedule/source-authorization contract changed"
           },
           "model_obligation_ids": [
             "OB-DP-006"
@@ -5286,8 +5315,8 @@
           "evidence_state": "stale",
           "metadata": {
             "reason": "owner model, code contract, TestMesh, and runtime evidence not yet current",
-            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v9",
-            "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed"
+            "scope_revision": "v0.3.1-ai-owned-installation-v11",
+            "stale_reason": "v0.3.1 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, desktop evidence, and the AI-owned installation/schedule/source-authorization contract changed"
           },
           "model_obligation_ids": [
             "OB-DP-007"
@@ -5403,8 +5432,8 @@
           "evidence_state": "stale",
           "metadata": {
             "reason": "owner model, code contract, TestMesh, and runtime evidence not yet current",
-            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v9",
-            "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed"
+            "scope_revision": "v0.3.1-ai-owned-installation-v11",
+            "stale_reason": "v0.3.1 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, desktop evidence, and the AI-owned installation/schedule/source-authorization contract changed"
           },
           "model_obligation_ids": [
             "OB-DP-008"
@@ -5522,8 +5551,8 @@
           "evidence_state": "stale",
           "metadata": {
             "reason": "owner model, code contract, TestMesh, and runtime evidence not yet current",
-            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v9",
-            "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed"
+            "scope_revision": "v0.3.1-ai-owned-installation-v11",
+            "stale_reason": "v0.3.1 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, desktop evidence, and the AI-owned installation/schedule/source-authorization contract changed"
           },
           "model_obligation_ids": [
             "OB-DP-009"
@@ -5668,8 +5697,8 @@
             "g8_evidence_id": "evidence:G8-fully-synthetic:9545f7fd2b98e390",
             "live_provider_evidence": false,
             "reason": "owner model, code contract, TestMesh, and runtime evidence not yet current",
-            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v9",
-            "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed",
+            "scope_revision": "v0.3.1-ai-owned-installation-v11",
+            "stale_reason": "v0.3.1 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, desktop evidence, and the AI-owned installation/schedule/source-authorization contract changed",
             "test_receipt_fingerprint": "sha256:9219033d7d59245d982229327a94402724f11d85b63d71d73b4f29145a99becd",
             "test_receipt_path": ".flowguard/evidence/tests/TM26_maintenance_orchestrator.json",
             "through_gate": "G8"
@@ -5874,8 +5903,8 @@
             "g8_evidence_id": "evidence:G8-fully-synthetic:9545f7fd2b98e390",
             "live_provider_evidence": false,
             "reason": "owner model, code contract, TestMesh, and runtime evidence not yet current",
-            "scope_revision": "v0.3.0-matter-browser-semantic-reset-v9",
-            "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed",
+            "scope_revision": "v0.3.1-ai-owned-installation-v11",
+            "stale_reason": "v0.3.1 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, desktop evidence, and the AI-owned installation/schedule/source-authorization contract changed",
             "test_receipt_fingerprint": "sha256:72dbdc879617576d53e195f958c454bc34cd9a97c311b8fcec5e1547f06d6b31",
             "test_receipt_path": ".flowguard/evidence/tests/TM27_ai_gateway.json",
             "through_gate": "G8"
@@ -6052,7 +6081,7 @@
         "variant_of_business_intent_id": ""
       }
     ],
-    "current_revision": "v0.3.0-matter-browser-semantic-reset-v9",
+    "current_revision": "v0.3.1-ai-owned-installation-v11",
     "expected_business_intent_ids": [
       "BI-PR-000-review-authorized-situation",
       "BI-PR-001-read-authorized-sources",
@@ -7025,6 +7054,75 @@
         "surface_id": "surface:openspec:tasks-ai-gateway-operation",
         "surface_kind": "openspec",
         "validation_boundary": "strict OpenSpec validation plus current A3 operation-model, focused gateway tests, TestMesh, and runtime receipts"
+      },
+      {
+        "business_intent_ids": [
+          "BI-DP-004-progressive-private-first-run"
+        ],
+        "commitment_ids": [
+          "BC-DP-004"
+        ],
+        "delegates_to_primary_path": true,
+        "freshness_state": "current",
+        "in_scope": true,
+        "label": "Matters AI installation contract",
+        "metadata": {},
+        "owner": "Matters public distribution",
+        "primary_path_id": "path:dpf-progressive-private-first-run",
+        "rationale": "The public skill delegates complete AI-owned installation and first-run setup to the DPF primary path.",
+        "scoped_out_reason": "",
+        "similarity_obligation_ids": [],
+        "similarity_relation_ids": [],
+        "source_ref": "plugins/matters/skills/matters/references/installation.md",
+        "surface_id": "surface:public-skill:ai-installation",
+        "surface_kind": "skill",
+        "validation_boundary": "strict OpenSpec validation, package-content tests, installed MCP/skill currentness, exactly-one schedule evidence, initial maintenance result, and desktop launch status"
+      },
+      {
+        "business_intent_ids": [
+          "BI-DP-004-progressive-private-first-run"
+        ],
+        "commitment_ids": [
+          "BC-DP-004"
+        ],
+        "delegates_to_primary_path": true,
+        "freshness_state": "current",
+        "in_scope": true,
+        "label": "README AI installation promise",
+        "metadata": {},
+        "owner": "Matters public distribution",
+        "primary_path_id": "path:dpf-progressive-private-first-run",
+        "rationale": "The public README summarizes the same installation contract without creating another execution path.",
+        "scoped_out_reason": "",
+        "similarity_obligation_ids": [],
+        "similarity_relation_ids": [],
+        "source_ref": "README.md",
+        "surface_id": "surface:readme:ai-installation",
+        "surface_kind": "doc",
+        "validation_boundary": "strict OpenSpec validation, package-content tests, installed MCP/skill currentness, exactly-one schedule evidence, initial maintenance result, and desktop launch status"
+      },
+      {
+        "business_intent_ids": [
+          "BI-DP-004-progressive-private-first-run"
+        ],
+        "commitment_ids": [
+          "BC-DP-004"
+        ],
+        "delegates_to_primary_path": true,
+        "freshness_state": "current",
+        "in_scope": true,
+        "label": "Plugin AI installation metadata",
+        "metadata": {},
+        "owner": "Matters public distribution",
+        "primary_path_id": "path:dpf-progressive-private-first-run",
+        "rationale": "Plugin metadata identifies the same AI-owned setup guide, unique schedule contract, and default local time.",
+        "scoped_out_reason": "",
+        "similarity_obligation_ids": [],
+        "similarity_relation_ids": [],
+        "source_ref": "plugin/matters-plugin.json",
+        "surface_id": "surface:plugin:ai-installation",
+        "surface_kind": "skill",
+        "validation_boundary": "strict OpenSpec validation, package-content tests, installed MCP/skill currentness, exactly-one schedule evidence, initial maintenance result, and desktop launch status"
       }
     ],
     "validation_boundary": "bidirectional OpenSpec coverage, one commitment/intent/path/owner, typed cross-plane relations, explicit legacy/Jira disposition, native BCL review, and visible downstream evidence blockers"
