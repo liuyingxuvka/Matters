@@ -1,6 +1,6 @@
 {
   "artifact_type": "matters.test-suite-receipt.v1",
-  "generated_at": "2026-07-21T10:20:34.291365+00:00",
+  "generated_at": "2026-07-21T10:48:04.956659+00:00",
   "pytest_observation": {
     "errors": 0,
     "failed": 0,
@@ -20,7 +20,7 @@
     "tests/test_generated_hero.py"
   ],
   "stderr_tail": "",
-  "stdout_tail": "..................................................................       [100%]\n66 passed in 6.09s\n",
+  "stdout_tail": "..................................................................       [100%]\n66 passed in 5.70s\n",
   "suite_id": "TM22_generated_hero",
   "test_suite_evidence": {
     "artifact_version": "matters.test-suite-receipt.v1",
@@ -62,7 +62,7 @@
         "src/matters/presentation/visuals.py": "sha256:fdd53ed33bea162f78ef0554cf66b0b5d459302c8ce7be721921df6d3b38d4ad",
         "tests/test_generated_hero.py": "sha256:49a0089d0f2ff6da9fecebf60de6c7fa8394e11664361957cb5ba326b050701d"
       },
-      "artifact_id": "artifact:run:TM22_generated_hero:ae984990a9b9bea8",
+      "artifact_id": "artifact:run:TM22_generated_hero:15c770b7f7f3209d",
       "assertion_scope": "external_contract",
       "command": "python -m pytest -q -o addopts= tests/test_generated_hero.py",
       "covered_obligation_ids": [
@@ -71,7 +71,7 @@
       ],
       "current": true,
       "exit_code": 0,
-      "finished_at": "2026-07-21T10:20:34.291365+00:00",
+      "finished_at": "2026-07-21T10:48:04.956659+00:00",
       "metadata": {},
       "producer_route": "test_mesh",
       "progress_only": false,
@@ -80,7 +80,7 @@
       "route_evidence_current": true,
       "route_gap_codes": [],
       "stale_reasons": [],
-      "started_at": "2026-07-21T10:20:24.007351+00:00"
+      "started_at": "2026-07-21T10:47:55.632156+00:00"
     },
     "release_required": false,
     "result_fingerprint": "sha256:8a58cb8fde31bce9e62bbc553cdd27558c1b274e5e3d672005888ff309d282ef",
@@ -88,7 +88,7 @@
     "result_reused": false,
     "result_status": "passed",
     "reuse_ticket": null,
-    "run_id": "run:TM22_generated_hero:ae984990a9b9bea8",
+    "run_id": "run:TM22_generated_hero:15c770b7f7f3209d",
     "selected_count": 66,
     "skipped_count": 0,
     "skipped_visible": true,

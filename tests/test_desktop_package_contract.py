@@ -178,7 +178,13 @@ def test_desktop_installer_has_verified_unique_snapshots_and_atomic_receipt():
     assert "function Restore-FileState" in script
     assert "Assert-ShortcutCurrent" in script
     assert "rollback was incomplete" in script
-    assert "[System.IO.File]::Replace($ReceiptCandidatePath, $ReceiptPath, $null)" in script
+    assert (
+        '$ReceiptReplaceBackupPath = Join-Path $TransactionRoot '
+        '"active-install.replace-backup.json"'
+    ) in script
+    assert "$ReceiptReplaceBackupPath" in script
+    assert "[System.IO.File]::Replace(" in script
+    assert "[System.IO.File]::Replace($ReceiptCandidatePath, $ReceiptPath, $null)" not in script
     assert "transaction_plan_fingerprint" in script
     assert "executable_sha256" in script
     assert "-FilePath $InstalledExecutable" in script

@@ -1,6 +1,6 @@
 {
   "artifact_type": "matters.test-suite-receipt.v1",
-  "generated_at": "2026-07-21T10:05:47.200294+00:00",
+  "generated_at": "2026-07-21T10:35:13.367937+00:00",
   "pytest_observation": {
     "errors": 0,
     "failed": 0,
@@ -21,7 +21,7 @@
     "tests/test_tm04_identity_resolution.py"
   ],
   "stderr_tail": "",
-  "stdout_tail": ".                                                                        [100%]\n1 passed in 0.14s\n",
+  "stdout_tail": ".                                                                        [100%]\n1 passed in 0.17s\n",
   "suite_id": "TM04_identity_resolution",
   "test_suite_evidence": {
     "artifact_version": "matters.test-suite-receipt.v1",
@@ -111,7 +111,7 @@
         "src/matters/identity/roles.py": "sha256:34732a96eaf3fde0c68c3440e14f7582d5044995f8d11116306db5b3c6cf9a00",
         "tests/test_tm04_identity_resolution.py": "sha256:6d105eacf1960e3a7215c4f0afd1f9da81635bd4dc25fea0503b4c825e1d3cbd"
       },
-      "artifact_id": "artifact:run:TM04_identity_resolution:4d89616879c2bf85",
+      "artifact_id": "artifact:run:TM04_identity_resolution:5eb2e4bec4f95e3b",
       "assertion_scope": "external_contract",
       "command": "python -m pytest -q -o addopts= tests/test_tm04_identity_resolution.py",
       "covered_obligation_ids": [
@@ -150,7 +150,7 @@
       ],
       "current": true,
       "exit_code": 0,
-      "finished_at": "2026-07-21T10:05:47.200294+00:00",
+      "finished_at": "2026-07-21T10:35:13.367937+00:00",
       "metadata": {},
       "producer_route": "test_mesh",
       "progress_only": false,
@@ -159,7 +159,7 @@
       "route_evidence_current": true,
       "route_gap_codes": [],
       "stale_reasons": [],
-      "started_at": "2026-07-21T10:05:45.199587+00:00"
+      "started_at": "2026-07-21T10:35:11.316485+00:00"
     },
     "release_required": false,
     "result_fingerprint": "sha256:ddb68fb9614c40e641574fbf970ddcc19f5c80af3ab17e8a38952398d196d7e0",
@@ -167,7 +167,7 @@
     "result_reused": false,
     "result_status": "passed",
     "reuse_ticket": null,
-    "run_id": "run:TM04_identity_resolution:4d89616879c2bf85",
+    "run_id": "run:TM04_identity_resolution:5eb2e4bec4f95e3b",
     "selected_count": 1,
     "skipped_count": 0,
     "skipped_visible": true,

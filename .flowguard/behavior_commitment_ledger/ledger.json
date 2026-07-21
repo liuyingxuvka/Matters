@@ -127,7 +127,7 @@
             "TC-M0_matters_end_to_end_authority-parent_attempts_child_write-retry"
           ],
           "coverage_receipt_ids": [
-            "run:TM14_end_to_end_conformance:80514938ce4a7f52"
+            "run:TM14_end_to_end_conformance:6bcf16424d4c8cc9"
           ],
           "coverage_shard_ids": [
             "TM14_end_to_end_conformance"
@@ -135,12 +135,12 @@
           "current": true,
           "evidence_state": "current_pass",
           "metadata": {
-            "alignment_evidence_id": "evidence:model-code-test-alignment:4ad14cafdfb5d191",
+            "alignment_evidence_id": "evidence:model-code-test-alignment:4305d1cafc5b07f3",
             "g8_evidence_id": "evidence:G8-fully-synthetic:ffe0563f16dabefc",
             "live_provider_evidence": false,
             "scope_revision": "v0.3.0-matter-browser-semantic-reset-v8",
             "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed",
-            "test_receipt_fingerprint": "sha256:496e977ab4c39c0c53a32d34f46385a7945b421c6dbe9758072be1d75cdc60d1",
+            "test_receipt_fingerprint": "sha256:613e7b14383f265d44ac6a33ff20d35ba9caed8e2a555431ae895b81aedfd126",
             "test_receipt_path": ".flowguard/evidence/tests/TM14_end_to_end_conformance.json",
             "through_gate": "G8"
           },
@@ -149,8 +149,8 @@
           ],
           "proof_artifact_ids": [
             "evidence:M0_matters_end_to_end_authority:4abae21e2657e0bc",
-            "artifact:run:TM14_end_to_end_conformance:80514938ce4a7f52",
-            "evidence:model-code-test-alignment:4ad14cafdfb5d191",
+            "artifact:run:TM14_end_to_end_conformance:6bcf16424d4c8cc9",
+            "evidence:model-code-test-alignment:4305d1cafc5b07f3",
             "evidence:G8-fully-synthetic:ffe0563f16dabefc"
           ],
           "risk_gate_ids": [
@@ -159,7 +159,7 @@
             "G8-fully-synthetic"
           ],
           "test_evidence_ids": [
-            "run:TM14_end_to_end_conformance:80514938ce4a7f52"
+            "run:TM14_end_to_end_conformance:6bcf16424d4c8cc9"
           ],
           "test_mesh_state": "shard_current"
         },
@@ -214,7 +214,7 @@
           "path_sensitive": true,
           "ppa_confidence": "full",
           "ppa_coverage_receipt_ids": [
-            "run:TM14_end_to_end_conformance:80514938ce4a7f52"
+            "run:TM14_end_to_end_conformance:6bcf16424d4c8cc9"
           ],
           "ppa_coverage_shard_ids": [
             "TM14_end_to_end_conformance"
@@ -230,8 +230,8 @@
           "primary_path_id": "path:matters-end-to-end-authority",
           "proof_artifact_ids": [
             "evidence:M0_matters_end_to_end_authority:4abae21e2657e0bc",
-            "artifact:run:TM14_end_to_end_conformance:80514938ce4a7f52",
-            "evidence:model-code-test-alignment:4ad14cafdfb5d191",
+            "artifact:run:TM14_end_to_end_conformance:6bcf16424d4c8cc9",
+            "evidence:model-code-test-alignment:4305d1cafc5b07f3",
             "evidence:G8-fully-synthetic:ffe0563f16dabefc"
           ],
           "runtime_observation_ids": [
@@ -621,7 +621,7 @@
             "TC-C1_authorization_coverage-private_root_inside_git-retry"
           ],
           "coverage_receipt_ids": [
-            "run:TM01_authorization_coverage:8280c323c9b5c484"
+            "run:TM01_authorization_coverage:634e04fb428df72b"
           ],
           "coverage_shard_ids": [
             "TM01_authorization_coverage"
@@ -629,12 +629,12 @@
           "current": true,
           "evidence_state": "current_pass",
           "metadata": {
-            "alignment_evidence_id": "evidence:model-code-test-alignment:4ad14cafdfb5d191",
+            "alignment_evidence_id": "evidence:model-code-test-alignment:4305d1cafc5b07f3",
             "g8_evidence_id": "evidence:G8-fully-synthetic:ffe0563f16dabefc",
             "live_provider_evidence": false,
             "scope_revision": "v0.3.0-matter-browser-semantic-reset-v8",
             "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed",
-            "test_receipt_fingerprint": "sha256:039810f5d4a3ee8951eef06d4eba6973514ebb6c048551ff74b0e06b200c52a1",
+            "test_receipt_fingerprint": "sha256:b82bb8724da0aa8c210903e02a03e63c88e73cca79dfbdad834ab7667b2cd3b3",
             "test_receipt_path": ".flowguard/evidence/tests/TM01_authorization_coverage.json",
             "through_gate": "G8"
           },
@@ -645,8 +645,8 @@
           ],
           "proof_artifact_ids": [
             "evidence:C1_authorization_coverage:fb63cdbfa75fc982",
-            "artifact:run:TM01_authorization_coverage:8280c323c9b5c484",
-            "evidence:model-code-test-alignment:4ad14cafdfb5d191",
+            "artifact:run:TM01_authorization_coverage:634e04fb428df72b",
+            "evidence:model-code-test-alignment:4305d1cafc5b07f3",
             "evidence:G8-fully-synthetic:ffe0563f16dabefc"
           ],
           "risk_gate_ids": [
@@ -655,7 +655,7 @@
             "G8-fully-synthetic"
           ],
           "test_evidence_ids": [
-            "run:TM01_authorization_coverage:8280c323c9b5c484"
+            "run:TM01_authorization_coverage:634e04fb428df72b"
           ],
           "test_mesh_state": "shard_current"
         },
@@ -708,7 +708,7 @@
           "path_sensitive": true,
           "ppa_confidence": "full",
           "ppa_coverage_receipt_ids": [
-            "run:TM01_authorization_coverage:8280c323c9b5c484"
+            "run:TM01_authorization_coverage:634e04fb428df72b"
           ],
           "ppa_coverage_shard_ids": [
             "TM01_authorization_coverage"
@@ -724,8 +724,8 @@
           "primary_path_id": "path:c1-freeze-and-classify-candidate-universe",
           "proof_artifact_ids": [
             "evidence:C1_authorization_coverage:fb63cdbfa75fc982",
-            "artifact:run:TM01_authorization_coverage:8280c323c9b5c484",
-            "evidence:model-code-test-alignment:4ad14cafdfb5d191",
+            "artifact:run:TM01_authorization_coverage:634e04fb428df72b",
+            "evidence:model-code-test-alignment:4305d1cafc5b07f3",
             "evidence:G8-fully-synthetic:ffe0563f16dabefc"
           ],
           "runtime_observation_ids": [
@@ -921,7 +921,7 @@
             "TC-C2_source_registry-ai_rewrite_attempt-retry"
           ],
           "coverage_receipt_ids": [
-            "run:TM02_source_registry:8462b298c054f860"
+            "run:TM02_source_registry:7e1ca517f935ed39"
           ],
           "coverage_shard_ids": [
             "TM02_source_registry"
@@ -929,12 +929,12 @@
           "current": true,
           "evidence_state": "current_pass",
           "metadata": {
-            "alignment_evidence_id": "evidence:model-code-test-alignment:4ad14cafdfb5d191",
+            "alignment_evidence_id": "evidence:model-code-test-alignment:4305d1cafc5b07f3",
             "g8_evidence_id": "evidence:G8-fully-synthetic:ffe0563f16dabefc",
             "live_provider_evidence": false,
             "scope_revision": "v0.3.0-matter-browser-semantic-reset-v8",
             "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed",
-            "test_receipt_fingerprint": "sha256:1e457d5dcdff9b7dd21c4e3c4deec491789aefcd798368432cd1abd8cae83d53",
+            "test_receipt_fingerprint": "sha256:e00e48e9b51978b3ab2839c243f74692a25973f9fdc6f2ee8e85f5b422e06f9f",
             "test_receipt_path": ".flowguard/evidence/tests/TM02_source_registry.json",
             "through_gate": "G8"
           },
@@ -946,8 +946,8 @@
           ],
           "proof_artifact_ids": [
             "evidence:C2_source_registry:db58fa066dbdbc05",
-            "artifact:run:TM02_source_registry:8462b298c054f860",
-            "evidence:model-code-test-alignment:4ad14cafdfb5d191",
+            "artifact:run:TM02_source_registry:7e1ca517f935ed39",
+            "evidence:model-code-test-alignment:4305d1cafc5b07f3",
             "evidence:G8-fully-synthetic:ffe0563f16dabefc"
           ],
           "risk_gate_ids": [
@@ -956,7 +956,7 @@
             "G8-fully-synthetic"
           ],
           "test_evidence_ids": [
-            "run:TM02_source_registry:8462b298c054f860"
+            "run:TM02_source_registry:7e1ca517f935ed39"
           ],
           "test_mesh_state": "shard_current"
         },
@@ -1008,7 +1008,7 @@
           "path_sensitive": true,
           "ppa_confidence": "full",
           "ppa_coverage_receipt_ids": [
-            "run:TM02_source_registry:8462b298c054f860"
+            "run:TM02_source_registry:7e1ca517f935ed39"
           ],
           "ppa_coverage_shard_ids": [
             "TM02_source_registry"
@@ -1024,8 +1024,8 @@
           "primary_path_id": "path:c2-register-source-version",
           "proof_artifact_ids": [
             "evidence:C2_source_registry:db58fa066dbdbc05",
-            "artifact:run:TM02_source_registry:8462b298c054f860",
-            "evidence:model-code-test-alignment:4ad14cafdfb5d191",
+            "artifact:run:TM02_source_registry:7e1ca517f935ed39",
+            "evidence:model-code-test-alignment:4305d1cafc5b07f3",
             "evidence:G8-fully-synthetic:ffe0563f16dabefc"
           ],
           "runtime_observation_ids": [
@@ -1385,7 +1385,7 @@
             "TC-C3_evidence_qualification-superseded_anchor-retry"
           ],
           "coverage_receipt_ids": [
-            "run:TM03_evidence_qualification:d3214ad25409b555"
+            "run:TM03_evidence_qualification:ea3eca0e1bac101f"
           ],
           "coverage_shard_ids": [
             "TM03_evidence_qualification"
@@ -1393,12 +1393,12 @@
           "current": true,
           "evidence_state": "current_pass",
           "metadata": {
-            "alignment_evidence_id": "evidence:model-code-test-alignment:4ad14cafdfb5d191",
+            "alignment_evidence_id": "evidence:model-code-test-alignment:4305d1cafc5b07f3",
             "g8_evidence_id": "evidence:G8-fully-synthetic:ffe0563f16dabefc",
             "live_provider_evidence": false,
             "scope_revision": "v0.3.0-matter-browser-semantic-reset-v8",
             "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed",
-            "test_receipt_fingerprint": "sha256:41ab2f82b404aea8ef72096d0c068e126f2e194981b9a6b63ff65f552275537b",
+            "test_receipt_fingerprint": "sha256:aad80d12a68af8b7341b43b3e4d852d4854ff04c6a72b5eda160280aca8b4446",
             "test_receipt_path": ".flowguard/evidence/tests/TM03_evidence_qualification.json",
             "through_gate": "G8"
           },
@@ -1409,8 +1409,8 @@
           ],
           "proof_artifact_ids": [
             "evidence:C3_evidence_qualification:652d9df4c2157123",
-            "artifact:run:TM03_evidence_qualification:d3214ad25409b555",
-            "evidence:model-code-test-alignment:4ad14cafdfb5d191",
+            "artifact:run:TM03_evidence_qualification:ea3eca0e1bac101f",
+            "evidence:model-code-test-alignment:4305d1cafc5b07f3",
             "evidence:G8-fully-synthetic:ffe0563f16dabefc"
           ],
           "risk_gate_ids": [
@@ -1418,7 +1418,7 @@
             "G8-fully-synthetic"
           ],
           "test_evidence_ids": [
-            "run:TM03_evidence_qualification:d3214ad25409b555"
+            "run:TM03_evidence_qualification:ea3eca0e1bac101f"
           ],
           "test_mesh_state": "shard_current"
         },
@@ -1469,7 +1469,7 @@
           "path_sensitive": true,
           "ppa_confidence": "full",
           "ppa_coverage_receipt_ids": [
-            "run:TM03_evidence_qualification:d3214ad25409b555"
+            "run:TM03_evidence_qualification:ea3eca0e1bac101f"
           ],
           "ppa_coverage_shard_ids": [
             "TM03_evidence_qualification"
@@ -1485,8 +1485,8 @@
           "primary_path_id": "path:c3-qualify-evidence",
           "proof_artifact_ids": [
             "evidence:C3_evidence_qualification:652d9df4c2157123",
-            "artifact:run:TM03_evidence_qualification:d3214ad25409b555",
-            "evidence:model-code-test-alignment:4ad14cafdfb5d191",
+            "artifact:run:TM03_evidence_qualification:ea3eca0e1bac101f",
+            "evidence:model-code-test-alignment:4305d1cafc5b07f3",
             "evidence:G8-fully-synthetic:ffe0563f16dabefc"
           ],
           "runtime_observation_ids": [
@@ -1582,7 +1582,7 @@
             "TC-C4_person_entity_resolution-researchguard_identity_proposal-retry"
           ],
           "coverage_receipt_ids": [
-            "run:TM04_identity_resolution:4d89616879c2bf85"
+            "run:TM04_identity_resolution:5eb2e4bec4f95e3b"
           ],
           "coverage_shard_ids": [
             "TM04_identity_resolution"
@@ -1590,12 +1590,12 @@
           "current": true,
           "evidence_state": "current_pass",
           "metadata": {
-            "alignment_evidence_id": "evidence:model-code-test-alignment:4ad14cafdfb5d191",
+            "alignment_evidence_id": "evidence:model-code-test-alignment:4305d1cafc5b07f3",
             "g8_evidence_id": "evidence:G8-fully-synthetic:ffe0563f16dabefc",
             "live_provider_evidence": false,
             "scope_revision": "v0.3.0-matter-browser-semantic-reset-v8",
             "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed",
-            "test_receipt_fingerprint": "sha256:2461f786802d97b831fc83a23da68773ccca40e02e853a1c7f4f63de3797573c",
+            "test_receipt_fingerprint": "sha256:a593f82d0836b44962e82c5731981e24d528c4b378f316c9d0a62ebbb245e74a",
             "test_receipt_path": ".flowguard/evidence/tests/TM04_identity_resolution.json",
             "through_gate": "G8"
           },
@@ -1606,8 +1606,8 @@
           ],
           "proof_artifact_ids": [
             "evidence:C4_person_entity_resolution:603526a339d987e3",
-            "artifact:run:TM04_identity_resolution:4d89616879c2bf85",
-            "evidence:model-code-test-alignment:4ad14cafdfb5d191",
+            "artifact:run:TM04_identity_resolution:5eb2e4bec4f95e3b",
+            "evidence:model-code-test-alignment:4305d1cafc5b07f3",
             "evidence:G8-fully-synthetic:ffe0563f16dabefc"
           ],
           "risk_gate_ids": [
@@ -1615,7 +1615,7 @@
             "G8-fully-synthetic"
           ],
           "test_evidence_ids": [
-            "run:TM04_identity_resolution:4d89616879c2bf85"
+            "run:TM04_identity_resolution:5eb2e4bec4f95e3b"
           ],
           "test_mesh_state": "shard_current"
         },
@@ -1668,7 +1668,7 @@
           "path_sensitive": true,
           "ppa_confidence": "full",
           "ppa_coverage_receipt_ids": [
-            "run:TM04_identity_resolution:4d89616879c2bf85"
+            "run:TM04_identity_resolution:5eb2e4bec4f95e3b"
           ],
           "ppa_coverage_shard_ids": [
             "TM04_identity_resolution"
@@ -1684,8 +1684,8 @@
           "primary_path_id": "path:c4-resolve-identity",
           "proof_artifact_ids": [
             "evidence:C4_person_entity_resolution:603526a339d987e3",
-            "artifact:run:TM04_identity_resolution:4d89616879c2bf85",
-            "evidence:model-code-test-alignment:4ad14cafdfb5d191",
+            "artifact:run:TM04_identity_resolution:5eb2e4bec4f95e3b",
+            "evidence:model-code-test-alignment:4305d1cafc5b07f3",
             "evidence:G8-fully-synthetic:ffe0563f16dabefc"
           ],
           "runtime_observation_ids": [
@@ -1791,7 +1791,7 @@
             "TC-C5_event_temporal_trace-scan_retry_or_reword_without_semantic_change-retry"
           ],
           "coverage_receipt_ids": [
-            "run:TM05_event_trace:31f5a3714fe9256f"
+            "run:TM05_event_trace:825add36374e3076"
           ],
           "coverage_shard_ids": [
             "TM05_event_trace"
@@ -1799,12 +1799,12 @@
           "current": true,
           "evidence_state": "current_pass",
           "metadata": {
-            "alignment_evidence_id": "evidence:model-code-test-alignment:4ad14cafdfb5d191",
+            "alignment_evidence_id": "evidence:model-code-test-alignment:4305d1cafc5b07f3",
             "g8_evidence_id": "evidence:G8-fully-synthetic:ffe0563f16dabefc",
             "live_provider_evidence": false,
             "scope_revision": "v0.3.0-matter-browser-semantic-reset-v8",
             "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed",
-            "test_receipt_fingerprint": "sha256:0de5b14e9ba6071192e0d9bf4c60adbe57f33ebbc21b07e437dc1da4844f6c49",
+            "test_receipt_fingerprint": "sha256:22e5da41459eed05f2871b737814d670fdf69f339c98d93800ef68cba96edeb8",
             "test_receipt_path": ".flowguard/evidence/tests/TM05_event_trace.json",
             "through_gate": "G8"
           },
@@ -1815,8 +1815,8 @@
           ],
           "proof_artifact_ids": [
             "evidence:C5_event_temporal_trace:a9636cba74a284fc",
-            "artifact:run:TM05_event_trace:31f5a3714fe9256f",
-            "evidence:model-code-test-alignment:4ad14cafdfb5d191",
+            "artifact:run:TM05_event_trace:825add36374e3076",
+            "evidence:model-code-test-alignment:4305d1cafc5b07f3",
             "evidence:G8-fully-synthetic:ffe0563f16dabefc"
           ],
           "risk_gate_ids": [
@@ -1824,7 +1824,7 @@
             "G8-fully-synthetic"
           ],
           "test_evidence_ids": [
-            "run:TM05_event_trace:31f5a3714fe9256f"
+            "run:TM05_event_trace:825add36374e3076"
           ],
           "test_mesh_state": "shard_current"
         },
@@ -1878,7 +1878,7 @@
           "path_sensitive": true,
           "ppa_confidence": "full",
           "ppa_coverage_receipt_ids": [
-            "run:TM05_event_trace:31f5a3714fe9256f"
+            "run:TM05_event_trace:825add36374e3076"
           ],
           "ppa_coverage_shard_ids": [
             "TM05_event_trace"
@@ -1894,8 +1894,8 @@
           "primary_path_id": "path:c5-build-temporal-trace",
           "proof_artifact_ids": [
             "evidence:C5_event_temporal_trace:a9636cba74a284fc",
-            "artifact:run:TM05_event_trace:31f5a3714fe9256f",
-            "evidence:model-code-test-alignment:4ad14cafdfb5d191",
+            "artifact:run:TM05_event_trace:825add36374e3076",
+            "evidence:model-code-test-alignment:4305d1cafc5b07f3",
             "evidence:G8-fully-synthetic:ffe0563f16dabefc"
           ],
           "runtime_observation_ids": [
@@ -2091,7 +2091,7 @@
             "TC-C6_matter_formation_admission-batch_publication_interrupted-retry"
           ],
           "coverage_receipt_ids": [
-            "run:TM06_matter_admission:4d3489758f644f33"
+            "run:TM06_matter_admission:9df730ccb15fef05"
           ],
           "coverage_shard_ids": [
             "TM06_matter_admission"
@@ -2099,12 +2099,12 @@
           "current": true,
           "evidence_state": "current_pass",
           "metadata": {
-            "alignment_evidence_id": "evidence:model-code-test-alignment:4ad14cafdfb5d191",
+            "alignment_evidence_id": "evidence:model-code-test-alignment:4305d1cafc5b07f3",
             "g8_evidence_id": "evidence:G8-fully-synthetic:ffe0563f16dabefc",
             "live_provider_evidence": false,
             "scope_revision": "v0.3.0-matter-browser-semantic-reset-v8",
             "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed",
-            "test_receipt_fingerprint": "sha256:884b8541a95e36fab202c89cd01ab57672b61c8e933a0a414f2bfc859b1d80f7",
+            "test_receipt_fingerprint": "sha256:d03e78fe380e90e4fd38103c1b19c03af812fae77862bdcf05940ced95dfa6a3",
             "test_receipt_path": ".flowguard/evidence/tests/TM06_matter_admission.json",
             "through_gate": "G8"
           },
@@ -2115,8 +2115,8 @@
           ],
           "proof_artifact_ids": [
             "evidence:C6_matter_formation_admission:cbb76081a7a7054e",
-            "artifact:run:TM06_matter_admission:4d3489758f644f33",
-            "evidence:model-code-test-alignment:4ad14cafdfb5d191",
+            "artifact:run:TM06_matter_admission:9df730ccb15fef05",
+            "evidence:model-code-test-alignment:4305d1cafc5b07f3",
             "evidence:G8-fully-synthetic:ffe0563f16dabefc"
           ],
           "risk_gate_ids": [
@@ -2125,7 +2125,7 @@
             "G8-fully-synthetic"
           ],
           "test_evidence_ids": [
-            "run:TM06_matter_admission:4d3489758f644f33"
+            "run:TM06_matter_admission:9df730ccb15fef05"
           ],
           "test_mesh_state": "shard_current"
         },
@@ -2177,7 +2177,7 @@
           "path_sensitive": true,
           "ppa_confidence": "full",
           "ppa_coverage_receipt_ids": [
-            "run:TM06_matter_admission:4d3489758f644f33"
+            "run:TM06_matter_admission:9df730ccb15fef05"
           ],
           "ppa_coverage_shard_ids": [
             "TM06_matter_admission"
@@ -2193,8 +2193,8 @@
           "primary_path_id": "path:c6-admit-matter",
           "proof_artifact_ids": [
             "evidence:C6_matter_formation_admission:cbb76081a7a7054e",
-            "artifact:run:TM06_matter_admission:4d3489758f644f33",
-            "evidence:model-code-test-alignment:4ad14cafdfb5d191",
+            "artifact:run:TM06_matter_admission:9df730ccb15fef05",
+            "evidence:model-code-test-alignment:4305d1cafc5b07f3",
             "evidence:G8-fully-synthetic:ffe0563f16dabefc"
           ],
           "runtime_observation_ids": [
@@ -2372,7 +2372,7 @@
             "TC-C7_lifecycle_board_state-known_children_with_depth_pending-retry"
           ],
           "coverage_receipt_ids": [
-            "run:TM07_lifecycle_board_state:d5589db8c71a2b07"
+            "run:TM07_lifecycle_board_state:4dc4962be8c7bbaa"
           ],
           "coverage_shard_ids": [
             "TM07_lifecycle_board_state"
@@ -2380,12 +2380,12 @@
           "current": true,
           "evidence_state": "current_pass",
           "metadata": {
-            "alignment_evidence_id": "evidence:model-code-test-alignment:4ad14cafdfb5d191",
+            "alignment_evidence_id": "evidence:model-code-test-alignment:4305d1cafc5b07f3",
             "g8_evidence_id": "evidence:G8-fully-synthetic:ffe0563f16dabefc",
             "live_provider_evidence": false,
             "scope_revision": "v0.3.0-matter-browser-semantic-reset-v8",
             "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed",
-            "test_receipt_fingerprint": "sha256:0d98c6edf7ef36673bb6faa9d84ceeddd56913ce6e218b9a543b57ef8362e4ee",
+            "test_receipt_fingerprint": "sha256:f526877ae64615468de3c832c029facc701dfdd6b4a677e892c8eabd20daac25",
             "test_receipt_path": ".flowguard/evidence/tests/TM07_lifecycle_board_state.json",
             "through_gate": "G8"
           },
@@ -2396,8 +2396,8 @@
           ],
           "proof_artifact_ids": [
             "evidence:C7_lifecycle_board_state:48dbb364b6c25605",
-            "artifact:run:TM07_lifecycle_board_state:d5589db8c71a2b07",
-            "evidence:model-code-test-alignment:4ad14cafdfb5d191",
+            "artifact:run:TM07_lifecycle_board_state:4dc4962be8c7bbaa",
+            "evidence:model-code-test-alignment:4305d1cafc5b07f3",
             "evidence:G8-fully-synthetic:ffe0563f16dabefc"
           ],
           "risk_gate_ids": [
@@ -2406,7 +2406,7 @@
             "G8-fully-synthetic"
           ],
           "test_evidence_ids": [
-            "run:TM07_lifecycle_board_state:d5589db8c71a2b07"
+            "run:TM07_lifecycle_board_state:4dc4962be8c7bbaa"
           ],
           "test_mesh_state": "shard_current"
         },
@@ -2457,7 +2457,7 @@
           "path_sensitive": true,
           "ppa_confidence": "full",
           "ppa_coverage_receipt_ids": [
-            "run:TM07_lifecycle_board_state:d5589db8c71a2b07"
+            "run:TM07_lifecycle_board_state:4dc4962be8c7bbaa"
           ],
           "ppa_coverage_shard_ids": [
             "TM07_lifecycle_board_state"
@@ -2473,8 +2473,8 @@
           "primary_path_id": "path:c7-decide-lifecycle",
           "proof_artifact_ids": [
             "evidence:C7_lifecycle_board_state:48dbb364b6c25605",
-            "artifact:run:TM07_lifecycle_board_state:d5589db8c71a2b07",
-            "evidence:model-code-test-alignment:4ad14cafdfb5d191",
+            "artifact:run:TM07_lifecycle_board_state:4dc4962be8c7bbaa",
+            "evidence:model-code-test-alignment:4305d1cafc5b07f3",
             "evidence:G8-fully-synthetic:ffe0563f16dabefc"
           ],
           "runtime_observation_ids": [
@@ -2568,7 +2568,7 @@
             "TC-C8_open_loop_waiting_blocking-declared_closure_evidence-retry"
           ],
           "coverage_receipt_ids": [
-            "run:TM08_open_loop_blocking:26afd42ffae594b1"
+            "run:TM08_open_loop_blocking:ce36bee186547183"
           ],
           "coverage_shard_ids": [
             "TM08_open_loop_blocking"
@@ -2576,12 +2576,12 @@
           "current": true,
           "evidence_state": "current_pass",
           "metadata": {
-            "alignment_evidence_id": "evidence:model-code-test-alignment:4ad14cafdfb5d191",
+            "alignment_evidence_id": "evidence:model-code-test-alignment:4305d1cafc5b07f3",
             "g8_evidence_id": "evidence:G8-fully-synthetic:ffe0563f16dabefc",
             "live_provider_evidence": false,
             "scope_revision": "v0.3.0-matter-browser-semantic-reset-v8",
             "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed",
-            "test_receipt_fingerprint": "sha256:7f6e83733b23542ad939f844cd0658324cec41f1050305ebb3c00c1662345e08",
+            "test_receipt_fingerprint": "sha256:655906aa2b40c94c115340e6e21ba4fb3b45a7f5182db61ec301f49bd1bc6227",
             "test_receipt_path": ".flowguard/evidence/tests/TM08_open_loop_blocking.json",
             "through_gate": "G8"
           },
@@ -2592,8 +2592,8 @@
           ],
           "proof_artifact_ids": [
             "evidence:C8_open_loop_waiting_blocking:87ab92d77bb88b87",
-            "artifact:run:TM08_open_loop_blocking:26afd42ffae594b1",
-            "evidence:model-code-test-alignment:4ad14cafdfb5d191",
+            "artifact:run:TM08_open_loop_blocking:ce36bee186547183",
+            "evidence:model-code-test-alignment:4305d1cafc5b07f3",
             "evidence:G8-fully-synthetic:ffe0563f16dabefc"
           ],
           "risk_gate_ids": [
@@ -2601,7 +2601,7 @@
             "G8-fully-synthetic"
           ],
           "test_evidence_ids": [
-            "run:TM08_open_loop_blocking:26afd42ffae594b1"
+            "run:TM08_open_loop_blocking:ce36bee186547183"
           ],
           "test_mesh_state": "shard_current"
         },
@@ -2652,7 +2652,7 @@
           "path_sensitive": true,
           "ppa_confidence": "full",
           "ppa_coverage_receipt_ids": [
-            "run:TM08_open_loop_blocking:26afd42ffae594b1"
+            "run:TM08_open_loop_blocking:ce36bee186547183"
           ],
           "ppa_coverage_shard_ids": [
             "TM08_open_loop_blocking"
@@ -2668,8 +2668,8 @@
           "primary_path_id": "path:c8-evaluate-open-loop",
           "proof_artifact_ids": [
             "evidence:C8_open_loop_waiting_blocking:87ab92d77bb88b87",
-            "artifact:run:TM08_open_loop_blocking:26afd42ffae594b1",
-            "evidence:model-code-test-alignment:4ad14cafdfb5d191",
+            "artifact:run:TM08_open_loop_blocking:ce36bee186547183",
+            "evidence:model-code-test-alignment:4305d1cafc5b07f3",
             "evidence:G8-fully-synthetic:ffe0563f16dabefc"
           ],
           "runtime_observation_ids": [
@@ -2750,7 +2750,7 @@
             "TC-C9_completion_cancellation_reopen-all_known_children_completed_parent_criteria_unmet-retry"
           ],
           "coverage_receipt_ids": [
-            "run:TM09_completion_reopen:7dc8f56509ef3bd8"
+            "run:TM09_completion_reopen:79e0a77a36a83024"
           ],
           "coverage_shard_ids": [
             "TM09_completion_reopen"
@@ -2758,12 +2758,12 @@
           "current": true,
           "evidence_state": "current_pass",
           "metadata": {
-            "alignment_evidence_id": "evidence:model-code-test-alignment:4ad14cafdfb5d191",
+            "alignment_evidence_id": "evidence:model-code-test-alignment:4305d1cafc5b07f3",
             "g8_evidence_id": "evidence:G8-fully-synthetic:ffe0563f16dabefc",
             "live_provider_evidence": false,
             "scope_revision": "v0.3.0-matter-browser-semantic-reset-v8",
             "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed",
-            "test_receipt_fingerprint": "sha256:a71d34c977dbb10beadae659c70a9fa7cb8f8fddae6e9fe3929ce1a8fdd19bc5",
+            "test_receipt_fingerprint": "sha256:c431e64c0647faf9362d613bad65e84e4c7fce5ea20155bff3aaf456b2e8bbd0",
             "test_receipt_path": ".flowguard/evidence/tests/TM09_completion_reopen.json",
             "through_gate": "G8"
           },
@@ -2774,8 +2774,8 @@
           ],
           "proof_artifact_ids": [
             "evidence:C9_completion_cancellation_reopen:7e567c24f8a5704a",
-            "artifact:run:TM09_completion_reopen:7dc8f56509ef3bd8",
-            "evidence:model-code-test-alignment:4ad14cafdfb5d191",
+            "artifact:run:TM09_completion_reopen:79e0a77a36a83024",
+            "evidence:model-code-test-alignment:4305d1cafc5b07f3",
             "evidence:G8-fully-synthetic:ffe0563f16dabefc"
           ],
           "risk_gate_ids": [
@@ -2783,7 +2783,7 @@
             "G8-fully-synthetic"
           ],
           "test_evidence_ids": [
-            "run:TM09_completion_reopen:7dc8f56509ef3bd8"
+            "run:TM09_completion_reopen:79e0a77a36a83024"
           ],
           "test_mesh_state": "shard_current"
         },
@@ -2835,7 +2835,7 @@
           "path_sensitive": true,
           "ppa_confidence": "full",
           "ppa_coverage_receipt_ids": [
-            "run:TM09_completion_reopen:7dc8f56509ef3bd8"
+            "run:TM09_completion_reopen:79e0a77a36a83024"
           ],
           "ppa_coverage_shard_ids": [
             "TM09_completion_reopen"
@@ -2851,8 +2851,8 @@
           "primary_path_id": "path:c9-decide-outcome",
           "proof_artifact_ids": [
             "evidence:C9_completion_cancellation_reopen:7e567c24f8a5704a",
-            "artifact:run:TM09_completion_reopen:7dc8f56509ef3bd8",
-            "evidence:model-code-test-alignment:4ad14cafdfb5d191",
+            "artifact:run:TM09_completion_reopen:79e0a77a36a83024",
+            "evidence:model-code-test-alignment:4305d1cafc5b07f3",
             "evidence:G8-fully-synthetic:ffe0563f16dabefc"
           ],
           "runtime_observation_ids": [
@@ -2946,7 +2946,7 @@
             "TC-C10_correction_revocation-hierarchy_merge_revision-retry"
           ],
           "coverage_receipt_ids": [
-            "run:TM10_correction_invalidation:d236cb2295a37cb0"
+            "run:TM10_correction_invalidation:6606de0a8a24577d"
           ],
           "coverage_shard_ids": [
             "TM10_correction_invalidation"
@@ -2954,12 +2954,12 @@
           "current": true,
           "evidence_state": "current_pass",
           "metadata": {
-            "alignment_evidence_id": "evidence:model-code-test-alignment:4ad14cafdfb5d191",
+            "alignment_evidence_id": "evidence:model-code-test-alignment:4305d1cafc5b07f3",
             "g8_evidence_id": "evidence:G8-fully-synthetic:ffe0563f16dabefc",
             "live_provider_evidence": false,
             "scope_revision": "v0.3.0-matter-browser-semantic-reset-v8",
             "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed",
-            "test_receipt_fingerprint": "sha256:de19ba89e63a29e07ce412bb6a1118fdfb27e6a847c3642a2d957e1d2fe04a3b",
+            "test_receipt_fingerprint": "sha256:94fed531151dc0d89df46027b1059346ac0f39c0570c52c3e7f52bae7c2d81de",
             "test_receipt_path": ".flowguard/evidence/tests/TM10_correction_invalidation.json",
             "through_gate": "G8"
           },
@@ -2970,8 +2970,8 @@
           ],
           "proof_artifact_ids": [
             "evidence:C10_correction_revocation:d20cec9a21b64ad7",
-            "artifact:run:TM10_correction_invalidation:d236cb2295a37cb0",
-            "evidence:model-code-test-alignment:4ad14cafdfb5d191",
+            "artifact:run:TM10_correction_invalidation:6606de0a8a24577d",
+            "evidence:model-code-test-alignment:4305d1cafc5b07f3",
             "evidence:G8-fully-synthetic:ffe0563f16dabefc"
           ],
           "risk_gate_ids": [
@@ -2980,7 +2980,7 @@
             "G8-fully-synthetic"
           ],
           "test_evidence_ids": [
-            "run:TM10_correction_invalidation:d236cb2295a37cb0"
+            "run:TM10_correction_invalidation:6606de0a8a24577d"
           ],
           "test_mesh_state": "shard_current"
         },
@@ -3034,7 +3034,7 @@
           "path_sensitive": true,
           "ppa_confidence": "full",
           "ppa_coverage_receipt_ids": [
-            "run:TM10_correction_invalidation:d236cb2295a37cb0"
+            "run:TM10_correction_invalidation:6606de0a8a24577d"
           ],
           "ppa_coverage_shard_ids": [
             "TM10_correction_invalidation"
@@ -3050,8 +3050,8 @@
           "primary_path_id": "path:c10-invalidate-and-request-recompute",
           "proof_artifact_ids": [
             "evidence:C10_correction_revocation:d20cec9a21b64ad7",
-            "artifact:run:TM10_correction_invalidation:d236cb2295a37cb0",
-            "evidence:model-code-test-alignment:4ad14cafdfb5d191",
+            "artifact:run:TM10_correction_invalidation:6606de0a8a24577d",
+            "evidence:model-code-test-alignment:4305d1cafc5b07f3",
             "evidence:G8-fully-synthetic:ffe0563f16dabefc"
           ],
           "runtime_observation_ids": [
@@ -3214,7 +3214,7 @@
             "TC-C11_guard_artifact_prediction-skipped_or_progress_receipt-retry"
           ],
           "coverage_receipt_ids": [
-            "run:TM11_guard_prediction_boundary:eb116bcefaf5f69b"
+            "run:TM11_guard_prediction_boundary:84ca5e39a2c90aca"
           ],
           "coverage_shard_ids": [
             "TM11_guard_prediction_boundary"
@@ -3222,12 +3222,12 @@
           "current": true,
           "evidence_state": "current_pass",
           "metadata": {
-            "alignment_evidence_id": "evidence:model-code-test-alignment:4ad14cafdfb5d191",
+            "alignment_evidence_id": "evidence:model-code-test-alignment:4305d1cafc5b07f3",
             "g8_evidence_id": "evidence:G8-fully-synthetic:ffe0563f16dabefc",
             "live_provider_evidence": false,
             "scope_revision": "v0.3.0-matter-browser-semantic-reset-v8",
             "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed",
-            "test_receipt_fingerprint": "sha256:befb43dd1fb2f5cdd21f160a39803ae04b33adfcdb89edabc5f42396016f0c4a",
+            "test_receipt_fingerprint": "sha256:f672a98c4f3813b8b10ad412bc932971206d2e5281064af300a1d14f1d8a4902",
             "test_receipt_path": ".flowguard/evidence/tests/TM11_guard_prediction_boundary.json",
             "through_gate": "G8"
           },
@@ -3238,8 +3238,8 @@
           ],
           "proof_artifact_ids": [
             "evidence:C11_guard_artifact_prediction:c11c7badfced8e30",
-            "artifact:run:TM11_guard_prediction_boundary:eb116bcefaf5f69b",
-            "evidence:model-code-test-alignment:4ad14cafdfb5d191",
+            "artifact:run:TM11_guard_prediction_boundary:84ca5e39a2c90aca",
+            "evidence:model-code-test-alignment:4305d1cafc5b07f3",
             "evidence:G8-fully-synthetic:ffe0563f16dabefc"
           ],
           "risk_gate_ids": [
@@ -3247,7 +3247,7 @@
             "G8-fully-synthetic"
           ],
           "test_evidence_ids": [
-            "run:TM11_guard_prediction_boundary:eb116bcefaf5f69b"
+            "run:TM11_guard_prediction_boundary:84ca5e39a2c90aca"
           ],
           "test_mesh_state": "shard_current"
         },
@@ -3307,7 +3307,7 @@
           "path_sensitive": true,
           "ppa_confidence": "full",
           "ppa_coverage_receipt_ids": [
-            "run:TM11_guard_prediction_boundary:eb116bcefaf5f69b"
+            "run:TM11_guard_prediction_boundary:84ca5e39a2c90aca"
           ],
           "ppa_coverage_shard_ids": [
             "TM11_guard_prediction_boundary"
@@ -3323,8 +3323,8 @@
           "primary_path_id": "path:c11-register-advisory-analysis-artifact",
           "proof_artifact_ids": [
             "evidence:C11_guard_artifact_prediction:c11c7badfced8e30",
-            "artifact:run:TM11_guard_prediction_boundary:eb116bcefaf5f69b",
-            "evidence:model-code-test-alignment:4ad14cafdfb5d191",
+            "artifact:run:TM11_guard_prediction_boundary:84ca5e39a2c90aca",
+            "evidence:model-code-test-alignment:4305d1cafc5b07f3",
             "evidence:G8-fully-synthetic:ffe0563f16dabefc"
           ],
           "runtime_observation_ids": [
@@ -3574,7 +3574,7 @@
             "TC-C12_projection_bilingual_ui-internal_identifier_requested_by_default-retry"
           ],
           "coverage_receipt_ids": [
-            "run:TM12_projection_bilingual_ui:adec10ee92aeac73"
+            "run:TM12_projection_bilingual_ui:bc59878056f1a7bb"
           ],
           "coverage_shard_ids": [
             "TM12_projection_bilingual_ui"
@@ -3582,12 +3582,12 @@
           "current": true,
           "evidence_state": "current_pass",
           "metadata": {
-            "alignment_evidence_id": "evidence:model-code-test-alignment:4ad14cafdfb5d191",
+            "alignment_evidence_id": "evidence:model-code-test-alignment:4305d1cafc5b07f3",
             "g8_evidence_id": "evidence:G8-fully-synthetic:ffe0563f16dabefc",
             "live_provider_evidence": false,
             "scope_revision": "v0.3.0-matter-browser-semantic-reset-v8",
             "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed",
-            "test_receipt_fingerprint": "sha256:5d4c4fc7f818565ac601744d3ba3c024a8216c220d9be8a598e99b5def0a5a3e",
+            "test_receipt_fingerprint": "sha256:4144de5206af15761fee08f644de0690f75cf69683e42c15dd9cb2c749ebf4ad",
             "test_receipt_path": ".flowguard/evidence/tests/TM12_projection_bilingual_ui.json",
             "through_gate": "G8"
           },
@@ -3599,8 +3599,8 @@
           ],
           "proof_artifact_ids": [
             "evidence:C12_projection_bilingual_ui:c28a74c07f26dc67",
-            "artifact:run:TM12_projection_bilingual_ui:adec10ee92aeac73",
-            "evidence:model-code-test-alignment:4ad14cafdfb5d191",
+            "artifact:run:TM12_projection_bilingual_ui:bc59878056f1a7bb",
+            "evidence:model-code-test-alignment:4305d1cafc5b07f3",
             "evidence:G8-fully-synthetic:ffe0563f16dabefc"
           ],
           "risk_gate_ids": [
@@ -3609,7 +3609,7 @@
             "G8-fully-synthetic"
           ],
           "test_evidence_ids": [
-            "run:TM12_projection_bilingual_ui:adec10ee92aeac73"
+            "run:TM12_projection_bilingual_ui:bc59878056f1a7bb"
           ],
           "test_mesh_state": "shard_current"
         },
@@ -3667,7 +3667,7 @@
           "path_sensitive": true,
           "ppa_confidence": "full",
           "ppa_coverage_receipt_ids": [
-            "run:TM12_projection_bilingual_ui:adec10ee92aeac73"
+            "run:TM12_projection_bilingual_ui:bc59878056f1a7bb"
           ],
           "ppa_coverage_shard_ids": [
             "TM12_projection_bilingual_ui"
@@ -3683,8 +3683,8 @@
           "primary_path_id": "path:c12-project-inventory-freshness-depth-review",
           "proof_artifact_ids": [
             "evidence:C12_projection_bilingual_ui:c28a74c07f26dc67",
-            "artifact:run:TM12_projection_bilingual_ui:adec10ee92aeac73",
-            "evidence:model-code-test-alignment:4ad14cafdfb5d191",
+            "artifact:run:TM12_projection_bilingual_ui:bc59878056f1a7bb",
+            "evidence:model-code-test-alignment:4305d1cafc5b07f3",
             "evidence:G8-fully-synthetic:ffe0563f16dabefc"
           ],
           "runtime_observation_ids": [
@@ -3916,7 +3916,7 @@
           ],
           "coverage_case_ids": [],
           "coverage_receipt_ids": [
-            "run:TM18_privacy_public_boundary:0ba840b8a183452f"
+            "run:TM18_privacy_public_boundary:bcea4f9e95765998"
           ],
           "coverage_shard_ids": [
             "TM18_privacy_public_boundary"
@@ -3924,12 +3924,12 @@
           "current": true,
           "evidence_state": "current_pass",
           "metadata": {
-            "alignment_evidence_id": "evidence:model-code-test-alignment:4ad14cafdfb5d191",
+            "alignment_evidence_id": "evidence:model-code-test-alignment:4305d1cafc5b07f3",
             "g8_evidence_id": "evidence:G8-fully-synthetic:ffe0563f16dabefc",
             "live_provider_evidence": false,
             "scope_revision": "v0.3.0-matter-browser-semantic-reset-v8",
             "stale_reason": "v0.3.0 source-in-place storage, private retention classes, SourceGroup, Matter-only hierarchy, logical-event deduplication, human narrative, people/relations, Situation/World Model inference, root-only photographic Hero, summary-free cards, single-layer node quick view, grouped source locations, first-gap coverage, model fields, and desktop evidence changed",
-            "test_receipt_fingerprint": "sha256:bd35ac37299c5de1dc5484fc345ba3783d8e9963044e98b6a767b390e4f4baa6",
+            "test_receipt_fingerprint": "sha256:27538ef8a74381bf7c5f40d192c716ab8f1ce3247a3cb3bb625e347e6a6c31d9",
             "test_receipt_path": ".flowguard/evidence/tests/TM18_privacy_public_boundary.json",
             "through_gate": "G8"
           },
@@ -3938,8 +3938,8 @@
           ],
           "proof_artifact_ids": [
             "evidence:C1_authorization_coverage:fb63cdbfa75fc982",
-            "artifact:run:TM18_privacy_public_boundary:0ba840b8a183452f",
-            "evidence:model-code-test-alignment:4ad14cafdfb5d191",
+            "artifact:run:TM18_privacy_public_boundary:bcea4f9e95765998",
+            "evidence:model-code-test-alignment:4305d1cafc5b07f3",
             "evidence:G8-fully-synthetic:ffe0563f16dabefc"
           ],
           "risk_gate_ids": [
@@ -3948,7 +3948,7 @@
             "G8-fully-synthetic"
           ],
           "test_evidence_ids": [
-            "run:TM18_privacy_public_boundary:0ba840b8a183452f"
+            "run:TM18_privacy_public_boundary:bcea4f9e95765998"
           ],
           "test_mesh_state": "shard_current"
         },
@@ -3998,7 +3998,7 @@
           "path_sensitive": true,
           "ppa_confidence": "full",
           "ppa_coverage_receipt_ids": [
-            "run:TM18_privacy_public_boundary:0ba840b8a183452f"
+            "run:TM18_privacy_public_boundary:bcea4f9e95765998"
           ],
           "ppa_coverage_shard_ids": [
             "TM18_privacy_public_boundary"
@@ -4014,8 +4014,8 @@
           "primary_path_id": "path:c1-activate-external-private-root",
           "proof_artifact_ids": [
             "evidence:C1_authorization_coverage:fb63cdbfa75fc982",
-            "artifact:run:TM18_privacy_public_boundary:0ba840b8a183452f",
-            "evidence:model-code-test-alignment:4ad14cafdfb5d191",
+            "artifact:run:TM18_privacy_public_boundary:bcea4f9e95765998",
+            "evidence:model-code-test-alignment:4305d1cafc5b07f3",
             "evidence:G8-fully-synthetic:ffe0563f16dabefc"
           ],
           "runtime_observation_ids": [

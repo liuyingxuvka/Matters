@@ -346,7 +346,12 @@ try {
         throw "The desktop install receipt candidate is not bound to the installed package."
     }
     if (Test-Path -LiteralPath $ReceiptPath -PathType Leaf) {
-        [System.IO.File]::Replace($ReceiptCandidatePath, $ReceiptPath, $null)
+        $ReceiptReplaceBackupPath = Join-Path $TransactionRoot "active-install.replace-backup.json"
+        [System.IO.File]::Replace(
+            $ReceiptCandidatePath,
+            $ReceiptPath,
+            $ReceiptReplaceBackupPath
+        )
     } else {
         [System.IO.File]::Move($ReceiptCandidatePath, $ReceiptPath)
     }
@@ -359,6 +364,12 @@ try {
         [string]$InstalledReceipt.transaction_plan_fingerprint -ne [string]$VerifiedPlan.plan_fingerprint
     ) {
         throw "The published desktop install receipt identity is not current."
+    }
+    if (
+        $null -ne $ReceiptReplaceBackupPath -and
+        (Test-Path -LiteralPath $ReceiptReplaceBackupPath -PathType Leaf)
+    ) {
+        Remove-Item -LiteralPath $ReceiptReplaceBackupPath -Force
     }
     [Environment]::SetEnvironmentVariable("MATTERS_HOME", $PrivateRoot, "User")
     $EnvironmentChanged = $true

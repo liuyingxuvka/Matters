@@ -2,8 +2,8 @@
   "artifact_type": "matters.existing-model-preflight.v2",
   "blockers": [],
   "claim_boundary": "This current receipt proves plane-first lookup, source/model discovery, ownership, reuse/extension, same-intent surface inventory, OpenSpec read-only context, and explicit legacy disposition only. It does not prove model execution, mesh closure, field lifecycle, agent operations, ResearchGuard availability, Skill Pack validation, TestMesh, runtime, private first run, install, or release. Model source edits after this fingerprint stale this receipt.",
-  "evidence_id": "evidence:existing-model-preflight:7f95f8c4da00273d",
-  "generated_at": "2026-07-21T10:21:34.454125+00:00",
+  "evidence_id": "evidence:existing-model-preflight:0edaba82ba9b8db0",
+  "generated_at": "2026-07-21T10:49:00.558191+00:00",
   "native_report": {
     "behavior_commitment_id": "BC-DP-004",
     "business_intent_id": "BI-DP-004-progressive-private-first-run",
@@ -2314,7 +2314,7 @@
         "evidence_current": true,
         "evidence_ids": [
           "sha256:03b1d0c7b22e9f4c0058c83f4f4ebd62285f71919e9809902d921e2b4c0187aa",
-          "sha256:9485c89c762a8dda11a781e0fd3e1b93005e1db72095b2fe2a1456768e8a5ba2"
+          "sha256:c5dc5534997b356ebd2dac2b3b2a1e9dc30582c3352c62c30d42389ee61eb5b9"
         ],
         "expected_terminal": "complete, researchguard_pending_integration, or blocked with typed next actions",
         "in_scope": true,
@@ -2342,7 +2342,7 @@
         "evidence_current": true,
         "evidence_ids": [
           "sha256:f69ae31a1b48da4cabad199358dd9c17aa008ae5ac9f1a4a754cecb9513ba498",
-          "sha256:9485c89c762a8dda11a781e0fd3e1b93005e1db72095b2fe2a1456768e8a5ba2"
+          "sha256:c5dc5534997b356ebd2dac2b3b2a1e9dc30582c3352c62c30d42389ee61eb5b9"
         ],
         "expected_terminal": "complete, researchguard_pending_integration, or blocked with typed next actions",
         "in_scope": true,
@@ -2367,7 +2367,7 @@
         "evidence_current": true,
         "evidence_ids": [
           "sha256:bcd66f0ced2ec98868a3a23ffc7d26f7d4f7b7c53bd61dd7c6473b3602c32adb",
-          "sha256:9485c89c762a8dda11a781e0fd3e1b93005e1db72095b2fe2a1456768e8a5ba2"
+          "sha256:c5dc5534997b356ebd2dac2b3b2a1e9dc30582c3352c62c30d42389ee61eb5b9"
         ],
         "expected_terminal": "complete, researchguard_pending_integration, or blocked with typed next actions",
         "in_scope": true,
@@ -2395,7 +2395,7 @@
         "evidence_current": true,
         "evidence_ids": [
           "sha256:10090da4fc19284ece20aa7c9fd58826ebb8a442e1b680008cda62b5d84d4ffb",
-          "sha256:9485c89c762a8dda11a781e0fd3e1b93005e1db72095b2fe2a1456768e8a5ba2"
+          "sha256:c5dc5534997b356ebd2dac2b3b2a1e9dc30582c3352c62c30d42389ee61eb5b9"
         ],
         "expected_terminal": "",
         "in_scope": false,
@@ -2413,7 +2413,7 @@
         "validation_boundary": "source-only dormant adapter with zero required runtime, install, acceptance, or release authority"
       }
     ],
-    "ledger_fingerprint": "sha256:9485c89c762a8dda11a781e0fd3e1b93005e1db72095b2fe2a1456768e8a5ba2",
+    "ledger_fingerprint": "sha256:c5dc5534997b356ebd2dac2b3b2a1e9dc30582c3352c62c30d42389ee61eb5b9",
     "mode": "full",
     "model_angle_deliberations": [],
     "model_angle_gap_ids": [],
@@ -8992,13 +8992,13 @@
       "context_id": "openspec:build-matters-model-driven-core:v0.3.0-matter-browser-semantic-reset-v8",
       "current": true,
       "execution_bridge": false,
-      "ledger_fingerprint": "sha256:9485c89c762a8dda11a781e0fd3e1b93005e1db72095b2fe2a1456768e8a5ba2",
+      "ledger_fingerprint": "sha256:c5dc5534997b356ebd2dac2b3b2a1e9dc30582c3352c62c30d42389ee61eb5b9",
       "provider_id": "openspec",
       "provider_owns_product_behavior": false,
       "read_only": true,
       "receipt_bridge": false,
       "reconciliation_current": true,
-      "reconciliation_fingerprint": "sha256:0e6c08e8b6ce57c5bed930a865ee3bdeacba9dd214e76559d81858c0c810403e",
+      "reconciliation_fingerprint": "sha256:575bf223185edb0c31f5791b6307b00e90a2c5375954740899ee776635e72b24",
       "target_commitment_ids": [
         "BC-DP-003",
         "BC-DP-004",
@@ -9030,14 +9030,14 @@
       "work_package_id": "openspec:build-matters-model-driven-core:v0.3.0-matter-browser-semantic-reset-v8"
     },
     "surface_inventory_evidence_ids": [
-      "sha256:9f192f5dab784861f0de85253a8d1681484e193c9bf99ea7ca1f20d2d07e804c",
-      "sha256:9485c89c762a8dda11a781e0fd3e1b93005e1db72095b2fe2a1456768e8a5ba2"
+      "sha256:fa2a165ddbfb7e2ed13ca51d99f7c852efbd3d16b3c9fe393edc1ee18619914e",
+      "sha256:c5dc5534997b356ebd2dac2b3b2a1e9dc30582c3352c62c30d42389ee61eb5b9"
     ],
-    "surface_inventory_revision": "sha256:9f192f5dab784861f0de85253a8d1681484e193c9bf99ea7ca1f20d2d07e804c",
+    "surface_inventory_revision": "sha256:fa2a165ddbfb7e2ed13ca51d99f7c852efbd3d16b3c9fe393edc1ee18619914e",
     "task_summary": "Extend Matters v0.3.0 for a frozen candidate source universe, automatic reversible terminal dispositions, durable inventory and ObjectCoverageLedger freshness/depth and exact per-object stage audit, context-aware root/child reconciliation, source-in-place storage with durable pointer/fingerprint and derived understanding, transient raw cleanup and grouped source locations, a bounded multi-depth SituationGraph plus advisory Situation/World Model inference with visible certainty, MaterialClue activity and atomic bilingual summaries, model-agnostic capability-routed WorkPackageV2 execution with replaceable private Codex profiles, strongest-compatible primary Codex maintenance planning plus bounded low-cost delegation, generated presentation-only root-only photorealistic heroes, summary-free standard and compact root cards, the eight-section Databank-authority bilingual desktop object browser with one reusable single-layer descendant quick view, one abstract ResearchOperation with the single ResearchGuard provider plus automatic idempotent root-only supplemental queuing and descendant not-applicable disposition, an exact eleven-skill app-local pack without machine-global overlays, one separate public Matters AI gateway for bounded model-map/context/history access and typed feedback, event-driven progressive private maintenance through one shared path after one separately verified generic private-repository v0.3.0 release, with daily scheduling opt-in only, and bounded Model Miss handoff without app-owned API keys, Jira/Rovo, Guard vendoring, or legacy Guard fallbacks.",
     "typed_external_difference_ids": []
   },
-  "preflight_fingerprint": "sha256:7f95f8c4da00273d9c21ec43a58eaaa000d6942a2e8b345d4635fda86a86c5e7",
+  "preflight_fingerprint": "sha256:0edaba82ba9b8db05c5c988cce497d7af3fd3eb72117341fa18bcbf0504d8f8f",
   "researchguard_status": "researchguard_pending_integration",
   "retired_runtime_bindings": {
     "LogicGuard": "stale_source_only",

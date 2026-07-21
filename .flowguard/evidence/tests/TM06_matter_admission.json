@@ -1,6 +1,6 @@
 {
   "artifact_type": "matters.test-suite-receipt.v1",
-  "generated_at": "2026-07-21T10:10:35.622744+00:00",
+  "generated_at": "2026-07-21T10:39:25.683953+00:00",
   "pytest_observation": {
     "errors": 0,
     "failed": 0,
@@ -35,7 +35,7 @@
     "tests/test_source_revision_reconciliation.py"
   ],
   "stderr_tail": "",
-  "stdout_tail": "...................................................................      [100%]\n67 passed in 282.94s (0:04:42)\n",
+  "stdout_tail": "...................................................................      [100%]\n67 passed in 247.13s (0:04:07)\n",
   "suite_id": "TM06_matter_admission",
   "test_suite_evidence": {
     "artifact_version": "matters.test-suite-receipt.v1",
@@ -444,7 +444,7 @@
         "tests/test_source_revision_reconciliation.py": "sha256:1abfd79793626c3726228f12dca371afb61ca199b35be53c4befe060e954d7d6",
         "tests/test_tm06_matter_admission.py": "sha256:720a8f2f7b18714393dc5c39eb3d4407f69b9b8613f77b0d8fed8729b60c28b5"
       },
-      "artifact_id": "artifact:run:TM06_matter_admission:4d3489758f644f33",
+      "artifact_id": "artifact:run:TM06_matter_admission:9df730ccb15fef05",
       "assertion_scope": "external_contract",
       "command": "python -m pytest -q -o addopts= tests/test_tm06_matter_admission.py tests/test_matter_hierarchy.py tests/test_matter_hierarchy_stress.py tests/test_matter_reconciliation.py tests/test_situation_graph.py tests/test_source_revision_reconciliation.py",
       "covered_obligation_ids": [
@@ -686,7 +686,7 @@
       ],
       "current": true,
       "exit_code": 0,
-      "finished_at": "2026-07-21T10:10:35.622744+00:00",
+      "finished_at": "2026-07-21T10:39:25.683953+00:00",
       "metadata": {},
       "producer_route": "test_mesh",
       "progress_only": false,
@@ -695,7 +695,7 @@
       "route_evidence_current": true,
       "route_gap_codes": [],
       "stale_reasons": [],
-      "started_at": "2026-07-21T10:05:49.934110+00:00"
+      "started_at": "2026-07-21T10:35:16.217648+00:00"
     },
     "release_required": false,
     "result_fingerprint": "sha256:1d1c9150a7d180b65fa3562cdbc3712bae96086a1f3b28780b6ce683e551c80b",
@@ -703,7 +703,7 @@
     "result_reused": false,
     "result_status": "passed",
     "reuse_ticket": null,
-    "run_id": "run:TM06_matter_admission:4d3489758f644f33",
+    "run_id": "run:TM06_matter_admission:9df730ccb15fef05",
     "selected_count": 67,
     "skipped_count": 0,
     "skipped_visible": true,

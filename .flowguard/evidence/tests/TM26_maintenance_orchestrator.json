@@ -1,6 +1,6 @@
 {
   "artifact_type": "matters.test-suite-receipt.v1",
-  "generated_at": "2026-07-21T10:20:45.498125+00:00",
+  "generated_at": "2026-07-21T10:48:16.097370+00:00",
   "pytest_observation": {
     "errors": 0,
     "failed": 0,
@@ -38,7 +38,7 @@
     "tests/test_maintenance_orchestration.py"
   ],
   "stderr_tail": "",
-  "stdout_tail": ".................                                                        [100%]\n17 passed in 0.16s\n",
+  "stdout_tail": ".................                                                        [100%]\n17 passed in 0.18s\n",
   "suite_id": "TM26_maintenance_orchestrator",
   "test_suite_evidence": {
     "artifact_version": "matters.test-suite-receipt.v1",
@@ -170,7 +170,7 @@
         "src/matters/application/source_workflows.py": "sha256:5e3b75101cba505bdd3db3d09aa2e0914dbeb66b4e08db29fbc02e10412e9c3a",
         "tests/test_maintenance_orchestration.py": "sha256:ec1c37b241c5fccdfe79e875079690f7926cc4078343b308b21921fff862f0cd"
       },
-      "artifact_id": "artifact:run:TM26_maintenance_orchestrator:357db2c98cd81092",
+      "artifact_id": "artifact:run:TM26_maintenance_orchestrator:e87a6da3ada3560d",
       "assertion_scope": "external_contract",
       "command": "python -m pytest -q -o addopts= tests/test_maintenance_orchestration.py",
       "covered_obligation_ids": [
@@ -221,7 +221,7 @@
       ],
       "current": true,
       "exit_code": 0,
-      "finished_at": "2026-07-21T10:20:45.498125+00:00",
+      "finished_at": "2026-07-21T10:48:16.097370+00:00",
       "metadata": {},
       "producer_route": "test_mesh",
       "progress_only": false,
@@ -230,7 +230,7 @@
       "route_evidence_current": true,
       "route_gap_codes": [],
       "stale_reasons": [],
-      "started_at": "2026-07-21T10:20:43.632104+00:00"
+      "started_at": "2026-07-21T10:48:14.065082+00:00"
     },
     "release_required": false,
     "result_fingerprint": "sha256:13d48f2e6f0ae46f875b9b7cb312f83804bb5ab02f21a2db669eda0d291ca528",
@@ -238,7 +238,7 @@
     "result_reused": false,
     "result_status": "passed",
     "reuse_ticket": null,
-    "run_id": "run:TM26_maintenance_orchestrator:357db2c98cd81092",
+    "run_id": "run:TM26_maintenance_orchestrator:e87a6da3ada3560d",
     "selected_count": 17,
     "skipped_count": 0,
     "skipped_visible": true,

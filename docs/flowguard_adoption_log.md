@@ -685,6 +685,7 @@ This record contains only public failure classes, repairs, and evidence routes. 
 - A windowed executable's stdout was invisible to direct PowerShell invocation; build and install owners now run `--self-test` hidden with explicit stdout/stderr capture.
 - `--collect-data matters` omitted each bundled skill's `scripts/invoke.py`; the exact eleven-skill directory is now an explicit desktop data input.
 - A system Python build attempted to include unrelated torch, pandas, and matplotlib packages; the accepted build used a dependency-minimal anonymous environment and contained none of them.
+- The first desktop install used a move-only receipt path, so a later same-version upgrade exposed an empty-backup `File.Replace` failure; the installer now uses a real transaction-local replacement backup, the failed attempt restored the prior installation, and the fixed path completed an actual package upgrade.
 - The delivery flow incorrectly required private-first-run completion before a generic release. G9 now proves direct separation: it consumes no private aggregate, blocks if one is supplied to the generic lane, and leaves Gmail/filesystem/Codex first-run evidence to post-release acceptance.
 
 ### Evidence and remaining boundary

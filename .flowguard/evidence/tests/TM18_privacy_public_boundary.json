@@ -1,6 +1,6 @@
 {
   "artifact_type": "matters.test-suite-receipt.v1",
-  "generated_at": "2026-07-21T10:14:50.817412+00:00",
+  "generated_at": "2026-07-21T10:42:50.766138+00:00",
   "pytest_observation": {
     "errors": 0,
     "failed": 0,
@@ -28,7 +28,7 @@
     "tests/test_public_evidence_generators.py"
   ],
   "stderr_tail": "",
-  "stdout_tail": "..............................                                           [100%]\n30 passed in 44.51s\n",
+  "stdout_tail": "..............................                                           [100%]\n30 passed in 31.39s\n",
   "suite_id": "TM18_privacy_public_boundary",
   "test_suite_evidence": {
     "artifact_version": "matters.test-suite-receipt.v1",
@@ -80,7 +80,7 @@
         "tests/test_public_evidence_generators.py": "sha256:5901828c521929c84e8bf3a277d4dc9e843068b4d244c19ccce01ccef9e48c2d",
         "tests/test_tm18_privacy_public_boundary.py": "sha256:038d035397b9cc20db30c480938855b4ce65879ec7141914f0c93ba78888d123"
       },
-      "artifact_id": "artifact:run:TM18_privacy_public_boundary:0ba840b8a183452f",
+      "artifact_id": "artifact:run:TM18_privacy_public_boundary:bcea4f9e95765998",
       "assertion_scope": "external_contract",
       "command": "python -m pytest -q -o addopts= tests/test_tm18_privacy_public_boundary.py tests/test_private_aggregate.py tests/test_public_evidence_generators.py",
       "covered_obligation_ids": [
@@ -91,7 +91,7 @@
       ],
       "current": true,
       "exit_code": 0,
-      "finished_at": "2026-07-21T10:14:50.817412+00:00",
+      "finished_at": "2026-07-21T10:42:50.766138+00:00",
       "metadata": {},
       "producer_route": "test_mesh",
       "progress_only": false,
@@ -100,7 +100,7 @@
       "route_evidence_current": true,
       "route_gap_codes": [],
       "stale_reasons": [],
-      "started_at": "2026-07-21T10:14:02.631164+00:00"
+      "started_at": "2026-07-21T10:42:17.208423+00:00"
     },
     "release_required": false,
     "result_fingerprint": "sha256:3da32cdd82cecf8d6c04603cf6fc092f79055c49e375674c5e8d87dd63077b9e",
@@ -108,7 +108,7 @@
     "result_reused": false,
     "result_status": "passed",
     "reuse_ticket": null,
-    "run_id": "run:TM18_privacy_public_boundary:0ba840b8a183452f",
+    "run_id": "run:TM18_privacy_public_boundary:bcea4f9e95765998",
     "selected_count": 30,
     "skipped_count": 0,
     "skipped_visible": true,

@@ -1,6 +1,6 @@
 {
   "artifact_type": "matters.test-suite-receipt.v1",
-  "generated_at": "2026-07-21T10:20:43.568099+00:00",
+  "generated_at": "2026-07-21T10:48:13.984891+00:00",
   "pytest_observation": {
     "errors": 0,
     "failed": 0,
@@ -20,7 +20,7 @@
     "tests/test_autonomous_maintenance.py"
   ],
   "stderr_tail": "",
-  "stdout_tail": "...                                                                      [100%]\n3 passed in 0.16s\n",
+  "stdout_tail": "...                                                                      [100%]\n3 passed in 0.15s\n",
   "suite_id": "TM25_daily_codex_maintenance",
   "test_suite_evidence": {
     "artifact_version": "matters.test-suite-receipt.v1",
@@ -62,7 +62,7 @@
         "src/matters/application/orchestrator.py": "sha256:f94b4cde6ece35e498f917ae2edf73cc28f21088b2d190ad0bf4a383b4d80e93",
         "tests/test_autonomous_maintenance.py": "sha256:372f64818acdaeb610d3ac7251aca430ae45dfb061a53635e4dcf92ce18d4c82"
       },
-      "artifact_id": "artifact:run:TM25_daily_codex_maintenance:5f696c9d4e98c399",
+      "artifact_id": "artifact:run:TM25_daily_codex_maintenance:0087c5f6523bb660",
       "assertion_scope": "external_contract",
       "command": "python -m pytest -q -o addopts= tests/test_autonomous_maintenance.py",
       "covered_obligation_ids": [
@@ -71,7 +71,7 @@
       ],
       "current": true,
       "exit_code": 0,
-      "finished_at": "2026-07-21T10:20:43.568099+00:00",
+      "finished_at": "2026-07-21T10:48:13.984891+00:00",
       "metadata": {},
       "producer_route": "test_mesh",
       "progress_only": false,
@@ -80,7 +80,7 @@
       "route_evidence_current": true,
       "route_gap_codes": [],
       "stale_reasons": [],
-      "started_at": "2026-07-21T10:20:41.560598+00:00"
+      "started_at": "2026-07-21T10:48:11.895078+00:00"
     },
     "release_required": false,
     "result_fingerprint": "sha256:0b4273292fe350fc0988a972c6ec0f03750ed0f55a0e7b78270f96b785886df3",
@@ -88,7 +88,7 @@
     "result_reused": false,
     "result_status": "passed",
     "reuse_ticket": null,
-    "run_id": "run:TM25_daily_codex_maintenance:5f696c9d4e98c399",
+    "run_id": "run:TM25_daily_codex_maintenance:0087c5f6523bb660",
     "selected_count": 3,
     "skipped_count": 0,
     "skipped_visible": true,

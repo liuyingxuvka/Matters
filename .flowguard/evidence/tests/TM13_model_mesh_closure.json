@@ -1,6 +1,6 @@
 {
   "artifact_type": "matters.test-suite-receipt.v1",
-  "generated_at": "2026-07-21T10:12:35.332795+00:00",
+  "generated_at": "2026-07-21T10:41:06.355045+00:00",
   "pytest_observation": {
     "errors": 0,
     "failed": 0,
@@ -63,7 +63,7 @@
     "tests/test_tm13_model_mesh_closure.py"
   ],
   "stderr_tail": "",
-  "stdout_tail": ".                                                                        [100%]\n1 passed in 3.29s\n",
+  "stdout_tail": ".                                                                        [100%]\n1 passed in 3.06s\n",
   "suite_id": "TM13_model_mesh_closure",
   "test_suite_evidence": {
     "artifact_version": "matters.test-suite-receipt.v1",
@@ -148,7 +148,7 @@
         "flowguard_models/skill_runtime_mesh.py": "sha256:eb4ed44de8911efff2daaf0ffe9e61577b5b31bd2cee8e58877fab955ce00d9f",
         "tests/test_tm13_model_mesh_closure.py": "sha256:9ee9ccb9ba8b318fa360efea2a6e47ce97b80ee3325f6d1f4b48538ee6e990fa"
       },
-      "artifact_id": "artifact:run:TM13_model_mesh_closure:7642ba3dfc4e6c61",
+      "artifact_id": "artifact:run:TM13_model_mesh_closure:7b3945ac8779ec02",
       "assertion_scope": "external_contract",
       "command": "python -m pytest -q -o addopts= tests/test_tm13_model_mesh_closure.py",
       "covered_obligation_ids": [
@@ -157,7 +157,7 @@
       ],
       "current": true,
       "exit_code": 0,
-      "finished_at": "2026-07-21T10:12:35.332795+00:00",
+      "finished_at": "2026-07-21T10:41:06.355045+00:00",
       "metadata": {},
       "producer_route": "test_mesh",
       "progress_only": false,
@@ -166,7 +166,7 @@
       "route_evidence_current": true,
       "route_gap_codes": [],
       "stale_reasons": [],
-      "started_at": "2026-07-21T10:12:29.710612+00:00"
+      "started_at": "2026-07-21T10:41:01.018379+00:00"
     },
     "release_required": false,
     "result_fingerprint": "sha256:a9705b0cb2a0fedcf72fcf72ec1b6768a7349f2397395653f77bbc8c6d5cd9a3",
@@ -174,7 +174,7 @@
     "result_reused": false,
     "result_status": "passed",
     "reuse_ticket": null,
-    "run_id": "run:TM13_model_mesh_closure:7642ba3dfc4e6c61",
+    "run_id": "run:TM13_model_mesh_closure:7b3945ac8779ec02",
     "selected_count": 1,
     "skipped_count": 0,
     "skipped_visible": true,

@@ -1,6 +1,6 @@
 {
   "artifact_type": "matters.test-suite-receipt.v1",
-  "generated_at": "2026-07-21T10:05:36.963432+00:00",
+  "generated_at": "2026-07-21T10:35:03.827503+00:00",
   "pytest_observation": {
     "errors": 0,
     "failed": 0,
@@ -36,7 +36,7 @@
     "tests/test_partitioned_filesystem_runner.py"
   ],
   "stderr_tail": "",
-  "stdout_tail": "............................                                             [100%]\n28 passed in 49.96s\n",
+  "stdout_tail": "............................                                             [100%]\n28 passed in 50.47s\n",
   "suite_id": "TM01_authorization_coverage",
   "test_suite_evidence": {
     "artifact_version": "matters.test-suite-receipt.v1",
@@ -488,7 +488,7 @@
         "tests/test_partitioned_filesystem_runner.py": "sha256:7a43e08bcfddaa8e49370a7420a75dc199b19b02b5f5e468ec95b849c976a65d",
         "tests/test_tm01_authorization_coverage.py": "sha256:2a4e1885ced2cf38dbfcb16a3cdede6bcc1703ec4a5f316e06a0f306f43c2131"
       },
-      "artifact_id": "artifact:run:TM01_authorization_coverage:8280c323c9b5c484",
+      "artifact_id": "artifact:run:TM01_authorization_coverage:634e04fb428df72b",
       "assertion_scope": "external_contract",
       "command": "python -m pytest -q -o addopts= tests/test_tm01_authorization_coverage.py tests/test_current_scope_reconciliation.py tests/test_inventory_policy_rebase.py tests/test_partitioned_filesystem_runner.py",
       "covered_obligation_ids": [
@@ -758,7 +758,7 @@
       ],
       "current": true,
       "exit_code": 0,
-      "finished_at": "2026-07-21T10:05:36.963432+00:00",
+      "finished_at": "2026-07-21T10:35:03.827503+00:00",
       "metadata": {},
       "producer_route": "test_mesh",
       "progress_only": false,
@@ -767,7 +767,7 @@
       "route_evidence_current": true,
       "route_gap_codes": [],
       "stale_reasons": [],
-      "started_at": "2026-07-21T10:04:45.255889+00:00"
+      "started_at": "2026-07-21T10:34:11.569186+00:00"
     },
     "release_required": false,
     "result_fingerprint": "sha256:dabfa7fae603924352ee3f48357753d64d87dabc0fc3d8e32f4a3706d850d935",
@@ -775,7 +775,7 @@
     "result_reused": false,
     "result_status": "passed",
     "reuse_ticket": null,
-    "run_id": "run:TM01_authorization_coverage:8280c323c9b5c484",
+    "run_id": "run:TM01_authorization_coverage:634e04fb428df72b",
     "selected_count": 28,
     "skipped_count": 0,
     "skipped_visible": true,

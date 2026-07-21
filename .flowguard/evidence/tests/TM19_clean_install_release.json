@@ -1,6 +1,6 @@
 {
   "artifact_type": "matters.test-suite-receipt.v1",
-  "generated_at": "2026-07-21T10:18:49.143962+00:00",
+  "generated_at": "2026-07-21T10:46:20.673546+00:00",
   "pytest_observation": {
     "errors": 0,
     "failed": 0,
@@ -10,12 +10,12 @@
     "xfailed": 0,
     "xpassed": 0
   },
-  "source_fingerprint": "sha256:81f9b10b20a1f9ca4211a867b72c440f2afb0e56d618a71828488838f13e096a",
+  "source_fingerprint": "sha256:a7c3543ff55b04189239f9d1e3e851ef8ae3071e820370eaa04ac09693e232d6",
   "source_fingerprints": {
     "tests/test_bundled_skill_pack.py": "sha256:08aa471c8e644193fbe2a0e033e8e45c0ee206d8fd39218c6a1bb95e4c1074bb",
     "tests/test_bundled_skill_pack_contracts.py": "sha256:c5180f019e1f1d70e5a6bfce5adb2889e7fa9711e4b2f848fc6753530b36a055",
     "tests/test_desktop_manifest.py": "sha256:c753e4f76146e872615690a68750d22badbe3323377038fc41aa702f6ae1af2e",
-    "tests/test_desktop_package_contract.py": "sha256:4fdb5ae6175030d9e1875b9979121274b4f021d8daf6f42d57a02fa96b1d77c3",
+    "tests/test_desktop_package_contract.py": "sha256:311e413fb2180011cc17d4059f66250e3d5ed382a46f507d9ecc46e73effb4f3",
     "tests/test_install_local_transaction.py": "sha256:454a0a3cddfb87108fc2e34f74441b400d3b69e10f154ce19412b7316e1d0fe0",
     "tests/test_skill_active_view_resolver.py": "sha256:ded62af19c771ab461cb5a8b9093683bce30b76f8006b5268a23194e4e57b9a0",
     "tests/test_skill_machine_discovery.py": "sha256:b9a8a0ce5e8daee70db49a90d415cccd59d40980533b17f6f6541fb526dfc50e",
@@ -40,7 +40,7 @@
     "tests/test_tm20_skill_runtime_model.py"
   ],
   "stderr_tail": "",
-  "stdout_tail": "...................................s.................................... [ 93%]\n.....                                                                    [100%]\n76 passed, 1 skipped in 235.74s (0:03:55)\n",
+  "stdout_tail": "...................................s.................................... [ 93%]\n.....                                                                    [100%]\n76 passed, 1 skipped in 207.61s (0:03:27)\n",
   "suite_id": "TM19_clean_install_release",
   "test_suite_evidence": {
     "artifact_version": "matters.test-suite-receipt.v1",
@@ -103,7 +103,7 @@
         "tests/test_bundled_skill_pack.py": "sha256:08aa471c8e644193fbe2a0e033e8e45c0ee206d8fd39218c6a1bb95e4c1074bb",
         "tests/test_bundled_skill_pack_contracts.py": "sha256:c5180f019e1f1d70e5a6bfce5adb2889e7fa9711e4b2f848fc6753530b36a055",
         "tests/test_desktop_manifest.py": "sha256:c753e4f76146e872615690a68750d22badbe3323377038fc41aa702f6ae1af2e",
-        "tests/test_desktop_package_contract.py": "sha256:4fdb5ae6175030d9e1875b9979121274b4f021d8daf6f42d57a02fa96b1d77c3",
+        "tests/test_desktop_package_contract.py": "sha256:311e413fb2180011cc17d4059f66250e3d5ed382a46f507d9ecc46e73effb4f3",
         "tests/test_install_local_transaction.py": "sha256:454a0a3cddfb87108fc2e34f74441b400d3b69e10f154ce19412b7316e1d0fe0",
         "tests/test_skill_active_view_resolver.py": "sha256:ded62af19c771ab461cb5a8b9093683bce30b76f8006b5268a23194e4e57b9a0",
         "tests/test_skill_machine_discovery.py": "sha256:b9a8a0ce5e8daee70db49a90d415cccd59d40980533b17f6f6541fb526dfc50e",
@@ -113,7 +113,7 @@
         "tests/test_tm19_clean_install_release.py": "sha256:6280ed6047f07df95d3d599879588921bd79746ccd62b00f047f19a1d0fb8bf4",
         "tests/test_tm20_skill_runtime_model.py": "sha256:05df58cd4239b76dbc29d6c5c01eb95242d25c9f6da7894b50af352c86c55e34"
       },
-      "artifact_id": "artifact:run:TM19_clean_install_release:e280fb4cab7b5634",
+      "artifact_id": "artifact:run:TM19_clean_install_release:1bd78c8a66fbf894",
       "assertion_scope": "external_contract",
       "command": "python -m pytest -q -o addopts= tests/test_tm19_clean_install_release.py tests/test_bundled_skill_pack.py tests/test_bundled_skill_pack_contracts.py tests/test_desktop_manifest.py tests/test_desktop_package_contract.py tests/test_install_local_transaction.py tests/test_skill_active_view_resolver.py tests/test_skill_machine_discovery.py tests/test_skill_managed_projection.py tests/test_skill_manifest_inventory.py tests/test_skill_runtime_boundary.py tests/test_tm20_skill_runtime_model.py",
       "covered_obligation_ids": [
@@ -133,7 +133,7 @@
       ],
       "current": true,
       "exit_code": 0,
-      "finished_at": "2026-07-21T10:18:49.143962+00:00",
+      "finished_at": "2026-07-21T10:46:20.673546+00:00",
       "metadata": {},
       "producer_route": "test_mesh",
       "progress_only": false,
@@ -142,15 +142,15 @@
       "route_evidence_current": true,
       "route_gap_codes": [],
       "stale_reasons": [],
-      "started_at": "2026-07-21T10:14:50.897959+00:00"
+      "started_at": "2026-07-21T10:42:50.841685+00:00"
     },
     "release_required": true,
-    "result_fingerprint": "sha256:81f9b10b20a1f9ca4211a867b72c440f2afb0e56d618a71828488838f13e096a",
+    "result_fingerprint": "sha256:a7c3543ff55b04189239f9d1e3e851ef8ae3071e820370eaa04ac09693e232d6",
     "result_path": ".flowguard/evidence/tests/TM19_clean_install_release.json",
     "result_reused": false,
     "result_status": "passed",
     "reuse_ticket": null,
-    "run_id": "run:TM19_clean_install_release:e280fb4cab7b5634",
+    "run_id": "run:TM19_clean_install_release:1bd78c8a66fbf894",
     "selected_count": 77,
     "skipped_count": 0,
     "skipped_visible": true,
