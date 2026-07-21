@@ -398,6 +398,8 @@ def _archive_inventory(path: Path) -> tuple[str, tuple[str, ...]]:
             ) or any(
                 name == "Matters/Matters.exe"
                 or name in {
+                    "AI-SETUP.md",
+                    "README.md",
                     "desktop-build-toolchain.json",
                     "desktop-manifest.json",
                 }
@@ -735,7 +737,9 @@ def _package_comparison(
             }
         else:
             expected = (
+                "AI-SETUP.md",
                 "Matters/Matters.exe",
+                "README.md",
                 "desktop-build-toolchain.json",
                 "desktop-manifest.json",
             )
@@ -744,6 +748,8 @@ def _package_comparison(
                 for path in observed
                 if path.startswith("Matters/")
             } | {
+                "AI-SETUP.md",
+                "README.md",
                 "desktop-build-toolchain.json",
                 "desktop-manifest.json",
             }

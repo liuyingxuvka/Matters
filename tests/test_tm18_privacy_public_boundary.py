@@ -458,6 +458,8 @@ def test_desktop_zip_has_its_own_inventory_and_vendor_metadata_boundary(tmp_path
     with zipfile.ZipFile(desktop_zip, "w") as archive:
         for path, content in files.items():
             archive.writestr(path, content)
+        archive.writestr("README.md", "# Matters\n")
+        archive.writestr("AI-SETUP.md", "# AI setup\n")
         archive.writestr("desktop-build-toolchain.json", toolchain)
         archive.writestr(
             "desktop-manifest.json",
