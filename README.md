@@ -9,362 +9,358 @@
 
 <!-- README HERO START -->
 <p align="center">
-  <img src="./docs/assets/readme-hero/hero.png" alt="Matters turns information from user-authorized sources into traceable matters while keeping private data on the user's computer" width="100%" />
+  <img src="./docs/assets/readme-hero/hero.png" alt="Matters turns information from user-authorized sources into traceable Matter and event models" width="100%" />
 </p>
 
 <p align="center">
-  <strong>Turn information clues into auditable Matter and event models—one shared view for people and AI.</strong>
+  <strong>Turn authorized information into auditable Matter models for people and AI.</strong>
 </p>
 <!-- README HERO END -->
 
 ## English
 
-Matters turns scattered information clues into explicit Matter and event
-models. Sources, times, relationships, inferences, states, and corrections stay
-auditable, traceable, inspectable, and open to re-evaluation. It is also a
-shared situation interface for people and AI. Within the file-reading scope,
-information-reading scope, and connected sources explicitly authorized by the
-user, it registers information in place and models people, timelines,
-sub-matters, relationships, open loops, and outcomes.
+### What Matters is
 
-People explore that model through the bilingual desktop object browser. AI
-uses the bounded `matters-mcp` gateway to understand the same current Matters,
-history, evidence, predictions, and visible gaps. Both entrypoints use the same
-service and canonical model: AI feedback adds traceable observations or
-corrections instead of creating a second hidden source of truth.
+Matters is a local-first application that turns clues from user-authorized
+information sources into explicit **Matter and event models**. Instead of
+leaving related records scattered across files, messages, projects, and
+connected services, it reconstructs the larger situation: its people, time,
+stages, sub-matters, relationships, open loops, outcomes, and supporting
+sources.
 
-Original source information stays where its provider already stores it. Matters
-stores only its registry, derived understanding, indexes, and UI projections
-under a separate private `MATTERS_HOME`. The public repository and release
-artifacts contain no user mailbox, local-file inventory, private model, or
-real-data screenshot.
+The result is not a black-box summary. Important conclusions remain connected
+to their source location, time basis, uncertainty, inference status, correction
+history, and current freshness. They can be audited, traced, inspected, and
+re-evaluated when new clues arrive.
 
-### Why Matters
+### How information becomes a Matter
 
-Ordinary search finds documents. Task managers wait for manual entry. Matters
-is designed to reconstruct the larger situation around both:
+1. **Authorize** — the user explicitly chooses file-reading,
+   information-reading, and connected-source scopes.
+2. **Register in place** — Matters inventories source objects without moving,
+   rewriting, or copying every original into the application.
+3. **Qualify** — deterministic rules exclude program files, caches, system
+   material, and other content that should not enter semantic analysis.
+4. **Model** — related clues become human-scale Matters, child Matters,
+   events, people, timelines, relationships, plans, results, and unresolved
+   questions.
+5. **Present** — the same model is projected into a bilingual object browser
+   and a bounded AI interface.
+6. **Maintain** — changes invalidate stale understanding, refresh summaries,
+   compare predictions with outcomes, and preserve corrections instead of
+   silently replacing history.
 
-- group related evidence into human-scale Matters rather than one card per file;
-- keep large Matters, material stages, events, and source records distinct;
-- infer missing historical steps conservatively and label them as revisable AI inference;
-- keep future obligations planned instead of predicting that they already happened;
-- update summaries and ordering when newer evidence arrives;
-- preserve every source pointer, correction, prediction comparison, and model miss.
-- give people and AI the same explainable situation map through interfaces
-  designed for each of them.
-- make every important modeled conclusion inspectable from the human-readable
-  event back to its evidence, uncertainty, and change history.
+    explicit authorization
+            ↓
+    source-in-place registry and qualification
+            ↓
+    evidence, identity, time, hierarchy, state, and outcome modeling
+            ↓
+    auditable Matter graph
+            ↓
+    desktop object browser + AI gateway
 
-### From sources to the object browser
+“Discovered” therefore does not mean “understood,” and “scanned” does not mean
+“visible in the UI.” Matters keeps those stages separate so coverage can show
+where an object is and what remains to be done.
 
-```text
-Explicit authorization
-        ↓
-Metadata-first inventory and hard exclusions
-        ↓
-Non-mutating source registry and freshness tracking
-        ↓
-Evidence, people, time, hierarchy, state, and outcome owners
-        ↓
-Matter graph, timeline, files, images, and AI supplemental context
-        ↓
-English / 简体中文 desktop object browser
-```
+### One model, two entrypoints
 
-Every discovered object receives a durable disposition. A coverage ledger can
-show whether it is registered, excluded, blocked, stale, waiting for analysis,
-modeled, localized, illustrated, and reachable in the UI. “Scanned” is never
-used as a substitute for “understood and visible.”
+| Reader | Entrypoint | What it provides |
+| --- | --- | --- |
+| **People** | Bilingual Windows desktop object browser | Matter cards, hierarchy, timeline, people, relations, files and information, images, and supplemental context |
+| **AI and Codex** | [Matters plugin](./plugins/matters) through <code>matters-mcp</code> | Model-map discovery, bounded situation context, history, observations, corrections, prediction feedback, and Model Miss reporting |
 
-### What v0.3.1 ships
+Both entrypoints delegate to the same <code>MatterService</code> and canonical
+model. The AI gateway does not create a second hidden database. AI observations
+and corrections enter the same traceable maintenance path with their
+provenance and status intact.
 
-- A Windows desktop application that wraps the packaged local Web UI in a real
-  desktop window; the browser development surface is not the product shell.
-- Standard and Compact Matter cards, automatic root-level hero images,
-  start-date and status filters, newest-evidence-first ordering, and bilingual
-  projection.
-- Matter detail pages for overview, sub-matter/stage graph, timeline, people,
-  related Matters, files and information, images, and AI supplemental context.
-- An extensible connector boundary for user-approved file-reading,
-  information-reading, and connected-source scopes. Connectors register sources
-  in place without modifying the originals, detect change, invalidate stale
-  understanding, and preserve append-only corrections.
-- A model-agnostic AI operation boundary: inexpensive workers may perform
-  bounded annotation while stronger reasoning handles hierarchy and modeling.
-- Exactly eleven immutable app-local Matters maintenance skills.
-- One public Codex plugin and `matters-mcp` AI gateway for model-map discovery,
-  bounded situation context, history, observations, corrections, prediction
-  feedback, model-miss reporting, and the shared maintenance path.
-- Executable FlowGuard models, ModelMesh/TestMesh evidence, synthetic fixtures,
-  privacy checks, clean-install checks, and reproducible Windows packaging.
+AI inference is deliberately revisable. A supported historical gap may be
+filled as an explicit inference; a future obligation remains planned rather
+than being presented as already completed. Forecasts may be retained for later
+comparison with reality, but they are not silently promoted to facts.
 
-### Desktop download
+### What you can explore
 
-Download `Matters-0.3.1-windows-x64.zip` from the
-[v0.3.1 release](https://github.com/liuyingxuvka/Matters/releases/tag/v0.3.1),
-extract the archive, and run `Matters/Matters.exe`.
+- A root-level catalog of meaningful Matters, ordered by the newest material
+  clue rather than by file name.
+- Standard and Compact cards with bilingual titles, status, start date, and a
+  representative generated image.
+- A bounded hierarchy graph for Matter stages and child Matters, with a quick
+  view instead of recursively nesting full detail pages.
+- Deduplicated timelines, people, related Matters, files and information,
+  real-image galleries, and clearly labeled AI supplemental information.
+- Coverage and freshness states that show whether registered information is
+  excluded, blocked, waiting, stale, modeled, localized, illustrated, and
+  reachable in the UI.
 
-The application starts a loopback-only local service and opens the packaged UI
-inside the desktop shell. It does not require a Jira or Atlassian account. A
-Windows code-signing certificate is not included in v0.3.1, so Windows may show
-its normal warning for an unsigned downloaded application.
+### Get started
 
-Release assets also include:
+#### Windows desktop
 
-- `matters-0.3.1-py3-none-any.whl`
-- `matters-0.3.1.tar.gz`
-- `SHA256SUMS.txt`
+Download the Windows archive from the
+[latest GitHub Release](https://github.com/liuyingxuvka/Matters/releases/latest),
+extract it, and run <code>Matters/Matters.exe</code>. The executable starts a
+loopback-only local service and opens the packaged Web UI inside a desktop
+window.
 
-### Install from source
+The release page also provides the Python wheel, source archive, and
+<code>SHA256SUMS.txt</code>. Current Windows packages are unsigned, so Windows
+may show its normal warning for a downloaded application.
 
-Requirements: Python 3.11 or later; Windows is required for the packaged
-desktop executable.
+#### Install from source
 
-```powershell
-git clone https://github.com/liuyingxuvka/Matters.git
-cd Matters
-python -m pip install .
-matters version
-matters capabilities
-matters locales
-matters-desktop
-```
+Requirements: Python 3.11 or later. The packaged desktop executable targets
+Windows.
 
-For private operation, set a runtime root outside the checkout:
+    git clone https://github.com/liuyingxuvka/Matters.git
+    cd Matters
+    python -m pip install .
+    matters version
+    matters capabilities
+    matters-desktop
 
-```powershell
-$env:MATTERS_HOME = "D:\Private\MattersData"
-matters-desktop
-```
+For private operation, keep the runtime root outside the checkout:
 
-Without `MATTERS_HOME`, package inspection and synthetic verification remain
-available in a non-writing capability mode. Matters never silently creates a
-private data root inside the repository.
+    $env:MATTERS_HOME = "D:\MattersData"
+    matters-desktop
 
-### AI and Codex entrypoint
+Without <code>MATTERS_HOME</code>, package inspection and synthetic
+verification remain available in a non-writing capability mode. Matters does
+not silently create a private runtime inside the public repository.
 
-The standard plugin lives at [`plugins/matters`](./plugins/matters). Its
-`.mcp.json` starts the installed `matters-mcp` process. The gateway delegates to
-the same `MatterService` used by the CLI, HTTP UI, and desktop application; it
-is not a second database or an alternate truth owner.
+#### Connect Codex or another MCP client
 
-The eleven internal `matters-*` skills remain bundled with the application and
-are not installed globally. ResearchGuard and every Guard-family project remain
-independent external dependencies. Research-dependent output is visibly
-blocked when a current ResearchGuard receipt is unavailable; Matters does not
-fall back to separate SourceGuard, TraceGuard, or LogicGuard runtime routes.
+The public plugin is in [<code>plugins/matters</code>](./plugins/matters). Its
+<code>.mcp.json</code> launches the installed <code>matters-mcp</code> command.
+The MCP gateway uses the same service as the desktop app, HTTP UI, and CLI.
 
-### Privacy and public-repository boundary
+### Skills and Guard ecosystem
 
-```text
-repository/          generic source and synthetic evidence only
-MATTERS_HOME/        private live user data and derived models
-MATTERS_EVAL_VAULT/  explicitly selected private evaluation material
-```
+Matters uses a small number of clearly separated skill and Guard boundaries.
+These roles are intentionally different:
 
-Never commit real messages, subjects, addresses, paths, excerpts, content
-hashes, screenshots, receipts, embeddings, or private model output. Source
-reading is non-mutating by default. Mailbox mutation, file deletion or
-execution, outbound messaging, remote-model disclosure, and public publication
-are separate permissions.
+| Project or skill set | Role in Matters | Installation boundary |
+| --- | --- | --- |
+| [Bundled Matters skills](./src/matters/bundled_skills) | Eleven app-owned workflows for source governance, inventory, freshness, semantic depth, correction, model misses, skill runtime, research orchestration, autonomous maintenance, and visual generation | Shipped inside Matters; not installed globally by default |
+| [ResearchGuard](https://github.com/liuyingxuvka/ResearchGuard) | Sole external advisory research provider for source discovery, evidence tracing, and logical analysis | Needed only for research-dependent enrichment; basic inventory and browsing remain available without it |
+| [FlowGuard](https://github.com/liuyingxuvka/FlowGuard) | Executable behavior, UI-flow, TestMesh, and release-process modeling used to develop and verify Matters | Development and release dependency; not required merely to open the desktop app |
+| [SkillGuard](https://github.com/liuyingxuvka/SkillGuard) | Author-side maintenance and validation of independently released skill sources | Maintainer tool; not a Matters runtime controller |
+| [WorldGuard](https://github.com/liuyingxuvka/worldguard) | Optional world-claim and what-if modeling in the wider Guard ecosystem | Independent project, not embedded in Matters |
+| [PhysicsGuard](https://github.com/liuyingxuvka/PhysicsGuard) | Optional evidence-oriented audit of physical simulation results | Independent project, not embedded in Matters |
 
-The release gate scans the workspace, Git views, a clean clone, the wheel,
-source distribution, and Windows archive independently. See
-[`docs/security/public-boundary.md`](./docs/security/public-boundary.md) and
-[`docs/security/data-classification.md`](./docs/security/data-classification.md).
+The former separate SourceGuard, TraceGuard, and LogicGuard research routes are
+not parallel Matters fallbacks. Their source-discovery, temporal-trace, and
+argument-analysis capabilities are unified behind ResearchGuard’s public
+interface. Each Guard keeps its own repository, release, validation, and
+maintenance authority.
 
-### Development and verification
+### Privacy and trust
 
-```powershell
-python -m pytest -q
-openspec validate build-matters-model-driven-core --strict
-python scripts/check_public_boundary.py --root .
-```
+Original source material stays where its provider or operating system already
+stores it. Matters keeps stable locators, fingerprints, indexes, derived
+understanding, and UI projections in a separate private runtime:
 
-Release-only checks are deliberately separated from ordinary development and
-run against one frozen source identity. The models and receipts document the
-checked candidate; they do not guarantee arbitrary future AI output.
+    repository/          public source and synthetic evidence
+    MATTERS_HOME/        private registry, indexes, and derived models
+    MATTERS_EVAL_VAULT/  explicitly selected private evaluation material
 
-### Repository map
+Permission to read a source never implies permission to modify it, delete it,
+execute it, send messages, disclose it to a remote model, or publish it. Those
+are separate authorities. Real records, local inventories, private model
+output, personal paths, and real-data screenshots are excluded from this public
+repository and its release packages.
 
-| Path | Purpose |
+See [Security](./SECURITY.md),
+[public-boundary rules](./docs/security/public-boundary.md), and
+[data classification](./docs/security/data-classification.md).
+
+### For developers
+
+| Path | Responsibility |
 | --- | --- |
-| `src/matters/` | Domain, application, providers, persistence, CLI, MCP, HTTP, and desktop runtime |
-| `ui/` | Packaged bilingual object browser |
-| `plugins/matters/` | Public Codex plugin and AI gateway contract |
-| `flowguard_models/` | Executable product, skill-runtime, and delivery models |
-| `openspec/` | Product requirements, design, and implementation tasks |
-| `synthetic_fixtures/` | Public-safe known-good and known-bad cases |
-| `scripts/` | Installation, packaging, privacy, and release tooling |
-| `tests/` | Unit, integration, TestMesh, privacy, install, and release checks |
+| <code>src/matters/</code> | Domain, application, persistence, source boundaries, CLI, MCP, HTTP, and desktop runtime |
+| <code>ui/</code> | Packaged bilingual object browser |
+| <code>plugins/matters/</code> | Public Codex skill and MCP configuration |
+| <code>flowguard_models/</code> | Executable product, AI-operation, skill-runtime, and delivery models |
+| <code>openspec/</code> | Requirements, design decisions, and implementation tasks |
+| <code>synthetic_fixtures/</code> | Public-safe known-good and known-bad cases |
+| <code>tests/</code> | Unit, integration, TestMesh, privacy, install, and release checks |
 
-### Current boundaries
+    python -m pytest -q
+    openspec validate build-matters-model-driven-core --strict
+    python scripts/check_public_boundary.py --root .
 
-- Matters is local-first and does not provide a hosted synchronization service.
-- Jira/Rovo are not required and the generic Jira adapter remains disabled.
-- Daily maintenance is not enabled by default; scheduling is an explicit user
-  opt-in over the same bounded maintenance path.
-- A generic release does not claim that any particular user's private first run
-  or semantic coverage is complete.
+Validation evidence describes the exact candidate that was checked. It does
+not prove that every future AI interpretation will be correct. Matters is
+local-first, provides no hosted synchronization service, and does not enable
+daily maintenance unless the user explicitly opts in.
 
-### License and security
+### License
 
-Matters is open source under the [`MIT License`](./LICENSE). The MIT license
-governs the software; it does not authorize publishing another person's private
-data. See [`SECURITY.md`](./SECURITY.md) before reporting a vulnerability, and
-never include private data in an issue.
+Matters is open source under the [MIT License](./LICENSE). The license governs
+the software; it does not authorize publishing another person’s private data.
+Please read [SECURITY.md](./SECURITY.md) before reporting a vulnerability, and
+never include private information in a public issue.
 
 ---
 
 ## 简体中文
 
-Matters 把分散的信息线索整理成明确的事项模型与事件模型。模型中的来源、时间、
-关系、推断、状态和纠正都可以审计、追踪、检查和重新验证。它也是人类与 AI 共同
-理解当前情况的一套本地优先入口：在用户明确授权的文件读取范围、信息读取范围和
-已连接数据来源内进行原位登记与自动整理，建立人物、时间线、子事项、关系、待处理
-问题和结果模型。
+### Matters 是什么
 
-人类通过双语桌面对象浏览器理解这些事项；AI 通过受限的 `matters-mcp` 入口理解
-同一套当前事项、历史、证据、预测和明确缺口。两个入口共同使用同一个服务和规范
-模型；AI 留下的是可追踪的观察或纠正，不会暗中建立第二套事实来源。
+Matters 是一款本地优先的软件。它把用户明确授权的信息来源中的零散线索，整理成
+清楚的**事项模型与事件模型**。它不会让相关记录继续散落在文件、消息、项目和已连接
+服务里，而是重建背后的完整情况：相关人物、时间、阶段、子事项、关系、待解决问题、
+结果以及支持这些判断的来源。
 
-原始来源信息仍然保留在原服务或原位置。Matters 只把登记信息、派生理解、索引和
-UI 投影保存在独立的私有 `MATTERS_HOME` 中。公开仓库与发布安装包不会包含用户
-邮箱、本机文件清单、私人模型或真实数据截图。
+它的结果不是一个看不见过程的黑盒摘要。重要结论仍然连接着原始位置、时间依据、
+不确定性、推断状态、纠正历史和当前新鲜度，因此可以审计、追踪、检查，并在新线索
+出现后重新判断。
 
-### 为什么需要 Matters
+### 信息怎样变成一个事项
 
-普通搜索只能找到文件，任务管理软件通常需要人手动录入。Matters 希望理解文件
-背后的完整事情：
+1. **明确授权**——用户选择允许读取的文件范围、信息范围和已连接来源。
+2. **原位登记**——Matters 登记来源对象，但不会移动、改写或把全部原件复制进软件。
+3. **先做资格判断**——确定性规则会先挡住程序文件、缓存、系统材料以及不应该进入
+   语义分析的内容。
+4. **建立模型**——相关线索会形成大事项、子事项、事件、人物、时间线、关系、计划、
+   结果和待解决问题。
+5. **统一呈现**——同一个模型同时提供给双语对象浏览器和受限的 AI 接口。
+6. **持续维护**——来源变化会让旧理解失效，触发摘要更新、预测与结果比较，并保留
+   纠正历史，而不是静默覆盖过去。
 
-- 把相关证据合并成人类能理解的大事项，而不是每个文件生成一张卡片；
-- 明确区分大事项、关键阶段、具体事件和来源记录；
-- 谨慎补齐过去缺失的环节，并明确标记为可修正的 AI 推断；
-- 未来尚未发生的义务保持“计划中”，不会推断为已经完成；
-- 新线索出现后自动更新摘要，并把最近有进展的事项排到前面；
-- 保留来源位置、纠正记录、预测与现实比较以及 Model Miss。
-- 让人类和 AI 通过各自适合的界面，共同使用同一张可解释的情况地图。
-- 让每个重要结论都能从人类可读的事件反查到证据、不确定性和变化历史。
+    用户明确授权
+          ↓
+    原位登记、硬排除与来源资格判断
+          ↓
+    证据、身份、时间、层级、状态和结果建模
+          ↓
+    可审计的事项关系图
+          ↓
+    桌面对象浏览器 + AI 入口
 
-### 从来源到对象浏览器
+所以，“已经发现”不等于“已经理解”，“已经扫描”也不等于“已经显示在 UI”。Matters
+会把这些阶段分开记录，让覆盖状态明确说明每个对象走到了哪里、还缺什么。
 
-```text
-用户明确授权
-      ↓
-元数据优先登记与硬排除
-      ↓
-不改动原数据的来源目录与新鲜度跟踪
-      ↓
-证据、人物、时间、层级、状态和结果建模
-      ↓
-事项关系图、时间线、文件、图片与 AI 补充信息
-      ↓
-English / 简体中文桌面对象浏览器
-```
+### 一个模型，两个入口
 
-每个发现的对象都会留下明确状态。覆盖账本能够说明它是否已经登记、排除、阻塞、
-过期、等待分析、完成建模、完成双语、拥有图片以及到达 UI。“扫描过”不等于
-“已经理解并在 UI 中显示”。
+| 使用者 | 入口 | 能看到或完成什么 |
+| --- | --- | --- |
+| **人类** | 中英双语 Windows 桌面对象浏览器 | 事项卡片、层级、时间线、人物、关系、文件与信息、图片和补充背景 |
+| **AI 与 Codex** | [Matters 插件](./plugins/matters)与 <code>matters-mcp</code> | 读取模型地图和受限上下文，查看历史，提交观察与纠正，反馈预测结果和 Model Miss |
 
-### v0.3.1 包含什么
+两个入口都使用同一个 <code>MatterService</code> 和同一套规范模型。AI 入口不会建立
+第二个隐藏数据库；AI 的观察与纠正会带着来源和状态进入同一条可追踪维护路径。
 
-- 真正的 Windows 桌面应用外壳：把打包后的本地 Web UI 放进桌面窗口，而不是
-  仅提供一个浏览器快捷方式。
-- 标准与紧凑卡片、根事项自动首页图片、开始时间与状态筛选、按最新线索排序和
-  双语显示。
-- 事项详情的八个顶层区域：概览、子事项/阶段图、时间线、人物、关联事项、
-  文件与信息、图片以及 AI 补充信息。
-- 面向用户授权的文件读取范围、信息读取范围和已连接数据来源的可扩展连接器边界。
-  连接器不修改原数据，支持原位登记、变化检测、新鲜度失效和追加式纠正。
-- 不绑定具体模型的 AI 任务边界：低成本模型可做受限标注，更强模型负责层级与建模。
-- 恰好十一项不可变的应用内 Matters 维护技能。
-- 一个公开 Codex 插件与 `matters-mcp` AI 入口，可读取模型地图、受限当前情况、
-  历史，追加用户观察与纠正，比较预测和现实，报告 Model Miss，并调用同一维护路径。
-- 可执行 FlowGuard 模型、ModelMesh/TestMesh 证据、合成测试、隐私检查、干净安装
-  检查和可复现的 Windows 打包流程。
+AI 推断始终可以被修改。有证据支持时，它可以明确标记并补齐过去缺失的环节；未来
+尚未发生的义务仍然保持“计划中”，不会被写成已经完成。系统可以保留预测，等待以后
+与现实比较，但不会把预测偷偷变成事实。
 
-### 下载桌面版
+### 可以浏览什么
 
-从 [v0.3.1 Release](https://github.com/liuyingxuvka/Matters/releases/tag/v0.3.1)
-下载 `Matters-0.3.1-windows-x64.zip`，解压后运行 `Matters/Matters.exe`。
+- 只显示有意义根事项的卡片目录，并按最近一条重要线索排序，而不是按文件名排序。
+- 带有双语标题、状态、开始时间和代表图片的标准与紧凑卡片。
+- 表达事项阶段与子事项的有界关系图；点击后使用快速预览，不再递归套入完整详情页。
+- 去重后的时间线、人物、关联事项、文件与信息、真实图片库，以及明确标注的 AI
+  补充信息。
+- 覆盖与新鲜度状态，说明登记对象是否被排除、阻塞、等待处理、已经过期、完成建模、
+  完成双语、拥有图片并已经到达 UI。
 
-桌面程序会启动一个只监听本机回环地址的服务，并在 APP 外壳中打开打包 UI。
-它不需要 Jira 或 Atlassian 账户。v0.3.1 暂未包含 Windows 代码签名证书，因此
-Windows 可能会对下载的未签名应用显示正常的安全提示。
+### 开始使用
 
-Release 还包含 Python wheel、源码包和 `SHA256SUMS.txt` 校验值。
+#### Windows 桌面版
 
-### 从源码安装
+从 [GitHub 最新 Release](https://github.com/liuyingxuvka/Matters/releases/latest)
+下载 Windows 压缩包，解压后运行 <code>Matters/Matters.exe</code>。程序会启动一个
+只监听本机回环地址的服务，并在桌面窗口里打开已经打包的 Web UI。
 
-需要 Python 3.11 或更高版本；打包后的桌面可执行文件仅面向 Windows。
+Release 页面同时提供 Python wheel、源码包和 <code>SHA256SUMS.txt</code>。当前
+Windows 安装包没有代码签名，因此 Windows 可能对下载的应用显示正常安全提示。
 
-```powershell
-git clone https://github.com/liuyingxuvka/Matters.git
-cd Matters
-python -m pip install .
-matters version
-matters capabilities
-matters locales
-matters-desktop
-```
+#### 从源码安装
 
-正式使用时，请把私有数据目录设在仓库外：
+需要 Python 3.11 或更高版本；打包桌面可执行文件面向 Windows。
 
-```powershell
-$env:MATTERS_HOME = "D:\Private\MattersData"
-matters-desktop
-```
+    git clone https://github.com/liuyingxuvka/Matters.git
+    cd Matters
+    python -m pip install .
+    matters version
+    matters capabilities
+    matters-desktop
 
-没有 `MATTERS_HOME` 时，软件仍可执行包健康检查与合成验证，但保持不写入状态；
-它不会偷偷在 Git 仓库里创建私人数据目录。
+正式使用时，请把私有运行目录放在仓库之外：
 
-### AI 与 Codex 入口
+    $env:MATTERS_HOME = "D:\MattersData"
+    matters-desktop
 
-标准插件位于 [`plugins/matters`](./plugins/matters)，其中 `.mcp.json` 会启动已安装的
-`matters-mcp`。这个入口与 CLI、HTTP UI 和桌面应用共同使用同一个
-`MatterService`，不会建立第二套数据库或第二个事实来源。
+没有 <code>MATTERS_HOME</code> 时，软件仍可检查安装包和运行合成测试，但会保持
+不写入状态；它不会偷偷在公开仓库里建立私有运行目录。
 
-十一项内部 `matters-*` 技能随 APP 打包，不会默认安装为全局技能。ResearchGuard
-以及其他 Guard 项目保持外部独立。当 ResearchGuard 当前回执不可用时，只阻塞
-依赖研究的结果；Matters 不会退回到 SourceGuard、TraceGuard 或 LogicGuard 的
-并行运行入口。
+#### 连接 Codex 或其他 MCP 客户端
 
-### 隐私与公开仓库边界
+公开插件位于 [<code>plugins/matters</code>](./plugins/matters)，其中的
+<code>.mcp.json</code> 会启动已经安装的 <code>matters-mcp</code>。MCP 入口与桌面
+程序、HTTP UI 和 CLI 使用同一个服务。
 
-```text
-repository/          只放通用源码和合成证据
-MATTERS_HOME/        私有真实数据和派生模型
-MATTERS_EVAL_VAULT/  用户明确选择的私有评估材料
-```
+### 技能与 Guard 生态
 
-真实邮件、主题、地址、路径、摘录、内容哈希、截图、回执、嵌入和私人模型输出都
-不能进入 Git。来源读取默认不修改原数据。修改邮箱、删除或执行文件、向外发送
-消息、向远程模型披露数据以及公开发布，始终是互相独立的权限。
+Matters 使用了若干职责明确、彼此分开的技能和 Guard。它们不是同一种依赖：
 
-发布检查会分别扫描工作目录、Git 视图、干净克隆、wheel、源码包和 Windows ZIP。
-详细规则见 [`docs/security/public-boundary.md`](./docs/security/public-boundary.md)
-和 [`docs/security/data-classification.md`](./docs/security/data-classification.md)。
+| 项目或技能组 | 在 Matters 中的职责 | 安装边界 |
+| --- | --- | --- |
+| [Matters 内置技能](./src/matters/bundled_skills) | 11 项软件自有流程，负责来源治理、清单、新鲜度、语义深度、纠正、Model Miss、技能运行、研究编排、自动维护和视觉生成 | 随 Matters 打包；默认不全局安装 |
+| [ResearchGuard](https://github.com/liuyingxuvka/ResearchGuard) | 唯一外部研究能力入口，负责来源发现、证据追踪与逻辑分析 | 只有依赖研究的补充理解需要它；基础登记和浏览不依赖它 |
+| [FlowGuard](https://github.com/liuyingxuvka/FlowGuard) | 在开发和发布中对行为、UI 流程、TestMesh 与交付流程进行可执行建模和验证 | 开发与发布依赖；仅打开桌面软件并不需要安装它 |
+| [SkillGuard](https://github.com/liuyingxuvka/SkillGuard) | 在作者侧维护和验证独立发布的技能源码 | 维护工具，不是 Matters 的运行时控制器 |
+| [WorldGuard](https://github.com/liuyingxuvka/worldguard) | Guard 生态中可选的世界主张与假设分析能力 | 独立项目，不内嵌到 Matters |
+| [PhysicsGuard](https://github.com/liuyingxuvka/PhysicsGuard) | 可选的物理仿真结果证据审计能力 | 独立项目，不内嵌到 Matters |
 
-### 开发与验证
+以前分开的 SourceGuard、TraceGuard 和 LogicGuard 研究入口不会在 Matters 中成为
+三条并行备用路线。它们的来源发现、时间证据追踪和论证分析能力，统一通过
+ResearchGuard 的公开接口提供。每一个 Guard 仍然保留自己的仓库、发布、验证和
+维护权限。
 
-```powershell
-python -m pytest -q
-openspec validate build-matters-model-driven-core --strict
-python scripts/check_public_boundary.py --root .
-```
+### 隐私与可信边界
 
-Release 专用检查会在同一个冻结源码身份上单独运行。模型与回执只能证明被检查的
-候选版本，不能保证未来任意 AI 输出永远正确。
+原始来源材料仍然留在原服务或操作系统原位置。Matters 只把稳定定位信息、指纹、
+索引、派生理解和 UI 投影保存在独立的私有运行目录：
 
-### 当前边界
+    repository/          公开源码与合成证据
+    MATTERS_HOME/        私有登记、索引与派生模型
+    MATTERS_EVAL_VAULT/  用户明确选择的私有评估材料
 
-- Matters 是本地优先软件，不提供托管式云同步服务。
-- 不需要 Jira/Rovo；通用 Jira 适配器仍处于禁用状态。
-- 默认不启用每日定时维护；定时任务是用户明确选择后，对同一维护路径的调用。
-- 通用软件发布不代表任何特定用户的首次私人运行或全部语义覆盖已经完成。
+允许读取不代表允许修改、删除、执行、发送消息、向远程模型披露或公开发布；这些是
+彼此独立的权限。真实记录、本机文件清单、私人模型输出、个人路径和真实数据截图都
+不能进入这个公开仓库和发布安装包。
 
-### 许可证与安全
+详细规则见 [安全说明](./SECURITY.md)、
+[公开边界](./docs/security/public-boundary.md)和
+[数据分类](./docs/security/data-classification.md)。
 
-Matters 采用 [`MIT License`](./LICENSE) 开源。MIT 许可适用于软件本身，并不授权
-任何人公开他人的私人数据。报告漏洞前请阅读 [`SECURITY.md`](./SECURITY.md)，
-不要在公开 Issue 中放入任何私人数据。
+### 面向开发者
+
+| 路径 | 职责 |
+| --- | --- |
+| <code>src/matters/</code> | 领域、应用、持久化、来源边界、CLI、MCP、HTTP 与桌面运行时 |
+| <code>ui/</code> | 打包后的双语对象浏览器 |
+| <code>plugins/matters/</code> | 公开 Codex 技能与 MCP 配置 |
+| <code>flowguard_models/</code> | 产品、AI 操作、技能运行与交付流程的可执行模型 |
+| <code>openspec/</code> | 需求、设计决定和实现任务 |
+| <code>synthetic_fixtures/</code> | 可公开的已知正确与已知错误测试材料 |
+| <code>tests/</code> | 单元、集成、TestMesh、隐私、安装与发布检查 |
+
+    python -m pytest -q
+    openspec validate build-matters-model-driven-core --strict
+    python scripts/check_public_boundary.py --root .
+
+验证证据只能说明被检查的那个确定版本，不能保证未来每一次 AI 理解都永远正确。
+Matters 是本地优先软件，不提供托管式云同步；每日维护也不会默认开启，必须由用户
+明确选择。
+
+### 许可证
+
+Matters 采用 [MIT License](./LICENSE) 开源。许可证约束软件本身，但不授权公开
+他人的私人数据。报告漏洞前请阅读 [SECURITY.md](./SECURITY.md)，不要在公开 Issue
+中放入任何私人信息。
