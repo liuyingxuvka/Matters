@@ -28,10 +28,47 @@ def test_release_version_plugin_security_and_sbom_are_consistent():
 
     assert VERSION == "0.3.1"
     assert plugin["version"] == VERSION
+    assert plugin["ai_setup_guide"].endswith("references/installation.md")
+    assert plugin["maintenance_triggers"] == {
+        "default": [
+            "installed_ui_launch",
+            "first_run",
+            "explicit_cli_mcp_or_codex_request",
+            "registered_source_or_project_change",
+        ],
+        "daily_schedule": "ai_host_managed_during_install",
+        "daily_default_local_time": "21:00",
+        "daily_schedule_count": 1,
+    }
+    assert Path(plugin["ai_setup_guide"]).is_file()
     assert component["version"] == VERSION
     assert component["purl"] == f"pkg:pypi/matters@{VERSION}"
     assert component["bom-ref"] == component["purl"]
     assert f"{VERSION.rsplit('.', 1)[0]}.x release line" in security
+
+
+def test_public_ai_setup_contract_is_packaged_and_user_does_not_own_schedule():
+    project = tomllib.loads(Path("pyproject.toml").read_text(encoding="utf-8"))
+    references = project["tool"]["setuptools"]["data-files"][
+        "share/matters/plugins/matters/skills/matters/references"
+    ]
+    guide_path = Path(
+        "plugins/matters/skills/matters/references/installation.md"
+    )
+    guide = guide_path.read_text(encoding="utf-8")
+    public_skill = Path("plugins/matters/skills/matters/SKILL.md").read_text(
+        encoding="utf-8"
+    )
+    readme = Path("README.md").read_text(encoding="utf-8")
+
+    assert guide_path.as_posix() in references
+    assert "exactly one host-owned daily Matters maintenance schedule" in guide
+    assert "The installing AI—not the human user—creates" in guide
+    assert "automation_capability_unavailable" in guide
+    assert "It is not hard-coded into Matters" in guide
+    assert "installation.md" in public_skill
+    assert "The user does not create" in readme
+    assert "this task manually" in readme
 
 
 def test_sbom_dependency_inventory_matches_pyproject_runtime_requirements():

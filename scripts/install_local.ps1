@@ -395,6 +395,22 @@ with zipfile.ZipFile(wheel_path) as archive:
         raise SystemExit(
             "The wheel is missing required UI files: " + ", ".join(missing_ui)
         )
+    required_public_gateway_suffixes = {
+        "/share/matters/plugins/matters/.mcp.json",
+        "/share/matters/plugins/matters/.codex-plugin/plugin.json",
+        "/share/matters/plugins/matters/skills/matters/SKILL.md",
+        "/share/matters/plugins/matters/skills/matters/references/installation.md",
+        "/share/matters/plugins/matters/skills/matters/references/service-contract.md",
+    }
+    missing_public_gateway = sorted(
+        suffix for suffix in required_public_gateway_suffixes
+        if not any(path.endswith(suffix) for path in names)
+    )
+    if missing_public_gateway:
+        raise SystemExit(
+            "The wheel is missing required public gateway files: "
+            + ", ".join(missing_public_gateway)
+        )
 
     skill_prefix = "matters/bundled_skills/"
     discovered_skill_ids = {
@@ -615,6 +631,30 @@ for suffix, path in ui_paths.items():
     resolved = pathlib.Path(distribution.locate_file(normalized[path])).resolve()
     if not resolved.is_file():
         raise SystemExit(f"An installed required UI file is unavailable: {suffix}")
+required_public_gateway_suffixes = {
+    "/share/matters/plugins/matters/.mcp.json",
+    "/share/matters/plugins/matters/.codex-plugin/plugin.json",
+    "/share/matters/plugins/matters/skills/matters/SKILL.md",
+    "/share/matters/plugins/matters/skills/matters/references/installation.md",
+    "/share/matters/plugins/matters/skills/matters/references/service-contract.md",
+}
+public_gateway_paths = {
+    suffix: next(
+        (path for path in normalized if path.endswith(suffix)),
+        None,
+    )
+    for suffix in required_public_gateway_suffixes
+}
+if any(path is None for path in public_gateway_paths.values()):
+    raise SystemExit(
+        "The installed distribution is missing required public gateway files."
+    )
+for suffix, path in public_gateway_paths.items():
+    resolved = pathlib.Path(distribution.locate_file(normalized[path])).resolve()
+    if not resolved.is_file():
+        raise SystemExit(
+            f"An installed required public gateway file is unavailable: {suffix}"
+        )
 console_scripts = {
     entry.name: entry.value
     for entry in distribution.entry_points

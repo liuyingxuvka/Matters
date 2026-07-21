@@ -260,7 +260,7 @@ class CapabilityReport:
     ai_gateway: str = "available"
     public_gateway_is_internal_skill: bool = False
     guard_family_skills_bundled: bool = False
-    recurring_daily_maintenance: str = "explicit_user_opt_in_only"
+    recurring_daily_maintenance: str = "ai_host_managed_during_install"
 
 
 class MatterService:

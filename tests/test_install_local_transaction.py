@@ -105,11 +105,17 @@ def main():
     }
     dist_info = f"matters-{version}.dist-info"
     data_root = f"matters-{version}.data/data/share/matters/ui"
+    plugin_root = f"matters-{version}.data/data/share/matters/plugins/matters"
     package.update(
         {
             f"{data_root}/index.html": b"<html></html>\n",
             f"{data_root}/styles.css": b"body {}\n",
             f"{data_root}/app.js": b"// isolated ui\n",
+            f"{plugin_root}/.mcp.json": b'{"mcpServers": {}}\n',
+            f"{plugin_root}/.codex-plugin/plugin.json": b'{"name": "matters"}\n',
+            f"{plugin_root}/skills/matters/SKILL.md": b"---\nname: matters\n---\n",
+            f"{plugin_root}/skills/matters/references/installation.md": b"# AI setup\n",
+            f"{plugin_root}/skills/matters/references/service-contract.md": b"# Service\n",
         }
     )
     for skill_id in REQUIRED_SKILL_IDS:
@@ -328,7 +334,7 @@ def _patched_installer(
         encoding="utf-8",
     )
     (version_root / "_version.py").write_text(
-        'VERSION = "0.3.0"\n',
+        'VERSION = "0.3.1"\n',
         encoding="utf-8",
     )
     return scripts / "install_local.ps1"
@@ -341,7 +347,7 @@ def test_installer_transaction_blocks_or_restores_every_post_activation_stage(
     wheel_root = root / "wheels"
     wheel_root.mkdir()
     prior_wheel = _write_wheel(wheel_root, "0.2.0")
-    candidate_wheel = _write_wheel(wheel_root, "0.3.0")
+    candidate_wheel = _write_wheel(wheel_root, "0.3.1")
     environment_root = root / "venv"
     venv.EnvBuilder(with_pip=True).create(environment_root)
     python = environment_root / "Scripts" / "python.exe"
@@ -369,7 +375,7 @@ def test_installer_transaction_blocks_or_restores_every_post_activation_stage(
     invalid_wheel_root.mkdir()
     invalid_wheel = _write_wheel(
         invalid_wheel_root,
-        "0.3.0",
+        "0.3.1",
         drop=("matters/api/mcp/stdio.py",),
     )
     invalid_root = root / "invalid-wheel"
@@ -583,9 +589,9 @@ def test_installer_transaction_blocks_or_restores_every_post_activation_stage(
     assert success_result.returncode == 0, (
         success_result.stdout + success_result.stderr
     )
-    assert _installed_version(python, success[0]) == "0.3.0"
+    assert _installed_version(python, success[0]) == "0.3.1"
     installed_receipt = json.loads(success[1].read_text(encoding="utf-8"))
-    assert installed_receipt["matters_version"] == "0.3.0"
+    assert installed_receipt["matters_version"] == "0.3.1"
     assert Path(installed_receipt["mcp_launcher"]).is_file()
     assert installed_receipt["wheel_contents_fingerprint"].startswith("sha256:")
     assert installed_receipt["skill_pack_identity"].startswith("sha256:")

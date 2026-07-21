@@ -134,14 +134,24 @@ the package fingerprint or expose the concrete model mapping.
 - **THEN** maintenance SHALL select that result through a bounded indexed redispatch route and SHALL NOT rerun AI or perform a broad pending-package scan
 
 ### Requirement: Codex daily maintenance reuses the bounded product path
-A Codex-hosted scheduled task MAY invoke the same CLI/MCP service path used by
-interactive work after one successful manual rehearsal. It SHALL resume only
+A compatible AI host SHALL create or repair exactly one daily scheduled task
+during Matters setup. The task SHALL invoke the same CLI/MCP service path used
+by interactive work after the installing AI verifies package, MCP, private
+runtime, Skill Pack, authorization, and schedule identity. It SHALL resume only
 authorized changed-item discovery, annotation, escalation, hierarchy repair,
 material-clue/summary refresh, localization, generated-hero work, supplemental
 information, and projection. It SHALL start with a
 `maintenance_orchestrator`, MAY delegate typed low-cost packages to cheaper
 current mappings, SHALL record private run and execution-profile receipts, and
 SHALL NOT become a second canonical workflow.
+
+#### Scenario: Installing AI chooses the schedule time
+- **WHEN** the installing AI has user-context evidence for a low-activity local time
+- **THEN** it SHALL use that time; otherwise it SHALL use 21:00 local, preserve the host timezone, and maintain exactly one schedule identity
+
+#### Scenario: Setup authorization and read authorization differ
+- **WHEN** the user asks the AI to install Matters but grants no new source-read scope
+- **THEN** the AI SHALL configure the software and schedule without widening discovery, and the scheduled path SHALL remain blocked or no-delta for unauthorized sources
 
 #### Scenario: Daily maintenance has current changed items
 - **WHEN** the scheduled Codex task runs with current authorization and pending or stale ledger stages

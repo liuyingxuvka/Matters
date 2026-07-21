@@ -19,6 +19,8 @@ $IconPath = Join-Path $RepositoryRoot "src\matters\assets\matters.ico"
 $SourcePath = Join-Path $RepositoryRoot "src"
 $BundledSkillsPath = Join-Path $SourcePath "matters\bundled_skills"
 $UiPath = Join-Path $RepositoryRoot "ui"
+$ReadmePath = Join-Path $RepositoryRoot "README.md"
+$AiSetupPath = Join-Path $RepositoryRoot "plugins\matters\skills\matters\references\installation.md"
 $EntryPath = Join-Path $RepositoryRoot "scripts\matters_desktop_entry.py"
 $VersionPath = Join-Path $SourcePath "matters\_version.py"
 $VersionSource = Get-Content -LiteralPath $VersionPath -Raw -Encoding UTF8
@@ -81,6 +83,8 @@ try {
         throw "Matters desktop executable was not produced."
     }
     $PackageRoot = Join-Path $OutputPath "Matters"
+    Copy-Item -LiteralPath $ReadmePath -Destination (Join-Path $OutputPath "README.md") -Force
+    Copy-Item -LiteralPath $AiSetupPath -Destination (Join-Path $OutputPath "AI-SETUP.md") -Force
     $DirectUrlReceipts = @(
         Get-ChildItem -LiteralPath $PackageRoot -Recurse -File `
             -Filter "direct_url.json" -ErrorAction Stop

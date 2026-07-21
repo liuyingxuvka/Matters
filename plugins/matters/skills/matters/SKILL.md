@@ -1,6 +1,6 @@
 ---
 name: matters
-description: Use the local Matters information map whenever an AI needs to understand a person's current situations, relevant history, people, events, open loops, outcomes, future predictions, coverage gaps, or latest progress; also use it to record a new user observation, submit an explicit correction, compare a prediction with reality, report a model miss, or invoke bounded Matters maintenance. This is the single public AI gateway, not one of Matters' eleven internal maintenance skills and not a bundled Guard implementation.
+description: Install, configure, and use the local Matters information map whenever an AI needs to understand a person's current situations, relevant history, people, events, open loops, outcomes, future predictions, coverage gaps, or latest progress; also use it to record a new user observation, submit an explicit correction, compare a prediction with reality, report a model miss, or invoke bounded Matters maintenance. This is the single public AI gateway, not one of Matters' eleven internal maintenance skills and not a bundled Guard implementation.
 ---
 
 # Matters
@@ -8,6 +8,18 @@ description: Use the local Matters information map whenever an AI needs to under
 Use the Matters MCP tools as the authoritative AI access path. Do not inspect
 the private SQLite store, scrape the UI, infer a write route from a table, or
 treat conversation memory as if Matters had recorded it.
+
+## Install and configure Matters
+
+When the user asks an AI to install, set up, or start using Matters, read and
+follow [installation.md](references/installation.md) completely. The installing
+AI owns package installation, MCP/plugin connection, dependency checks, private
+runtime setup, exactly one daily maintenance schedule, the initial bounded
+maintenance cycle, and UI launch. Do not hand those setup steps back to the
+user. Source-read authorization is a separate boundary and must never be
+inferred from software-install permission. During installation, obtain the
+allowed folders, mailboxes, and other information-source scopes from the user;
+the software contains no default personal investigation scope.
 
 ## Understand a situation
 
@@ -72,8 +84,13 @@ Invoke `run_maintenance` for one bounded ordinary cycle or
 `run_planned_maintenance` only when the caller supplied its exact run,
 authorization, inventory, coverage, changed-object, and resource identities.
 Opening the installed UI, first run, explicit invocation, or a registered
-source/project change may use the same path. Do not create or assume a daily
-schedule; recurrence is explicit user opt-in.
+source/project change may use the same path. During setup, create or repair
+exactly one AI-hosted daily schedule. Prefer a low-activity local time supported
+by available user context; otherwise use 21:00 local. If the host has no
+automation capability, report setup as blocked with the exact reason instead
+of silently omitting the schedule or asking the user to create it manually.
+The scheduled run never owns final FlowGuard, full-test, install-currentness,
+Git, tag, or release verification.
 
 ## Distribution boundary
 
@@ -87,5 +104,6 @@ SkillGuard, and other Guard-family projects stay independent. Matters does not
 vendor or maintain them. ResearchGuard is the sole external real research
 provider.
 
-Read [service-contract.md](references/service-contract.md) when exact tool
+Read [installation.md](references/installation.md) for AI-owned setup and
+[service-contract.md](references/service-contract.md) when exact tool
 selection, feedback semantics, or claim boundaries are needed.

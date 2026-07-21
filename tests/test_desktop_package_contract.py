@@ -192,6 +192,8 @@ def test_desktop_build_keeps_manifest_and_self_test_outside_package_tree():
     assert '-Filter "direct_url.json"' in script
     assert "build_desktop_release_archive.py" in script
     assert '"Matters-{0}-windows-x64.zip" -f $MattersVersion' in script
+    assert 'Copy-Item -LiteralPath $ReadmePath' in script
+    assert 'Copy-Item -LiteralPath $AiSetupPath' in script
 
 
 def test_desktop_release_archive_excludes_private_build_evidence(
@@ -204,6 +206,8 @@ def test_desktop_release_archive_excludes_private_build_evidence(
     (package / "Matters.exe").write_bytes(b"synthetic-executable")
     (root / "desktop-manifest.json").write_text("{}", encoding="utf-8")
     (root / "desktop-build-toolchain.json").write_text("{}", encoding="utf-8")
+    (root / "README.md").write_text("# Matters\n", encoding="utf-8")
+    (root / "AI-SETUP.md").write_text("# AI setup\n", encoding="utf-8")
     private_icon = (
         "C:" + "\\\\" + "Users" + "\\\\private\\\\icon.ico"
     )
@@ -231,7 +235,9 @@ def test_desktop_release_archive_excludes_private_build_evidence(
             if not row.is_dir()
         }
     assert names == {
+        "AI-SETUP.md",
         "Matters/Matters.exe",
+        "README.md",
         "desktop-build-toolchain.json",
         "desktop-manifest.json",
     }
@@ -255,6 +261,8 @@ def test_desktop_release_archive_rejects_direct_url_receipt(
         encoding="utf-8",
     )
     for name in (
+        "AI-SETUP.md",
+        "README.md",
         "desktop-manifest.json",
         "desktop-build-toolchain.json",
         "desktop-self-test.json",
@@ -286,6 +294,8 @@ def test_desktop_release_archive_rejects_stale_toolchain_receipt(
     package.mkdir(parents=True)
     (package / "Matters.exe").write_bytes(b"synthetic-executable")
     for name in (
+        "AI-SETUP.md",
+        "README.md",
         "desktop-manifest.json",
         "desktop-build-toolchain.json",
         "desktop-self-test.json",

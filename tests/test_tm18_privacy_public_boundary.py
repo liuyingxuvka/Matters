@@ -629,6 +629,11 @@ def test_release_manifest_prunes_receipts_and_wheel_carries_standard_plugin():
     assert projected["plugins/matters/.codex-plugin/plugin.json"] == (
         "share/matters/plugins/matters/.codex-plugin/plugin.json"
     )
+    assert projected[
+        "plugins/matters/skills/matters/references/installation.md"
+    ] == (
+        "share/matters/plugins/matters/skills/matters/references/installation.md"
+    )
     assert {".agents/**", ".codex/**", ".flowguard/**"} <= set(
         inventory["sdist_excluded_patterns"]
     )

@@ -413,9 +413,14 @@ pack for the running Matters release. A separate external Guard dependency is
 resolved and checked only through its own portable identity/currentness
 contract; it never overlays or replaces a Matters-owned internal skill.
 
-Routine maintenance has one service path, but no recurring daily schedule is
-enabled by default. Opening the installed UI, an explicit Codex/CLI/MCP
-request, a first run, or a detected registered-source/project change MAY invoke
-the shared bounded maintenance path. A daily schedule is a separate explicit
-user opt-in adapter over that same path and never a second workflow or truth
-owner.
+Routine maintenance has one service path. When a user asks a compatible AI
+host to install and use Matters, that installing AI SHALL connect the public
+gateway, verify the package and internal Skill Pack, create or repair exactly
+one daily schedule, run the initial bounded maintenance cycle, and open the
+desktop view. The schedule is a host-owned adapter over the shared A2 path and
+never a second workflow or truth owner. Installation permission does not widen
+source-read authorization. If the host cannot manage schedules, setup remains
+visibly blocked rather than silently omitting recurrence or delegating the
+task back to the human user. During setup, the user supplies the allowed
+folders, mailboxes, and other information-source scopes to the installing AI;
+no personal investigation scope is hard-coded into the software or release.

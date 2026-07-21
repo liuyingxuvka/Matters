@@ -15,6 +15,7 @@
     "report_model_miss"
   ],
   "public_codex_gateway": "plugins/matters",
+  "ai_setup_guide": "plugins/matters/skills/matters/references/installation.md",
   "bundled_internal_skill_count": 11,
   "public_gateway_is_internal_skill": false,
   "guard_family_skills_bundled": false,
@@ -33,7 +34,9 @@
       "explicit_cli_mcp_or_codex_request",
       "registered_source_or_project_change"
     ],
-    "daily_schedule": "explicit_user_opt_in_only"
+    "daily_schedule": "ai_host_managed_during_install",
+    "daily_default_local_time": "21:00",
+    "daily_schedule_count": 1
   },
   "provider_writes": false,
   "canonical_ui_writes": false

@@ -138,6 +138,23 @@ acceptance domain and SHALL NOT be copied into clean-clone evidence.
 - **WHEN** no Atlassian account, token, host, plugin, Rovo installation, Gmail connection, cloud hydration, or private root exists
 - **THEN** package health, synthetic tests, and capability reporting SHALL remain installable and runnable without pretending the private first run occurred
 
+### Requirement: Release artifacts teach the installing AI the complete setup
+The source distribution, wheel public plugin, and Windows desktop archive SHALL
+ship one current AI-readable installation contract that explains package and
+MCP verification, external private-root setup, internal-versus-external skill
+boundaries, separate source authorization, exactly one AI-managed daily
+schedule, initial bounded maintenance, honest empty desktop behavior, and
+visible setup blockers. The public README SHALL summarize and link that same
+contract.
+
+#### Scenario: AI installs from the Python wheel
+- **WHEN** a compatible AI installs the frozen wheel and public Matters plugin
+- **THEN** it SHALL discover the installation contract beside the public skill and SHALL be able to execute setup without inventing a second workflow or asking the user to create the schedule manually
+
+#### Scenario: AI installs from the Windows desktop archive
+- **WHEN** a compatible AI unpacks the frozen Windows release
+- **THEN** the archive root SHALL contain `README.md` and `AI-SETUP.md`, and neither document SHALL contain private paths, source content, local receipts, or machine-specific provenance
+
 ### Requirement: A generic GitHub release may precede the private first run
 Matters MAY publish a generic GitHub release before the user's private Gmail,
 local-file, and Codex first run is complete only when every generic product

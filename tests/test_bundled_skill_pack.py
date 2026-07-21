@@ -99,3 +99,4 @@ def test_service_uses_bundle_without_global_install_and_reports_research_pending
     assert report.bundled_skill_count == 11
     assert report.active_skill_view == "partial"
     assert report.researchguard == "researchguard_pending_integration"
+    assert report.recurring_daily_maintenance == "ai_host_managed_during_install"

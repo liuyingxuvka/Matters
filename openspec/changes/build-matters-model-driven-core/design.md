@@ -683,8 +683,9 @@ would hide tool identity, authorization, and freshness.
 Matters does not own or request an OpenAI API key. If no compatible Codex
 execution profile is available, work remains `analysis_unavailable` or
 `pending_capability`; it does not switch to a direct API path. A Codex-hosted
-daily maintenance schedule may call the same CLI/MCP facade after a manual
-rehearsal. The scheduled task starts with the strongest compatible reasoning
+daily maintenance schedule calls the same CLI/MCP facade after the installing
+AI has verified the release, gateway, private root, and schedule identity. The
+scheduled task starts with the strongest compatible reasoning
 profile as the run orchestrator. That orchestrator inventories the current
 ledger, plans bounded work, judges merges/hierarchy/summary changes, and may
 delegate deterministic preprocessing or low-cost annotation packages to
@@ -1406,7 +1407,7 @@ terminate current before the complete-release claim.
    physical compaction as a later separately evidenced offline step.
 7. Repair the public/private boundary before broad private reads; then
    implement catalog, durable storage, discovery/extraction, agent operation,
-   replaceable private Codex execution profiles, a manually rehearsed
+   replaceable private Codex execution profiles, an installer-AI-owned
    Codex-hosted daily schedule, app-local Skill Pack/resolver, recomputation,
    root-only photorealistic generated-hero path, Situation Graph/World Model,
    flat SourceGroup-bearing quick views, and the shared eight-section
@@ -1557,12 +1558,15 @@ is the sole external research provider; its absence blocks only the
 research-dependent portion and the corresponding completeness claim, with no
 SourceGuard/TraceGuard/LogicGuard fallback.
 
-The default maintenance triggers are installed-UI launch, first run, an
-explicit AI/CLI/MCP request, or a detected registered-source/project change.
-A daily Codex schedule is optional and disabled until the user explicitly
-enables it. Every trigger invokes the existing A2 plan/delegate/join operation
+The maintenance triggers are installed-UI launch, first run, an explicit
+AI/CLI/MCP request, a detected registered-source/project change, and exactly
+one AI-hosted daily schedule created or repaired by the installing AI. The AI
+selects a low-activity local time from available context and otherwise uses
+21:00 local. Every trigger invokes the existing A2 plan/delegate/join operation
 and the same one-click registration-to-UI audit; A3 can submit durable clues
-but cannot run or complete A2 on its own.
+but cannot run or complete A2 on its own. Installation permission and source
+authorization remain separate. A host without automation capability reports a
+visible setup blocker and cannot claim installation complete.
 
 ## Open Questions
 

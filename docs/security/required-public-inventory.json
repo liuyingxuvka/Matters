@@ -97,6 +97,10 @@
       "wheel_data_path": "share/matters/plugins/matters/skills/matters/agents/openai.yaml"
     },
     {
+      "source_path": "plugins/matters/skills/matters/references/installation.md",
+      "wheel_data_path": "share/matters/plugins/matters/skills/matters/references/installation.md"
+    },
+    {
       "source_path": "plugins/matters/skills/matters/references/service-contract.md",
       "wheel_data_path": "share/matters/plugins/matters/skills/matters/references/service-contract.md"
     }

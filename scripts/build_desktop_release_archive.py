@@ -14,6 +14,8 @@ else:  # Direct execution keeps the repository script usable on Windows.
 
 
 RELEASE_CONTROL_FILES = (
+    "AI-SETUP.md",
+    "README.md",
     "desktop-build-toolchain.json",
     "desktop-manifest.json",
 )

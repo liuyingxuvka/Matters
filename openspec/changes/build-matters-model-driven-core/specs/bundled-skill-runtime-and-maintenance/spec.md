@@ -282,16 +282,38 @@ Guard-family distribution.
 - **WHEN** the public gateway discovers a service contract it does not support
 - **THEN** it SHALL stop with an explicit compatibility gap and SHALL NOT copy, rewrite, or overlay the internal pack
 
-### Requirement: Routine maintenance is event-driven by default
+### Requirement: The installing AI owns complete Matters setup
 The shared A2 maintenance path SHALL be invokable from installed-UI launch,
 first run, explicit Codex/CLI/MCP request, or a detected registered-source or
-project change. A recurring daily schedule SHALL be disabled by default and
-MAY exist only as an explicit user opt-in adapter over the same path.
+project change. When a user asks a compatible AI host to install and use
+Matters, the installing AI SHALL install and verify the package, connect the
+public MCP/skill gateway, verify the immutable internal Skill Pack and declared
+external dependencies, configure an external private runtime, create or repair
+exactly one daily schedule over the same A2 path, run one initial bounded
+maintenance cycle, and open the desktop UI. The human user SHALL NOT be
+required to perform those setup steps manually. Software-install permission
+SHALL NOT expand source-read authorization.
+
+#### Scenario: User supplies the source scope during installation
+- **WHEN** the installing AI reaches source configuration
+- **THEN** it SHALL obtain the allowed folders, mailboxes, and other information-source scopes from the user or reuse an existing explicit grant, store that grant only in the private runtime, and SHALL NOT use a hard-coded, release-bundled, or inferred personal scope
 
 #### Scenario: Installed UI opens
 - **WHEN** the user launches the installed Matters UI
 - **THEN** the application MAY start or resume the same bounded A2 plan/delegate/join path and SHALL surface its real progress or terminal gap through the existing status indicator
 
-#### Scenario: No recurring schedule was enabled
-- **WHEN** Matters is installed or upgraded without an explicit recurring-maintenance preference
-- **THEN** it SHALL create no daily task and SHALL rely on UI launch, explicit invocation, first-run, and registered-change triggers
+#### Scenario: Installing AI configures recurrence
+- **WHEN** the user asks a compatible AI host to install and use Matters
+- **THEN** the installing AI SHALL create or repair exactly one host-owned daily task over the shared A2 path, choose a supported low-activity local time or 21:00 local when no better context exists, run the first bounded maintenance cycle, and report package, MCP, skill, schedule, maintenance, and UI status
+
+#### Scenario: AI host cannot manage schedules
+- **WHEN** the installing AI host has no current automation capability
+- **THEN** setup SHALL remain visibly blocked with `automation_capability_unavailable`, SHALL NOT silently omit recurrence, and SHALL NOT delegate schedule creation back to the user
+
+#### Scenario: Desktop is opened before AI setup
+- **WHEN** the desktop executable is launched against a private runtime with no modeled Matters
+- **THEN** it SHALL show an honest empty or waiting-for-AI state and SHALL NOT claim that authorized information has been read, registered, or modeled
+
+#### Scenario: Installation permission exists without source authorization
+- **WHEN** the user authorizes software installation but has not authorized a source scope
+- **THEN** the AI MAY complete package, MCP, skill, and schedule setup but SHALL keep source discovery and modeling blocked until a separate source-read scope exists

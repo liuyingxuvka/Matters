@@ -53,7 +53,10 @@ matters = [
 "share/matters/plugins/matters/.codex-plugin" = ["plugins/matters/.codex-plugin/plugin.json"]
 "share/matters/plugins/matters/skills/matters" = ["plugins/matters/skills/matters/SKILL.md"]
 "share/matters/plugins/matters/skills/matters/agents" = ["plugins/matters/skills/matters/agents/openai.yaml"]
-"share/matters/plugins/matters/skills/matters/references" = ["plugins/matters/skills/matters/references/service-contract.md"]
+"share/matters/plugins/matters/skills/matters/references" = [
+  "plugins/matters/skills/matters/references/installation.md",
+  "plugins/matters/skills/matters/references/service-contract.md",
+]
 
 [tool.pytest.ini_options]
 addopts = "-ra -m 'not release'"

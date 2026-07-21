@@ -1,7 +1,7 @@
 {
   "name": "matters",
   "version": "0.3.1",
-  "description": "Give Codex one bounded information map for current Matters, history, predictions, corrections, and durable AI feedback.",
+  "description": "Let Codex install, maintain, and use one bounded information map for current Matters, history, predictions, corrections, and durable AI feedback.",
   "author": {
     "name": "Matters contributors"
   },
@@ -18,7 +18,7 @@
   "interface": {
     "displayName": "Matters",
     "shortDescription": "Understand current situations and leave durable clues",
-    "longDescription": "Use one bounded AI information map to understand a person's current Matters, history, gaps, World Model predictions, corrections, and pending observations without exposing raw private storage or creating a second truth owner.",
+    "longDescription": "Turn scattered clues from user-authorized sources into a bounded map of human-scale Matters such as trips, job searches, projects, and other continuing situations, with current stage, history, gaps, predictions, and corrections but no raw private-storage exposure or second truth owner.",
     "developerName": "Matters contributors",
     "category": "Productivity",
     "capabilities": [
@@ -27,6 +27,7 @@
       "Write"
     ],
     "defaultPrompt": [
+      "Install and configure Matters, connect its MCP gateway, create or repair the daily maintenance schedule, run the initial bounded maintenance cycle, and open the desktop browser.",
       "Use Matters to explain what is happening now.",
       "Check a Matter prediction against what happened.",
       "Record this new user observation for later maintenance."
