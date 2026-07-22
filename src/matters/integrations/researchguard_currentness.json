@@ -1,19 +1,19 @@
 {
   "schema_version": "matters.researchguard-currentness-receipt.v1",
-  "receipt_id": "sha256:cdd3ea6de050efc6bde1cc7c0b075ace00ea881f8210a3e0eb5f028a26813311",
-  "checked_at": "2026-07-19T21:55:44.6446059Z",
+  "receipt_id": "sha256:c6f3f1ff0b3553c8e7174ed035f00654c1ee80661769c6a7a265a78abc36d068",
+  "checked_at": "2026-07-21T23:59:45.269547Z",
   "terminal_disposition": "current",
   "source": {
-    "commit": "1e731fd85c229a11f8e14e639705ad30ac080768",
+    "commit": "27791e4ba1d6564c5877fbfb3213016e04622ed3",
     "clean": true,
-    "fingerprint": "b442a63a12a923c21d973071dc04a3a10014cd175dd44b22f12c06010fe7df1b"
+    "fingerprint": "a36386b846121c7843fc01b27d83365102e7f080a57d9231c139283122881d5d"
   },
   "distribution": {
     "name": "researchguard",
-    "version": "0.1.2",
+    "version": "0.1.3",
     "command": "researchguard",
     "console_entrypoint": "researchguard.cli:main",
-    "package_fingerprint": "4997f747913277dc68e0214e78f6b827e3d14f8ad179d642cfc1e6bc983dd46c"
+    "package_fingerprint": "5e910341da2a2107db6b4c9df83963bc209828d41dd2bf236548889748f0615c"
   },
   "skills": {
     "top_level": "researchguard",
@@ -37,8 +37,8 @@
   },
   "manifest": {
     "schema_version": "researchguard.install-manifest.v1",
-    "fingerprint": "sha256:c429190998cba52bfd059811aaf63ec2333742a1a91fe7f639d4f083d70d0a76",
-    "source_fingerprint": "b442a63a12a923c21d973071dc04a3a10014cd175dd44b22f12c06010fe7df1b"
+    "fingerprint": "sha256:cda7bbd3b790ec3c4ac37b025399b22e6a90230a02649fddad3f3ef6b0607d43",
+    "source_fingerprint": "a36386b846121c7843fc01b27d83365102e7f080a57d9231c139283122881d5d"
   },
   "residual_state": {
     "retired_skill_ids": [
@@ -54,8 +54,8 @@
   },
   "compatibility": {
     "matters_specifier": ">=0.3,<0.4",
-    "researchguard_specifier": "==0.1.2",
-    "researchguard_version": "0.1.2",
+    "researchguard_specifier": "==0.1.3",
+    "researchguard_version": "0.1.3",
     "status": "compatible"
   },
   "native_validation": {
@@ -63,14 +63,14 @@
     "command": "python scripts/check_researchguard_suite.py --member all --json",
     "status": "pass",
     "check_count": 15,
-    "checks_fingerprint": "sha256:dd0e70cb07e1c878b4751d95f464f7acf3ef8708fbd55e409849f3ddaa166e0d",
+    "checks_fingerprint": "sha256:094487d0663b550873250fb57b52a08ec53227540912bd16b315e08b1ec580e3",
     "claim_boundary": "This check covers the current ResearchGuard consumer-skill topology, sole console, exact member bindings, and selected native boundary only."
   },
   "installed_currentness": {
     "schema_version": "researchguard.install-check.v1",
     "command": "python scripts/install_researchguard.py --check --json",
     "status": "pass",
-    "fingerprint": "sha256:0dda2a6c93393b3bd4e6819f12246098daf6888ab1b814c184950afe0d195107",
+    "fingerprint": "sha256:2c741f1ea398c51702c26f1e8d4b7defcb95f5f789c8126c4cdd66eee1752adb",
     "findings": []
   },
   "claim_boundary": "This portable receipt proves exact ResearchGuard source, distribution, consumer-skill, manifest, native-suite, residual, compatibility, and installed-currentness identities at checked_at. Runtime must recheck installed bytes against it. It does not prove research quality or authorize private-source disclosure."
